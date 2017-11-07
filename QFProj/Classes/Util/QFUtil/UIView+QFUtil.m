@@ -7,12 +7,25 @@
 //
 
 #import "UIView+QFUtil.h"
-#import <objc/runtime.h>
-#import "UIScreen+QFUtil.h"
+
+#define TIPS_IMAGE_VIEW_TAG 10000
+#define TIPS_LABEL_TAG 10001
 
 static const void *userInfoAddress = &userInfoAddress;
 
 @implementation UIView (QFUtil)
+
+#pragma mark - Init
+
++ (instancetype)viewWithNibName:(NSString *)name {
+    return [[[NSBundle mainBundle] loadNibNamed:name owner:nil options:nil] firstObject];
+}
+
++ (instancetype)viewFromNib {
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] firstObject];
+}
+
+#pragma mark - Frame
 
 - (CGFloat)x {
     return self.frame.origin.x;
@@ -50,46 +63,6 @@ static const void *userInfoAddress = &userInfoAddress;
     self.frame = frame;
 }
 
-
-
-
-
-
-- (CGFloat)sx {
-    return self.frame.origin.x*KWRatio;
-}
-- (void)setSx:(CGFloat)x {
-    CGRect frame = self.frame;
-    frame.origin.x = x*KWRatio;
-    self.frame = frame;
-}
-
-- (CGFloat)sy {
-    return self.frame.origin.y*KWRatio;
-}
-- (void)setSy:(CGFloat)y {
-    CGRect frame = self.frame;
-    frame.origin.y = y*KWRatio;
-    self.frame = frame;
-}
-
-- (CGFloat)swidth {
-    return self.frame.size.width*KWRatio;
-}
-- (void)setSwidth:(CGFloat)width {
-    CGRect frame = self.frame;
-    frame.size.width = width*KWRatio;
-    self.frame = frame;
-}
-
-- (CGFloat)sheight {
-    return self.frame.size.height*KWRatio;
-}
-- (void)setSheight:(CGFloat)height {
-    CGRect frame = self.frame;
-    frame.size.height = height*KWRatio;
-    self.frame = frame;
-}
 
 
 
@@ -148,10 +121,160 @@ static const void *userInfoAddress = &userInfoAddress;
     return CGRectGetMaxY(self.frame);
 }
 
+- (void)horizontalCenterWithWidth:(CGFloat)width {
+    self.x = ceilf((width - self.width) / 2);
+}
+
+- (void)verticalCenterWithHeight:(CGFloat)height {
+    self.y = ceilf((height - self.height) / 2);
+}
+
+- (void)verticalCenterInSuperView {
+    [self verticalCenterWithHeight:self.superview.height];
+}
+
+- (void)horizontalCenterInSuperView {
+    [self horizontalCenterWithWidth:self.superview.width];
+}
+
+#pragma mark - Tap Gesture
+
+- (UITapGestureRecognizer *)addSingleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *))block {
+    return [self addTapGestureWithNumberOfTapsRequired:1 block:block];
+}
+
+- (UITapGestureRecognizer *)addDoubleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *))block {
+    return [self addTapGestureWithNumberOfTapsRequired:2 block:block];
+}
+
+- (UITapGestureRecognizer *)addTapGestureWithNumberOfTapsRequired:(NSUInteger)numberOfTapsRequired
+                                                            block:(void (^)(UITapGestureRecognizer *))block {
+    self.userInteractionEnabled = YES;
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithActionBlock:block];
+    recognizer.numberOfTapsRequired = numberOfTapsRequired;
+    [self addGestureRecognizer:recognizer];
+    return recognizer;
+}
+
+- (UITapGestureRecognizer *)setSingleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *))block {
+    [self.gestureRecognizers enumerateObjectsUsingBlock:^(__kindof UIGestureRecognizer * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:[UITapGestureRecognizer class]]) {
+            [self removeGestureRecognizer:obj];
+        }
+    }];
+    return [self addTapGestureWithNumberOfTapsRequired:1 block:block];
+}
+
+- (UITapGestureRecognizer *)setSingleTapGestureTarget:(id)target action:(SEL)action {
+    self.userInteractionEnabled = YES;
+    [self.gestureRecognizers enumerateObjectsUsingBlock:^(__kindof UIGestureRecognizer * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:[UITapGestureRecognizer class]]) {
+            [self removeGestureRecognizer:obj];
+        }
+    }];
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:target action:action];
+    [self addGestureRecognizer:recognizer];
+    return recognizer;
+}
+
+#pragma mark - Top and bottom line
+
+- (CALayer *)topLineLayer {
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setTopLineLayer:(CALayer *)topLineLayer {
+    objc_setAssociatedObject(self, @selector(topLineLayer), topLineLayer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (CALayer *)bottomLineLayer {
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setBottomLineLayer:(CALayer *)bottomLineLayer {
+    objc_setAssociatedObject(self, @selector(bottomLineLayer), bottomLineLayer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (CALayer *)addSubLayerWithFrame:(CGRect)frame color:(UIColor *)color {
+    CALayer *layer = [CALayer layer];
+    layer.frame = frame;
+    layer.backgroundColor = color.CGColor;
+    [self.layer addSublayer:layer];
+    return layer;
+}
+
+- (void)setTopFillLineWithColor:(UIColor *)color {
+    [self setTopLineWithColor:color paddingLeft:0 paddingRight:0];
+}
+
+- (void)setTopLineWithColor:(UIColor *)color paddingLeft:(CGFloat)paddingLeft paddingRight:(CGFloat)paddingRight {
+    CGRect frame = CGRectMake(paddingLeft,
+                              0,
+                              [UIScreen mainScreen].bounds.size.width - paddingLeft-paddingRight,
+                              ONE_PIXEL);
+    if (!self.topLineLayer) {
+        self.topLineLayer = [self addSubLayerWithFrame:frame color:color];
+    }else {
+        self.topLineLayer.frame = frame;
+        self.topLineLayer.backgroundColor = color.CGColor;
+    }
+}
+
+- (void)setBottomFillLineWithColor:(UIColor *)color {
+    [self setBottomLineWithColor:color paddingLeft:0 paddingRight:0];
+}
+
+- (void)setBottomLineWithColor:(UIColor *)color paddingLeft:(CGFloat)paddingLeft paddingRight:(CGFloat)paddingRight {
+    CGRect frame = CGRectMake(paddingLeft,
+                              self.height - ONE_PIXEL,
+                              [UIScreen mainScreen].bounds.size.width - paddingLeft- paddingRight,
+                              ONE_PIXEL);
+    if (!self.bottomLineLayer) {
+        self.bottomLineLayer = [self addSubLayerWithFrame:frame color:color];
+    }else {
+        self.bottomLineLayer.frame = frame;
+        self.bottomLineLayer.backgroundColor = color.CGColor;
+    }
+    
+}
+
+- (void)setTopAndBottomLineWithColor:(UIColor *)color {
+    [self setTopFillLineWithColor:color];
+    [self setBottomFillLineWithColor:color];
+}
+
+- (UIView *)setTopLineViewWithColor:(UIColor *)color paddingLeft:(CGFloat)left paddingRight:(CGFloat)right {
+    __weak UIView *weakSelf = self;
+    return [self addSubviewWithColor:color constraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@(left));
+        make.right.equalTo(@(right));
+        make.height.equalTo(@(ONE_PIXEL));
+        make.top.equalTo(weakSelf);
+    }];
+}
+
+- (UIView *)setBottomLineViewWithColor:(UIColor *)color paddingLeft:(CGFloat)left paddingRight:(CGFloat)right {
+    __weak UIView *weakSelf = self;
+    return [self addSubviewWithColor:color constraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@(left));
+        make.right.equalTo(@(right));
+        make.height.equalTo(@(ONE_PIXEL));
+        make.bottom.equalTo(weakSelf);
+    }];
+}
+
+- (UIView *)addSubviewWithColor:(UIColor *)color
+                    constraints:(void(^)(MASConstraintMaker *make))block  {
+    UIView *line = [[UIView alloc] init];
+    line.backgroundColor = color;
+    [self addSubview:line];
+    [line mas_makeConstraints:block];
+    return line;
+}
 
 
 
-
+#pragma mark - other
 
 - (id)userInfo {
     return objc_getAssociatedObject(self, userInfoAddress);
@@ -161,47 +284,87 @@ static const void *userInfoAddress = &userInfoAddress;
     objc_setAssociatedObject(self, userInfoAddress, userInfo, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (void)addTarget:(id)target gestureAction:(SEL)action {
-    [self setUserInteractionEnabled:YES];
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:target action:action];
-    [self addGestureRecognizer:tapGesture];
+- (UIViewController *)viewController {
+    for (UIView *view = self; view; view = view.superview) {
+        UIResponder *nextResponder = [view nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)nextResponder;
+        }
+    }
+    return nil;
 }
 
+- (void)setBoarderWith:(CGFloat)width color:(UIColor *)color {
+    self.layer.borderWidth = width;
+    self.layer.borderColor = color.CGColor;
+}
 
-
-
+- (void)setCornerRadius:(CGFloat)cornerRadius {
+    self.clipsToBounds = YES;
+    self.layer.cornerRadius = cornerRadius;
+}
 
 - (CGFloat)cornerRadius {
-    return [objc_getAssociatedObject(self, _cmd) floatValue];
-}
-- (void)setCornerRadius:(CGFloat)cornerRadius {
-    objc_setAssociatedObject(self, @selector(cornerRadius), @(cornerRadius), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return self.layer.cornerRadius;
 }
 
+- (void)setTipsViewWithImageName:(NSString *)imageName
+                            text:(NSString *)text
+                       textColor:(UIColor *)textColor {
+    UIImageView *imageView = [self viewWithTag:TIPS_IMAGE_VIEW_TAG];
+    if (!imageView) {
+        imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+    }
+    imageView.center = CGPointMake(self.width / 2, self.height / 2 - 40);
+    imageView.contentMode = UIViewContentModeCenter;
+    imageView.tag = TIPS_IMAGE_VIEW_TAG;
+    [self addSubview:imageView];
+    
+    UILabel *label = [self viewWithTag:TIPS_LABEL_TAG];
+    if (!label) {
+        label = [[UILabel alloc] initWithFrame:CGRectMake(0, imageView.maxY + 10, [UIScreen mainScreen].bounds.size.width, 20)];
+    }
+    label.font = [UIFont systemFontOfSize:16];
+    label.textColor = textColor;
+    label.text = text;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.tag = TIPS_LABEL_TAG;
+    [self addSubview:label];
+}
+
+- (void)removeTipsView {
+    [[self viewWithTag:TIPS_IMAGE_VIEW_TAG] removeFromSuperview];
+    [[self viewWithTag:TIPS_LABEL_TAG] removeFromSuperview];
+}
+
+
+
+
+
 //设置视图上边角幅度
-- (void)setCornerOnTop {
-    [self setGivenCorner:(UIRectCornerTopLeft | UIRectCornerTopRight)];
+- (void)setCornerRadiiOnTop:(CGFloat)radii {
+    [self setGivenCorner:(UIRectCornerTopLeft | UIRectCornerTopRight) cornerRadii:radii];
 }
 //设置视图下边角幅度
-- (void)setCornerOnBottom {
-    [self setGivenCorner:(UIRectCornerBottomLeft | UIRectCornerBottomRight)];
+- (void)setCornerRadiiOnBottom:(CGFloat)radii {
+    [self setGivenCorner:(UIRectCornerBottomLeft | UIRectCornerBottomRight) cornerRadii:radii];
 }
 //设置指定角的角幅度
-- (void)setGivenCorner:(UIRectCorner)corners {
+- (void)setGivenCorner:(UIRectCorner)corners cornerRadii:(CGFloat)radii {
     UIBezierPath *maskPath = nil;
     maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds
                                      byRoundingCorners:corners
-                                           cornerRadii:CGSizeMake(corners, corners)];
+                                           cornerRadii:CGSizeMake(radii, radii)];
     CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
     maskLayer.frame = self.bounds;
     maskLayer.path = maskPath.CGPath;
     self.layer.mask = maskLayer;
 }
 //设置视图所有角幅度
-- (void)setAllCorner:(UIRectCorner)corners {
+- (void)setAllCornerRadii:(CGFloat)radii {
     UIBezierPath *maskPath = nil;
     maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds
-                                          cornerRadius:corners];
+                                          cornerRadius:radii];
     CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
     maskLayer.frame = self.bounds;
     maskLayer.path = maskPath.CGPath;
@@ -215,17 +378,16 @@ static const void *userInfoAddress = &userInfoAddress;
 
 
 //根据视图生成图片
-- (UIImage *)createImage {
-    UIGraphicsBeginImageContextWithOptions(self.frame.size, NO, 0.0);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    [self.layer renderInContext: context];
-    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
+- (UIImage *)snapshotImage {
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    return theImage;
+    return snap;
 }
 
-- (UIImage *)createImageWithFrame:(CGRect)frame {
-    UIGraphicsBeginImageContextWithOptions(frame.size, NO, 0.0);
+- (UIImage *)snapshotImageWithFrame:(CGRect)frame {
+    UIGraphicsBeginImageContextWithOptions(frame.size, self.opaque, 0.0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextTranslateCTM(context, -frame.origin.x, -frame.origin.y);
     [self.layer renderInContext: context];
@@ -233,6 +395,23 @@ static const void *userInfoAddress = &userInfoAddress;
     UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return theImage;
+}
+
+- (NSData *)snapshotPDF {
+    CGRect bounds = self.bounds;
+    NSMutableData *data = [NSMutableData data];
+    CGDataConsumerRef consumer = CGDataConsumerCreateWithCFData((__bridge CFMutableDataRef)data);
+    CGContextRef context = CGPDFContextCreate(consumer, &bounds, NULL);
+    CGDataConsumerRelease(consumer);
+    if (!context) return nil;
+    CGPDFContextBeginPage(context, NULL);
+    CGContextTranslateCTM(context, 0, bounds.size.height);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    [self.layer renderInContext:context];
+    CGPDFContextEndPage(context);
+    CGPDFContextClose(context);
+    CGContextRelease(context);
+    return data;
 }
 
 @end

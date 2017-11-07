@@ -1,15 +1,18 @@
 PODS:
+  - Masonry (1.0.2)
   - MJRefresh (3.1.12)
   - YPTabBarController (2.2.3)
 
 DEPENDENCIES:
+  - Masonry
   - MJRefresh
   - YPTabBarController
 
 SPEC CHECKSUMS:
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   YPTabBarController: 2e0e97b2d9d4b28b722ecb57700b7cd4d1b38a47
 
-PODFILE CHECKSUM: 4e686f486fe5ecbb75d0d1064d52ca9cb5fc8171
+PODFILE CHECKSUM: 2863af9830b609fdc180bd3c51b5b253aea64f49
 
 COCOAPODS: 1.2.1

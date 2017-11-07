@@ -9,5 +9,6 @@ target 'QFProj' do
 
   pod "MJRefresh"
   pod "YPTabBarController"
+  pod "Masonry"
 
 end

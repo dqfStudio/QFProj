@@ -22,4 +22,13 @@
     return [UIScreen mainScreen].bounds.size.width;
 }
 
++ (CGFloat)onePixel {
+    UIScreen *mainScreen = [UIScreen mainScreen];
+    if ([mainScreen respondsToSelector:@selector(nativeScale)]) {
+        return 1.0f / mainScreen.nativeScale;
+    }else {
+        return 1.0f / mainScreen.scale;
+    }
+}
+
 @end

@@ -8,17 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-//适配
-#define KDWIDTH     320.f
-#define KDHEIGHT    568.f
-
-#define KWRatio     [UIScreen width]/KDWIDTH
-#define KHRatio     [UIScreen height]/KDHEIGHT
+// 一个像素的宽度
+#define ONE_PIXEL [UIScreen onePixel]
 
 @interface UIScreen (QFUtil)
 
 + (CGSize)size;
 + (CGFloat)height;
 + (CGFloat)width;
++ (CGFloat)onePixel;
 
 @end

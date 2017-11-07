@@ -51,6 +51,7 @@
 		1566EEF91FB195FB001FBE1D /* QFRightImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566EEEE1FB195FB001FBE1D /* QFRightImageCell.m */; };
 		1566EEFA1FB195FB001FBE1D /* QFSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566EEF01FB195FB001FBE1D /* QFSwitchCell.m */; };
 		1566EEFB1FB195FB001FBE1D /* jsonFile.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 1566EEF41FB195FB001FBE1D /* jsonFile.geojson */; };
+		1566EF181FB1B7AD001FBE1D /* UIGestureRecognizer+QFUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566EF161FB1B7AD001FBE1D /* UIGestureRecognizer+QFUtil.m */; };
 		DD1C22381329184AD35CCA46 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9937C3AA22CB85CADD67BEC /* libPods-QFProj.a */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +142,8 @@
 		1566EEF01FB195FB001FBE1D /* QFSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFSwitchCell.m; sourceTree = "<group>"; };
 		1566EEF21FB195FB001FBE1D /* QFWeakDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFWeakDefine.h; sourceTree = "<group>"; };
 		1566EEF41FB195FB001FBE1D /* jsonFile.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jsonFile.geojson; sourceTree = "<group>"; };
+		1566EF161FB1B7AD001FBE1D /* UIGestureRecognizer+QFUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+QFUtil.m"; sourceTree = "<group>"; };
+		1566EF171FB1B7AD001FBE1D /* UIGestureRecognizer+QFUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+QFUtil.h"; sourceTree = "<group>"; };
 		6A41D332CA9FDEF05163BCBF /* Pods-QFProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.release.xcconfig"; sourceTree = "<group>"; };
 		C9937C3AA22CB85CADD67BEC /* libPods-QFProj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QFProj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8CC7C9C1725C395D314B6C /* Pods-QFProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.debug.xcconfig"; sourceTree = "<group>"; };
@@ -306,6 +309,8 @@
 				1566EE941FB1929E001FBE1D /* UINavigationController+QFUtil.m */,
 				1566EE951FB1929E001FBE1D /* UIScreen+QFUtil.h */,
 				1566EE961FB1929E001FBE1D /* UIScreen+QFUtil.m */,
+				1566EF171FB1B7AD001FBE1D /* UIGestureRecognizer+QFUtil.h */,
+				1566EF161FB1B7AD001FBE1D /* UIGestureRecognizer+QFUtil.m */,
 				1566EE971FB1929E001FBE1D /* UIView+QFImage.h */,
 				1566EE981FB1929E001FBE1D /* UIView+QFImage.m */,
 				1566EE991FB1929E001FBE1D /* UIView+QFUtil.h */,
@@ -605,6 +610,7 @@
 				1566EECB1FB19443001FBE1D /* UIControl+QFSafeUtil.m in Sources */,
 				1566EEA91FB1929E001FBE1D /* UIApplication+QFUtil.m in Sources */,
 				1566EEF81FB195FB001FBE1D /* QFLogoCell.m in Sources */,
+				1566EF181FB1B7AD001FBE1D /* UIGestureRecognizer+QFUtil.m in Sources */,
 				1566EEAE1FB1929E001FBE1D /* UIScreen+QFUtil.m in Sources */,
 				1566EE9F1FB1929E001FBE1D /* NSDate+QFUtil.m in Sources */,
 				1566EEF61FB195FB001FBE1D /* QFCustomCell.m in Sources */,
