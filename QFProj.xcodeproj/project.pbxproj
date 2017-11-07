@@ -51,6 +51,7 @@
 		1566EEF91FB195FB001FBE1D /* QFRightImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566EEEE1FB195FB001FBE1D /* QFRightImageCell.m */; };
 		1566EEFA1FB195FB001FBE1D /* QFSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566EEF01FB195FB001FBE1D /* QFSwitchCell.m */; };
 		1566EEFB1FB195FB001FBE1D /* jsonFile.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 1566EEF41FB195FB001FBE1D /* jsonFile.geojson */; };
+		DD1C22381329184AD35CCA46 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9937C3AA22CB85CADD67BEC /* libPods-QFProj.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +141,9 @@
 		1566EEF01FB195FB001FBE1D /* QFSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QFSwitchCell.m; sourceTree = "<group>"; };
 		1566EEF21FB195FB001FBE1D /* QFWeakDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFWeakDefine.h; sourceTree = "<group>"; };
 		1566EEF41FB195FB001FBE1D /* jsonFile.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jsonFile.geojson; sourceTree = "<group>"; };
+		6A41D332CA9FDEF05163BCBF /* Pods-QFProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.release.xcconfig"; sourceTree = "<group>"; };
+		C9937C3AA22CB85CADD67BEC /* libPods-QFProj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QFProj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF8CC7C9C1725C395D314B6C /* Pods-QFProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD1C22381329184AD35CCA46 /* libPods-QFProj.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +165,8 @@
 				1566EE6D1FB191C4001FBE1D /* Vendors */,
 				1566EE561FB190AC001FBE1D /* QFProj */,
 				1566EE551FB190AC001FBE1D /* Products */,
+				98DAACCCF7D509246CB4FA10 /* Pods */,
+				292F24F0E9A4FFBE24A0F65D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -431,6 +438,23 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		292F24F0E9A4FFBE24A0F65D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9937C3AA22CB85CADD67BEC /* libPods-QFProj.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		98DAACCCF7D509246CB4FA10 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CF8CC7C9C1725C395D314B6C /* Pods-QFProj.debug.xcconfig */,
+				6A41D332CA9FDEF05163BCBF /* Pods-QFProj.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -438,9 +462,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1566EE6A1FB190AC001FBE1D /* Build configuration list for PBXNativeTarget "QFProj" */;
 			buildPhases = (
+				32FC326AD6DA37EB1D52702A /* [CP] Check Pods Manifest.lock */,
 				1566EE501FB190AC001FBE1D /* Sources */,
 				1566EE511FB190AC001FBE1D /* Frameworks */,
 				1566EE521FB190AC001FBE1D /* Resources */,
+				52908049F865CF352B42609B /* [CP] Embed Pods Frameworks */,
+				E641122236C3DE444AFEEBFC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -497,6 +524,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		32FC326AD6DA37EB1D52702A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		52908049F865CF352B42609B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QFProj/Pods-QFProj-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E641122236C3DE444AFEEBFC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QFProj/Pods-QFProj-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1566EE501FB190AC001FBE1D /* Sources */ = {
@@ -674,6 +749,7 @@
 		};
 		1566EE6B1FB190AC001FBE1D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF8CC7C9C1725C395D314B6C /* Pods-QFProj.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -688,6 +764,7 @@
 		};
 		1566EE6C1FB190AC001FBE1D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A41D332CA9FDEF05163BCBF /* Pods-QFProj.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
