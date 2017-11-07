@@ -40,4 +40,18 @@
     bounds = CGRectInset(bounds, -0.5 * widthDelta, -0.5 * heightDelta);
     return CGRectContainsPoint(bounds, point);
 }
+
+
+//图左文字右
+- (void)imageAndTextWithSpacing:(CGFloat)spacing {
+    self.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, spacing);
+    self.titleEdgeInsets = UIEdgeInsetsMake(0, spacing, 0, 0);
+}
+
+//图右文字左
+- (void)textAndImageWithSpacing:(CGFloat)spacing {
+    [self setTitleEdgeInsets:UIEdgeInsetsMake(0, -self.imageView.frame.size.width, 0, self.imageView.frame.size.width-spacing)];
+    [self setImageEdgeInsets:UIEdgeInsetsMake(0, self.titleLabel.bounds.size.width-spacing, 0, -self.titleLabel.bounds.size.width)];
+}
+
 @end
