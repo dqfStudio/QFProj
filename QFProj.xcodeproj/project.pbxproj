@@ -52,6 +52,18 @@
 		1566EEFA1FB195FB001FBE1D /* QFSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566EEF01FB195FB001FBE1D /* QFSwitchCell.m */; };
 		1566EEFB1FB195FB001FBE1D /* jsonFile.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 1566EEF41FB195FB001FBE1D /* jsonFile.geojson */; };
 		1566EF181FB1B7AD001FBE1D /* UIGestureRecognizer+QFUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566EF161FB1B7AD001FBE1D /* UIGestureRecognizer+QFUtil.m */; };
+		1566EF221FB1BAF1001FBE1D /* MGRequestResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566EF1B1FB1BAF0001FBE1D /* MGRequestResultView.m */; };
+		1566EF231FB1BAF1001FBE1D /* MGRequestResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1566EF1C1FB1BAF0001FBE1D /* MGRequestResultView.xib */; };
+		1566EF241FB1BAF1001FBE1D /* MGUIToolKits.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566EF1E1FB1BAF0001FBE1D /* MGUIToolKits.m */; };
+		1566EF251FB1BAF1001FBE1D /* MGWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566EF201FB1BAF0001FBE1D /* MGWaitingView.m */; };
+		1566EF261FB1BAF1001FBE1D /* MGWaitingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1566EF211FB1BAF0001FBE1D /* MGWaitingView.xib */; };
+		1566EF2D1FB28A91001FBE1D /* UIViewController+QFUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566EF2C1FB28A91001FBE1D /* UIViewController+QFUtil.m */; };
+		1566EF301FB28D10001FBE1D /* UIDevice+QFUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566EF2F1FB28D10001FBE1D /* UIDevice+QFUtil.m */; };
+		1566EF391FB29E52001FBE1D /* MGRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566EF361FB29E52001FBE1D /* MGRefreshFooter.m */; };
+		1566EF3A1FB29E52001FBE1D /* MGRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566EF381FB29E52001FBE1D /* MGRefreshHeader.m */; };
+		1566EF401FB29FD3001FBE1D /* ConstHttpUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566EF3D1FB29FD2001FBE1D /* ConstHttpUrl.m */; };
+		1566EF411FB29FD3001FBE1D /* MGRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566EF3F1FB29FD2001FBE1D /* MGRequestManager.m */; };
+		1566EF451FB2A0A9001FBE1D /* MGMBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566EF441FB2A0A9001FBE1D /* MGMBProgressHUD.m */; };
 		DD1C22381329184AD35CCA46 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9937C3AA22CB85CADD67BEC /* libPods-QFProj.a */; };
 /* End PBXBuildFile section */
 
@@ -144,6 +156,29 @@
 		1566EEF41FB195FB001FBE1D /* jsonFile.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jsonFile.geojson; sourceTree = "<group>"; };
 		1566EF161FB1B7AD001FBE1D /* UIGestureRecognizer+QFUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+QFUtil.m"; sourceTree = "<group>"; };
 		1566EF171FB1B7AD001FBE1D /* UIGestureRecognizer+QFUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+QFUtil.h"; sourceTree = "<group>"; };
+		1566EF1A1FB1BAF0001FBE1D /* MGRequestResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGRequestResultView.h; sourceTree = "<group>"; };
+		1566EF1B1FB1BAF0001FBE1D /* MGRequestResultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGRequestResultView.m; sourceTree = "<group>"; };
+		1566EF1C1FB1BAF0001FBE1D /* MGRequestResultView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGRequestResultView.xib; sourceTree = "<group>"; };
+		1566EF1D1FB1BAF0001FBE1D /* MGUIToolKits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGUIToolKits.h; sourceTree = "<group>"; };
+		1566EF1E1FB1BAF0001FBE1D /* MGUIToolKits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGUIToolKits.m; sourceTree = "<group>"; };
+		1566EF1F1FB1BAF0001FBE1D /* MGWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGWaitingView.h; sourceTree = "<group>"; };
+		1566EF201FB1BAF0001FBE1D /* MGWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGWaitingView.m; sourceTree = "<group>"; };
+		1566EF211FB1BAF0001FBE1D /* MGWaitingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGWaitingView.xib; sourceTree = "<group>"; };
+		1566EF271FB1BB2F001FBE1D /* QFKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QFKit.h; sourceTree = "<group>"; };
+		1566EF2B1FB28A91001FBE1D /* UIViewController+QFUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+QFUtil.h"; sourceTree = "<group>"; };
+		1566EF2C1FB28A91001FBE1D /* UIViewController+QFUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+QFUtil.m"; sourceTree = "<group>"; };
+		1566EF2E1FB28D10001FBE1D /* UIDevice+QFUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+QFUtil.h"; sourceTree = "<group>"; };
+		1566EF2F1FB28D10001FBE1D /* UIDevice+QFUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+QFUtil.m"; sourceTree = "<group>"; };
+		1566EF351FB29E52001FBE1D /* MGRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGRefreshFooter.h; sourceTree = "<group>"; };
+		1566EF361FB29E52001FBE1D /* MGRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGRefreshFooter.m; sourceTree = "<group>"; };
+		1566EF371FB29E52001FBE1D /* MGRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGRefreshHeader.h; sourceTree = "<group>"; };
+		1566EF381FB29E52001FBE1D /* MGRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGRefreshHeader.m; sourceTree = "<group>"; };
+		1566EF3C1FB29FD2001FBE1D /* ConstHttpUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstHttpUrl.h; sourceTree = "<group>"; };
+		1566EF3D1FB29FD2001FBE1D /* ConstHttpUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstHttpUrl.m; sourceTree = "<group>"; };
+		1566EF3E1FB29FD2001FBE1D /* MGRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGRequestManager.h; sourceTree = "<group>"; };
+		1566EF3F1FB29FD2001FBE1D /* MGRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGRequestManager.m; sourceTree = "<group>"; };
+		1566EF431FB2A0A9001FBE1D /* MGMBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGMBProgressHUD.h; sourceTree = "<group>"; };
+		1566EF441FB2A0A9001FBE1D /* MGMBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGMBProgressHUD.m; sourceTree = "<group>"; };
 		6A41D332CA9FDEF05163BCBF /* Pods-QFProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.release.xcconfig"; sourceTree = "<group>"; };
 		C9937C3AA22CB85CADD67BEC /* libPods-QFProj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QFProj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8CC7C9C1725C395D314B6C /* Pods-QFProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.debug.xcconfig"; sourceTree = "<group>"; };
@@ -260,6 +295,7 @@
 		1566EE741FB191C4001FBE1D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1566EF191FB1BAF0001FBE1D /* Public */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -315,10 +351,15 @@
 				1566EE981FB1929E001FBE1D /* UIView+QFImage.m */,
 				1566EE991FB1929E001FBE1D /* UIView+QFUtil.h */,
 				1566EE9A1FB1929E001FBE1D /* UIView+QFUtil.m */,
+				1566EF2E1FB28D10001FBE1D /* UIDevice+QFUtil.h */,
+				1566EF2F1FB28D10001FBE1D /* UIDevice+QFUtil.m */,
 				1566EE9B1FB1929E001FBE1D /* UIViewController+QFBackHandler.h */,
 				1566EE9C1FB1929E001FBE1D /* UIViewController+QFBackHandler.m */,
 				1566EE9D1FB1929E001FBE1D /* UIViewController+QFPrinter.h */,
 				1566EE9E1FB1929E001FBE1D /* UIViewController+QFPrinter.m */,
+				1566EF2B1FB28A91001FBE1D /* UIViewController+QFUtil.h */,
+				1566EF2C1FB28A91001FBE1D /* UIViewController+QFUtil.m */,
+				1566EF271FB1BB2F001FBE1D /* QFKit.h */,
 			);
 			path = QFUtil;
 			sourceTree = "<group>";
@@ -443,6 +484,55 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		1566EF191FB1BAF0001FBE1D /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				1566EF421FB2A0A9001FBE1D /* MPProgressHUD */,
+				1566EF3B1FB29FD2001FBE1D /* NetService */,
+				1566EF341FB29E52001FBE1D /* MGRefreshViews */,
+				1566EF1A1FB1BAF0001FBE1D /* MGRequestResultView.h */,
+				1566EF1B1FB1BAF0001FBE1D /* MGRequestResultView.m */,
+				1566EF1C1FB1BAF0001FBE1D /* MGRequestResultView.xib */,
+				1566EF1D1FB1BAF0001FBE1D /* MGUIToolKits.h */,
+				1566EF1E1FB1BAF0001FBE1D /* MGUIToolKits.m */,
+				1566EF1F1FB1BAF0001FBE1D /* MGWaitingView.h */,
+				1566EF201FB1BAF0001FBE1D /* MGWaitingView.m */,
+				1566EF211FB1BAF0001FBE1D /* MGWaitingView.xib */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		1566EF341FB29E52001FBE1D /* MGRefreshViews */ = {
+			isa = PBXGroup;
+			children = (
+				1566EF351FB29E52001FBE1D /* MGRefreshFooter.h */,
+				1566EF361FB29E52001FBE1D /* MGRefreshFooter.m */,
+				1566EF371FB29E52001FBE1D /* MGRefreshHeader.h */,
+				1566EF381FB29E52001FBE1D /* MGRefreshHeader.m */,
+			);
+			path = MGRefreshViews;
+			sourceTree = "<group>";
+		};
+		1566EF3B1FB29FD2001FBE1D /* NetService */ = {
+			isa = PBXGroup;
+			children = (
+				1566EF3C1FB29FD2001FBE1D /* ConstHttpUrl.h */,
+				1566EF3D1FB29FD2001FBE1D /* ConstHttpUrl.m */,
+				1566EF3E1FB29FD2001FBE1D /* MGRequestManager.h */,
+				1566EF3F1FB29FD2001FBE1D /* MGRequestManager.m */,
+			);
+			path = NetService;
+			sourceTree = "<group>";
+		};
+		1566EF421FB2A0A9001FBE1D /* MPProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				1566EF431FB2A0A9001FBE1D /* MGMBProgressHUD.h */,
+				1566EF441FB2A0A9001FBE1D /* MGMBProgressHUD.m */,
+			);
+			path = MPProgressHUD;
+			sourceTree = "<group>";
+		};
 		292F24F0E9A4FFBE24A0F65D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,7 +611,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1566EF261FB1BAF1001FBE1D /* MGWaitingView.xib in Resources */,
 				1566EE641FB190AC001FBE1D /* LaunchScreen.storyboard in Resources */,
+				1566EF231FB1BAF1001FBE1D /* MGRequestResultView.xib in Resources */,
 				1566EEFB1FB195FB001FBE1D /* jsonFile.geojson in Resources */,
 				1566EE611FB190AC001FBE1D /* Assets.xcassets in Resources */,
 				1566EE5F1FB190AC001FBE1D /* Main.storyboard in Resources */,
@@ -584,25 +676,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				1566EEDD1FB194F6001FBE1D /* QFCellModel.m in Sources */,
+				1566EF221FB1BAF1001FBE1D /* MGRequestResultView.m in Sources */,
 				1566EEA01FB1929E001FBE1D /* NSObject+QFPPList.m in Sources */,
 				1566EEA21FB1929E001FBE1D /* NSObject+QFUtil.m in Sources */,
 				1566EEC61FB19443001FBE1D /* NSObject+QFSafeNotify.m in Sources */,
 				1566EEC51FB19443001FBE1D /* NSDictionary+QFSafeUtil.m in Sources */,
+				1566EF391FB29E52001FBE1D /* MGRefreshFooter.m in Sources */,
 				1566EEDF1FB194F6001FBE1D /* QFTableModel.m in Sources */,
+				1566EF301FB28D10001FBE1D /* UIDevice+QFUtil.m in Sources */,
 				1566EEB11FB1929E001FBE1D /* UIViewController+QFBackHandler.m in Sources */,
 				1566EEC81FB19443001FBE1D /* NSObject+QFSwizzleUtil.m in Sources */,
+				1566EF411FB29FD3001FBE1D /* MGRequestManager.m in Sources */,
 				1566EEF91FB195FB001FBE1D /* QFRightImageCell.m in Sources */,
 				1566EEA41FB1929E001FBE1D /* NSString+QFUtil.m in Sources */,
 				1566EEDE1FB194F6001FBE1D /* QFSectionModel.m in Sources */,
 				1566EEE01FB194F6001FBE1D /* NSObject+selector.m in Sources */,
 				1566EEC91FB19443001FBE1D /* NSString+QFSafeUtil.m in Sources */,
 				1566EECA1FB19443001FBE1D /* NSTimer+QFSafeUtil.m in Sources */,
+				1566EF2D1FB28A91001FBE1D /* UIViewController+QFUtil.m in Sources */,
 				1566EE5C1FB190AC001FBE1D /* ViewController.m in Sources */,
 				1566EEC71FB19443001FBE1D /* NSObject+QFSafeSEL.m in Sources */,
 				1566EEC41FB19443001FBE1D /* NSArray+QFSafeUtil.m in Sources */,
 				1566EEAF1FB1929E001FBE1D /* UIView+QFImage.m in Sources */,
 				1566EEAD1FB1929E001FBE1D /* UINavigationController+QFUtil.m in Sources */,
+				1566EF401FB29FD3001FBE1D /* ConstHttpUrl.m in Sources */,
 				1566EEB21FB1929E001FBE1D /* UIViewController+QFPrinter.m in Sources */,
+				1566EF3A1FB29E52001FBE1D /* MGRefreshHeader.m in Sources */,
 				1566EEA61FB1929E001FBE1D /* QFDataConversion.m in Sources */,
 				1566EEAB1FB1929E001FBE1D /* UIColor+QFUtil.m in Sources */,
 				1566EEE21FB194F6001FBE1D /* QFTableView.m in Sources */,
@@ -622,8 +721,11 @@
 				1566EEF71FB195FB001FBE1D /* QFLeftImageCell.m in Sources */,
 				1566EEAA1FB1929E001FBE1D /* UIButton+QFUtil.m in Sources */,
 				1566EE591FB190AC001FBE1D /* AppDelegate.m in Sources */,
+				1566EF251FB1BAF1001FBE1D /* MGWaitingView.m in Sources */,
 				1566EEA51FB1929E001FBE1D /* NSUserDefaults+QFUtil.m in Sources */,
+				1566EF241FB1BAF1001FBE1D /* MGUIToolKits.m in Sources */,
 				1566EEA11FB1929E001FBE1D /* NSObject+QFSwizzleUtil.m in Sources */,
+				1566EF451FB2A0A9001FBE1D /* MGMBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

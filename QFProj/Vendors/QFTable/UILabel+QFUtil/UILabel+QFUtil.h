@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIColor+QFUtil.h"
 
 @interface UILabel (QFUtil)
 
@@ -29,6 +30,17 @@
 @property (nonatomic, copy)   NSString *middlelineStr;
 @property (nonatomic, strong) UIFont   *middlelineFont;
 @property (nonatomic, strong) UIColor  *middlelineColor;
+
+
+- (void (^)(NSString *color))textColor;
+- (void (^)(NSString *color, CGFloat alpha))alTextColor;
+
+- (void (^)(NSString *color))bgColor;
+- (void (^)(NSString *color, CGFloat alpha))alBgColor;
+
+- (void (^)(CGFloat size))font;
+- (void (^)(NSString *aString))text;
+- (void (^)(NSInteger lines))lines;
 
 /**
  计算label宽高

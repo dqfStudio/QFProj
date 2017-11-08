@@ -29,6 +29,26 @@
     return nil;
 }
 
++ (void)saveTheCDefaults:(void (^)(NSUserDefaults *theCUserDefaults))block {
+    NSUserDefaults *userDefaults = [NSUserDefaults theCUserDefaults];
+    if (userDefaults) {
+        if (block) {
+            block(userDefaults);
+        }
+        [userDefaults synchronize];
+    }
+}
+
++ (void)saveDefaults:(void (^)(NSUserDefaults *userDefaults))block {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if (userDefaults) {
+        if (block) {
+            block(userDefaults);
+        }
+        [userDefaults synchronize];
+    }
+}
+
 + (void)setFirstLaunch {
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:KFirstLaunchKey];
 }

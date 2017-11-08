@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIColor+QFUtil.h"
 
 @interface UIButton (QFUtil)
 - (void)setTitle:(NSString *)title;
@@ -21,4 +22,25 @@
 - (void)imageAndTextWithSpacing:(CGFloat)spacing;
 //图右文字左
 - (void)textAndImageWithSpacing:(CGFloat)spacing;
+
+
+- (void (^)(NSString *color))titleColor;
+- (void (^)(NSString *color, CGFloat alpha))alTitleColor;
+
+- (void (^)(NSString *color))bgColor;
+- (void (^)(NSString *color, CGFloat alpha))alBgColor;
+
+- (void (^)(CGFloat size))font;
+- (void (^)(NSString *aString))title;
+- (void (^)(NSTextAlignment align))align;
+
+- (void (^)(UIImage *image))image;
+- (void (^)(NSString *aString))imageName;
+
+- (void (^)(UIImage *image))bgImage;
+- (void (^)(NSString *aString))bgImageName;
+
+- (void (^)(CGFloat spacing))imageTextSpacing;
+- (void (^)(CGFloat spacing))textImageSpacing;
+
 @end

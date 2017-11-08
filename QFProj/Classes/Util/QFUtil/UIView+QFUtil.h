@@ -28,30 +28,30 @@
 
 #pragma mark - Frame
 
-@property (nonatomic, readwrite) CGFloat x;
-@property (nonatomic, readwrite) CGFloat y;
-@property (nonatomic, readwrite) CGFloat width;
-@property (nonatomic, readwrite) CGFloat height;
+@property (nonatomic, readwrite) CGFloat x_yy;
+@property (nonatomic, readwrite) CGFloat y_yy;
+@property (nonatomic, readwrite) CGFloat width_yy;
+@property (nonatomic, readwrite) CGFloat height_yy;
 
 
-@property (nonatomic, readwrite) CGPoint origin;
-@property (nonatomic, readwrite) CGSize  size;
+@property (nonatomic, readwrite) CGPoint origin_yy;
+@property (nonatomic, readwrite) CGSize  size_yy;
 
 
-@property (nonatomic, readwrite) CGFloat centerX;
-@property (nonatomic, readwrite) CGFloat centerY;
+@property (nonatomic, readwrite) CGFloat centerX_yy;
+@property (nonatomic, readwrite) CGFloat centerY_yy;
 
 
-@property (nonatomic, readonly)  CGFloat  minX;
-@property (nonatomic, readonly)  CGFloat  minY;
+@property (nonatomic, readonly)  CGFloat  minX_yy;
+@property (nonatomic, readonly)  CGFloat  minY_yy;
 
 
-@property (nonatomic, readonly)  CGFloat  midX;
-@property (nonatomic, readonly)  CGFloat  midY;
+@property (nonatomic, readonly)  CGFloat  midX_yy;
+@property (nonatomic, readonly)  CGFloat  midY_yy;
 
 
-@property (nonatomic, readonly)  CGFloat  maxX;
-@property (nonatomic, readonly)  CGFloat  maxY;
+@property (nonatomic, readonly)  CGFloat  maxX_yy;
+@property (nonatomic, readonly)  CGFloat  maxY_yy;
 
 /**
  *  根据传入的width来水平居中

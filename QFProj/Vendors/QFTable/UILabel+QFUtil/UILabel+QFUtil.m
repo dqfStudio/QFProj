@@ -91,6 +91,56 @@
     objc_setAssociatedObject(self, @selector(middlelineColor), middlelineColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+
+
+
+- (void (^)(NSString *color))textColor {
+    return ^void (NSString *color) {
+        self.textColor = [UIColor colorWithString:color];
+    };
+}
+
+- (void (^)(NSString *color, CGFloat alpha))alTextColor {
+    return ^void (NSString *color, CGFloat alpha) {
+        self.textColor = [UIColor colorWithString:color alpha:alpha];
+    };
+}
+
+- (void (^)(NSString *color))bgColor {
+    return ^void (NSString *color) {
+        self.backgroundColor = [UIColor colorWithString:color];
+    };
+}
+
+- (void (^)(NSString *color, CGFloat alpha))alBgColor {
+    return ^void (NSString *color, CGFloat alpha) {
+        self.backgroundColor = [UIColor colorWithString:color alpha:alpha];
+    };
+}
+
+- (void (^)(CGFloat size))font {
+    return ^void (CGFloat size) {
+        self.font = [UIFont systemFontOfSize:size];
+    };
+}
+
+- (void (^)(NSString *aString))text {
+    return ^void (NSString *aString) {
+        self.text = aString;
+    };
+}
+
+- (void (^)(NSInteger lines))lines {
+    return ^void (NSInteger lines) {
+        self.numberOfLines = lines;
+    };
+}
+
+
+
+
+
+
 /**
  计算label宽高，必须调用
  

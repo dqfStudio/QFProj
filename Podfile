@@ -10,5 +10,6 @@ target 'QFProj' do
   pod "MJRefresh"
   pod "YPTabBarController"
   pod "Masonry"
+  pod "SDWebImage"
 
 end

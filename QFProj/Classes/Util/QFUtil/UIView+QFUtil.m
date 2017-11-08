@@ -27,39 +27,39 @@ static const void *userInfoAddress = &userInfoAddress;
 
 #pragma mark - Frame
 
-- (CGFloat)x {
+- (CGFloat)x_yy {
     return self.frame.origin.x;
 }
-- (void)setX:(CGFloat)x {
+- (void)setX_yy:(CGFloat)x_yy {
     CGRect frame = self.frame;
-    frame.origin.x = x;
+    frame.origin.x = x_yy;
     self.frame = frame;
 }
 
-- (CGFloat)y {
+- (CGFloat)y_yy {
     return self.frame.origin.y;
 }
-- (void)setY:(CGFloat)y {
+- (void)setY_yy:(CGFloat)y_yy {
     CGRect frame = self.frame;
-    frame.origin.y = y;
+    frame.origin.y = y_yy;
     self.frame = frame;
 }
 
-- (CGFloat)width {
+- (CGFloat)width_yy {
     return self.frame.size.width;
 }
-- (void)setWidth:(CGFloat)width {
+- (void)setWidth_yy:(CGFloat)width_yy {
     CGRect frame = self.frame;
-    frame.size.width = width;
+    frame.size.width = width_yy;
     self.frame = frame;
 }
 
-- (CGFloat)height {
+- (CGFloat)height_yy {
     return self.frame.size.height;
 }
-- (void)setHeight:(CGFloat)height {
+- (void)setHeight_yy:(CGFloat)height_yy {
     CGRect frame = self.frame;
-    frame.size.height = height;
+    frame.size.height = height_yy;
     self.frame = frame;
 }
 
@@ -68,73 +68,77 @@ static const void *userInfoAddress = &userInfoAddress;
 
 
 
-- (CGPoint)origin {
+- (CGPoint)origin_yy {
     return self.frame.origin;
 }
-- (void)setOrigin:(CGPoint)origin {
+- (void)setOrigin_yy:(CGPoint)origin_yy {
     CGRect frame = self.frame;
-    frame.origin = origin;
+    frame.origin = origin_yy;
     self.frame = frame;
 }
 
-- (CGSize)size {
+- (CGSize)size_yy {
     return self.frame.size;
 }
-- (void)setSize:(CGSize)size {
+- (void)setSize_yy:(CGSize)size_yy {
     CGRect frame = self.frame;
-    frame.size = size;
+    frame.size = size_yy;
     self.frame = frame;
 }
 
-- (CGFloat)centerX {
+- (CGFloat)centerX_yy {
     return self.center.x;
 }
-- (void)setCenterX:(CGFloat)centerX {
-    self.center = CGPointMake(centerX, self.center.y);
+- (void)setCenterX_yy:(CGFloat)centerX_yy {
+    self.center = CGPointMake(centerX_yy, self.center.y);
 }
 
-- (CGFloat)centerY {
+- (CGFloat)centerY_yy {
     return self.center.y;
 }
-- (void)setCenterY:(CGFloat)centerY {
-    self.center = CGPointMake(self.center.x, centerY);
+- (void)setCenterY_yy:(CGFloat)centerY_yy {
+    self.center = CGPointMake(self.center.x, centerY_yy);
 }
 
-- (CGFloat)minX {
+- (CGFloat)minX_yy {
     return CGRectGetMinX(self.frame);
 }
-- (CGFloat)minY {
+- (CGFloat)minY_yy {
     return CGRectGetMinY(self.frame);
 }
 
-- (CGFloat)midX {
+- (CGFloat)midX_yy {
     return CGRectGetMidX(self.frame);
 }
-- (CGFloat)midY {
+- (CGFloat)midY_yy {
     return CGRectGetMidY(self.frame);
 }
 
-- (CGFloat)maxX {
+- (CGFloat)maxX_yy {
     return CGRectGetMaxX(self.frame);
 }
-- (CGFloat)maxY {
+- (CGFloat)maxY_yy {
     return CGRectGetMaxY(self.frame);
 }
 
+
+
+
+
 - (void)horizontalCenterWithWidth:(CGFloat)width {
-    self.x = ceilf((width - self.width) / 2);
+    self.x_yy = ceilf((width - self.width_yy) / 2);
 }
 
 - (void)verticalCenterWithHeight:(CGFloat)height {
-    self.y = ceilf((height - self.height) / 2);
+    self.y_yy = ceilf((height - self.height_yy) / 2);
 }
 
 - (void)verticalCenterInSuperView {
-    [self verticalCenterWithHeight:self.superview.height];
+    [self verticalCenterWithHeight:self.superview.height_yy];
 }
 
 - (void)horizontalCenterInSuperView {
-    [self horizontalCenterWithWidth:self.superview.width];
+    [self horizontalCenterWithWidth:self.superview.width_yy];
 }
 
 #pragma mark - Tap Gesture
@@ -226,7 +230,7 @@ static const void *userInfoAddress = &userInfoAddress;
 
 - (void)setBottomLineWithColor:(UIColor *)color paddingLeft:(CGFloat)paddingLeft paddingRight:(CGFloat)paddingRight {
     CGRect frame = CGRectMake(paddingLeft,
-                              self.height - ONE_PIXEL,
+                              self.height_yy - ONE_PIXEL,
                               [UIScreen mainScreen].bounds.size.width - paddingLeft- paddingRight,
                               ONE_PIXEL);
     if (!self.bottomLineLayer) {
@@ -315,14 +319,14 @@ static const void *userInfoAddress = &userInfoAddress;
     if (!imageView) {
         imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
     }
-    imageView.center = CGPointMake(self.width / 2, self.height / 2 - 40);
+    imageView.center = CGPointMake(self.width_yy / 2, self.height_yy / 2 - 40);
     imageView.contentMode = UIViewContentModeCenter;
     imageView.tag = TIPS_IMAGE_VIEW_TAG;
     [self addSubview:imageView];
     
     UILabel *label = [self viewWithTag:TIPS_LABEL_TAG];
     if (!label) {
-        label = [[UILabel alloc] initWithFrame:CGRectMake(0, imageView.maxY + 10, [UIScreen mainScreen].bounds.size.width, 20)];
+        label = [[UILabel alloc] initWithFrame:CGRectMake(0, imageView.maxY_yy + 10, [UIScreen mainScreen].bounds.size.width, 20)];
     }
     label.font = [UIFont systemFontOfSize:16];
     label.textColor = textColor;

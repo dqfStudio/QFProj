@@ -14,6 +14,9 @@
 + (nullable id)getUserIdentity;
 + (nullable instancetype)theCUserDefaults;
 
++ (void)saveTheCDefaults:(void (^_Nullable)(NSUserDefaults * _Nullable theCUserDefaults))block;
++ (void)saveDefaults:(void (^_Nullable)(NSUserDefaults * _Nullable userDefaults))block;
+
 + (void)setFirstLaunch;
 + (BOOL)isFirstLaunch;
 
