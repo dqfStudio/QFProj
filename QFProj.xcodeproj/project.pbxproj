@@ -65,6 +65,7 @@
 		1566EF411FB29FD3001FBE1D /* MGRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566EF3F1FB29FD2001FBE1D /* MGRequestManager.m */; };
 		1566EF451FB2A0A9001FBE1D /* MGMBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566EF441FB2A0A9001FBE1D /* MGMBProgressHUD.m */; };
 		1566EF511FB35623001FBE1D /* UIFont+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566EF4F1FB35623001FBE1D /* UIFont+Util.m */; };
+		1566EF571FB35824001FBE1D /* UIImage+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 1566EF561FB35823001FBE1D /* UIImage+Util.m */; };
 		DD1C22381329184AD35CCA46 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9937C3AA22CB85CADD67BEC /* libPods-QFProj.a */; };
 /* End PBXBuildFile section */
 
@@ -182,6 +183,8 @@
 		1566EF441FB2A0A9001FBE1D /* MGMBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGMBProgressHUD.m; sourceTree = "<group>"; };
 		1566EF4F1FB35623001FBE1D /* UIFont+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Util.m"; sourceTree = "<group>"; };
 		1566EF501FB35623001FBE1D /* UIFont+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Util.h"; sourceTree = "<group>"; };
+		1566EF551FB35823001FBE1D /* UIImage+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Util.h"; sourceTree = "<group>"; };
+		1566EF561FB35823001FBE1D /* UIImage+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Util.m"; sourceTree = "<group>"; };
 		6A41D332CA9FDEF05163BCBF /* Pods-QFProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.release.xcconfig"; sourceTree = "<group>"; };
 		C9937C3AA22CB85CADD67BEC /* libPods-QFProj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QFProj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8CC7C9C1725C395D314B6C /* Pods-QFProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.debug.xcconfig"; sourceTree = "<group>"; };
@@ -346,6 +349,8 @@
 				1566EE901FB1929E001FBE1D /* UIColor+QFUtil.m */,
 				1566EF501FB35623001FBE1D /* UIFont+Util.h */,
 				1566EF4F1FB35623001FBE1D /* UIFont+Util.m */,
+				1566EF551FB35823001FBE1D /* UIImage+Util.h */,
+				1566EF561FB35823001FBE1D /* UIImage+Util.m */,
 				1566EE931FB1929E001FBE1D /* UINavigationController+QFUtil.h */,
 				1566EE941FB1929E001FBE1D /* UINavigationController+QFUtil.m */,
 				1566EE951FB1929E001FBE1D /* UIScreen+QFUtil.h */,
@@ -719,6 +724,7 @@
 				1566EEAE1FB1929E001FBE1D /* UIScreen+QFUtil.m in Sources */,
 				1566EE9F1FB1929E001FBE1D /* NSDate+QFUtil.m in Sources */,
 				1566EEF61FB195FB001FBE1D /* QFCustomCell.m in Sources */,
+				1566EF571FB35824001FBE1D /* UIImage+Util.m in Sources */,
 				1566EE671FB190AC001FBE1D /* main.m in Sources */,
 				1566EEF51FB195FB001FBE1D /* QFBaseCell.m in Sources */,
 				1566EEE11FB194F6001FBE1D /* UILabel+QFUtil.m in Sources */,
