@@ -20,6 +20,7 @@
 #import "UIApplication+QFUtil.h"
 #import "UIButton+QFUtil.h"
 #import "UIColor+QFUtil.h"
+#import "UIFont+Util.h"
 #import "UIGestureRecognizer+QFUtil.h"
 #import "UINavigationController+QFUtil.h"
 #import "UIScreen+QFUtil.h"
