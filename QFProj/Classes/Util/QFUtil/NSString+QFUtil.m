@@ -199,6 +199,19 @@
     return nil;
 }
 
+- (NSString *)objectForKeyedSubscript:(NSString *)key {
+    if (key && [self containsString:key]) {
+        return NSStringFromRange([self rangeOfString:key]);
+    }
+    return @"";
+}
+
+- (NSRange (^)(void))toRange {
+    return ^NSRange (void) {
+        return NSRangeFromString(self);
+    };
+}
+
 @end
 
 

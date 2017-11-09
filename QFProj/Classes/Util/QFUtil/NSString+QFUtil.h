@@ -42,6 +42,9 @@
 - (BOOL(^)(NSArray<NSString *> *))containsStrArr;
 
 - (NSString *)objectAtIndexedSubscript:(NSInteger)index;
+- (NSString *)objectForKeyedSubscript:(NSString *)key;
+
+- (NSRange (^)(void))toRange;
 
 @end
 
