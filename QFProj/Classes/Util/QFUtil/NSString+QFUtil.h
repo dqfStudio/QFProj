@@ -6,9 +6,13 @@
 //  Copyright © 2017年 dqfStudio. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
 @interface NSString (QFUtil)
+
+- (NSString *(^)(NSInteger))index;
+- (NSString *(^)(NSUInteger loc, NSUInteger len))range;
 
 + (NSString *(^)(id))append;
 - (NSString *(^)(id))append;
@@ -27,21 +31,14 @@
 + (NSString *(^)(NSUInteger))wrap;
 - (NSString *(^)(NSUInteger))wrap;
 
-- (NSString *(^)(NSUInteger))substringToIndex;
-- (NSString *(^)(NSUInteger))substringFromIndex;
-
-- (NSString *(^)(NSString *))subStringToStart;
-- (NSString *(^)(NSString *))subStringToEnd;
-
-- (NSString *(^)(NSString *))subStringFromStart;
-- (NSString *(^)(NSString *))subStringFromEnd;
-
 - (NSArray<NSString *> *(^)(NSString *))componentsByString;
 - (NSArray<NSString *> *(^)(NSString *))componentsBySetString;
 - (NSArray<NSString *> *(^)(NSString *, NSString *))componentsByStringBySetString;
 
 - (BOOL(^)(NSString *))containsString;
 - (BOOL(^)(NSArray<NSString *> *))containsStrArr;
+
+- (NSString *)objectAtIndexedSubscript:(NSInteger)index;
 
 @end
 
@@ -57,5 +54,11 @@
 - (NSString *)encode;
 
 - (NSString *)decode;
+
+- (CGSize)sizeWithFont:(UIFont *)font constrainedSize:(CGSize)size;
+- (CGSize)sizeWithFont:(UIFont *)font;
+
+//String contains Emoji
+- (BOOL)stringContainsEmoji;
 
 @end

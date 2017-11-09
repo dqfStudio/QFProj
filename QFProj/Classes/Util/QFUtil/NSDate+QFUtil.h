@@ -12,6 +12,6 @@
 
 + (void)startTime;
 + (void)endTime;
-+ (void)time:(void(^)())callback;
++ (void)time:(void(^)(void))callback;
 
 @end

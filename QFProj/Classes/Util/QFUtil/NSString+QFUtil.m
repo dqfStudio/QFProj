@@ -11,6 +11,19 @@
 
 @implementation NSString (QFUtil)
 
+- (NSString *(^)(NSInteger))index {
+    return ^NSString *(NSInteger index) {
+        return self[index];
+    };
+}
+
+- (NSString *(^)(NSUInteger loc, NSUInteger len))range {
+    return ^NSString *(NSUInteger loc, NSUInteger len) {
+        NSRange range = NSMakeRange(loc, len);
+        return [self substringWithRange:range];
+    };
+}
+
 + (NSString *(^)(id))append {
     return ^NSString *(id obj) {
         return [NSString stringWithFormat:@"%@",obj];
@@ -88,46 +101,6 @@
     };
 }
 
-- (NSString *(^)(NSUInteger))substringToIndex {
-    return ^NSString *(NSUInteger to) {
-        return [self substringToIndex:to];
-    };
-}
-
-- (NSString *(^)(NSUInteger))substringFromIndex {
-    return ^NSString *(NSUInteger from) {
-        return [self substringFromIndex:from];
-    };
-}
-
-- (NSString *(^)(NSString *))subStringToStart {
-    return ^NSString *(NSString *aString) {
-        NSRange range = [self rangeOfString:aString];
-        return [self substringToIndex:range.location];
-    };
-}
-
-- (NSString *(^)(NSString *))subStringToEnd {
-    return ^NSString *(NSString *aString) {
-        NSRange range = [self rangeOfString:aString];
-        return [self substringToIndex:range.location+range.length];
-    };
-}
-
-- (NSString *(^)(NSString *))subStringFromStart {
-    return ^NSString *(NSString *aString) {
-        NSRange range = [self rangeOfString:aString];
-        return [self substringFromIndex:range.location];
-    };
-}
-
-- (NSString *(^)(NSString *))subStringFromEnd {
-    return ^NSString *(NSString *aString) {
-        NSRange range = [self rangeOfString:aString];
-        return [self substringFromIndex:range.location+range.length];
-    };
-}
-
 - (NSArray<NSString *> *(^)(NSString *))componentsByString {
     return ^NSArray<NSString *> *(NSString *separator) {
         return [self componentsSeparatedByString:separator];
@@ -187,6 +160,14 @@
     };
 }
 
+- (NSString *)objectAtIndexedSubscript:(NSInteger)index {
+    if(index >= 0 && index < self.length) {
+        NSRange range = NSMakeRange(index, 1);
+        return [self substringWithRange:range];
+    }
+    return nil;
+}
+
 @end
 
 
@@ -237,6 +218,44 @@
                                     range:NSMakeRange(0, [outputStr length])];
     
     return [outputStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+}
+
+- (CGSize)sizeWithFont:(UIFont *)font constrainedSize:(CGSize)size {
+    return [self boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
+    
+}
+
+- (CGSize)sizeWithFont:(UIFont *)font {
+    return [self sizeWithAttributes:@{NSFontAttributeName:font}];
+}
+
+//判断是否有emoji
+- (BOOL)stringContainsEmoji {
+    __block BOOL returnValue = NO;
+    
+    [self enumerateSubstringsInRange:NSMakeRange(0, [self length])
+                             options:NSStringEnumerationByComposedCharacterSequences
+                          usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+                              const unichar high = [substring characterAtIndex: 0];
+                              
+                              // Surrogate pair (U+1D000-1F9FF)
+                              if (0xD800 <= high && high <= 0xDBFF) {
+                                  const unichar low = [substring characterAtIndex: 1];
+                                  const int codepoint = ((high - 0xD800) * 0x400) + (low - 0xDC00) + 0x10000;
+                                  
+                                  if (0x1D000 <= codepoint && codepoint <= 0x1F9FF){
+                                      returnValue = YES;
+                                  }
+                                  
+                                  // Not surrogate pair (U+2100-27BF)
+                              } else {
+                                  if (0x2100 <= high && high <= 0x27BF){
+                                      returnValue = YES;
+                                  }
+                              }
+                          }];
+    
+    return returnValue;
 }
 
 @end
