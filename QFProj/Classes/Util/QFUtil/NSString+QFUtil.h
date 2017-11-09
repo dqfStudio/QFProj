@@ -11,8 +11,11 @@
 
 @interface NSString (QFUtil)
 
-- (NSString *(^)(NSInteger))index;
-- (NSString *(^)(NSUInteger loc, NSUInteger len))range;
+- (NSString *(^)(NSInteger index))index;
+- (NSString *(^)(NSInteger loc, NSInteger len))range;
+
+- (NSString *(^)(NSInteger loc))fromIndex;
+- (NSString *(^)(NSInteger index))toIndex;
 
 + (NSString *(^)(id))append;
 - (NSString *(^)(id))append;
