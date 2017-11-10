@@ -11,19 +11,19 @@
 
 @implementation UIImage (Util)
 
-+ (UIImage *(^)(NSString *name))imageName {
++ (UIImage *(^)(NSString *name))fromName {
     return ^UIImage *(NSString *name) {
         return [UIImage imageNamed:name];
     };
 }
 
-+ (UIImage *(^)(NSString *path))imageFile {
++ (UIImage *(^)(NSString *path))fromFile {
     return ^UIImage *(NSString *path) {
         return [UIImage imageWithContentsOfFile:path];
     };
 }
 
-+ (UIImage *(^)(NSData *data))imageData {
++ (UIImage *(^)(NSData *data))fromData {
     return ^UIImage *(NSData *data) {
         return [UIImage imageWithData:data];
     };

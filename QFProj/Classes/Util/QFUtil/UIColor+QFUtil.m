@@ -11,7 +11,7 @@
 
 @implementation UIColor (QFUtil)
 
-- (UIColor *)revertColor {
+- (UIColor *)_revertColor {
     CGColorSpaceModel colorSpaceModel = CGColorSpaceGetModel(CGColorGetColorSpace(self.CGColor));
     if (colorSpaceModel == kCGColorSpaceModelRGB) {
         const CGFloat *components = CGColorGetComponents(self.CGColor);
@@ -101,7 +101,7 @@
     return [UIColor colorWithRed:r green:g blue:b alpha:alpha];
 }
 
-+ (UIColor *)random {
++ (UIColor *)_random {
     return [UIColor colorWithRed:(arc4random()%256)*1.0/256 green:(arc4random()%256)*1.0/256 blue:(arc4random()%256)*1.0/256 alpha:1];
 }
 
@@ -116,6 +116,50 @@
         }
     }
     return mutableArr;
+}
+
+
+
+
+
+
+
+
+- (UIColor *(^)(void))revertColor {
+    return ^UIColor *(void) {
+        return [self _revertColor];
+    };
+}
+
+
++ (UIColor *(^)(NSString *color))color {
+    return ^UIColor *(NSString *color) {
+        return [UIColor colorWithString:color];
+    };
+}
+
++ (UIColor *(^)(NSString *color, CGFloat alpha))alColor {
+    return ^UIColor *(NSString *color, CGFloat alpha) {
+        return [UIColor colorWithString:color alpha:alpha];
+    };
+}
+
++ (UIColor *(^)(int hex))hexColor {
+    return ^UIColor *(int hex) {
+        return [UIColor colorWithHex:hex];
+    };
+}
+
++ (UIColor *(^)(int hex, int alpha))alHexColor {
+    return ^UIColor *(int hex, int alpha) {
+        return [UIColor colorWithHex:hex alpha:alpha];
+    };
+}
+
++ (UIColor *(^)(void))random {
+    return ^UIColor *(void) {
+        return [UIColor _random];
+    };
 }
 
 @end

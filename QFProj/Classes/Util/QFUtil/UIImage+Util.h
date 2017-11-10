@@ -10,8 +10,8 @@
 
 @interface UIImage (Util)
 
-+ (UIImage *(^)(NSString *name))imageName;
-+ (UIImage *(^)(NSString *path))imageFile;
-+ (UIImage *(^)(NSData *data))imageData;
++ (UIImage *(^)(NSString *name))fromName;
++ (UIImage *(^)(NSString *path))fromFile;
++ (UIImage *(^)(NSData *data))fromData;
 
 @end

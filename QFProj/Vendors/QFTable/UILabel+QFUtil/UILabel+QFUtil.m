@@ -96,25 +96,25 @@
 
 - (void (^)(NSString *color))textColor {
     return ^void (NSString *color) {
-        self.textColor = [UIColor colorWithString:color];
+        self.textColor = UIColor.color(color);
     };
 }
 
 - (void (^)(NSString *color, CGFloat alpha))alTextColor {
     return ^void (NSString *color, CGFloat alpha) {
-        self.textColor = [UIColor colorWithString:color alpha:alpha];
+        self.textColor = UIColor.alColor(color, alpha);
     };
 }
 
 - (void (^)(NSString *color))bgColor {
     return ^void (NSString *color) {
-        self.backgroundColor = [UIColor colorWithString:color];
+        self.backgroundColor = UIColor.color(color);
     };
 }
 
 - (void (^)(NSString *color, CGFloat alpha))alBgColor {
     return ^void (NSString *color, CGFloat alpha) {
-        self.backgroundColor = [UIColor colorWithString:color alpha:alpha];
+        self.backgroundColor = UIColor.alColor(color, alpha);
     };
 }
 

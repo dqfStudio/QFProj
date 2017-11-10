@@ -59,25 +59,25 @@
 
 - (void (^)(NSString *color))titleColor {
     return ^void (NSString *color) {
-        [self setTitleColor:[UIColor colorWithString:color] forState:UIControlStateNormal];
+        [self setTitleColor:UIColor.color(color) forState:UIControlStateNormal];
     };
 }
 
 - (void (^)(NSString *color, CGFloat alpha))alTitleColor {
     return ^void (NSString *color, CGFloat alpha) {
-        [self setTitleColor:[UIColor colorWithString:color alpha:alpha] forState:UIControlStateNormal];
+        [self setTitleColor:UIColor.alColor(color, alpha) forState:UIControlStateNormal];
     };
 }
 
 - (void (^)(NSString *color))bgColor {
     return ^void (NSString *color) {
-        self.backgroundColor = [UIColor colorWithString:color];
+        self.backgroundColor = UIColor.color(color);
     };
 }
 
 - (void (^)(NSString *color, CGFloat alpha))alBgColor {
     return ^void (NSString *color, CGFloat alpha) {
-        self.backgroundColor = [UIColor colorWithString:color alpha:alpha];
+        self.backgroundColor = UIColor.alColor(color, alpha);
     };
 }
 

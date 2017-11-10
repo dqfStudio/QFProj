@@ -27,6 +27,7 @@ const NSString *UA = @"Ios_migu";
 //    {
 //        return [NSString stringWithFormat:@"%@?ua=%@&version=%@", relativeurl, UA, [[MGClient sharedInstance] appVersion]];
 //    }
+    return @"";
 }
 
 @end

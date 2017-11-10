@@ -10,16 +10,16 @@
 
 @interface UIColor (QFUtil)
 
-- (UIColor *)revertColor;
+- (UIColor *(^)(void))revertColor;
 
 //formate : @"#f6ee34" or @"0x45fed2" or @"23, 86, 123, 0.5"
-+ (UIColor *)colorWithString:(NSString *)colorStr alpha:(float)alpha;
-+ (UIColor *)colorWithString:(NSString *)colorStr;
++ (UIColor *(^)(NSString *color))color;
++ (UIColor *(^)(NSString *color, CGFloat alpha))alColor;
 
 //formate : 0x9875a3
-+ (UIColor *)colorWithHex:(int)hex alpha:(float)alpha;
-+ (UIColor *)colorWithHex:(int)hex;
++ (UIColor *(^)(int hex))hexColor;
++ (UIColor *(^)(int hex, int alpha))alHexColor;
 
-+ (UIColor *)random;
++ (UIColor *(^)(void))random;
 
 @end
