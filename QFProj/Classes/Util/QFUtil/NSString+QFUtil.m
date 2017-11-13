@@ -11,13 +11,6 @@
 
 @implementation NSString (QFUtil)
 
-+ (NSString *(^)(const char *))cString {
-    return ^NSString *(const char *c) {
-        return [NSString stringWithCString:c encoding:NSUTF8StringEncoding];
-    };
-}
-
-
 - (NSString *(^)(NSInteger index))index {
     return ^NSString *(NSInteger index) {
         if(index >= 0 && index < self.length) {
@@ -34,6 +27,18 @@
             return [self substringWithRange:range];
         }
         return @"";
+    };
+}
+
++ (NSString *(^)(const char *))fromCString {
+    return ^NSString *(const char *c) {
+        return [NSString stringWithCString:c encoding:NSUTF8StringEncoding];
+    };
+}
+
+- (const char *(^)(void))toCString {
+    return ^const char *(void) {
+        return [self cStringUsingEncoding:NSUTF8StringEncoding];
     };
 }
 
@@ -62,10 +67,36 @@
     };
 }
 
+- (NSString *(^)(NSString *))fromString {
+    return ^NSString *(NSString *org) {
+        if ([self containsString:org]) {
+            NSRange range = [self rangeOfString:org];
+            return [self substringFromIndex:range.location+range.length];
+        }
+        return @"";
+    };
+}
+
+- (NSString *(^)(NSString *))toString {
+    return ^NSString *(NSString *org) {
+        if ([self containsString:org]) {
+            NSRange range = [self rangeOfString:org];
+            return [self substringToIndex:range.location];
+        }
+        return @"";
+    };
+}
+
+- (SEL (^)(void))toSEL {
+    return ^SEL (void) {
+        return NSSelectorFromString(self);
+    };
+}
+
 - (BOOL (^)(NSString *))exist {
     return ^BOOL (NSString *org) {
         BOOL yn = NO;
-        if ([self rangeOfString:org].location != NSNotFound) {
+        if ([self containsString:org]) {
             yn = YES;
         }
         return yn;

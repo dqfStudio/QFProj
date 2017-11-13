@@ -11,13 +11,19 @@
 
 @interface NSString (QFUtil)
 
-+ (NSString *(^)(const char *))cString;
-
 - (NSString *(^)(NSInteger index))index;
 - (NSString *(^)(NSInteger loc, NSInteger len))range;
 
++ (NSString *(^)(const char *))fromCString;
+- (const char *(^)(void))toCString;
+
 - (NSString *(^)(NSInteger loc))fromIndex;
 - (NSString *(^)(NSInteger index))toIndex;
+
+- (NSString *(^)(NSString *))fromString;
+- (NSString *(^)(NSString *))toString;
+
+- (SEL (^)(void))toSEL;
 
 - (BOOL (^)(NSString *))exist;
 
