@@ -11,7 +11,7 @@
 
 @interface NSString (QFUtil)
 
-- (NSString *(^)(const char *))cString;
++ (NSString *(^)(const char *))cString;
 
 - (NSString *(^)(NSInteger index))index;
 - (NSString *(^)(NSInteger loc, NSInteger len))range;

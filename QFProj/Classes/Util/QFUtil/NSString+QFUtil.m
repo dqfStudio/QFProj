@@ -11,7 +11,7 @@
 
 @implementation NSString (QFUtil)
 
-- (NSString *(^)(const char *))cString {
++ (NSString *(^)(const char *))cString {
     return ^NSString *(const char *c) {
         return [NSString stringWithCString:c encoding:NSUTF8StringEncoding];
     };
