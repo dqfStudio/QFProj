@@ -17,6 +17,8 @@
 - (NSString *(^)(NSInteger loc))fromIndex;
 - (NSString *(^)(NSInteger index))toIndex;
 
+- (BOOL (^)(NSString *))exist;
+
 + (NSString *(^)(id))append;
 - (NSString *(^)(id))append;
 

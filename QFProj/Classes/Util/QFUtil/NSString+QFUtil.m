@@ -55,6 +55,16 @@
     };
 }
 
+- (BOOL (^)(NSString *))exist {
+    return ^BOOL (NSString *org) {
+        BOOL yn = NO;
+        if ([self rangeOfString:org].location != NSNotFound) {
+            yn = YES;
+        }
+        return yn;
+    };
+}
+
 + (NSString *(^)(id))append {
     return ^NSString *(id obj) {
         return [NSString stringWithFormat:@"%@",obj];
