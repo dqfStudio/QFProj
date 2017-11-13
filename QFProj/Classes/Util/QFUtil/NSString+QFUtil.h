@@ -24,6 +24,7 @@
 - (NSString *(^)(NSString *, NSUInteger))appendCount;
 
 - (NSString *(^)(NSString *, NSString *))replace;
+- (BOOL (^)(NSString *))equal;
 
 + (NSString *(^)(NSUInteger))space;
 - (NSString *(^)(NSUInteger))space;

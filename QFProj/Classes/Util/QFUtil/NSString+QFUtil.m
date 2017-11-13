@@ -93,6 +93,12 @@
     };
 }
 
+- (BOOL (^)(NSString *))equal {
+    return ^BOOL (NSString *org) {
+        return [self isEqualToString:org];
+    };
+}
+
 //空格
 + (NSString *(^)(NSUInteger))space {
     return ^NSString *(NSUInteger count) {

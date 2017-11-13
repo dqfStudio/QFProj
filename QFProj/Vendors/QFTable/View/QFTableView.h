@@ -12,8 +12,8 @@
 #import "UILabel+QFUtil.h"
 #import "QFSectionModel.h"
 
-typedef void (^QFRefreshBlock)();
-typedef void (^QFLoadMoreBlock)();
+typedef void (^QFRefreshBlock)(void);
+typedef void (^QFLoadMoreBlock)(void);
 
 /**
  *  QFTableView implements some methods in UITableViewDelegate & UITableViewDataSource.
