@@ -11,6 +11,13 @@
 
 @implementation NSString (QFUtil)
 
+- (NSString *(^)(const char *))cString {
+    return ^NSString *(const char *c) {
+        return [NSString stringWithCString:c encoding:NSUTF8StringEncoding];
+    };
+}
+
+
 - (NSString *(^)(NSInteger index))index {
     return ^NSString *(NSInteger index) {
         if(index >= 0 && index < self.length) {
