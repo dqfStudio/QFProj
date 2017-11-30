@@ -16,7 +16,9 @@
 @implementation NSUserDefaults (QFUtil)
 
 + (void)setUserIdentity:(NSString *)aString {
-    if (aString) [[NSUserDefaults standardUserDefaults] setObject:aString forKey:KUserDefaultsKey];
+    [NSUserDefaults saveDefaults:^(NSUserDefaults * _Nullable userDefaults) {
+        [userDefaults setObject:aString forKey:KUserDefaultsKey];
+    }];
 }
 
 + (nullable id)getUserIdentity {
@@ -50,7 +52,9 @@
 }
 
 + (void)setFirstLaunch {
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:KFirstLaunchKey];
+    [NSUserDefaults saveDefaults:^(NSUserDefaults * _Nullable userDefaults) {
+        [userDefaults setBool:YES forKey:KFirstLaunchKey];
+    }];
 }
 
 + (BOOL)isFirstLaunch {
@@ -58,34 +62,32 @@
 }
 
 + (void)setUserFirstLaunch {
-    if ([NSUserDefaults theCUserDefaults]) {
-        [[NSUserDefaults theCUserDefaults] setBool:YES forKey:KUserFirstLaunchKey];
-    }
+    [NSUserDefaults saveTheCDefaults:^(NSUserDefaults * _Nullable theCUserDefaults) {
+        [theCUserDefaults setBool:YES forKey:KUserFirstLaunchKey];
+    }];
 }
 
 + (BOOL)isUserFirstLaunch {
-    if ([NSUserDefaults theCUserDefaults]) {
-        return [[NSUserDefaults theCUserDefaults] boolForKey:KUserFirstLaunchKey];
-    }
+    NSUserDefaults *userDefaults = [NSUserDefaults theCUserDefaults];
+    if (userDefaults) return [userDefaults boolForKey:KUserFirstLaunchKey];
     return NO;
 }
 
 + (void)setUserLogin {
-    if ([NSUserDefaults theCUserDefaults]) {
-        [[NSUserDefaults theCUserDefaults] setBool:YES forKey:KUserLoginKey];
-    }
+    [NSUserDefaults saveTheCDefaults:^(NSUserDefaults * _Nullable theCUserDefaults) {
+        [theCUserDefaults setBool:YES forKey:KUserLoginKey];
+    }];
 }
 
 + (void)setUserLogout {
-    if ([NSUserDefaults theCUserDefaults]) {
-        [[NSUserDefaults theCUserDefaults] setBool:NO forKey:KUserLoginKey];
-    }
+    [NSUserDefaults saveTheCDefaults:^(NSUserDefaults * _Nullable theCUserDefaults) {
+        [theCUserDefaults setBool:NO forKey:KUserLoginKey];
+    }];
 }
 
 + (BOOL)isUserLogin {
-    if ([NSUserDefaults theCUserDefaults]) {
-        return [[NSUserDefaults theCUserDefaults] boolForKey:KUserLoginKey];
-    }
+    NSUserDefaults *userDefaults = [NSUserDefaults theCUserDefaults];
+    if (userDefaults) return [userDefaults boolForKey:KUserLoginKey];
     return NO;
 }
 
