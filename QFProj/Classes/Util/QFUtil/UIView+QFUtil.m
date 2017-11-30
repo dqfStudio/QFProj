@@ -121,6 +121,13 @@ static const void *userInfoAddress = &userInfoAddress;
     return CGRectGetMaxY(self.frame);
 }
 
+- (void)fillWidth {
+    [self setWidth_yy:CGRectGetWidth([UIScreen mainScreen].bounds)];
+}
+
+- (void)fillHeight {
+    [self setHeight_yy:CGRectGetHeight([UIScreen mainScreen].bounds)];
+}
 
 
 

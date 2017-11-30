@@ -53,6 +53,11 @@
 @property (nonatomic, readonly)  CGFloat  maxX_yy;
 @property (nonatomic, readonly)  CGFloat  maxY_yy;
 
+//适配屏幕宽度
+- (void)fillWidth;
+//适配屏幕高度
+- (void)fillHeight;
+
 /**
  *  根据传入的width来水平居中
  */

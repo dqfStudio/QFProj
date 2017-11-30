@@ -11,5 +11,6 @@ target 'QFProj' do
   pod "YPTabBarController"
   pod "Masonry"
   pod "SDWebImage"
+  pod 'AFNetworking',	'~> 3.0'
 
 end
