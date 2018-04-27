@@ -146,6 +146,7 @@
 		15B4DC5A2092A73500773E04 /* UIControl+HSafeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+HSafeUtil.m"; sourceTree = "<group>"; };
 		15B4DC5B2092A73500773E04 /* NSDictionary+HSafeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HSafeUtil.h"; sourceTree = "<group>"; };
 		15B4DC5C2092A73500773E04 /* NSObject+HSafeNotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeNotify.h"; sourceTree = "<group>"; };
+		15B4DC882092B16100773E04 /* QFUtilHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFUtilHeader.h; sourceTree = "<group>"; };
 		6A41D332CA9FDEF05163BCBF /* Pods-QFProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.release.xcconfig"; sourceTree = "<group>"; };
 		C9937C3AA22CB85CADD67BEC /* libPods-QFProj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QFProj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8CC7C9C1725C395D314B6C /* Pods-QFProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.debug.xcconfig"; sourceTree = "<group>"; };
@@ -283,6 +284,7 @@
 		15B4DC002092A73500773E04 /* QFUtil */ = {
 			isa = PBXGroup;
 			children = (
+				15B4DC872092B16100773E04 /* QFUtilHeader */,
 				15B4DC012092A73500773E04 /* HDebugUtil */,
 				15B4DC0D2092A73500773E04 /* UI-Category */,
 				15B4DC322092A73500773E04 /* NS-Category */,
@@ -372,10 +374,10 @@
 		15B4DC2D2092A73500773E04 /* Chain-Category */ = {
 			isa = PBXGroup;
 			children = (
-				15B4DC2E2092A73500773E04 /* UIImage+HChain.m */,
 				15B4DC2F2092A73500773E04 /* UIFont+HChain.h */,
-				15B4DC302092A73500773E04 /* UIImage+HChain.h */,
 				15B4DC312092A73500773E04 /* UIFont+HChain.m */,
+				15B4DC302092A73500773E04 /* UIImage+HChain.h */,
+				15B4DC2E2092A73500773E04 /* UIImage+HChain.m */,
 			);
 			path = "Chain-Category";
 			sourceTree = "<group>";
@@ -452,6 +454,14 @@
 				15B4DC5A2092A73500773E04 /* UIControl+HSafeUtil.m */,
 			);
 			path = HSafeUtil;
+			sourceTree = "<group>";
+		};
+		15B4DC872092B16100773E04 /* QFUtilHeader */ = {
+			isa = PBXGroup;
+			children = (
+				15B4DC882092B16100773E04 /* QFUtilHeader.h */,
+			);
+			path = QFUtilHeader;
 			sourceTree = "<group>";
 		};
 		292F24F0E9A4FFBE24A0F65D /* Frameworks */ = {
