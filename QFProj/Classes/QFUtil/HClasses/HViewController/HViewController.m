@@ -96,24 +96,6 @@
     if (![self prefersStatusBarHidden] && ![self prefersNavigationBarHidden]) {
         _topBarTopPadding = HStatusBarHeight;
     }
-    
-#ifdef __IPHONE_11_0
-    if (@available(iOS 11.0, *)) {
-        for(UIView *subView in self.view.subviews){
-            if ([subView isKindOfClass:[UIScrollView class]]) {
-                ((UIScrollView *)subView).contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-            }
-        }
-    }else{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        self.automaticallyAdjustsScrollViewInsets = NO;
-#pragma clang diagnostic pop
-    }
-#else
-    self.automaticallyAdjustsScrollViewInsets = NO;
-#endif
-    
 }
 + (HVCAppearance *)appearance {
     return [HVCAppearance shared];
@@ -158,6 +140,7 @@
     [self setNeedsStatusBarAppearanceUpdate];
     self.navigationController.interactivePopGestureRecognizer.enabled = [self popGestureEnabled];
     self.navigationController.interactivePopGestureRecognizer.delegate = [HViewControllerMgr shared];
+#ifdef __IPHONE_11_0
     if (@available(iOS 11.0, *)) {
         if ([self.view isKindOfClass:[UIScrollView class]]) {
             [(UIScrollView *)self.view setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
@@ -167,7 +150,15 @@
                 [(UIScrollView *)view setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
             }
         }
+    }else{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        self.automaticallyAdjustsScrollViewInsets = NO;
+#pragma clang diagnostic pop
     }
+#else
+    self.automaticallyAdjustsScrollViewInsets = NO;
+#endif
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -353,7 +344,7 @@
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     self.topBar.hidden = [self prefersNavigationBarHidden];
     self.topBar.backgroundColor = [self preferredNaviBarColor];
-//    self.topBarLine.backgroundColor = [self preferredNaviShadowColor];
+    self.topBarLine.backgroundColor = [self preferredNaviShadowColor];
 }
 
 - (BOOL)prefersNavigationBarHidden {
