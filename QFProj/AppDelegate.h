@@ -2,8 +2,8 @@
 //  AppDelegate.h
 //  QFProj
 //
-//  Created by dqf on 2017/11/7.
-//  Copyright © 2017年 dqfStudio. All rights reserved.
+//  Created by dqf on 2018/4/27.
+//  Copyright © 2018年 dqfStudio. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
