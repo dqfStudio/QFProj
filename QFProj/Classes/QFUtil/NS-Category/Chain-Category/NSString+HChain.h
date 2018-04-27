@@ -35,6 +35,7 @@
 
 - (NSString *(^)(NSString *, NSString *))replace;
 - (BOOL (^)(NSString *))equal;
+- (BOOL (^)(Class))isClass;
 
 + (NSString *(^)(NSUInteger))space;
 - (NSString *(^)(NSUInteger))space;

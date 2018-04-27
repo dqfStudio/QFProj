@@ -58,6 +58,14 @@
 		15B4DE112092F96C00773E04 /* NSArray+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDE32092F96B00773E04 /* NSArray+HSafeUtil.m */; };
 		15B4DE122092F96C00773E04 /* NSObject+HSwizzleUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDE42092F96B00773E04 /* NSObject+HSwizzleUtil.m */; };
 		15B4DE132092F96C00773E04 /* UIControl+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDE52092F96B00773E04 /* UIControl+HSafeUtil.m */; };
+		15B4DE1B209302BF00773E04 /* HGoToApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE15209302BF00773E04 /* HGoToApp.m */; };
+		15B4DE1C209302BF00773E04 /* HGotoRuntimeSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE19209302BF00773E04 /* HGotoRuntimeSupport.m */; };
+		15B4DE1D209302BF00773E04 /* HGoTo.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE1A209302BF00773E04 /* HGoTo.m */; };
+		15B4DE282093034700773E04 /* HGCDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE212093034700773E04 /* HGCDUtil.m */; };
+		15B4DE292093034700773E04 /* NSObject+annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE242093034700773E04 /* NSObject+annotation.m */; };
+		15B4DE2A2093034700773E04 /* HClassManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE262093034700773E04 /* HClassManager.m */; };
+		15B4DE2D209311F900773E04 /* NSObject+HMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE2C209311F900773E04 /* NSObject+HMessy.m */; };
+		15B4DE30209319FA00773E04 /* NSObject+HSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE2F209319FA00773E04 /* NSObject+HSelector.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,6 +169,22 @@
 		15B4DDE52092F96B00773E04 /* UIControl+HSafeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+HSafeUtil.m"; sourceTree = "<group>"; };
 		15B4DDE62092F96B00773E04 /* NSDictionary+HSafeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HSafeUtil.h"; sourceTree = "<group>"; };
 		15B4DDE72092F96B00773E04 /* NSObject+HSafeNotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeNotify.h"; sourceTree = "<group>"; };
+		15B4DE15209302BF00773E04 /* HGoToApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGoToApp.m; sourceTree = "<group>"; };
+		15B4DE16209302BF00773E04 /* HGoTo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGoTo.h; sourceTree = "<group>"; };
+		15B4DE17209302BF00773E04 /* HGotoRuntimeSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGotoRuntimeSupport.h; sourceTree = "<group>"; };
+		15B4DE18209302BF00773E04 /* HGoToApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGoToApp.h; sourceTree = "<group>"; };
+		15B4DE19209302BF00773E04 /* HGotoRuntimeSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGotoRuntimeSupport.m; sourceTree = "<group>"; };
+		15B4DE1A209302BF00773E04 /* HGoTo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGoTo.m; sourceTree = "<group>"; };
+		15B4DE202093034700773E04 /* HGCDUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGCDUtil.h; sourceTree = "<group>"; };
+		15B4DE212093034700773E04 /* HGCDUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGCDUtil.m; sourceTree = "<group>"; };
+		15B4DE232093034700773E04 /* NSObject+annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+annotation.h"; sourceTree = "<group>"; };
+		15B4DE242093034700773E04 /* NSObject+annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+annotation.m"; sourceTree = "<group>"; };
+		15B4DE262093034700773E04 /* HClassManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HClassManager.m; sourceTree = "<group>"; };
+		15B4DE272093034700773E04 /* HClassManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HClassManager.h; sourceTree = "<group>"; };
+		15B4DE2B209311F900773E04 /* NSObject+HMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HMessy.h"; sourceTree = "<group>"; };
+		15B4DE2C209311F900773E04 /* NSObject+HMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HMessy.m"; sourceTree = "<group>"; };
+		15B4DE2E209319FA00773E04 /* NSObject+HSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSelector.h"; sourceTree = "<group>"; };
+		15B4DE2F209319FA00773E04 /* NSObject+HSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSelector.m"; sourceTree = "<group>"; };
 		198663F202B2A8F9F1BB04DD /* libPods-QFProj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QFProj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		873CF97C0644F4B2C23B35F4 /* Pods-QFProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.debug.xcconfig"; sourceTree = "<group>"; };
 		BAE4BCF1B650555967191862 /* Pods-QFProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.release.xcconfig"; sourceTree = "<group>"; };
@@ -224,6 +248,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				15B4DE1E2093034700773E04 /* Features */,
 				15B4DD7E2092F96B00773E04 /* QFUtil */,
 			);
 			path = Classes;
@@ -232,6 +257,7 @@
 		15B4DD7E2092F96B00773E04 /* QFUtil */ = {
 			isa = PBXGroup;
 			children = (
+				15B4DE14209302BF00773E04 /* HGoto */,
 				15B4DD7F2092F96B00773E04 /* QFUtilHeader */,
 				15B4DD832092F96B00773E04 /* HDebugUtil */,
 				15B4DD8F2092F96B00773E04 /* UI-Category */,
@@ -365,6 +391,10 @@
 				15B4DDBE2092F96B00773E04 /* HDataUtil.h */,
 				15B4DDBF2092F96B00773E04 /* NSString+HUtil.h */,
 				15B4DDC02092F96B00773E04 /* NSObject+HUtil.m */,
+				15B4DE2B209311F900773E04 /* NSObject+HMessy.h */,
+				15B4DE2C209311F900773E04 /* NSObject+HMessy.m */,
+				15B4DE2E209319FA00773E04 /* NSObject+HSelector.h */,
+				15B4DE2F209319FA00773E04 /* NSObject+HSelector.m */,
 				15B4DDC12092F96B00773E04 /* HSpeechUtil.h */,
 				15B4DDC22092F96B00773E04 /* NSError+HUtil.m */,
 				15B4DDC32092F96B00773E04 /* NSDate+HUtil.h */,
@@ -444,6 +474,57 @@
 				15B4DDE72092F96B00773E04 /* NSObject+HSafeNotify.h */,
 			);
 			path = HSafeUtil;
+			sourceTree = "<group>";
+		};
+		15B4DE14209302BF00773E04 /* HGoto */ = {
+			isa = PBXGroup;
+			children = (
+				15B4DE16209302BF00773E04 /* HGoTo.h */,
+				15B4DE1A209302BF00773E04 /* HGoTo.m */,
+				15B4DE18209302BF00773E04 /* HGoToApp.h */,
+				15B4DE15209302BF00773E04 /* HGoToApp.m */,
+				15B4DE17209302BF00773E04 /* HGotoRuntimeSupport.h */,
+				15B4DE19209302BF00773E04 /* HGotoRuntimeSupport.m */,
+			);
+			path = HGoto;
+			sourceTree = "<group>";
+		};
+		15B4DE1E2093034700773E04 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				15B4DE1F2093034700773E04 /* GCD+ext */,
+				15B4DE222093034700773E04 /* Annotation */,
+				15B4DE252093034700773E04 /* HClassManager */,
+			);
+			name = Features;
+			path = QFUtil/Features;
+			sourceTree = "<group>";
+		};
+		15B4DE1F2093034700773E04 /* GCD+ext */ = {
+			isa = PBXGroup;
+			children = (
+				15B4DE202093034700773E04 /* HGCDUtil.h */,
+				15B4DE212093034700773E04 /* HGCDUtil.m */,
+			);
+			path = "GCD+ext";
+			sourceTree = "<group>";
+		};
+		15B4DE222093034700773E04 /* Annotation */ = {
+			isa = PBXGroup;
+			children = (
+				15B4DE232093034700773E04 /* NSObject+annotation.h */,
+				15B4DE242093034700773E04 /* NSObject+annotation.m */,
+			);
+			path = Annotation;
+			sourceTree = "<group>";
+		};
+		15B4DE252093034700773E04 /* HClassManager */ = {
+			isa = PBXGroup;
+			children = (
+				15B4DE262093034700773E04 /* HClassManager.m */,
+				15B4DE272093034700773E04 /* HClassManager.h */,
+			);
+			path = HClassManager;
 			sourceTree = "<group>";
 		};
 		667465D0EFC9E0318C9E08FA /* Frameworks */ = {
@@ -598,12 +679,16 @@
 				15B4DDE92092F96C00773E04 /* HDebugUtil.m in Sources */,
 				15B4DE0D2092F96C00773E04 /* NSObject+HSafeNotify.m in Sources */,
 				15B4DE132092F96C00773E04 /* UIControl+HSafeUtil.m in Sources */,
+				15B4DE2D209311F900773E04 /* NSObject+HMessy.m in Sources */,
 				15B4DDF92092F96C00773E04 /* UIScreen+HUtil.m in Sources */,
 				15B4DDF22092F96C00773E04 /* UIButton+HUtil.m in Sources */,
 				15B4DDED2092F96C00773E04 /* UIView+HImage.m in Sources */,
+				15B4DE30209319FA00773E04 /* NSObject+HSelector.m in Sources */,
 				15B4DE0F2092F96C00773E04 /* NSObject+HSafeSEL.m in Sources */,
 				15B4DDEB2092F96C00773E04 /* UIView+HDebug.m in Sources */,
 				15B4DDF62092F96C00773E04 /* UIApplication+HUtil.m in Sources */,
+				15B4DE1B209302BF00773E04 /* HGoToApp.m in Sources */,
+				15B4DE282093034700773E04 /* HGCDUtil.m in Sources */,
 				15B4DE0C2092F96C00773E04 /* NSTimer+HSafeUtil.m in Sources */,
 				15B4DDF12092F96C00773E04 /* UIView+HRelation.m in Sources */,
 				15B4DE002092F96C00773E04 /* NSDate+HUtil.m in Sources */,
@@ -617,7 +702,9 @@
 				15B4DE062092F96C00773E04 /* NSObject+BlockSEL.m in Sources */,
 				15B4DE052092F96C00773E04 /* HHexUtil.m in Sources */,
 				15B4DE0E2092F96C00773E04 /* NSDictionary+HSafeUtil.m in Sources */,
+				15B4DE2A2093034700773E04 /* HClassManager.m in Sources */,
 				15B4DDFD2092F96C00773E04 /* UIFont+HChain.m in Sources */,
+				15B4DE1D209302BF00773E04 /* HGoTo.m in Sources */,
 				15B4DDF02092F96C00773E04 /* UIViewController+HPrinter.m in Sources */,
 				15B4DDEE2092F96C00773E04 /* UIViewController+HBackHandler.m in Sources */,
 				15B4DE022092F96C00773E04 /* NSUserDefaults+HUtil.m in Sources */,
@@ -625,6 +712,7 @@
 				15B4DE082092F96C00773E04 /* HWebButtonView.m in Sources */,
 				15B4DE012092F96C00773E04 /* HSpeechUtil.m in Sources */,
 				15B4DE112092F96C00773E04 /* NSArray+HSafeUtil.m in Sources */,
+				15B4DE1C209302BF00773E04 /* HGotoRuntimeSupport.m in Sources */,
 				15B4DDEF2092F96C00773E04 /* UIViewController+HUtil.m in Sources */,
 				15B4DE0B2092F96C00773E04 /* NSString+HSafeUtil.m in Sources */,
 				15B4DD762092F88700773E04 /* main.m in Sources */,
@@ -637,6 +725,7 @@
 				15B4DDFF2092F96C00773E04 /* HDataUtil.m in Sources */,
 				15B4DE032092F96C00773E04 /* NSObject+HUtil.m in Sources */,
 				15B4DE102092F96C00773E04 /* HNotiCenter.m in Sources */,
+				15B4DE292093034700773E04 /* NSObject+annotation.m in Sources */,
 				15B4DDF32092F96C00773E04 /* UIView+HUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

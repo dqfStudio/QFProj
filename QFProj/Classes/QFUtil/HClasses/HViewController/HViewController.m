@@ -151,10 +151,9 @@
             }
         }
     }else{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        self.automaticallyAdjustsScrollViewInsets = NO;
-#pragma clang diagnostic pop
+        SuppressWdeprecatedDeclarationsWarning(
+            self.automaticallyAdjustsScrollViewInsets = NO;
+        );
     }
 #else
     self.automaticallyAdjustsScrollViewInsets = NO;

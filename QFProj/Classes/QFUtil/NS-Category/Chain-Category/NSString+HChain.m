@@ -146,6 +146,12 @@
     };
 }
 
+- (BOOL (^)(Class))isClass {
+    return ^BOOL (Class aClass) {
+        return [self isKindOfClass:aClass];
+    };
+}
+
 //空格
 + (NSString *(^)(NSUInteger))space {
     return ^NSString *(NSUInteger count) {
