@@ -53,6 +53,10 @@
 		15B4DC832092A73500773E04 /* NSArray+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DC582092A73500773E04 /* NSArray+HSafeUtil.m */; };
 		15B4DC842092A73500773E04 /* NSObject+HSwizzleUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DC592092A73500773E04 /* NSObject+HSwizzleUtil.m */; };
 		15B4DC852092A73500773E04 /* UIControl+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DC5A2092A73500773E04 /* UIControl+HSafeUtil.m */; };
+		15B4DCAF2092C8B300773E04 /* NSError+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DCAE2092C8B300773E04 /* NSError+HUtil.m */; };
+		15B4DCBF2092F4BE00773E04 /* HViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DCB82092F4BE00773E04 /* HViewController.m */; };
+		15B4DCC02092F4BE00773E04 /* HWebButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DCBC2092F4BE00773E04 /* HWebButtonView.m */; };
+		15B4DCC12092F4BE00773E04 /* HWebImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DCBD2092F4BE00773E04 /* HWebImageView.m */; };
 		DD1C22381329184AD35CCA46 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9937C3AA22CB85CADD67BEC /* libPods-QFProj.a */; };
 /* End PBXBuildFile section */
 
@@ -147,6 +151,16 @@
 		15B4DC5B2092A73500773E04 /* NSDictionary+HSafeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HSafeUtil.h"; sourceTree = "<group>"; };
 		15B4DC5C2092A73500773E04 /* NSObject+HSafeNotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeNotify.h"; sourceTree = "<group>"; };
 		15B4DC882092B16100773E04 /* QFUtilHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFUtilHeader.h; sourceTree = "<group>"; };
+		15B4DCAB2092C7BF00773E04 /* HCommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommonDefine.h; sourceTree = "<group>"; };
+		15B4DCAC2092C7BF00773E04 /* HCommonBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommonBlock.h; sourceTree = "<group>"; };
+		15B4DCAD2092C8B200773E04 /* NSError+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+HUtil.h"; sourceTree = "<group>"; };
+		15B4DCAE2092C8B300773E04 /* NSError+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+HUtil.m"; sourceTree = "<group>"; };
+		15B4DCB82092F4BE00773E04 /* HViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HViewController.m; sourceTree = "<group>"; };
+		15B4DCB92092F4BE00773E04 /* HViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HViewController.h; sourceTree = "<group>"; };
+		15B4DCBB2092F4BE00773E04 /* HWebImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebImageView.h; sourceTree = "<group>"; };
+		15B4DCBC2092F4BE00773E04 /* HWebButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebButtonView.m; sourceTree = "<group>"; };
+		15B4DCBD2092F4BE00773E04 /* HWebImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebImageView.m; sourceTree = "<group>"; };
+		15B4DCBE2092F4BE00773E04 /* HWebButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebButtonView.h; sourceTree = "<group>"; };
 		6A41D332CA9FDEF05163BCBF /* Pods-QFProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.release.xcconfig"; sourceTree = "<group>"; };
 		C9937C3AA22CB85CADD67BEC /* libPods-QFProj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QFProj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8CC7C9C1725C395D314B6C /* Pods-QFProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +181,7 @@
 		1566EE4B1FB190AC001FBE1D = {
 			isa = PBXGroup;
 			children = (
+				15B4DC982092BEC500773E04 /* Vendors */,
 				1566EE6E1FB191C4001FBE1D /* Classes */,
 				292F24F0E9A4FFBE24A0F65D /* Frameworks */,
 				98DAACCCF7D509246CB4FA10 /* Pods */,
@@ -284,6 +299,7 @@
 		15B4DC002092A73500773E04 /* QFUtil */ = {
 			isa = PBXGroup;
 			children = (
+				15B4DCB32092DDFC00773E04 /* HClasses */,
 				15B4DC872092B16100773E04 /* QFUtilHeader */,
 				15B4DC012092A73500773E04 /* HDebugUtil */,
 				15B4DC0D2092A73500773E04 /* UI-Category */,
@@ -395,6 +411,8 @@
 		15B4DC332092A73500773E04 /* Ext-Category */ = {
 			isa = PBXGroup;
 			children = (
+				15B4DCAD2092C8B200773E04 /* NSError+HUtil.h */,
+				15B4DCAE2092C8B300773E04 /* NSError+HUtil.m */,
 				15B4DC342092A73500773E04 /* NSString+HUtil.m */,
 				15B4DC352092A73500773E04 /* NSObject+HUtil.h */,
 				15B4DC362092A73500773E04 /* HDataUtil.m */,
@@ -460,8 +478,47 @@
 			isa = PBXGroup;
 			children = (
 				15B4DC882092B16100773E04 /* QFUtilHeader.h */,
+				15B4DCAC2092C7BF00773E04 /* HCommonBlock.h */,
+				15B4DCAB2092C7BF00773E04 /* HCommonDefine.h */,
 			);
 			path = QFUtilHeader;
+			sourceTree = "<group>";
+		};
+		15B4DC982092BEC500773E04 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Vendors;
+			path = QFProj/Vendors;
+			sourceTree = "<group>";
+		};
+		15B4DCB32092DDFC00773E04 /* HClasses */ = {
+			isa = PBXGroup;
+			children = (
+				15B4DCB72092F4BE00773E04 /* HViewController */,
+				15B4DCBA2092F4BE00773E04 /* HWebClasses */,
+			);
+			path = HClasses;
+			sourceTree = "<group>";
+		};
+		15B4DCB72092F4BE00773E04 /* HViewController */ = {
+			isa = PBXGroup;
+			children = (
+				15B4DCB92092F4BE00773E04 /* HViewController.h */,
+				15B4DCB82092F4BE00773E04 /* HViewController.m */,
+			);
+			path = HViewController;
+			sourceTree = "<group>";
+		};
+		15B4DCBA2092F4BE00773E04 /* HWebClasses */ = {
+			isa = PBXGroup;
+			children = (
+				15B4DCBE2092F4BE00773E04 /* HWebButtonView.h */,
+				15B4DCBC2092F4BE00773E04 /* HWebButtonView.m */,
+				15B4DCBB2092F4BE00773E04 /* HWebImageView.h */,
+				15B4DCBD2092F4BE00773E04 /* HWebImageView.m */,
+			);
+			path = HWebClasses;
 			sourceTree = "<group>";
 		};
 		292F24F0E9A4FFBE24A0F65D /* Frameworks */ = {
@@ -622,7 +679,9 @@
 				15B4DC6F2092A73500773E04 /* UILabel+HUtil.m in Sources */,
 				1566EE5C1FB190AC001FBE1D /* ViewController.m in Sources */,
 				15B4DC712092A73500773E04 /* UIImage+HChain.m in Sources */,
+				15B4DCC02092F4BE00773E04 /* HWebButtonView.m in Sources */,
 				15B4DC5E2092A73500773E04 /* HDebugUtil.m in Sources */,
+				15B4DCC12092F4BE00773E04 /* HWebImageView.m in Sources */,
 				15B4DC632092A73500773E04 /* UIViewController+HBackHandler.m in Sources */,
 				15B4DC7B2092A73500773E04 /* NSString+HChain.m in Sources */,
 				15B4DC602092A73500773E04 /* UIView+HDebug.m in Sources */,
@@ -635,6 +694,8 @@
 				15B4DC7E2092A73500773E04 /* NSObject+HSafeNotify.m in Sources */,
 				15B4DC5F2092A73500773E04 /* HDebugView.m in Sources */,
 				15B4DC732092A73500773E04 /* NSString+HUtil.m in Sources */,
+				15B4DCAF2092C8B300773E04 /* NSError+HUtil.m in Sources */,
+				15B4DCBF2092F4BE00773E04 /* HViewController.m in Sources */,
 				15B4DC6B2092A73500773E04 /* UIApplication+HUtil.m in Sources */,
 				15B4DC722092A73500773E04 /* UIFont+HChain.m in Sources */,
 				15B4DC652092A73500773E04 /* UIViewController+HPrinter.m in Sources */,
