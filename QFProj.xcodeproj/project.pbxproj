@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1522ECF7BA769D2B965B8FE0 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 198663F202B2A8F9F1BB04DD /* libPods-QFProj.a */; };
+		1538FFA5209405CC002E3A29 /* HFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1538FFA3209405CC002E3A29 /* HFileCache.m */; };
+		1538FFA92094065A002E3A29 /* NSFileManager+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1538FFA72094065A002E3A29 /* NSFileManager+HUtil.m */; };
 		15B4DD682092F88700773E04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD672092F88700773E04 /* AppDelegate.m */; };
 		15B4DD6B2092F88700773E04 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD6A2092F88700773E04 /* ViewController.m */; };
 		15B4DD6E2092F88700773E04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B4DD6C2092F88700773E04 /* Main.storyboard */; };
@@ -69,6 +71,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1538FFA3209405CC002E3A29 /* HFileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFileCache.m; sourceTree = "<group>"; };
+		1538FFA4209405CC002E3A29 /* HFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFileCache.h; sourceTree = "<group>"; };
+		1538FFA72094065A002E3A29 /* NSFileManager+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+HUtil.m"; sourceTree = "<group>"; };
+		1538FFA82094065A002E3A29 /* NSFileManager+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+HUtil.h"; sourceTree = "<group>"; };
 		15B4DD632092F88700773E04 /* QFProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QFProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15B4DD662092F88700773E04 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		15B4DD672092F88700773E04 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -202,6 +208,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1538FFA2209405CC002E3A29 /* HCache */ = {
+			isa = PBXGroup;
+			children = (
+				1538FFA4209405CC002E3A29 /* HFileCache.h */,
+				1538FFA3209405CC002E3A29 /* HFileCache.m */,
+			);
+			name = HCache;
+			path = QFUtil/HCache;
+			sourceTree = "<group>";
+		};
+		1538FFA62094065A002E3A29 /* NSFileManager+HUtil */ = {
+			isa = PBXGroup;
+			children = (
+				1538FFA72094065A002E3A29 /* NSFileManager+HUtil.m */,
+				1538FFA82094065A002E3A29 /* NSFileManager+HUtil.h */,
+			);
+			name = "NSFileManager+HUtil";
+			path = "QFUtil/NSFileManager+HUtil";
+			sourceTree = "<group>";
+		};
 		15B4DD5A2092F88700773E04 = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +274,8 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1538FFA62094065A002E3A29 /* NSFileManager+HUtil */,
+				1538FFA2209405CC002E3A29 /* HCache */,
 				15B4DE1E2093034700773E04 /* Features */,
 				15B4DD7E2092F96B00773E04 /* QFUtil */,
 			);
@@ -687,6 +715,8 @@
 				15B4DE0F2092F96C00773E04 /* NSObject+HSafeSEL.m in Sources */,
 				15B4DDEB2092F96C00773E04 /* UIView+HDebug.m in Sources */,
 				15B4DDF62092F96C00773E04 /* UIApplication+HUtil.m in Sources */,
+				1538FFA92094065A002E3A29 /* NSFileManager+HUtil.m in Sources */,
+				1538FFA5209405CC002E3A29 /* HFileCache.m in Sources */,
 				15B4DE1B209302BF00773E04 /* HGoToApp.m in Sources */,
 				15B4DE282093034700773E04 /* HGCDUtil.m in Sources */,
 				15B4DE0C2092F96C00773E04 /* NSTimer+HSafeUtil.m in Sources */,
