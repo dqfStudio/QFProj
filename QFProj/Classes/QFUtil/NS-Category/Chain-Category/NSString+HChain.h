@@ -57,7 +57,7 @@
 
 
 
-- (BOOL (^)(NSString *))exist;
+- (BOOL (^)(NSString *))contains;
 
 + (NSString *(^)(id))append;
 - (NSString *(^)(id))append;

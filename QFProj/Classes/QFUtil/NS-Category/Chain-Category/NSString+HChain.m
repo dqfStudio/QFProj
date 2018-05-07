@@ -180,7 +180,7 @@
     };
 }
 
-- (BOOL (^)(NSString *))exist {
+- (BOOL (^)(NSString *))contains {
     return ^BOOL (NSString *org) {
         BOOL yn = NO;
         if ([self containsString:org]) {
