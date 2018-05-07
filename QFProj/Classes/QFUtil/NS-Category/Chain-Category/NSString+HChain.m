@@ -124,6 +124,17 @@
     };
 }
 
+- (NSString *(^)(NSString *format, ...))appendFormat {
+    return ^NSString *(NSString *format, ...) {
+        va_list arguments;
+        va_start(arguments, format);
+        NSString *string = [[NSString alloc] initWithFormat:format arguments:arguments];
+        string = [NSString stringWithFormat:@"%@%@", self,string];
+        va_end(arguments);
+        return string;
+    };
+}
+
 + (NSString *(^)(NSString *, NSUInteger))appendCount {
     return ^NSString *(NSString *org, NSUInteger count) {
         NSMutableString *mutableStr = [[NSMutableString alloc] init];

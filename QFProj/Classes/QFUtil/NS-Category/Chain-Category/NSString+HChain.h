@@ -31,6 +31,7 @@
 
 + (NSString *(^)(id))append;
 - (NSString *(^)(id))append;
+- (NSString *(^)(NSString *format, ...))appendFormat;
 
 + (NSString *(^)(NSString *, NSUInteger))appendCount;
 - (NSString *(^)(NSString *, NSUInteger))appendCount;
