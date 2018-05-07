@@ -12,6 +12,7 @@
 #import "NSString+HUtil.h"
 #import "NSString+HChain.h"
 #import "NSError+HUtil.h"
+#import "HAutoFill.h"
 
 @interface HGoToPathNode : NSObject
 @property (nonatomic) NSString *name;
@@ -266,33 +267,7 @@
             if ([options containsObject:HGOtoOpt_AutoFill]) {
                 NSDictionary *params = [node paramsMap];
                 NSDictionary *keyMaping = [self getOptKeyMap:options];
-                NSArray<HGOTOPropertyDetail *> *pplist = [HGotoRuntimeSupport entityPropertyDetailList:targetVC.class isDepSearch:YES];
-                for (HGOTOPropertyDetail *ppDetail in pplist) {
-                    NSString *mappedKey = nil;
-                    if (keyMaping) mappedKey = keyMaping[ppDetail.name];
-                    if (!mappedKey) mappedKey = ppDetail.name;
-                    
-                    id value = [params valueForKeyPath:mappedKey];
-                    if (value) {
-                        if ([value isKindOfClass:[NSNull class]]) {
-                            continue;
-                        }else if ([value isKindOfClass:[NSString class]]) {
-
-                            if (ppDetail.typeString.equal([NSString className]) || ppDetail.typeString.equal([NSMutableString className])) {
-                                [targetVC setValue:[value stringValue] forKey:ppDetail.name];
-                            }
-                            else if (!ppDetail.isObj || ppDetail.typeString.equal([NSNumber className])) {
-                                NSNumber *valueNum = [NSNumber numberFrom:value];
-                                [targetVC setValue:valueNum forKey:ppDetail.name];
-                            }
-                            else if (ppDetail.typeString.equal([NSDate className])) {
-                                //NSDate
-                                double date = [value floatValue];
-                                [targetVC setValue:[NSDate dateWithTimeIntervalSince1970:date] forKey:ppDetail.name];
-                            }
-                        }
-                    }
-                }
+                [HAutoFill autoFill:targetVC params:params map:keyMaping];
             }
             if (doJump) {
                 if (needPopAction) {
