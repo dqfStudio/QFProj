@@ -72,6 +72,7 @@
 		15B4DE2D209311F900773E04 /* NSObject+HMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE2C209311F900773E04 /* NSObject+HMessy.m */; };
 		15B4DE30209319FA00773E04 /* NSObject+HSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE2F209319FA00773E04 /* NSObject+HSelector.m */; };
 		15F9150F209FFC72000261C4 /* HAutoFill.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9150E209FFC72000261C4 /* HAutoFill.m */; };
+		FA132F2E0DBBEBCEAB4DD605 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7235EB0999D2734240C39A5 /* libPods-QFProj.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -205,6 +206,9 @@
 		15B4DE2F209319FA00773E04 /* NSObject+HSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSelector.m"; sourceTree = "<group>"; };
 		15F9150D209FFC72000261C4 /* HAutoFill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAutoFill.h; sourceTree = "<group>"; };
 		15F9150E209FFC72000261C4 /* HAutoFill.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAutoFill.m; sourceTree = "<group>"; };
+		43A688A5E5047C6F16E79F28 /* Pods-QFProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.debug.xcconfig"; sourceTree = "<group>"; };
+		D7235EB0999D2734240C39A5 /* libPods-QFProj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QFProj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA4C553098380B8CBAEFDCB2 /* Pods-QFProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +216,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA132F2E0DBBEBCEAB4DD605 /* libPods-QFProj.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +263,8 @@
 			children = (
 				15B4DD652092F88700773E04 /* QFProj */,
 				15B4DD642092F88700773E04 /* Products */,
+				4AC0DC885695D022B9A7DE71 /* Pods */,
+				74A420CFC6CE86A9E55C6D18 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -581,6 +588,23 @@
 			path = HClassManager;
 			sourceTree = "<group>";
 		};
+		4AC0DC885695D022B9A7DE71 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				43A688A5E5047C6F16E79F28 /* Pods-QFProj.debug.xcconfig */,
+				EA4C553098380B8CBAEFDCB2 /* Pods-QFProj.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		74A420CFC6CE86A9E55C6D18 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D7235EB0999D2734240C39A5 /* libPods-QFProj.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -588,9 +612,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15B4DD792092F88700773E04 /* Build configuration list for PBXNativeTarget "QFProj" */;
 			buildPhases = (
+				5E4DACE8043A2C12E8D76FF8 /* [CP] Check Pods Manifest.lock */,
 				15B4DD5F2092F88700773E04 /* Sources */,
 				15B4DD602092F88700773E04 /* Frameworks */,
 				15B4DD612092F88700773E04 /* Resources */,
+				A8AC35DF613F718880AD0CE7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -647,6 +673,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5E4DACE8043A2C12E8D76FF8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QFProj-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A8AC35DF613F718880AD0CE7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-QFProj/Pods-QFProj-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QFProj/Pods-QFProj-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		15B4DD5F2092F88700773E04 /* Sources */ = {
@@ -845,6 +910,7 @@
 		};
 		15B4DD7A2092F88700773E04 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43A688A5E5047C6F16E79F28 /* Pods-QFProj.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -859,6 +925,7 @@
 		};
 		15B4DD7B2092F88700773E04 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA4C553098380B8CBAEFDCB2 /* Pods-QFProj.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

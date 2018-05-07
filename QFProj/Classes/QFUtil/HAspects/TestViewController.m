@@ -7,8 +7,7 @@
 //
 
 #import "TestViewController.h"
-//#import <Aspects/Aspects.h>
-#import "Aspects/Aspects.h"
+#import <Aspects/Aspects.h>
 #import "MightyCrash.h"
 #import "Felix.h"
 
