@@ -16,19 +16,46 @@
 
 + (NSString *(^)(NSString *format, ...))format;
 
+
+
 + (NSString *(^)(Class))fromClass;
 - (Class(^)(void))toClass;
+
++ (NSString *(^)(CGRect))fromRect;
+- (CGRect(^)(void))toRect;
+
+
++ (NSString *(^)(CGSize))fromSize;
+- (CGSize(^)(void))toSize;
+
++ (NSString *(^)(CGPoint))fromPoint;
+- (CGPoint(^)(void))toPoint;
+
+
+
+
++ (NSString *(^)(NSRange))fromRange;
+- (NSRange(^)(void))toRange;
+
++ (NSString *(^)(SEL))fromSelector;
+- (SEL(^)(void))toSelector;
+
+
++ (NSString *(^)(Protocol *))fromProtocol;
+- (Protocol *(^)(void))toProtocol;
 
 + (NSString *(^)(const char *))fromCString;
 - (const char *(^)(void))toCString;
 
+
+
 - (NSString *(^)(NSInteger loc))fromIndex;
 - (NSString *(^)(NSInteger index))toIndex;
 
-- (NSString *(^)(NSString *))fromString;
-- (NSString *(^)(NSString *))toString;
+- (NSString *(^)(NSString *))fromSubString;
+- (NSString *(^)(NSString *))toSubString;
 
-- (SEL (^)(void))toSEL;
+
 
 - (BOOL (^)(NSString *))exist;
 
@@ -61,7 +88,5 @@
 
 - (NSString *)objectAtIndexedSubscript:(NSInteger)index;
 - (NSString *)objectForKeyedSubscript:(NSString *)key;
-
-- (NSRange (^)(void))toRange;
 
 @end

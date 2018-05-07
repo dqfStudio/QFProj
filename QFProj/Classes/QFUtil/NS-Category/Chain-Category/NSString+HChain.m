@@ -51,6 +51,78 @@
     };
 }
 
++ (NSString *(^)(CGRect))fromRect {
+    return ^NSString *(CGRect rect) {
+        return NSStringFromCGRect(rect);
+    };
+}
+
+- (CGRect(^)(void))toRect {
+    return ^CGRect(void) {
+        return CGRectFromString(self);
+    };
+}
+
++ (NSString *(^)(CGSize))fromSize {
+    return ^NSString *(CGSize size) {
+        return NSStringFromCGSize(size);
+    };
+}
+
+- (CGSize(^)(void))toSize {
+    return ^CGSize(void) {
+        return CGSizeFromString(self);
+    };
+}
+
++ (NSString *(^)(CGPoint))fromPoint {
+    return ^NSString *(CGPoint point) {
+        return NSStringFromCGPoint(point);
+    };
+}
+
+- (CGPoint(^)(void))toPoint {
+    return ^CGPoint(void) {
+        return CGPointFromString(self);
+    };
+}
+
++ (NSString *(^)(NSRange))fromRange {
+    return ^NSString *(NSRange range) {
+        return NSStringFromRange(range);
+    };
+}
+
+- (NSRange(^)(void))toRange {
+    return ^NSRange(void) {
+        return NSRangeFromString(self);
+    };
+}
+
++ (NSString *(^)(SEL))fromSelector {
+    return ^NSString *(SEL aSelector) {
+        return NSStringFromSelector(aSelector);
+    };
+}
+
+- (SEL(^)(void))toSelector {
+    return ^SEL(void) {
+        return NSSelectorFromString(self);
+    };
+}
+
++ (NSString *(^)(Protocol *))fromProtocol {
+    return ^NSString *(Protocol *proto) {
+        return NSStringFromProtocol(proto);
+    };
+}
+
+- (Protocol *(^)(void))toProtocol {
+    return ^Protocol *(void) {
+        return NSProtocolFromString(self);
+    };
+}
+
 + (NSString *(^)(const char *))fromCString {
     return ^NSString *(const char *c) {
         return [NSString stringWithCString:c encoding:NSUTF8StringEncoding];
@@ -88,7 +160,7 @@
     };
 }
 
-- (NSString *(^)(NSString *))fromString {
+- (NSString *(^)(NSString *))fromSubString {
     return ^NSString *(NSString *org) {
         if ([self containsString:org]) {
             NSRange range = [self rangeOfString:org];
@@ -98,19 +170,13 @@
     };
 }
 
-- (NSString *(^)(NSString *))toString {
+- (NSString *(^)(NSString *))toSubString {
     return ^NSString *(NSString *org) {
         if ([self containsString:org]) {
             NSRange range = [self rangeOfString:org];
             return [self substringToIndex:range.location];
         }
         return @"";
-    };
-}
-
-- (SEL (^)(void))toSEL {
-    return ^SEL (void) {
-        return NSSelectorFromString(self);
     };
 }
 
@@ -296,12 +362,6 @@
         return NSStringFromRange([self rangeOfString:key]);
     }
     return @"";
-}
-
-- (NSRange (^)(void))toRange {
-    return ^NSRange (void) {
-        return NSRangeFromString(self);
-    };
 }
 
 @end
