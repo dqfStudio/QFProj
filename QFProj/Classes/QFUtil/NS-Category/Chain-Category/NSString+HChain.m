@@ -29,6 +29,16 @@
     };
 }
 
++ (NSString *(^)(NSString *format, ...))format {
+    return ^NSString *(NSString *format, ...) {
+        va_list arguments;
+        va_start(arguments, format);
+        NSString *string = [[NSString alloc] initWithFormat:format arguments:arguments];
+        va_end(arguments);
+        return string;
+    };
+}
+
 + (NSString *(^)(const char *))fromCString {
     return ^NSString *(const char *c) {
         return [NSString stringWithCString:c encoding:NSUTF8StringEncoding];

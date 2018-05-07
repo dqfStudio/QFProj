@@ -14,6 +14,8 @@
 - (NSString *(^)(NSInteger index))index;
 - (NSString *(^)(NSInteger loc, NSInteger len))range;
 
++ (NSString *(^)(NSString *format, ...))format;
+
 + (NSString *(^)(const char *))fromCString;
 - (const char *(^)(void))toCString;
 
