@@ -10,8 +10,23 @@
 #import <objc/runtime.h>
 
 @implementation NSObject (HMessy)
-+ (NSString *)className {
-    return NSStringFromClass(self.class);;
++ (NSString *(^)(void))name {
+    return ^NSString *(void) {
+        return NSStringFromClass(self.class);;
+    };
+}
+@end
+
+@implementation NSString (HMessy)
+- (BOOL)isEqualToArrayAny:(NSArray *)array {
+    __block BOOL isContained = NO;
+    [array enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:[NSString class]] && [self isEqualToString:obj]) {
+            isContained = YES;
+            *stop = YES;
+        }
+    }];
+    return isContained;
 }
 @end
 

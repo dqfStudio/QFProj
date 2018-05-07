@@ -22,13 +22,13 @@
         if (!mappedKey) mappedKey = ppDetail.name;
         id value = [params valueForKey:mappedKey];
         if (value && [value isKindOfClass:[NSString class]]) {
-            if ([ppDetail.typeString isEqualToString:[NSString className]] || [ppDetail.typeString isEqualToString:[NSMutableString className]]) {
+            if ([ppDetail.typeString isEqualToArrayAny:@[NSString.name(), NSMutableString.name()]]) {
                 [cls setValue:value forKey:ppDetail.name];
             }
-            else if (!ppDetail.isObj || [ppDetail.typeString isEqualToString:[NSNumber className]]) {
+            else if (!ppDetail.isObj || [ppDetail.typeString isEqualToString:NSNumber.name()]) {
                 [cls setValue:[NSNumber numberFrom:value] forKey:ppDetail.name];
             }
-            else if ([ppDetail.typeString isEqualToString:[NSDate className]]) {
+            else if ([ppDetail.typeString isEqualToString:NSDate.name()]) {
                 [cls setValue:[NSDate dateWithTimeIntervalSince1970:[value floatValue]] forKey:ppDetail.name];
             }
         }

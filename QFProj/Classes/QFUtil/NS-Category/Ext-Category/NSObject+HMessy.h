@@ -10,7 +10,11 @@
 #import <UIKit/UIKit.h>
 
 @interface NSObject (HMessy)
-+ (NSString *)className;
++ (NSString *(^)(void))name;
+@end
+
+@interface NSString (HMessy)
+- (BOOL)isEqualToArrayAny:(NSArray *)array;
 @end
 
 @interface NSArray (HMessy)
