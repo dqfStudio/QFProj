@@ -78,6 +78,20 @@
     objc_setAssociatedObject(self, @selector(imgUrl), imgUrl, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+- (NSInteger)leftSpace {
+    return [objc_getAssociatedObject(self, _cmd) integerValue];
+}
+- (void)setLeftSpace:(NSInteger)leftSpace {
+    objc_setAssociatedObject(self, @selector(leftSpace), @(leftSpace), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (NSInteger)rightSpace {
+    return [objc_getAssociatedObject(self, _cmd) integerValue];
+}
+- (void)setRightSpace:(NSInteger)rightSpace {
+    objc_setAssociatedObject(self, @selector(rightSpace), @(rightSpace), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 - (NSString *)underlineStr {
     return objc_getAssociatedObject(self, _cmd);
 }
@@ -161,7 +175,20 @@
     //插入图片
     if (self.imgUrl.length > 0 && ![NSStringFromCGSize(self.imgSize) isEqualToString:NSStringFromCGSize(CGSizeZero)]) {
         NSTextAttachment   *attch  = [[NSTextAttachment alloc] init];
-        NSAttributedString *string = [NSAttributedString attributedStringWithAttachment:attch];
+        NSAttributedString *imageString = [NSAttributedString attributedStringWithAttachment:attch];
+        NSMutableAttributedString *leftSpaceString = [[NSMutableAttributedString alloc] init];
+        NSMutableAttributedString *rightSpaceString = [[NSMutableAttributedString alloc] init];
+        for (int i=0; i<self.leftSpace; i++) {
+            [leftSpaceString appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+        }
+        for (int i=0; i<self.rightSpace; i++) {
+            [rightSpaceString appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+        }
+        
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] init];
+        [string appendAttributedString:leftSpaceString];
+        [string appendAttributedString:imageString];
+        [string appendAttributedString:rightSpaceString];
         
         if ([self.imgUrl containsString:@"http://"] || [self.imgUrl containsString:@"https://"]) {
 //            [self loadImageForUrl:url toAttach:attch syncLoadCache:NO range:range text:temp];

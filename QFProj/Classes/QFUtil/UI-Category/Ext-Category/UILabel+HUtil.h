@@ -31,6 +31,8 @@ typedef NS_ENUM(NSInteger, NSWordAlign) {
 @property (nonatomic, assign) NSWordAlign wordAlign;
 @property (nonatomic, assign) CGSize      imgSize;
 @property (nonatomic, strong) NSString    *imgUrl;
+@property (nonatomic, assign) NSInteger   leftSpace;
+@property (nonatomic, assign) NSInteger   rightSpace;
 
 //下划线
 @property (nonatomic, copy)   NSString *underlineStr;
