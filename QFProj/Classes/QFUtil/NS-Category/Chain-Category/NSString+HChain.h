@@ -16,6 +16,9 @@
 
 + (NSString *(^)(NSString *format, ...))format;
 
++ (NSString *(^)(Class))fromClass;
+- (Class(^)(void))toClass;
+
 + (NSString *(^)(const char *))fromCString;
 - (const char *(^)(void))toCString;
 

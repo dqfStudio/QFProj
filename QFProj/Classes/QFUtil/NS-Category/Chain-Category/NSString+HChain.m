@@ -39,6 +39,18 @@
     };
 }
 
++ (NSString *(^)(Class))fromClass {
+    return ^NSString *(Class class) {
+        return NSStringFromClass(class);
+    };
+}
+
+- (Class(^)(void))toClass {
+    return ^Class(void) {
+        return NSClassFromString(self);
+    };
+}
+
 + (NSString *(^)(const char *))fromCString {
     return ^NSString *(const char *c) {
         return [NSString stringWithCString:c encoding:NSUTF8StringEncoding];
