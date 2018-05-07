@@ -7,9 +7,14 @@
 //
 
 #import "ViewController.h"
+#import "HAutoFill.h"
 
 @interface ViewController ()
-
+@property (nonatomic) NSString *TestString;
+@property (nonatomic) BOOL yn;
+@property (nonatomic) NSInteger ff;
+@property (nonatomic) NSNumber *ww;
+@property (nonatomic) NSDate *date;
 @end
 
 @implementation ViewController
@@ -17,6 +22,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    [dict setObject:@"test" forKey:@"TestString"];
+    [dict setObject:@"1" forKey:@"yn"];
+    [dict setObject:@"22" forKey:@"ff"];
+    [dict setObject:@"333" forKey:@"www"];
+    [dict setObject:@"11111111" forKey:@"date"];
+    
+    NSMutableDictionary *dict2 = [[NSMutableDictionary alloc] init];
+    [dict2 setObject:@"www" forKey:@"ww"];
+    [HAutoFill autoFill:self params:dict map:dict2];
+    
+    NSLog(@"%@",self.TestString);
+    NSLog(@"%d",self.yn);
+    NSLog(@"%ld",self.ff);
+    NSLog(@"%@",self.ww);
+    NSLog(@"%@",self.date);
 }
 
 

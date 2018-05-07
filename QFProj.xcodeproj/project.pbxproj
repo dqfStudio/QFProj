@@ -68,6 +68,7 @@
 		15B4DE2A2093034700773E04 /* HClassManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE262093034700773E04 /* HClassManager.m */; };
 		15B4DE2D209311F900773E04 /* NSObject+HMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE2C209311F900773E04 /* NSObject+HMessy.m */; };
 		15B4DE30209319FA00773E04 /* NSObject+HSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE2F209319FA00773E04 /* NSObject+HSelector.m */; };
+		15F9150F209FFC72000261C4 /* HAutoFill.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9150E209FFC72000261C4 /* HAutoFill.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -191,6 +192,8 @@
 		15B4DE2C209311F900773E04 /* NSObject+HMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HMessy.m"; sourceTree = "<group>"; };
 		15B4DE2E209319FA00773E04 /* NSObject+HSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSelector.h"; sourceTree = "<group>"; };
 		15B4DE2F209319FA00773E04 /* NSObject+HSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSelector.m"; sourceTree = "<group>"; };
+		15F9150D209FFC72000261C4 /* HAutoFill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAutoFill.h; sourceTree = "<group>"; };
+		15F9150E209FFC72000261C4 /* HAutoFill.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAutoFill.m; sourceTree = "<group>"; };
 		198663F202B2A8F9F1BB04DD /* libPods-QFProj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QFProj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		873CF97C0644F4B2C23B35F4 /* Pods-QFProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.debug.xcconfig"; sourceTree = "<group>"; };
 		BAE4BCF1B650555967191862 /* Pods-QFProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.release.xcconfig"; sourceTree = "<group>"; };
@@ -513,6 +516,8 @@
 				15B4DE15209302BF00773E04 /* HGoToApp.m */,
 				15B4DE17209302BF00773E04 /* HGotoRuntimeSupport.h */,
 				15B4DE19209302BF00773E04 /* HGotoRuntimeSupport.m */,
+				15F9150D209FFC72000261C4 /* HAutoFill.h */,
+				15F9150E209FFC72000261C4 /* HAutoFill.m */,
 			);
 			path = HGoto;
 			sourceTree = "<group>";
@@ -750,6 +755,7 @@
 				15B4DDFC2092F96C00773E04 /* UIImage+HChain.m in Sources */,
 				15B4DDF42092F96C00773E04 /* UIGestureRecognizer+HUtil.m in Sources */,
 				15B4DE0A2092F96C00773E04 /* HViewController.m in Sources */,
+				15F9150F209FFC72000261C4 /* HAutoFill.m in Sources */,
 				15B4DD682092F88700773E04 /* AppDelegate.m in Sources */,
 				15B4DDFA2092F96C00773E04 /* UILabel+HUtil.m in Sources */,
 				15B4DDFF2092F96C00773E04 /* HDataUtil.m in Sources */,
