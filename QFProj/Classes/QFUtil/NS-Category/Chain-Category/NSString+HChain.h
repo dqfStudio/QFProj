@@ -11,7 +11,7 @@
 
 @interface NSString (HChain)
 
-- (NSString *(^)(NSInteger index))index;
+- (NSString *(^)(NSInteger index))idx;
 - (NSString *(^)(NSInteger loc, NSInteger len))range;
 
 + (NSString *(^)(NSString *format, ...))format;

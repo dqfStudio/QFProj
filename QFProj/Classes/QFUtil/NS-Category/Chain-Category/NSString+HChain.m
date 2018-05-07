@@ -10,7 +10,7 @@
 
 @implementation NSString (HChain)
 
-- (NSString *(^)(NSInteger index))index {
+- (NSString *(^)(NSInteger index))idx {
     return ^NSString *(NSInteger index) {
         if(index >= 0 && index < self.length) {
             return self[index];
