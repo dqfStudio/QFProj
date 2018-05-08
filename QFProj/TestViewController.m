@@ -30,18 +30,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    [@"TestViewController".toClass() aspectInstead:@selector(testAction:) usingBlock:^(id<AspectInfo> info, id sender) {
-//        NSLog(@"");
-//    }];
-    
-    //    [ViewController aspectInstead:@selector(viewWillAppear:) usingBlock:^(id<AspectInfo> info, BOOL animated) {
-    //        NSLog(@"");
-    //    }];
-    
-//    self.timer = [NSTimer safe_scheduledTimerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer) {
-//        [self testAction:nil];
-//    }];
-    
     self.btn1 = [[QFButton alloc] init];
     [self.btn1 setFrame:CGRectMake(0, 80, 50, 50)];
     [self.btn1 setBackgroundColor:[UIColor redColor]];
