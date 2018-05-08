@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "HAutoFill.h"
+//#import "HAspectsUtil.h"
+#import "NSObject+HAspects.h"
 
 @interface ViewController ()
 @property (nonatomic) NSString *TestString;
@@ -18,6 +20,11 @@
 @end
 
 @implementation ViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"");
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,6 +46,11 @@
     NSLog(@"%ld",self.ff);
     NSLog(@"%@",self.ww);
     NSLog(@"%@",self.date);
+    
+    [ViewController aspectInstead:@selector(viewWillAppear:) usingBlock:^(id<AspectInfo> info, BOOL animated) {
+        NSLog(@"");
+    }];
+    
 }
 
 
