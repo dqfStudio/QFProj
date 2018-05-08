@@ -47,9 +47,13 @@
     NSLog(@"%@",self.ww);
     NSLog(@"%@",self.date);
     
-    [ViewController aspectInstead:@selector(viewWillAppear:) usingBlock:^(id<AspectInfo> info, BOOL animated) {
+    [@"ViewController".toClass() aspectInstead:@selector(viewWillAppear:) usingBlock:^(id<AspectInfo> info, BOOL animated) {
         NSLog(@"");
     }];
+    
+//    [ViewController aspectInstead:@selector(viewWillAppear:) usingBlock:^(id<AspectInfo> info, BOOL animated) {
+//        NSLog(@"");
+//    }];
     
 }
 
