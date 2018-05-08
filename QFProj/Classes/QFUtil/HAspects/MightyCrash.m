@@ -10,8 +10,7 @@
 
 @implementation MightyCrash
 // 传一个 0 就 gg 了
-- (float)divideUsingDenominator:(NSInteger)denominator
-{
+- (float)divideUsingDenominator:(NSInteger)denominator {
     return 1.f/denominator;
 }
 @end

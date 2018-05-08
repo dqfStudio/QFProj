@@ -53,10 +53,10 @@
     result = [mc divideUsingDenominator:0];
     NSLog(@"won't crash");
     
-//    [ViewController aspect_hookSelector:@selector(viewWillAppear:) withOptions:AspectPositionInstead usingBlock:^(id<AspectInfo> info, BOOL animated) {
-//        NSLog(@"View Controller %@ will appear animated: %tu", info.instance, animated);
-//        NSLog(@"%@ %@ %@ %tu", info.instance, info.arguments, info.originalInvocation, animated);
-//    } error:NULL];
+    [TestViewController aspect_hookSelector:@selector(viewWillAppear:) withOptions:AspectPositionInstead usingBlock:^(id<AspectInfo> info, BOOL animated) {
+        NSLog(@"View Controller %@ will appear animated: %tu", info.instance, animated);
+        NSLog(@"%@ %@ %@ %tu", info.instance, info.arguments, info.originalInvocation, animated);
+    } error:NULL];
 }
 
 @end
