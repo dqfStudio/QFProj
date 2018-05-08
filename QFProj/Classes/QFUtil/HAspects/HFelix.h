@@ -1,5 +1,5 @@
 //
-//  Felix.h
+//  HFelix.h
 //  TestProject
 //
 //  Created by dqf on 2018/5/4.
@@ -35,6 +35,6 @@
  [Felix evalString:fixScriptString];
  */
 
-@interface Felix : NSObject
+@interface HFelix : NSObject
 + (void)evalString:(NSString *)javascriptString;
 @end

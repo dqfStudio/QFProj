@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1538FFA5209405CC002E3A29 /* HFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1538FFA3209405CC002E3A29 /* HFileCache.m */; };
 		1538FFA92094065A002E3A29 /* NSFileManager+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1538FFA72094065A002E3A29 /* NSFileManager+HUtil.m */; };
-		157696EB20A0AB6900E31469 /* Felix.m in Sources */ = {isa = PBXBuildFile; fileRef = 157696E420A0AB6900E31469 /* Felix.m */; };
+		157696EB20A0AB6900E31469 /* hFelix.m in Sources */ = {isa = PBXBuildFile; fileRef = 157696E420A0AB6900E31469 /* hFelix.m */; };
 		15B4DD682092F88700773E04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD672092F88700773E04 /* AppDelegate.m */; };
 		15B4DD6B2092F88700773E04 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD6A2092F88700773E04 /* ViewController.m */; };
 		15B4DD6E2092F88700773E04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B4DD6C2092F88700773E04 /* Main.storyboard */; };
@@ -78,8 +78,8 @@
 		1538FFA4209405CC002E3A29 /* HFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFileCache.h; sourceTree = "<group>"; };
 		1538FFA72094065A002E3A29 /* NSFileManager+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+HUtil.m"; sourceTree = "<group>"; };
 		1538FFA82094065A002E3A29 /* NSFileManager+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+HUtil.h"; sourceTree = "<group>"; };
-		157696E320A0AB6900E31469 /* Felix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Felix.h; sourceTree = "<group>"; };
-		157696E420A0AB6900E31469 /* Felix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Felix.m; sourceTree = "<group>"; };
+		157696E320A0AB6900E31469 /* HFelix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFelix.h; sourceTree = "<group>"; };
+		157696E420A0AB6900E31469 /* hFelix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hFelix.m; sourceTree = "<group>"; };
 		15B4DD632092F88700773E04 /* QFProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QFProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15B4DD662092F88700773E04 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		15B4DD672092F88700773E04 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -240,8 +240,8 @@
 		157696DE20A0AB6900E31469 /* HAspects */ = {
 			isa = PBXGroup;
 			children = (
-				157696E320A0AB6900E31469 /* Felix.h */,
-				157696E420A0AB6900E31469 /* Felix.m */,
+				157696E320A0AB6900E31469 /* HFelix.h */,
+				157696E420A0AB6900E31469 /* hFelix.m */,
 				15F9151620A139BA000261C4 /* HAspectsUtil.h */,
 				15F9151720A139BA000261C4 /* HAspectsUtil.m */,
 			);
@@ -760,7 +760,7 @@
 				15F9150F209FFC72000261C4 /* HAutoFill.m in Sources */,
 				15B4DD682092F88700773E04 /* AppDelegate.m in Sources */,
 				15B4DDFA2092F96C00773E04 /* UILabel+HUtil.m in Sources */,
-				157696EB20A0AB6900E31469 /* Felix.m in Sources */,
+				157696EB20A0AB6900E31469 /* hFelix.m in Sources */,
 				15B4DDFF2092F96C00773E04 /* HDataUtil.m in Sources */,
 				15B4DE032092F96C00773E04 /* NSObject+HUtil.m in Sources */,
 				15B4DE102092F96C00773E04 /* HNotiCenter.m in Sources */,
