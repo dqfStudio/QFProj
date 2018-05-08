@@ -10,8 +10,6 @@
 		1538FFA5209405CC002E3A29 /* HFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1538FFA3209405CC002E3A29 /* HFileCache.m */; };
 		1538FFA92094065A002E3A29 /* NSFileManager+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1538FFA72094065A002E3A29 /* NSFileManager+HUtil.m */; };
 		157696EB20A0AB6900E31469 /* Felix.m in Sources */ = {isa = PBXBuildFile; fileRef = 157696E420A0AB6900E31469 /* Felix.m */; };
-		157696EC20A0AB6900E31469 /* MightyCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 157696E620A0AB6900E31469 /* MightyCrash.m */; };
-		157696ED20A0AB6900E31469 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 157696E820A0AB6900E31469 /* TestViewController.m */; };
 		15B4DD682092F88700773E04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD672092F88700773E04 /* AppDelegate.m */; };
 		15B4DD6B2092F88700773E04 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD6A2092F88700773E04 /* ViewController.m */; };
 		15B4DD6E2092F88700773E04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B4DD6C2092F88700773E04 /* Main.storyboard */; };
@@ -71,6 +69,7 @@
 		15B4DE2D209311F900773E04 /* NSObject+HMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE2C209311F900773E04 /* NSObject+HMessy.m */; };
 		15B4DE30209319FA00773E04 /* NSObject+HSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE2F209319FA00773E04 /* NSObject+HSelector.m */; };
 		15F9150F209FFC72000261C4 /* HAutoFill.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9150E209FFC72000261C4 /* HAutoFill.m */; };
+		15F9151820A139BA000261C4 /* HAspectsUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9151720A139BA000261C4 /* HAspectsUtil.m */; };
 		FA132F2E0DBBEBCEAB4DD605 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7235EB0999D2734240C39A5 /* libPods-QFProj.a */; };
 /* End PBXBuildFile section */
 
@@ -81,10 +80,6 @@
 		1538FFA82094065A002E3A29 /* NSFileManager+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+HUtil.h"; sourceTree = "<group>"; };
 		157696E320A0AB6900E31469 /* Felix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Felix.h; sourceTree = "<group>"; };
 		157696E420A0AB6900E31469 /* Felix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Felix.m; sourceTree = "<group>"; };
-		157696E520A0AB6900E31469 /* MightyCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MightyCrash.h; sourceTree = "<group>"; };
-		157696E620A0AB6900E31469 /* MightyCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MightyCrash.m; sourceTree = "<group>"; };
-		157696E720A0AB6900E31469 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		157696E820A0AB6900E31469 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		15B4DD632092F88700773E04 /* QFProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QFProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15B4DD662092F88700773E04 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		15B4DD672092F88700773E04 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -203,6 +198,8 @@
 		15B4DE2F209319FA00773E04 /* NSObject+HSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSelector.m"; sourceTree = "<group>"; };
 		15F9150D209FFC72000261C4 /* HAutoFill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAutoFill.h; sourceTree = "<group>"; };
 		15F9150E209FFC72000261C4 /* HAutoFill.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAutoFill.m; sourceTree = "<group>"; };
+		15F9151620A139BA000261C4 /* HAspectsUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAspectsUtil.h; sourceTree = "<group>"; };
+		15F9151720A139BA000261C4 /* HAspectsUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAspectsUtil.m; sourceTree = "<group>"; };
 		43A688A5E5047C6F16E79F28 /* Pods-QFProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.debug.xcconfig"; sourceTree = "<group>"; };
 		D7235EB0999D2734240C39A5 /* libPods-QFProj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QFProj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA4C553098380B8CBAEFDCB2 /* Pods-QFProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.release.xcconfig"; sourceTree = "<group>"; };
@@ -245,10 +242,8 @@
 			children = (
 				157696E320A0AB6900E31469 /* Felix.h */,
 				157696E420A0AB6900E31469 /* Felix.m */,
-				157696E520A0AB6900E31469 /* MightyCrash.h */,
-				157696E620A0AB6900E31469 /* MightyCrash.m */,
-				157696E720A0AB6900E31469 /* TestViewController.h */,
-				157696E820A0AB6900E31469 /* TestViewController.m */,
+				15F9151620A139BA000261C4 /* HAspectsUtil.h */,
+				15F9151720A139BA000261C4 /* HAspectsUtil.m */,
 			);
 			path = HAspects;
 			sourceTree = "<group>";
@@ -736,7 +731,6 @@
 				15B4DE002092F96C00773E04 /* NSDate+HUtil.m in Sources */,
 				15B4DDFE2092F96C00773E04 /* NSString+HUtil.m in Sources */,
 				15B4DDF72092F96C00773E04 /* UIDevice+HUtil.m in Sources */,
-				157696ED20A0AB6900E31469 /* TestViewController.m in Sources */,
 				15B4DD6B2092F88700773E04 /* ViewController.m in Sources */,
 				15B4DDFB2092F96C00773E04 /* UIColor+HUtil.m in Sources */,
 				15B4DDE82092F96C00773E04 /* AppDelegate+HDebug.m in Sources */,
@@ -772,7 +766,7 @@
 				15B4DE102092F96C00773E04 /* HNotiCenter.m in Sources */,
 				15B4DE292093034700773E04 /* NSObject+annotation.m in Sources */,
 				15B4DDF32092F96C00773E04 /* UIView+HUtil.m in Sources */,
-				157696EC20A0AB6900E31469 /* MightyCrash.m in Sources */,
+				15F9151820A139BA000261C4 /* HAspectsUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
