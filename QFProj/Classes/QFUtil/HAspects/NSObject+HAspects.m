@@ -7,6 +7,7 @@
 //
 
 #import "NSObject+HAspects.h"
+#import "HAspectsCenter.h"
 
 @implementation NSObject (HAspects)
 
@@ -19,21 +20,27 @@
  */
 
 + (id<AspectToken>)aspectAfter:(SEL)aSelector usingBlock:(id)block {
-    return [self aspect_hookSelector:aSelector withOptions:AspectPositionAfter usingBlock:block error:NULL];
+    id<AspectToken> aspectToken = [self aspect_hookSelector:aSelector withOptions:AspectPositionAfter usingBlock:block error:NULL];
+    [[HAspectsCenter defaultCenter] setAspects:aspectToken forClass:[self class]];
+    return aspectToken;
 }
 - (id<AspectToken>)aspectAfter:(SEL)aSelector usingBlock:(id)block {
     return [self aspect_hookSelector:aSelector withOptions:AspectPositionAfter usingBlock:block error:NULL];
 }
 
 + (id<AspectToken>)aspectInstead:(SEL)aSelector usingBlock:(id)block {
-    return [self aspect_hookSelector:aSelector withOptions:AspectPositionInstead usingBlock:block error:NULL];
+    id<AspectToken> aspectToken = [self aspect_hookSelector:aSelector withOptions:AspectPositionInstead usingBlock:block error:NULL];
+    [[HAspectsCenter defaultCenter] setAspects:aspectToken forClass:[self class]];
+    return aspectToken;
 }
 - (id<AspectToken>)aspectInstead:(SEL)aSelector usingBlock:(id)block {
     return [self aspect_hookSelector:aSelector withOptions:AspectPositionInstead usingBlock:block error:NULL];
 }
 
 + (id<AspectToken>)aspectBefore:(SEL)aSelector usingBlock:(id)block {
-    return [self aspect_hookSelector:aSelector withOptions:AspectPositionBefore usingBlock:block error:NULL];
+    id<AspectToken> aspectToken = [self aspect_hookSelector:aSelector withOptions:AspectPositionBefore usingBlock:block error:NULL];
+    [[HAspectsCenter defaultCenter] setAspects:aspectToken forClass:[self class]];
+    return aspectToken;
 }
 - (id<AspectToken>)aspectBefore:(SEL)aSelector usingBlock:(id)block {
     return [self aspect_hookSelector:aSelector withOptions:AspectPositionBefore usingBlock:block error:NULL];

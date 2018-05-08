@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "HAutoFill.h"
+#import "NSObject+HAspects.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+//    [@"ViewController".toClass() aspectInstead:@selector(testAction:) usingBlock:^(id<AspectInfo> info, id sender) {
+//        NSLog(@"");
+//    }];
+
     return YES;
 }
 

@@ -8,8 +8,9 @@
 
 #import "ViewController.h"
 #import "HAutoFill.h"
-//#import "HAspectsUtil.h"
 #import "NSObject+HAspects.h"
+#import "TestViewController.h"
+#import "QFButton.h"
 
 @interface ViewController ()
 @property (nonatomic) NSString *TestString;
@@ -17,6 +18,9 @@
 @property (nonatomic) NSInteger ff;
 @property (nonatomic) NSNumber *ww;
 @property (nonatomic) NSDate *date;
+
+@property (nonatomic) QFButton *btn1;
+@property (nonatomic) QFButton *btn2;
 @end
 
 @implementation ViewController
@@ -47,14 +51,72 @@
     NSLog(@"%@",self.ww);
     NSLog(@"%@",self.date);
     
+    [self.navigationController pushViewController:[TestViewController new] animated:YES];
+    
+//    [@"ViewController".toClass() aspectInstead:@selector(testAction:) usingBlock:^(id<AspectInfo> info, id sender) {
+//        NSLog(@"");
+//    }];
+    
     [@"ViewController".toClass() aspectInstead:@selector(viewWillAppear:) usingBlock:^(id<AspectInfo> info, BOOL animated) {
         NSLog(@"");
     }];
     
-//    [ViewController aspectInstead:@selector(viewWillAppear:) usingBlock:^(id<AspectInfo> info, BOOL animated) {
+//    [@"QFButton".toClass() aspectInstead:@selector(testAction:) usingBlock:^(id<AspectInfo> info, id sender) {
 //        NSLog(@"");
 //    }];
     
+    self.btn1 = [[QFButton alloc] init];
+    [self.btn1 setFrame:CGRectMake(0, 80, 50, 50)];
+    [self.btn1 setBackgroundColor:[UIColor redColor]];
+    [self.view addSubview:self.btn1];
+//    [self.btn1 addTarget:self action:@selector(testAction:) forControlEvents:(UIControlEventTouchUpInside)];
+    
+    self.btn2 = [[QFButton alloc] init];
+    [self.btn2 setFrame:CGRectMake(100, 80, 50, 50)];
+    [self.btn2 setBackgroundColor:[UIColor redColor]];
+    [self.view addSubview:self.btn2];
+    
+    
+    UIButton *btn3 = [[UIButton alloc] init];
+    [btn3 setFrame:CGRectMake(100, 180, 50, 50)];
+    [btn3 setBackgroundColor:[UIColor yellowColor]];
+    [btn3 addTarget:self action:@selector(testAction:) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.view addSubview:btn3];
+    
+    
+//    [@"QFButton".toClass() aspectInstead:@selector(testAction:) usingBlock:^(id<AspectInfo> info, id sender) {
+//        NSLog(@"");
+//    }];
+    
+//    [QFButton aspectInstead:@selector(testAction:) usingBlock:^(id<AspectInfo> info, id sender) {
+//        NSLog(@"");
+//    }];
+    
+//    [self.btn2 aspectInstead:@selector(testAction:) usingBlock:^(id<AspectInfo> info, id sender) {
+//        NSLog(@"");
+//    }];
+    
+//    [@"TestViewController".toClass() aspectInstead:@selector(dealloc) usingBlock:^(id<AspectInfo> info, id sender) {
+//        NSLog(@"");
+//    }];
+//
+////    [ViewController aspectInstead:@selector(viewWillAppear:) usingBlock:^(id<AspectInfo> info, BOOL animated) {
+////        NSLog(@"");
+////    }];
+//    
+//    NSTimer *timer = [NSTimer safe_scheduledTimerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer) {
+//        [self testAction:nil];
+//    }];
+    
+}
+
+- (void)dealloc {
+
+}
+
+- (void)testAction:(id)sender {
+    NSLog(@"");
+//    [self.btn1 removeFromSuperview];
 }
 
 
