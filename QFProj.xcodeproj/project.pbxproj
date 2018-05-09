@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1538FFA5209405CC002E3A29 /* HFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1538FFA3209405CC002E3A29 /* HFileCache.m */; };
 		1538FFA92094065A002E3A29 /* NSFileManager+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1538FFA72094065A002E3A29 /* NSFileManager+HUtil.m */; };
+		15464B7720A2C26300CDD27E /* HTestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15464B7420A2C26300CDD27E /* HTestManager.m */; };
+		15464B7820A2C26300CDD27E /* HTestVC-DQF.m in Sources */ = {isa = PBXBuildFile; fileRef = 15464B7520A2C26300CDD27E /* HTestVC-DQF.m */; };
 		157696EB20A0AB6900E31469 /* hFelix.m in Sources */ = {isa = PBXBuildFile; fileRef = 157696E420A0AB6900E31469 /* hFelix.m */; };
 		15B4DD682092F88700773E04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD672092F88700773E04 /* AppDelegate.m */; };
 		15B4DD6B2092F88700773E04 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD6A2092F88700773E04 /* ViewController.m */; };
@@ -89,6 +91,10 @@
 		1538FFA4209405CC002E3A29 /* HFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFileCache.h; sourceTree = "<group>"; };
 		1538FFA72094065A002E3A29 /* NSFileManager+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+HUtil.m"; sourceTree = "<group>"; };
 		1538FFA82094065A002E3A29 /* NSFileManager+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+HUtil.h"; sourceTree = "<group>"; };
+		15464B7320A2C26300CDD27E /* HTestVC-DQF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HTestVC-DQF.h"; sourceTree = "<group>"; };
+		15464B7420A2C26300CDD27E /* HTestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTestManager.m; sourceTree = "<group>"; };
+		15464B7520A2C26300CDD27E /* HTestVC-DQF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HTestVC-DQF.m"; sourceTree = "<group>"; };
+		15464B7620A2C26300CDD27E /* HTestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTestManager.h; sourceTree = "<group>"; };
 		157696E320A0AB6900E31469 /* HFelix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFelix.h; sourceTree = "<group>"; };
 		157696E420A0AB6900E31469 /* hFelix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hFelix.m; sourceTree = "<group>"; };
 		15B4DD632092F88700773E04 /* QFProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QFProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -265,6 +271,18 @@
 			path = "QFUtil/NSFileManager+HUtil";
 			sourceTree = "<group>";
 		};
+		15464B7220A2C26300CDD27E /* HTestUtil */ = {
+			isa = PBXGroup;
+			children = (
+				15464B7620A2C26300CDD27E /* HTestManager.h */,
+				15464B7420A2C26300CDD27E /* HTestManager.m */,
+				15464B7320A2C26300CDD27E /* HTestVC-DQF.h */,
+				15464B7520A2C26300CDD27E /* HTestVC-DQF.m */,
+			);
+			name = HTestUtil;
+			path = QFUtil/HTestUtil;
+			sourceTree = "<group>";
+		};
 		157696DE20A0AB6900E31469 /* HAspects */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,10 +299,10 @@
 		15B4DD5A2092F88700773E04 = {
 			isa = PBXGroup;
 			children = (
-				15B4DD652092F88700773E04 /* QFProj */,
-				15B4DD642092F88700773E04 /* Products */,
-				4AC0DC885695D022B9A7DE71 /* Pods */,
 				74A420CFC6CE86A9E55C6D18 /* Frameworks */,
+				4AC0DC885695D022B9A7DE71 /* Pods */,
+				15B4DD642092F88700773E04 /* Products */,
+				15B4DD652092F88700773E04 /* QFProj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -299,21 +317,21 @@
 		15B4DD652092F88700773E04 /* QFProj */ = {
 			isa = PBXGroup;
 			children = (
-				15B4DD7D2092F96B00773E04 /* Classes */,
-				15B4DD7C2092F96B00773E04 /* Vendors */,
 				15B4DD662092F88700773E04 /* AppDelegate.h */,
 				15B4DD672092F88700773E04 /* AppDelegate.m */,
-				15B4DD692092F88700773E04 /* ViewController.h */,
-				15B4DD6A2092F88700773E04 /* ViewController.m */,
+				15B4DD6F2092F88700773E04 /* Assets.xcassets */,
+				15B4DD7D2092F96B00773E04 /* Classes */,
+				15B4DD742092F88700773E04 /* Info.plist */,
+				15B4DD712092F88700773E04 /* LaunchScreen.storyboard */,
+				15B4DD752092F88700773E04 /* main.m */,
+				15B4DD6C2092F88700773E04 /* Main.storyboard */,
 				15F9152420A1817F000261C4 /* QFButton.h */,
 				15F9152520A1817F000261C4 /* QFButton.m */,
 				15F9152120A17E95000261C4 /* TestViewController.h */,
 				15F9152220A17E95000261C4 /* TestViewController.m */,
-				15B4DD6C2092F88700773E04 /* Main.storyboard */,
-				15B4DD6F2092F88700773E04 /* Assets.xcassets */,
-				15B4DD712092F88700773E04 /* LaunchScreen.storyboard */,
-				15B4DD742092F88700773E04 /* Info.plist */,
-				15B4DD752092F88700773E04 /* main.m */,
+				15B4DD7C2092F96B00773E04 /* Vendors */,
+				15B4DD692092F88700773E04 /* ViewController.h */,
+				15B4DD6A2092F88700773E04 /* ViewController.m */,
 			);
 			path = QFProj;
 			sourceTree = "<group>";
@@ -328,6 +346,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				15464B7220A2C26300CDD27E /* HTestUtil */,
 				15F9151920A14A33000261C4 /* HShow */,
 				1538FFA62094065A002E3A29 /* NSFileManager+HUtil */,
 				1538FFA2209405CC002E3A29 /* HCache */,
@@ -374,13 +393,13 @@
 		15B4DD842092F96B00773E04 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				15B4DD852092F96B00773E04 /* AppDelegate+HDebug.m */,
-				15B4DD862092F96B00773E04 /* HDebugView.h */,
-				15B4DD872092F96B00773E04 /* UIView+HDebug.h */,
-				15B4DD882092F96B00773E04 /* HDebugUtil.m */,
-				15B4DD892092F96B00773E04 /* HDebugView.m */,
 				15B4DD8A2092F96B00773E04 /* AppDelegate+HDebug.h */,
+				15B4DD852092F96B00773E04 /* AppDelegate+HDebug.m */,
 				15B4DD8B2092F96B00773E04 /* HDebugUtil.h */,
+				15B4DD882092F96B00773E04 /* HDebugUtil.m */,
+				15B4DD862092F96B00773E04 /* HDebugView.h */,
+				15B4DD892092F96B00773E04 /* HDebugView.m */,
+				15B4DD872092F96B00773E04 /* UIView+HDebug.h */,
 				15B4DD8C2092F96B00773E04 /* UIView+HDebug.m */,
 			);
 			path = Util;
@@ -406,36 +425,36 @@
 		15B4DD902092F96B00773E04 /* Ext-Category */ = {
 			isa = PBXGroup;
 			children = (
-				15B4DD912092F96B00773E04 /* UINavigationController+HUtil.h */,
-				15B4DD922092F96B00773E04 /* UIGestureRecognizer+HUtil.h */,
-				15B4DD932092F96B00773E04 /* UIView+HImage.m */,
-				15B4DD942092F96B00773E04 /* UIView+HUtil.h */,
-				15B4DD952092F96B00773E04 /* UIViewController+HBackHandler.m */,
-				15B4DD962092F96B00773E04 /* UIScreen+HUtil.h */,
-				15B4DD972092F96B00773E04 /* UIViewController+HUtil.m */,
-				15B4DD982092F96B00773E04 /* UIImage+Util.h */,
 				15B4DD992092F96B00773E04 /* UIApplication+HUtil.h */,
-				15B4DD9A2092F96B00773E04 /* UIDevice+HUtil.h */,
-				15B4DD9B2092F96B00773E04 /* UIViewController+HPrinter.m */,
-				15B4DD9C2092F96B00773E04 /* UIView+HRelation.m */,
-				15B4DD9D2092F96B00773E04 /* UIColor+HUtil.h */,
-				15B4DD9E2092F96B00773E04 /* UILabel+HUtil.h */,
-				15B4DD9F2092F96B00773E04 /* UIButton+HUtil.m */,
-				15B4DDA02092F96B00773E04 /* UIViewController+HBackHandler.h */,
-				15B4DDA12092F96B00773E04 /* UIView+HUtil.m */,
-				15B4DDA22092F96B00773E04 /* UIView+HImage.h */,
-				15B4DDA32092F96B00773E04 /* UIGestureRecognizer+HUtil.m */,
-				15B4DDA42092F96B00773E04 /* UINavigationController+HUtil.m */,
-				15B4DDA52092F96B00773E04 /* UIViewController+HPrinter.h */,
-				15B4DDA62092F96B00773E04 /* UIView+HRelation.h */,
 				15B4DDA72092F96B00773E04 /* UIApplication+HUtil.m */,
-				15B4DDA82092F96B00773E04 /* UIDevice+HUtil.m */,
-				15B4DDA92092F96B00773E04 /* UIImage+Util.m */,
-				15B4DDAA2092F96B00773E04 /* UIViewController+HUtil.h */,
-				15B4DDAB2092F96B00773E04 /* UIScreen+HUtil.m */,
-				15B4DDAC2092F96B00773E04 /* UILabel+HUtil.m */,
-				15B4DDAD2092F96B00773E04 /* UIColor+HUtil.m */,
 				15B4DDAE2092F96B00773E04 /* UIButton+HUtil.h */,
+				15B4DD9F2092F96B00773E04 /* UIButton+HUtil.m */,
+				15B4DD9D2092F96B00773E04 /* UIColor+HUtil.h */,
+				15B4DDAD2092F96B00773E04 /* UIColor+HUtil.m */,
+				15B4DD9A2092F96B00773E04 /* UIDevice+HUtil.h */,
+				15B4DDA82092F96B00773E04 /* UIDevice+HUtil.m */,
+				15B4DD922092F96B00773E04 /* UIGestureRecognizer+HUtil.h */,
+				15B4DDA32092F96B00773E04 /* UIGestureRecognizer+HUtil.m */,
+				15B4DD982092F96B00773E04 /* UIImage+Util.h */,
+				15B4DDA92092F96B00773E04 /* UIImage+Util.m */,
+				15B4DD9E2092F96B00773E04 /* UILabel+HUtil.h */,
+				15B4DDAC2092F96B00773E04 /* UILabel+HUtil.m */,
+				15B4DD912092F96B00773E04 /* UINavigationController+HUtil.h */,
+				15B4DDA42092F96B00773E04 /* UINavigationController+HUtil.m */,
+				15B4DD962092F96B00773E04 /* UIScreen+HUtil.h */,
+				15B4DDAB2092F96B00773E04 /* UIScreen+HUtil.m */,
+				15B4DDA22092F96B00773E04 /* UIView+HImage.h */,
+				15B4DD932092F96B00773E04 /* UIView+HImage.m */,
+				15B4DDA62092F96B00773E04 /* UIView+HRelation.h */,
+				15B4DD9C2092F96B00773E04 /* UIView+HRelation.m */,
+				15B4DD942092F96B00773E04 /* UIView+HUtil.h */,
+				15B4DDA12092F96B00773E04 /* UIView+HUtil.m */,
+				15B4DDA02092F96B00773E04 /* UIViewController+HBackHandler.h */,
+				15B4DD952092F96B00773E04 /* UIViewController+HBackHandler.m */,
+				15B4DDA52092F96B00773E04 /* UIViewController+HPrinter.h */,
+				15B4DD9B2092F96B00773E04 /* UIViewController+HPrinter.m */,
+				15B4DDAA2092F96B00773E04 /* UIViewController+HUtil.h */,
+				15B4DD972092F96B00773E04 /* UIViewController+HUtil.m */,
 			);
 			path = "Ext-Category";
 			sourceTree = "<group>";
@@ -443,10 +462,10 @@
 		15B4DDAF2092F96B00773E04 /* Chain-Category */ = {
 			isa = PBXGroup;
 			children = (
-				15B4DDB02092F96B00773E04 /* UIImage+HChain.m */,
 				15B4DDB12092F96B00773E04 /* UIFont+HChain.h */,
-				15B4DDB22092F96B00773E04 /* UIImage+HChain.h */,
 				15B4DDB32092F96B00773E04 /* UIFont+HChain.m */,
+				15B4DDB22092F96B00773E04 /* UIImage+HChain.h */,
+				15B4DDB02092F96B00773E04 /* UIImage+HChain.m */,
 			);
 			path = "Chain-Category";
 			sourceTree = "<group>";
@@ -500,8 +519,8 @@
 		15B4DDC92092F96B00773E04 /* Chain-Category */ = {
 			isa = PBXGroup;
 			children = (
-				15B4DDCA2092F96B00773E04 /* NSString+HChain.m */,
 				15B4DDCB2092F96B00773E04 /* NSString+HChain.h */,
+				15B4DDCA2092F96B00773E04 /* NSString+HChain.m */,
 			);
 			path = "Chain-Category";
 			sourceTree = "<group>";
@@ -509,8 +528,8 @@
 		15B4DDCC2092F96B00773E04 /* HClasses */ = {
 			isa = PBXGroup;
 			children = (
-				15B4DDCD2092F96B00773E04 /* HWebClasses */,
 				15B4DDD22092F96B00773E04 /* HViewController */,
+				15B4DDCD2092F96B00773E04 /* HWebClasses */,
 			);
 			path = HClasses;
 			sourceTree = "<group>";
@@ -529,8 +548,8 @@
 		15B4DDD22092F96B00773E04 /* HViewController */ = {
 			isa = PBXGroup;
 			children = (
-				15B4DDD32092F96B00773E04 /* HViewController.m */,
 				15B4DDD42092F96B00773E04 /* HViewController.h */,
+				15B4DDD32092F96B00773E04 /* HViewController.m */,
 			);
 			path = HViewController;
 			sourceTree = "<group>";
@@ -786,6 +805,7 @@
 				15F9151D20A14A33000261C4 /* UIView+HShow.m in Sources */,
 				15B4DDF92092F96C00773E04 /* UIScreen+HUtil.m in Sources */,
 				15B4DDF22092F96C00773E04 /* UIButton+HUtil.m in Sources */,
+				15464B7720A2C26300CDD27E /* HTestManager.m in Sources */,
 				15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */,
 				15B4DDED2092F96C00773E04 /* UIView+HImage.m in Sources */,
 				15B4DE30209319FA00773E04 /* NSObject+HSelector.m in Sources */,
@@ -838,6 +858,7 @@
 				15B4DDFF2092F96C00773E04 /* HDataUtil.m in Sources */,
 				15B4DE032092F96C00773E04 /* NSObject+HUtil.m in Sources */,
 				15B4DE102092F96C00773E04 /* HNotiCenter.m in Sources */,
+				15464B7820A2C26300CDD27E /* HTestVC-DQF.m in Sources */,
 				15B4DE292093034700773E04 /* NSObject+annotation.m in Sources */,
 				15B4DDF32092F96C00773E04 /* UIView+HUtil.m in Sources */,
 			);

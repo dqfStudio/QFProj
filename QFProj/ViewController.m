@@ -11,6 +11,7 @@
 #import "NSObject+HAspects.h"
 #import "TestViewController.h"
 #import "QFButton.h"
+#import "NSFileManager+HUtil.h"
 
 @interface ViewController ()
 @property (nonatomic) NSString *TestString;
@@ -48,7 +49,11 @@
     NSLog(@"%@",self.ww);
     NSLog(@"%@",self.date);
     
-    [self.navigationController pushViewController:[TestViewController new] animated:YES];
+    
+    
+//    [self.navigationController pushViewController:[TestViewController new] animated:YES];
+    
+    NSLog(@"%@",[NSFileManager documentPath:nil]);
     
 }
 

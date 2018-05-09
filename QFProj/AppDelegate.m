@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "HAutoFill.h"
 #import "NSObject+HAspects.h"
+#import "HTestManager.h"
 
 @interface AppDelegate ()
 
@@ -22,6 +23,9 @@
 //    [@"ViewController".toClass() aspectInstead:@selector(testAction:) usingBlock:^(id<AspectInfo> info, id sender) {
 //        NSLog(@"");
 //    }];
+    [[HTestManager share] jump:^{
+        
+    }];
 
     return YES;
 }
