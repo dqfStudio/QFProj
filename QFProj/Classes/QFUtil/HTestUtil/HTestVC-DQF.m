@@ -14,7 +14,7 @@
 
 @implementation HTestVC_DQF
 
-HTestReg(@"F37D08D1-0576-4E5C-A4B0-A3CB4D2E36CF")
+//HTestReg(@"F37D08D1-0576-4E5C-A4B0-A3CB4D2E36CF")
 
 - (void)viewDidLoad {
     [super viewDidLoad];
