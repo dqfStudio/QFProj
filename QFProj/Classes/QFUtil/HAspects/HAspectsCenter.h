@@ -12,7 +12,7 @@
 
 + (HAspectsCenter *)defaultCenter;
 
-- (void)setAspects:(id)anObject forKey:(NSString *)aKey;
+- (void)setAspects:(id)aspects forKey:(NSString *)aKey;
 - (void)setAspects:(id)aspects forClass:(Class)cls;
 
 - (void)removeAspectsForKey:(NSString *)aKey;
