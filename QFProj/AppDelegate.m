@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "HAutoFill.h"
 #import "NSObject+HAspects.h"
 #import "HTestManager.h"
 

@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "HAutoFill.h"
+#import "NSObject+HAutoFill.h"
 #import "NSObject+HAspects.h"
 #import "TestViewController.h"
 #import "QFButton.h"
@@ -41,7 +41,7 @@
     
     NSMutableDictionary *dict2 = [[NSMutableDictionary alloc] init];
     [dict2 setObject:@"www" forKey:@"ww"];
-    [HAutoFill autoFill:self params:dict map:dict2];
+    [self autoFillWithParams:dict map:dict2];
     
     NSLog(@"%@",self.TestString);
     NSLog(@"%d",self.yn);

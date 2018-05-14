@@ -7,7 +7,7 @@
 //
 
 #import "TestViewController.h"
-#import "HAutoFill.h"
+#import "NSObject+HAutoFill.h"
 #import "QFButton.h"
 #import "HAspectsCenter.h"
 

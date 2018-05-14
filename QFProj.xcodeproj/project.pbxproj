@@ -70,7 +70,7 @@
 		15B4DE2A2093034700773E04 /* HClassManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE262093034700773E04 /* HClassManager.m */; };
 		15B4DE2D209311F900773E04 /* NSObject+HMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE2C209311F900773E04 /* NSObject+HMessy.m */; };
 		15B4DE30209319FA00773E04 /* NSObject+HSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE2F209319FA00773E04 /* NSObject+HSelector.m */; };
-		15F9150F209FFC72000261C4 /* HAutoFill.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9150E209FFC72000261C4 /* HAutoFill.m */; };
+		15C5727620A982CA0070327C /* NSObject+HAutoFill.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5727520A982CA0070327C /* NSObject+HAutoFill.m */; };
 		15F9151D20A14A33000261C4 /* UIView+HShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9151A20A14A33000261C4 /* UIView+HShow.m */; };
 		15F9152020A171A8000261C4 /* NSObject+HAspects.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9151F20A171A8000261C4 /* NSObject+HAspects.m */; };
 		15F9152320A17E95000261C4 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9152220A17E95000261C4 /* TestViewController.m */; };
@@ -213,8 +213,8 @@
 		15B4DE2C209311F900773E04 /* NSObject+HMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HMessy.m"; sourceTree = "<group>"; };
 		15B4DE2E209319FA00773E04 /* NSObject+HSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSelector.h"; sourceTree = "<group>"; };
 		15B4DE2F209319FA00773E04 /* NSObject+HSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSelector.m"; sourceTree = "<group>"; };
-		15F9150D209FFC72000261C4 /* HAutoFill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAutoFill.h; sourceTree = "<group>"; };
-		15F9150E209FFC72000261C4 /* HAutoFill.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAutoFill.m; sourceTree = "<group>"; };
+		15C5727420A982CA0070327C /* NSObject+HAutoFill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HAutoFill.h"; sourceTree = "<group>"; };
+		15C5727520A982CA0070327C /* NSObject+HAutoFill.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HAutoFill.m"; sourceTree = "<group>"; };
 		15F9151A20A14A33000261C4 /* UIView+HShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HShow.m"; sourceTree = "<group>"; };
 		15F9151B20A14A33000261C4 /* HShow+Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HShow+Protocol.h"; sourceTree = "<group>"; };
 		15F9151C20A14A33000261C4 /* UIView+HShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HShow.h"; sourceTree = "<group>"; };
@@ -588,8 +588,8 @@
 				15B4DE15209302BF00773E04 /* HGoToApp.m */,
 				15B4DE17209302BF00773E04 /* HGotoRuntimeSupport.h */,
 				15B4DE19209302BF00773E04 /* HGotoRuntimeSupport.m */,
-				15F9150D209FFC72000261C4 /* HAutoFill.h */,
-				15F9150E209FFC72000261C4 /* HAutoFill.m */,
+				15C5727420A982CA0070327C /* NSObject+HAutoFill.h */,
+				15C5727520A982CA0070327C /* NSObject+HAutoFill.m */,
 			);
 			path = HGoto;
 			sourceTree = "<group>";
@@ -843,6 +843,7 @@
 				15B4DE112092F96C00773E04 /* NSArray+HSafeUtil.m in Sources */,
 				15F9152920A18CA9000261C4 /* HAspectsCenter.m in Sources */,
 				15B4DE1C209302BF00773E04 /* HGotoRuntimeSupport.m in Sources */,
+				15C5727620A982CA0070327C /* NSObject+HAutoFill.m in Sources */,
 				15B4DDEF2092F96C00773E04 /* UIViewController+HUtil.m in Sources */,
 				15B4DE0B2092F96C00773E04 /* NSString+HSafeUtil.m in Sources */,
 				15B4DD762092F88700773E04 /* main.m in Sources */,
@@ -851,7 +852,6 @@
 				15B4DDF42092F96C00773E04 /* UIGestureRecognizer+HUtil.m in Sources */,
 				15F9152020A171A8000261C4 /* NSObject+HAspects.m in Sources */,
 				15B4DE0A2092F96C00773E04 /* HViewController.m in Sources */,
-				15F9150F209FFC72000261C4 /* HAutoFill.m in Sources */,
 				15B4DD682092F88700773E04 /* AppDelegate.m in Sources */,
 				15B4DDFA2092F96C00773E04 /* UILabel+HUtil.m in Sources */,
 				157696EB20A0AB6900E31469 /* hFelix.m in Sources */,
