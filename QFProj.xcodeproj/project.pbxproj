@@ -71,6 +71,7 @@
 		15B4DE2D209311F900773E04 /* NSObject+HMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE2C209311F900773E04 /* NSObject+HMessy.m */; };
 		15B4DE30209319FA00773E04 /* NSObject+HSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE2F209319FA00773E04 /* NSObject+HSelector.m */; };
 		15C5727620A982CA0070327C /* NSObject+HAutoFill.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5727520A982CA0070327C /* NSObject+HAutoFill.m */; };
+		15C5729320AE51B30070327C /* HSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5729120AE51B20070327C /* HSort.m */; };
 		15F9151D20A14A33000261C4 /* UIView+HShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9151A20A14A33000261C4 /* UIView+HShow.m */; };
 		15F9152020A171A8000261C4 /* NSObject+HAspects.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9151F20A171A8000261C4 /* NSObject+HAspects.m */; };
 		15F9152320A17E95000261C4 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9152220A17E95000261C4 /* TestViewController.m */; };
@@ -215,6 +216,8 @@
 		15B4DE2F209319FA00773E04 /* NSObject+HSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSelector.m"; sourceTree = "<group>"; };
 		15C5727420A982CA0070327C /* NSObject+HAutoFill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HAutoFill.h"; sourceTree = "<group>"; };
 		15C5727520A982CA0070327C /* NSObject+HAutoFill.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HAutoFill.m"; sourceTree = "<group>"; };
+		15C5729120AE51B20070327C /* HSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSort.m; sourceTree = "<group>"; };
+		15C5729220AE51B20070327C /* HSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSort.h; sourceTree = "<group>"; };
 		15F9151A20A14A33000261C4 /* UIView+HShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HShow.m"; sourceTree = "<group>"; };
 		15F9151B20A14A33000261C4 /* HShow+Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HShow+Protocol.h"; sourceTree = "<group>"; };
 		15F9151C20A14A33000261C4 /* UIView+HShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HShow.h"; sourceTree = "<group>"; };
@@ -346,6 +349,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				15C5729020AE51B20070327C /* HSort */,
 				15464B7220A2C26300CDD27E /* HTestUtil */,
 				15F9151920A14A33000261C4 /* HShow */,
 				1538FFA62094065A002E3A29 /* NSFileManager+HUtil */,
@@ -632,6 +636,16 @@
 			path = HClassManager;
 			sourceTree = "<group>";
 		};
+		15C5729020AE51B20070327C /* HSort */ = {
+			isa = PBXGroup;
+			children = (
+				15C5729220AE51B20070327C /* HSort.h */,
+				15C5729120AE51B20070327C /* HSort.m */,
+			);
+			name = HSort;
+			path = QFUtil/HSort;
+			sourceTree = "<group>";
+		};
 		15F9151920A14A33000261C4 /* HShow */ = {
 			isa = PBXGroup;
 			children = (
@@ -834,6 +848,7 @@
 				15B4DDFD2092F96C00773E04 /* UIFont+HChain.m in Sources */,
 				15B4DE1D209302BF00773E04 /* HGoTo.m in Sources */,
 				15F9152320A17E95000261C4 /* TestViewController.m in Sources */,
+				15C5729320AE51B30070327C /* HSort.m in Sources */,
 				15B4DDF02092F96C00773E04 /* UIViewController+HPrinter.m in Sources */,
 				15B4DDEE2092F96C00773E04 /* UIViewController+HBackHandler.m in Sources */,
 				15B4DE022092F96C00773E04 /* NSUserDefaults+HUtil.m in Sources */,
