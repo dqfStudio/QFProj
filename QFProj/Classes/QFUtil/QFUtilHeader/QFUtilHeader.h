@@ -17,6 +17,7 @@
 #import "UIGestureRecognizer+HUtil.h"
 #import "UIImage+Util.h"
 #import "UILabel+HUtil.h"
+#import "UILabel+HState.h"
 #import "UINavigationController+HUtil.h"
 #import "UIScreen+HUtil.h"
 #import "UIView+HImage.h"
