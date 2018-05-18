@@ -73,6 +73,7 @@
 		15C5727620A982CA0070327C /* NSObject+HAutoFill.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5727520A982CA0070327C /* NSObject+HAutoFill.m */; };
 		15C5729320AE51B30070327C /* HSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5729120AE51B20070327C /* HSort.m */; };
 		15C572A020AEAC340070327C /* UILabel+HState.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5729E20AEAC340070327C /* UILabel+HState.m */; };
+		15C572AA20AEDAB90070327C /* HLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C572A820AEDAB90070327C /* HLabelView.m */; };
 		15F9151D20A14A33000261C4 /* UIView+HShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9151A20A14A33000261C4 /* UIView+HShow.m */; };
 		15F9152020A171A8000261C4 /* NSObject+HAspects.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9151F20A171A8000261C4 /* NSObject+HAspects.m */; };
 		15F9152320A17E95000261C4 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9152220A17E95000261C4 /* TestViewController.m */; };
@@ -221,6 +222,8 @@
 		15C5729220AE51B20070327C /* HSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSort.h; sourceTree = "<group>"; };
 		15C5729E20AEAC340070327C /* UILabel+HState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+HState.m"; sourceTree = "<group>"; };
 		15C5729F20AEAC340070327C /* UILabel+HState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HState.h"; sourceTree = "<group>"; };
+		15C572A820AEDAB90070327C /* HLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLabelView.m; sourceTree = "<group>"; };
+		15C572A920AEDAB90070327C /* HLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLabelView.h; sourceTree = "<group>"; };
 		15F9151A20A14A33000261C4 /* UIView+HShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HShow.m"; sourceTree = "<group>"; };
 		15F9151B20A14A33000261C4 /* HShow+Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HShow+Protocol.h"; sourceTree = "<group>"; };
 		15F9151C20A14A33000261C4 /* UIView+HShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HShow.h"; sourceTree = "<group>"; };
@@ -352,6 +355,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				15C572A720AEDAB90070327C /* HLabelView */,
 				15C5729020AE51B20070327C /* HSort */,
 				15464B7220A2C26300CDD27E /* HTestUtil */,
 				15F9151920A14A33000261C4 /* HShow */,
@@ -651,6 +655,16 @@
 			path = QFUtil/HSort;
 			sourceTree = "<group>";
 		};
+		15C572A720AEDAB90070327C /* HLabelView */ = {
+			isa = PBXGroup;
+			children = (
+				15C572A820AEDAB90070327C /* HLabelView.m */,
+				15C572A920AEDAB90070327C /* HLabelView.h */,
+			);
+			name = HLabelView;
+			path = QFUtil/HLabelView;
+			sourceTree = "<group>";
+		};
 		15F9151920A14A33000261C4 /* HShow */ = {
 			isa = PBXGroup;
 			children = (
@@ -842,6 +856,7 @@
 				15B4DDF72092F96C00773E04 /* UIDevice+HUtil.m in Sources */,
 				15B4DD6B2092F88700773E04 /* ViewController.m in Sources */,
 				15B4DDFB2092F96C00773E04 /* UIColor+HUtil.m in Sources */,
+				15C572AA20AEDAB90070327C /* HLabelView.m in Sources */,
 				15B4DDE82092F96C00773E04 /* AppDelegate+HDebug.m in Sources */,
 				15B4DDEA2092F96C00773E04 /* HDebugView.m in Sources */,
 				15B4DE122092F96C00773E04 /* NSObject+HSwizzleUtil.m in Sources */,

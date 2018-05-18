@@ -13,6 +13,7 @@
 #import "QFButton.h"
 #import "NSFileManager+HUtil.h"
 #import "UILabel+HState.h"
+#import "HLabelView.h"
 
 @interface ViewController () {
     UILabel *label;
@@ -52,23 +53,45 @@
     NSLog(@"%@",self.ww);
     NSLog(@"%@",self.date);
     
+//    UITableViewCell *btn;
     
     label = [[UILabel alloc] init];
-    [label setFrame:CGRectMake(100, 100, 100, 100)];
+    [label setFrame:CGRectMake(100, 100, 150, 100)];
 //    [label setSelected:YES];
-    [label setText:@"hello" forState:UILabelStateNormal];
+    [label setText:@"hello福建省拉法基啊放假啊类似飞机案例；放假啊类似飞机啊；了房间啊；房价啊；放假啊；房价啊；峰" forState:UILabelStateNormal];
+    [label setNumberOfLines:0];
     [label setText:@"world" forState:UILabelStateSelected];
     
     [label setTextColor:[UIColor blueColor] forState:UILabelStateNormal];
     [label setTextColor:[UIColor greenColor] forState:UILabelStateSelected];
-    [label setSelected:YES];
+//    [label setSelected:YES];
     [label setFont:[UIFont systemFontOfSize:15] forState:UILabelStateNormal];
     [label setFont:[UIFont systemFontOfSize:35] forState:UILabelStateSelected];
     
     [label setBackgroundColor:[UIColor redColor] forState:UILabelStateNormal];
     [label setBackgroundColor:[UIColor yellowColor] forState:UILabelStateSelected];
 //    [label setSelected:YES];
-    [self.view addSubview:label];
+
+    UIView *accView = [UIView new];
+    [accView setFrame:CGRectMake(0, 0, 50, 80)];
+    [accView setBackgroundColor:[UIColor blackColor]];
+    
+//    UIEdgeInsetsMake(0, 0, 0, 0);
+//    [label setAccessoryView:accView edgeInsets:HEdgeInsetsMake(10, 10, 10)];
+    
+    
+//    [self.view addSubview:label];
+    
+    HLabelView *labelView = [[HLabelView alloc]initWithFrame:CGRectMake(100, 100, 150, 100)];
+//    [labelView setFrame:CGRectMake(100, 100, 150, 100)];
+    [labelView setBackgroundColor:[UIColor redColor]];
+    [labelView.label setText:@"事发后撒发货哦啊放假啊房价法搜撒娇哦"];
+//    [labelView.label setText:@"事发"];
+    [labelView.label setNumberOfLines:0];
+    [label setBackgroundColor:[UIColor blueColor]];
+    [labelView setAccessoryView:accView];
+    [labelView setEdgeInsets:HEdgeInsetsMake(50, 80, 0, 10)];
+    [self.view addSubview:labelView];
     
     UIButton *btn = [[UIButton alloc] init];
     [btn setFrame:CGRectMake(100, 300, 80, 80)];
@@ -83,6 +106,7 @@
 }
 
 - (void)btnAction {
+    NSLog(@"%@",label);
     if (label.isSelected) {
         [label setSelected:NO];
     }else {
