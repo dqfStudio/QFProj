@@ -74,6 +74,14 @@
 		15C5729320AE51B30070327C /* HSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5729120AE51B20070327C /* HSort.m */; };
 		15C572A020AEAC340070327C /* UILabel+HState.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5729E20AEAC340070327C /* UILabel+HState.m */; };
 		15C572AA20AEDAB90070327C /* HLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C572A820AEDAB90070327C /* HLabelView.m */; };
+		15C572AD20B005BC0070327C /* HTupleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C572AC20B005BC0070327C /* HTupleView.m */; };
+		15C572B020B016CA0070327C /* UIView+HAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C572AF20B016CA0070327C /* UIView+HAccessoryView.m */; };
+		15C572BC20B12DC60070327C /* HTupleViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C572BB20B12DC60070327C /* HTupleViewCell.m */; };
+		15C572BF20B172290070327C /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C572BD20B172290070327C /* UICollectionViewLeftAlignedLayout.m */; };
+		15C572C220B188B50070327C /* HTupleBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C572C120B188B50070327C /* HTupleBaseCell.m */; };
+		15C572C520B19B8A0070327C /* HTupleBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C572C420B19B8A0070327C /* HTupleBaseView.m */; };
+		15C572C820B19BC60070327C /* HTupleReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C572C720B19BC60070327C /* HTupleReusableView.m */; };
+		15C572CE20B1C9170070327C /* HTupleView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C572CD20B1C9170070327C /* HTupleView2.m */; };
 		15F9151D20A14A33000261C4 /* UIView+HShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9151A20A14A33000261C4 /* UIView+HShow.m */; };
 		15F9152020A171A8000261C4 /* NSObject+HAspects.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9151F20A171A8000261C4 /* NSObject+HAspects.m */; };
 		15F9152320A17E95000261C4 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9152220A17E95000261C4 /* TestViewController.m */; };
@@ -224,6 +232,22 @@
 		15C5729F20AEAC340070327C /* UILabel+HState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HState.h"; sourceTree = "<group>"; };
 		15C572A820AEDAB90070327C /* HLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLabelView.m; sourceTree = "<group>"; };
 		15C572A920AEDAB90070327C /* HLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLabelView.h; sourceTree = "<group>"; };
+		15C572AB20B005BC0070327C /* HTupleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleView.h; sourceTree = "<group>"; };
+		15C572AC20B005BC0070327C /* HTupleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleView.m; sourceTree = "<group>"; };
+		15C572AE20B016CA0070327C /* UIView+HAccessoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HAccessoryView.h"; sourceTree = "<group>"; };
+		15C572AF20B016CA0070327C /* UIView+HAccessoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+HAccessoryView.m"; sourceTree = "<group>"; };
+		15C572BA20B12DC60070327C /* HTupleViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewCell.h; sourceTree = "<group>"; };
+		15C572BB20B12DC60070327C /* HTupleViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewCell.m; sourceTree = "<group>"; };
+		15C572BD20B172290070327C /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftAlignedLayout.m; sourceTree = "<group>"; };
+		15C572BE20B172290070327C /* UICollectionViewLeftAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLeftAlignedLayout.h; sourceTree = "<group>"; };
+		15C572C020B188B50070327C /* HTupleBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleBaseCell.h; sourceTree = "<group>"; };
+		15C572C120B188B50070327C /* HTupleBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleBaseCell.m; sourceTree = "<group>"; };
+		15C572C320B19B8A0070327C /* HTupleBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleBaseView.h; sourceTree = "<group>"; };
+		15C572C420B19B8A0070327C /* HTupleBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleBaseView.m; sourceTree = "<group>"; };
+		15C572C620B19BC60070327C /* HTupleReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleReusableView.h; sourceTree = "<group>"; };
+		15C572C720B19BC60070327C /* HTupleReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleReusableView.m; sourceTree = "<group>"; };
+		15C572CC20B1C9170070327C /* HTupleView2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleView2.h; sourceTree = "<group>"; };
+		15C572CD20B1C9170070327C /* HTupleView2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleView2.m; sourceTree = "<group>"; };
 		15F9151A20A14A33000261C4 /* UIView+HShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HShow.m"; sourceTree = "<group>"; };
 		15F9151B20A14A33000261C4 /* HShow+Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HShow+Protocol.h"; sourceTree = "<group>"; };
 		15F9151C20A14A33000261C4 /* UIView+HShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HShow.h"; sourceTree = "<group>"; };
@@ -336,6 +360,22 @@
 				15B4DD6C2092F88700773E04 /* Main.storyboard */,
 				15F9152420A1817F000261C4 /* QFButton.h */,
 				15F9152520A1817F000261C4 /* QFButton.m */,
+				15C572AB20B005BC0070327C /* HTupleView.h */,
+				15C572AC20B005BC0070327C /* HTupleView.m */,
+				15C572CC20B1C9170070327C /* HTupleView2.h */,
+				15C572CD20B1C9170070327C /* HTupleView2.m */,
+				15C572C020B188B50070327C /* HTupleBaseCell.h */,
+				15C572C120B188B50070327C /* HTupleBaseCell.m */,
+				15C572C320B19B8A0070327C /* HTupleBaseView.h */,
+				15C572C420B19B8A0070327C /* HTupleBaseView.m */,
+				15C572C620B19BC60070327C /* HTupleReusableView.h */,
+				15C572C720B19BC60070327C /* HTupleReusableView.m */,
+				15C572BA20B12DC60070327C /* HTupleViewCell.h */,
+				15C572BB20B12DC60070327C /* HTupleViewCell.m */,
+				15C572BE20B172290070327C /* UICollectionViewLeftAlignedLayout.h */,
+				15C572BD20B172290070327C /* UICollectionViewLeftAlignedLayout.m */,
+				15C572AE20B016CA0070327C /* UIView+HAccessoryView.h */,
+				15C572AF20B016CA0070327C /* UIView+HAccessoryView.m */,
 				15F9152120A17E95000261C4 /* TestViewController.h */,
 				15F9152220A17E95000261C4 /* TestViewController.m */,
 				15B4DD7C2092F96B00773E04 /* Vendors */,
@@ -658,8 +698,8 @@
 		15C572A720AEDAB90070327C /* HLabelView */ = {
 			isa = PBXGroup;
 			children = (
-				15C572A820AEDAB90070327C /* HLabelView.m */,
 				15C572A920AEDAB90070327C /* HLabelView.h */,
+				15C572A820AEDAB90070327C /* HLabelView.m */,
 			);
 			name = HLabelView;
 			path = QFUtil/HLabelView;
@@ -829,6 +869,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15B4DE042092F96C00773E04 /* NSError+HUtil.m in Sources */,
+				15C572C220B188B50070327C /* HTupleBaseCell.m in Sources */,
 				15B4DDF82092F96C00773E04 /* UIImage+Util.m in Sources */,
 				15B4DE092092F96C00773E04 /* HWebImageView.m in Sources */,
 				15B4DDE92092F96C00773E04 /* HDebugUtil.m in Sources */,
@@ -852,6 +893,7 @@
 				15B4DE0C2092F96C00773E04 /* NSTimer+HSafeUtil.m in Sources */,
 				15B4DDF12092F96C00773E04 /* UIView+HRelation.m in Sources */,
 				15B4DE002092F96C00773E04 /* NSDate+HUtil.m in Sources */,
+				15C572AD20B005BC0070327C /* HTupleView.m in Sources */,
 				15B4DDFE2092F96C00773E04 /* NSString+HUtil.m in Sources */,
 				15B4DDF72092F96C00773E04 /* UIDevice+HUtil.m in Sources */,
 				15B4DD6B2092F88700773E04 /* ViewController.m in Sources */,
@@ -862,8 +904,10 @@
 				15B4DE122092F96C00773E04 /* NSObject+HSwizzleUtil.m in Sources */,
 				15B4DE062092F96C00773E04 /* NSObject+BlockSEL.m in Sources */,
 				15F9152620A1817F000261C4 /* QFButton.m in Sources */,
+				15C572B020B016CA0070327C /* UIView+HAccessoryView.m in Sources */,
 				15B4DE052092F96C00773E04 /* HHexUtil.m in Sources */,
 				15B4DE0E2092F96C00773E04 /* NSDictionary+HSafeUtil.m in Sources */,
+				15C572C820B19BC60070327C /* HTupleReusableView.m in Sources */,
 				15B4DE2A2093034700773E04 /* HClassManager.m in Sources */,
 				15B4DDFD2092F96C00773E04 /* UIFont+HChain.m in Sources */,
 				15B4DE1D209302BF00773E04 /* HGoTo.m in Sources */,
@@ -883,7 +927,10 @@
 				15B4DE0B2092F96C00773E04 /* NSString+HSafeUtil.m in Sources */,
 				15B4DD762092F88700773E04 /* main.m in Sources */,
 				15B4DDF52092F96C00773E04 /* UINavigationController+HUtil.m in Sources */,
+				15C572BF20B172290070327C /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				15B4DDFC2092F96C00773E04 /* UIImage+HChain.m in Sources */,
+				15C572C520B19B8A0070327C /* HTupleBaseView.m in Sources */,
+				15C572BC20B12DC60070327C /* HTupleViewCell.m in Sources */,
 				15B4DDF42092F96C00773E04 /* UIGestureRecognizer+HUtil.m in Sources */,
 				15F9152020A171A8000261C4 /* NSObject+HAspects.m in Sources */,
 				15B4DE0A2092F96C00773E04 /* HViewController.m in Sources */,
@@ -897,6 +944,7 @@
 				15464B7820A2C26300CDD27E /* HTestVC-DQF.m in Sources */,
 				15B4DE292093034700773E04 /* NSObject+annotation.m in Sources */,
 				15B4DDF32092F96C00773E04 /* UIView+HUtil.m in Sources */,
+				15C572CE20B1C9170070327C /* HTupleView2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
