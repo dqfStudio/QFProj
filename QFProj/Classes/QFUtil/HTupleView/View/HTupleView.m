@@ -14,14 +14,14 @@
 @end
 
 @implementation HTupleView
-- (id)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame collectionViewLayout:[UICollectionViewLeftAlignedLayout new]];
     if (self) {
         [self setup];
     }
     return self;
 }
-- (id)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction {
+- (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction {
     //自动网格布局
     UICollectionViewFlowLayout *flowLayout = nil;
     if (direction == HTupleViewScrollDirectionHorizontal) {

@@ -37,7 +37,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleViewScrollDirection) {
 
 @interface HTupleView : UICollectionView <HTupleViewDelegate>
 @property (nonatomic, weak, nullable) id <HTupleViewDelegate> tupleDelegate;
-- (id)initWithFrame:(CGRect)frame;
-- (id)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction;
+- (instancetype)initWithFrame:(CGRect)frame;
+- (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction;
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout;
 @end
