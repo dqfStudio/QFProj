@@ -67,6 +67,7 @@
     if ([self.tupleDelegate respondsToSelector:@selector(tupleView:itemTuple:atIndexPath:)]) {
         [self.tupleDelegate tupleView:self itemTuple:^id(__unsafe_unretained Class aClass) {
             if (![self.allReuseCells containsObject:NSStringFromClass(aClass)]) {
+                [self.allReuseCells addObject:NSStringFromClass(aClass)];
                 [self registerClass:aClass forCellWithReuseIdentifier:NSStringFromClass(aClass)];
             }
             cell = [self dequeueReusableCellWithReuseIdentifier:NSStringFromClass(aClass) forIndexPath:indexPath];
@@ -109,6 +110,7 @@
         if ([self.tupleDelegate respondsToSelector:@selector(tupleView:headerTuple:inSection:)]) {
             [self.tupleDelegate tupleView:self headerTuple:^id(__unsafe_unretained Class aClass) {
                 if (![self.allReuseCells containsObject:NSStringFromClass(aClass)]) {
+                    [self.allReuseCells addObject:NSStringFromClass(aClass)];
                     [self registerClass:aClass forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(aClass)];
                 }
                 cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(aClass) forIndexPath:indexPath];
@@ -129,6 +131,7 @@
         if ([self.tupleDelegate respondsToSelector:@selector(tupleView:footerTuple:inSection:)]) {
             [self.tupleDelegate tupleView:self footerTuple:^id(__unsafe_unretained Class aClass) {
                 if (![self.allReuseCells containsObject:NSStringFromClass(aClass)]) {
+                    [self.allReuseCells addObject:NSStringFromClass(aClass)];
                     [self registerClass:aClass forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass(aClass)];
                 }
                 cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass(aClass) forIndexPath:indexPath];
