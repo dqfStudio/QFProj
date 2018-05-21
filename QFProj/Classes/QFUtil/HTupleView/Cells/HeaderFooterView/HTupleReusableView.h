@@ -10,8 +10,8 @@
 #import "HWebImageView.h"
 #import "HWebButtonView.h"
 
-typedef void(^HReusableButtonViewBlock)(HWebButtonView *btn);
-typedef void(^HReusableImageViewBlock)(HWebImageView *imageView);
+typedef void(^HReusableButtonViewBlock)(HWebButtonView *webButtonView);
+typedef void(^HReusableImageViewBlock)(HWebImageView *webImageView);
 
 @interface HReusableView : HTupleBaseView
 @property (nonatomic) UIView *view;

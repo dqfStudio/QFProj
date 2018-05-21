@@ -169,9 +169,6 @@
             HTupleVerticalCell *cell = itemBlock(HTupleVerticalCell.class);
 //            [cell.button setBackgroundColor:[UIColor blueColor]];
             [cell setBackgroundColor:[UIColor redColor]];
-//            [cell setButtonViewBlock:^(UIButton *btn) {
-//
-//            }];
         }
             break;
         case 2:
@@ -179,7 +176,7 @@
             HImageViewCell *cell = itemBlock(HImageViewCell.class);
             [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
-            [cell setImageViewBlock:^(HWebImageView *imageView) {
+            [cell setImageViewBlock:^(HWebImageView *webImageView) {
                 
             }];
         }
@@ -189,7 +186,7 @@
             HImageViewCell *cell = itemBlock(HImageViewCell.class);
             [cell.imageView setBackgroundColor:[UIColor redColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
-            [cell setImageViewBlock:^(HWebImageView *imageView) {
+            [cell setImageViewBlock:^(HWebImageView *webImageView) {
                 
             }];
         }
@@ -218,9 +215,6 @@
             HReusableButtonView *cell = headerBlock(HReusableButtonView.class);
             [cell.button setBackgroundColor:[UIColor blueColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
-//            [cell setButtonViewBlock:^(UIButton *btn) {
-//
-//            }];
         }
             break;
         case 2:
@@ -228,9 +222,6 @@
             HReusableImageView *cell = headerBlock(HReusableImageView.class);
             [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
-//            [cell setImageViewBlock:^(UIImageView *imageView) {
-//
-//            }];
         }
             break;
             
