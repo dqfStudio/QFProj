@@ -107,7 +107,7 @@
     
     CGRect frame = self.view.frame;
     frame.origin.y = 64;
-    frame.size.height = 140;
+    frame.size.height = 90*2;
     HTupleView *tupleView = [[HTupleView alloc] initWithFrame:frame scrollDirection:HTupleViewScrollDirectionHorizontal];
     [tupleView setTupleDelegate:self];
     [tupleView setBackgroundColor:[UIColor whiteColor]];
@@ -127,10 +127,10 @@
     return CGSizeMake(190, 30);
 }
 - (CGSize)tupleView:(UIView *)tupleView sizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(100, 70);
+    return CGSizeMake(100, 90);
 }
 - (CGSize)tupleView:(UIView *)tupleView sizeForFooterInSection:(NSInteger)section {
-    return CGSizeMake(30, 70);
+    return CGSizeMake(30, 90);
 }
 //- (UIEdgeInsets)tupleView:(UIView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
 //    return UIEdgeInsetsMake(10, 0, 10, 0);
