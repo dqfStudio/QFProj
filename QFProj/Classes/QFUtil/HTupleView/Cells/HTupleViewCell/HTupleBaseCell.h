@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UILabel+HState.h"
+#import "UILabel+HUtil.h"
+#import "UIButton+HUtil.h"
 
 #define HLayoutTupleView(v) \
 if(!CGRectEqualToRect(v.frame, [self getContentView])) {\
