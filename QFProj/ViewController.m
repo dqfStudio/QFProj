@@ -107,7 +107,7 @@
     
     CGRect frame = self.view.frame;
     frame.origin.y = 64;
-    frame.size.height = 100+30*4;
+    frame.size.height = 140;
     HTupleView *tupleView = [[HTupleView alloc] initWithFrame:frame scrollDirection:HTupleViewScrollDirectionHorizontal];
     [tupleView setTupleDelegate:self];
     [tupleView setBackgroundColor:[UIColor whiteColor]];
@@ -116,42 +116,21 @@
     
 }
 
-//- (NSInteger)numberOfSectionsInTupleView:(UIView *)tupleView {
-//    return 2;
-//}
+- (NSInteger)numberOfSectionsInTupleView:(UIView *)tupleView {
+    return 2;
+}
 - (NSInteger)tupleView:(UIView *)tupleView numberOfItemsInSection:(NSInteger)section {
-    return 5;
+    return 3;
 }
 
 - (CGSize)tupleView:(UIView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-//        return CGSizeMake(160, 100);
-        return CGSizeMake(290, 100);
-    }
-//    if (indexPath.row == 3) {
-//        return CGSizeMake(320, 30);
-//    }
-//    return CGSizeMake(80, 30);
-//    return CGSizeMake(30, 30);
-    if (indexPath.row == 2) {
-        return CGSizeMake(290/3, 30);
-    }
-    if (indexPath.row == 3) {
-        return CGSizeMake(290/3, 30);
-    }
-    if (indexPath.row == 4) {
-        return CGSizeMake(290/3, 30);
-    }
-    return CGSizeMake(290, 30);
+    return CGSizeMake(190, 30);
 }
 - (CGSize)tupleView:(UIView *)tupleView sizeForHeaderInSection:(NSInteger)section {
-    if (section == 0) {
-        return CGSizeMake(30, 70);
-    }
-    return CGSizeMake(0, 0);
+    return CGSizeMake(100, 70);
 }
 - (CGSize)tupleView:(UIView *)tupleView sizeForFooterInSection:(NSInteger)section {
-    return CGSizeMake(0, 0);
+    return CGSizeMake(30, 70);
 }
 //- (UIEdgeInsets)tupleView:(UIView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
 //    return UIEdgeInsetsMake(10, 0, 10, 0);
@@ -228,6 +207,39 @@
         default:
         {
             HReusableImageView *cell = headerBlock(HReusableImageView.class);
+            [cell.imageView setBackgroundColor:[UIColor greenColor]];
+            [cell setBackgroundColor:[UIColor grayColor]];
+        }
+            break;
+    }
+}
+
+- (void)tupleView:(UIView *)tupleView footerTuple:(id (^)(Class aClass))footerBlock inSection:(NSInteger)section {
+    switch (section) {
+        case 0:{
+            HReusableTextView *cell = footerBlock(HReusableTextView.class);
+            [cell.label setBackgroundColor:[UIColor yellowColor]];
+            [cell setBackgroundColor:[UIColor grayColor]];
+        }
+            break;
+        case 1:
+        {
+            HReusableButtonView *cell = footerBlock(HReusableButtonView.class);
+            [cell.button setBackgroundColor:[UIColor blueColor]];
+            [cell setBackgroundColor:[UIColor grayColor]];
+        }
+            break;
+        case 2:
+        {
+            HReusableImageView *cell = footerBlock(HReusableImageView.class);
+            [cell.imageView setBackgroundColor:[UIColor greenColor]];
+            [cell setBackgroundColor:[UIColor grayColor]];
+        }
+            break;
+            
+        default:
+        {
+            HReusableImageView *cell = footerBlock(HReusableImageView.class);
             [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
