@@ -26,11 +26,11 @@ typedef NS_OPTIONS(NSUInteger, HTupleViewScrollDirection) {
 
 - (UIEdgeInsets)tupleView:(UIView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section;
 - (UIEdgeInsets)tupleView:(UIView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section;
-- (UIEdgeInsets)tupleView:(UIView *)tupleView edgeInsetsForCellAtIndexPath:(NSIndexPath *)indexPath;
+- (UIEdgeInsets)tupleView:(UIView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 - (void)tupleView:(UIView *)tupleView headerTuple:(id (^)(Class aClass))headerBlock inSection:(NSInteger)section;
 - (void)tupleView:(UIView *)tupleView footerTuple:(id (^)(Class aClass))footerBlock inSection:(NSInteger)section;
-- (void)tupleView:(UIView *)tupleView cellTuple:(id (^)(Class aClass))cellBlock atIndexPath:(NSIndexPath *)indexPath;
+- (void)tupleView:(UIView *)tupleView itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath;
 
 - (void)tupleView:(UIView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 @end

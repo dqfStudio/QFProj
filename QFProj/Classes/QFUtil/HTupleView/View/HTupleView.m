@@ -66,8 +66,8 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     __block UICollectionViewCell *cell = nil;
     UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-    if ([self.tupleDelegate respondsToSelector:@selector(tupleView:cellTuple:atIndexPath:)]) {
-        [self.tupleDelegate tupleView:self cellTuple:^id(__unsafe_unretained Class aClass) {
+    if ([self.tupleDelegate respondsToSelector:@selector(tupleView:itemTuple:atIndexPath:)]) {
+        [self.tupleDelegate tupleView:self itemTuple:^id(__unsafe_unretained Class aClass) {
             if (![self.allReuseCells containsObject:NSStringFromClass(aClass)]) {
                 [self registerClass:aClass forCellWithReuseIdentifier:NSStringFromClass(aClass)];
                 cell = [self dequeueReusableCellWithReuseIdentifier:NSStringFromClass(aClass) forIndexPath:indexPath];
@@ -76,8 +76,8 @@
             }
             return cell;
         } atIndexPath:indexPath];
-        if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForCellAtIndexPath:)]) {
-            edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForCellAtIndexPath:indexPath];
+        if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForItemAtIndexPath:)]) {
+            edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForItemAtIndexPath:indexPath];
         }
         if ([cell respondsToSelector:@selector(edgeInsets)]) {
             [(HTupleBaseCell *)cell setEdgeInsets:edgeInsets];

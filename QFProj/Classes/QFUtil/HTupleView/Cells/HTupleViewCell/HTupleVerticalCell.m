@@ -34,20 +34,20 @@
     }
     return CGSizeMake(290/3, 30);
 }
-//- (UIEdgeInsets)tupleView:(UIView *)tupleView edgeInsetsForCellAtIndexPath:(NSIndexPath *)indexPath {
+//- (UIEdgeInsets)tupleView:(UIView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
 //    return UIEdgeInsetsMake(10, 0, 10, 0);
 //}
-- (void)tupleView:(UIView *)tupleView cellTuple:(id (^)(Class aClass))cellBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(UIView *)tupleView itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:{
-            HTextViewCell *cell = cellBlock(HTextViewCell.class);
+            HTextViewCell *cell = itemBlock(HTextViewCell.class);
             [cell.label setBackgroundColor:[UIColor grayColor]];
             [cell setBackgroundColor:[UIColor blueColor]];
         }
             break;
         case 1:
         {
-            HButtonViewCell *cell = cellBlock(HButtonViewCell.class);
+            HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
             [cell.button setBackgroundColor:[UIColor blueColor]];
             [cell setBackgroundColor:[UIColor redColor]];
             [cell setButtonViewBlock:^(UIButton *btn) {
@@ -57,7 +57,7 @@
             break;
         case 2:
         {
-            HImageViewCell *cell = cellBlock(HImageViewCell.class);
+            HImageViewCell *cell = itemBlock(HImageViewCell.class);
             [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
             [cell setImageViewBlock:^(UIImageView *imageView) {
@@ -67,7 +67,7 @@
             break;
         case 3:
         {
-            HImageViewCell *cell = cellBlock(HImageViewCell.class);
+            HImageViewCell *cell = itemBlock(HImageViewCell.class);
             [cell.imageView setBackgroundColor:[UIColor redColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
             [cell setImageViewBlock:^(UIImageView *imageView) {
@@ -78,7 +78,7 @@
             
         default:
         {
-            HImageViewCell *cell = cellBlock(HImageViewCell.class);
+            HImageViewCell *cell = itemBlock(HImageViewCell.class);
             [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
