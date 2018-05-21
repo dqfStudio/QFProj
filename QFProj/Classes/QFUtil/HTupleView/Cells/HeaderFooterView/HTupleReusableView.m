@@ -42,8 +42,7 @@
 - (HWebButtonView *)button {
     if (!_button) {
         _button = [HWebButtonView new];
-        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(buttonAction:)];
-        [_button addGestureRecognizer:tapGestureRecognizer];
+        [_button.button addTarget:self action:@selector(buttonAction:)];
         [self addSubview:_button];
     }
     return _button;
