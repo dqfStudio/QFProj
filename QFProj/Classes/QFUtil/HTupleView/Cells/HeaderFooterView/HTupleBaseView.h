@@ -16,5 +16,6 @@ if(!CGRectEqualToRect(v.frame, [self getContentView])) {\
 @interface HTupleBaseView : UICollectionReusableView
 @property (nonatomic) UIEdgeInsets edgeInsets;
 - (CGRect)getContentView;
+//需要子类重写该方法
 - (void)layoutContentView;
 @end
