@@ -15,6 +15,7 @@
 #import "UILabel+HState.h"
 #import "HLabelView.h"
 #import "HTupleView.h"
+#import "HTupleVerticalCell.h"
 
 @interface ViewController () <HTupleViewDelegate> {
     UILabel *label;
@@ -165,12 +166,12 @@
             break;
         case 1:
         {
-            HButtonViewCell *cell = cellBlock(HButtonViewCell.class);
-            [cell.button setBackgroundColor:[UIColor blueColor]];
+            HTupleVerticalCell *cell = cellBlock(HTupleVerticalCell.class);
+//            [cell.button setBackgroundColor:[UIColor blueColor]];
             [cell setBackgroundColor:[UIColor redColor]];
-            [cell setButtonViewBlock:^(UIButton *btn) {
-                
-            }];
+//            [cell setButtonViewBlock:^(UIButton *btn) {
+//
+//            }];
         }
             break;
         case 2:

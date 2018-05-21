@@ -80,18 +80,3 @@
     }
 }
 @end
-
-@implementation HTupleViewCell
-- (HTupleView2 *)tupleView2 {
-    if (!_tupleView2) {
-        _tupleView2 = [[HTupleView2 alloc] initWithFrame:self.frame];
-        [self addSubview:_tupleView2];
-    }
-    return _tupleView2;
-}
-- (void)layoutContentView {
-    if(!CGRectEqualToRect(self.tupleView2.frame, [self getContentView])) {
-        [self.tupleView2 setFrame:[self getContentView]];
-    }
-}
-@end

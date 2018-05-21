@@ -7,7 +7,6 @@
 //
 
 #import "HTupleBaseCell.h"
-#import "HTupleView2.h"
 
 typedef void(^HButtonViewBlock)(UIButton *btn);
 typedef void(^HImageViewBlock)(UIImageView *imageView);
@@ -28,8 +27,4 @@ typedef void(^HImageViewBlock)(UIImageView *imageView);
 @interface HImageViewCell : HTupleBaseCell
 @property (nonatomic) UIImageView *imageView;
 @property (nonatomic, copy) HImageViewBlock imageViewBlock;
-@end
-
-@interface HTupleViewCell : HTupleBaseCell
-@property (nonatomic) HTupleView2 *tupleView2;
 @end
