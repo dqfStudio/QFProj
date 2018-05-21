@@ -68,10 +68,8 @@
         [self.tupleDelegate tupleView:self itemTuple:^id(__unsafe_unretained Class aClass) {
             if (![self.allReuseCells containsObject:NSStringFromClass(aClass)]) {
                 [self registerClass:aClass forCellWithReuseIdentifier:NSStringFromClass(aClass)];
-                cell = [self dequeueReusableCellWithReuseIdentifier:NSStringFromClass(aClass) forIndexPath:indexPath];
-            }else {
-                cell = [self dequeueReusableCellWithReuseIdentifier:NSStringFromClass(aClass) forIndexPath:indexPath];
             }
+            cell = [self dequeueReusableCellWithReuseIdentifier:NSStringFromClass(aClass) forIndexPath:indexPath];
             return cell;
         } atIndexPath:indexPath];
         if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForItemAtIndexPath:)]) {
@@ -112,10 +110,8 @@
             [self.tupleDelegate tupleView:self headerTuple:^id(__unsafe_unretained Class aClass) {
                 if (![self.allReuseCells containsObject:NSStringFromClass(aClass)]) {
                     [self registerClass:aClass forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(aClass)];
-                    cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(aClass) forIndexPath:indexPath];
-                }else {
-                    cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(aClass) forIndexPath:indexPath];
                 }
+                cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(aClass) forIndexPath:indexPath];
                 return cell;
             } inSection:indexPath.section];
             if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForHeaderInSection:)]) {
@@ -134,10 +130,8 @@
             [self.tupleDelegate tupleView:self footerTuple:^id(__unsafe_unretained Class aClass) {
                 if (![self.allReuseCells containsObject:NSStringFromClass(aClass)]) {
                     [self registerClass:aClass forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass(aClass)];
-                    cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass(aClass) forIndexPath:indexPath];
-                }else {
-                    cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass(aClass) forIndexPath:indexPath];
                 }
+                cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass(aClass) forIndexPath:indexPath];
                 return cell;
             } inSection:indexPath.section];
             if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForFooterInSection:)]) {
