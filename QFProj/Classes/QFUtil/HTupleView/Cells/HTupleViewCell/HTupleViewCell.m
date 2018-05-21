@@ -42,15 +42,16 @@
 - (HWebButtonView *)button {
     if (!_button) {
         _button = [HWebButtonView new];
-        [_button.button addTarget:self action:@selector(buttonAction:)];
+        @weakify(self)
+        [_button setPressed:^(id sender, id data) {
+            @strongify(self)
+            if (self.buttonViewBlock) {
+                self.buttonViewBlock(self.button);
+            }
+        }];
         [self addSubview:_button];
     }
     return _button;
-}
-- (void)buttonAction:(id)sender {
-    if (_buttonViewBlock) {
-        _buttonViewBlock(sender);
-    }
 }
 - (void)layoutContentView {
     if(!CGRectEqualToRect(self.button.frame, [self getContentView])) {
