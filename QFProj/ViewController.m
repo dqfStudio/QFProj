@@ -75,8 +75,12 @@
 //    [label setSelected:YES];
 
     UIView *accView = [UIView new];
-    [accView setFrame:CGRectMake(0, 0, 50, 80)];
+//    [accView setFrame:CGRectMake(0, 0, 20, 80)];
     [accView setBackgroundColor:[UIColor blackColor]];
+    
+    UIView *accView2 = [UIView new];
+//    [accView2 setFrame:CGRectMake(0, 0, 20, 80)];
+    [accView2 setBackgroundColor:[UIColor blackColor]];
     
 //    UIEdgeInsetsMake(0, 0, 0, 0);
 //    [label setAccessoryView:accView edgeInsets:HEdgeInsetsMake(10, 10, 10)];
@@ -92,7 +96,9 @@
     [labelView.label setNumberOfLines:0];
     [label setBackgroundColor:[UIColor blueColor]];
     [labelView setLeftView:accView];
-    [labelView setRightEdgeInsets:HEdgeInsetsMake(50, 80, 0, 10)];
+    [labelView setRightView:accView2];
+    [labelView setLeftEdgeInsets:HEdgeInsetsMake(20, 80, 0, 10)];
+    [labelView setRightEdgeInsets:HEdgeInsetsMake(20, 80, 10, 0)];
     [self.view addSubview:labelView];
     
     UIButton *btn = [[UIButton alloc] init];

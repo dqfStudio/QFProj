@@ -12,6 +12,10 @@ UIKIT_STATIC_INLINE CGFloat HEdgeWidth(HEdgeInsets edge) {
     return edge.left + edge.width + edge.right;
 }
 
+UIKIT_STATIC_INLINE CGFloat HEdgeRightWidth(HEdgeInsets edge) {
+    return edge.right + edge.width;
+}
+
 @implementation HLabelView
 
 - (id)initWithFrame:(CGRect)frame {
@@ -79,7 +83,7 @@ UIKIT_STATIC_INLINE CGFloat HEdgeWidth(HEdgeInsets edge) {
     }
     if (self.rightView) {
         //计算rightView的Frame
-        rightViewFrame.origin.x = frame.size.width - HEdgeWidth(self.rightEdgeInsets);
+        rightViewFrame.origin.x = frame.size.width - HEdgeRightWidth(self.rightEdgeInsets);
         rightViewFrame.origin.y = frame.size.height/2 - self.rightEdgeInsets.height/2;
         rightViewFrame.size.width = self.rightEdgeInsets.width;
         rightViewFrame.size.height = self.rightEdgeInsets.height;
