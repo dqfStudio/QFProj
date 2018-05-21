@@ -19,9 +19,7 @@
     return _tupleView;
 }
 - (void)layoutContentView {
-    if(!CGRectEqualToRect(self.tupleView.frame, [self getContentView])) {
-        [self.tupleView setFrame:[self getContentView]];
-    }
+    HLayoutView(self.tupleView)
 }
 
 - (NSInteger)tupleView:(UIView *)tupleView numberOfItemsInSection:(NSInteger)section {

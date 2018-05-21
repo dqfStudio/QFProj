@@ -17,9 +17,7 @@
     return _view;
 }
 - (void)layoutContentView {
-    if(!CGRectEqualToRect(self.view.frame, [self getContentView])) {
-        [self.view setFrame:[self getContentView]];
-    }
+    HLayoutView(self.view)
 }
 @end
 
@@ -32,9 +30,7 @@
     return _label;
 }
 - (void)layoutContentView {
-    if(!CGRectEqualToRect(self.label.frame, [self getContentView])) {
-        [self.label setFrame:[self getContentView]];
-    }
+    HLayoutView(self.label)
 }
 @end
 
@@ -54,9 +50,7 @@
     return _button;
 }
 - (void)layoutContentView {
-    if(!CGRectEqualToRect(self.button.frame, [self getContentView])) {
-        [self.button setFrame:[self getContentView]];
-    }
+    HLayoutView(self.button)
 }
 @end
 
@@ -76,8 +70,6 @@
     }
 }
 - (void)layoutContentView {
-    if(!CGRectEqualToRect(self.imageView.frame, [self getContentView])) {
-        [self.imageView setFrame:[self getContentView]];
-    }
+    HLayoutView(self.imageView)
 }
 @end
