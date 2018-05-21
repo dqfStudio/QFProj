@@ -53,6 +53,11 @@ typedef NS_ENUM(NSInteger, NSWordAlign) {
 - (CGSize)sizeThatWidth:(CGFloat)maxWidth;
 
 /**
+ 获取上述设置的属性字符串，此方法需要在所有属性设置后调用
+ */
+- (NSAttributedString *)getCustomFormatString;
+
+/**
  使设置的格式有效
  */
 - (void)formatThatFits;

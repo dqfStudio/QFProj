@@ -147,10 +147,11 @@
     return expectSize;
 }
 
+
 /**
- 使设置的格式有效
+ 获取上述设置的属性字符串，此方法需要在所有属性设置后调用
  */
-- (void)formatThatFits {
+- (NSAttributedString *)getCustomFormatString {
     if (!self.text) self.text = @"";
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self.text];
     [attributedString addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0,self.text.length)];
@@ -191,7 +192,7 @@
         [string appendAttributedString:rightSpaceString];
         
         if ([self.imgUrl containsString:@"http://"] || [self.imgUrl containsString:@"https://"]) {
-//            [self loadImageForUrl:url toAttach:attch syncLoadCache:NO range:range text:temp];
+            //            [self loadImageForUrl:url toAttach:attch syncLoadCache:NO range:range text:temp];
         }else {//加载本地图片
             if ([NSStringFromCGSize(CGSizeZero) isEqualToString:NSStringFromCGSize(self.frame.size)]) {
                 CGSize imageSize = self.imgSize;
@@ -247,7 +248,7 @@
                 attch.bounds = CGRectMake(0, height, imageSize.width, imageSize.height);
             }
                 break;
-
+                
             default:
                 break;
         }
@@ -304,8 +305,14 @@
             [attributedString addAttribute:NSForegroundColorAttributeName value:self.middlelineColor range:itemRange];
         }
     }
-    
-    self.attributedText = attributedString;
+    return attributedString;
+}
+
+/**
+ 使设置的格式有效
+ */
+- (void)formatThatFits {
+    self.attributedText = [self getCustomFormatString];
 }
 
 @end
