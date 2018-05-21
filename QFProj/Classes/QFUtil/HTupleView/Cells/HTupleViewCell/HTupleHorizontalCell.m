@@ -59,7 +59,7 @@
             HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
             [cell.button setBackgroundColor:[UIColor blueColor]];
             [cell setBackgroundColor:[UIColor redColor]];
-            [cell setButtonViewBlock:^(UIButton *btn) {
+            [cell setButtonViewBlock:^(HWebButtonView *btn) {
                 
             }];
         }
@@ -69,7 +69,7 @@
             HImageViewCell *cell = itemBlock(HImageViewCell.class);
             [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
-            [cell setImageViewBlock:^(UIImageView *imageView) {
+            [cell setImageViewBlock:^(HWebImageView *imageView) {
                 
             }];
         }
@@ -79,7 +79,7 @@
             HImageViewCell *cell = itemBlock(HImageViewCell.class);
             [cell.imageView setBackgroundColor:[UIColor redColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
-            [cell setImageViewBlock:^(UIImageView *imageView) {
+            [cell setImageViewBlock:^(HWebImageView *imageView) {
                 
             }];
         }

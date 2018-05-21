@@ -39,10 +39,11 @@
 @end
 
 @implementation HReusableButtonView
-- (UIButton *)button {
+- (HWebButtonView *)button {
     if (!_button) {
-        _button = [UIButton new];
-        [_button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+        _button = [HWebButtonView new];
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(buttonAction:)];
+        [_button addGestureRecognizer:tapGestureRecognizer];
         [self addSubview:_button];
     }
     return _button;
@@ -60,9 +61,9 @@
 @end
 
 @implementation HReusableImageView
-- (UIImageView *)imageView {
+- (HWebImageView *)imageView {
     if (!_imageView) {
-        _imageView = [UIImageView new];
+        _imageView = [HWebImageView new];
         UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewAction:)];
         [_imageView addGestureRecognizer:tapGestureRecognizer];
         [self addSubview:_imageView];

@@ -580,10 +580,10 @@
 		15B4DDCD2092F96B00773E04 /* HWebClasses */ = {
 			isa = PBXGroup;
 			children = (
-				15B4DDCE2092F96B00773E04 /* HWebImageView.h */,
-				15B4DDCF2092F96B00773E04 /* HWebButtonView.m */,
-				15B4DDD02092F96B00773E04 /* HWebImageView.m */,
 				15B4DDD12092F96B00773E04 /* HWebButtonView.h */,
+				15B4DDCF2092F96B00773E04 /* HWebButtonView.m */,
+				15B4DDCE2092F96B00773E04 /* HWebImageView.h */,
+				15B4DDD02092F96B00773E04 /* HWebImageView.m */,
 			);
 			path = HWebClasses;
 			sourceTree = "<group>";

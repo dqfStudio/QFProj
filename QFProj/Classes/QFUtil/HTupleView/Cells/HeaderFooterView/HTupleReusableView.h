@@ -7,9 +7,11 @@
 //
 
 #import "HTupleBaseView.h"
+#import "HWebImageView.h"
+#import "HWebButtonView.h"
 
-typedef void(^HReusableButtonViewBlock)(UIButton *btn);
-typedef void(^HReusableImageViewBlock)(UIImageView *imageView);
+typedef void(^HReusableButtonViewBlock)(HWebButtonView *btn);
+typedef void(^HReusableImageViewBlock)(HWebImageView *imageView);
 
 @interface HReusableView : HTupleBaseView
 @property (nonatomic) UIView *view;
@@ -20,12 +22,12 @@ typedef void(^HReusableImageViewBlock)(UIImageView *imageView);
 @end
 
 @interface HReusableButtonView : HTupleBaseView
-@property (nonatomic) UIButton *button;
+@property (nonatomic) HWebButtonView *button;
 @property (nonatomic, copy) HReusableButtonViewBlock reusableButtonViewBlock;
 @end
 
 @interface HReusableImageView : HTupleBaseView
-@property (nonatomic) UIImageView *imageView;
+@property (nonatomic) HWebImageView *imageView;
 @property (nonatomic, copy) HReusableImageViewBlock reusableImageViewBlock;
 @end
 

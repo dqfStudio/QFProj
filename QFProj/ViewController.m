@@ -179,7 +179,7 @@
             HImageViewCell *cell = itemBlock(HImageViewCell.class);
             [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
-            [cell setImageViewBlock:^(UIImageView *imageView) {
+            [cell setImageViewBlock:^(HWebImageView *imageView) {
                 
             }];
         }
@@ -189,7 +189,7 @@
             HImageViewCell *cell = itemBlock(HImageViewCell.class);
             [cell.imageView setBackgroundColor:[UIColor redColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
-            [cell setImageViewBlock:^(UIImageView *imageView) {
+            [cell setImageViewBlock:^(HWebImageView *imageView) {
                 
             }];
         }
