@@ -44,6 +44,16 @@
 }
 
 - (void)setup {
+    self.alwaysBounceVertical = YES;
+    self.backgroundColor = [UIColor clearColor];
+    self.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    self.showsHorizontalScrollIndicator = NO;
+    self.showsVerticalScrollIndicator = NO;
+    
+    if (@available(iOS 11.0, *)) {
+        self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+    
     _allReuseCells = [NSMutableSet new];
     self.delegate = self;
     self.dataSource = self;
