@@ -8,11 +8,6 @@
 
 #import "HTupleReusableView.h"
 
-#define HLayoutView(v) \
-if(!CGRectEqualToRect(v.frame, [self getContentView])) {\
-    [v setFrame:[self getContentView]];\
-}
-
 @implementation HReusableView
 - (UIView *)view {
     if (!_view) {
@@ -22,7 +17,7 @@ if(!CGRectEqualToRect(v.frame, [self getContentView])) {\
     return _view;
 }
 - (void)layoutContentView {
-    HLayoutView(self.view)
+    HLayoutReusableView(self.view)
 }
 @end
 
@@ -35,7 +30,7 @@ if(!CGRectEqualToRect(v.frame, [self getContentView])) {\
     return _label;
 }
 - (void)layoutContentView {
-    HLayoutView(self.label)
+    HLayoutReusableView(self.label)
 }
 @end
 
@@ -55,7 +50,7 @@ if(!CGRectEqualToRect(v.frame, [self getContentView])) {\
     return _button;
 }
 - (void)layoutContentView {
-    HLayoutView(self.button)
+    HLayoutReusableView(self.button)
 }
 @end
 
@@ -75,7 +70,7 @@ if(!CGRectEqualToRect(v.frame, [self getContentView])) {\
     }
 }
 - (void)layoutContentView {
-    HLayoutView(self.imageView)
+    HLayoutReusableView(self.imageView)
 }
 @end
 

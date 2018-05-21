@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#define HLayoutReusableView(v) \
+if(!CGRectEqualToRect(v.frame, [self getContentView])) {\
+    [v setFrame:[self getContentView]];\
+}
+
 @interface HTupleBaseView : UICollectionReusableView
 @property (nonatomic) UIEdgeInsets edgeInsets;
 - (CGRect)getContentView;
