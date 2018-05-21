@@ -7,7 +7,6 @@
 //
 
 #import "HTupleView.h"
-#import "UICollectionViewLeftAlignedLayout.h"
 
 @interface HTupleView () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (nonatomic) NSMutableSet *allReuseCells;
@@ -22,7 +21,6 @@
     return self;
 }
 - (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction {
-    //自动网格布局
     UICollectionViewFlowLayout *flowLayout = nil;
     if (direction == HTupleViewScrollDirectionHorizontal) {
         flowLayout = [[UICollectionViewFlowLayout alloc] init];
