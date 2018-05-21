@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, HAccessoryDirection) {
+    HAccessoryDirectionLeft = 0,
+    HAccessoryDirectionRight
+};
+
 typedef struct HEdgeInsets {
     CGFloat width, height, left, right;
 } HEdgeInsets;
@@ -17,8 +22,18 @@ UIKIT_STATIC_INLINE HEdgeInsets HEdgeInsetsMake(CGFloat width, CGFloat height, C
     return insets;
 }
 
+UIKIT_STATIC_INLINE bool HEdgeEqualToEdge(HEdgeInsets edge1, HEdgeInsets edge2) {
+    bool equal = true;
+    if (edge1.width != edge2.width) equal = false;
+    else if (edge1.height != edge2.height) equal = false;
+    else if (edge1.left != edge2.left) equal = false;
+    else if (edge1.right != edge2.right) equal = false;
+    return equal;
+}
+
 @interface HLabelView : UIView
 @property (nonatomic) UILabel *label;
 @property (nonatomic, copy) UIView *accessoryView;
 @property(nonatomic) HEdgeInsets edgeInsets;
+@property(nonatomic) HAccessoryDirection direction;
 @end
