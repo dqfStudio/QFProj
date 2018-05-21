@@ -8,6 +8,10 @@
 
 #import "HLabelView.h"
 
+UIKIT_STATIC_INLINE CGFloat HEdgeWidth(HEdgeInsets edge) {
+    return edge.left + edge.width + edge.right;
+}
+
 @implementation HLabelView
 
 - (id)initWithFrame:(CGRect)frame {
@@ -19,76 +23,75 @@
     return self;
 }
 
-- (void)setAccessoryView:(UIView *)accessoryView {
-    if (_accessoryView != accessoryView) {
-        if (_accessoryView) {
-            [_accessoryView removeFromSuperview];
-            _accessoryView = nil;
+- (void)setLeftView:(UIView *)leftView {
+    if (_leftView != leftView) {
+        if (_leftView) {
+            [_leftView removeFromSuperview];
+            _leftView = nil;
         }
-        _accessoryView = accessoryView;
-        [self addSubview:_accessoryView];
+        _leftView = leftView;
+        [self addSubview:_leftView];
         [self layoutSubviews];
     }
 }
 
-- (void)setEdgeInsets:(HEdgeInsets)edgeInsets {
-    if (!HEdgeEqualToEdge(_edgeInsets, edgeInsets)) {
-        _edgeInsets = edgeInsets;
+- (void)setRightView:(UIView *)rightView {
+    if (_rightView != rightView) {
+        if (_rightView) {
+            [_rightView removeFromSuperview];
+            _rightView = nil;
+        }
+        _rightView = rightView;
+        [self addSubview:_rightView];
         [self layoutSubviews];
     }
 }
 
-- (void)setDirection:(HAccessoryDirection)direction {
-    if (_direction != direction) {
-        _direction = direction;
+- (void)setLeftEdgeInsets:(HEdgeInsets)leftEdgeInsets {
+    if (!HEdgeEqualToEdge(_leftEdgeInsets, leftEdgeInsets)) {
+        _leftEdgeInsets = leftEdgeInsets;
+        [self layoutSubviews];
+    }
+}
+
+- (void)setRightEdgeInsets:(HEdgeInsets)rightEdgeInsets {
+    if (!HEdgeEqualToEdge(_rightEdgeInsets, rightEdgeInsets)) {
+        _rightEdgeInsets = rightEdgeInsets;
         [self layoutSubviews];
     }
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    if (self.accessoryView) {
-
-        switch (self.direction) {
-            case HAccessoryDirectionLeft: {
-                CGRect frame = self.bounds;
-                //计算label的Frame
-                CGRect labelFrame = frame;
-                labelFrame.origin.x = self.edgeInsets.width + self.edgeInsets.left + self.edgeInsets.right;
-                labelFrame.size.width -= labelFrame.origin.x;
-                self.label.frame = labelFrame;
-                
-                //计算accessoryView的Frame
-                CGRect accessoryFrame = CGRectZero;
-                accessoryFrame.origin.x = self.edgeInsets.left;
-                accessoryFrame.origin.y = frame.size.height/2 - self.edgeInsets.height/2;
-                accessoryFrame.size.width = self.edgeInsets.width;
-                accessoryFrame.size.height = self.edgeInsets.height;
-                self.accessoryView.frame = accessoryFrame;
-            }
-                break;
-            case HAccessoryDirectionRight: {
-                CGRect frame = self.bounds;
-                //计算label的Frame
-                CGRect labelFrame = frame;
-                labelFrame.size.width -= self.edgeInsets.width + self.edgeInsets.left + self.edgeInsets.right;
-                self.label.frame = labelFrame;
-                
-                //计算accessoryView的Frame
-                CGRect accessoryFrame = CGRectZero;
-                accessoryFrame.origin.x = labelFrame.size.width + self.edgeInsets.left;
-                accessoryFrame.origin.y = frame.size.height/2 - self.edgeInsets.height/2;
-                accessoryFrame.size.width = self.edgeInsets.width;
-                accessoryFrame.size.height = self.edgeInsets.height;
-                self.accessoryView.frame = accessoryFrame;
-            }
-                break;
-            default:
-                break;
+    CGRect frame = self.bounds;
+    CGRect labelFrame = self.bounds;
+    CGRect leftViewFrame = CGRectZero;
+    CGRect rightViewFrame = CGRectZero;
+    if (self.leftView) {
+        //计算leftView的Frame
+        leftViewFrame.origin.x = self.leftEdgeInsets.left;
+        leftViewFrame.origin.y = frame.size.height/2 - self.leftEdgeInsets.height/2;
+        leftViewFrame.size.width = self.leftEdgeInsets.width;
+        leftViewFrame.size.height = self.leftEdgeInsets.height;
+        if (!CGRectEqualToRect(self.leftView.frame, leftViewFrame)) {
+            self.leftView.frame = leftViewFrame;
         }
-        
-    }else {
-        self.label.frame = self.bounds;
+    }
+    if (self.rightView) {
+        //计算rightView的Frame
+        rightViewFrame.origin.x = frame.size.width - HEdgeWidth(self.rightEdgeInsets);
+        rightViewFrame.origin.y = frame.size.height/2 - self.rightEdgeInsets.height/2;
+        rightViewFrame.size.width = self.rightEdgeInsets.width;
+        rightViewFrame.size.height = self.rightEdgeInsets.height;
+        if (!CGRectEqualToRect(self.rightView.frame, rightViewFrame)) {
+            self.rightView.frame = rightViewFrame;
+        }
+    }
+    //计算label的Frame
+    labelFrame.origin.x = HEdgeWidth(self.leftEdgeInsets);
+    labelFrame.size.width -=  HEdgeWidth(self.leftEdgeInsets) + HEdgeWidth(self.rightEdgeInsets);
+    if (!CGRectEqualToRect(self.label.frame, labelFrame)) {
+        self.label.frame = labelFrame;
     }
 }
 

@@ -91,9 +91,9 @@
 //    [labelView.label setText:@"事发"];
     [labelView.label setNumberOfLines:0];
     [label setBackgroundColor:[UIColor blueColor]];
-    [labelView setAccessoryView:accView];
-    [labelView setEdgeInsets:HEdgeInsetsMake(50, 80, 0, 10)];
-//    [self.view addSubview:labelView];
+    [labelView setLeftView:accView];
+    [labelView setRightEdgeInsets:HEdgeInsetsMake(50, 80, 0, 10)];
+    [self.view addSubview:labelView];
     
     UIButton *btn = [[UIButton alloc] init];
     [btn setFrame:CGRectMake(100, 300, 80, 80)];
@@ -111,7 +111,7 @@
     HTupleView *tupleView = [[HTupleView alloc] initWithFrame:frame scrollDirection:HTupleViewScrollDirectionHorizontal];
     [tupleView setTupleDelegate:self];
     [tupleView setBackgroundColor:[UIColor whiteColor]];
-    [self.view addSubview:tupleView];
+//    [self.view addSubview:tupleView];
     [self.view setBackgroundColor:[UIColor orangeColor]];
     
 }

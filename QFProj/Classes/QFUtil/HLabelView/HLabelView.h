@@ -8,11 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, HAccessoryDirection) {
-    HAccessoryDirectionLeft = 0,
-    HAccessoryDirectionRight
-};
-
 typedef struct HEdgeInsets {
     CGFloat width, height, left, right;
 } HEdgeInsets;
@@ -33,7 +28,8 @@ UIKIT_STATIC_INLINE bool HEdgeEqualToEdge(HEdgeInsets edge1, HEdgeInsets edge2) 
 
 @interface HLabelView : UIView
 @property (nonatomic) UILabel *label;
-@property (nonatomic, copy) UIView *accessoryView;
-@property(nonatomic) HEdgeInsets edgeInsets;
-@property(nonatomic) HAccessoryDirection direction;
+@property (nonatomic, copy) UIView *leftView;
+@property (nonatomic, copy) UIView *rightView;
+@property(nonatomic) HEdgeInsets leftEdgeInsets;
+@property(nonatomic) HEdgeInsets rightEdgeInsets;
 @end
