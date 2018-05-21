@@ -19,7 +19,7 @@
     return _tupleView;
 }
 - (void)layoutContentView {
-    HLayoutView(self.tupleView)
+    HLayoutTupleView(self.tupleView)
 }
 
 - (NSInteger)tupleView:(UIView *)tupleView numberOfItemsInSection:(NSInteger)section {

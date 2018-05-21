@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define HLayoutView(v) \
+#define HLayoutTupleView(v) \
 if(!CGRectEqualToRect(v.frame, [self getContentView])) {\
     [v setFrame:[self getContentView]];\
 }

@@ -17,7 +17,7 @@
     return _view;
 }
 - (void)layoutContentView {
-    HLayoutView(self.view)
+    HLayoutTupleView(self.view)
 }
 @end
 
@@ -30,7 +30,7 @@
     return _label;
 }
 - (void)layoutContentView {
-    HLayoutView(self.label)
+    HLayoutTupleView(self.label)
 }
 @end
 
@@ -50,7 +50,7 @@
     return _button;
 }
 - (void)layoutContentView {
-    HLayoutView(self.button)
+    HLayoutTupleView(self.button)
 }
 @end
 
@@ -70,6 +70,6 @@
     }
 }
 - (void)layoutContentView {
-    HLayoutView(self.imageView)
+    HLayoutTupleView(self.imageView)
 }
 @end
