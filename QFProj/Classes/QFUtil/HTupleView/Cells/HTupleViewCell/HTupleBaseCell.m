@@ -8,6 +8,18 @@
 
 #import "HTupleBaseCell.h"
 
+@implementation UICollectionView (HTupleBaseCell)
+- (id)headerWithReuseClass:(Class)aClass atIndexPath:(NSIndexPath *)indexPath {
+    return nil;
+}
+- (id)footerWithReuseClass:(Class)aClass atIndexPath:(NSIndexPath *)indexPath {
+    return nil;
+}
+- (id)itemWithReuseClass:(Class)aClass atIndexPath:(NSIndexPath *)indexPath {
+    return nil;
+}
+@end
+
 @implementation HTupleBaseCell
 - (CGRect)getContentFrame {
     CGRect frame = self.bounds;

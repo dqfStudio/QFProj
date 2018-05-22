@@ -805,10 +805,10 @@
 		15C5735C20B3DD7B0070327C /* HeaderFooterView */ = {
 			isa = PBXGroup;
 			children = (
-				15C5735D20B3DD7B0070327C /* HTupleReusableView.m */,
-				15C5735E20B3DD7B0070327C /* HTupleBaseView.m */,
 				15C5735F20B3DD7B0070327C /* HTupleBaseView.h */,
+				15C5735E20B3DD7B0070327C /* HTupleBaseView.m */,
 				15C5736020B3DD7B0070327C /* HTupleReusableView.h */,
+				15C5735D20B3DD7B0070327C /* HTupleReusableView.m */,
 			);
 			path = HeaderFooterView;
 			sourceTree = "<group>";

@@ -100,6 +100,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         if ([cell respondsToSelector:@selector(model)]) {
             HBaseCell *tmpCell = (HBaseCell *)cell;
+            tmpCell.table = self;
             tmpCell.model = [self cellAtIndexPath:indexPath];
         }
         if (block) {

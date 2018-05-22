@@ -10,6 +10,7 @@
 #import "HCellModel.h"
 
 @interface HBaseCell : UITableViewCell
+@property (nonatomic, weak) UITableView *table;
 @property (nonatomic) HCellModel *model;
 //子类覆盖
 - (void)initUI;

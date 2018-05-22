@@ -104,8 +104,13 @@
             if (![self.allReuseCells containsObject:identifier]) {
                 [self.allReuseCells addObject:identifier];
                 [self registerClass:aClass forCellWithReuseIdentifier:identifier];
+                cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+                HTupleBaseCell *tmpCell = (HTupleBaseCell *)cell;
+                tmpCell.collection = self;
+                tmpCell.indexPath = indexPath;
+            }else {
+                cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
             }
-            cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
             return cell;
         } atIndexPath:indexPath];
         if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForItemAtIndexPath:)]) {
@@ -148,8 +153,13 @@
                 if (![self.allReuseCells containsObject:identifier]) {
                     [self.allReuseCells addObject:identifier];
                     [self registerClass:aClass forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier];
+                    cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
+                    HTupleBaseView *tmpCell = (HTupleBaseView *)cell;
+                    tmpCell.collection = self;
+                    tmpCell.indexPath = indexPath;
+                }else {
+                    cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
                 }
-                cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
                 return cell;
             } inSection:indexPath.section];
             if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForHeaderInSection:)]) {
@@ -170,8 +180,13 @@
                 if (![self.allReuseCells containsObject:identifier]) {
                     [self.allReuseCells addObject:identifier];
                     [self registerClass:aClass forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier];
+                    cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
+                    HTupleBaseView *tmpCell = (HTupleBaseView *)cell;
+                    tmpCell.collection = self;
+                    tmpCell.indexPath = indexPath;
+                }else {
+                    cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
                 }
-                cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
                 return cell;
             } inSection:indexPath.section];
             if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForFooterInSection:)]) {
