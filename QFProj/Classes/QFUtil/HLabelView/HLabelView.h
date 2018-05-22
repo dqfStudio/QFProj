@@ -45,10 +45,10 @@ UIKIT_STATIC_INLINE bool HSideEdgeEqualToEdge(HSideEdgeInsets edge1, HSideEdgeIn
 
 @interface HLabelView : UIView
 @property (nonatomic) UILabel *label;
-@property (nonatomic, copy) UIView *leftView;
-@property (nonatomic, copy) UIView *rightView;
-@property (nonatomic, copy) UIView *topView;
-@property (nonatomic, copy) UIView *bottomView;
+@property (nonatomic, strong, nullable) UIView *leftView;
+@property (nonatomic, strong, nullable) UIView *rightView;
+@property (nonatomic, strong, nullable) UIView *topView;
+@property (nonatomic, strong, nullable) UIView *bottomView;
 
 @property(nonatomic) HEdgeInsets leftEdgeInsets;
 @property(nonatomic) HEdgeInsets rightEdgeInsets;
