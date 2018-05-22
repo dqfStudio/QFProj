@@ -88,6 +88,7 @@
 		15C5731120B2ABC70070327C /* icon_tuple_arrow_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C5730D20B2ABC70070327C /* icon_tuple_arrow_down@2x.png */; };
 		15C5731220B2ABC70070327C /* icon_tuple_arrow_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C5730E20B2ABC70070327C /* icon_tuple_arrow_right@2x.png */; };
 		15C5731320B2ABC70070327C /* icon_tuple_arrow_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C5730F20B2ABC70070327C /* icon_tuple_arrow_left@2x.png */; };
+		15C5731E20B3B1900070327C /* HSimilarity.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5731D20B3B1900070327C /* HSimilarity.m */; };
 		15F9151D20A14A33000261C4 /* UIView+HShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9151A20A14A33000261C4 /* UIView+HShow.m */; };
 		15F9152020A171A8000261C4 /* NSObject+HAspects.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9151F20A171A8000261C4 /* NSObject+HAspects.m */; };
 		15F9152320A17E95000261C4 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9152220A17E95000261C4 /* TestViewController.m */; };
@@ -262,6 +263,8 @@
 		15C5730D20B2ABC70070327C /* icon_tuple_arrow_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_arrow_down@2x.png"; sourceTree = "<group>"; };
 		15C5730E20B2ABC70070327C /* icon_tuple_arrow_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_arrow_right@2x.png"; sourceTree = "<group>"; };
 		15C5730F20B2ABC70070327C /* icon_tuple_arrow_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_arrow_left@2x.png"; sourceTree = "<group>"; };
+		15C5731C20B3B1900070327C /* HSimilarity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSimilarity.h; sourceTree = "<group>"; };
+		15C5731D20B3B1900070327C /* HSimilarity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSimilarity.m; sourceTree = "<group>"; };
 		15F9151A20A14A33000261C4 /* UIView+HShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HShow.m"; sourceTree = "<group>"; };
 		15F9151B20A14A33000261C4 /* HShow+Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HShow+Protocol.h"; sourceTree = "<group>"; };
 		15F9151C20A14A33000261C4 /* UIView+HShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HShow.h"; sourceTree = "<group>"; };
@@ -395,6 +398,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				15C5731B20B3B1900070327C /* HSimilarity */,
 				15C572A720AEDAB90070327C /* HLabelView */,
 				15C5729020AE51B20070327C /* HSort */,
 				15464B7220A2C26300CDD27E /* HTestUtil */,
@@ -775,6 +779,16 @@
 			path = tuple_arrow_icons;
 			sourceTree = "<group>";
 		};
+		15C5731B20B3B1900070327C /* HSimilarity */ = {
+			isa = PBXGroup;
+			children = (
+				15C5731C20B3B1900070327C /* HSimilarity.h */,
+				15C5731D20B3B1900070327C /* HSimilarity.m */,
+			);
+			name = HSimilarity;
+			path = QFUtil/HSimilarity;
+			sourceTree = "<group>";
+		};
 		15F9151920A14A33000261C4 /* HShow */ = {
 			isa = PBXGroup;
 			children = (
@@ -981,6 +995,7 @@
 				15C5730A20B29F090070327C /* UICollectionViewSectionVerticalAlignedLayout.m in Sources */,
 				15F9152620A1817F000261C4 /* QFButton.m in Sources */,
 				15C572B020B016CA0070327C /* UIView+HAccessoryView.m in Sources */,
+				15C5731E20B3B1900070327C /* HSimilarity.m in Sources */,
 				15B4DE052092F96C00773E04 /* HHexUtil.m in Sources */,
 				15B4DE0E2092F96C00773E04 /* NSDictionary+HSafeUtil.m in Sources */,
 				15B4DE2A2093034700773E04 /* HClassManager.m in Sources */,

@@ -16,6 +16,7 @@
 #import "HLabelView.h"
 #import "HTupleView.h"
 #import "HTupleVerticalCell.h"
+#import "HSimilarity.h"
 
 @interface ViewController () <HTupleViewDelegate> {
     UILabel *label;
@@ -54,6 +55,11 @@
     NSLog(@"%ld",self.ff);
     NSLog(@"%@",self.ww);
     NSLog(@"%@",self.date);
+    //icon_tuple_arrow_down@2x
+    UIImage *imageA = [UIImage imageNamed:@"icon_tuple_arrow_up"];
+    UIImage *imageB = [UIImage imageNamed:@"icon_tuple_arrow_down"];
+    Similarity value = [HSimilarity getSimilarityWithImage:imageA image:imageB];
+    NSLog(@"");
     
 //    UITableViewCell *btn;
     
