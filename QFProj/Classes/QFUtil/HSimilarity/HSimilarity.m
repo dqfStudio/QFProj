@@ -11,7 +11,7 @@
 #define KImageSize1 10
 #define KImageSize2 100
 
-typedef enum workday {
+typedef enum HSimilarityType {
     HSimilaritySize1,
     HSimilaritySize2
 }HSimilarityType;
