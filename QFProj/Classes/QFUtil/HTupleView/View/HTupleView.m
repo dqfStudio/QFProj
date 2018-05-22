@@ -58,6 +58,30 @@
     self.delegate = self;
     self.dataSource = self;
 }
+- (id)headerWithReuseClass:(Class)aClass atIndexPath:(NSIndexPath *)indexPath {
+    NSString *identifier = [NSString stringWithFormat:@"%@HeaderCell",NSStringFromClass(aClass)];
+    if (![self.allReuseCells containsObject:identifier]) {
+        [self.allReuseCells addObject:identifier];
+        [self registerClass:aClass forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier];
+    }
+    return [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
+}
+- (id)footerWithReuseClass:(Class)aClass atIndexPath:(NSIndexPath *)indexPath {
+    NSString *identifier = [NSString stringWithFormat:@"%@FooterCell",NSStringFromClass(aClass)];
+    if (![self.allReuseCells containsObject:identifier]) {
+        [self.allReuseCells addObject:identifier];
+        [self registerClass:aClass forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier];
+    }
+    return [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
+}
+- (id)itemWithReuseClass:(Class)aClass atIndexPath:(NSIndexPath *)indexPath {
+    NSString *identifier = [NSString stringWithFormat:@"%@ItemCell",NSStringFromClass(aClass)];
+    if (![self.allReuseCells containsObject:identifier]) {
+        [self.allReuseCells addObject:identifier];
+        [self registerClass:aClass forCellWithReuseIdentifier:identifier];
+    }
+    return [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+}
 #pragma mark - UICollectionViewDatasource  & delegate
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {    
     if ([self.tupleDelegate respondsToSelector:@selector(numberOfSectionsInTupleView:)]) {
