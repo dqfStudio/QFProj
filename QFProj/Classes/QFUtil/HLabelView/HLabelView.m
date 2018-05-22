@@ -155,7 +155,7 @@ UIKIT_STATIC_INLINE CGFloat HSideEdgeBottomHeight(HSideEdgeInsets edge) {
         }
     }
     if (self.bottomView) {
-        //计算topView的Frame
+        //计算bottomView的Frame
         bottomViewFrame.origin.x = labelFrame.origin.x;
         bottomViewFrame.origin.y = frame.size.height - HSideEdgeBottomHeight(self.bottomEdgeInsets);
         bottomViewFrame.size.width = labelFrame.size.width;
