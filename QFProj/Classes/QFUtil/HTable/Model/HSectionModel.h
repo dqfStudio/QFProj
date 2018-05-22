@@ -10,7 +10,7 @@
 
 @class HTableView;
 
-typedef UIView * (^HViewRenderBlock)(NSInteger section, HTableView *table);
+typedef UIView *(^HViewRenderBlock)(NSInteger section, HTableView *table);
 typedef CGFloat (^HSectionHeightBlock)(NSInteger section, HTableView *table);
 
 /** Table view's section model */
