@@ -1,12 +1,12 @@
 //
-//  HLeftImageCell2.m
-//  QFTableProject
+//  HUpImageCell.m
+//  QFProj
 //
 //  Created by dqf on 2018/5/22.
 //  Copyright © 2018年 dqfStudio. All rights reserved.
 //
 
-#import "HLeftImageCell2.h"
+#import "HUpImageCell.h"
 
 #define KHeaderWidth   80
 #define KFooterWidth   35
@@ -15,11 +15,11 @@
 #define KCellWidth  CGRectGetWidth(self.frame)
 #define KCellHeight CGRectGetHeight(self.frame)
 
-@implementation HLeftImageCell2
+@implementation HUpImageCell
 
 - (HTupleView *)tupleView {
     if (!_tupleView) {
-        _tupleView = [[HTupleView alloc] initWithFrame:CGRectZero scrollDirection:HTupleViewScrollDirectionHorizontal];
+        _tupleView = [[HTupleView alloc] initWithFrame:CGRectZero];
         [_tupleView setTupleDelegate:self];
         [_tupleView setScrollEnabled:NO];
         [self addSubview:_tupleView];
@@ -47,20 +47,34 @@
 }
 
 - (CGSize)tupleView:(UIView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(KCellWidth-KHeaderWidth-KFooterWidth, KCellHeight/3);
+    switch (indexPath.row) {
+        case 0:
+            
+            break;
+        case 1:
+            
+            break;
+        case 2:
+            
+            break;
+            
+        default:
+            break;
+    }
+    return CGSizeMake(0, 0);
 }
-- (CGSize)tupleView:(UIView *)tupleView sizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(KHeaderWidth, KCellHeight);
-}
-- (CGSize)tupleView:(UIView *)tupleView sizeForFooterInSection:(NSInteger)section {
-    return CGSizeMake(KFooterWidth, KCellHeight);
-}
-- (UIEdgeInsets)tupleView:(UIView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
-    return UIEdgeInsetsMake(KCellHeight/2-KCornerWidth/2, 10.f, KCellHeight/2-KCornerWidth/2, 10.f);
-}
-- (UIEdgeInsets)tupleView:(UIView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
-    return UIEdgeInsetsMake(10.f, 10.f, 10.f, 10.f);
-}
+//- (CGSize)tupleView:(UIView *)tupleView sizeForHeaderInSection:(NSInteger)section {
+//    return CGSizeMake(KHeaderWidth, KCellHeight);
+//}
+//- (CGSize)tupleView:(UIView *)tupleView sizeForFooterInSection:(NSInteger)section {
+//    return CGSizeMake(KFooterWidth, KCellHeight);
+//}
+//- (UIEdgeInsets)tupleView:(UIView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
+//    return UIEdgeInsetsMake(KCellHeight/2-KCornerWidth/2, 10.f, KCellHeight/2-KCornerWidth/2, 10.f);
+//}
+//- (UIEdgeInsets)tupleView:(UIView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
+//    return UIEdgeInsetsMake(10.f, 10.f, 10.f, 10.f);
+//}
 - (UIEdgeInsets)tupleView:(UIView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:
@@ -72,7 +86,7 @@
         case 2:
             return UIEdgeInsetsMake(0.f, 0.f, 10.f, 0.f);
             break;
-
+            
         default:
             break;
     }

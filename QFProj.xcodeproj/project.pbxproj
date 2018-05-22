@@ -11,6 +11,7 @@
 		1538FFA92094065A002E3A29 /* NSFileManager+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1538FFA72094065A002E3A29 /* NSFileManager+HUtil.m */; };
 		15464B7720A2C26300CDD27E /* HTestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15464B7420A2C26300CDD27E /* HTestManager.m */; };
 		15464B7820A2C26300CDD27E /* HTestVC-DQF.m in Sources */ = {isa = PBXBuildFile; fileRef = 15464B7520A2C26300CDD27E /* HTestVC-DQF.m */; };
+		15707E8E20B4525900493839 /* HUpImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15707E8D20B4525900493839 /* HUpImageCell.m */; };
 		157696EB20A0AB6900E31469 /* hFelix.m in Sources */ = {isa = PBXBuildFile; fileRef = 157696E420A0AB6900E31469 /* hFelix.m */; };
 		15B4DD682092F88700773E04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD672092F88700773E04 /* AppDelegate.m */; };
 		15B4DD6B2092F88700773E04 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD6A2092F88700773E04 /* ViewController.m */; };
@@ -124,6 +125,8 @@
 		15464B7420A2C26300CDD27E /* HTestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTestManager.m; sourceTree = "<group>"; };
 		15464B7520A2C26300CDD27E /* HTestVC-DQF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HTestVC-DQF.m"; sourceTree = "<group>"; };
 		15464B7620A2C26300CDD27E /* HTestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTestManager.h; sourceTree = "<group>"; };
+		15707E8C20B4525900493839 /* HUpImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUpImageCell.h; sourceTree = "<group>"; };
+		15707E8D20B4525900493839 /* HUpImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HUpImageCell.m; sourceTree = "<group>"; };
 		157696E320A0AB6900E31469 /* HFelix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFelix.h; sourceTree = "<group>"; };
 		157696E420A0AB6900E31469 /* hFelix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hFelix.m; sourceTree = "<group>"; };
 		15B4DD632092F88700773E04 /* QFProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QFProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -813,12 +816,12 @@
 		15C5736120B3DD7B0070327C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				15C5736220B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.h */,
 				15C5736320B3DD7B0070327C /* HTupleView.h */,
-				15C5736420B3DD7B0070327C /* UICollectionViewSectionVerticalAlignedLayout.m */,
+				15C5736720B3DD7B0070327C /* HTupleView.m */,
+				15C5736220B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.h */,
 				15C5736520B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.m */,
 				15C5736620B3DD7B0070327C /* UICollectionViewSectionVerticalAlignedLayout.h */,
-				15C5736720B3DD7B0070327C /* HTupleView.m */,
+				15C5736420B3DD7B0070327C /* UICollectionViewSectionVerticalAlignedLayout.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -874,6 +877,8 @@
 				15C573B320B3DE340070327C /* HLeftImageCell.m */,
 				15C573AB20B3DE340070327C /* HLeftImageCell2.h */,
 				15C573B420B3DE340070327C /* HLeftImageCell2.m */,
+				15707E8C20B4525900493839 /* HUpImageCell.h */,
+				15707E8D20B4525900493839 /* HUpImageCell.m */,
 				15C573AD20B3DE340070327C /* HLogoCell.h */,
 				15C573B520B3DE340070327C /* HLogoCell.m */,
 				15C573AE20B3DE340070327C /* HRightImageCell.h */,
@@ -1116,6 +1121,7 @@
 				15C5736920B3DD7B0070327C /* HTupleVerticalCell.m in Sources */,
 				15B4DE012092F96C00773E04 /* HSpeechUtil.m in Sources */,
 				15C573BF20B3DE340070327C /* HRightImageCell.m in Sources */,
+				15707E8E20B4525900493839 /* HUpImageCell.m in Sources */,
 				15B4DE112092F96C00773E04 /* NSArray+HSafeUtil.m in Sources */,
 				15F9152920A18CA9000261C4 /* HAspectsCenter.m in Sources */,
 				15B4DE1C209302BF00773E04 /* HGotoRuntimeSupport.m in Sources */,

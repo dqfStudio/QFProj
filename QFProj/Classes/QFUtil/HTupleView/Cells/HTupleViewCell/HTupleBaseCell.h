@@ -12,13 +12,13 @@
 #import "UIButton+HUtil.h"
 
 #define HLayoutTupleView(v) \
-if(!CGRectEqualToRect(v.frame, [self getContentView])) {\
-    [v setFrame:[self getContentView]];\
+if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
+    [v setFrame:[self getContentFrame]];\
 }
 
 @interface HTupleBaseCell : UICollectionViewCell
 @property (nonatomic) UIEdgeInsets edgeInsets;
-- (CGRect)getContentView;
+- (CGRect)getContentFrame;
 //需要子类重写该方法
 - (void)layoutContentView;
 @end

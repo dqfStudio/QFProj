@@ -9,7 +9,7 @@
 #import "HTupleBaseCell.h"
 
 @implementation HTupleBaseCell
-- (CGRect)getContentView {
+- (CGRect)getContentFrame {
     CGRect frame = self.bounds;
     frame.origin.x += self.edgeInsets.left;
     frame.origin.y += self.edgeInsets.top;
