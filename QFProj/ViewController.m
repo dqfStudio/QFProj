@@ -18,6 +18,10 @@
 #import "HTupleVerticalCell.h"
 #import "HSimilarity.h"
 
+#import "HTableView.h"
+#import "HLeftImageCell.h"
+#import "HLeftImageCell2.h"
+
 @interface ViewController () <HTupleViewDelegate> {
     UILabel *label;
 }
@@ -26,6 +30,7 @@
 @property (nonatomic) NSInteger ff;
 @property (nonatomic) NSNumber *ww;
 @property (nonatomic) NSDate *date;
+@property (nonatomic) HTableView *table;
 @end
 
 @implementation ViewController
@@ -56,9 +61,9 @@
     NSLog(@"%@",self.ww);
     NSLog(@"%@",self.date);
     //icon_tuple_arrow_down@2x
-    UIImage *imageA = [UIImage imageNamed:@"icon_tuple_arrow_up"];
-    UIImage *imageB = [UIImage imageNamed:@"icon_tuple_arrow_down"];
-    Similarity value = [HSimilarity getSimilarityWithImage:imageA image:imageB];
+//    UIImage *imageA = [UIImage imageNamed:@"icon_tuple_arrow_up"];
+//    UIImage *imageB = [UIImage imageNamed:@"icon_tuple_arrow_down"];
+//    Similarity value = [HSimilarity getSimilarityWithImage:imageA image:imageB];
     NSLog(@"");
     
 //    UITableViewCell *btn;
@@ -113,7 +118,7 @@
     [labelView setBottomView:accView4];
     [labelView setTopEdgeInsets:HSideEdgeInsetsMake(20, 6, 3)];
     [labelView setBottomEdgeInsets:HSideEdgeInsetsMake(20, 6, 3)];
-    [self.view addSubview:labelView];
+//    [self.view addSubview:labelView];
     
     UIButton *btn = [[UIButton alloc] init];
     [btn setFrame:CGRectMake(100, 300, 80, 80)];
@@ -127,13 +132,98 @@
     
     CGRect frame = self.view.frame;
     frame.origin.y = 64;
-    frame.size.height = 90*2;
-    HTupleView *tupleView = [[HTupleView alloc] initWithFrame:frame scrollDirection:HTupleViewScrollDirectionHorizontal];
-    [tupleView setTupleDelegate:self];
-    [tupleView setBackgroundColor:[UIColor whiteColor]];
-//    [self.view addSubview:tupleView];
-    [self.view setBackgroundColor:[UIColor orangeColor]];
+//    frame.size.height = 90*2;
+//    HTupleView *tupleView = [[HTupleView alloc] initWithFrame:frame scrollDirection:HTupleViewScrollDirectionHorizontal];
+//    [tupleView setTupleDelegate:self];
+//    [tupleView setBackgroundColor:[UIColor whiteColor]];
+////    [self.view addSubview:tupleView];
+//    [self.view setBackgroundColor:[UIColor orangeColor]];
     
+    
+    _table = [[HTableView alloc] initWithFrame:frame];
+    [_table setBackgroundColor:[UIColor clearColor]];
+    [self.view addSubview:_table];
+    
+    @www
+    self.table.refreshBlock = ^{
+        @sss
+//        NSArray *arr = @[@"sectionModel<0>cellModel",
+//                         @"sectionModel<0>cellModel",
+//                         @"sectionModel<0>cellModel",
+//                         @"sectionModel<1>cellModel2"];
+        NSArray *arr = @[@"sectionModel<0>cellModel",
+                         @"sectionModel<0>cellModel",
+                         @"sectionModel<0>cellModel"];
+        sleep(2);
+        [self.table refreshView:self withArr:arr];
+    };
+    
+    //先刷新一次数据
+    [self.table beginRefresh];
+    
+}
+
+- (void)sectionModel:(id)sender {
+    HSectionModel *sectionModel = sender;
+    sectionModel.headerHeight = 22;
+}
+
+- (void)cellModel:(id)sender {
+    HCellModel *cellModel = sender;
+    cellModel.height = 80;
+    cellModel.renderBlock = [self renderBlock];
+    cellModel.selectionBlock = [self selectionBlock];
+}
+
+- (void)cellModel2:(id)sender {
+    HCellModel *cellModel = sender;
+    cellModel.height = 55;
+    cellModel.renderBlock = [self renderBlock2];
+    cellModel.selectionBlock = [self selectionBlock];
+}
+
+- (HCellRenderBlock)renderBlock {
+    return ^UITableViewCell *(NSIndexPath *indexPath, HTableView *table) {
+        
+        HLeftImageCell2 *cell = [table registerCell:HLeftImageCell2.class indexPath:indexPath];
+        [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
+//        switch (indexPath.row) {
+//            case 0:
+//                cell.textLabel.text = @"路径追踪";
+////                cell.callback = ^(UISwitch *sender) {};
+//                break;
+//            case 1:
+//                cell.textLabel.text = @"网络调试";
+////                cell.callback = ^(UISwitch *sender) {};
+//                break;
+//            case 2:
+//                cell.textLabel.text = @"点击追踪";
+////                cell.callback = ^(UISwitch *sender) {};
+//                break;
+//
+//            default:
+//                cell.textLabel.text = @"else";
+//                break;
+//        }
+        return cell;
+    };
+}
+
+- (HCellRenderBlock)renderBlock2 {
+    return ^UITableViewCell *(NSIndexPath *indexPath, HTableView *table) {
+        
+        HLeftImageCell *cell = [table registerCell:HLeftImageCell.class indexPath:indexPath];
+        [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
+        cell.textLabel.text = @"路径追踪2";
+        //        cell.callback = ^(UISwitch *sender) {};
+        return cell;
+    };
+}
+
+- (HCellSelectionBlock)selectionBlock {
+    return ^(NSIndexPath *indexPath, HTableView *table) {
+        [table deselectRowAtIndexPath:indexPath animated:YES];
+    };
 }
 
 - (NSInteger)numberOfSectionsInTupleView:(UIView *)tupleView {
