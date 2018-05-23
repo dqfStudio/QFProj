@@ -38,6 +38,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleViewScrollDirection) {
 
 @interface HTupleView : UICollectionView <HTupleViewDelegate>
 @property (nonatomic, weak, nullable) id <HTupleViewDelegate> tupleDelegate;
+@property (nonatomic) RACSubject *goUpSubject; //用于item向tupleView传递消息
+@property (nonatomic) RACSubject *goDownSubject; //用于tupleView向item传递消息
 - (instancetype)initWithFrame:(CGRect)frame;
 - (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction;
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout;

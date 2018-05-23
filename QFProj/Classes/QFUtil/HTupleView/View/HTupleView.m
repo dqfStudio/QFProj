@@ -8,6 +8,16 @@
 
 #import "HTupleView.h"
 
+UIKIT_STATIC_INLINE bool HTupleSignalTuple(HTupleSignal *signal) {
+    bool equal = false;
+    if ([signal isKindOfClass:HTupleSignal.class]) {
+        if (signal.signalType == HTupleSignalTypeTuple) {
+            equal = true;
+        }
+    }
+    return equal;
+}
+
 @interface HTupleView () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (nonatomic) NSMutableSet *allReuseCells;
 @end
@@ -57,6 +67,14 @@
     _allReuseCells = [NSMutableSet new];
     self.delegate = self;
     self.dataSource = self;
+    
+    _goUpSubject = [RACSubject subject];
+    _goDownSubject = [RACSubject subject];
+    [_goUpSubject subscribeNext:^(HTupleSignal *signal) {
+        if (HTupleSignalTuple(signal)) {
+            
+        }
+    }];
 }
 - (id)headerWithReuseClass:(Class)aClass atIndexPath:(NSIndexPath *)indexPath {
     NSString *identifier = [NSString stringWithFormat:@"%@HeaderCell",NSStringFromClass(aClass)];
@@ -107,6 +125,7 @@
                 cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
                 HTupleBaseCell *tmpCell = (HTupleBaseCell *)cell;
                 tmpCell.collection = self;
+                tmpCell.goDownSubject = self.goDownSubject;
                 tmpCell.indexPath = indexPath;
             }else {
                 cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];

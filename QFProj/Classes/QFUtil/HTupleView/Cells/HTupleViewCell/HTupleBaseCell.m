@@ -9,6 +9,29 @@
 #import "HTupleBaseCell.h"
 
 @implementation HTupleBaseCell
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self.goDownSubject subscribeNext:^(HTupleSignal *signal) {
+            if (HTupleSignalAll(signal)) {
+                [self allItemSignal:signal];
+            }
+            if (HTupleSignalSelf(signal, self.indexPath)) {//给自己发的信号
+                [self selfSignal:signal];
+            }
+        }];
+        [self initUI];
+    }
+    return self;
+}
+
+- (void)initUI {}
+
+- (void)selfSignal:(HTupleSignal *)signal {}
+
+- (void)allItemSignal:(HTupleSignal *)signal {}
+
 - (CGRect)getContentFrame {
     CGRect frame = self.bounds;
     frame.origin.x += self.edgeInsets.left;

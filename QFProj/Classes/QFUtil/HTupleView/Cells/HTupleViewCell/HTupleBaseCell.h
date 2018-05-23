@@ -10,6 +10,7 @@
 #import "UILabel+HState.h"
 #import "UILabel+HUtil.h"
 #import "UIButton+HUtil.h"
+#import "HTupleSignal.h"
 
 #define HLayoutTupleView(v) \
 if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
@@ -18,9 +19,13 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 
 @interface HTupleBaseCell : UICollectionViewCell
 @property (nonatomic, weak) UICollectionView *collection;
+@property (nonatomic, weak) RACSubject *goDownSubject;
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UIEdgeInsets edgeInsets;
 - (CGRect)getContentFrame;
 //需要子类重写该方法
 - (void)layoutContentView;
+- (void)initUI;
+- (void)selfSignal:(HTupleSignal *)signal;
+- (void)allItemSignal:(HTupleSignal *)signal;
 @end
