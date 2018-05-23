@@ -18,7 +18,4 @@
     return frame;
 }
 - (void)layoutContentView {};
-- (void) ff {
-    [self.collection itemWithReuseClass:nil atIndexPath:nil];
-}
 @end
