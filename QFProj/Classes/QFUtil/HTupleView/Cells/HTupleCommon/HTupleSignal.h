@@ -24,6 +24,16 @@ typedef NS_OPTIONS(NSUInteger, HTupleSignalType) {
 @property (nonatomic) NSIndexPath *indexPath;
 @end
 
+UIKIT_STATIC_INLINE bool HTupleSignalTuple(HTupleSignal *signal) {
+    bool equal = false;
+    if ([signal isKindOfClass:HTupleSignal.class]) {
+        if (signal.signalType == HTupleSignalTypeTuple) {
+            equal = true;
+        }
+    }
+    return equal;
+}
+
 UIKIT_STATIC_INLINE bool HTupleSignalAll(HTupleSignal *signal) {
     bool equal = false;
     if ([signal isKindOfClass:HTupleSignal.class]) {

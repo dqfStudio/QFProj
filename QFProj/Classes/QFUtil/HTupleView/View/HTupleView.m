@@ -8,16 +8,6 @@
 
 #import "HTupleView.h"
 
-UIKIT_STATIC_INLINE bool HTupleSignalTuple(HTupleSignal *signal) {
-    bool equal = false;
-    if ([signal isKindOfClass:HTupleSignal.class]) {
-        if (signal.signalType == HTupleSignalTypeTuple) {
-            equal = true;
-        }
-    }
-    return equal;
-}
-
 @interface HTupleView () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (nonatomic) NSMutableSet *allReuseCells;
 @end
