@@ -11,7 +11,7 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 typedef NS_OPTIONS(NSUInteger, HTupleSignalType) {
-    HTupleSignalTypeNormal = 0, //不针对任何一个item
+    HTupleSignalTypeNormal = 0, //不针对任何一个
     HTupleSignalTypeTuple, //针对tupleView
     HTupleSignalTypeAllItem, //针对所有item
     HTupleSignalTypeSecton, //针对某个section中的item
