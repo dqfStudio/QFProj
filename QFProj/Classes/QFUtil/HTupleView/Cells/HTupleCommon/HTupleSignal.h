@@ -13,9 +13,9 @@
 typedef NS_OPTIONS(NSUInteger, HTupleSignalType) {
     HTupleSignalTypeNormal = 0, //不针对任何一个item
     HTupleSignalTypeTuple, //针对tupleView
-    HTupleSignalTypeAll, //针对所有item
+    HTupleSignalTypeAllItem, //针对所有item
     HTupleSignalTypeSecton, //针对某个section中的item
-    HTupleSignalTypeSomeOne //针对某一个item
+    HTupleSignalTypeItem //针对某一个item
 };
 
 @interface HTupleSignal : NSObject
@@ -37,7 +37,7 @@ UIKIT_STATIC_INLINE bool HTupleSignalTuple(HTupleSignal *signal) {
 UIKIT_STATIC_INLINE bool HTupleSignalAll(HTupleSignal *signal) {
     bool equal = false;
     if ([signal isKindOfClass:HTupleSignal.class]) {
-        if (signal.signalType == HTupleSignalTypeAll) {
+        if (signal.signalType == HTupleSignalTypeAllItem) {
             equal = true;
         }
     }
@@ -56,7 +56,7 @@ UIKIT_STATIC_INLINE bool HTupleSignalSection(HTupleSignal *signal, NSIndexPath *
 UIKIT_STATIC_INLINE bool HTupleSignalSelf(HTupleSignal *signal, NSIndexPath *index) {
     bool equal = true;
     if (![signal isKindOfClass:HTupleSignal.class]) equal = false;
-    else if (signal.signalType == HTupleSignalTypeSomeOne) equal = false;
+    else if (signal.signalType == HTupleSignalTypeItem) equal = false;
     else if (signal.indexPath.section != index.section) equal = false;
     else if (signal.indexPath.row != index.row) equal = false;
     return equal;
