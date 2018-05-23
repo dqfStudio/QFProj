@@ -16,6 +16,8 @@
         [self.goDownSubject subscribeNext:^(HTupleSignal *signal) {
             if (HTupleSignalSelf(signal, self.indexPath)) {
                 [self selfSignal:signal];
+            }else if (HTupleSignalDeliver(signal)) {
+                [self selfSignal:signal];
             }else if (HTupleSignalSection(signal, self.indexPath)) {
                 [self sectionSignal:signal];
             }else if (HTupleSignalAll(signal)) {
