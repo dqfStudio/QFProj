@@ -14,14 +14,12 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self.goDownSubject subscribeNext:^(HTupleSignal *signal) {
-            if (HTupleSignalAll(signal)) {
-                [self allItemSignal:signal];
-            }
-            if (HTupleSignalSection(signal, self.indexPath)) {//发给section的信号
-                [self sectionSignal:signal];
-            }
-            if (HTupleSignalSelf(signal, self.indexPath)) {//给自己发的信号
+            if (HTupleSignalSelf(signal, self.indexPath)) {
                 [self selfSignal:signal];
+            }else if (HTupleSignalSection(signal, self.indexPath)) {
+                [self sectionSignal:signal];
+            }else if (HTupleSignalAll(signal)) {
+                [self allItemSignal:signal];
             }
         }];
         [self initUI];

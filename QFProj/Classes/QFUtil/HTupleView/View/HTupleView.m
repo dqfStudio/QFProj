@@ -63,6 +63,8 @@
     [_goUpSubject subscribeNext:^(HTupleSignal *signal) {
         if (HTupleSignalTuple(signal)) {
             
+        }else if (HTupleSignalDeliver(signal)) {
+            [_goDownSubject sendNext:signal];
         }
     }];
 }
