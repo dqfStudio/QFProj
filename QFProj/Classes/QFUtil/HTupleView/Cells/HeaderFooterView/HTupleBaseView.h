@@ -27,5 +27,6 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 - (void)layoutContentView;
 - (void)initUI;
 - (void)selfSignal:(HTupleSignal *)signal;
+- (void)sectionSignal:(HTupleSignal *)signal;
 - (void)allItemSignal:(HTupleSignal *)signal;
 @end

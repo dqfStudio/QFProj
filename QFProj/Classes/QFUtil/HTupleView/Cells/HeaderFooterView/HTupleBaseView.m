@@ -17,6 +17,9 @@
             if (HTupleSignalAll(signal)) {
                 [self allItemSignal:signal];
             }
+            if (HTupleSignalSection(signal, self.indexPath)) {//发给section的信号
+                [self sectionSignal:signal];
+            }
             if (HTupleSignalSelf(signal, self.indexPath)) {//给自己发的信号
                 [self selfSignal:signal];
             }
@@ -29,6 +32,8 @@
 - (void)initUI {}
 
 - (void)selfSignal:(HTupleSignal *)signal {}
+
+- (void)sectionSignal:(HTupleSignal *)signal {}
 
 - (void)allItemSignal:(HTupleSignal *)signal {}
 
