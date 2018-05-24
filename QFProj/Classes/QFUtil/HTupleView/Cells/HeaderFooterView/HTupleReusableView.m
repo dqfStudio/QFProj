@@ -60,9 +60,13 @@
         _imageView = [HWebImageView new];
         UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewAction:)];
         [_imageView addGestureRecognizer:tapGestureRecognizer];
+        [_imageView setUserInteractionEnabled:NO];
         [self addSubview:_imageView];
     }
     return _imageView;
+}
+- (void)setTapEnable:(BOOL)enabled {
+    [self.imageView setUserInteractionEnabled:enabled];
 }
 - (void)imageViewAction:(id)sender {
     if (_reusableImageViewBlock) {

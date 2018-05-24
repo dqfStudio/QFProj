@@ -28,5 +28,6 @@ typedef void(^HImageViewBlock)(HWebImageView *webImageView);
 
 @interface HImageViewCell : HTupleBaseCell
 @property (nonatomic) HWebImageView *imageView;
+- (void)setTapEnable:(BOOL)enabled;
 @property (nonatomic, copy) HImageViewBlock imageViewBlock;
 @end

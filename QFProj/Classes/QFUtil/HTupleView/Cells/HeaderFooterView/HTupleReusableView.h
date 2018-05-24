@@ -28,6 +28,7 @@ typedef void(^HReusableImageViewBlock)(HWebImageView *webImageView);
 
 @interface HReusableImageView : HTupleBaseView
 @property (nonatomic) HWebImageView *imageView;
+- (void)setTapEnable:(BOOL)enabled;
 @property (nonatomic, copy) HReusableImageViewBlock reusableImageViewBlock;
 @end
 
