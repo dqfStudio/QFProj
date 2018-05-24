@@ -23,6 +23,7 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UIEdgeInsets edgeInsets;
 - (CGRect)getContentFrame;
+- (void)addReturnKeyBoard;
 //需要子类重写该方法
 - (void)layoutContentView;
 - (void)initUI;

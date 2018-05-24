@@ -8,6 +8,10 @@
 
 #import "HTupleBaseCell.h"
 
+@interface HTupleBaseCell ()
+@property (nonatomic) UITapGestureRecognizer *baseTap;
+@end
+
 @implementation HTupleBaseCell
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -29,6 +33,18 @@
     return self;
 }
 
+- (UITapGestureRecognizer *)baseTap {
+    if (!_baseTap) {
+        _baseTap = [[UITapGestureRecognizer alloc] init];
+        _baseTap.numberOfTapsRequired = 1;
+        _baseTap.numberOfTouchesRequired = 1;
+        [_baseTap.rac_gestureSignal subscribeNext:^(id x) {
+            [[UIApplication sharedApplication].delegate.window endEditing:YES];
+        }];
+    }
+    return _baseTap;
+}
+
 - (void)initUI {}
 
 - (void)selfSignal:(HTupleSignal *)signal {}
@@ -36,6 +52,8 @@
 - (void)sectionSignal:(HTupleSignal *)signal {}
 
 - (void)allItemSignal:(HTupleSignal *)signal {}
+
+- (void)layoutContentView {};
 
 - (CGRect)getContentFrame {
     CGRect frame = self.bounds;
@@ -45,5 +63,7 @@
     frame.size.height -= self.edgeInsets.top + self.edgeInsets.bottom;
     return frame;
 }
-- (void)layoutContentView {};
+- (void)addReturnKeyBoard {
+    [self addGestureRecognizer:self.baseTap];
+}
 @end
