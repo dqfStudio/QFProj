@@ -251,6 +251,9 @@
             HTextViewCell *cell = itemBlock(HTextViewCell.class);
             [cell.label setBackgroundColor:[UIColor redColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
+            [cell setInitBlock:^{
+                
+            }];
         }
             break;
         case 1:

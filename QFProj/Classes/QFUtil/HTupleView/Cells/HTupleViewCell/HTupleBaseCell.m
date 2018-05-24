@@ -66,6 +66,13 @@
     return _baseTap;
 }
 
+- (void)setInitBlock:(HTupleCellInitBlock)initBlock {
+    if (_initBlock != initBlock) {
+        _initBlock = nil;
+        _initBlock = initBlock;
+    }
+}
+
 - (void)initUI {}
 
 - (void)selfSignal:(HTupleSignal *)signal {}
