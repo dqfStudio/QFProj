@@ -11,7 +11,6 @@
 #import "UILabel+HUtil.h"
 #import "UIButton+HUtil.h"
 #import "HTupleSignal.h"
-#import "AppDelegate.h"
 
 #define HLayoutTupleView(v) \
 if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
