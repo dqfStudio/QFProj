@@ -19,6 +19,7 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 
 @interface HTupleBaseCell : UICollectionViewCell
 @property (nonatomic, weak) UICollectionView *collection;
+@property (nonatomic, weak) RACSubject *goUpSubject;
 @property (nonatomic, weak) RACSubject *goDownSubject;
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UIEdgeInsets edgeInsets;

@@ -117,6 +117,7 @@
                 cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
                 HTupleBaseCell *tmpCell = (HTupleBaseCell *)cell;
                 tmpCell.collection = self;
+                tmpCell.goUpSubject = self.goUpSubject;
                 tmpCell.goDownSubject = self.goDownSubject;
                 tmpCell.indexPath = indexPath;
             }else {
