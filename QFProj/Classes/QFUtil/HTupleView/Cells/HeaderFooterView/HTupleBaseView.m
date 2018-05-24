@@ -47,6 +47,9 @@
             }
         }];
         [self initUI];
+        if (self.initBlock) {
+            self.initBlock();
+        }
     }
     return self;
 }

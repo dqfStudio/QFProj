@@ -22,6 +22,7 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 @property (nonatomic, weak) RACSubject *goDownSubject;
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UIEdgeInsets edgeInsets;
+@property (nonatomic, copy) HTupleCellInitBlock initBlock;
 - (CGRect)getContentFrame;
 - (void)addReturnKeyBoard;
 //需要子类重写该方法

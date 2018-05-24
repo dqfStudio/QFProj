@@ -10,6 +10,8 @@
 #import <Foundation/Foundation.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
+typedef void(^HTupleCellInitBlock)(void);
+
 typedef NS_OPTIONS(NSUInteger, HTupleSignalType) {
     HTupleSignalTypeNormal = 0, //不针对任何一个
     HTupleSignalTypeTuple, //针对tupleView
