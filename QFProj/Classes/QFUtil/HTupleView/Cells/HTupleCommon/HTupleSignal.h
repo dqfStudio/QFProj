@@ -22,6 +22,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleSignalType) {
 @interface HTupleSignal : NSObject
 @property (nonatomic) id signal;
 @property (nonatomic) HTupleSignalType signalType;
+//deliverSignalType，只有当signalType == HTupleSignalTypeDeliver时需要设置此值
+@property (nonatomic) HTupleSignalType deliverSignalType;
 @property (nonatomic) NSIndexPath *indexPath;
 @end
 
