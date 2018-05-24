@@ -61,10 +61,10 @@
     _goUpSubject = [RACSubject subject];
     _goDownSubject = [RACSubject subject];
     [_goUpSubject subscribeNext:^(HTupleSignal *signal) {
-        if (HTupleSignalTuple(signal)) {
-            
-        }else if (HTupleSignalDeliver(signal)) {
+        if (HTupleSignalDeliver(signal)) {
             [_goDownSubject sendNext:signal];
+        }else if (HTupleSignalTuple(signal)) {
+            
         }
     }];
 }
