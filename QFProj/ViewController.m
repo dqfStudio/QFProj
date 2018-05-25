@@ -43,6 +43,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+//    int a[10]={ 0,1,2,3,4,5,6,7,8,9 };
+    int arrA[3] = {2,3,4};
+//    int arrB = *arrA;
+//    int arrB = arrA[0];
+    int arrB = arrA;
+    arrA[0] = 5;
+//    NSArray *arrA = @[@(1),@(2),@(3)];
+//    NSArray *arrB = arrA;
+//    arrA[0] = @(4);
+//    char b='a'1;
+    
+//    NSInteger a=129,b=129;
+    
+    NSLog(@"");
+    
+    
+    
 
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     [dict setObject:@"test" forKey:@"TestString"];

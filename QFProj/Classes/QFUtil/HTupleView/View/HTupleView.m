@@ -61,10 +61,23 @@
     _goUpSubject = [RACSubject subject];
     _goDownSubject = [RACSubject subject];
     [_goUpSubject subscribeNext:^(HTupleSignal *signal) {
-        if (HTupleSignalDeliver(signal)) {
-            [_goDownSubject sendNext:signal];
-        }else if (HTupleSignalTuple(signal)) {
-            
+        switch (signal.signalType) {
+            case HTupleSignalTypeItem:
+                [_goDownSubject sendNext:signal];
+                break;
+            case HTupleSignalTypeSecton:
+                [_goDownSubject sendNext:signal];
+                break;
+            case HTupleSignalTypeAllItem:
+                [_goDownSubject sendNext:signal];
+                break;
+            case HTupleSignalTypeTuple:
+                if (HTupleSignalTuple(signal)) {
+                    
+                }
+                break;
+            default:
+                break;
         }
     }];
 }

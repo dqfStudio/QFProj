@@ -18,27 +18,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self.goDownSubject subscribeNext:^(HTupleSignal *signal) {
-            if (HTupleSignalDeliver(signal)) {
-                switch (signal.deliverSignalType) {
-                    case HTupleSignalTypeItem:
-                        if (HTupleSignalSelf(signal, self.indexPath)) {
-                            [self selfSignal:signal];
-                        }
-                        break;
-                    case HTupleSignalTypeSecton:
-                        if (HTupleSignalSection(signal, self.indexPath)) {
-                            [self sectionSignal:signal];
-                        }
-                        break;
-                    case HTupleSignalTypeAllItem:
-                        if (HTupleSignalAll(signal)) {
-                            [self allItemSignal:signal];
-                        }
-                        break;
-                    default:
-                        break;
-                }
-            }else if (HTupleSignalSelf(signal, self.indexPath)) {
+            if (HTupleSignalSelf(signal, self.indexPath)) {
                 [self selfSignal:signal];
             }else if (HTupleSignalSection(signal, self.indexPath)) {
                 [self sectionSignal:signal];

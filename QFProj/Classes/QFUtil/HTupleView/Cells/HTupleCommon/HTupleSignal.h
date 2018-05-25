@@ -17,8 +17,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleSignalType) {
     HTupleSignalTypeTuple, //针对tupleView
     HTupleSignalTypeAllItem, //针对所有item
     HTupleSignalTypeSecton, //针对某个section中的item
-    HTupleSignalTypeItem, //针对某一个item
-    HTupleSignalTypeDeliver  //一个item传递给另一个item
+    HTupleSignalTypeItem //针对某一个item
 };
 
 @interface HTupleSignal : NSObject
@@ -26,8 +25,6 @@ typedef NS_OPTIONS(NSUInteger, HTupleSignalType) {
 @property (nonatomic) NSInteger signalTag;
 @property (nonatomic) NSString *signalName;
 @property (nonatomic) HTupleSignalType signalType;
-//deliverSignalType，只有当signalType == HTupleSignalTypeDeliver时需要设置此值
-@property (nonatomic) HTupleSignalType deliverSignalType;
 @property (nonatomic) NSIndexPath *indexPath;
 @end
 
@@ -66,12 +63,5 @@ UIKIT_STATIC_INLINE bool HTupleSignalSelf(HTupleSignal *signal, NSIndexPath *ind
     else if (signal.signalType != HTupleSignalTypeItem) equal = false;
     else if (signal.indexPath.section != index.section) equal = false;
     else if (signal.indexPath.row != index.row) equal = false;
-    return equal;
-}
-
-UIKIT_STATIC_INLINE bool HTupleSignalDeliver(HTupleSignal *signal) {
-    bool equal = true;
-    if (![signal isKindOfClass:HTupleSignal.class]) equal = false;
-    else if (signal.signalType != HTupleSignalTypeDeliver) equal = false;
     return equal;
 }
