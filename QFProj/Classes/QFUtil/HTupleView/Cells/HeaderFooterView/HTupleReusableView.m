@@ -55,7 +55,7 @@
 @end
 
 @interface HReusableImageView ()
-@property (nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
+@property (nonatomic) UITapGestureRecognizer *tapGesture;
 @end
 
 @implementation HReusableImageView
@@ -66,19 +66,28 @@
     }
     return _imageView;
 }
+
+- (UITapGestureRecognizer *)tapGesture {
+    if (!_tapGesture) {
+        _tapGesture = [[UITapGestureRecognizer alloc] init];
+        _tapGesture.numberOfTapsRequired = 1;
+        _tapGesture.numberOfTouchesRequired = 1;
+        [_tapGesture.rac_gestureSignal subscribeNext:^(id x) {
+            if (_reusableImageViewBlock) {
+                _reusableImageViewBlock(self.imageView);
+            }
+        }];
+    }
+    return _tapGesture;
+}
+
 - (void)setReusableImageViewBlock:(HReusableImageViewBlock)reusableImageViewBlock {
     if (_reusableImageViewBlock != reusableImageViewBlock) {
         _reusableImageViewBlock = nil;
         _reusableImageViewBlock = reusableImageViewBlock;
-        if (!_tapGestureRecognizer) {
-            _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewAction:)];
-            [self.imageView addGestureRecognizer:_tapGestureRecognizer];
+        if (!self.tapGesture.view) {
+            [self.imageView addGestureRecognizer:self.tapGesture];
         }
-    }
-}
-- (void)imageViewAction:(id)sender {
-    if (_reusableImageViewBlock) {
-        _reusableImageViewBlock(self.imageView);
     }
 }
 - (void)layoutContentView {

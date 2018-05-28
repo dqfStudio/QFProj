@@ -55,7 +55,7 @@
 @end
 
 @interface HImageViewCell ()
-@property (nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
+@property (nonatomic) UITapGestureRecognizer *tapGesture;
 @end
 
 @implementation HImageViewCell
@@ -66,19 +66,26 @@
     }
     return _imageView;
 }
+- (UITapGestureRecognizer *)tapGesture {
+    if (!_tapGesture) {
+        _tapGesture = [[UITapGestureRecognizer alloc] init];
+        _tapGesture.numberOfTapsRequired = 1;
+        _tapGesture.numberOfTouchesRequired = 1;
+        [_tapGesture.rac_gestureSignal subscribeNext:^(id x) {
+            if (_imageViewBlock) {
+                _imageViewBlock(self.imageView);
+            }
+        }];
+    }
+    return _tapGesture;
+}
 - (void)setImageViewBlock:(HImageViewBlock)imageViewBlock {
     if (_imageViewBlock != imageViewBlock) {
         _imageViewBlock = nil;
         _imageViewBlock = imageViewBlock;
-        if (!_tapGestureRecognizer) {
-            _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewAction:)];
-            [self.imageView addGestureRecognizer:_tapGestureRecognizer];
+        if (!self.tapGesture.view) {
+            [self.imageView addGestureRecognizer:self.tapGesture];
         }
-    }
-}
-- (void)imageViewAction:(id)sender {
-    if (_imageViewBlock) {
-        _imageViewBlock(self.imageView);
     }
 }
 - (void)layoutContentView {
