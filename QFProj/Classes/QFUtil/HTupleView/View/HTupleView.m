@@ -89,7 +89,7 @@
 #pragma mark - signal
 - (void)signalToTupleView:(HTupleSignal *)signal {
     if (self.signalBlock) {
-        self.signalBlock(nil);
+        self.signalBlock(signal);
     }
 }
 - (void)signalToAllItems:(HTupleSignal *)signal {
@@ -102,7 +102,7 @@
                 UICollectionViewCell *cell = [self cellForItemAtIndexPath:indexPath];
                 if (cell.signalBlock) {
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        cell.signalBlock(nil);
+                        cell.signalBlock(signal);
                     });
                 }
             }
@@ -117,7 +117,7 @@
             UICollectionViewCell *cell = [self cellForItemAtIndexPath:indexPath];
             if (cell.signalBlock) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    cell.signalBlock(nil);
+                    cell.signalBlock(signal);
                 });
             }
         }
@@ -128,7 +128,7 @@
         UICollectionViewCell *cell = [self cellForItemAtIndexPath:indexPath];
         if (cell.signalBlock) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                cell.signalBlock(nil);
+                cell.signalBlock(signal);
             });
         }
     });
@@ -143,7 +143,7 @@
                 HTupleBaseView *cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
                 if (cell.signalBlock) {
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        cell.signalBlock(nil);
+                        cell.signalBlock(signal);
                     });
                 }
             }
@@ -158,7 +158,7 @@
             HTupleBaseView *cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
             if (cell.signalBlock) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    cell.signalBlock(nil);
+                    cell.signalBlock(signal);
                 });
             }
         }
@@ -174,7 +174,7 @@
                 HTupleBaseView *cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
                 if (cell.signalBlock) {
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        cell.signalBlock(nil);
+                        cell.signalBlock(signal);
                     });
                 }
             }
@@ -189,7 +189,7 @@
             HTupleBaseView *cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
             if (cell.signalBlock) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    cell.signalBlock(nil);
+                    cell.signalBlock(signal);
                 });
             }
         }
