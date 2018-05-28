@@ -54,19 +54,27 @@
 }
 @end
 
+@interface HImageViewCell ()
+@property (nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
+@end
+
 @implementation HImageViewCell
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = [HWebImageView new];
-        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewAction:)];
-        [_imageView addGestureRecognizer:tapGestureRecognizer];
-        [_imageView setUserInteractionEnabled:NO];
         [self addSubview:_imageView];
     }
     return _imageView;
 }
-- (void)setTapEnable:(BOOL)enabled {
-    [self.imageView setUserInteractionEnabled:enabled];
+- (void)setImageViewBlock:(HImageViewBlock)imageViewBlock {
+    if (_imageViewBlock != imageViewBlock) {
+        _imageViewBlock = nil;
+        _imageViewBlock = imageViewBlock;
+        if (!_tapGestureRecognizer) {
+            _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewAction:)];
+            [self.imageView addGestureRecognizer:_tapGestureRecognizer];
+        }
+    }
 }
 - (void)imageViewAction:(id)sender {
     if (_imageViewBlock) {
