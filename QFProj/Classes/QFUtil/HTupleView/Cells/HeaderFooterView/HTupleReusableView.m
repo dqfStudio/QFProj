@@ -42,7 +42,7 @@
         [_button setPressed:^(id sender, id data) {
             @strongify(self)
             if (self.reusableButtonViewBlock) {
-                self.reusableButtonViewBlock(self.button);
+                self.reusableButtonViewBlock(self.button, self);
             }
         }];
         [self addSubview:_button];
@@ -71,13 +71,14 @@
         _tapGesture = [[UITapGestureRecognizer alloc] init];
         _tapGesture.numberOfTapsRequired = 1;
         _tapGesture.numberOfTouchesRequired = 1;
-        [_tapGesture.rac_gestureSignal subscribeNext:^(id x) {
-            if (_reusableImageViewBlock) {
-                _reusableImageViewBlock(self.imageView);
-            }
-        }];
+        [_tapGesture addTarget:self action:@selector(tapGestureAction)];
     }
     return _tapGesture;
+}
+- (void)tapGestureAction {
+    if (_reusableImageViewBlock) {
+        _reusableImageViewBlock(self.imageView, self);
+    }
 }
 - (void)setReusableImageViewBlock:(HReusableImageViewBlock)reusableImageViewBlock {
     if (_reusableImageViewBlock != reusableImageViewBlock) {

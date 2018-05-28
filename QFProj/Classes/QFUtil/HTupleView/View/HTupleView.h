@@ -18,29 +18,44 @@ typedef NS_OPTIONS(NSUInteger, HTupleViewScrollDirection) {
 
 @protocol HTupleViewDelegate <NSObject>
 @optional
-- (NSInteger)numberOfSectionsInTupleView:(UIView *)tupleView;
-- (NSInteger)tupleView:(UIView *)tupleView numberOfItemsInSection:(NSInteger)section;
+- (NSInteger)numberOfSectionsInTupleView:(UICollectionView *)tupleView;
+- (NSInteger)tupleView:(UICollectionView *)tupleView numberOfItemsInSection:(NSInteger)section;
 
-- (CGSize)tupleView:(UIView *)tupleView sizeForHeaderInSection:(NSInteger)section;
-- (CGSize)tupleView:(UIView *)tupleView sizeForFooterInSection:(NSInteger)section;
-- (CGSize)tupleView:(UIView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (CGSize)tupleView:(UICollectionView *)tupleView sizeForHeaderInSection:(NSInteger)section;
+- (CGSize)tupleView:(UICollectionView *)tupleView sizeForFooterInSection:(NSInteger)section;
+- (CGSize)tupleView:(UICollectionView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
 
-- (UIEdgeInsets)tupleView:(UIView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section;
-- (UIEdgeInsets)tupleView:(UIView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section;
-- (UIEdgeInsets)tupleView:(UIView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section;
+- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section;
+- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath;
 
-- (void)tupleView:(UIView *)tupleView headerTuple:(id (^)(Class aClass))headerBlock inSection:(NSInteger)section;
-- (void)tupleView:(UIView *)tupleView footerTuple:(id (^)(Class aClass))footerBlock inSection:(NSInteger)section;
-- (void)tupleView:(UIView *)tupleView itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath;
+- (void)tupleView:(UICollectionView *)tupleView headerTuple:(id (^)(Class aClass))headerBlock inSection:(NSInteger)section;
+- (void)tupleView:(UICollectionView *)tupleView footerTuple:(id (^)(Class aClass))footerBlock inSection:(NSInteger)section;
+- (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath;
 
-- (void)tupleView:(UIView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+@end
+
+@interface UICollectionView ()
+
+@property (nonatomic, copy) HTupleCellSignalBlock signalBlock;
+
+- (void)signalToTupleView:(HTupleSignal *)signal;
+
+- (void)signalToAllItems:(HTupleSignal *)signal;
+- (void)signal:(HTupleSignal *)signal itemSection:(NSInteger)section;
+- (void)signal:(HTupleSignal *)signal indexPath:(NSIndexPath *)indexPath;
+
+- (void)signalToAllHeader:(HTupleSignal *)signal;
+- (void)signal:(HTupleSignal *)signal headerSection:(NSInteger)section;
+
+- (void)signalToAllFooter:(HTupleSignal *)signal;
+- (void)signal:(HTupleSignal *)signal footerSection:(NSInteger)section;
+
 @end
 
 @interface HTupleView : UICollectionView <HTupleViewDelegate>
 @property (nonatomic, weak, nullable) id <HTupleViewDelegate> tupleDelegate;
-@property (nonatomic) RACSubject *goUpSubject; //用于item向tupleView传递消息
-@property (nonatomic) RACSubject *goDownSubject; //用于tupleView向item传递消息
-@property (nonatomic, copy) HTupleCellSignalBlock signalBlock;
 - (instancetype)initWithFrame:(CGRect)frame;
 - (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction;
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout;

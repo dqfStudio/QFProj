@@ -17,14 +17,15 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
     [v setFrame:[self getContentFrame]];\
 }
 
+@interface UICollectionViewCell ()
+@property (nonatomic, copy) HTupleCellSignalBlock signalBlock;
+@end
+
 @interface HTupleBaseCell : UICollectionViewCell
 @property (nonatomic, weak) UICollectionView *collection;
-@property (nonatomic, weak) RACSubject *goUpSubject;
-@property (nonatomic, weak) RACSubject *goDownSubject;
+@property (nonatomic, copy) HTupleCellInitBlock initBlock;
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UIEdgeInsets edgeInsets;
-@property (nonatomic, copy) HTupleCellInitBlock initBlock;
-@property (nonatomic, copy) HTupleCellSignalBlock signalBlock;
 - (CGRect)getContentFrame;
 - (void)addReturnKeyBoard;
 //需要子类重写该方法

@@ -10,8 +10,10 @@
 #import "HWebImageView.h"
 #import "HWebButtonView.h"
 
-typedef void(^HButtonViewBlock)(HWebButtonView *webButtonView);
-typedef void(^HImageViewBlock)(HWebImageView *webImageView);
+@class HButtonViewCell, HImageViewCell;
+
+typedef void(^HButtonViewBlock)(HWebButtonView *webButtonView, HButtonViewCell *buttonCell);
+typedef void(^HImageViewBlock)(HWebImageView *webImageView, HImageViewCell *imageCell);
 
 @interface HViewCell : HTupleBaseCell
 @property (nonatomic) UIView *view;

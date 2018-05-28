@@ -42,11 +42,11 @@
     }
 }
 
-- (NSInteger)tupleView:(UIView *)tupleView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)tupleView:(UICollectionView *)tupleView numberOfItemsInSection:(NSInteger)section {
     return 3;
 }
 
-- (CGSize)tupleView:(UIView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)tupleView:(UICollectionView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:
             
@@ -63,19 +63,19 @@
     }
     return CGSizeMake(0, 0);
 }
-//- (CGSize)tupleView:(UIView *)tupleView sizeForHeaderInSection:(NSInteger)section {
+//- (CGSize)tupleView:(UICollectionView *)tupleView sizeForHeaderInSection:(NSInteger)section {
 //    return CGSizeMake(KHeaderWidth, KCellHeight);
 //}
-//- (CGSize)tupleView:(UIView *)tupleView sizeForFooterInSection:(NSInteger)section {
+//- (CGSize)tupleView:(UICollectionView *)tupleView sizeForFooterInSection:(NSInteger)section {
 //    return CGSizeMake(KFooterWidth, KCellHeight);
 //}
-//- (UIEdgeInsets)tupleView:(UIView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
+//- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
 //    return UIEdgeInsetsMake(KCellHeight/2-KCornerWidth/2, 10.f, KCellHeight/2-KCornerWidth/2, 10.f);
 //}
-//- (UIEdgeInsets)tupleView:(UIView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
+//- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
 //    return UIEdgeInsetsMake(10.f, 10.f, 10.f, 10.f);
 //}
-- (UIEdgeInsets)tupleView:(UIView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:
             return UIEdgeInsetsMake(10.f, 0.f, 0.f, 0.f);
@@ -92,7 +92,7 @@
     }
     return UIEdgeInsetsMake(0.f, 0.f, 0.f, 0.f);
 }
-- (void)tupleView:(UIView *)tupleView itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
             HTextViewCell *cell = itemBlock(HTextViewCell.class);
@@ -118,22 +118,22 @@
     }
 }
 
-- (void)tupleView:(UIView *)tupleView headerTuple:(id (^)(Class aClass))headerBlock inSection:(NSInteger)section {
+- (void)tupleView:(UICollectionView *)tupleView headerTuple:(id (^)(Class aClass))headerBlock inSection:(NSInteger)section {
     HReusableImageView *cell = headerBlock(HReusableImageView.class);
     [cell.imageView setBackgroundColor:[UIColor greenColor]];
     cell.imageView.layer.cornerRadius = KCornerWidth/2;
-    [cell setReusableImageViewBlock:^(HWebImageView *webImageView) {
-        NSLog(@"");
+    [cell setReusableImageViewBlock:^(HWebImageView *webImageView, HReusableImageView *imageView) {
+        
     }];
 }
 
 
-- (void)tupleView:(UIView *)tupleView footerTuple:(id (^)(Class aClass))footerBlock inSection:(NSInteger)section {
+- (void)tupleView:(UICollectionView *)tupleView footerTuple:(id (^)(Class aClass))footerBlock inSection:(NSInteger)section {
     HReusableButtonView *cell = footerBlock(HReusableButtonView.class);
     [cell.button setBackgroundColor:[UIColor clearColor]];
     [cell.button.button setImage:[UIImage imageNamed:@"icon_tuple_arrow_right"] forState:UIControlStateNormal];
-    [cell setReusableButtonViewBlock:^(HWebButtonView *webButtonView) {
-        NSLog(@"");
+    [cell setReusableButtonViewBlock:^(HWebButtonView *webButtonView, HReusableButtonView *buttonView) {
+        
     }];
     
 }

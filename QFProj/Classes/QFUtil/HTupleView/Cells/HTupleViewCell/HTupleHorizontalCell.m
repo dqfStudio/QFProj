@@ -22,29 +22,29 @@
     HLayoutTupleView(self.tupleView)
 }
 
-- (NSInteger)tupleView:(UIView *)tupleView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)tupleView:(UICollectionView *)tupleView numberOfItemsInSection:(NSInteger)section {
     return 5;
 }
 
-- (CGSize)tupleView:(UIView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)tupleView:(UICollectionView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         return CGSizeMake(290, 100);
     }
     return CGSizeMake(290, 30);
 }
-- (CGSize)tupleView:(UIView *)tupleView sizeForHeaderInSection:(NSInteger)section {
+- (CGSize)tupleView:(UICollectionView *)tupleView sizeForHeaderInSection:(NSInteger)section {
     if (section == 0) {
         return CGSizeMake(30, 70);
     }
     return CGSizeMake(0, 0);
 }
-- (CGSize)tupleView:(UIView *)tupleView sizeForFooterInSection:(NSInteger)section {
+- (CGSize)tupleView:(UICollectionView *)tupleView sizeForFooterInSection:(NSInteger)section {
     return CGSizeMake(0, 0);
 }
-- (UIEdgeInsets)tupleView:(UIView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     return UIEdgeInsetsMake(10, 0, 10, 0);
 }
-- (void)tupleView:(UIView *)tupleView itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:{
             HTextViewCell *cell = itemBlock(HTextViewCell.class);
@@ -57,7 +57,7 @@
             HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
             [cell.button setBackgroundColor:[UIColor blueColor]];
             [cell setBackgroundColor:[UIColor redColor]];
-            [cell setButtonViewBlock:^(HWebButtonView *webButtonView) {
+            [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
                 
             }];
         }
@@ -67,7 +67,7 @@
             HImageViewCell *cell = itemBlock(HImageViewCell.class);
             [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
-            [cell setImageViewBlock:^(HWebImageView *webImageView) {
+            [cell setImageViewBlock:^(HWebImageView *webImageView, HImageViewCell *imageCell) {
                 
             }];
         }
@@ -77,7 +77,7 @@
             HImageViewCell *cell = itemBlock(HImageViewCell.class);
             [cell.imageView setBackgroundColor:[UIColor redColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
-            [cell setImageViewBlock:^(HWebImageView *webImageView) {
+            [cell setImageViewBlock:^(HWebImageView *webImageView, HImageViewCell *imageCell) {
                 
             }];
         }
@@ -93,7 +93,7 @@
     }
 }
 
-- (void)tupleView:(UIView *)tupleView headerTuple:(id (^)(Class aClass))headerBlock inSection:(NSInteger)section {
+- (void)tupleView:(UICollectionView *)tupleView headerTuple:(id (^)(Class aClass))headerBlock inSection:(NSInteger)section {
     switch (section) {
         case 0:{
             HReusableTextView *cell = headerBlock(HReusableTextView.class);
@@ -126,6 +126,6 @@
     }
 }
 
-//- (void)tupleView:(UIView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+//- (void)tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

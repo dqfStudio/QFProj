@@ -18,21 +18,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self initUI];
-        [self.goDownSubject subscribeNext:^(HTupleSignal *signal) {
-            if (HTupleSignalSelf(signal, self.indexPath)) {
-                if (self.signalBlock) {
-                    self.signalBlock(signal);
-                }
-            }else if (HTupleSignalSection(signal, self.indexPath)) {
-                if (self.signalBlock) {
-                    self.signalBlock(signal);
-                }
-            }else if (HTupleSignalAll(signal)) {
-                if (self.signalBlock) {
-                    self.signalBlock(signal);
-                }
-            }
-        }];
         if (self.initBlock) {
             self.initBlock();
         }
@@ -45,25 +30,13 @@
         _baseTap = [[UITapGestureRecognizer alloc] init];
         _baseTap.numberOfTapsRequired = 1;
         _baseTap.numberOfTouchesRequired = 1;
-        [_baseTap.rac_gestureSignal subscribeNext:^(id x) {
-            [[UIApplication sharedApplication].delegate.window endEditing:YES];
-        }];
+        [_baseTap addTarget:self action:@selector(baseTapAction)];
     }
     return _baseTap;
 }
 
-- (void)setInitBlock:(HTupleCellInitBlock)initBlock {
-    if (_initBlock != initBlock) {
-        _initBlock = nil;
-        _initBlock = initBlock;
-    }
-}
-
-- (void)setSignalBlock:(HTupleCellSignalBlock)signalBlock {
-    if (_signalBlock != signalBlock) {
-        _signalBlock = nil;
-        _signalBlock = signalBlock;
-    }
+- (void)baseTapAction {
+    [[UIApplication sharedApplication].delegate.window endEditing:YES];
 }
 
 - (void)initUI {}

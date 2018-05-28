@@ -10,6 +10,8 @@
 
 @interface HTupleView () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (nonatomic) NSMutableSet *allReuseCells;
+@property (nonatomic) NSMutableDictionary *allReuseHeaders;
+@property (nonatomic) NSMutableDictionary *allReuseFooters;
 @end
 
 @implementation HTupleView
@@ -55,33 +57,10 @@
     }
     
     _allReuseCells = [NSMutableSet new];
+    _allReuseHeaders = [NSMutableDictionary new];
+    _allReuseFooters = [NSMutableDictionary new];
     self.delegate = self;
     self.dataSource = self;
-    
-    _goUpSubject = [RACSubject subject];
-    _goDownSubject = [RACSubject subject];
-    [_goUpSubject subscribeNext:^(HTupleSignal *signal) {
-        switch (signal.signalType) {
-            case HTupleSignalTypeItem:
-                [_goDownSubject sendNext:signal];
-                break;
-            case HTupleSignalTypeSecton:
-                [_goDownSubject sendNext:signal];
-                break;
-            case HTupleSignalTypeAllItem:
-                [_goDownSubject sendNext:signal];
-                break;
-            case HTupleSignalTypeTuple:
-                if (HTupleSignalTuple(signal)) {
-                    if (self.signalBlock) {
-                        self.signalBlock(signal);
-                    }
-                }
-                break;
-            default:
-                break;
-        }
-    }];
 }
 - (id)headerWithReuseClass:(Class)aClass atIndexPath:(NSIndexPath *)indexPath {
     NSString *identifier = [NSString stringWithFormat:@"%@HeaderCell",NSStringFromClass(aClass)];
@@ -106,6 +85,115 @@
         [self registerClass:aClass forCellWithReuseIdentifier:identifier];
     }
     return [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+}
+#pragma mark - signal
+- (void)signalToTupleView:(HTupleSignal *)signal {
+    if (self.signalBlock) {
+        self.signalBlock(nil);
+    }
+}
+- (void)signalToAllItems:(HTupleSignal *)signal {
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        NSInteger sections = [self numberOfSections];
+        for (int i=0; i<sections; i++) {
+            NSInteger items = [self numberOfItemsInSection:i];
+            for (int j=0; j<items; j++) {
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:j inSection:i];
+                UICollectionViewCell *cell = [self cellForItemAtIndexPath:indexPath];
+                if (cell.signalBlock) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        cell.signalBlock(nil);
+                    });
+                }
+            }
+        }
+    });
+}
+- (void)signal:(HTupleSignal *)signal itemSection:(NSInteger)section {
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        NSInteger items = [self numberOfItemsInSection:section];
+        for (int i=0; i<items; i++) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:section];
+            UICollectionViewCell *cell = [self cellForItemAtIndexPath:indexPath];
+            if (cell.signalBlock) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    cell.signalBlock(nil);
+                });
+            }
+        }
+    });
+}
+- (void)signal:(HTupleSignal *)signal indexPath:(NSIndexPath *)indexPath  {
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        UICollectionViewCell *cell = [self cellForItemAtIndexPath:indexPath];
+        if (cell.signalBlock) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.signalBlock(nil);
+            });
+        }
+    });
+}
+- (void)signalToAllHeader:(HTupleSignal *)signal {
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        NSInteger sections = [self numberOfSections];
+        for (int i=0; i<sections; i++) {
+            NSString *identifier = self.allReuseHeaders[@(i).stringValue];
+            if (identifier) {
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:i];
+                HTupleBaseView *cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
+                if (cell.signalBlock) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        cell.signalBlock(nil);
+                    });
+                }
+            }
+        }
+    });
+}
+- (void)signal:(HTupleSignal *)signal headerSection:(NSInteger)section {
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        NSString *identifier = self.allReuseHeaders[@(section).stringValue];
+        if (identifier) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
+            HTupleBaseView *cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
+            if (cell.signalBlock) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    cell.signalBlock(nil);
+                });
+            }
+        }
+    });
+}
+- (void)signalToAllFooter:(HTupleSignal *)signal {
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        NSInteger sections = [self numberOfSections];
+        for (int i=0; i<sections; i++) {
+            NSString *identifier = self.allReuseFooters[@(i).stringValue];
+            if (identifier) {
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:i];
+                HTupleBaseView *cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
+                if (cell.signalBlock) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        cell.signalBlock(nil);
+                    });
+                }
+            }
+        }
+    });
+}
+- (void)signal:(HTupleSignal *)signal footerSection:(NSInteger)section {
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        NSString *identifier = self.allReuseFooters[@(section).stringValue];
+        if (identifier) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
+            HTupleBaseView *cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
+            if (cell.signalBlock) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    cell.signalBlock(nil);
+                });
+            }
+        }
+    });
 }
 #pragma mark - UICollectionViewDatasource  & delegate
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {    
@@ -132,8 +220,6 @@
                 cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
                 HTupleBaseCell *tmpCell = (HTupleBaseCell *)cell;
                 tmpCell.collection = self;
-                tmpCell.goUpSubject = self.goUpSubject;
-                tmpCell.goDownSubject = self.goDownSubject;
                 tmpCell.indexPath = indexPath;
             }else {
                 cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
@@ -179,6 +265,7 @@
                 NSString *identifier = [NSString stringWithFormat:@"%@HeaderCell",NSStringFromClass(aClass)];
                 if (![self.allReuseCells containsObject:identifier]) {
                     [self.allReuseCells addObject:identifier];
+                    [self.allReuseHeaders setObject:identifier forKey:@(indexPath.section).stringValue];
                     [self registerClass:aClass forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier];
                     cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
                     HTupleBaseView *tmpCell = (HTupleBaseView *)cell;
@@ -206,6 +293,7 @@
                 NSString *identifier = [NSString stringWithFormat:@"%@FooterCell",NSStringFromClass(aClass)];
                 if (![self.allReuseCells containsObject:identifier]) {
                     [self.allReuseCells addObject:identifier];
+                    [self.allReuseFooters setObject:identifier forKey:@(indexPath.section).stringValue];
                     [self registerClass:aClass forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier];
                     cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
                     HTupleBaseView *tmpCell = (HTupleBaseView *)cell;
