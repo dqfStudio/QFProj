@@ -66,7 +66,6 @@
     }
     return _imageView;
 }
-
 - (UITapGestureRecognizer *)tapGesture {
     if (!_tapGesture) {
         _tapGesture = [[UITapGestureRecognizer alloc] init];
@@ -80,7 +79,6 @@
     }
     return _tapGesture;
 }
-
 - (void)setReusableImageViewBlock:(HReusableImageViewBlock)reusableImageViewBlock {
     if (_reusableImageViewBlock != reusableImageViewBlock) {
         _reusableImageViewBlock = nil;
