@@ -17,16 +17,22 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        [self initUI];
         [self.goDownSubject subscribeNext:^(HTupleSignal *signal) {
             if (HTupleSignalSelf(signal, self.indexPath)) {
-                [self selfSignal:signal];
+                if (self.signalBlock) {
+                    self.signalBlock(signal);
+                }
             }else if (HTupleSignalSection(signal, self.indexPath)) {
-                [self sectionSignal:signal];
+                if (self.signalBlock) {
+                    self.signalBlock(signal);
+                }
             }else if (HTupleSignalAll(signal)) {
-                [self allItemSignal:signal];
+                if (self.signalBlock) {
+                    self.signalBlock(signal);
+                }
             }
         }];
-        [self initUI];
         if (self.initBlock) {
             self.initBlock();
         }
@@ -53,13 +59,14 @@
     }
 }
 
+- (void)setSignalBlock:(HTupleCellSignalBlock)signalBlock {
+    if (_signalBlock != signalBlock) {
+        _signalBlock = nil;
+        _signalBlock = signalBlock;
+    }
+}
+
 - (void)initUI {}
-
-- (void)selfSignal:(HTupleSignal *)signal {}
-
-- (void)sectionSignal:(HTupleSignal *)signal {}
-
-- (void)allItemSignal:(HTupleSignal *)signal {}
 
 - (void)layoutContentView {};
 

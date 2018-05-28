@@ -10,8 +10,6 @@
 #import <Foundation/Foundation.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
-typedef void(^HTupleCellInitBlock)(void);
-
 typedef NS_OPTIONS(NSUInteger, HTupleSignalType) {
     HTupleSignalTypeNormal = 0, //不针对任何一个
     HTupleSignalTypeTuple, //针对tupleView
@@ -27,6 +25,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleSignalType) {
 @property (nonatomic) HTupleSignalType signalType;
 @property (nonatomic) NSIndexPath *indexPath;
 @end
+
+typedef void(^HTupleCellInitBlock)(void);
+typedef void(^HTupleCellSignalBlock)(HTupleSignal *signal);
 
 UIKIT_STATIC_INLINE bool HTupleSignalTuple(HTupleSignal *signal) {
     bool equal = false;

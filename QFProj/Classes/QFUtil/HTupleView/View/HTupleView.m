@@ -73,7 +73,9 @@
                 break;
             case HTupleSignalTypeTuple:
                 if (HTupleSignalTuple(signal)) {
-                    
+                    if (self.signalBlock) {
+                        self.signalBlock(signal);
+                    }
                 }
                 break;
             default:

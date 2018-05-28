@@ -23,12 +23,10 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UIEdgeInsets edgeInsets;
 @property (nonatomic, copy) HTupleCellInitBlock initBlock;
+@property (nonatomic, copy) HTupleCellSignalBlock signalBlock;
 - (CGRect)getContentFrame;
 - (void)addReturnKeyBoard;
 //需要子类重写该方法
-- (void)layoutContentView;
 - (void)initUI;
-- (void)selfSignal:(HTupleSignal *)signal;
-- (void)sectionSignal:(HTupleSignal *)signal;
-- (void)allItemSignal:(HTupleSignal *)signal;
+- (void)layoutContentView;
 @end

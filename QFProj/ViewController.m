@@ -272,6 +272,9 @@
             [cell setInitBlock:^{
                 
             }];
+            [cell setSignalBlock:^(HTupleSignal *signal) {
+                
+            }];
         }
             break;
         case 1:
