@@ -181,9 +181,9 @@ static const void *userInfoAddress = &userInfoAddress;
 
 #pragma mark - Tap Gesture
 
-- (UITapGestureRecognizer *)addSingleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *))block {
-    return [self addTapGestureWithNumberOfTapsRequired:1 block:block];
-}
+//- (UITapGestureRecognizer *)setSingleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *))block {
+//    return [self addTapGestureWithNumberOfTapsRequired:1 block:block];
+//}
 
 - (UITapGestureRecognizer *)addDoubleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *))block {
     return [self addTapGestureWithNumberOfTapsRequired:2 block:block];
@@ -198,7 +198,7 @@ static const void *userInfoAddress = &userInfoAddress;
     return recognizer;
 }
 
-- (UITapGestureRecognizer *)setSingleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *))block {
+- (UITapGestureRecognizer *)addSingleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *))block {
     [self.gestureRecognizers enumerateObjectsUsingBlock:^(__kindof UIGestureRecognizer * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isKindOfClass:[UITapGestureRecognizer class]]) {
             [self removeGestureRecognizer:obj];
@@ -207,7 +207,7 @@ static const void *userInfoAddress = &userInfoAddress;
     return [self addTapGestureWithNumberOfTapsRequired:1 block:block];
 }
 
-- (UITapGestureRecognizer *)setSingleTapGestureTarget:(id)target action:(SEL)action {
+- (UITapGestureRecognizer *)addSingleTapGestureTarget:(id)target action:(SEL)action {
     self.userInteractionEnabled = YES;
     [self.gestureRecognizers enumerateObjectsUsingBlock:^(__kindof UIGestureRecognizer * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isKindOfClass:[UITapGestureRecognizer class]]) {

@@ -83,7 +83,7 @@
 /**
  *  添加点击事件，多次调用会持有多个UITapGestureRecognizer对象
  */
-- (UITapGestureRecognizer *)addSingleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *recognizer))block;
+//- (UITapGestureRecognizer *)setSingleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *recognizer))block;
 /**
  *  添加双击事件
  */
@@ -92,8 +92,8 @@
 /**
  *  添加单击事件，多次调用只会持有一个UITapGestureRecognizer对象，之前的会被清除
  */
-- (UITapGestureRecognizer *)setSingleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *recognizer))block;
-- (UITapGestureRecognizer *)setSingleTapGestureTarget:(id)target action:(SEL)action;
+- (UITapGestureRecognizer *)addSingleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *recognizer))block;
+- (UITapGestureRecognizer *)addSingleTapGestureTarget:(id)target action:(SEL)action;
 
 #pragma mark - Top and bottom line
 
