@@ -121,41 +121,41 @@ static const void *userInfoAddress = &userInfoAddress;
     return CGRectGetMaxY(self.frame);
 }
 
-- (void)fillScreenWidth {
+- (void)fitScreenWidth {
     [self setH_width:CGRectGetWidth([UIScreen mainScreen].bounds)];
 }
 
-- (void)fillScreenHeight {
+- (void)fitScreenHeight {
     [self setH_height:CGRectGetHeight([UIScreen mainScreen].bounds)];
 }
 
-- (void)fillSuperX {
+- (void)fitSuperX {
     [self setH_x:CGRectGetMinX(self.superview.frame)];
 }
 
-- (void)fillSuperY {
+- (void)fitSuperY {
     [self setH_y:CGRectGetMinY(self.superview.frame)];
 }
 
-- (void)fillSuperOrigin {
-    [self fillSuperX];
-    [self fillSuperY];
+- (void)fitSuperOrigin {
+    [self fitSuperX];
+    [self fitSuperY];
 }
 
-- (void)fillSuperWidth {
+- (void)fitSuperWidth {
     [self setH_width:CGRectGetWidth(self.superview.frame)];
 }
 
-- (void)fillSuperHeight {
+- (void)fitSuperHeight {
     [self setH_height:CGRectGetHeight(self.superview.frame)];
 }
 
-- (void)fillSuperSize {
-    [self fillSuperWidth];
-    [self fillSuperHeight];
+- (void)fitSuperSize {
+    [self fitSuperWidth];
+    [self fitSuperHeight];
 }
 
-- (void)fillSuperFrame {
+- (void)fitSuperFrame {
     [self setFrame:self.superview.frame];
 }
 

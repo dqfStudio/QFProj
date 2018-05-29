@@ -9,6 +9,7 @@
 #import "HTupleBaseCell.h"
 #import "HWebImageView.h"
 #import "HWebButtonView.h"
+#import "Masonry.h"
 
 @class HButtonViewCell, HImageViewCell;
 
@@ -21,6 +22,11 @@ typedef void(^HImageViewBlock)(HWebImageView *webImageView, HImageViewCell *imag
 
 @interface HTextViewCell : HTupleBaseCell
 @property (nonatomic) UILabel *label;
+@end
+
+@interface HTextViewCell2 : HTupleBaseCell
+@property (nonatomic) UILabel *leftLabel;
+@property (nonatomic) UILabel *rightLabel;
 @end
 
 @interface HButtonViewCell : HTupleBaseCell

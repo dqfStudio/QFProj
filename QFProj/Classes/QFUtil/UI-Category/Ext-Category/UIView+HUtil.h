@@ -52,18 +52,18 @@
 @property (nonatomic, readonly)  CGFloat  h_maxX;
 @property (nonatomic, readonly)  CGFloat  h_maxY;
 
-- (void)fillScreenWidth;
-- (void)fillScreenHeight;
+- (void)fitScreenWidth;
+- (void)fitScreenHeight;
 
-- (void)fillSuperX;
-- (void)fillSuperY;
+- (void)fitSuperX;
+- (void)fitSuperY;
 
-- (void)fillSuperWidth;
-- (void)fillSuperHeight;
+- (void)fitSuperWidth;
+- (void)fitSuperHeight;
 
-- (void)fillSuperOrigin;
-- (void)fillSuperSize;
-- (void)fillSuperFrame;
+- (void)fitSuperOrigin;
+- (void)fitSuperSize;
+- (void)fitSuperFrame;
 
 /**
  *  根据传入的width来水平居中

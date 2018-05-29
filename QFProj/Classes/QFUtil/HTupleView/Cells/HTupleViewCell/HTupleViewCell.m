@@ -34,6 +34,57 @@
 }
 @end
 
+@interface HTextViewCell2 ()
+@property (nonatomic) UIView *bgView;
+@end
+
+@implementation HTextViewCell2
+- (UIView *)bgView {
+    if (!_bgView) {
+        _bgView = [UIView new];
+        [self addSubview:_bgView];
+    }
+    return _bgView;
+}
+- (UILabel *)leftLabel {
+    if (!_leftLabel) {
+        _leftLabel = [UILabel new];
+        [self.bgView addSubview:_leftLabel];
+    }
+    return _leftLabel;
+}
+- (UILabel *)rightLabel {
+    if (!_rightLabel) {
+        _rightLabel = [UILabel new];
+        [self.bgView addSubview:_rightLabel];
+    }
+    return _rightLabel;
+}
+- (void)layoutContentView {
+    HLayoutTupleView(self.bgView)
+}
+- (void)initUI {
+    
+    [self.leftLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    [self.rightLabel setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+    
+    [self.leftLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
+    [self.rightLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+    
+    [self.leftLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@10);
+        make.top.equalTo(@10);
+        make.right.equalTo(self.rightLabel.mas_left).offset(-10);
+    }];
+    
+    [self.rightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.leftLabel.mas_right).offset(10);
+        make.top.equalTo(self.leftLabel);
+        make.right.equalTo(@(-10));
+    }];
+}
+@end
+
 @implementation HButtonViewCell
 - (HWebButtonView *)button {
     if (!_button) {
