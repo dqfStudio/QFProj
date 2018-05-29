@@ -122,19 +122,19 @@ static const void *userInfoAddress = &userInfoAddress;
 }
 
 - (void)fitScreenWidth {
-    [self setH_width:CGRectGetWidth([UIScreen mainScreen].bounds)];
+    [self setH_width:[UIScreen width]];
 }
 
 - (void)fitScreenHeight {
-    [self setH_height:CGRectGetHeight([UIScreen mainScreen].bounds)];
+    [self setH_height:[UIScreen height]];
 }
 
 - (void)fitSuperX {
-    [self setH_x:CGRectGetMinX(self.superview.frame)];
+    [self setH_x:self.superview.h_minX];
 }
 
 - (void)fitSuperY {
-    [self setH_y:CGRectGetMinY(self.superview.frame)];
+    [self setH_y:self.superview.h_minY];
 }
 
 - (void)fitSuperOrigin {
@@ -143,11 +143,11 @@ static const void *userInfoAddress = &userInfoAddress;
 }
 
 - (void)fitSuperWidth {
-    [self setH_width:CGRectGetWidth(self.superview.frame)];
+    [self setH_width:self.superview.h_width];
 }
 
 - (void)fitSuperHeight {
-    [self setH_height:CGRectGetHeight(self.superview.frame)];
+    [self setH_height:self.superview.h_height];
 }
 
 - (void)fitSuperSize {
