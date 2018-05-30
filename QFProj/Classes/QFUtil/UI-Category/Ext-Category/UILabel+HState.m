@@ -93,25 +93,27 @@ DYNAMIC(selectedBackgroundColor,setSelectedBackgroundColor,UIColor*)
 
 - (void)setSelected:(BOOL)selected {
     if (!self.isSelecting) {
-        [self setSelecting:YES];
-        if (selected) {
-            self.labelState = UILabelStateSelected;
-            if (self.selectedText) [self setText:self.selectedText];
-            if (self.selectedColor) [self setTextColor:self.selectedColor];
-            if (self.selectedFont) [self setFont:self.selectedFont];
-            //如果attributedText有值，则优先级高于text
-            if (self.selectedAttributedText) [self setAttributedText:self.selectedAttributedText];
-            if (self.selectedBackgroundColor) [self setBackgroundColor:self.selectedBackgroundColor];
-        }else {
-            self.labelState = UILabelStateNormal;
-            [self setText:self.normalText];
-            if (self.normalColor) [self setTextColor:self.normalColor];
-            if (self.normalFont) [self setFont:self.normalFont];
-            //如果attributedText有值，则优先级高于text
-            if (self.normalAttributedText) [self setAttributedText:self.normalAttributedText];
-            if (self.normalBackgroundColor) [self setBackgroundColor:self.normalBackgroundColor];
+        @synchronized(self) {
+            [self setSelecting:YES];
+            if (selected) {
+                self.labelState = UILabelStateSelected;
+                if (self.selectedText) [self setText:self.selectedText];
+                if (self.selectedColor) [self setTextColor:self.selectedColor];
+                if (self.selectedFont) [self setFont:self.selectedFont];
+                //如果attributedText有值，则优先级高于text
+                if (self.selectedAttributedText) [self setAttributedText:self.selectedAttributedText];
+                if (self.selectedBackgroundColor) [self setBackgroundColor:self.selectedBackgroundColor];
+            }else {
+                self.labelState = UILabelStateNormal;
+                [self setText:self.normalText];
+                if (self.normalColor) [self setTextColor:self.normalColor];
+                if (self.normalFont) [self setFont:self.normalFont];
+                //如果attributedText有值，则优先级高于text
+                if (self.normalAttributedText) [self setAttributedText:self.normalAttributedText];
+                if (self.normalBackgroundColor) [self setBackgroundColor:self.normalBackgroundColor];
+            }
+            [self setSelecting:NO];
         }
-        [self setSelecting:NO];
     }else {
         NSLog(@"正在设置中，请稍后重试！");
     }

@@ -30,7 +30,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        //初始化单利
+        //初始化单例
         [self initInstance];
     }
     return self;
@@ -45,10 +45,14 @@
 }
 
 - (CGRect)originFrame {
-    return CGRectMake(0, -CGRectGetHeight([UIScreen mainScreen].bounds), CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight([UIScreen mainScreen].bounds));
+    return CGRectMake(0, -CGRectGetHeight([self screenFrame]), CGRectGetWidth([self screenFrame]), CGRectGetHeight([self screenFrame]));
 }
 
 - (CGRect)newFrame {
+    return [self screenFrame];
+}
+
+- (CGRect)screenFrame {
     return [UIScreen mainScreen].bounds;
 }
 

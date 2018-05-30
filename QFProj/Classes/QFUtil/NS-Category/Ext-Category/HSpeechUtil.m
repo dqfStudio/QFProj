@@ -31,9 +31,11 @@
 }
 + (void)speechWords:(NSString *)words {
     if (words.length > 0) {
-        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:words];
-        utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh-CN"];
-        [[HSpeechUtil share].speechSynthesizer speakUtterance:utterance];
+        @synchronized(self) {
+            AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:words];
+            utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh-CN"];
+            [[HSpeechUtil share].speechSynthesizer speakUtterance:utterance];
+        }
     }
 }
 @end
