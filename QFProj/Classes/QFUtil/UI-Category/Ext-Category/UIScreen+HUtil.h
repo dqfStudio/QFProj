@@ -13,6 +13,7 @@
 
 @interface UIScreen (HUtil)
 
++ (CGRect)bounds;
 + (CGSize)size;
 + (CGFloat)height;
 + (CGFloat)width;

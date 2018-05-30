@@ -12,7 +12,7 @@
 #import "NSString+HUtil.h"
 #import "NSString+HChain.h"
 #import "NSError+HUtil.h"
-#import "HAutoFill.h"
+#import "NSObject+HAutoFill.h"
 
 @interface HGoToPathNode : NSObject
 @property (nonatomic) NSString *name;
@@ -267,7 +267,7 @@
             if ([options containsObject:HGOtoOpt_AutoFill]) {
                 NSDictionary *params = [node paramsMap];
                 NSDictionary *keyMaping = [self getOptKeyMap:options];
-                [HAutoFill autoFill:targetVC params:params map:keyMaping];
+                [targetVC autoFillWithParams:params map:keyMaping];
             }
             if (doJump) {
                 if (needPopAction) {

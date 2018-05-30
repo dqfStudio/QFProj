@@ -23,7 +23,7 @@ static const NSDate *startDate=nil;
     }
 }
 
-+ (void)time:(void(^)())callback {
++ (void)time:(void(^)(void))callback {
     if (callback) {
         NSDate *startDate = [NSDate date];
         callback();

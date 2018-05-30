@@ -121,41 +121,41 @@ static const void *userInfoAddress = &userInfoAddress;
     return CGRectGetMaxY(self.frame);
 }
 
-- (void)fillScreenWidth {
-    [self setH_width:CGRectGetWidth([UIScreen mainScreen].bounds)];
+- (void)fitScreenWidth {
+    [self setH_width:[UIScreen width]];
 }
 
-- (void)fillScreenHeight {
-    [self setH_height:CGRectGetHeight([UIScreen mainScreen].bounds)];
+- (void)fitScreenHeight {
+    [self setH_height:[UIScreen height]];
 }
 
-- (void)fillSuperX {
-    [self setH_x:CGRectGetMinX(self.superview.frame)];
+- (void)fitSuperX {
+    [self setH_x:self.superview.h_minX];
 }
 
-- (void)fillSuperY {
-    [self setH_y:CGRectGetMinY(self.superview.frame)];
+- (void)fitSuperY {
+    [self setH_y:self.superview.h_minY];
 }
 
-- (void)fillSuperOrigin {
-    [self fillSuperX];
-    [self fillSuperY];
+- (void)fitSuperOrigin {
+    [self fitSuperX];
+    [self fitSuperY];
 }
 
-- (void)fillSuperWidth {
-    [self setH_width:CGRectGetWidth(self.superview.frame)];
+- (void)fitSuperWidth {
+    [self setH_width:self.superview.h_width];
 }
 
-- (void)fillSuperHeight {
-    [self setH_height:CGRectGetHeight(self.superview.frame)];
+- (void)fitSuperHeight {
+    [self setH_height:self.superview.h_height];
 }
 
-- (void)fillSuperSize {
-    [self fillSuperWidth];
-    [self fillSuperHeight];
+- (void)fitSuperSize {
+    [self fitSuperWidth];
+    [self fitSuperHeight];
 }
 
-- (void)fillSuperFrame {
+- (void)fitSuperFrame {
     [self setFrame:self.superview.frame];
 }
 
@@ -181,9 +181,9 @@ static const void *userInfoAddress = &userInfoAddress;
 
 #pragma mark - Tap Gesture
 
-- (UITapGestureRecognizer *)addSingleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *))block {
-    return [self addTapGestureWithNumberOfTapsRequired:1 block:block];
-}
+//- (UITapGestureRecognizer *)setSingleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *))block {
+//    return [self addTapGestureWithNumberOfTapsRequired:1 block:block];
+//}
 
 - (UITapGestureRecognizer *)addDoubleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *))block {
     return [self addTapGestureWithNumberOfTapsRequired:2 block:block];
@@ -198,7 +198,7 @@ static const void *userInfoAddress = &userInfoAddress;
     return recognizer;
 }
 
-- (UITapGestureRecognizer *)setSingleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *))block {
+- (UITapGestureRecognizer *)addSingleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *))block {
     [self.gestureRecognizers enumerateObjectsUsingBlock:^(__kindof UIGestureRecognizer * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isKindOfClass:[UITapGestureRecognizer class]]) {
             [self removeGestureRecognizer:obj];
@@ -207,7 +207,7 @@ static const void *userInfoAddress = &userInfoAddress;
     return [self addTapGestureWithNumberOfTapsRequired:1 block:block];
 }
 
-- (UITapGestureRecognizer *)setSingleTapGestureTarget:(id)target action:(SEL)action {
+- (UITapGestureRecognizer *)addSingleTapGestureTarget:(id)target action:(SEL)action {
     self.userInteractionEnabled = YES;
     [self.gestureRecognizers enumerateObjectsUsingBlock:^(__kindof UIGestureRecognizer * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isKindOfClass:[UITapGestureRecognizer class]]) {

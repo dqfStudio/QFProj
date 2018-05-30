@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "NSObject+HAspects.h"
+#import "HTestManager.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+//    [@"ViewController".toClass() aspectInstead:@selector(testAction:) usingBlock:^(id<AspectInfo> info, id sender) {
+//        NSLog(@"");
+//    }];
+    [[HTestManager share] jump:^{
+        
+    }];
+
     return YES;
 }
 
