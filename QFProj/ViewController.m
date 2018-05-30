@@ -22,6 +22,8 @@
 #import "HLeftImageCell.h"
 #import "HLeftImageCell2.h"
 
+#import "UIView+HShow.h"
+
 @interface ViewController () <HTupleViewDelegate> {
     UILabel *label;
 }
@@ -116,13 +118,11 @@
             [label setSelected:NO];
         }
     }];
-    
-    while (1) {
-        if (label.isSelected) {
-            [label setSelected:YES];
-        }else {
-            [label setSelected:NO];
-        }
+    UIImageView *view = [UIImageView new];
+    if ([view isKindOfClass:UIView.class]) {
+        NSLog(@"");
+    }else {
+        NSLog(@"");
     }
 //
     [label setTextColor:[UIColor redColor] forState:UILabelStateNormal];
@@ -213,6 +213,16 @@
     
     //先刷新一次数据
     [self.table beginRefresh];
+    
+    
+    [self.view showWaiting:^(id<HWaitingProtocol> make) {
+        [make setGrayStyle];
+    }];
+    
+    [self.view showLoadError:^(id<HLoadErrorProtocol> make) {
+        [make setDisplayImage:NO];
+    }];
+    
     
 }
 

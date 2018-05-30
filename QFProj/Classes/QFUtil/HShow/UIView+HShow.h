@@ -8,18 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "HShow+Protocol.h"
-//#import "HRequestResultView.h"
+#import "HRequestResultView.h"
+#import "HRequestWaitingView.h"
+#import "NSObject+HMessy.h"
 
 @interface UIView (HShow)
 
-//@property(nonatomic) HRequestResultView *mgLoadError;
+@property(nonatomic) HRequestWaitingView *mgWaitingView;
+@property(nonatomic) HRequestResultView *mgResultView;
 
 /**
  加载等待界面
 
  @param configBlock 参数配置block
  */
-- (void)showLoading:(void(^)(id<HLoadingProtocol> make))configBlock;
+- (void)showWaiting:(void(^)(id<HWaitingProtocol> make))configBlock;
 /**
  无数据提示界面
  
@@ -67,7 +70,7 @@
 /**
  移除对应提示
  */
-- (void)removeLoading;
+- (void)removeWaiting;
 - (void)removeNoData;
 - (void)removeNoNetwork;
 - (void)removeLoadError;

@@ -24,13 +24,7 @@ typedef NS_ENUM(NSInteger, MGRequestResultViewType) {
 HNoNetworkProtocol,
 HLoadErrorProtocol>
 
-//@property (nonatomic) HResultImageView *resultImageView;
-//@property (nonatomic) HResultTextView  *resultTextView;
 @property (nonatomic) MGRequestResultViewType type;
-//@property (nonatomic) CGFloat qMarginTop;
-//@property (nonatomic) CGFloat qOffset;
-//@property (nonatomic, copy) HShowClickedBlock clickedActionBlock;
-//- (void)setClickedBlock:(HShowClickedBlock)showClickedBlock;
 + (instancetype)awakeView;
 
 @end

@@ -11,6 +11,12 @@
 
 @interface NSObject (HMessy)
 + (NSString *(^)(void))name;
+#pragma mark - Associate value
+- (void)setAssociateValue:(nullable id)value withKey:(void *)key;
+- (void)setAssociateWeakValue:(nullable id)value withKey:(void *)key;
+- (void)setAssociateCopyValue:(id)value withKey:(void *)key;
+- (nullable id)getAssociatedValueForKey:(void *)key;
+- (void)removeAssociatedValues;
 @end
 
 @interface NSString (HMessy)

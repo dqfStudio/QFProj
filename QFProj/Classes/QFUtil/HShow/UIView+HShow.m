@@ -8,12 +8,9 @@
 
 #import "UIView+HShow.h"
 #import <objc/runtime.h>
-//#import <ReactiveCocoa/ReactiveCocoa.h>
-//#import "AFNetworkReachabilityManager.h"
+#import "AFNetworkReachabilityManager.h"
 
 @interface UIView ()
-//@property (nonatomic, strong) RACDisposable *mgDisposableHandler;
-@property(nonatomic) UIView *mgLoading;
 @property(nonatomic) UIView *mgToast;
 @property(nonatomic) UIView *mgSheet;
 @property(nonatomic) UIView *mgForm;
@@ -22,96 +19,111 @@
 
 @implementation UIView (HShow)
 
-//- (MGRequestResultView *)mgLoadError {
-//    @synchronized(self) {
-//        MGRequestResultView *loadError = [self getAssociatedValueForKey:_cmd];
-//        if (!loadError) {
-//            loadError = [MGRequestResultView viewFromNib];
-//            [loadError setTag:33333333];
-//            self.mgLoadError = loadError;
-//        }
-//        if (loadError && ![self.subviews containsObject:loadError]) {
-//            [loadError setHidden:YES];
-//            [self addSubview:loadError];
-//        }
-//        return [self getAssociatedValueForKey:_cmd];
-//    }
-//}
-//- (void)setMgLoadError:(MGRequestResultView *)mgLoadError {
-//    [self setAssociateValue:mgLoadError withKey:@selector(mgLoadError)];
-//}
+- (HRequestWaitingView *)mgWaitingView {
+    @synchronized(self) {
+        HRequestWaitingView *waitingView = [self getAssociatedValueForKey:_cmd];
+        if (!waitingView) {
+            waitingView = [HRequestWaitingView awakeView];
+            self.mgWaitingView = waitingView;
+            [waitingView setHidden:YES];
+            [self addSubview:waitingView];
+        }
+        return [self getAssociatedValueForKey:_cmd];
+    }
+}
+- (void)setMgWaitingView:(HRequestWaitingView *)mgWaitingView {
+    [self setAssociateValue:mgWaitingView withKey:@selector(mgWaitingView)];
+}
 
+- (HRequestResultView *)mgResultView {
+    @synchronized(self) {
+        HRequestResultView *mgResultView = [self getAssociatedValueForKey:_cmd];
+        if (!mgResultView) {
+            mgResultView = [HRequestResultView awakeView];
+            self.mgResultView = mgResultView;
+            [mgResultView setHidden:YES];
+            [self addSubview:mgResultView];
+        }
+        return [self getAssociatedValueForKey:_cmd];
+    }
+}
+- (void)setMgResultView:(HRequestResultView *)mgResultView {
+    [self setAssociateValue:mgResultView withKey:@selector(mgResultView)];
+}
 
-
-
-
-- (void)showLoading:(void(^)(id<HLoadingProtocol> make))configBlock {
-    if ([self.mgLoading conformsToProtocol:@protocol(HLoadingProtocol)]) {
-        if (configBlock) {
-//            configBlock(self.mgLoading);
+- (void)showWaiting:(void(^)(id<HWaitingProtocol> make))configBlock {
+    @synchronized(self) {
+        [self removeLoadError];
+        if ([self.mgWaitingView conformsToProtocol:@protocol(HWaitingProtocol)]) {
+            if (![self.mgWaitingView isLoading]) {
+                [self.mgWaitingView start];
+                if (configBlock) {
+                    configBlock(self.mgWaitingView);
+                }
+                [self.mgWaitingView setHidden:NO];
+                [self bringSubviewToFront:self.mgWaitingView];
+                [self.mgWaitingView end];
+            }
         }
     }
 }
 
 - (void)showNoData:(void(^)(id<HNoDataProtocol> make))configBlock {
-//    @synchronized(self) {
-//        [self removeLoading];
-//        if ([self.mgLoadError conformsToProtocol:@protocol(MGNoDataProtocol)]) {
-//            if (![self.mgLoadError isLoading]) {
-//                [self.mgLoadError start];
-//                self.mgLoadError.type = MGRequestResultViewTypeNoData;
-//                if (configBlock) {
-//                    configBlock(self.mgLoadError);
-//                }
-//                [self.mgLoadError addObserver];
-//                [self.mgLoadError setHidden:NO];
-//                [self bringSubviewToFront:self.mgLoadError];
-//                [self.mgLoadError end];
-//            }
-//        }
-//    }
+    @synchronized(self) {
+        [self removeWaiting];
+        if ([self.mgResultView conformsToProtocol:@protocol(HNoDataProtocol)]) {
+            if (![self.mgResultView isLoading]) {
+                [self.mgResultView start];
+                self.mgResultView.type = MGRequestResultViewTypeNoData;
+                if (configBlock) {
+                    configBlock(self.mgResultView);
+                }
+                [self.mgResultView setHidden:NO];
+                [self bringSubviewToFront:self.mgResultView];
+                [self.mgResultView end];
+            }
+        }
+    }
 }
 
 - (void)showNoNetwork:(void(^)(id<HNoNetworkProtocol> make))configBlock {
-//    @synchronized(self) {
-//        [self removeLoading];
-//        if ([self.mgLoadError conformsToProtocol:@protocol(MGNoNetworkProtocol)]) {
-//            if (![self.mgLoadError isLoading]) {
-//                [self.mgLoadError start];
-//                self.mgLoadError.type = MGRequestResultViewTypeNoNetwork;
-//                if (configBlock) {
-//                    configBlock(self.mgLoadError);
-//                }
-//                [self.mgLoadError addObserver];
-//                [self.mgLoadError setHidden:NO];
-//                [self bringSubviewToFront:self.mgLoadError];
-//                [self.mgLoadError end];
-//            }
-//        }
-//    }
+    @synchronized(self) {
+        [self removeWaiting];
+        if ([self.mgResultView conformsToProtocol:@protocol(HNoNetworkProtocol)]) {
+            if (![self.mgResultView isLoading]) {
+                [self.mgResultView start];
+                self.mgResultView.type = MGRequestResultViewTypeNoNetwork;
+                if (configBlock) {
+                    configBlock(self.mgResultView);
+                }
+                [self.mgResultView setHidden:NO];
+                [self bringSubviewToFront:self.mgResultView];
+                [self.mgResultView end];
+            }
+        }
+    }
 }
 
 - (void)showLoadError:(void(^)(id<HLoadErrorProtocol> make))configBlock {
-//    @synchronized(self) {
-//        [self removeLoading];
-//        if ([self.mgLoadError conformsToProtocol:@protocol(MGLoadErrorProtocol)]) {
-//            if (![self.mgLoadError isLoading]) {
-//                [self.mgLoadError start];
-//                if (![AFNetworkReachabilityManager sharedManager].isReachable) {
-//                    self.mgLoadError.type = MGRequestResultViewTypeNoNetwork;
-//                }else {
-//                    self.mgLoadError.type = MGRequestResultViewTypeLoadError;
-//                }
-//                if (configBlock) {
-//                    configBlock(self.mgLoadError);
-//                }
-//                [self.mgLoadError addObserver];
-//                [self.mgLoadError setHidden:NO];
-//                [self bringSubviewToFront:self.mgLoadError];
-//                [self.mgLoadError end];
-//            }
-//        }
-//    }
+    @synchronized(self) {
+        [self removeWaiting];
+        if ([self.mgResultView conformsToProtocol:@protocol(HLoadErrorProtocol)]) {
+            if (![self.mgResultView isLoading]) {
+                [self.mgResultView start];
+                if (![AFNetworkReachabilityManager sharedManager].isReachable) {
+                    self.mgResultView.type = MGRequestResultViewTypeNoNetwork;
+                }else {
+                    self.mgResultView.type = MGRequestResultViewTypeLoadError;
+                }
+                if (configBlock) {
+                    configBlock(self.mgResultView);
+                }
+                [self.mgResultView setHidden:NO];
+                [self bringSubviewToFront:self.mgResultView];
+                [self.mgResultView end];
+            }
+        }
+    }
 }
 
 - (void)showSheet:(void(^)(id<HSheetProtocol> make))configBlock {
@@ -148,55 +160,40 @@
 
 
 
-- (void)removeLoading {
-    if ([self.mgLoading conformsToProtocol:@protocol(HLoadingProtocol)]) {
-//        id<HLoadingProtocol> loading = self.mgLoading;
-    }
+- (void)removeWaiting {
+    [self.mgWaitingView removeFromSuperview];
+    [self setMgWaitingView:nil];
 }
 
 - (void)removeNoData {
-//    [self.mgLoadError removeObserver];
-//    [self.mgLoadError removeFromSuperview];
-//    [self setMgLoadError:nil];
+    [self.mgResultView removeFromSuperview];
+    [self setMgResultView:nil];
 }
 
 - (void)removeNoNetwork {
-//    [self.mgLoadError removeObserver];
-//    [self.mgLoadError removeFromSuperview];
-//    [self setMgLoadError:nil];
+    [self.mgResultView removeFromSuperview];
+    [self setMgResultView:nil];
 }
 
 - (void)removeLoadError {
-//    [self.mgLoadError removeObserver];
-//    [self.mgLoadError removeFromSuperview];
-//    [self setMgLoadError:nil];
+    [self.mgResultView removeFromSuperview];
+    [self setMgResultView:nil];
 }
 
 - (void)removeSheet {
-    if ([self.mgSheet conformsToProtocol:@protocol(HSheetProtocol)]) {
-//        id<HSheetProtocol> sheet = self.mgSheet;
-        
-    }
+    
 }
 
 - (void)removeForm {
-    if ([self.mgForm conformsToProtocol:@protocol(HFormProtocol)]) {
-//        id<HFormProtocol> form = self.mgForm;
-
-    }
+    
 }
 
 - (void)removeToast {
-    if ([self.mgToast conformsToProtocol:@protocol(HToastProtocol)]) {
-//        id<HToastProtocol> toast = self.mgToast;
-    }
+    
 }
 
 - (void)removeAlert {
-    if ([self.mgAlert conformsToProtocol:@protocol(HAlertProtocol)]) {
-//        id<HAlertProtocol> alert = self.mgAlert;
-
-    }
+    
 }
 
 @end

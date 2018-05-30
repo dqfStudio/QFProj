@@ -40,7 +40,11 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        self.qRatio = 0.5;
+        self.qMarginTop = kTopBarHeight;
+        self.qMarginBottom = kBottomBarHeight;
         //默认是有图片的
+        self.needDisplayImage = YES;
         [self addSubview:self.resultImageView];
         [self bringSubviewToFront:self.resultImageView];
         self.resultView = self.resultImageView;
@@ -53,32 +57,12 @@
 - (void)resetFrame:(CGRect)frame {
     self.qFrame = frame;
 }
-
 - (void)setScreenFrame {
     self.qFrame = [UIScreen bounds];
 }
 
 - (void)setDisplayImage:(BOOL)display {
-    [self setNeedDisplayImage:display];
-    if (display) {
-        if (![self.resultView isKindOfClass:HResultImageView.class]) {
-            [self addSubview:self.resultImageView];
-            [self bringSubviewToFront:self.resultImageView];
-            self.resultView = self.resultImageView;
-            if (self.resultTextView.superview) {
-                [self.resultTextView removeFromSuperview];
-            }
-        }
-    }else {
-        if (![self.resultView isKindOfClass:HResultTextView.class]) {
-            [self addSubview:self.resultTextView];
-            [self bringSubviewToFront:self.resultTextView];
-            self.resultView = self.resultTextView;
-            if (self.resultImageView.superview) {
-                [self.resultImageView removeFromSuperview];
-            }
-        }
-    }
+    self.needDisplayImage = display;
 }
 
 - (void)setDesc:(NSString *)desc {
@@ -121,6 +105,9 @@
 - (void)setYRatio:(CGFloat)ratio {
     self.qRatio = ratio;
 }
+- (void)setYCenter {
+    self.qRatio = 0.5;
+}
 
 - (void)setClickedBlock:(HShowClickedBlock)showClickedBlock {
     if (self.clickedActionBlock != showClickedBlock) {
@@ -154,6 +141,27 @@
     firstFrame.size.height -= self.qMarginTop;
     firstFrame.size.height -= self.qMarginBottom;
     self.frame = firstFrame;
+    
+    //加载界面
+    if (self.needDisplayImage) {
+        if (![self.resultView isKindOfClass:HResultImageView.class]) {
+            [self addSubview:self.resultImageView];
+            [self bringSubviewToFront:self.resultImageView];
+            self.resultView = self.resultImageView;
+            if (self.resultTextView.superview) {
+                [self.resultTextView removeFromSuperview];
+            }
+        }
+    }else {
+        if (![self.resultView isKindOfClass:HResultTextView.class]) {
+            [self addSubview:self.resultTextView];
+            [self bringSubviewToFront:self.resultTextView];
+            self.resultView = self.resultTextView;
+            if (self.resultImageView.superview) {
+                [self.resultImageView removeFromSuperview];
+            }
+        }
+    }
     
     //设置resultView的frame
     CGRect secondFrame = self.resultView.frame;
@@ -200,11 +208,19 @@
     return _bgView;
 }
 - (UILabel *)titleLabel {
-    if (!_titleLabel) _titleLabel = [UILabel new];
+    if (!_titleLabel) {
+        _titleLabel = [UILabel new];
+        [_titleLabel setTextAlignment:NSTextAlignmentCenter];
+        [_titleLabel setTextColor:[UIColor blackColor]];
+    }
     return _titleLabel;
 }
 - (UILabel *)subTitleLabel {
-    if (!_subTitleLabel) _subTitleLabel = [UILabel new];
+    if (!_subTitleLabel) {
+        _subTitleLabel = [UILabel new];
+        [_subTitleLabel setTextAlignment:NSTextAlignmentCenter];
+        [_subTitleLabel setTextColor:[UIColor blackColor]];
+    }
     return _subTitleLabel;
 }
 + (instancetype)awakeView {
@@ -220,6 +236,7 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        frame.origin = CGPointZero;
         [self.bgView setFrame:frame];
         [self.activeImageView setFrame:CGRectMake(240/2-164/2, 0, 164, 130)];
         [self.titleLabel setFrame:CGRectMake(240/2-200/2, 154, 200, 20)];
@@ -242,6 +259,7 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        frame.origin = CGPointZero;
         [self.bgView setFrame:frame];
         [self.titleLabel setFrame:CGRectMake(240/2-200/2, 0, 200, 20)];
         [self.subTitleLabel setFrame:CGRectMake(240/2-200/2, 26, 200, 20)];
