@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1538FFA5209405CC002E3A29 /* HFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1538FFA3209405CC002E3A29 /* HFileCache.m */; };
 		1538FFA92094065A002E3A29 /* NSFileManager+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1538FFA72094065A002E3A29 /* NSFileManager+HUtil.m */; };
-		157696EA20A0AB6900E31469 /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = 157696E220A0AB6900E31469 /* Aspects.m */; };
 		157696EB20A0AB6900E31469 /* Felix.m in Sources */ = {isa = PBXBuildFile; fileRef = 157696E420A0AB6900E31469 /* Felix.m */; };
 		157696EC20A0AB6900E31469 /* MightyCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 157696E620A0AB6900E31469 /* MightyCrash.m */; };
 		157696ED20A0AB6900E31469 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 157696E820A0AB6900E31469 /* TestViewController.m */; };
@@ -80,8 +79,6 @@
 		1538FFA4209405CC002E3A29 /* HFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFileCache.h; sourceTree = "<group>"; };
 		1538FFA72094065A002E3A29 /* NSFileManager+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+HUtil.m"; sourceTree = "<group>"; };
 		1538FFA82094065A002E3A29 /* NSFileManager+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+HUtil.h"; sourceTree = "<group>"; };
-		157696E120A0AB6900E31469 /* Aspects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aspects.h; sourceTree = "<group>"; };
-		157696E220A0AB6900E31469 /* Aspects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aspects.m; sourceTree = "<group>"; };
 		157696E320A0AB6900E31469 /* Felix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Felix.h; sourceTree = "<group>"; };
 		157696E420A0AB6900E31469 /* Felix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Felix.m; sourceTree = "<group>"; };
 		157696E520A0AB6900E31469 /* MightyCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MightyCrash.h; sourceTree = "<group>"; };
@@ -246,8 +243,6 @@
 		157696DE20A0AB6900E31469 /* HAspects */ = {
 			isa = PBXGroup;
 			children = (
-				157696E120A0AB6900E31469 /* Aspects.h */,
-				157696E220A0AB6900E31469 /* Aspects.m */,
 				157696E320A0AB6900E31469 /* Felix.h */,
 				157696E420A0AB6900E31469 /* Felix.m */,
 				157696E520A0AB6900E31469 /* MightyCrash.h */,
@@ -724,7 +719,6 @@
 				15B4DDE92092F96C00773E04 /* HDebugUtil.m in Sources */,
 				15B4DE0D2092F96C00773E04 /* NSObject+HSafeNotify.m in Sources */,
 				15B4DE132092F96C00773E04 /* UIControl+HSafeUtil.m in Sources */,
-				157696EA20A0AB6900E31469 /* Aspects.m in Sources */,
 				15B4DE2D209311F900773E04 /* NSObject+HMessy.m in Sources */,
 				15B4DDF92092F96C00773E04 /* UIScreen+HUtil.m in Sources */,
 				15B4DDF22092F96C00773E04 /* UIButton+HUtil.m in Sources */,
