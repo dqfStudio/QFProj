@@ -10,13 +10,6 @@
 #import <objc/runtime.h>
 #import "AFNetworkReachabilityManager.h"
 
-@interface UIView ()
-@property(nonatomic) UIView *mgToast;
-@property(nonatomic) UIView *mgSheet;
-@property(nonatomic) UIView *mgForm;
-@property(nonatomic) UIView *mgAlert;
-@end
-
 @implementation UIView (HShow)
 
 - (HRequestWaitingView *)mgWaitingView {
@@ -49,6 +42,39 @@
 }
 - (void)setMgResultView:(HRequestResultView *)mgResultView {
     [self setAssociateValue:mgResultView withKey:@selector(mgResultView)];
+}
+
+- (HNaviToast *)mgNaviToast {
+    @synchronized(self) {
+        HNaviToast *naviToast = [self getAssociatedValueForKey:_cmd];
+        if (!naviToast) self.mgNaviToast = [HNaviToast new];
+        return [self getAssociatedValueForKey:_cmd];
+    }
+}
+- (void)setMgNaviToast:(HNaviToast *)mgNaviToast {
+    [self setAssociateValue:mgNaviToast withKey:@selector(mgNaviToast)];
+}
+
+- (HToast *)mgToast {
+    @synchronized(self) {
+        HToast *toast = [self getAssociatedValueForKey:_cmd];
+        if (!toast) self.mgToast = [HToast new];
+        return [self getAssociatedValueForKey:_cmd];
+    }
+}
+- (void)setMgToast:(HToast *)mgToast {
+    [self setAssociateValue:mgToast withKey:@selector(mgToast)];
+}
+
+- (HAlert *)mgAlert {
+    @synchronized(self) {
+        HAlert *alert = [self getAssociatedValueForKey:_cmd];
+        if (!alert) self.mgAlert = [HAlert new];
+        return [self getAssociatedValueForKey:_cmd];
+    }
+}
+- (void)setMgAlert:(HAlert *)mgAlert {
+    [self setAssociateValue:mgAlert withKey:@selector(mgAlert)];
 }
 
 - (void)showWaiting:(void(^)(id<HWaitingProtocol> make))configBlock {
@@ -127,33 +153,59 @@
 }
 
 - (void)showSheet:(void(^)(id<HSheetProtocol> make))configBlock {
-    if ([self.mgSheet conformsToProtocol:@protocol(HSheetProtocol)]) {
-        if (configBlock) {
-//            configBlock(self.mgSheet);
-        }
-    }
+//    if ([self.mgSheet conformsToProtocol:@protocol(HSheetProtocol)]) {
+//        if (configBlock) {
+////            configBlock(self.mgSheet);
+//        }
+//    }
 }
 
 - (void)showForm:(void(^)(id<HFormProtocol> make))configBlock {
-    if ([self.mgForm conformsToProtocol:@protocol(HFormProtocol)]) {
-        if (configBlock) {
-//            configBlock(self.mgForm);
+//    if ([self.mgForm conformsToProtocol:@protocol(HFormProtocol)]) {
+//        if (configBlock) {
+////            configBlock(self.mgForm);
+//        }
+//    }
+}
+
+- (void)showToast:(void(^)(id<HToastProtocol> make))configBlock {
+    @synchronized(self) {
+        if ([self.mgToast conformsToProtocol:@protocol(HToastProtocol)]) {
+            if (![self.mgToast isLoading]) {
+                [self.mgToast start];
+                if (configBlock) {
+                    configBlock(self.mgToast);
+                }
+                [self.mgToast end];
+            }
         }
     }
 }
 
-- (void)showToast:(void(^)(id<HToastProtocol> make))configBlock {
-    if ([self.mgToast conformsToProtocol:@protocol(HToastProtocol)]) {
-        if (configBlock) {
-//            configBlock(self.mgToast);
+- (void)showNaviToast:(void(^)(id<HNaviToastProtocol> make))configBlock {
+    @synchronized(self) {
+        if ([self.mgNaviToast conformsToProtocol:@protocol(HNaviToastProtocol)]) {
+            if (![self.mgNaviToast isLoading]) {
+                [self.mgNaviToast start];
+                if (configBlock) {
+                    configBlock(self.mgNaviToast);
+                }
+                [self.mgNaviToast end];
+            }
         }
     }
 }
 
 - (void)showAlert:(void(^)(id<HAlertProtocol> make))configBlock {
-    if ([self.mgAlert conformsToProtocol:@protocol(HAlertProtocol)]) {
-        if (configBlock) {
-//            configBlock(self.mgAlert);
+    @synchronized(self) {
+        if ([self.mgAlert conformsToProtocol:@protocol(HAlertProtocol)]) {
+            if (![self.mgAlert isLoading]) {
+                [self.mgAlert start];
+                if (configBlock) {
+                    configBlock(self.mgAlert);
+                }
+                [self.mgAlert end];
+            }
         }
     }
 }
@@ -185,14 +237,6 @@
 }
 
 - (void)removeForm {
-    
-}
-
-- (void)removeToast {
-    
-}
-
-- (void)removeAlert {
     
 }
 

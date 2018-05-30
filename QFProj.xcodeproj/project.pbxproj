@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1528DF4320BEF6BC00D0A004 /* HNaviToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1528DF4220BEF6BC00D0A004 /* HNaviToastView.m */; };
+		1528DF4620BF0A0200D0A004 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1528DF4520BF0A0200D0A004 /* MBProgressHUD.m */; };
+		1528DF4920BF0A7A00D0A004 /* HShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1528DF4820BF0A7A00D0A004 /* HShowView.m */; };
+		1528DF4C20BF0FE200D0A004 /* UIAlertController+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1528DF4B20BF0FE200D0A004 /* UIAlertController+HUtil.m */; };
 		1538FFA5209405CC002E3A29 /* HFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1538FFA3209405CC002E3A29 /* HFileCache.m */; };
 		1538FFA92094065A002E3A29 /* NSFileManager+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1538FFA72094065A002E3A29 /* NSFileManager+HUtil.m */; };
 		15464B7720A2C26300CDD27E /* HTestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15464B7420A2C26300CDD27E /* HTestManager.m */; };
@@ -135,6 +139,14 @@
 
 /* Begin PBXFileReference section */
 		1049599A6188933E5342328E /* Pods-QFProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.debug.xcconfig"; sourceTree = "<group>"; };
+		1528DF4120BEF6BC00D0A004 /* HNaviToastView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNaviToastView.h; sourceTree = "<group>"; };
+		1528DF4220BEF6BC00D0A004 /* HNaviToastView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNaviToastView.m; sourceTree = "<group>"; };
+		1528DF4420BF0A0100D0A004 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		1528DF4520BF0A0200D0A004 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		1528DF4720BF0A7A00D0A004 /* HShowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HShowView.h; sourceTree = "<group>"; };
+		1528DF4820BF0A7A00D0A004 /* HShowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HShowView.m; sourceTree = "<group>"; };
+		1528DF4A20BF0FE200D0A004 /* UIAlertController+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+HUtil.h"; sourceTree = "<group>"; };
+		1528DF4B20BF0FE200D0A004 /* UIAlertController+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+HUtil.m"; sourceTree = "<group>"; };
 		1538FFA3209405CC002E3A29 /* HFileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFileCache.m; sourceTree = "<group>"; };
 		1538FFA4209405CC002E3A29 /* HFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFileCache.h; sourceTree = "<group>"; };
 		1538FFA72094065A002E3A29 /* NSFileManager+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+HUtil.m"; sourceTree = "<group>"; };
@@ -149,10 +161,6 @@
 		15707EBF20B5675A00493839 /* HTupleSignal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleSignal.m; sourceTree = "<group>"; };
 		157696E320A0AB6900E31469 /* HFelix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFelix.h; sourceTree = "<group>"; };
 		157696E420A0AB6900E31469 /* hFelix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hFelix.m; sourceTree = "<group>"; };
-		157696E520A0AB6900E31469 /* MightyCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MightyCrash.h; sourceTree = "<group>"; };
-		157696E620A0AB6900E31469 /* MightyCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MightyCrash.m; sourceTree = "<group>"; };
-		157696E720A0AB6900E31469 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		157696E820A0AB6900E31469 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		1590609120BE76D600CB4EA6 /* HRequestWaitingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRequestWaitingView.h; sourceTree = "<group>"; };
 		1590609220BE76D600CB4EA6 /* HRequestWaitingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRequestWaitingView.m; sourceTree = "<group>"; };
 		15B4DD632092F88700773E04 /* QFProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QFProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -420,10 +428,6 @@
 		157696DE20A0AB6900E31469 /* HAspects */ = {
 			isa = PBXGroup;
 			children = (
-				157696E520A0AB6900E31469 /* MightyCrash.h */,
-				157696E620A0AB6900E31469 /* MightyCrash.m */,
-				157696E720A0AB6900E31469 /* TestViewController.h */,
-				157696E820A0AB6900E31469 /* TestViewController.m */,
 				157696E320A0AB6900E31469 /* HFelix.h */,
 				157696E420A0AB6900E31469 /* hFelix.m */,
 				15F9151E20A171A8000261C4 /* NSObject+HAspects.h */,
@@ -987,6 +991,14 @@
 				15F9152D20A27D1C000261C4 /* HRequestResultView.m */,
 				1590609120BE76D600CB4EA6 /* HRequestWaitingView.h */,
 				1590609220BE76D600CB4EA6 /* HRequestWaitingView.m */,
+				1528DF4120BEF6BC00D0A004 /* HNaviToastView.h */,
+				1528DF4220BEF6BC00D0A004 /* HNaviToastView.m */,
+				1528DF4420BF0A0100D0A004 /* MBProgressHUD.h */,
+				1528DF4520BF0A0200D0A004 /* MBProgressHUD.m */,
+				1528DF4720BF0A7A00D0A004 /* HShowView.h */,
+				1528DF4820BF0A7A00D0A004 /* HShowView.m */,
+				1528DF4A20BF0FE200D0A004 /* UIAlertController+HUtil.h */,
+				1528DF4B20BF0FE200D0A004 /* UIAlertController+HUtil.m */,
 			);
 			name = HShow;
 			path = QFUtil/HShow;
@@ -1164,10 +1176,13 @@
 				15B4DE092092F96C00773E04 /* HWebImageView.m in Sources */,
 				15B4DDE92092F96C00773E04 /* HDebugUtil.m in Sources */,
 				15B4DE0D2092F96C00773E04 /* NSObject+HSafeNotify.m in Sources */,
+				1528DF4620BF0A0200D0A004 /* MBProgressHUD.m in Sources */,
 				15B4DE132092F96C00773E04 /* UIControl+HSafeUtil.m in Sources */,
 				15B4DE2D209311F900773E04 /* NSObject+HMessy.m in Sources */,
+				1528DF4920BF0A7A00D0A004 /* HShowView.m in Sources */,
 				15F9151D20A14A33000261C4 /* UIView+HShow.m in Sources */,
 				15C5738320B3DD9F0070327C /* NSObject+selector.m in Sources */,
+				1528DF4320BEF6BC00D0A004 /* HNaviToastView.m in Sources */,
 				15B4DDF92092F96C00773E04 /* UIScreen+HUtil.m in Sources */,
 				15B4DDF22092F96C00773E04 /* UIButton+HUtil.m in Sources */,
 				15464B7720A2C26300CDD27E /* HTestManager.m in Sources */,
@@ -1176,6 +1191,7 @@
 				15B4DE30209319FA00773E04 /* NSObject+HSelector.m in Sources */,
 				15C5738520B3DD9F0070327C /* HTableModel.m in Sources */,
 				15B4DE0F2092F96C00773E04 /* NSObject+HSafeSEL.m in Sources */,
+				1528DF4C20BF0FE200D0A004 /* UIAlertController+HUtil.m in Sources */,
 				15B4DDEB2092F96C00773E04 /* UIView+HDebug.m in Sources */,
 				15B4DDF62092F96C00773E04 /* UIApplication+HUtil.m in Sources */,
 				1538FFA92094065A002E3A29 /* NSFileManager+HUtil.m in Sources */,

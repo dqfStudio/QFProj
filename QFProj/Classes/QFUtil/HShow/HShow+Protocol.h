@@ -130,11 +130,6 @@ typedef void (^HShowClickedBlock)(void);
  */
 @protocol HSheetProtocol <HShowBaseProtocol>
 
-@optional
-- (void)setRelyView:(UIView *)view;
-- (void)setIcon:(NSString *)name;
-- (void)setCompletionBlock:(void (^)(NSInteger buttonIndex))completionBlock;
-
 @end
 
 /**
@@ -151,8 +146,19 @@ typedef void (^HShowClickedBlock)(void);
 
 @optional
 - (void)setDesc:(NSString *)desc;
-- (void)setIcon:(NSString *)name;
 - (void)setDelay:(NSTimeInterval)delay;
+
+@end
+
+/**
+ navi toast提示协议
+ */
+@protocol HNaviToastProtocol <HShowBaseProtocol>
+
+@optional
+- (void)setDesc:(NSString *)desc;
+- (void)setIcon:(NSString *)name;
+- (void)setDelay:(NSTimeInterval)delay; //默认为2秒
 
 @end
 
@@ -162,8 +168,10 @@ typedef void (^HShowClickedBlock)(void);
 @protocol HAlertProtocol <HShowBaseProtocol>
 
 @optional
-- (void)setDesc:(NSString *)desc;
-- (void)setDetlDesc:(NSString *)detlDesc;
+- (void)setTitle:(NSString *)title;
+- (void)setMsg:(NSString *)msg;
+- (void)setCancelTitle:(NSString *)title;
+- (void)setButtonTitles:(NSArray *)titles;
 - (void)setCompletionBlock:(void (^)(NSInteger buttonIndex))completionBlock;
 
 @end

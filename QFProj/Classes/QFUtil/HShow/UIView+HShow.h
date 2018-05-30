@@ -10,12 +10,17 @@
 #import "HShow+Protocol.h"
 #import "HRequestResultView.h"
 #import "HRequestWaitingView.h"
+#import "HNaviToastView.h"
+#import "HShowView.h"
 #import "NSObject+HMessy.h"
 
 @interface UIView (HShow)
 
 @property(nonatomic) HRequestWaitingView *mgWaitingView;
 @property(nonatomic) HRequestResultView *mgResultView;
+@property(nonatomic) HNaviToast *mgNaviToast;
+@property(nonatomic) HToast *mgToast;
+@property(nonatomic) HAlert *mgAlert;
 
 /**
  加载等待界面
@@ -60,6 +65,12 @@
  */
 - (void)showToast:(void(^)(id<HToastProtocol> make))configBlock;
 /**
+ navi toast提示，即为navibar上的toast
+ 
+ @param configBlock 参数配置block
+ */
+- (void)showNaviToast:(void(^)(id<HNaviToastProtocol> make))configBlock;
+/**
  alert提示
  
  @param configBlock 参数配置block
@@ -76,7 +87,5 @@
 - (void)removeLoadError;
 - (void)removeSheet;
 - (void)removeForm;
-- (void)removeToast;
-- (void)removeAlert;
 
 @end
