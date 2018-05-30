@@ -24,32 +24,24 @@ HLoadErrorProtocol>
 
 @property (nonatomic) HResultImageView *resultImageView;
 @property (nonatomic) HResultTextView  *resultTextView;
-
 @property (nonatomic) MGRequestResultViewType type;
 @property (nonatomic) CGFloat qMarginTop;
 @property (nonatomic) CGFloat qOffset;
-
 @property (nonatomic, copy) HShowClickedBlock clickedActionBlock;
 - (void)setClickedBlock:(HShowClickedBlock)showClickedBlock;
 
 @end
 
 @interface HResultView : UIView
-
 @property (nonatomic) UIView  *bgView;
 @property (nonatomic) UILabel *titleLabel;
 @property (nonatomic) UILabel *subTitleLabel;
-
 + (instancetype)awakeView;
-
 @end
 
 @interface HResultImageView : HResultView
-
 @property (nonatomic) UIImageView *activeImageView;
-
 @end
 
 @interface HResultTextView : HResultView
-
 @end

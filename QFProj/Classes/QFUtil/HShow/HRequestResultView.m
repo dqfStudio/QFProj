@@ -19,22 +19,15 @@
 @implementation HRequestResultView
 
 - (HResultImageView *)resultImageView {
-    if (!_resultImageView) {
-        _resultImageView = [HResultImageView awakeView];
-    }
+    if (!_resultImageView)  _resultImageView = [HResultImageView awakeView];
     return _resultImageView;
 }
-
 - (HResultTextView *)resultTextView {
-    if (!_resultTextView) {
-        _resultTextView = [HResultTextView awakeView];
-    }
+    if (!_resultTextView) _resultTextView = [HResultTextView awakeView];
     return _resultTextView;
 }
-
 + (instancetype)awakeView {
-    HRequestResultView *requestResultView = [[HRequestResultView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    return requestResultView;
+    return [[HRequestResultView alloc] initWithFrame:[UIScreen mainScreen].bounds];
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -50,27 +43,29 @@
 }
 
 - (void)setDisplayImage:(BOOL)yn {
-    [self setNeedDisplayImage:yn];
-    if (yn) {
-        if (![self.subviews containsObject:self.resultImageView]) {
-            [self addSubview:self.resultImageView];
-        }
-        [self bringSubviewToFront:self.resultImageView];
-        self.resultView = self.resultImageView;
-        
-        if ([self.subviews containsObject:self.resultTextView]) {
-            [self.resultTextView removeFromSuperview];
-        }
-        
-    }else {
-        if (![self.subviews containsObject:self.resultTextView]) {
-            [self addSubview:self.resultTextView];
-        }
-        [self bringSubviewToFront:self.resultTextView];
-        self.resultView = self.resultTextView;
-        
-        if ([self.subviews containsObject:self.resultImageView]) {
-            [self.resultImageView removeFromSuperview];
+    @synchronized(self) {
+        [self setNeedDisplayImage:yn];
+        if (yn) {
+            if (![self.subviews containsObject:self.resultImageView]) {
+                [self addSubview:self.resultImageView];
+            }
+            [self bringSubviewToFront:self.resultImageView];
+            self.resultView = self.resultImageView;
+            
+            if ([self.subviews containsObject:self.resultTextView]) {
+                [self.resultTextView removeFromSuperview];
+            }
+            
+        }else {
+            if (![self.subviews containsObject:self.resultTextView]) {
+                [self addSubview:self.resultTextView];
+            }
+            [self bringSubviewToFront:self.resultTextView];
+            self.resultView = self.resultTextView;
+            
+            if ([self.subviews containsObject:self.resultImageView]) {
+                [self.resultImageView removeFromSuperview];
+            }
         }
     }
 }
@@ -81,26 +76,28 @@
 }
 
 - (void)setType:(MGRequestResultViewType)type {
-    _type = type;
-    [self initData];
-    if (self.needDisplayImage) {
-        if (type == MGRequestResultViewTypeNoData) {
-            self.resultImageView.activeImageView.image = [UIImage imageNamed:@"mgf_icon_load_nothing"];
-        } else if (type == MGRequestResultViewTypeLoadError) {
-            self.resultImageView.activeImageView.image = [UIImage imageNamed:@"mgf_icon_no_server"];
-        }  else if (type == MGRequestResultViewTypeNoNetwork) {
-            self.resultImageView.activeImageView.image = [UIImage imageNamed:@"mgf_icon_no_network"];
+    @synchronized(self) {
+        _type = type;
+        [self initData];
+        if (self.needDisplayImage) {
+            if (_type == MGRequestResultViewTypeNoData) {
+                self.resultImageView.activeImageView.image = [UIImage imageNamed:@"mgf_icon_load_nothing"];
+            }else if (_type == MGRequestResultViewTypeLoadError) {
+                self.resultImageView.activeImageView.image = [UIImage imageNamed:@"mgf_icon_no_server"];
+            }else if (_type == MGRequestResultViewTypeNoNetwork) {
+                self.resultImageView.activeImageView.image = [UIImage imageNamed:@"mgf_icon_no_network"];
+            }
         }
-    }    
-    if (type == MGRequestResultViewTypeNoData) {
-        self.resultView.titleLabel.text = @"这里好像什么都没有呢⋯";
-        self.resultView.subTitleLabel.text = nil;
-    } else if (type == MGRequestResultViewTypeLoadError) {
-        self.resultView.titleLabel.text = @"服务器开小差了，请稍后再试~";
-        self.resultView.subTitleLabel.text = nil;
-    }  else if (type == MGRequestResultViewTypeNoNetwork) {
-        self.resultView.titleLabel.text = @"网络已断开";
-        self.resultView.subTitleLabel.text = @"点击重试";
+        if (_type == MGRequestResultViewTypeNoData) {
+            self.resultView.titleLabel.text = @"这里好像什么都没有呢⋯";
+            self.resultView.subTitleLabel.text = nil;
+        }else if (_type == MGRequestResultViewTypeLoadError) {
+            self.resultView.titleLabel.text = @"服务器开小差了，请稍后再试~";
+            self.resultView.subTitleLabel.text = nil;
+        }else if (_type == MGRequestResultViewTypeNoNetwork) {
+            self.resultView.titleLabel.text = @"网络已断开";
+            self.resultView.subTitleLabel.text = @"点击重试";
+        }
     }
 }
 
@@ -170,43 +167,28 @@
 @end
 
 @implementation HResultView
-
 - (UIView *)bgView {
-    if (!_bgView) {
-        _bgView = [UIView new];
-    }
+    if (!_bgView) _bgView = [UIView new];
     return _bgView;
 }
-
 - (UILabel *)titleLabel {
-    if (!_titleLabel) {
-        _titleLabel = [UILabel new];
-    }
+    if (!_titleLabel) _titleLabel = [UILabel new];
     return _titleLabel;
 }
-
 - (UILabel *)subTitleLabel {
-    if (!_subTitleLabel) {
-        _subTitleLabel = [UILabel new];
-    }
+    if (!_subTitleLabel) _subTitleLabel = [UILabel new];
     return _subTitleLabel;
 }
-
 + (instancetype)awakeView {
     return [HResultView new];
 }
-
 @end
 
 @implementation HResultImageView
-
 - (UIImageView *)activeImageView {
-    if (!_activeImageView) {
-        _activeImageView = [UIImageView new];
-    }
+    if (!_activeImageView) _activeImageView = [UIImageView new];
     return _activeImageView;
 }
-
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -222,17 +204,13 @@
     }
     return self;
 }
-
 + (instancetype)awakeView {
     CGRect frame = CGRectMake(CGRectGetWidth([UIScreen mainScreen].bounds)/2-240/2, 0, 240, 200);
-    HResultImageView *resultView = [[HResultImageView alloc] initWithFrame:frame];
-    return resultView;
+    return [[HResultImageView alloc] initWithFrame:frame];
 }
-
 @end
 
 @implementation HResultTextView
-
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -246,11 +224,8 @@
     }
     return self;
 }
-
 + (instancetype)awakeView {
     CGRect frame = CGRectMake(CGRectGetWidth([UIScreen mainScreen].bounds)/2-240/2, 0, 240, 46);
-    HResultTextView *resultView = [[HResultTextView alloc] initWithFrame:frame];
-    return resultView;
+    return [[HResultTextView alloc] initWithFrame:frame];
 }
-
 @end
