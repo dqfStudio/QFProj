@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIView+HUtil.h"
 #import "HShow+Protocol.h"
+#import "HCommonDefine.h"
 
 typedef NS_ENUM(NSInteger, MGRequestResultViewType) {
     MGRequestResultViewTypeNoData, // 没有数据
@@ -22,13 +24,14 @@ typedef NS_ENUM(NSInteger, MGRequestResultViewType) {
 HNoNetworkProtocol,
 HLoadErrorProtocol>
 
-@property (nonatomic) HResultImageView *resultImageView;
-@property (nonatomic) HResultTextView  *resultTextView;
+//@property (nonatomic) HResultImageView *resultImageView;
+//@property (nonatomic) HResultTextView  *resultTextView;
 @property (nonatomic) MGRequestResultViewType type;
-@property (nonatomic) CGFloat qMarginTop;
-@property (nonatomic) CGFloat qOffset;
-@property (nonatomic, copy) HShowClickedBlock clickedActionBlock;
-- (void)setClickedBlock:(HShowClickedBlock)showClickedBlock;
+//@property (nonatomic) CGFloat qMarginTop;
+//@property (nonatomic) CGFloat qOffset;
+//@property (nonatomic, copy) HShowClickedBlock clickedActionBlock;
+//- (void)setClickedBlock:(HShowClickedBlock)showClickedBlock;
++ (instancetype)awakeView;
 
 @end
 

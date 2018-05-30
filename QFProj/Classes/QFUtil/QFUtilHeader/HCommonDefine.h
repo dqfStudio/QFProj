@@ -58,6 +58,10 @@
 #define LogPoint(p) NSLog(@"point->%@",NSStringFromCGPoint(p))
 #define LogBool(b)  NSLog(@"bool->%@",(b)?@"YES":@"NO");
 
+//屏幕尺寸
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+
 //判断是否是iPhone X
 #define  iPhoneX ((SCREEN_WIDTH == 375.f && SCREEN_HEIGHT == 812.f) || (SCREEN_WIDTH == 812.f && SCREEN_HEIGHT == 375.f))
 

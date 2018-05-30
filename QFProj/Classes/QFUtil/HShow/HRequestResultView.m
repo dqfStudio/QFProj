@@ -7,19 +7,26 @@
 //
 
 #import "HRequestResultView.h"
-#import "NSObject+BlockSEL.h"
-
-#define KIsiPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 
 @interface HRequestResultView ()
-@property (nonatomic) BOOL needDisplayImage;
 @property (nonatomic, weak) HResultView *resultView;
+@property (nonatomic) HResultImageView *resultImageView;
+@property (nonatomic) HResultTextView  *resultTextView;
+
+@property (nonatomic) BOOL needDisplayImage;
+@property (nonatomic) CGRect qFrame;
+@property (nonatomic) CGFloat qMarginTop;
+@property (nonatomic) CGFloat qMarginBottom;
+@property (nonatomic) CGFloat qOffset;
+@property (nonatomic) CGFloat qRatio;
+@property (nonatomic) BOOL setting;
+@property (nonatomic, copy) HShowClickedBlock clickedActionBlock;
 @end
 
 @implementation HRequestResultView
 
 - (HResultImageView *)resultImageView {
-    if (!_resultImageView)  _resultImageView = [HResultImageView awakeView];
+    if (!_resultImageView) _resultImageView = [HResultImageView awakeView];
     return _resultImageView;
 }
 - (HResultTextView *)resultTextView {
@@ -27,76 +34,49 @@
     return _resultTextView;
 }
 + (instancetype)awakeView {
-    return [[HRequestResultView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    return [[HRequestResultView alloc] initWithFrame:[UIScreen bounds]];
 }
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setBackgroundColor:[UIColor clearColor]];
+        //默认是有图片的
+        [self addSubview:self.resultImageView];
+        [self bringSubviewToFront:self.resultImageView];
+        self.resultView = self.resultImageView;
     }
     return self;
 }
 
-- (void)setFitFrame:(CGRect)frame {
-    self.frame = frame;
+#pragma mark - 协议方法
+
+- (void)resetFrame:(CGRect)frame {
+    self.qFrame = frame;
 }
 
-- (void)setDisplayImage:(BOOL)yn {
-    @synchronized(self) {
-        [self setNeedDisplayImage:yn];
-        if (yn) {
-            if (![self.subviews containsObject:self.resultImageView]) {
-                [self addSubview:self.resultImageView];
-            }
+- (void)setScreenFrame {
+    self.qFrame = [UIScreen bounds];
+}
+
+- (void)setDisplayImage:(BOOL)display {
+    [self setNeedDisplayImage:display];
+    if (display) {
+        if (![self.resultView isKindOfClass:HResultImageView.class]) {
+            [self addSubview:self.resultImageView];
             [self bringSubviewToFront:self.resultImageView];
             self.resultView = self.resultImageView;
-            
-            if ([self.subviews containsObject:self.resultTextView]) {
+            if (self.resultTextView.superview) {
                 [self.resultTextView removeFromSuperview];
             }
-            
-        }else {
-            if (![self.subviews containsObject:self.resultTextView]) {
-                [self addSubview:self.resultTextView];
-            }
+        }
+    }else {
+        if (![self.resultView isKindOfClass:HResultTextView.class]) {
+            [self addSubview:self.resultTextView];
             [self bringSubviewToFront:self.resultTextView];
             self.resultView = self.resultTextView;
-            
-            if ([self.subviews containsObject:self.resultImageView]) {
+            if (self.resultImageView.superview) {
                 [self.resultImageView removeFromSuperview];
             }
-        }
-    }
-}
-
-- (void)initData {
-    self.qMarginTop = 0;
-    self.qOffset = 0;
-}
-
-- (void)setType:(MGRequestResultViewType)type {
-    @synchronized(self) {
-        _type = type;
-        [self initData];
-        if (self.needDisplayImage) {
-            if (_type == MGRequestResultViewTypeNoData) {
-                self.resultImageView.activeImageView.image = [UIImage imageNamed:@"mgf_icon_load_nothing"];
-            }else if (_type == MGRequestResultViewTypeLoadError) {
-                self.resultImageView.activeImageView.image = [UIImage imageNamed:@"mgf_icon_no_server"];
-            }else if (_type == MGRequestResultViewTypeNoNetwork) {
-                self.resultImageView.activeImageView.image = [UIImage imageNamed:@"mgf_icon_no_network"];
-            }
-        }
-        if (_type == MGRequestResultViewTypeNoData) {
-            self.resultView.titleLabel.text = @"这里好像什么都没有呢⋯";
-            self.resultView.subTitleLabel.text = nil;
-        }else if (_type == MGRequestResultViewTypeLoadError) {
-            self.resultView.titleLabel.text = @"服务器开小差了，请稍后再试~";
-            self.resultView.subTitleLabel.text = nil;
-        }else if (_type == MGRequestResultViewTypeNoNetwork) {
-            self.resultView.titleLabel.text = @"网络已断开";
-            self.resultView.subTitleLabel.text = @"点击重试";
         }
     }
 }
@@ -104,64 +84,112 @@
 - (void)setDesc:(NSString *)desc {
     self.resultView.titleLabel.text = desc;
 }
+- (void)setDescFont:(UIFont *)font {
+    self.resultView.titleLabel.font = font;
+}
+- (void)setDescColor:(UIColor *)color {
+    self.resultView.titleLabel.textColor = color;
+}
 
 - (void)setDetlDesc:(NSString *)detlDesc {
     self.resultView.subTitleLabel.text = detlDesc;
 }
-
+- (void)setDetlDescFont:(UIFont *)font {
+    self.resultView.subTitleLabel.font = font;
+}
 - (void)setDetlDescColor:(UIColor *)color {
     self.resultView.subTitleLabel.textColor = color;
 }
 
 - (void)setMarginTop:(CGFloat)marginTop {
     self.qMarginTop = marginTop;
-    CGRect frame = self.frame;
-    frame.origin.y += marginTop;
-    frame.size.height -= marginTop;
-    self.frame = frame;
+}
+- (void)setNaviMarginTop {
+    self.qMarginTop = kTopBarHeight;
+}
+
+- (void)setMarginBottom:(CGFloat)marginBottom {
+    self.qMarginBottom = marginBottom;
+}
+- (void)setToolBarMarginBottom {
+    self.qMarginBottom = kBottomBarHeight;
 }
 
 - (void)setYOffset:(CGFloat)yOffset {
     self.qOffset = yOffset;
 }
-
-- (void)setScreenFrame {
-    [self setFitFrame:[UIScreen mainScreen].bounds];
-}
-
-- (void)setNaviMarginTop {
-    CGFloat height = KIsiPhoneX ? 88.f : 64.f;
-    [self setMarginTop:height];
+- (void)setYRatio:(CGFloat)ratio {
+    self.qRatio = ratio;
 }
 
 - (void)setClickedBlock:(HShowClickedBlock)showClickedBlock {
-    if (showClickedBlock) {
-        self.clickedActionBlock  = showClickedBlock;
-        __weak typeof(self) weakSelf = self;
-        [self setSingleTapGestureWithBlock:^(UITapGestureRecognizer *recognizer) {
-            weakSelf.clickedActionBlock();
-        }];
+    if (self.clickedActionBlock != showClickedBlock) {
+        self.clickedActionBlock = nil;
+        self.clickedActionBlock = showClickedBlock;
+        if (showClickedBlock) {
+            __weak typeof(self) weakSelf = self;
+            [self addSingleTapGestureWithBlock:^(UITapGestureRecognizer *recognizer) {
+                if (weakSelf.clickedActionBlock) weakSelf.clickedActionBlock();
+            }];
+        }
     }
 }
 
-- (UITapGestureRecognizer *)setSingleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *))block {
-    [self.gestureRecognizers enumerateObjectsUsingBlock:^(__kindof UIGestureRecognizer * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj isKindOfClass:[UITapGestureRecognizer class]]) {
-            [self removeGestureRecognizer:obj];
-        }
-    }];
-    return [self addTapGestureWithNumberOfTapsRequired:1 block:block];
+- (BOOL)isLoading {
+    //是否在设置中
+    return self.setting;
 }
 
-- (UITapGestureRecognizer *)addTapGestureWithNumberOfTapsRequired:(NSUInteger)numberOfTapsRequired
-                                                            block:(void (^)(UITapGestureRecognizer *))block {
-    self.userInteractionEnabled = YES;
-    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:[self selectorBlock:^(id weakSelf, id arg) {
-        if (block) block(nil);
-    }]];
-    recognizer.numberOfTapsRequired = numberOfTapsRequired;
-    [self addGestureRecognizer:recognizer];
-    return recognizer;
+- (void)start {
+    //开始设置
+    self.setting = YES;
+}
+
+- (void)end {
+    
+    //设置self的frame
+    CGRect firstFrame = self.qFrame;
+    if (CGRectEqualToRect(firstFrame, CGRectZero)) firstFrame = self.frame;
+    firstFrame.origin.y += self.qMarginTop;
+    firstFrame.size.height -= self.qMarginTop;
+    firstFrame.size.height -= self.qMarginBottom;
+    self.frame = firstFrame;
+    
+    //设置resultView的frame
+    CGRect secondFrame = self.resultView.frame;
+    if (self.qRatio > 0) {
+        CGFloat height = firstFrame.size.height - secondFrame.size.height;
+        secondFrame.origin.y = height*self.qRatio;
+    }else {
+        secondFrame.origin.y = self.qOffset;
+    }
+    self.resultView.frame = secondFrame;
+    
+    //设置图片
+    if (self.needDisplayImage) {
+        if (_type == MGRequestResultViewTypeNoData) {
+            self.resultImageView.activeImageView.image = [UIImage imageNamed:@"mgf_icon_load_nothing"];
+        }else if (_type == MGRequestResultViewTypeLoadError) {
+            self.resultImageView.activeImageView.image = [UIImage imageNamed:@"mgf_icon_no_server"];
+        }else if (_type == MGRequestResultViewTypeNoNetwork) {
+            self.resultImageView.activeImageView.image = [UIImage imageNamed:@"mgf_icon_no_network"];
+        }
+    }
+    
+    //设置文字
+    if (_type == MGRequestResultViewTypeNoData) {
+        self.resultView.titleLabel.text = @"这里好像什么都没有呢⋯";
+        self.resultView.subTitleLabel.text = nil;
+    }else if (_type == MGRequestResultViewTypeLoadError) {
+        self.resultView.titleLabel.text = @"服务器开小差了，请稍后再试~";
+        self.resultView.subTitleLabel.text = nil;
+    }else if (_type == MGRequestResultViewTypeNoNetwork) {
+        self.resultView.titleLabel.text = @"网络已断开";
+        self.resultView.subTitleLabel.text = @"点击重试";
+    }
+    
+    //结束设置
+    self.setting = NO;
 }
 
 @end
@@ -205,7 +233,7 @@
     return self;
 }
 + (instancetype)awakeView {
-    CGRect frame = CGRectMake(CGRectGetWidth([UIScreen mainScreen].bounds)/2-240/2, 0, 240, 200);
+    CGRect frame = CGRectMake([UIScreen width]/2-240/2, 0, 240, 200);
     return [[HResultImageView alloc] initWithFrame:frame];
 }
 @end
@@ -225,7 +253,7 @@
     return self;
 }
 + (instancetype)awakeView {
-    CGRect frame = CGRectMake(CGRectGetWidth([UIScreen mainScreen].bounds)/2-240/2, 0, 240, 46);
+    CGRect frame = CGRectMake([UIScreen width]/2-240/2, 0, 240, 46);
     return [[HResultTextView alloc] initWithFrame:frame];
 }
 @end

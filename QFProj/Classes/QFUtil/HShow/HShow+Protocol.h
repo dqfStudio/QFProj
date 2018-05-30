@@ -21,6 +21,9 @@ typedef void (^HShowClickedBlock)(void);
 @optional
 - (void)addObserver;
 - (void)removeObserver;
+- (BOOL)isLoading;
+- (void)start;
+- (void)end;
 @end
 
 /**
@@ -40,15 +43,22 @@ typedef void (^HShowClickedBlock)(void);
 @protocol HNoDataProtocol <HShowBaseProtocol>
 
 @optional
-- (void)setFitFrame:(CGRect)frame;
-- (void)setDisplayImage:(BOOL)yn;
-- (void)setDesc:(NSString *)desc;
-- (void)setDetlDesc:(NSString *)detlDesc;
-- (void)setDetlDescColor:(UIColor *)color;
-- (void)setMarginTop:(CGFloat)marginTop;
-- (void)setYOffset:(CGFloat)yOffset;
-- (void)setYRatio:(CGFloat)ratio;
-- (void)setClickedBlock:(HShowClickedBlock)showClickedBlock;
+- (void)resetFrame:(CGRect)frame; //手动设置frame
+- (void)setScreenFrame; //frame大小与screen frame 相同
+- (void)setDisplayImage:(BOOL)display; //是否展示图片，默认展示图片
+- (void)setDesc:(NSString *)desc; //设置第一行文字
+- (void)setDescFont:(UIFont *)font; //设置第一行文字字体
+- (void)setDescColor:(UIColor *)color; //设置第一行文字颜色
+- (void)setDetlDesc:(NSString *)detlDesc; //设置第一行文字
+- (void)setDetlDescFont:(UIFont *)font; //设置第一行文字字体
+- (void)setDetlDescColor:(UIColor *)color; //设置第二行文字颜色
+- (void)setMarginTop:(CGFloat)marginTop; //设置marginTop的值
+- (void)setNaviMarginTop; //设置marginTop的值为导航栏的高度
+- (void)setMarginBottom:(CGFloat)marginBottom; //设置marginBottom的值
+- (void)setToolBarMarginBottom; //设置marginBottom的值为iphone x的底部高度34.f
+- (void)setYOffset:(CGFloat)yOffset; //设置内容垂直方向偏移量
+- (void)setYRatio:(CGFloat)ratio; //按比例设置内容垂直方向偏移量
+- (void)setClickedBlock:(HShowClickedBlock)showClickedBlock; //设置点击事件
 
 @end
 
@@ -58,14 +68,22 @@ typedef void (^HShowClickedBlock)(void);
 @protocol HNoNetworkProtocol <HShowBaseProtocol>
 
 @optional
-- (void)setFitFrame:(CGRect)frame;
-- (void)setDisplayImage:(BOOL)yn;
-- (void)setDesc:(NSString *)desc;
-- (void)setDetlDesc:(NSString *)detlDesc;
-- (void)setMarginTop:(CGFloat)marginTop;
-- (void)setYOffset:(CGFloat)yOffset;
-- (void)setYRatio:(CGFloat)ratio;
-- (void)setClickedBlock:(HShowClickedBlock)showClickedBlock;
+- (void)resetFrame:(CGRect)frame; //手动设置frame
+- (void)setScreenFrame; //frame大小与screen frame 相同
+- (void)setDisplayImage:(BOOL)display; //是否展示图片，默认展示图片
+- (void)setDesc:(NSString *)desc; //设置第一行文字
+- (void)setDescFont:(UIFont *)font; //设置第一行文字字体
+- (void)setDescColor:(UIColor *)color; //设置第一行文字颜色
+- (void)setDetlDesc:(NSString *)detlDesc; //设置第一行文字
+- (void)setDetlDescFont:(UIFont *)font; //设置第一行文字字体
+- (void)setDetlDescColor:(UIColor *)color; //设置第二行文字颜色
+- (void)setMarginTop:(CGFloat)marginTop; //设置marginTop的值
+- (void)setNaviMarginTop; //设置marginTop的值为导航栏的高度
+- (void)setMarginBottom:(CGFloat)marginBottom; //设置marginBottom的值
+- (void)setToolBarMarginBottom; //设置marginBottom的值为iphone x的底部高度34.f
+- (void)setYOffset:(CGFloat)yOffset; //设置内容垂直方向偏移量
+- (void)setYRatio:(CGFloat)ratio; //按比例设置内容垂直方向偏移量
+- (void)setClickedBlock:(HShowClickedBlock)showClickedBlock; //设置点击事件
 
 @end
 
@@ -75,14 +93,22 @@ typedef void (^HShowClickedBlock)(void);
 @protocol HLoadErrorProtocol <HShowBaseProtocol>
 
 @optional
-- (void)setFitFrame:(CGRect)frame;
-- (void)setDisplayImage:(BOOL)yn;
-- (void)setDesc:(NSString *)desc;
-- (void)setDetlDesc:(NSString *)detlDesc;
-- (void)setMarginTop:(CGFloat)marginTop;
-- (void)setYOffset:(CGFloat)yOffset;
-- (void)setYRatio:(CGFloat)ratio;
-- (void)setClickedBlock:(HShowClickedBlock)showClickedBlock;
+- (void)resetFrame:(CGRect)frame; //手动设置frame
+- (void)setScreenFrame; //frame大小与screen frame 相同
+- (void)setDisplayImage:(BOOL)display; //是否展示图片，默认展示图片
+- (void)setDesc:(NSString *)desc; //设置第一行文字
+- (void)setDescFont:(UIFont *)font; //设置第一行文字字体
+- (void)setDescColor:(UIColor *)color; //设置第一行文字颜色
+- (void)setDetlDesc:(NSString *)detlDesc; //设置第一行文字
+- (void)setDetlDescFont:(UIFont *)font; //设置第一行文字字体
+- (void)setDetlDescColor:(UIColor *)color; //设置第二行文字颜色
+- (void)setMarginTop:(CGFloat)marginTop; //设置marginTop的值
+- (void)setNaviMarginTop; //设置marginTop的值为导航栏的高度
+- (void)setMarginBottom:(CGFloat)marginBottom; //设置marginBottom的值
+- (void)setToolBarMarginBottom; //设置marginBottom的值为iphone x的底部高度34.f
+- (void)setYOffset:(CGFloat)yOffset; //设置内容垂直方向偏移量
+- (void)setYRatio:(CGFloat)ratio; //按比例设置内容垂直方向偏移量
+- (void)setClickedBlock:(HShowClickedBlock)showClickedBlock; //设置点击事件
 
 @end
 

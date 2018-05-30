@@ -23,17 +23,19 @@
 @implementation UIView (HShow)
 
 //- (MGRequestResultView *)mgLoadError {
-//    MGRequestResultView *loadError = [self getAssociatedValueForKey:_cmd];
-//    if (!loadError) {
-//        loadError = [MGRequestResultView viewFromNib];
-//        [loadError setTag:33333333];
-//        self.mgLoadError = loadError;
+//    @synchronized(self) {
+//        MGRequestResultView *loadError = [self getAssociatedValueForKey:_cmd];
+//        if (!loadError) {
+//            loadError = [MGRequestResultView viewFromNib];
+//            [loadError setTag:33333333];
+//            self.mgLoadError = loadError;
+//        }
+//        if (loadError && ![self.subviews containsObject:loadError]) {
+//            [loadError setHidden:YES];
+//            [self addSubview:loadError];
+//        }
+//        return [self getAssociatedValueForKey:_cmd];
 //    }
-//    if (loadError && ![self.subviews containsObject:loadError]) {
-//        [loadError setHidden:YES];
-//        [self addSubview:loadError];
-//    }
-//    return [self getAssociatedValueForKey:_cmd];
 //}
 //- (void)setMgLoadError:(MGRequestResultView *)mgLoadError {
 //    [self setAssociateValue:mgLoadError withKey:@selector(mgLoadError)];
@@ -52,45 +54,63 @@
 }
 
 - (void)showNoData:(void(^)(id<HNoDataProtocol> make))configBlock {
-    [self removeLoading];
-//    if ([self.mgLoadError conformsToProtocol:@protocol(MGNoDataProtocol)]) {
-//        self.mgLoadError.type = MGRequestResultViewTypeNoData;
-//        if (configBlock) {
-//            configBlock(self.mgLoadError);
+//    @synchronized(self) {
+//        [self removeLoading];
+//        if ([self.mgLoadError conformsToProtocol:@protocol(MGNoDataProtocol)]) {
+//            if (![self.mgLoadError isLoading]) {
+//                [self.mgLoadError start];
+//                self.mgLoadError.type = MGRequestResultViewTypeNoData;
+//                if (configBlock) {
+//                    configBlock(self.mgLoadError);
+//                }
+//                [self.mgLoadError addObserver];
+//                [self.mgLoadError setHidden:NO];
+//                [self bringSubviewToFront:self.mgLoadError];
+//                [self.mgLoadError end];
+//            }
 //        }
-//        [self.mgLoadError addObserver];
-//        [self.mgLoadError setHidden:NO];
-//        [self bringSubviewToFront:self.mgLoadError];
 //    }
 }
 
 - (void)showNoNetwork:(void(^)(id<HNoNetworkProtocol> make))configBlock {
-    [self removeLoading];
-//    if ([self.mgLoadError conformsToProtocol:@protocol(MGNoNetworkProtocol)]) {
-//        self.mgLoadError.type = MGRequestResultViewTypeNoNetwork;
-//        if (configBlock) {
-//            configBlock(self.mgLoadError);
+//    @synchronized(self) {
+//        [self removeLoading];
+//        if ([self.mgLoadError conformsToProtocol:@protocol(MGNoNetworkProtocol)]) {
+//            if (![self.mgLoadError isLoading]) {
+//                [self.mgLoadError start];
+//                self.mgLoadError.type = MGRequestResultViewTypeNoNetwork;
+//                if (configBlock) {
+//                    configBlock(self.mgLoadError);
+//                }
+//                [self.mgLoadError addObserver];
+//                [self.mgLoadError setHidden:NO];
+//                [self bringSubviewToFront:self.mgLoadError];
+//                [self.mgLoadError end];
+//            }
 //        }
-//        [self.mgLoadError addObserver];
-//        [self.mgLoadError setHidden:NO];
-//        [self bringSubviewToFront:self.mgLoadError];
 //    }
 }
 
 - (void)showLoadError:(void(^)(id<HLoadErrorProtocol> make))configBlock {
-    [self removeLoading];
-//    if ([self.mgLoadError conformsToProtocol:@protocol(MGLoadErrorProtocol)]) {
-//        if (![AFNetworkReachabilityManager sharedManager].isReachable) {
-//            self.mgLoadError.type = MGRequestResultViewTypeNoNetwork;
-//        }else {
-//            self.mgLoadError.type = MGRequestResultViewTypeLoadError;
+//    @synchronized(self) {
+//        [self removeLoading];
+//        if ([self.mgLoadError conformsToProtocol:@protocol(MGLoadErrorProtocol)]) {
+//            if (![self.mgLoadError isLoading]) {
+//                [self.mgLoadError start];
+//                if (![AFNetworkReachabilityManager sharedManager].isReachable) {
+//                    self.mgLoadError.type = MGRequestResultViewTypeNoNetwork;
+//                }else {
+//                    self.mgLoadError.type = MGRequestResultViewTypeLoadError;
+//                }
+//                if (configBlock) {
+//                    configBlock(self.mgLoadError);
+//                }
+//                [self.mgLoadError addObserver];
+//                [self.mgLoadError setHidden:NO];
+//                [self bringSubviewToFront:self.mgLoadError];
+//                [self.mgLoadError end];
+//            }
 //        }
-//        if (configBlock) {
-//            configBlock(self.mgLoadError);
-//        }
-//        [self.mgLoadError addObserver];
-//        [self.mgLoadError setHidden:NO];
-//        [self bringSubviewToFront:self.mgLoadError];
 //    }
 }
 

@@ -10,6 +10,10 @@
 
 @implementation UIScreen (HUtil)
 
++ (CGRect)bounds {
+    return [UIScreen mainScreen].bounds;
+}
+
 + (CGSize)size {
     return [UIScreen mainScreen].bounds.size;
 }
