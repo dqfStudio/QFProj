@@ -282,16 +282,16 @@ typedef void (^ButtonBlock)(NSInteger buttonIndex);
 - (void)end {
     
     long totalLines = getTotalLines(self.qTitles.count, self.qLineItems);
-    
+
     long countLines = totalLines;
     if (self.qPageLines == 0) self.qPageLines = totalLines;
     if (totalLines > self.qPageLines) countLines = self.qPageLines;
-    
+
     CGRect frame = [UIScreen bounds];
     long height = countLines*([UIScreen width]/self.qLineItems);
     frame.origin.y = [UIScreen height] - height;
     frame.size.height = height;
-    
+
     HFormController *formController = [[HFormController alloc] initWithFrame:frame];
     formController.titles = self.qTitles;
     formController.icons = self.qIcons;
@@ -302,10 +302,13 @@ typedef void (^ButtonBlock)(NSInteger buttonIndex);
     formController.bgColor = self.qBgColor;
     formController.itemBgColor = self.qItemBgColor;
     [formController finished];
-    
-    [UIView animateWithDuration:1.f animations:^{
-        UIWindow *window = [[UIApplication sharedApplication].windows firstObject];
-        [window addSubview:formController];
+    [formController setAlpha:0];
+    [formController setHidden:YES];
+    UIWindow *window = [[UIApplication sharedApplication].windows firstObject];
+    [window addSubview:formController];
+    [UIView animateWithDuration:0.25 animations:^{
+        [formController setAlpha:1];
+        [formController setHidden:NO];
     }];
     //结束设置
     self.setting = NO;

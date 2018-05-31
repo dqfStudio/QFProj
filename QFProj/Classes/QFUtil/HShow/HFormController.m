@@ -23,7 +23,7 @@
 
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
-        _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+        _scrollView = [[UIScrollView alloc] init];
         //禁止弹簧效果
         _scrollView.bounces = NO;
         [_scrollView setShowsHorizontalScrollIndicator:NO];
@@ -34,11 +34,23 @@
 }
 
 - (id)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
+    self = [super initWithFrame:[UIScreen bounds]];
     if (self) {
+        CGRect tmpFrame = frame;
+        tmpFrame.origin.y += tmpFrame.size.height;
+        [self.scrollView setFrame:tmpFrame];
         [self setup];
+        [self performSelector:@selector(loadViewAnimation) withObject:nil afterDelay:1.5];
     }
     return self;
+}
+
+- (void)loadViewAnimation {
+    [UIView animateWithDuration:0.25 animations:^{
+        CGRect tmpFrame = self.scrollView.frame;
+        tmpFrame.origin.y -= tmpFrame.size.height;
+        [self.scrollView setFrame:tmpFrame];
+    }];
 }
 
 - (void)setup {
@@ -46,6 +58,7 @@
     self.pageLines = 1;
     self.bgColor = [UIColor whiteColor];
     self.itemBgColor = [UIColor grayColor];
+    self.backgroundColor = [UIColor yellowColor];
 }
 
 - (void)finished {
@@ -54,7 +67,10 @@
     
     CGRect frame = self.bounds;
     [self.scrollView setBackgroundColor:self.bgColor];
-    [self.scrollView setContentSize:CGSizeMake(frame.size.width*totalPages, frame.size.height)];
+    //[self.scrollView setContentSize:CGSizeMake(frame.size.width*totalPages, frame.size.height)];
+    //以下写法是为了禁止上下拖动的效果
+    [self.scrollView setContentSize:CGSizeMake(frame.size.width*totalPages, 0)];
+    self.scrollView.alwaysBounceVertical = NO;
     if (totalPages == 1) {
         HFormView *formView = [[HFormView alloc] initWithFrame:frame];
         formView.formController = self;
