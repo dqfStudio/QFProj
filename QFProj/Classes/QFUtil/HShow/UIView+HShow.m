@@ -10,6 +10,16 @@
 #import <objc/runtime.h>
 #import "AFNetworkReachabilityManager.h"
 
+@interface UIView ()
+@property(nonatomic) HRequestWaitingView *mgWaitingView;
+@property(nonatomic) HRequestResultView *mgResultView;
+@property(nonatomic) HNaviToast *mgNaviToast;
+@property(nonatomic) HToast *mgToast;
+@property(nonatomic) HAlert *mgAlert;
+@property(nonatomic) HSheet *mgSheet;
+@property(nonatomic) HForm *mgForm;
+@end
+
 @implementation UIView (HShow)
 
 - (HRequestWaitingView *)mgWaitingView {
@@ -76,6 +86,31 @@
 - (void)setMgAlert:(HAlert *)mgAlert {
     [self setAssociateValue:mgAlert withKey:@selector(mgAlert)];
 }
+
+- (HSheet *)mgSheet {
+    @synchronized(self) {
+        HSheet *sheet = [self getAssociatedValueForKey:_cmd];
+        if (!sheet) self.mgSheet = [HSheet new];
+        return [self getAssociatedValueForKey:_cmd];
+    }
+}
+- (void)setMgSheet:(HSheet *)mgSheet {
+    [self setAssociateValue:mgSheet withKey:@selector(mgSheet)];
+}
+
+- (HForm *)mgForm {
+    @synchronized(self) {
+        HForm *form = [self getAssociatedValueForKey:_cmd];
+        if (!form) self.mgForm = [HForm new];
+        return [self getAssociatedValueForKey:_cmd];
+    }
+}
+- (void)setMgForm:(HForm *)mgForm {
+    [self setAssociateValue:mgForm withKey:@selector(mgForm)];
+}
+
+
+
 
 - (void)showWaiting:(void(^)(id<HWaitingProtocol> make))configBlock {
     @synchronized(self) {
@@ -152,20 +187,46 @@
     }
 }
 
+- (void)showAlert:(void(^)(id<HAlertProtocol> make))configBlock {
+    @synchronized(self) {
+        if ([self.mgAlert conformsToProtocol:@protocol(HAlertProtocol)]) {
+            if (![self.mgAlert isLoading]) {
+                [self.mgAlert start];
+                if (configBlock) {
+                    configBlock(self.mgAlert);
+                }
+                [self.mgAlert end];
+            }
+        }
+    }
+}
+
 - (void)showSheet:(void(^)(id<HSheetProtocol> make))configBlock {
-//    if ([self.mgSheet conformsToProtocol:@protocol(HSheetProtocol)]) {
-//        if (configBlock) {
-////            configBlock(self.mgSheet);
-//        }
-//    }
+    @synchronized(self) {
+        if ([self.mgSheet conformsToProtocol:@protocol(HSheetProtocol)]) {
+            if (![self.mgSheet isLoading]) {
+                [self.mgSheet start];
+                if (configBlock) {
+                    configBlock(self.mgSheet);
+                }
+                [self.mgSheet end];
+            }
+        }
+    }
 }
 
 - (void)showForm:(void(^)(id<HFormProtocol> make))configBlock {
-//    if ([self.mgForm conformsToProtocol:@protocol(HFormProtocol)]) {
-//        if (configBlock) {
-////            configBlock(self.mgForm);
-//        }
-//    }
+    @synchronized(self) {
+        if ([self.mgForm conformsToProtocol:@protocol(HFormProtocol)]) {
+            if (![self.mgForm isLoading]) {
+                [self.mgForm start];
+                if (configBlock) {
+                    configBlock(self.mgForm);
+                }
+                [self.mgForm end];
+            }
+        }
+    }
 }
 
 - (void)showToast:(void(^)(id<HToastProtocol> make))configBlock {
@@ -196,20 +257,6 @@
     }
 }
 
-- (void)showAlert:(void(^)(id<HAlertProtocol> make))configBlock {
-    @synchronized(self) {
-        if ([self.mgAlert conformsToProtocol:@protocol(HAlertProtocol)]) {
-            if (![self.mgAlert isLoading]) {
-                [self.mgAlert start];
-                if (configBlock) {
-                    configBlock(self.mgAlert);
-                }
-                [self.mgAlert end];
-            }
-        }
-    }
-}
-
 
 
 - (void)removeWaiting {
@@ -230,14 +277,6 @@
 - (void)removeLoadError {
     [self.mgResultView removeFromSuperview];
     [self setMgResultView:nil];
-}
-
-- (void)removeSheet {
-    
-}
-
-- (void)removeForm {
-    
 }
 
 @end

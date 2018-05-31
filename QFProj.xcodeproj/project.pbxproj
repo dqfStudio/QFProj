@@ -18,6 +18,7 @@
 		15707E8E20B4525900493839 /* HUpImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15707E8D20B4525900493839 /* HUpImageCell.m */; };
 		15707EC020B5675A00493839 /* HTupleSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 15707EBF20B5675A00493839 /* HTupleSignal.m */; };
 		157696EB20A0AB6900E31469 /* hFelix.m in Sources */ = {isa = PBXBuildFile; fileRef = 157696E420A0AB6900E31469 /* hFelix.m */; };
+		1587D8D020BF708900C0391D /* HFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1587D8CF20BF708900C0391D /* HFormController.m */; };
 		1590609320BE76D600CB4EA6 /* HRequestWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1590609220BE76D600CB4EA6 /* HRequestWaitingView.m */; };
 		15B4DD682092F88700773E04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD672092F88700773E04 /* AppDelegate.m */; };
 		15B4DD6B2092F88700773E04 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD6A2092F88700773E04 /* ViewController.m */; };
@@ -161,6 +162,8 @@
 		15707EBF20B5675A00493839 /* HTupleSignal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleSignal.m; sourceTree = "<group>"; };
 		157696E320A0AB6900E31469 /* HFelix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFelix.h; sourceTree = "<group>"; };
 		157696E420A0AB6900E31469 /* hFelix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hFelix.m; sourceTree = "<group>"; };
+		1587D8CE20BF708900C0391D /* HFormController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFormController.h; sourceTree = "<group>"; };
+		1587D8CF20BF708900C0391D /* HFormController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFormController.m; sourceTree = "<group>"; };
 		1590609120BE76D600CB4EA6 /* HRequestWaitingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRequestWaitingView.h; sourceTree = "<group>"; };
 		1590609220BE76D600CB4EA6 /* HRequestWaitingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRequestWaitingView.m; sourceTree = "<group>"; };
 		15B4DD632092F88700773E04 /* QFProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QFProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -999,6 +1002,8 @@
 				1528DF4820BF0A7A00D0A004 /* HShowView.m */,
 				1528DF4A20BF0FE200D0A004 /* UIAlertController+HUtil.h */,
 				1528DF4B20BF0FE200D0A004 /* UIAlertController+HUtil.m */,
+				1587D8CE20BF708900C0391D /* HFormController.h */,
+				1587D8CF20BF708900C0391D /* HFormController.m */,
 			);
 			name = HShow;
 			path = QFUtil/HShow;
@@ -1185,6 +1190,7 @@
 				1528DF4320BEF6BC00D0A004 /* HNaviToastView.m in Sources */,
 				15B4DDF92092F96C00773E04 /* UIScreen+HUtil.m in Sources */,
 				15B4DDF22092F96C00773E04 /* UIButton+HUtil.m in Sources */,
+				1587D8D020BF708900C0391D /* HFormController.m in Sources */,
 				15464B7720A2C26300CDD27E /* HTestManager.m in Sources */,
 				15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */,
 				15B4DDED2092F96C00773E04 /* UIView+HImage.m in Sources */,

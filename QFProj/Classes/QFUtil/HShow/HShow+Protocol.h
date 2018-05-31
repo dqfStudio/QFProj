@@ -126,9 +126,30 @@ typedef void (^HShowClickedBlock)(void);
 @end
 
 /**
+ alert提示协议
+ */
+@protocol HAlertProtocol <HShowBaseProtocol>
+
+@optional
+- (void)setTitle:(NSString *)title;
+- (void)setMsg:(NSString *)msg;
+- (void)setCancelTitle:(NSString *)title;
+- (void)setButtonTitles:(NSArray *)titles;
+- (void)setCompletionBlock:(void (^)(NSInteger buttonIndex))completionBlock;
+
+@end
+
+/**
  actionsheet提示协议，表单布局
  */
 @protocol HSheetProtocol <HShowBaseProtocol>
+
+@optional
+- (void)setTitle:(NSString *)title;
+- (void)setMsg:(NSString *)msg;
+- (void)setCancelTitle:(NSString *)title;
+- (void)setButtonTitles:(NSArray *)titles;
+- (void)setCompletionBlock:(void (^)(NSInteger buttonIndex))completionBlock;
 
 @end
 
@@ -136,6 +157,15 @@ typedef void (^HShowClickedBlock)(void);
  actionsheet提示协议，网格布局
  */
 @protocol HFormProtocol <HShowBaseProtocol>
+
+@optional
+- (void)setTitles:(NSArray *)titles icon:(NSArray *)icons;
+- (void)setLineItems:(NSInteger)items; //一行显示几个
+- (void)setPageLines:(NSInteger)lines; //一页显示几行
+- (void)setEdgeInsets:(UIEdgeInsets)edgeInsets;
+- (void)setButtonBlock:(void (^)(NSInteger buttonIdex))block;
+- (void)setBackgroundColor:(UIColor *)color;
+- (void)setItemBackgroundColor:(UIColor *)color;
 
 @end
 
@@ -159,20 +189,6 @@ typedef void (^HShowClickedBlock)(void);
 - (void)setDesc:(NSString *)desc;
 - (void)setIcon:(NSString *)name;
 - (void)setDelay:(NSTimeInterval)delay; //默认为2秒
-
-@end
-
-/**
- alert提示协议
- */
-@protocol HAlertProtocol <HShowBaseProtocol>
-
-@optional
-- (void)setTitle:(NSString *)title;
-- (void)setMsg:(NSString *)msg;
-- (void)setCancelTitle:(NSString *)title;
-- (void)setButtonTitles:(NSArray *)titles;
-- (void)setCompletionBlock:(void (^)(NSInteger buttonIndex))completionBlock;
 
 @end
 

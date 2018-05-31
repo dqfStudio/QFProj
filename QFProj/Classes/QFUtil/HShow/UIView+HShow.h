@@ -15,13 +15,6 @@
 #import "NSObject+HMessy.h"
 
 @interface UIView (HShow)
-
-@property(nonatomic) HRequestWaitingView *mgWaitingView;
-@property(nonatomic) HRequestResultView *mgResultView;
-@property(nonatomic) HNaviToast *mgNaviToast;
-@property(nonatomic) HToast *mgToast;
-@property(nonatomic) HAlert *mgAlert;
-
 /**
  加载等待界面
 
@@ -47,6 +40,12 @@
  */
 - (void)showLoadError:(void(^)(id<HLoadErrorProtocol> make))configBlock;
 /**
+ alert提示
+ 
+ @param configBlock 参数配置block
+ */
+- (void)showAlert:(void(^)(id<HAlertProtocol> make))configBlock;
+/**
  actionsheet提示，表单布局
  
  @param configBlock 参数配置block
@@ -70,12 +69,6 @@
  @param configBlock 参数配置block
  */
 - (void)showNaviToast:(void(^)(id<HNaviToastProtocol> make))configBlock;
-/**
- alert提示
- 
- @param configBlock 参数配置block
- */
-- (void)showAlert:(void(^)(id<HAlertProtocol> make))configBlock;
 
 
 /**
@@ -85,7 +78,5 @@
 - (void)removeNoData;
 - (void)removeNoNetwork;
 - (void)removeLoadError;
-- (void)removeSheet;
-- (void)removeForm;
 
 @end

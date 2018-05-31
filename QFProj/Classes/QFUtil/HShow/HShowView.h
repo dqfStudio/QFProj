@@ -11,6 +11,7 @@
 #import "HNaviToastView.h"
 #import "MBProgressHUD.h"
 #import "UIAlertController+HUtil.h"
+#import "HFormController.h"
 #import "HShow+Protocol.h"
 
 @interface HShowView : NSObject
@@ -28,3 +29,12 @@
 @interface HAlert : NSObject <HAlertProtocol>
 
 @end
+
+@interface HSheet : NSObject <HSheetProtocol>
+
+@end
+
+@interface HForm : NSObject <HFormProtocol>
+
+@end
+

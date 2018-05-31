@@ -223,7 +223,48 @@
         [make setDisplayImage:NO];
     }];
     
+//    [self.view showAlert:^(id<HAlertProtocol> make) {
+//        [make setTitle:@"消息"];
+//        [make setCancelTitle:@"quxiao"];
+//        [make setButtonTitles:@[@"1", @"2"]];
+//        [make setCompletionBlock:^(NSInteger buttonIndex) {
+//            NSLog(@"");
+//        }];
+//    }];
     
+//    [self.view showSheet:^(id<HSheetProtocol> make) {
+//        [make setTitle:@"消息"];
+//        [make setCancelTitle:@"quxiao"];
+//        [make setButtonTitles:@[@"1", @"2"]];
+//        [make setCompletionBlock:^(NSInteger buttonIndex) {
+//            NSLog(@"");
+//        }];
+//
+//    }];
+    
+//    [self.view showNaviToast:^(id<HNaviToastProtocol> make) {
+//        [make setDesc:@"消息来了"];
+//    }];
+    
+//    [self.view showToast:^(id<HToastProtocol> make) {
+//        [make setDesc:@"消息来了"];
+//    }];
+    
+    [self.view showForm:^(id<HFormProtocol> make) {
+//        - (void)setScrollDirection:(NSInteger)direction; //0垂直滚动， 1水平滚动，默认为0
+//        - (void)setItems:(NSInteger)items;
+//        - (void)setLineItem:(NSInteger)items;
+//        - (void)setEdgeInsets:(UIEdgeInsets)edgeInsets;
+//        - (void)setButtonBlock:(void (^)(NSInteger buttonIdex))block;
+//        - (void)setPages:(NSInteger)page; //只针对横向布局有用
+//        - (void)setBackgroundColor:(UIColor *)color;
+//        - (void)setItemBackgroundColor:(UIColor *)color;
+//        [make setScrollDirection:1];
+//        [make setPages:2];
+        [make setTitles:@[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12"] icon:nil];
+        [make setPageLines:2];
+        [make setItemBackgroundColor:[UIColor redColor]];
+    }];
 }
 
 - (void)sectionModel:(id)sender {

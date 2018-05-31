@@ -21,6 +21,19 @@
 }
 @end
 
+@implementation HScrollViewCell
+- (UIScrollView *)scrollView {
+    if (!_scrollView) {
+        _scrollView = [UIScrollView new];
+        [self addSubview:_scrollView];
+    }
+    return _scrollView;
+}
+- (void)layoutContentView {
+    HLayoutTupleView(self.scrollView)
+}
+@end
+
 @implementation HTextViewCell
 - (UILabel *)label {
     if (!_label) {

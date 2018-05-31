@@ -20,6 +20,10 @@ typedef void(^HImageViewBlock)(HWebImageView *webImageView, HImageViewCell *imag
 @property (nonatomic) UIView *view;
 @end
 
+@interface HScrollViewCell : HTupleBaseCell
+@property (nonatomic) UIScrollView *scrollView;
+@end
+
 @interface HTextViewCell : HTupleBaseCell
 @property (nonatomic) UILabel *label;
 @end
