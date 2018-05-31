@@ -9,9 +9,6 @@
 #import "HFormController.h"
 
 #define KTupleViewTag   1234
-#define KTupleViewTag1  2234
-#define KTupleViewTag2  3234
-#define KTupleViewTag3  4234
 
 @interface HFormView : UIView <HTupleViewDelegate>
 @property (nonatomic, weak) HFormController *formController;
@@ -68,10 +65,8 @@
             frame.origin.x = i*frame.size.width;
             HFormView *formView = [[HFormView alloc] initWithFrame:frame];
             formView.formController = self;
+            [formView.tupleView setTag:i];
             [self.scrollView addSubview:formView];
-            if (i==0) [formView.tupleView setTag:KTupleViewTag1];
-            else if (i==1) [formView.tupleView setTag:KTupleViewTag2];
-            else if (i==2) [formView.tupleView setTag:KTupleViewTag3];
         }
     }
 }
@@ -99,35 +94,17 @@
 }
 
 - (NSInteger)tupleView:(UICollectionView *)tupleView numberOfItemsInSection:(NSInteger)section {
-    switch (tupleView.tag) {
-        case KTupleViewTag:
-            return self.formController.titles.count;
-            break;
-        case KTupleViewTag1:
-            return self.formController.lineItems*self.formController.pageLines;
-            break;
-        case KTupleViewTag2: {
-            long pageItems = self.formController.lineItems*self.formController.pageLines;
-            if (self.formController.titles.count > pageItems*2) {
-                return pageItems;
-            }else {
-                return self.formController.titles.count - pageItems;
-            }
+    if (tupleView.tag == KTupleViewTag) {
+        return self.formController.titles.count;
+    }else {
+        NSInteger tag = tupleView.tag;
+        long pageItems = self.formController.lineItems*self.formController.pageLines;
+        if (self.formController.titles.count > pageItems*(tag+1)) {
+            return pageItems;
+        }else {
+            return self.formController.titles.count - pageItems*tag;
         }
-            break;
-        case KTupleViewTag3: {
-            long pageItems = self.formController.lineItems*self.formController.pageLines;
-            if (self.formController.titles.count > pageItems*3) {
-                return pageItems;
-            }else {
-                return self.formController.titles.count - pageItems*2;
-            }
-        }
-            break;
-        default:
-            break;
     }
-    return 0;
 }
 
 - (CGSize)tupleView:(UICollectionView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -140,71 +117,34 @@
     return self.formController.edgeInsets;
 }
 - (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    switch (tupleView.tag) {
-        case KTupleViewTag: {
-            if (indexPath.row < self.formController.titles.count) {
-                HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
-                [cell setBackgroundColor:self.formController.bgColor];
-                [cell.button setBackgroundColor:self.formController.itemBgColor];
-                [cell.button.button setTitle:self.formController.titles[indexPath.row]];
-                [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
-                    if (self.formController.buttonBlock) self.formController.buttonBlock(indexPath.row);
-                }];
-            }else {
-                HViewCell *cell = itemBlock(HViewCell.class);
-                [cell setBackgroundColor:self.formController.bgColor];
-            }
+    if (tupleView.tag == KTupleViewTag) {
+        if (indexPath.row < self.formController.titles.count) {
+            HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
+            [cell setBackgroundColor:self.formController.bgColor];
+            [cell.button setBackgroundColor:self.formController.itemBgColor];
+            [cell.button.button setTitle:self.formController.titles[indexPath.row]];
+            [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
+                if (self.formController.buttonBlock) self.formController.buttonBlock(indexPath.row);
+            }];
+        }else {
+            HViewCell *cell = itemBlock(HViewCell.class);
+            [cell setBackgroundColor:self.formController.bgColor];
         }
-            break;
-        case KTupleViewTag1: {
-            if (indexPath.row < self.formController.titles.count) {
-                HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
-                [cell setBackgroundColor:self.formController.bgColor];
-                [cell.button setBackgroundColor:self.formController.itemBgColor];
-                [cell.button.button setTitle:self.formController.titles[indexPath.row]];
-                [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
-                    if (self.formController.buttonBlock) self.formController.buttonBlock(indexPath.row);
-                }];
-            }else {
-                HViewCell *cell = itemBlock(HViewCell.class);
-                [cell setBackgroundColor:self.formController.bgColor];
-            }
+    }else {
+        NSInteger tag = tupleView.tag;
+        long pageItems = self.formController.lineItems*self.formController.pageLines;
+        if (indexPath.row < self.formController.titles.count - pageItems*tag) {
+            HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
+            [cell setBackgroundColor:self.formController.bgColor];
+            [cell.button setBackgroundColor:self.formController.itemBgColor];
+            [cell.button.button setTitle:self.formController.titles[indexPath.row+pageItems*tag]];
+            [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
+                if (self.formController.buttonBlock) self.formController.buttonBlock(indexPath.row+pageItems*tag);
+            }];
+        }else {
+            HViewCell *cell = itemBlock(HViewCell.class);
+            [cell setBackgroundColor:self.formController.bgColor];
         }
-            break;
-        case KTupleViewTag2: {
-            long pageItems = self.formController.lineItems*self.formController.pageLines;
-            if (indexPath.row < self.formController.titles.count - pageItems) {
-                HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
-                [cell setBackgroundColor:self.formController.bgColor];
-                [cell.button setBackgroundColor:self.formController.itemBgColor];
-                [cell.button.button setTitle:self.formController.titles[indexPath.row+pageItems]];
-                [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
-                    if (self.formController.buttonBlock) self.formController.buttonBlock(indexPath.row+pageItems);
-                }];
-            }else {
-                HViewCell *cell = itemBlock(HViewCell.class);
-                [cell setBackgroundColor:self.formController.bgColor];
-            }
-        }
-            break;
-        case KTupleViewTag3: {
-            long pageItems = self.formController.lineItems*self.formController.pageLines;
-            if (indexPath.row < self.formController.titles.count - pageItems*2) {
-                HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
-                [cell setBackgroundColor:self.formController.bgColor];
-                [cell.button setBackgroundColor:self.formController.itemBgColor];
-                [cell.button.button setTitle:self.formController.titles[indexPath.row+pageItems*2]];
-                [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
-                    if (self.formController.buttonBlock) self.formController.buttonBlock(indexPath.row+pageItems*2);
-                }];
-            }else {
-                HViewCell *cell = itemBlock(HViewCell.class);
-                [cell setBackgroundColor:self.formController.bgColor];
-            }
-        }
-            break;
-        default:
-            break;
     }
 }
 
