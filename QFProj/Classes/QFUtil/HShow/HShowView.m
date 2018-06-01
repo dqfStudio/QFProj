@@ -223,13 +223,15 @@ typedef void (^ButtonBlock)(NSInteger buttonIndex);
 @end
 
 @interface HForm ()
+@property (nonatomic) HFormController *formController;
+@property (nonatomic) NSInteger qType;
+@property (nonatomic) Class qTupleCls;
 @property (nonatomic, copy) NSArray *qTitles;
 @property (nonatomic, copy) NSArray *qIcons;
 @property (nonatomic) NSInteger qLineItems;
 @property (nonatomic) NSInteger qPageLines;
 @property (nonatomic) UIEdgeInsets qEdgeInsets;
 @property (nonatomic, copy) ButtonBlock qButtonBlock;
-
 @property (nonatomic) UIColor *qBgColor;
 @property (nonatomic) UIColor *qItemBgColor;
 @property (nonatomic) BOOL setting;
@@ -240,12 +242,19 @@ typedef void (^ButtonBlock)(NSInteger buttonIndex);
 - (instancetype)init {
     self = [super init];
     if (self) {
+        self.qType = 0;
         self.qLineItems = 5;
-        self.qPageLines = 0;
+        self.qPageLines = 1;
     }
     return self;
 }
 
+- (void)setType:(NSInteger)type {
+    self.qType = type;
+}
+- (void)setTupleClass:(Class)cls {
+    self.qTupleCls = cls;
+}
 - (void)setTitles:(NSArray *)titles icon:(NSArray *)icons {
     self.qTitles = titles;
     self.qIcons = icons;
@@ -280,36 +289,13 @@ typedef void (^ButtonBlock)(NSInteger buttonIndex);
 }
 
 - (void)end {
-    
-    long totalLines = getTotalLines(self.qTitles.count, self.qLineItems);
-
-    long countLines = totalLines;
-    if (self.qPageLines == 0) self.qPageLines = totalLines;
-    if (totalLines > self.qPageLines) countLines = self.qPageLines;
-
-    CGRect frame = [UIScreen bounds];
-    long height = countLines*([UIScreen width]/self.qLineItems);
-    frame.origin.y = [UIScreen height] - height;
-    frame.size.height = height;
-
-    HFormController *formController = [[HFormController alloc] initWithFrame:frame];
-    formController.titles = self.qTitles;
-    formController.icons = self.qIcons;
-    formController.lineItems = self.qLineItems;
-    formController.pageLines = self.qPageLines;
-    formController.edgeInsets = self.qEdgeInsets;
-    formController.buttonBlock = self.qButtonBlock;
-    formController.bgColor = self.qBgColor;
-    formController.itemBgColor = self.qItemBgColor;
-    [formController finished];
-    [formController setAlpha:0];
-    [formController setHidden:YES];
-    UIWindow *window = [[UIApplication sharedApplication].windows firstObject];
-    [window addSubview:formController];
-    [UIView animateWithDuration:0.25 animations:^{
-        [formController setAlpha:1];
-        [formController setHidden:NO];
-    }];
+    switch (self.qType) {
+        case 0:
+            self.formController = [HFormController formControllerWithTitles:self.qTitles icons:self.qIcons lineItems:self.qLineItems pageLines:self.qPageLines edgeInsets:self.qEdgeInsets buttonBlock:self.qButtonBlock bgColor:self.qBgColor itemBgColor:self.qItemBgColor tupleClass:self.qTupleCls];
+            break;
+        default:
+            break;
+    }
     //结束设置
     self.setting = NO;
 }

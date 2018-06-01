@@ -159,6 +159,8 @@ typedef void (^HShowClickedBlock)(void);
 @protocol HFormProtocol <HShowBaseProtocol>
 
 @optional
+- (void)setType:(NSInteger)type;
+- (void)setTupleClass:(Class)cls;
 - (void)setTitles:(NSArray *)titles icon:(NSArray *)icons;
 - (void)setLineItems:(NSInteger)items; //一行显示几个
 - (void)setPageLines:(NSInteger)lines; //一页显示几行

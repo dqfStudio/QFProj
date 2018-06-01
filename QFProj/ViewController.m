@@ -23,6 +23,7 @@
 #import "HLeftImageCell2.h"
 
 #import "UIView+HShow.h"
+#import "HFormController.h"
 
 @interface ViewController () <HTupleViewDelegate> {
     UILabel *label;
@@ -250,21 +251,42 @@
 //        [make setDesc:@"消息来了"];
 //    }];
     
+//    [self.view showForm:^(id<HFormProtocol> make) {
+////        - (void)setScrollDirection:(NSInteger)direction; //0垂直滚动， 1水平滚动，默认为0
+////        - (void)setItems:(NSInteger)items;
+////        - (void)setLineItem:(NSInteger)items;
+////        - (void)setEdgeInsets:(UIEdgeInsets)edgeInsets;
+////        - (void)setButtonBlock:(void (^)(NSInteger buttonIdex))block;
+////        - (void)setPages:(NSInteger)page; //只针对横向布局有用
+////        - (void)setBackgroundColor:(UIColor *)color;
+////        - (void)setItemBackgroundColor:(UIColor *)color;
+////        [make setScrollDirection:1];
+////        [make setPages:2];
+//        [make setTitles:@[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12"] icon:nil];
+//        [make setPageLines:2];
+//        [make setItemBackgroundColor:[UIColor redColor]];
+//
+//        UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+//        [view1 setBackgroundColor:[UIColor yellowColor]];
+//        UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+//        [view2 setBackgroundColor:[UIColor blueColor]];
+//
+//        [make setHeaderView:view1];
+//        [make setFooterView:view2];
+//    }];
+    
+//    [HFormController formControllerWithTitles:@[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12"] icons:nil lineItems:5 pageLines:2 edgeInsets:UIEdgeInsetsZero buttonBlock:^(NSInteger index) {
+//        NSLog(@"");
+//    } bgColor:[UIColor redColor] itemBgColor:[UIColor redColor]];
+    
     [self.view showForm:^(id<HFormProtocol> make) {
-//        - (void)setScrollDirection:(NSInteger)direction; //0垂直滚动， 1水平滚动，默认为0
-//        - (void)setItems:(NSInteger)items;
-//        - (void)setLineItem:(NSInteger)items;
-//        - (void)setEdgeInsets:(UIEdgeInsets)edgeInsets;
-//        - (void)setButtonBlock:(void (^)(NSInteger buttonIdex))block;
-//        - (void)setPages:(NSInteger)page; //只针对横向布局有用
-//        - (void)setBackgroundColor:(UIColor *)color;
-//        - (void)setItemBackgroundColor:(UIColor *)color;
-//        [make setScrollDirection:1];
-//        [make setPages:2];
         [make setTitles:@[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12"] icon:nil];
-        [make setPageLines:2];
-        [make setItemBackgroundColor:[UIColor redColor]];
+//        [make setLineItems:5];
+//        [make setPageLines:2];
+//        [make setBackgroundColor:[UIColor redColor]];
+//        [make setItemBackgroundColor:[UIColor redColor]];
     }];
+    
 }
 
 - (void)sectionModel:(id)sender {

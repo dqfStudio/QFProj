@@ -9,39 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "HTupleView.h"
 
-UIKIT_STATIC_INLINE long getTotalLines(long items, long lineItems) {
-    long totalLines = 0;
-    if (items%lineItems != 0) {
-        totalLines = items/lineItems+1;
-    }else {
-        totalLines = items/lineItems;
-    }
-    return totalLines;
-}
+@class HFormController;
 
-UIKIT_STATIC_INLINE long getTotalPages(long totalLines, long pageLines) {
-    long pages = 0;
-    if (totalLines%pageLines != 0) {
-        pages = totalLines/pageLines+1;
-    }else {
-        pages = totalLines/pageLines;
-    }
-    return pages;
-}
+typedef void (^HFormButtonBlock)(NSInteger index);
+typedef UIView *_Nullable(^HFormHeaderBlock)(HFormController *formController);
+typedef UIView *_Nullable(^HFormFooterBlock)(HFormController *formController);
 
-typedef void (^ButtonBlock)(NSInteger index);
+@interface HFormController : NSObject
 
-@interface HFormController : UIView
-@property (nonatomic, copy) NSArray *titles;
-@property (nonatomic, copy) NSArray *icons;
-@property (nonatomic) NSInteger lineItems; //一行显示几个
-@property (nonatomic) NSInteger pageLines; //一页显示几行
-@property (nonatomic) UIEdgeInsets edgeInsets;
-@property (nonatomic, copy) ButtonBlock buttonBlock;
++ (instancetype _Nonnull )formControllerWithTitles:( NSArray * _Nonnull )titles icons:(nullable NSArray *)icons lineItems:(NSInteger)lineItems pageLines:(NSInteger)pageLines edgeInsets:(UIEdgeInsets)edgeInsets buttonBlock:(HFormButtonBlock _Nullable )buttonBlock bgColor:(UIColor *_Nullable)bgColor itemBgColor:(UIColor *_Nullable)itemBgColor tupleClass:(Class _Nullable )cls;
 
-@property (nonatomic) UIColor *bgColor;
-@property (nonatomic) UIColor *itemBgColor;
++ (instancetype _Nonnull )formControllerWithTitles:(NSArray * _Nonnull )titles icons:(nullable NSArray *)icons lineItems:(NSInteger)lineItems pageLines:(NSInteger)pageLines edgeInsets:(UIEdgeInsets)edgeInsets buttonBlock:(HFormButtonBlock _Nullable )buttonBlock bgColor:(UIColor *_Nullable)bgColor itemBgColor:(UIColor *_Nullable)itemBgColor tupleClass:(Class _Nullable )cls headerBlock:(HFormHeaderBlock _Nullable )headerBlock;
 
-- (void)finished;
++ (instancetype _Nonnull )formControllerWithTitles:(NSArray * _Nonnull )titles icons:(nullable NSArray *)icons lineItems:(NSInteger)lineItems pageLines:(NSInteger)pageLines edgeInsets:(UIEdgeInsets)edgeInsets buttonBlock:(HFormButtonBlock _Nullable )buttonBlock bgColor:(UIColor *_Nullable)bgColor itemBgColor:(UIColor *_Nullable)itemBgColor tupleClass:(Class _Nullable )cls headerBlock:(HFormHeaderBlock _Nullable )headerBlock footerBlock:(HFormFooterBlock _Nullable )footerBlock;
 
 @end
