@@ -87,7 +87,7 @@ typedef void(^HCHeaderFooterInitBlock)(id view);
 
 - (void)signalToTable:(HTableSignal *)signal;
 
-- (void)signalToAllCells:(HTableSignal *)signal;
+- (void)signalToAllItems:(HTableSignal *)signal;
 - (void)signal:(HTableSignal *)signal itemSection:(NSInteger)section;
 - (void)signal:(HTableSignal *)signal indexPath:(NSIndexPath *)indexPath;
 
