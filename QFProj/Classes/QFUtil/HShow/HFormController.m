@@ -234,7 +234,23 @@ UIKIT_STATIC_INLINE long getTotalPages(long totalLines, long pageLines);
         UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
         [btn setTitle:@"取 消"];
         [btn setTitleColor:[UIColor blackColor]];
-        [btn addTarget:formController action:@selector(hide)];
+        //[btn addTarget:formController action:@selector(hide)];
+        [btn addSingleTapGestureWithBlock:^(UITapGestureRecognizer *recognizer) {
+            UIView *btnView = recognizer.view;
+            UIView *contentView = btnView.superview;
+            UIView *bgView = contentView.superview;
+            [UIView animateWithDuration:0.25 animations:^{
+                //重写设置bgView的frame
+                if (contentView.frame.origin.y < bgView.bounds.size.height) {
+                    CGRect bgViewFrame = contentView.frame;
+                    bgViewFrame.origin.y += bgViewFrame.size.height;
+                    [contentView setFrame:bgViewFrame];
+                }
+            } completion:^(BOOL finished) {
+                [bgView setAlpha:0];
+                [bgView setHidden:YES];
+            }];
+        }];
         return btn;
     }];
     return formController;
