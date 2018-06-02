@@ -85,7 +85,7 @@ typedef void(^HCHeaderFooterInitBlock)(id view);
 
 @property (nonatomic, copy) HTableCellSignalBlock signalBlock;
 
-- (void)signalToTableView:(HTableSignal *)signal;
+- (void)signalToTable:(HTableSignal *)signal;
 
 - (void)signalToAllItems:(HTableSignal *)signal;
 - (void)signal:(HTableSignal *)signal itemSection:(NSInteger)section;

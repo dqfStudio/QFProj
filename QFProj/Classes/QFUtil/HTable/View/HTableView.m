@@ -342,7 +342,7 @@
 }
 
 #pragma mark - signal
-- (void)signalToTableView:(HTableSignal *)signal {
+- (void)signalToTable:(HTableSignal *)signal {
     if (self.signalBlock) {
         self.signalBlock(signal);
     }
