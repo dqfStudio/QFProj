@@ -111,6 +111,47 @@
     return cell;
 }
 
+
+- (id)registerHeader:(Class)cellClass section:(NSInteger)section {
+    return [self registerHeaderFooter:cellClass section:section isHeader:YES reuseIdentifier:NSStringFromClass(cellClass) initBlock:nil];
+}
+- (id)registerHeader:(Class)cellClass section:(NSInteger)section initBlock:(HCHeaderFooterInitBlock)block {
+    return [self registerHeaderFooter:cellClass section:section isHeader:YES reuseIdentifier:NSStringFromClass(cellClass) initBlock:block];
+}
+- (id)registerHeader:(Class)cellClass section:(NSInteger)section reuseIdentifier:(NSString *)reuseIdentifier initBlock:(HCHeaderFooterInitBlock)block {
+    return [self registerHeaderFooter:cellClass section:section isHeader:YES reuseIdentifier:reuseIdentifier initBlock:block];
+}
+
+
+
+- (id)registerFooter:(Class)cellClass section:(NSInteger)section {
+    return [self registerHeaderFooter:cellClass section:section isHeader:NO reuseIdentifier:NSStringFromClass(cellClass) initBlock:nil];
+}
+- (id)registerFooter:(Class)cellClass section:(NSInteger)section initBlock:(HCHeaderFooterInitBlock)block {
+    return [self registerHeaderFooter:cellClass section:section isHeader:NO reuseIdentifier:NSStringFromClass(cellClass) initBlock:block];
+}
+- (id)registerFooter:(Class)cellClass section:(NSInteger)section reuseIdentifier:(NSString *)reuseIdentifier initBlock:(HCHeaderFooterInitBlock)block {
+    return [self registerHeaderFooter:cellClass section:section isHeader:NO reuseIdentifier:reuseIdentifier initBlock:block];
+}
+
+
+- (id)registerHeaderFooter:(Class)cellClass section:(NSInteger)section isHeader:(BOOL)header reuseIdentifier:(NSString *)reuseIdentifier initBlock:(HCHeaderFooterInitBlock)block {
+    UITableViewHeaderFooterView *headerFooterView = [self dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
+    if (!headerFooterView) {
+        headerFooterView = [[cellClass alloc] initWithReuseIdentifier:reuseIdentifier];
+        [headerFooterView setIsHeader:header];
+        if ([headerFooterView respondsToSelector:@selector(model)]) {
+            HBaseHeaderFooterView *tmpCell = (HBaseHeaderFooterView *)headerFooterView;
+            tmpCell.table = self;
+            tmpCell.section = section;
+        }
+        if (block) {
+            block(headerFooterView);
+        }
+    }
+    return headerFooterView;
+}
+
 #pragma --mark other methods
 
 //add HSectionModel
@@ -300,6 +341,108 @@
     }
 }
 
+#pragma mark - signal
+- (void)signalToTableView:(HTableSignal *)signal {
+    if (self.signalBlock) {
+        self.signalBlock(signal);
+    }
+}
+- (void)signalToAllItems:(HTableSignal *)signal {
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        NSInteger sections = [self numberOfSections];
+        for (int i=0; i<sections; i++) {
+            NSInteger items = [self numberOfRowsInSection:i];
+            for (int j=0; j<items; j++) {
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:j inSection:i];
+                UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
+                if (cell.signalBlock) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        cell.signalBlock(signal);
+                    });
+                }
+            }
+        }
+    });
+}
+- (void)signal:(HTableSignal *)signal itemSection:(NSInteger)section {
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        NSInteger items = [self numberOfRowsInSection:section];
+        for (int i=0; i<items; i++) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:section];
+            UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
+            if (cell.signalBlock) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    cell.signalBlock(signal);
+                });
+            }
+        }
+    });
+}
+- (void)signal:(HTableSignal *)signal indexPath:(NSIndexPath *)indexPath  {
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
+        if (cell.signalBlock) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.signalBlock(signal);
+            });
+        }
+    });
+}
+- (void)signalToAllHeader:(HTableSignal *)signal {
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        NSInteger sections = [self numberOfSections];
+        for (int i=0; i<sections; i++) {
+            UITableViewHeaderFooterView *header = [self headerViewForSection:i];
+            if (header) {
+                if (header.signalBlock) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        header.signalBlock(signal);
+                    });
+                }
+            }
+        }
+    });
+}
+- (void)signal:(HTableSignal *)signal headerSection:(NSInteger)section {
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        UITableViewHeaderFooterView *header = [self headerViewForSection:section];
+        if (header) {
+            if (header.signalBlock) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    header.signalBlock(signal);
+                });
+            }
+        }
+    });
+}
+- (void)signalToAllFooter:(HTableSignal *)signal {
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        NSInteger sections = [self numberOfSections];
+        for (int i=0; i<sections; i++) {
+            UITableViewHeaderFooterView *footer = [self footerViewForSection:i];
+            if (footer) {
+                if (footer.signalBlock) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        footer.signalBlock(signal);
+                    });
+                }
+            }
+        }
+    });
+}
+- (void)signal:(HTableSignal *)signal footerSection:(NSInteger)section {
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        UITableViewHeaderFooterView *footer = [self footerViewForSection:section];
+        if (footer) {
+            if (footer.signalBlock) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    footer.signalBlock(signal);
+                });
+            }
+        }
+    });
+}
+
 @end
 
 @implementation NSString (util)
@@ -328,6 +471,7 @@
         return mutablerArr;
     };
 }
+
 @end
 
 @interface NSArray ()

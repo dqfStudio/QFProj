@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "HCellModel.h"
+#import "HTableSignal.h"
+
+@interface UITableViewCell ()
+@property (nonatomic, copy) HTableCellSignalBlock signalBlock;
+@end
 
 @interface HBaseCell : UITableViewCell
 @property (nonatomic, weak) UITableView *table;

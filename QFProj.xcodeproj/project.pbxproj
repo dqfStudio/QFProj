@@ -20,6 +20,8 @@
 		157696EB20A0AB6900E31469 /* hFelix.m in Sources */ = {isa = PBXBuildFile; fileRef = 157696E420A0AB6900E31469 /* hFelix.m */; };
 		1587D8D020BF708900C0391D /* HFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1587D8CF20BF708900C0391D /* HFormController.m */; };
 		1587D8D520C2438C00C0391D /* HTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1587D8D420C2438B00C0391D /* HTableViewCell.m */; };
+		1587D8DE20C2578900C0391D /* HBaseHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1587D8DC20C2578800C0391D /* HBaseHeaderFooterView.m */; };
+		1587D8E120C257A900C0391D /* HTableSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1587D8E020C257A800C0391D /* HTableSignal.m */; };
 		1590609320BE76D600CB4EA6 /* HRequestWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1590609220BE76D600CB4EA6 /* HRequestWaitingView.m */; };
 		15B4DD682092F88700773E04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD672092F88700773E04 /* AppDelegate.m */; };
 		15B4DD6B2092F88700773E04 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD6A2092F88700773E04 /* ViewController.m */; };
@@ -163,6 +165,10 @@
 		1587D8CF20BF708900C0391D /* HFormController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFormController.m; sourceTree = "<group>"; };
 		1587D8D320C2438B00C0391D /* HTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableViewCell.h; sourceTree = "<group>"; };
 		1587D8D420C2438B00C0391D /* HTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableViewCell.m; sourceTree = "<group>"; };
+		1587D8DC20C2578800C0391D /* HBaseHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBaseHeaderFooterView.m; sourceTree = "<group>"; };
+		1587D8DD20C2578800C0391D /* HBaseHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBaseHeaderFooterView.h; sourceTree = "<group>"; };
+		1587D8DF20C257A800C0391D /* HTableSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableSignal.h; sourceTree = "<group>"; };
+		1587D8E020C257A800C0391D /* HTableSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableSignal.m; sourceTree = "<group>"; };
 		1590609120BE76D600CB4EA6 /* HRequestWaitingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRequestWaitingView.h; sourceTree = "<group>"; };
 		1590609220BE76D600CB4EA6 /* HRequestWaitingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRequestWaitingView.m; sourceTree = "<group>"; };
 		15B4DD632092F88700773E04 /* QFProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QFProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -913,6 +919,8 @@
 			children = (
 				15C5738220B3DD9F0070327C /* HTableView.h */,
 				15C5738120B3DD9F0070327C /* HTableView.m */,
+				1587D8DF20C257A800C0391D /* HTableSignal.h */,
+				1587D8E020C257A800C0391D /* HTableSignal.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -922,6 +930,8 @@
 			children = (
 				15C573B620B3DE340070327C /* HBaseCell.h */,
 				15C573AC20B3DE340070327C /* HBaseCell.m */,
+				1587D8DD20C2578800C0391D /* HBaseHeaderFooterView.h */,
+				1587D8DC20C2578800C0391D /* HBaseHeaderFooterView.m */,
 				1587D8D320C2438B00C0391D /* HTableViewCell.h */,
 				1587D8D420C2438B00C0391D /* HTableViewCell.m */,
 				15C573AB20B3DE340070327C /* HLeftImageCell.h */,
@@ -1199,6 +1209,7 @@
 				15C5738620B3DD9F0070327C /* HSectionModel.m in Sources */,
 				15B4DDF72092F96C00773E04 /* UIDevice+HUtil.m in Sources */,
 				15B4DD6B2092F88700773E04 /* ViewController.m in Sources */,
+				1587D8DE20C2578900C0391D /* HBaseHeaderFooterView.m in Sources */,
 				15B4DDFB2092F96C00773E04 /* UIColor+HUtil.m in Sources */,
 				15C572AA20AEDAB90070327C /* HLabelView.m in Sources */,
 				15B4DDE82092F96C00773E04 /* AppDelegate+HDebug.m in Sources */,
@@ -1218,6 +1229,7 @@
 				15C5737020B3DD7B0070327C /* HTupleReusableView.m in Sources */,
 				15C5729320AE51B30070327C /* HSort.m in Sources */,
 				15C5738720B3DD9F0070327C /* HTableView.m in Sources */,
+				1587D8E120C257A900C0391D /* HTableSignal.m in Sources */,
 				15B4DDF02092F96C00773E04 /* UIViewController+HPrinter.m in Sources */,
 				1590609320BE76D600CB4EA6 /* HRequestWaitingView.m in Sources */,
 				15B4DDEE2092F96C00773E04 /* UIViewController+HBackHandler.m in Sources */,

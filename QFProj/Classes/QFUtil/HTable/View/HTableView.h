@@ -10,12 +10,15 @@
 #import "HTableModel.h"
 #import "NSObject+selector.h"
 #import "HSectionModel.h"
+#import "HBaseHeaderFooterView.h"
 #import "HBaseCell.h"
+#import "HTableSignal.h"
 #import "MJRefresh.h"
 
 typedef void (^HRefreshBlock)(void);
 typedef void (^HLoadMoreBlock)(void);
 typedef void(^HCellInitBlock)(id cell);
+typedef void(^HCHeaderFooterInitBlock)(id view);
 
 /**
  *  HTableView implements some methods in UITableViewDelegate & UITableViewDataSource.
@@ -58,6 +61,16 @@ typedef void(^HCellInitBlock)(id cell);
 
 - (id)registerCell:(Class)cellClass indexPath:(NSIndexPath *)indexPath style:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier initBlock:(HCellInitBlock)block;
 
+
+- (id)registerHeader:(Class)cellClass section:(NSInteger)section;
+- (id)registerHeader:(Class)cellClass section:(NSInteger)section initBlock:(HCHeaderFooterInitBlock)block;
+- (id)registerHeader:(Class)cellClass section:(NSInteger)section reuseIdentifier:(NSString *)reuseIdentifier initBlock:(HCHeaderFooterInitBlock)block;
+
+
+- (id)registerFooter:(Class)cellClass section:(NSInteger)section;
+- (id)registerFooter:(Class)cellClass section:(NSInteger)section initBlock:(HCHeaderFooterInitBlock)block;
+- (id)registerFooter:(Class)cellClass section:(NSInteger)section reuseIdentifier:(NSString *)reuseIdentifier initBlock:(HCHeaderFooterInitBlock)block;
+
 #pragma --mark register cell
 
 - (void)refreshView:(id)object withArr:(NSArray *)arr;
@@ -65,6 +78,24 @@ typedef void(^HCellInitBlock)(id cell);
 - (void)loadView:(id)object withArr:(NSArray *)arr;
 
 - (void)cellAtIndexPath:(NSIndexPath *)indexPath resetHeight:(NSInteger)height;
+
+@end
+
+@interface UITableView ()
+
+@property (nonatomic, copy) HTableCellSignalBlock signalBlock;
+
+- (void)signalToTableView:(HTableSignal *)signal;
+
+- (void)signalToAllItems:(HTableSignal *)signal;
+- (void)signal:(HTableSignal *)signal itemSection:(NSInteger)section;
+- (void)signal:(HTableSignal *)signal indexPath:(NSIndexPath *)indexPath;
+
+- (void)signalToAllHeader:(HTableSignal *)signal;
+- (void)signal:(HTableSignal *)signal headerSection:(NSInteger)section;
+
+- (void)signalToAllFooter:(HTableSignal *)signal;
+- (void)signal:(HTableSignal *)signal footerSection:(NSInteger)section;
 
 @end
 
