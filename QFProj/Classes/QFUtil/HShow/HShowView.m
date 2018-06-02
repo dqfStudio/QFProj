@@ -223,7 +223,6 @@ typedef void (^ButtonBlock)(NSInteger buttonIndex);
 @end
 
 @interface HForm ()
-@property (nonatomic) HFormController *formController;
 @property (nonatomic) NSInteger qType;
 @property (nonatomic) Class qTupleCls;
 @property (nonatomic, copy) NSArray *qTitles;
@@ -291,7 +290,7 @@ typedef void (^ButtonBlock)(NSInteger buttonIndex);
 - (void)end {
     switch (self.qType) {
         case 0:
-            self.formController = [HFormController formControllerWithTitles:self.qTitles icons:self.qIcons lineItems:self.qLineItems pageLines:self.qPageLines edgeInsets:self.qEdgeInsets buttonBlock:self.qButtonBlock bgColor:self.qBgColor itemBgColor:self.qItemBgColor tupleClass:self.qTupleCls];
+            [HFormController formControllerWithTitles:self.qTitles icons:self.qIcons lineItems:self.qLineItems pageLines:self.qPageLines edgeInsets:self.qEdgeInsets buttonBlock:self.qButtonBlock bgColor:self.qBgColor itemBgColor:self.qItemBgColor tupleClass:self.qTupleCls];
             break;
         default:
             break;
