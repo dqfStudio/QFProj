@@ -19,8 +19,8 @@
 #import "HSimilarity.h"
 
 #import "HTableView.h"
+#import "HTableViewCell.h"
 #import "HLeftImageCell.h"
-#import "HLeftImageCell2.h"
 
 #import "UIView+HShow.h"
 #import "HFormController.h"
@@ -311,7 +311,7 @@
 - (HCellRenderBlock)renderBlock {
     return ^UITableViewCell *(NSIndexPath *indexPath, HTableView *table) {
         
-        HLeftImageCell2 *cell = [table registerCell:HLeftImageCell2.class indexPath:indexPath];
+        HLeftImageCell *cell = [table registerCell:HLeftImageCell.class indexPath:indexPath];
         [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
 //        switch (indexPath.row) {
 //            case 0:
@@ -338,7 +338,7 @@
 - (HCellRenderBlock)renderBlock2 {
     return ^UITableViewCell *(NSIndexPath *indexPath, HTableView *table) {
         
-        HLeftImageCell *cell = [table registerCell:HLeftImageCell.class indexPath:indexPath];
+        HTableViewCell *cell = [table registerCell:HTableViewCell.class indexPath:indexPath];
         [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
         cell.textLabel.text = @"路径追踪2";
         //        cell.callback = ^(UISwitch *sender) {};

@@ -1,89 +1,127 @@
 //
 //  HLeftImageCell.m
-//  MGMobileMusic
+//  QFTableProject
 //
-//  Created by dqf on 2017/8/4.
-//  Copyright © 2017年 migu. All rights reserved.
+//  Created by dqf on 2018/5/22.
+//  Copyright © 2018年 dqfStudio. All rights reserved.
 //
 
 #import "HLeftImageCell.h"
 
-UIKIT_STATIC_INLINE CGFloat HCellEdgeWidth(HCellEdgeInsets edge) {
-    return edge.left + edge.width + edge.right;
-}
+#define KHeaderWidth   80
+#define KFooterWidth   35
+#define KCornerWidth  (KHeaderWidth-20)
+
+#define KCellWidth  CGRectGetWidth(self.frame)
+#define KCellHeight CGRectGetHeight(self.frame)
 
 @implementation HLeftImageCell
 
-- (UIImageView *)leftImageView {
-    if (!_leftImageView) {
-        _leftImageView = [[UIImageView alloc] init];
-        _leftImageView.backgroundColor = [UIColor clearColor];
+- (HTupleView *)tupleView {
+    if (!_tupleView) {
+        _tupleView = [[HTupleView alloc] initWithFrame:CGRectZero scrollDirection:HTupleViewScrollDirectionHorizontal];
+        [_tupleView setTupleDelegate:self];
+        [_tupleView setScrollEnabled:NO];
+        [self addSubview:_tupleView];
     }
-    return _leftImageView;
-}
-
-- (void)setLeftImageEdgeInsets:(HCellEdgeInsets)leftImageEdgeInsets {
-    if (!HCellEdgeEqualToEdge(_leftImageEdgeInsets, leftImageEdgeInsets)) {
-        _leftImageEdgeInsets = leftImageEdgeInsets;
-        CGRect frame = CGRectZero;
-        frame.size.width = leftImageEdgeInsets.width;
-        frame.size.height = leftImageEdgeInsets.height;
-        [self.imageView setFrame:frame];
-        [self.leftImageView setFrame:frame];
-        [self layoutSubviews];
-    }
-}
-
-- (void)setFilletedCorner:(BOOL)filletedCorner {
-    if (_filletedCorner != filletedCorner) {
-        _filletedCorner = filletedCorner;
-        [self layoutSubviews];
-    }
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    
-    if (self.leftImageView) {
-
-        //调整leftImageView的坐标
-        CGRect tmpFrame = self.imageView.frame;
-        tmpFrame.origin.x = self.leftImageEdgeInsets.left;
-        tmpFrame.origin.y = self.frame.size.height/2-tmpFrame.size.height/2;
-        if (!CGRectEqualToRect(self.leftImageView.frame, tmpFrame)) {
-            self.leftImageView.frame = tmpFrame;
-        }
-        
-        //设置leftImageView为圆角
-        if (self.filletedCorner) {
-            self.leftImageView.layer.masksToBounds = YES;
-            self.leftImageView.layer.cornerRadius = self.leftImageView.frame.size.width/2;
-        }
-        
-        //隐藏系统的imageView
-        [self.imageView setImage:nil];
-        [self.imageView setHidden:YES];
-        
-        //调整textLabel的坐标
-        tmpFrame = self.textLabel.frame;
-        tmpFrame.origin.x = HCellEdgeWidth(self.leftImageEdgeInsets);
-        if (!CGRectEqualToRect(self.textLabel.frame, tmpFrame)) {
-            self.textLabel.frame = tmpFrame;
-        }
-        
-        //调整detailTextLabel的坐标
-        tmpFrame = self.detailTextLabel.frame;
-        tmpFrame.origin.x = HCellEdgeWidth(self.leftImageEdgeInsets);
-        if (!CGRectEqualToRect(self.detailTextLabel.frame, tmpFrame)) {
-            self.detailTextLabel.frame = tmpFrame;
-        }
-    }
+    return _tupleView;
 }
 
 - (void)initUI {
-    [self addSubview:self.leftImageView];
+    [self addSubview:self.tupleView];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    [self setBackgroundColor:[UIColor yellowColor]];
+}
+
+- (void)setModel:(HCellModel *)model {
+    [super setModel:model];
+    if (model.height != CGRectGetHeight(self.tupleView.frame)) {
+        CGRect frame = self.bounds;
+        frame.size.height = model.height;
+        [self.tupleView setFrame:frame];
+    }
+}
+
+- (NSInteger)tupleView:(UICollectionView *)tupleView numberOfItemsInSection:(NSInteger)section {
+    return 3;
+}
+
+- (CGSize)tupleView:(UICollectionView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(KCellWidth-KHeaderWidth-KFooterWidth, KCellHeight/3);
+}
+- (CGSize)tupleView:(UICollectionView *)tupleView sizeForHeaderInSection:(NSInteger)section {
+    return CGSizeMake(KHeaderWidth, KCellHeight);
+}
+- (CGSize)tupleView:(UICollectionView *)tupleView sizeForFooterInSection:(NSInteger)section {
+    return CGSizeMake(KFooterWidth, KCellHeight);
+}
+- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
+    return UIEdgeInsetsMake(KCellHeight/2-KCornerWidth/2, 10.f, KCellHeight/2-KCornerWidth/2, 10.f);
+}
+- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
+    return UIEdgeInsetsMake(10.f, 10.f, 10.f, 10.f);
+}
+- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 0:
+            return UIEdgeInsetsMake(10.f, 0.f, 0.f, 0.f);
+            break;
+        case 1:
+            return UIEdgeInsetsMake(5.f, 0.f, 5.f, 0.f);
+            break;
+        case 2:
+            return UIEdgeInsetsMake(0.f, 0.f, 10.f, 0.f);
+            break;
+
+        default:
+            break;
+    }
+    return UIEdgeInsetsMake(0.f, 0.f, 0.f, 0.f);
+}
+- (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 0: {
+            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            [cell.label setBackgroundColor:[UIColor greenColor]];
+            [cell.label setText:@"第一个label"];
+        }
+            break;
+        case 1: {
+            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            [cell.label setText:@"第二个label"];
+            [cell.label setBackgroundColor:[UIColor grayColor]];
+        }
+            break;
+        case 2: {
+            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            [cell.label setText:@"第三个label"];
+            [cell.label setBackgroundColor:[UIColor redColor]];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)tupleView:(UICollectionView *)tupleView headerTuple:(id (^)(Class aClass))headerBlock inSection:(NSInteger)section {
+    HReusableImageView *cell = headerBlock(HReusableImageView.class);
+    [cell.imageView setBackgroundColor:[UIColor greenColor]];
+    cell.imageView.layer.cornerRadius = KCornerWidth/2;
+    [cell setReusableImageViewBlock:^(HWebImageView *webImageView, HReusableImageView *imageView) {
+        
+    }];
+}
+
+
+- (void)tupleView:(UICollectionView *)tupleView footerTuple:(id (^)(Class aClass))footerBlock inSection:(NSInteger)section {
+    HReusableButtonView *cell = footerBlock(HReusableButtonView.class);
+    [cell.button setBackgroundColor:[UIColor clearColor]];
+    [cell.button.button setImage:[UIImage imageNamed:@"icon_tuple_arrow_right"] forState:UIControlStateNormal];
+    [cell setReusableButtonViewBlock:^(HWebButtonView *webButtonView, HReusableButtonView *buttonView) {
+        
+    }];
+    
 }
 
 @end
-

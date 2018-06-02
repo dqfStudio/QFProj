@@ -12,6 +12,7 @@
 @interface HBaseCell : UITableViewCell
 @property (nonatomic, weak) UITableView *table;
 @property (nonatomic) NSIndexPath *indexPath;
+@property (nonatomic) UITableViewCellStyle style;
 @property (nonatomic) HCellModel *model;
 //子类覆盖
 - (void)initUI;
