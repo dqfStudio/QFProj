@@ -71,31 +71,37 @@ _Pragma("clang diagnostic pop") \
     return shareInstance;
 }
 - (void)addObject:(id)anObject operation:(SEL)selector {
-    if ([anObject isKindOfClass:UIView.class]) {
-        UIView *v = anObject;
-        [v setTextSelector:NSStringFromSelector(selector)];
-        [self.hashTable addObject:v];
+    @synchronized(self) {
+        if ([anObject isKindOfClass:UIView.class]) {
+            UIView *v = anObject;
+            [v setTextSelector:NSStringFromSelector(selector)];
+            [self.hashTable addObject:v];
+        }
     }
 }
 - (void)removeObject:(id)anObject {
-    if ([self.hashTable containsObject:anObject]) {
-        [self.hashTable removeObject:anObject];
+    @synchronized(self) {
+        if ([self.hashTable containsObject:anObject]) {
+            [self.hashTable removeObject:anObject];
+        }
     }
 }
 - (void)enumerateOperation {
-    NSArray *allObjects = [[self.hashTable objectEnumerator] allObjects];
-    //倒序执行
-    for (NSUInteger i=allObjects.count; i>0; i--) {
-        id anObject = allObjects[i-1];
-        if ([anObject isKindOfClass:UILabel.class] || [anObject isKindOfClass:UITextView.class]) {
-            UIView *v = anObject;
-            if (v.textSelector) {
-                SEL selector = NSSelectorFromString(v.textSelector);
-                if ([v respondsToSelector:selector]) {
-                    NSString *key = v.textKey;
-                    NSString *tbl = KSKinTbl;
-                    NSString *content = HLocalizedStringFromTable(key, tbl);
-                    SuppressPerformSelectorLeakWarning([v performSelector:selector withObject:content];);
+    @synchronized(self) {
+        NSArray *allObjects = [[self.hashTable objectEnumerator] allObjects];
+        //倒序执行
+        for (NSUInteger i=allObjects.count; i>0; i--) {
+            id anObject = allObjects[i-1];
+            if ([anObject isKindOfClass:UILabel.class] || [anObject isKindOfClass:UITextView.class]) {
+                UIView *v = anObject;
+                if (v.textSelector) {
+                    SEL selector = NSSelectorFromString(v.textSelector);
+                    if ([v respondsToSelector:selector]) {
+                        NSString *key = v.textKey;
+                        NSString *tbl = KSKinTbl;
+                        NSString *content = HLocalizedStringFromTable(key, tbl);
+                        SuppressPerformSelectorLeakWarning([v performSelector:selector withObject:content];);
+                    }
                 }
             }
         }
@@ -135,12 +141,14 @@ _Pragma("clang diagnostic pop") \
     });
 }
 - (void)skin_setText:(NSString *)text {
-    NSString *key = [text mutableCopy];
-    NSString *tbl = KSKinTbl;
-    NSString *content = HLocalizedStringFromTable(key, tbl);
-    [self setTextKey:key];
-    [self skin_setText:content];
-    [[_HSkinUtil share] addObject:self operation:@selector(skin_setText:)];
+    @synchronized(self) {
+        NSString *key = [text mutableCopy];
+        NSString *tbl = KSKinTbl;
+        NSString *content = HLocalizedStringFromTable(key, tbl);
+        [self setTextKey:key];
+        [self skin_setText:content];
+        [[_HSkinUtil share] addObject:self operation:@selector(skin_setText:)];
+    }
 }
 - (void)skin_dealloc {
     if (self && [NSStringFromClass([self class]) characterAtIndex:0] != '_') {
@@ -164,12 +172,14 @@ _Pragma("clang diagnostic pop") \
     });
 }
 - (void)skin_setText:(NSString *)text {
-    NSString *key = [text mutableCopy];
-    NSString *tbl = KSKinTbl;
-    NSString *content = HLocalizedStringFromTable(key, tbl);
-    [self setTextKey:key];
-    [self skin_setText:content];
-    [[_HSkinUtil share] addObject:self operation:@selector(skin_setText:)];
+    @synchronized(self) {
+        NSString *key = [text mutableCopy];
+        NSString *tbl = KSKinTbl;
+        NSString *content = HLocalizedStringFromTable(key, tbl);
+        [self setTextKey:key];
+        [self skin_setText:content];
+        [[_HSkinUtil share] addObject:self operation:@selector(skin_setText:)];
+    }
 }
 - (void)skin_dealloc {
     if (self && [NSStringFromClass([self class]) characterAtIndex:0] != '_') {
@@ -211,17 +221,19 @@ _Pragma("clang diagnostic pop") \
 }
 //设置语言
 + (void)setUserlanguage:(NSString *)language {
-    NSString *key = NSStringFromClass(self.class);
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *currLanguage = [userDefaults valueForKey:key];
-    if (![currLanguage isEqualToString:language]) {
-        
-        [userDefaults setValue:language forKey:key];
-        [userDefaults synchronize];
-        
-        NSString *path = [[NSBundle mainBundle] pathForResource:language ofType:@"lproj" ];
-        [HSwitchLanguage share].currentBundle = [NSBundle bundleWithPath:path];
+    @synchronized(self) {
+        NSString *key = NSStringFromClass(self.class);
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *currLanguage = [userDefaults valueForKey:key];
+        if (![currLanguage isEqualToString:language]) {
+            
+            [userDefaults setValue:language forKey:key];
+            [userDefaults synchronize];
+            
+            NSString *path = [[NSBundle mainBundle] pathForResource:language ofType:@"lproj" ];
+            [HSwitchLanguage share].currentBundle = [NSBundle bundleWithPath:path];
+        }
+        [[_HSkinUtil share] enumerateOperation];
     }
-    [[_HSkinUtil share] enumerateOperation];
 }
 @end
