@@ -135,6 +135,7 @@
 		15F9152920A18CA9000261C4 /* HAspectsCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9152820A18CA9000261C4 /* HAspectsCenter.m */; };
 		15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9152D20A27D1C000261C4 /* HRequestResultView.m */; };
 		171E540C3ECD9B640D790516 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E16C30E2760E6660FC02C1 /* libPods-QFProj.a */; };
+		6442ADC920C7847C00102D3E /* HSwitchLanguage in Resources */ = {isa = PBXBuildFile; fileRef = 6442ADC820C7847C00102D3E /* HSwitchLanguage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -370,6 +371,7 @@
 		15F9152E20A27D1C000261C4 /* HRequestResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRequestResultView.h; sourceTree = "<group>"; };
 		31E16C30E2760E6660FC02C1 /* libPods-QFProj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QFProj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60580163C2E51E9CB5D59084 /* Pods-QFProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.release.xcconfig"; sourceTree = "<group>"; };
+		6442ADC820C7847C00102D3E /* HSwitchLanguage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HSwitchLanguage; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -506,6 +508,7 @@
 		15B4DD7E2092F96B00773E04 /* QFUtil */ = {
 			isa = PBXGroup;
 			children = (
+				6442ADC820C7847C00102D3E /* HSwitchLanguage */,
 				15C5737520B3DD9F0070327C /* HTable */,
 				15C5734C20B3DD7B0070327C /* HTupleView */,
 				157696DE20A0AB6900E31469 /* HAspects */,
@@ -1098,6 +1101,7 @@
 				15F0296620BE8D79003287AA /* mgf_loading_new_10@2x.png in Resources */,
 				15F0296A20BE8D79003287AA /* mgf_loading_new_6@2x.png in Resources */,
 				15B4DD732092F88700773E04 /* LaunchScreen.storyboard in Resources */,
+				6442ADC920C7847C00102D3E /* HSwitchLanguage in Resources */,
 				15F0296720BE8D79003287AA /* mgf_loading_new_14@2x.png in Resources */,
 				15B4DDEC2092F96C00773E04 /* HLaunchImage.jpg in Resources */,
 				15F0297520BE8D79003287AA /* mgf_icon_no_server@2x.png in Resources */,
