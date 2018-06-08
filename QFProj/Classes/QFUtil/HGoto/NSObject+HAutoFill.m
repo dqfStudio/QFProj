@@ -8,6 +8,8 @@
 
 #import "NSObject+HAutoFill.h"
 
+static NSString *mockString = @"太阳初升万物初始生之气最盛虽不能如传说中那般餐霞食气但这样迎霞锻体自也有莫大好处可充盈人体生机一天之计在于晨每日早起多用功强筋壮骨活血炼筋将来才能在这苍莽山脉中有活命的本钱";
+
 @interface NSNumber (HAutoFill)
 //value需为数字型字符串
 + (NSNumber *)numberFrom:(id)value;
@@ -28,6 +30,9 @@
 /**
  将值赋给model，params支持data、string和dictionary
  */
+- (void)autoFill {
+    [self autoFill:nil];
+}
 - (void)autoFill:(id)params {
     [self autoFill:params map:nil];
 }
@@ -75,6 +80,21 @@
                 else if ([ppDetail.typeString isEqualToString:NSStringFromClass(NSDate.class)]) {
                     [self setValue:[NSDate dateWithTimeIntervalSince1970:0] forKey:ppDetail.name];
                 }
+            }
+        }
+    }else {
+        NSArray<HGOTOPropertyDetail *> *pplist = [HGotoRuntimeSupport entityPropertyDetailList:[self class] isDepSearch:YES];
+        for (HGOTOPropertyDetail *ppDetail in pplist) {
+            if ([ppDetail.typeString isEqualToString:NSStringFromClass(NSString.class)]) {
+                int index = arc4random() % (mockString.length - 3);
+                NSString *string = [mockString substringWithRange:NSMakeRange(index, 3)];
+                [self setValue:string forKey:ppDetail.name];
+            }
+            else if (!ppDetail.isObj || [ppDetail.typeString isEqualToString:NSStringFromClass(NSNumber.class)]) {
+                [self setValue:@(0) forKey:ppDetail.name];
+            }
+            else if ([ppDetail.typeString isEqualToString:NSStringFromClass(NSDate.class)]) {
+                [self setValue:[NSDate dateWithTimeIntervalSince1970:0] forKey:ppDetail.name];
             }
         }
     }

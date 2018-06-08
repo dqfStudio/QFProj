@@ -17,6 +17,7 @@
 /**
  将值赋给model，params支持data、string和dictionary
  */
+- (void)autoFill;
 - (void)autoFill:(id)params;
 - (void)autoFill:(id)params map:(NSDictionary *)mapKeys;
 - (void)autoFill:(id)params map:(NSDictionary *)mapKeys exclusive:(BOOL)exclusive;
