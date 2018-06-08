@@ -36,6 +36,26 @@
 - (void)autoFill {
     [self autoFill:nil];
 }
+
+
++ (NSArray *)autoFillWithClass:(Class)cls count:(NSInteger)count {
+    NSMutableArray *mutableArr = [NSMutableArray new];
+    for (int i=0; i<count; i++) {
+        NSObject *obj = [cls autoFill];
+        [mutableArr addObject:obj];
+    }
+    return mutableArr;
+}
+- (NSArray *)autoFillWithClass:(Class)cls count:(NSInteger)count {
+    NSMutableArray *mutableArr = [NSMutableArray new];
+    for (int i=0; i<count; i++) {
+        NSObject *obj = [cls autoFill];
+        [mutableArr addObject:obj];
+    }
+    return mutableArr;
+}
+
+
 - (void)autoFill:(id)params {
     [self autoFill:params map:nil];
 }

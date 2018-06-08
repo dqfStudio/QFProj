@@ -19,6 +19,10 @@
  */
 + (id)autoFill;
 - (void)autoFill;
+
++ (NSArray *)autoFillWithClass:(Class)cls count:(NSInteger)count;
+- (NSArray *)autoFillWithClass:(Class)cls count:(NSInteger)count;
+
 - (void)autoFill:(id)params;
 - (void)autoFill:(id)params map:(NSDictionary *)mapKeys;
 - (void)autoFill:(id)params map:(NSDictionary *)mapKeys exclusive:(BOOL)exclusive;
