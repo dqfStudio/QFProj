@@ -7,132 +7,129 @@
 //
 
 #import "UILabel+HUtil.h"
-#import <objc/runtime.h>
 #import <CoreText/CoreText.h>
 
 @implementation UILabel (HUtil)
 
 - (CGFloat)characterSpace {
-    return [objc_getAssociatedObject(self,_cmd) floatValue];
+    return [[self getAssociatedValueForKey:_cmd] floatValue];
 }
 - (void)setCharacterSpace:(CGFloat)characterSpace {
-    objc_setAssociatedObject(self, @selector(characterSpace), @(characterSpace), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setAssociateValue:@(characterSpace) withKey:@selector(characterSpace)];
 }
 
 - (CGFloat)lineSpace {
-    return [objc_getAssociatedObject(self, _cmd) floatValue];
+    return [[self getAssociatedValueForKey:_cmd] floatValue];
 }
 - (void)setLineSpace:(CGFloat)lineSpace {
-    objc_setAssociatedObject(self, @selector(lineSpace), @(lineSpace), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setAssociateValue:@(lineSpace) withKey:@selector(lineSpace)];
 }
 
 
 - (NSString *)keywords {
-    return objc_getAssociatedObject(self, _cmd);
+    return [self getAssociatedValueForKey:_cmd];
 }
 - (void)setKeywords:(NSString *)keywords {
-    objc_setAssociatedObject(self, @selector(keywords), keywords, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setAssociateValue:keywords withKey:@selector(keywords)];
 }
 
 - (UIFont *)keywordsFont {
-    return objc_getAssociatedObject(self, _cmd);
+    return [self getAssociatedValueForKey:_cmd];
 }
 - (void)setKeywordsFont:(UIFont *)keywordsFont {
-    objc_setAssociatedObject(self, @selector(keywordsFont), keywordsFont, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setAssociateValue:keywordsFont withKey:@selector(keywordsFont)];
 }
 
 - (UIColor *)keywordsColor {
-    return objc_getAssociatedObject(self, _cmd);
+    return [self getAssociatedValueForKey:_cmd];
 }
 - (void)setKeywordsColor:(UIColor *)keywordsColor {
-    objc_setAssociatedObject(self, @selector(keywordsColor), keywordsColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setAssociateValue:keywordsColor withKey:@selector(keywordsColor)];
 }
 
 - (NSInteger)imgIndex {
-    return [objc_getAssociatedObject(self, _cmd) integerValue];
+    return [[self getAssociatedValueForKey:_cmd] integerValue];
 }
 - (void)setImgIndex:(NSInteger)imgIndex {
-    objc_setAssociatedObject(self, @selector(imgIndex), @(imgIndex), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setAssociateValue:@(imgIndex) withKey:@selector(imgIndex)];
 }
 
 - (NSWordAlign)wordAlign {
-    return [objc_getAssociatedObject(self, _cmd) integerValue];
+    return [[self getAssociatedValueForKey:_cmd] integerValue];
 }
 - (void)setWordAlign:(NSWordAlign)wordAlign {
-    objc_setAssociatedObject(self, @selector(wordAlign), @(wordAlign), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setAssociateValue:@(wordAlign) withKey:@selector(wordAlign)];
 }
 
 - (CGSize)imgSize {
-    NSString *size = objc_getAssociatedObject(self, _cmd);
-    return CGSizeFromString(size);
+    return CGSizeFromString([self getAssociatedValueForKey:_cmd]);
 }
 - (void)setImgSize:(CGSize)imgSize {
-    NSString *size = NSStringFromCGSize(imgSize);
-    objc_setAssociatedObject(self, @selector(imgSize), size, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setAssociateValue:NSStringFromCGSize(imgSize) withKey:@selector(imgSize)];
 }
 
 - (NSString *)imgUrl {
-    return objc_getAssociatedObject(self, _cmd);
+    return [self getAssociatedValueForKey:_cmd];
 }
 - (void)setImgUrl:(NSString *)imgUrl {
-    objc_setAssociatedObject(self, @selector(imgUrl), imgUrl, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setAssociateValue:imgUrl withKey:@selector(imgUrl)];
 }
 
 - (NSInteger)leftSpace {
-    return [objc_getAssociatedObject(self, _cmd) integerValue];
+    return [[self getAssociatedValueForKey:_cmd] integerValue];
 }
 - (void)setLeftSpace:(NSInteger)leftSpace {
-    objc_setAssociatedObject(self, @selector(leftSpace), @(leftSpace), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setAssociateValue:@(leftSpace) withKey:@selector(leftSpace)];
 }
 
 - (NSInteger)rightSpace {
-    return [objc_getAssociatedObject(self, _cmd) integerValue];
+    return [[self getAssociatedValueForKey:_cmd] integerValue];
 }
 - (void)setRightSpace:(NSInteger)rightSpace {
-    objc_setAssociatedObject(self, @selector(rightSpace), @(rightSpace), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setAssociateValue:@(rightSpace) withKey:@selector(rightSpace)];
 }
 
 - (NSString *)underlineStr {
-    return objc_getAssociatedObject(self, _cmd);
+    return [self getAssociatedValueForKey:_cmd];
 }
 - (void)setUnderlineStr:(NSString *)underlineStr {
-    objc_setAssociatedObject(self, @selector(underlineStr), underlineStr, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setAssociateValue:underlineStr withKey:@selector(underlineStr)];
     
 }
 
 - (UIFont *)underlineFont {
-    return objc_getAssociatedObject(self, _cmd);
+    return [self getAssociatedValueForKey:_cmd];
 }
 - (void)setUnderlineFont:(UIFont *)underlineFont {
-    objc_setAssociatedObject(self, @selector(underlineFont), underlineFont, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setAssociateValue:underlineFont withKey:@selector(underlineFont)];
 }
 
 - (UIColor *)underlineColor {
-    return objc_getAssociatedObject(self, _cmd);
+    return [self getAssociatedValueForKey:_cmd];
 }
 - (void)setUnderlineColor:(UIColor *)underlineColor {
-    objc_setAssociatedObject(self, @selector(underlineColor), underlineColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setAssociateValue:underlineColor withKey:@selector(underlineColor)];
 }
 
 - (NSString *)middlelineStr {
-    return objc_getAssociatedObject(self, _cmd);
+    return [self getAssociatedValueForKey:_cmd];
 }
 - (void)setMiddlelineStr:(NSString *)middlelineStr {
-    objc_setAssociatedObject(self, @selector(middlelineStr), middlelineStr, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setAssociateValue:middlelineStr withKey:@selector(middlelineStr)];
 }
 
 - (UIFont *)middlelineFont {
-    return objc_getAssociatedObject(self, _cmd);
+    return [self getAssociatedValueForKey:_cmd];
 }
 - (void)setMiddlelineFont:(UIFont *)middlelineFont {
-    objc_setAssociatedObject(self, @selector(middlelineFont), middlelineFont, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setAssociateValue:middlelineFont withKey:@selector(middlelineFont)];
 }
 
 - (UIColor *)middlelineColor {
-    return objc_getAssociatedObject(self, _cmd);
+    return [self getAssociatedValueForKey:_cmd];
 }
 - (void)setMiddlelineColor:(UIColor *)middlelineColor {
-    objc_setAssociatedObject(self, @selector(middlelineColor), middlelineColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setAssociateValue:middlelineColor withKey:@selector(middlelineColor)];
 }
 
 /**

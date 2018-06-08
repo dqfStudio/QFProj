@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSObject+HMessy.h"
 
 typedef NS_ENUM(NSInteger, NSWordAlign) {
     NSWordAlignBottom = 0,

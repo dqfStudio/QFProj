@@ -10,11 +10,6 @@
 #import <objc/runtime.h>
 
 @implementation NSObject (HMessy)
-+ (NSString *(^)(void))name {
-    return ^NSString *(void) {
-        return NSStringFromClass(self.class);
-    };
-}
 - (void)setAssociateValue:(id)value withKey:(void *)key {
     objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }

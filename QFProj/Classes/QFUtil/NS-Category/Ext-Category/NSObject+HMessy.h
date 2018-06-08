@@ -7,10 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
 @interface NSObject (HMessy)
-+ (NSString *(^)(void))name;
 #pragma mark - Associate value
 - (void)setAssociateValue:(nullable id)value withKey:(void *)key;
 - (void)setAssociateWeakValue:(nullable id)value withKey:(void *)key;
