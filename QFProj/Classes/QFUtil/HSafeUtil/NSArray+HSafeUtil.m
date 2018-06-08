@@ -25,7 +25,7 @@
 #if DEBUG
         NSAssert(NO,nil);
 #else
-        objects[i] = @"";
+        return @"";
 #endif
     }
     return nil;
@@ -37,7 +37,7 @@
 #if DEBUG
         NSAssert(NO,nil);
 #else
-        objects[i] = @"";
+        return @"";
 #endif
     }
     return nil;
