@@ -12,6 +12,7 @@
 
 @interface NSObject (HAutoFill)
 
+//if exclusive为NO(默认为NO)，没有赋值的属性为：NSString为nil,NSNumber为nil，NSDate为nil
 - (void)autoFillWithData:(NSData *)data;
 - (void)autoFillWithData:(NSData *)data map:(NSDictionary *)mapKeys;
 
@@ -20,5 +21,8 @@
 
 - (void)autoFillWithParams:(NSDictionary *)params;
 - (void)autoFillWithParams:(NSDictionary *)params map:(NSDictionary *)mapKeys;
+
+//if exclusive为YES，没有赋值的属性默为：NSString为@"",NSNumber为@(0)，NSDate为1970年
+- (void)autoFillWithParams:(NSDictionary *)params map:(NSDictionary *)mapKeys exclusive:(BOOL)exclusive;
 
 @end
