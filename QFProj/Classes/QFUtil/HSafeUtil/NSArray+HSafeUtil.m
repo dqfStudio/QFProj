@@ -24,6 +24,8 @@
     }else{
 #if DEBUG
         NSAssert(NO,nil);
+#else
+        objects[i] = @"";
 #endif
     }
     return nil;
@@ -34,6 +36,8 @@
     }else{
 #if DEBUG
         NSAssert(NO,nil);
+#else
+        objects[i] = @"";
 #endif
     }
     return nil;
@@ -43,8 +47,9 @@
         if(objects[i] == nil) {
 #if DEBUG
             NSAssert(NO,nil);
+#else
+            objects[i] = @"";
 #endif
-            return nil;
         }
     }
     return [self safe_initWithObjects:objects count:cnt];
@@ -65,6 +70,8 @@
     }else {
 #if DEBUG
         NSAssert(NO,nil);
+#else
+        [self safe_addObject:@""];
 #endif
     }
 }
