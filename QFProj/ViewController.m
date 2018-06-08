@@ -74,7 +74,7 @@
     
     NSMutableDictionary *dict2 = [[NSMutableDictionary alloc] init];
     [dict2 setObject:@"www" forKey:@"ww"];
-    [self autoFillWithParams:dict map:dict2];
+    [self autoFill:dict map:dict2];
     
     NSLog(@"%@",self.TestString);
     NSLog(@"%d",self.yn);

@@ -36,19 +36,6 @@
 }
 @end
 
-@implementation NSString (HMessy)
-- (BOOL)isEqualToArrayAny:(NSArray *)array {
-    __block BOOL isContained = NO;
-    [array enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj isKindOfClass:[NSString class]] && [self isEqualToString:obj]) {
-            isContained = YES;
-            *stop = YES;
-        }
-    }];
-    return isContained;
-}
-@end
-
 @implementation NSArray (HMessy)
 - (id)containsClass:(Class)cls {
     for (id kls in self) {

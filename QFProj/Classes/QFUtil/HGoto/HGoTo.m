@@ -267,7 +267,7 @@
             if ([options containsObject:HGOtoOpt_AutoFill]) {
                 NSDictionary *params = [node paramsMap];
                 NSDictionary *keyMaping = [self getOptKeyMap:options];
-                [targetVC autoFillWithParams:params map:keyMaping];
+                [targetVC autoFill:params map:keyMaping];
             }
             if (doJump) {
                 if (needPopAction) {

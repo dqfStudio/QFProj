@@ -19,10 +19,6 @@
 - (void)removeAssociatedValues;
 @end
 
-@interface NSString (HMessy)
-- (BOOL)isEqualToArrayAny:(NSArray *)array;
-@end
-
 @interface NSArray (HMessy)
 - (id)containsClass:(Class)cls;
 @end
