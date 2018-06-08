@@ -24,6 +24,7 @@
 
 #import "UIView+HShow.h"
 #import "HFormController.h"
+#import "NSObject+HAutoFill.h"
 
 @interface ViewController () <HTupleViewDelegate> {
     UILabel *label;
@@ -62,8 +63,13 @@
     
     NSLog(@"");
     
+    ViewController *vc = [ViewController autoFill];
     
-    
+    NSLog(@"%@",vc.TestString);
+    NSLog(@"%d",vc.yn);
+    NSLog(@"%ld",vc.ff);
+    NSLog(@"%@",vc.ww);
+    NSLog(@"%@",vc.date);
 
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     [dict setObject:@"test" forKey:@"TestString"];

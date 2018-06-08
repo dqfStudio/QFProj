@@ -28,6 +28,11 @@
 /**
  将值赋给model，params支持data、string和dictionary
  */
++ (id)autoFill {
+    NSObject *object = [self new];
+    [object autoFill:nil];
+    return object;
+}
 - (void)autoFill {
     [self autoFill:nil];
 }
