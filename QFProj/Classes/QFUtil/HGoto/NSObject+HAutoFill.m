@@ -38,12 +38,12 @@
     NSDictionary *dict = nil;
     if ([params isKindOfClass:NSData.class]) {
         dict = [NSJSONSerialization JSONObjectWithData:params
-                                                             options:NSJSONReadingMutableContainers
-                                                               error:nil];
+                                               options:NSJSONReadingMutableContainers
+                                                 error:nil];
     }else if ([params isKindOfClass:NSArray.class]) {
         dict = [NSJSONSerialization JSONObjectWithData:[params dataUsingEncoding:NSUTF8StringEncoding]
-                                                             options:NSJSONReadingMutableContainers
-                                                               error:nil];
+                                               options:NSJSONReadingMutableContainers
+                                                 error:nil];
     }else if ([params isKindOfClass:NSDictionary.class]) {
         dict = params;
     }
