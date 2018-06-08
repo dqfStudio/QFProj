@@ -12,6 +12,12 @@
 
 @interface NSObject (HAutoFill)
 
+- (void)autoFillWithData:(NSData *)data;
+- (void)autoFillWithData:(NSData *)data map:(NSDictionary *)mapKeys;
+
+- (void)autoFillWithString:(NSString *)aString;
+- (void)autoFillWithString:(NSString *)aString map:(NSDictionary *)mapKeys;
+
 - (void)autoFillWithParams:(NSDictionary *)params;
 - (void)autoFillWithParams:(NSDictionary *)params map:(NSDictionary *)mapKeys;
 

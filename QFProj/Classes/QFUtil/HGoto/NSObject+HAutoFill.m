@@ -10,10 +10,37 @@
 
 @implementation NSObject (HAutoFill)
 
+- (void)autoFillWithData:(NSData *)data {
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
+                                                         options:NSJSONReadingMutableContainers
+                                                           error:nil];
+    [self autoFillWithParams:dict map:nil];
+}
+- (void)autoFillWithData:(NSData *)data map:(NSDictionary *)mapKeys {
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
+                                                         options:NSJSONReadingMutableContainers
+                                                           error:nil];
+    [self autoFillWithParams:dict map:mapKeys];
+}
+
+
+- (void)autoFillWithString:(NSString *)aString {
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[aString dataUsingEncoding:NSUTF8StringEncoding]
+                                                          options:NSJSONReadingMutableContainers
+                                                            error:nil];
+    [self autoFillWithParams:dict map:nil];
+}
+- (void)autoFillWithString:(NSString *)aString map:(NSDictionary *)mapKeys {
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[aString dataUsingEncoding:NSUTF8StringEncoding]
+                                                         options:NSJSONReadingMutableContainers
+                                                           error:nil];
+    [self autoFillWithParams:dict map:mapKeys];
+}
+
+
 - (void)autoFillWithParams:(NSDictionary *)params {
     [self autoFillWithParams:params map:nil];
 }
-
 - (void)autoFillWithParams:(NSDictionary *)params map:(NSDictionary *)mapKeys {
     NSArray<HGOTOPropertyDetail *> *pplist = [HGotoRuntimeSupport entityPropertyDetailList:[self class] isDepSearch:YES];
     for (HGOTOPropertyDetail *ppDetail in pplist) {
