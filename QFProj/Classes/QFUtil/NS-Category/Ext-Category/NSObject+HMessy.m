@@ -12,7 +12,7 @@
 @implementation NSObject (HMessy)
 + (NSString *(^)(void))name {
     return ^NSString *(void) {
-        return NSStringFromClass(self.class);;
+        return NSStringFromClass(self.class);
     };
 }
 - (void)setAssociateValue:(id)value withKey:(void *)key {
@@ -33,26 +33,5 @@
 
 - (id)getAssociatedValueForKey:(void *)key {
     return objc_getAssociatedObject(self, key);
-}
-@end
-
-@implementation NSArray (HMessy)
-- (id)containsClass:(Class)cls {
-    for (id kls in self) {
-        if ([kls isKindOfClass:cls]) {
-            return kls;
-        }
-    }
-    return nil;
-}
-@end
-
-@implementation NSNumber (HMessy)
-+ (NSNumber *)numberFrom:(id)value {
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    NSNumber *valueNum = [formatter numberFromString:value];
-    //if cannot convert value to number , set to 0 by defaylt
-    if (!valueNum) valueNum = @(0);
-    return valueNum;
 }
 @end

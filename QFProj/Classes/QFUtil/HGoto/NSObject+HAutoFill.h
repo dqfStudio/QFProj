@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "HGotoRuntimeSupport.h"
-#import "NSObject+HMessy.h"
 
 @interface NSObject (HAutoFill)
 

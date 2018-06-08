@@ -18,12 +18,3 @@
 - (nullable id)getAssociatedValueForKey:(void *)key;
 - (void)removeAssociatedValues;
 @end
-
-@interface NSArray (HMessy)
-- (id)containsClass:(Class)cls;
-@end
-
-@interface NSNumber (HMessy)
-//value需为数字型字符串
-+ (NSNumber *)numberFrom:(id)value;
-@end

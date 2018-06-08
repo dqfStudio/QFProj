@@ -8,6 +8,21 @@
 
 #import "NSObject+HAutoFill.h"
 
+@interface NSNumber (HAutoFill)
+//value需为数字型字符串
++ (NSNumber *)numberFrom:(id)value;
+@end
+
+@implementation NSNumber (HAutoFill)
++ (NSNumber *)numberFrom:(id)value {
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    NSNumber *valueNum = [formatter numberFromString:value];
+    //if cannot convert value to number , set to 0 by defaylt
+    if (!valueNum) valueNum = @(0);
+    return valueNum;
+}
+@end
+
 @implementation NSObject (HAutoFill)
 
 /**
@@ -41,23 +56,23 @@
             if (!mappedKey) mappedKey = ppDetail.name;
             id value = [dict valueForKey:mappedKey];
             if (value && [value isKindOfClass:[NSString class]]) {
-                if ([ppDetail.typeString isEqualToString:NSString.name()]) {
+                if ([ppDetail.typeString isEqualToString:NSStringFromClass(NSString.class)]) {
                     [self setValue:value forKey:ppDetail.name];
                 }
-                else if (!ppDetail.isObj || [ppDetail.typeString isEqualToString:NSNumber.name()]) {
+                else if (!ppDetail.isObj || [ppDetail.typeString isEqualToString:NSStringFromClass(NSNumber.class)]) {
                     [self setValue:[NSNumber numberFrom:value] forKey:ppDetail.name];
                 }
-                else if ([ppDetail.typeString isEqualToString:NSDate.name()]) {
+                else if ([ppDetail.typeString isEqualToString:NSStringFromClass(NSDate.class)]) {
                     [self setValue:[NSDate dateWithTimeIntervalSince1970:[value floatValue]] forKey:ppDetail.name];
                 }
             }else if ((!value || [value isKindOfClass:NSNull.class]) && exclusive) {
-                if ([ppDetail.typeString isEqualToString:NSString.name()]) {
+                if ([ppDetail.typeString isEqualToString:NSStringFromClass(NSString.class)]) {
                     [self setValue:@"" forKey:ppDetail.name];
                 }
-                else if (!ppDetail.isObj || [ppDetail.typeString isEqualToString:NSNumber.name()]) {
+                else if (!ppDetail.isObj || [ppDetail.typeString isEqualToString:NSStringFromClass(NSNumber.class)]) {
                     [self setValue:[NSNumber numberFrom:nil] forKey:ppDetail.name];
                 }
-                else if ([ppDetail.typeString isEqualToString:NSDate.name()]) {
+                else if ([ppDetail.typeString isEqualToString:NSStringFromClass(NSDate.class)]) {
                     [self setValue:[NSDate dateWithTimeIntervalSince1970:0] forKey:ppDetail.name];
                 }
             }
