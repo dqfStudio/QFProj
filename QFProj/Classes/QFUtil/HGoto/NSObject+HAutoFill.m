@@ -33,24 +33,10 @@
     [object autoFill:nil];
     return object;
 }
-- (void)autoFill {
-    [self autoFill:nil];
-}
-
-
-+ (NSArray *)autoFillWithClass:(Class)cls count:(NSInteger)count {
++ (NSArray *)autoFillWithCount:(NSInteger)count {
     NSMutableArray *mutableArr = [NSMutableArray new];
     for (int i=0; i<count; i++) {
-        NSObject *obj = [cls autoFill];
-        [mutableArr addObject:obj];
-    }
-    return mutableArr;
-}
-- (NSArray *)autoFillWithClass:(Class)cls count:(NSInteger)count {
-    NSMutableArray *mutableArr = [NSMutableArray new];
-    for (int i=0; i<count; i++) {
-        NSObject *obj = [cls autoFill];
-        [mutableArr addObject:obj];
+        [mutableArr addObject:[self autoFill]];
     }
     return mutableArr;
 }
@@ -128,15 +114,4 @@
     }
 }
 
-@end
-
-@implementation NSArray (HAutoFill)
-- (void)enumerateObjectsAutoFill {
-    [self enumerateObjectsUsingBlock:^(NSObject * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSBundle *bundle = [NSBundle bundleForClass:obj.class];
-        if ([bundle isEqual:[NSBundle mainBundle]]) {
-            [obj autoFill];
-        }
-    }];
-}
 @end

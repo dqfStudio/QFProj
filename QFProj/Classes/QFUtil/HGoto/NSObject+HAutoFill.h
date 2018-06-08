@@ -18,17 +18,10 @@
  将值赋给model，params支持data、string和dictionary
  */
 + (id)autoFill;
-- (void)autoFill;
-
-+ (NSArray *)autoFillWithClass:(Class)cls count:(NSInteger)count;
-- (NSArray *)autoFillWithClass:(Class)cls count:(NSInteger)count;
++ (NSArray *)autoFillWithCount:(NSInteger)count;
 
 - (void)autoFill:(id)params;
 - (void)autoFill:(id)params map:(NSDictionary *)mapKeys;
 - (void)autoFill:(id)params map:(NSDictionary *)mapKeys exclusive:(BOOL)exclusive;
 
-@end
-
-@interface NSArray (HAutoFill)
-- (void)enumerateObjectsAutoFill;
 @end
