@@ -24,3 +24,7 @@
 - (void)autoFill:(id)params map:(NSDictionary *)mapKeys exclusive:(BOOL)exclusive;
 
 @end
+
+@interface NSArray (HAutoFill)
+- (void)enumerateObjectsAutoFill;
+@end

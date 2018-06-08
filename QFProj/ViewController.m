@@ -64,6 +64,10 @@
     NSLog(@"");
     
     ViewController *vc = [ViewController autoFill];
+//    ViewController *vc = [ViewController new];
+    
+    NSArray *arr = [NSArray arrayWithObject:vc];
+    [arr enumerateObjectsAutoFill];
     
     NSLog(@"%@",vc.TestString);
     NSLog(@"%d",vc.yn);

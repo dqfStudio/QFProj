@@ -95,7 +95,11 @@
                 [self setValue:string forKey:ppDetail.name];
             }
             else if (!ppDetail.isObj || [ppDetail.typeString isEqualToString:NSStringFromClass(NSNumber.class)]) {
-                [self setValue:@(0) forKey:ppDetail.name];
+                if (ppDetail.typeCode == 'B') {
+                    [self setValue:@(0) forKey:ppDetail.name];
+                }else {
+                    [self setValue:@(123) forKey:ppDetail.name];
+                }
             }
             else if ([ppDetail.typeString isEqualToString:NSStringFromClass(NSDate.class)]) {
                 [self setValue:[NSDate dateWithTimeIntervalSince1970:0] forKey:ppDetail.name];
@@ -106,3 +110,13 @@
 
 @end
 
+@implementation NSArray (HAutoFill)
+- (void)enumerateObjectsAutoFill {
+    [self enumerateObjectsUsingBlock:^(NSObject * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSBundle *bundle = [NSBundle bundleForClass:obj.class];
+        if ([bundle isEqual:[NSBundle mainBundle]]) {
+            [obj autoFill];
+        }
+    }];
+}
+@end
