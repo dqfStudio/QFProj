@@ -24,8 +24,6 @@
     }else{
 #if DEBUG
         NSAssert(NO,nil);
-#else
-        return @"";
 #endif
     }
     return nil;
@@ -36,8 +34,6 @@
     }else{
 #if DEBUG
         NSAssert(NO,nil);
-#else
-        return @"";
 #endif
     }
     return nil;
@@ -70,8 +66,6 @@
     }else {
 #if DEBUG
         NSAssert(NO,nil);
-#else
-        [self safe_addObject:@""];
 #endif
     }
 }
