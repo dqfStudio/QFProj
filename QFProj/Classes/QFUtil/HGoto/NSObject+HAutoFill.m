@@ -81,7 +81,7 @@
                         if ([self respondsToSelector:NSSelectorFromString(tmpKeyPath)]) {
                             NSValue *value = [self valueForKey:tmpKeyPath];
                             NSRange range = [value rangeValue];
-                            if (num.integerValue < range.location || num.integerValue > range.location + range.location) {
+                            if (num.integerValue < range.location || num.integerValue > range.length) {
                                 NSLog(@"Value out of range!");
                                 [self setValue:@(range.location) forKey:ppDetail.name];
                                 continue;
