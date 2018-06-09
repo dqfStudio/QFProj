@@ -27,9 +27,9 @@ _Pragma("clang diagnostic pop") \
 + (HSwitchLanguage *)share;
 @end
 
-@interface _HSkinUtil : NSObject
+@interface _HSwitchUtil : NSObject
 @property (nonatomic) NSHashTable *hashTable;
-+ (_HSkinUtil *)share;
++ (_HSwitchUtil *)share;
 - (void)addObject:(id)anObject operation:(SEL)selector;
 - (void)enumerateOperation;
 @end
@@ -54,15 +54,15 @@ _Pragma("clang diagnostic pop") \
 }
 @end
 
-@implementation _HSkinUtil
+@implementation _HSwitchUtil
 - (NSHashTable *)hashTable {
     if (!_hashTable) {
         _hashTable = [NSHashTable weakObjectsHashTable];
     }
     return _hashTable;
 }
-+ (_HSkinUtil *)share {
-    static _HSkinUtil *shareInstance = nil;
++ (_HSwitchUtil *)share {
+    static _HSwitchUtil *shareInstance = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         shareInstance = [[self alloc] init];
@@ -138,7 +138,7 @@ _Pragma("clang diagnostic pop") \
         NSString *content = HLocalizedStringFromTable(key, tbl);
         [self setTextKey:key];
         [self skin_setText:content];
-        [[_HSkinUtil share] addObject:self operation:@selector(skin_setText:)];
+        [[_HSwitchUtil share] addObject:self operation:@selector(skin_setText:)];
     }
 }
 @end
@@ -162,7 +162,7 @@ _Pragma("clang diagnostic pop") \
         NSString *content = HLocalizedStringFromTable(key, tbl);
         [self setTextKey:key];
         [self skin_setText:content];
-        [[_HSkinUtil share] addObject:self operation:@selector(skin_setText:)];
+        [[_HSwitchUtil share] addObject:self operation:@selector(skin_setText:)];
     }
 }
 @end
@@ -211,7 +211,7 @@ _Pragma("clang diagnostic pop") \
             NSString *path = [[NSBundle mainBundle] pathForResource:language ofType:@"lproj" ];
             [HSwitchLanguage share].currentBundle = [NSBundle bundleWithPath:path];
         }
-        [[_HSkinUtil share] enumerateOperation];
+        [[_HSwitchUtil share] enumerateOperation];
     }
 }
 @end
