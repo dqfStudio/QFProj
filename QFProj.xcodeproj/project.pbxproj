@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15038EA820CC0C6A00A16FC9 /* HSwitchLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = 15038EA620CC0C6A00A16FC9 /* HSwitchLanguage.m */; };
 		1528DF4320BEF6BC00D0A004 /* HNaviToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1528DF4220BEF6BC00D0A004 /* HNaviToastView.m */; };
 		1528DF4620BF0A0200D0A004 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1528DF4520BF0A0200D0A004 /* MBProgressHUD.m */; };
 		1528DF4920BF0A7A00D0A004 /* HShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1528DF4820BF0A7A00D0A004 /* HShowView.m */; };
@@ -135,11 +136,12 @@
 		15F9152920A18CA9000261C4 /* HAspectsCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9152820A18CA9000261C4 /* HAspectsCenter.m */; };
 		15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9152D20A27D1C000261C4 /* HRequestResultView.m */; };
 		171E540C3ECD9B640D790516 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E16C30E2760E6660FC02C1 /* libPods-QFProj.a */; };
-		6442ADC920C7847C00102D3E /* HSwitchLanguage in Resources */ = {isa = PBXBuildFile; fileRef = 6442ADC820C7847C00102D3E /* HSwitchLanguage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1049599A6188933E5342328E /* Pods-QFProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.debug.xcconfig"; sourceTree = "<group>"; };
+		15038EA620CC0C6A00A16FC9 /* HSwitchLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSwitchLanguage.m; sourceTree = "<group>"; };
+		15038EA720CC0C6A00A16FC9 /* HSwitchLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSwitchLanguage.h; sourceTree = "<group>"; };
 		1528DF4120BEF6BC00D0A004 /* HNaviToastView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNaviToastView.h; sourceTree = "<group>"; };
 		1528DF4220BEF6BC00D0A004 /* HNaviToastView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNaviToastView.m; sourceTree = "<group>"; };
 		1528DF4420BF0A0100D0A004 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -371,7 +373,6 @@
 		15F9152E20A27D1C000261C4 /* HRequestResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRequestResultView.h; sourceTree = "<group>"; };
 		31E16C30E2760E6660FC02C1 /* libPods-QFProj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QFProj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60580163C2E51E9CB5D59084 /* Pods-QFProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.release.xcconfig"; sourceTree = "<group>"; };
-		6442ADC820C7847C00102D3E /* HSwitchLanguage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HSwitchLanguage; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +387,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15038EA520CC0C6A00A16FC9 /* HSwitchLanguage */ = {
+			isa = PBXGroup;
+			children = (
+				15038EA720CC0C6A00A16FC9 /* HSwitchLanguage.h */,
+				15038EA620CC0C6A00A16FC9 /* HSwitchLanguage.m */,
+			);
+			path = HSwitchLanguage;
+			sourceTree = "<group>";
+		};
 		1538FFA2209405CC002E3A29 /* HCache */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,7 +518,7 @@
 		15B4DD7E2092F96B00773E04 /* QFUtil */ = {
 			isa = PBXGroup;
 			children = (
-				6442ADC820C7847C00102D3E /* HSwitchLanguage */,
+				15038EA520CC0C6A00A16FC9 /* HSwitchLanguage */,
 				15C5737520B3DD9F0070327C /* HTable */,
 				15C5734C20B3DD7B0070327C /* HTupleView */,
 				157696DE20A0AB6900E31469 /* HAspects */,
@@ -1101,7 +1111,6 @@
 				15F0296620BE8D79003287AA /* mgf_loading_new_10@2x.png in Resources */,
 				15F0296A20BE8D79003287AA /* mgf_loading_new_6@2x.png in Resources */,
 				15B4DD732092F88700773E04 /* LaunchScreen.storyboard in Resources */,
-				6442ADC920C7847C00102D3E /* HSwitchLanguage in Resources */,
 				15F0296720BE8D79003287AA /* mgf_loading_new_14@2x.png in Resources */,
 				15B4DDEC2092F96C00773E04 /* HLaunchImage.jpg in Resources */,
 				15F0297520BE8D79003287AA /* mgf_icon_no_server@2x.png in Resources */,
@@ -1191,6 +1200,7 @@
 				15B4DDF22092F96C00773E04 /* UIButton+HUtil.m in Sources */,
 				1587D8D020BF708900C0391D /* HFormController.m in Sources */,
 				15464B7720A2C26300CDD27E /* HTestManager.m in Sources */,
+				15038EA820CC0C6A00A16FC9 /* HSwitchLanguage.m in Sources */,
 				15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */,
 				15B4DDED2092F96C00773E04 /* UIView+HImage.m in Sources */,
 				15B4DE30209319FA00773E04 /* NSObject+HSelector.m in Sources */,

@@ -31,7 +31,6 @@ _Pragma("clang diagnostic pop") \
 @property (nonatomic) NSHashTable *hashTable;
 + (_HSkinUtil *)share;
 - (void)addObject:(id)anObject operation:(SEL)selector;
-- (void)removeObject:(id)anObject;
 - (void)enumerateOperation;
 @end
 
@@ -76,13 +75,6 @@ _Pragma("clang diagnostic pop") \
             UIView *v = anObject;
             [v setTextSelector:NSStringFromSelector(selector)];
             [self.hashTable addObject:v];
-        }
-    }
-}
-- (void)removeObject:(id)anObject {
-    @synchronized(self) {
-        if ([self.hashTable containsObject:anObject]) {
-            [self.hashTable removeObject:anObject];
         }
     }
 }
@@ -137,7 +129,6 @@ _Pragma("clang diagnostic pop") \
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [self methodSwizzleWithOrigSEL:@selector(setText:) overrideSEL:@selector(skin_setText:)];
-        [self methodSwizzleWithOrigSEL:NSSelectorFromString(@"dealloc") overrideSEL:@selector(skin_dealloc)];
     });
 }
 - (void)skin_setText:(NSString *)text {
@@ -149,12 +140,6 @@ _Pragma("clang diagnostic pop") \
         [self skin_setText:content];
         [[_HSkinUtil share] addObject:self operation:@selector(skin_setText:)];
     }
-}
-- (void)skin_dealloc {
-    if (self && [NSStringFromClass([self class]) characterAtIndex:0] != '_') {
-        [[_HSkinUtil share] removeObject:self];
-    }
-    [self skin_dealloc];
 }
 @end
 
@@ -168,7 +153,6 @@ _Pragma("clang diagnostic pop") \
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [self methodSwizzleWithOrigSEL:@selector(setText:) overrideSEL:@selector(skin_setText:)];
-        [self methodSwizzleWithOrigSEL:NSSelectorFromString(@"dealloc") overrideSEL:@selector(skin_dealloc)];
     });
 }
 - (void)skin_setText:(NSString *)text {
@@ -180,12 +164,6 @@ _Pragma("clang diagnostic pop") \
         [self skin_setText:content];
         [[_HSkinUtil share] addObject:self operation:@selector(skin_setText:)];
     }
-}
-- (void)skin_dealloc {
-    if (self && [NSStringFromClass([self class]) characterAtIndex:0] != '_') {
-        [[_HSkinUtil share] removeObject:self];
-    }
-    [self skin_dealloc];
 }
 @end
 

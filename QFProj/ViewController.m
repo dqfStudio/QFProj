@@ -44,7 +44,7 @@ H_CheckProperty(NSInteger, rrr)
 
 @implementation ViewController
 
-H_CheckPropertyRange(rrr, 0, 100)
+H_CheckPropertyRange(rrr, 0, 150)
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
