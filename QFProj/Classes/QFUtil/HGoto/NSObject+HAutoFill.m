@@ -83,7 +83,7 @@
                             NSRange range = [value rangeValue];
                             if (num.integerValue < range.location || num.integerValue > range.location + range.location) {
                                 NSLog(@"Value out of range!");
-                                [self setValue:[NSNumber numberFrom:nil] forKey:ppDetail.name];
+                                [self setValue:@(range.location) forKey:ppDetail.name];
                                 continue;
                             }
                         }
