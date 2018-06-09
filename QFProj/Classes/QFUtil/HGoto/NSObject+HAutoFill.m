@@ -74,7 +74,21 @@
                     [self setValue:value forKey:ppDetail.name];
                 }
                 else if (!ppDetail.isObj || [ppDetail.typeString isEqualToString:NSStringFromClass(NSNumber.class)]) {
-                    [self setValue:[NSNumber numberFrom:value] forKey:ppDetail.name];
+                    if (![ppDetail.typeString isEqualToString:@"NSRange"]) {
+                        //Value range check
+                        NSNumber *num = value;
+                        NSString *tmpKeyPath = [NSString stringWithFormat:@"%@_",ppDetail.name];
+                        if ([self respondsToSelector:NSSelectorFromString(tmpKeyPath)]) {
+                            NSValue *value = [self valueForKey:tmpKeyPath];
+                            NSRange range = [value rangeValue];
+                            if (num.integerValue < range.location || num.integerValue > range.location + range.location) {
+                                NSLog(@"Value out of range!");
+                                [self setValue:[NSNumber numberFrom:nil] forKey:ppDetail.name];
+                                continue;
+                            }
+                        }
+                        [self setValue:[NSNumber numberFrom:value] forKey:ppDetail.name];
+                    }
                 }
                 else if ([ppDetail.typeString isEqualToString:NSStringFromClass(NSDate.class)]) {
                     [self setValue:[NSDate dateWithTimeIntervalSince1970:[value floatValue]] forKey:ppDetail.name];
@@ -84,7 +98,9 @@
                     [self setValue:@"" forKey:ppDetail.name];
                 }
                 else if (!ppDetail.isObj || [ppDetail.typeString isEqualToString:NSStringFromClass(NSNumber.class)]) {
-                    [self setValue:[NSNumber numberFrom:nil] forKey:ppDetail.name];
+                    if (![ppDetail.typeString isEqualToString:@"NSRange"]) {
+                        [self setValue:[NSNumber numberFrom:nil] forKey:ppDetail.name];
+                    }
                 }
                 else if ([ppDetail.typeString isEqualToString:NSStringFromClass(NSDate.class)]) {
                     [self setValue:[NSDate dateWithTimeIntervalSince1970:0] forKey:ppDetail.name];
@@ -103,8 +119,22 @@
             else if (!ppDetail.isObj || [ppDetail.typeString isEqualToString:NSStringFromClass(NSNumber.class)]) {
                 if (ppDetail.typeCode == 'B') {
                     [self setValue:@(0) forKey:ppDetail.name];
+                }else if ([ppDetail.typeString isEqualToString:@"NSRange"]) {
+                    //暂时不做处理
                 }else {
-                    [self setValue:@(123) forKey:ppDetail.name];
+                    //Value range check
+                    NSInteger num = 123;
+                    NSString *tmpKeyPath = [NSString stringWithFormat:@"%@_",ppDetail.name];
+                    if ([self respondsToSelector:NSSelectorFromString(tmpKeyPath)]) {
+                        NSValue *value = [self valueForKey:tmpKeyPath];
+                        NSRange range = [value rangeValue];
+                        if (num < range.location || num > range.location + range.location) {
+                            NSAssert(NO, @"Value out of range!");
+                            [self setValue:@(0) forKey:ppDetail.name];
+                            continue;
+                        }
+                    }
+                    [self setValue:@(num) forKey:ppDetail.name];
                 }
             }
             else if ([ppDetail.typeString isEqualToString:NSStringFromClass(NSDate.class)]) {

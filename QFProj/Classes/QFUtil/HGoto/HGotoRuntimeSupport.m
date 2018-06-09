@@ -105,6 +105,9 @@
                 typeString = [attrString substringWithRange:NSMakeRange(3, leftJian - attr - 3)];
                 protocalString = [attrString substringWithRange:NSMakeRange(leftJian - attr + 1, rightJian - leftJian - 1)];
             }
+        }else if (attr[1] == '{') {
+            NSString *attrString = [NSString stringWithCString:attr encoding:NSUTF8StringEncoding];
+            if ([attrString containsString:@"T{_NSRange=QQ}"]) typeString = @"NSRange";
         }
         HGOTOPropertyDetail *detail = [HGOTOPropertyDetail new];
         detail.name = p;

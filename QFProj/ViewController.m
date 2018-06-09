@@ -25,6 +25,7 @@
 #import "UIView+HShow.h"
 #import "HFormController.h"
 #import "NSObject+HAutoFill.h"
+#import "NSObject+HUtil.h"
 
 @interface ViewController () <HTupleViewDelegate> {
     UILabel *label;
@@ -33,15 +34,24 @@
 @property (nonatomic) BOOL yn;
 @property (nonatomic) NSInteger ff;
 @property (nonatomic) NSNumber *ww;
+@property (nonatomic) NSInteger /*2-2*/count2;
 @property (nonatomic) NSDate *date;
 @property (nonatomic) HTableView *table;
+@property (nonatomic) NSRange wcountRange;
+//HSetProperty2(rrr, rrr_)
+HSetProperty(NSInteger, rrr, rrr_)
 @end
 
 @implementation ViewController
 
+HSetPropertyRange(rrr_, 0, 100)
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     NSLog(@"");
+}
+- (NSRange)wcountRange {
+    return NSMakeRange(1, 2);
 }
 
 - (void)viewDidLoad {

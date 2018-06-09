@@ -49,6 +49,18 @@ NSString * methodName = [NSString stringWithFormat:@"%s", __func__]; \
 if (![arg isKindOfClass:[_class class]])\
 {arg = nil;}
 
+//Value range check
+#define HSetProperty(t,p,p_) \
+@property (nonatomic) t p; \
+@property (nonatomic) NSRange p_;
+
+#define HSetProperty2(p,p_) HSetProperty(NSInteger,p,p_)
+
+#define HSetPropertyRange(p_,location,length) \
+- (NSRange)p_ {\
+return NSMakeRange(location, length);\
+}
+
 @interface NSObject (HUtil)
 
 // deserializtion
