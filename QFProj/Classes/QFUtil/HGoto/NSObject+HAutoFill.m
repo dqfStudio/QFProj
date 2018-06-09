@@ -82,7 +82,9 @@
                             NSValue *value = [self valueForKey:tmpKeyPath];
                             NSRange range = [value rangeValue];
                             if (num.integerValue < range.location || num.integerValue > range.length) {
-                                NSLog(@"Value out of range!");
+#if DEBUG
+                                NSAssert(NO, @"Value out of range!");
+#endif
                                 [self setValue:@(range.location) forKey:ppDetail.name];
                                 continue;
                             }
