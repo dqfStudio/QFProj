@@ -130,7 +130,7 @@
                     if ([self respondsToSelector:NSSelectorFromString(tmpKeyPath)]) {
                         NSValue *value = [self valueForKey:tmpKeyPath];
                         NSRange range = [value rangeValue];
-                        if (num < range.location || num > range.location + range.location) {
+                        if (num < range.location || num > range.length) {
                             NSAssert(NO, @"Value out of range!");
                             [self setValue:@(0) forKey:ppDetail.name];
                             continue;
