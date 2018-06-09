@@ -38,13 +38,13 @@
 @property (nonatomic) NSDate *date;
 @property (nonatomic) HTableView *table;
 @property (nonatomic) NSRange wcountRange;
-//HSetProperty2(rrr, rrr_)
-HSetProperty(NSInteger, rrr, rrr_)
+
+H_CheckProperty(NSInteger, rrr, rrr_)
 @end
 
 @implementation ViewController
 
-HSetPropertyRange(rrr_, 0, 100)
+H_CheckPropertyRange(rrr_, 0, 100)
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
