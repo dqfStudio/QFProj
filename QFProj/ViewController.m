@@ -39,12 +39,12 @@
 @property (nonatomic) HTableView *table;
 @property (nonatomic) NSRange wcountRange;
 
-H_CheckProperty(NSInteger, rrr, rrr_)
+H_CheckProperty(NSInteger, rrr)
 @end
 
 @implementation ViewController
 
-H_CheckPropertyRange(rrr_, 0, 100)
+H_CheckPropertyRange(rrr, 0, 100)
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

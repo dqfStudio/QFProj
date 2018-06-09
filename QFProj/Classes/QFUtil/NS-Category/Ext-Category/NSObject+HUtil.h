@@ -50,14 +50,14 @@ if (![arg isKindOfClass:[_class class]])\
 {arg = nil;}
 
 //Value range check
-#define H_CheckProperty(t,p,p_) \
+#define H_CheckProperty(t,p) \
 @property (nonatomic) t p; \
-@property (nonatomic) NSRange p_;
+@property (nonatomic) NSRange p##_;
 
-#define H_CheckProperty2(p,p_) H_CheckProperty(NSInteger,p,p_)
+#define H_CheckProperty2(p) H_CheckProperty(NSInteger,p,p##_)
 
-#define H_CheckPropertyRange(p_,location,length) \
-- (NSRange)p_ {\
+#define H_CheckPropertyRange(p,location,length) \
+- (NSRange)p##_ {\
 return NSMakeRange(location, length);\
 }
 
