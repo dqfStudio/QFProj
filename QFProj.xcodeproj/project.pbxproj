@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		15038EA820CC0C6A00A16FC9 /* HSwitchLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = 15038EA620CC0C6A00A16FC9 /* HSwitchLanguage.m */; };
+		15038EB220CD5CB400A16FC9 /* HSkin.m in Sources */ = {isa = PBXBuildFile; fileRef = 15038EB020CD5CB400A16FC9 /* HSkin.m */; };
 		1528DF4320BEF6BC00D0A004 /* HNaviToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1528DF4220BEF6BC00D0A004 /* HNaviToastView.m */; };
 		1528DF4620BF0A0200D0A004 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1528DF4520BF0A0200D0A004 /* MBProgressHUD.m */; };
 		1528DF4920BF0A7A00D0A004 /* HShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1528DF4820BF0A7A00D0A004 /* HShowView.m */; };
@@ -142,6 +143,8 @@
 		1049599A6188933E5342328E /* Pods-QFProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.debug.xcconfig"; sourceTree = "<group>"; };
 		15038EA620CC0C6A00A16FC9 /* HSwitchLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSwitchLanguage.m; sourceTree = "<group>"; };
 		15038EA720CC0C6A00A16FC9 /* HSwitchLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSwitchLanguage.h; sourceTree = "<group>"; };
+		15038EB020CD5CB400A16FC9 /* HSkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSkin.m; sourceTree = "<group>"; };
+		15038EB120CD5CB400A16FC9 /* HSkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSkin.h; sourceTree = "<group>"; };
 		1528DF4120BEF6BC00D0A004 /* HNaviToastView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNaviToastView.h; sourceTree = "<group>"; };
 		1528DF4220BEF6BC00D0A004 /* HNaviToastView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNaviToastView.m; sourceTree = "<group>"; };
 		1528DF4420BF0A0100D0A004 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -396,6 +399,15 @@
 			path = HSwitchLanguage;
 			sourceTree = "<group>";
 		};
+		15038EAF20CD5CB400A16FC9 /* HSkin */ = {
+			isa = PBXGroup;
+			children = (
+				15038EB020CD5CB400A16FC9 /* HSkin.m */,
+				15038EB120CD5CB400A16FC9 /* HSkin.h */,
+			);
+			path = HSkin;
+			sourceTree = "<group>";
+		};
 		1538FFA2209405CC002E3A29 /* HCache */ = {
 			isa = PBXGroup;
 			children = (
@@ -518,6 +530,7 @@
 		15B4DD7E2092F96B00773E04 /* QFUtil */ = {
 			isa = PBXGroup;
 			children = (
+				15038EAF20CD5CB400A16FC9 /* HSkin */,
 				15038EA520CC0C6A00A16FC9 /* HSwitchLanguage */,
 				15C5737520B3DD9F0070327C /* HTable */,
 				15C5734C20B3DD7B0070327C /* HTupleView */,
@@ -1224,6 +1237,7 @@
 				15B4DDF72092F96C00773E04 /* UIDevice+HUtil.m in Sources */,
 				15B4DD6B2092F88700773E04 /* ViewController.m in Sources */,
 				1587D8DE20C2578900C0391D /* HBaseHeaderFooterView.m in Sources */,
+				15038EB220CD5CB400A16FC9 /* HSkin.m in Sources */,
 				15B4DDFB2092F96C00773E04 /* UIColor+HUtil.m in Sources */,
 				15C572AA20AEDAB90070327C /* HLabelView.m in Sources */,
 				15B4DDE82092F96C00773E04 /* AppDelegate+HDebug.m in Sources */,
