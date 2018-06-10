@@ -10,12 +10,18 @@
 #import <Foundation/Foundation.h>
 #import "UIColor+HUtil.h"
 
-#define KLanguageBase  @"Base" //默认语言，这里默认为汉语
-#define KLanguageEN    @"en"   //英语
-#define KSKinTbl       @"Test" //语言文件名
+#define KSkinBase   @"Base"  //默认皮肤主题
+#define KSkinDark   @"dark"  //黑色皮肤主题
+
+#define KSKinFont   @"font"  //字体皮肤
+#define KSKinColor  @"color" //颜色皮肤
+#define KSKinImage  @"image" //图片皮肤
 
 @interface HSkin : NSObject
-
+//获取当前皮肤主题
++ (NSString *)userSubject;
+//设置皮肤主题
++ (void)setUserSubject:(NSString *)suject;
 @end
 
 @interface UIView (UISkin)
@@ -29,8 +35,10 @@
 
 @interface UIButton (UISkin)
 - (void)skin_setFont:(NSString *)font;
-- (void)skin_setTextColor:(NSString *)color;
-- (void)skin_setImage:(NSString *)image;
+- (void)skin_setNormalTextColor:(NSString *)color;
+- (void)skin_setSelectedTextColor:(NSString *)color;
+- (void)skin_setNormalImage:(NSString *)image;
+- (void)skin_setSelectedImage:(NSString *)image;
 @end
 
 @interface UITextView (UISkin)
