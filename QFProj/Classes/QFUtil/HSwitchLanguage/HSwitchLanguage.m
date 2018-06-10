@@ -30,7 +30,7 @@ _Pragma("clang diagnostic pop") \
 @interface _HSwitchUtil : NSObject
 @property (nonatomic) NSHashTable *hashTable;
 + (_HSwitchUtil *)share;
-- (void)addObject:(id)anObject operation:(SEL)selector;
+- (void)addObject:(id)anObject;
 - (void)enumerateOperation;
 @end
 
@@ -69,12 +69,10 @@ _Pragma("clang diagnostic pop") \
     });
     return shareInstance;
 }
-- (void)addObject:(id)anObject operation:(SEL)selector {
+- (void)addObject:(id)anObject {
     @synchronized(self) {
         if ([anObject isKindOfClass:UIView.class]) {
-            UIView *v = anObject;
-            [v setTextSelector:NSStringFromSelector(selector)];
-            [self.hashTable addObject:v];
+            [self.hashTable addObject:anObject];
         }
     }
 }
@@ -137,8 +135,9 @@ _Pragma("clang diagnostic pop") \
         NSString *tbl = KSKinTbl;
         NSString *content = HLocalizedStringFromTable(key, tbl);
         [self setTextKey:key];
+        [self setTextSelector:NSStringFromSelector(@selector(skin_setText:))];
         [self skin_setText:content];
-        [[_HSwitchUtil share] addObject:self operation:@selector(skin_setText:)];
+        [[_HSwitchUtil share] addObject:self];
     }
 }
 @end
@@ -161,8 +160,9 @@ _Pragma("clang diagnostic pop") \
         NSString *tbl = KSKinTbl;
         NSString *content = HLocalizedStringFromTable(key, tbl);
         [self setTextKey:key];
+        [self setTextSelector:NSStringFromSelector(@selector(skin_setText:))];
         [self skin_setText:content];
-        [[_HSwitchUtil share] addObject:self operation:@selector(skin_setText:)];
+        [[_HSwitchUtil share] addObject:self];
     }
 }
 @end
