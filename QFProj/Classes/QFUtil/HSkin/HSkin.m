@@ -19,6 +19,14 @@ Stuff; \
 _Pragma("clang diagnostic pop") \
 } while (0)
 
+#define H_SkinProperty(p, setP) \
+- (NSString *)p {\
+return objc_getAssociatedObject(self, _cmd);\
+}\
+- (void)setP:(NSString *)p {\
+    objc_setAssociatedObject(self, @selector(p), p, OBJC_ASSOCIATION_RETAIN_NONATOMIC);\
+}
+
 @interface HSkin ()
 @property (nonatomic) NSString *currentSubject;
 @property (nonatomic) NSBundle *currentBundle;
@@ -33,7 +41,7 @@ _Pragma("clang diagnostic pop") \
 @interface _HSkinUtil : NSObject
 @property (nonatomic) NSHashTable *hashTable;
 + (_HSkinUtil *)share;
-- (void)addObject:(id)anObject operation:(SEL)selector;
+- (void)addObject:(id)anObject;
 - (void)enumerateOperation;
 @end
 
@@ -58,88 +66,25 @@ _Pragma("clang diagnostic pop") \
 @end
 
 @implementation UIView (UISkinKeys)
-- (NSString *)fontKey {
-    return objc_getAssociatedObject(self, _cmd);
-}
-- (void)setFontKey:(NSString *)fontKey {
-    objc_setAssociatedObject(self, @selector(fontKey), fontKey, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-- (NSString *)fontSelector {
-    return objc_getAssociatedObject(self, _cmd);
-}
-- (void)setFontSelector:(NSString *)fontSelector {
-    objc_setAssociatedObject(self, @selector(fontSelector), fontSelector, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
 
+H_SkinProperty(fontKey, setFontKey)
+H_SkinProperty(fontSelector, setFontSelector)
 
-- (NSString *)textColorKey {
-    return objc_getAssociatedObject(self, _cmd);
-}
-- (void)setTextColorKey:(NSString *)textColorKey {
-    objc_setAssociatedObject(self, @selector(textColorKey), textColorKey, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-- (NSString *)textColorSelector {
-    return objc_getAssociatedObject(self, _cmd);
-}
-- (void)setTextColorSelector:(NSString *)textColorSelector {
-    objc_setAssociatedObject(self, @selector(textColorSelector), textColorSelector, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
+H_SkinProperty(textColorKey, setTextColorKey)
+H_SkinProperty(textColorSelector, setTextColorSelector)
 
+H_SkinProperty(selectedTextColorKey, setSelectedTextColorKey)
+H_SkinProperty(selectedTextColorSelector, setSelectedTextColorSelector)
 
-- (NSString *)selectedTextColorKey {
-    return objc_getAssociatedObject(self, _cmd);
-}
-- (void)setSelectedTextColorKey:(NSString *)selectedTextColorKey {
-    objc_setAssociatedObject(self, @selector(selectedTextColorKey), selectedTextColorKey, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-- (NSString *)selectedTextColorSelector {
-    return objc_getAssociatedObject(self, _cmd);
-}
-- (void)setSelectedTextColorSelector:(NSString *)selectedTextColorSelector {
-    objc_setAssociatedObject(self, @selector(selectedTextColorSelector), selectedTextColorSelector, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
+H_SkinProperty(backgroundColorKey, setBackgroundColorKey)
+H_SkinProperty(backgroundColorSelector, setBackgroundColorSelector)
 
+H_SkinProperty(imageKey, setImageKey)
+H_SkinProperty(imageSelector, setImageSelector)
 
-- (NSString *)backgroundColorKey {
-    return objc_getAssociatedObject(self, _cmd);
-}
-- (void)setBackgroundColorKey:(NSString *)backgroundColorKey {
-    objc_setAssociatedObject(self, @selector(backgroundColorKey), backgroundColorKey, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-- (NSString *)backgroundColorSelector {
-    return objc_getAssociatedObject(self, _cmd);
-}
-- (void)setBackgroundColorSelector:(NSString *)backgroundColorSelector {
-    objc_setAssociatedObject(self, @selector(backgroundColorSelector), backgroundColorSelector, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
+H_SkinProperty(seletedImageKey, setSeletedImageKey)
+H_SkinProperty(selectedImageSelector, setSelectedImageSelector)
 
-
-- (NSString *)imageKey {
-    return objc_getAssociatedObject(self, _cmd);
-}
-- (void)setImageKey:(NSString *)imageKey {
-    objc_setAssociatedObject(self, @selector(imageKey), imageKey, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-- (NSString *)imageSelector {
-    return objc_getAssociatedObject(self, _cmd);
-}
-- (void)setImageSelector:(NSString *)imageSelector {
-    objc_setAssociatedObject(self, @selector(imageSelector), imageSelector, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-
-- (NSString *)seletedImageKey {
-    return objc_getAssociatedObject(self, _cmd);
-}
-- (void)setSeletedImageKey:(NSString *)seletedImageKey {
-    objc_setAssociatedObject(self, @selector(seletedImageKey), seletedImageKey, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-- (NSString *)selectedImageSelector {
-    return objc_getAssociatedObject(self, _cmd);
-}
-- (void)setSelectedImageSelector:(NSString *)selectedImageSelector {
-    objc_setAssociatedObject(self, @selector(selectedImageSelector), selectedImageSelector, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
 @end
 
 @implementation _HSkinUtil
@@ -157,51 +102,10 @@ _Pragma("clang diagnostic pop") \
     });
     return shareInstance;
 }
-- (void)addObject:(id)anObject operation:(SEL)selector {
+- (void)addObject:(id)anObject {
     @synchronized(self) {
         if ([anObject isKindOfClass:UIView.class]) {
-            UIView *v = anObject;
-            NSString *seltor = NSStringFromSelector(selector);
-            if ([seltor isEqualToString:NSStringFromSelector(@selector(setBackgroundColor:))]) {
-                [v setBackgroundColorSelector:seltor];
-            }
-        }
-        if ([anObject isKindOfClass:UILabel.class]) {
-            UILabel *label = anObject;
-            NSString *seltor = NSStringFromSelector(selector);
-            if ([seltor isEqualToString:NSStringFromSelector(@selector(setFont:))]) {
-                [label setFontSelector:seltor];
-            }else if ([seltor isEqualToString:NSStringFromSelector(@selector(setTextColor:))]) {
-                [label setTextColorSelector:seltor];
-            }
-            [self.hashTable addObject:label];
-        }else if ([anObject isKindOfClass:UITextView.class]) {
-            UITextView *textView = anObject;
-            NSString *seltor = NSStringFromSelector(selector);
-            if ([seltor isEqualToString:NSStringFromSelector(@selector(setFont:))]) {
-                [textView setFontSelector:seltor];
-            }else if ([seltor isEqualToString:NSStringFromSelector(@selector(setTextColor:))]) {
-                [textView setTextColorSelector:seltor];
-            }
-            [self.hashTable addObject:textView];
-        }else if ([anObject isKindOfClass:UIButton.class]) {
-            UIButton *button = anObject;
-            NSString *seltor = NSStringFromSelector(selector);
-            if ([seltor isEqualToString:NSStringFromSelector(@selector(setFont:))]) {
-                [button setFontSelector:seltor];
-            }else if ([seltor isEqualToString:NSStringFromSelector(@selector(setTextColor:))]) {
-                [button setTextColorSelector:seltor];
-            }else if ([seltor isEqualToString:NSStringFromSelector(@selector(setImageSelector:))]) {
-                [button setImageSelector:seltor];
-            }
-            [self.hashTable addObject:button];
-        }else if ([anObject isKindOfClass:UIImageView.class]) {
-            UIImageView *imageView = anObject;
-            NSString *seltor = NSStringFromSelector(selector);
-            if ([seltor isEqualToString:NSStringFromSelector(@selector(setImageSelector:))]) {
-                [imageView setImageSelector:seltor];
-            }
-            [self.hashTable addObject:imageView];
+            [self.hashTable addObject:anObject];
         }
     }
 }
@@ -354,8 +258,9 @@ _Pragma("clang diagnostic pop") \
 - (void)skin_setBackgroundColor:(NSString *)color {
     NSString *key = [color mutableCopy];
     [self setBackgroundColorKey:key];
+    [self setBackgroundColorSelector:NSStringFromSelector(@selector(setBackgroundColor:))];
     [self setBackgroundColor:[[HSkin share] colorWithKey:key]];
-    [[_HSkinUtil share] addObject:self operation:@selector(setBackgroundColor:)];
+    [[_HSkinUtil share] addObject:self];
 }
 @end
 
@@ -363,14 +268,16 @@ _Pragma("clang diagnostic pop") \
 - (void)skin_setFont:(NSString *)font {
     NSString *key = [font mutableCopy];
     [self setFontKey:key];
+    [self setFontSelector:NSStringFromSelector(@selector(setFont:))];
     [self setFont:[[HSkin share] fontWithKey:key]];
-    [[_HSkinUtil share] addObject:self operation:@selector(setFont:)];
+    [[_HSkinUtil share] addObject:self];
 }
 - (void)skin_setTextColor:(NSString *)color {
     NSString *key = [color mutableCopy];
     [self setTextColorKey:key];
+    [self setTextColorSelector:NSStringFromSelector(@selector(setTextColor:))];
     [self setTextColor:[[HSkin share] colorWithKey:key]];
-    [[_HSkinUtil share] addObject:self operation:@selector(setTextColor:)];
+    [[_HSkinUtil share] addObject:self];
 }
 @end
 
@@ -378,32 +285,37 @@ _Pragma("clang diagnostic pop") \
 - (void)skin_setFont:(NSString *)font {
     NSString *key = [font mutableCopy];
     [self setFontKey:key];
+    [self setFontSelector:NSStringFromSelector(@selector(setFont:))];
     [self.titleLabel setFont:[[HSkin share] fontWithKey:key]];
-    [[_HSkinUtil share] addObject:self operation:@selector(setFont:)];
+    [[_HSkinUtil share] addObject:self];
 }
 - (void)skin_setNormalTextColor:(NSString *)color {
     NSString *key = [color mutableCopy];
     [self setTextColorKey:key];
+    [self setTextColorSelector:NSStringFromSelector(@selector(setTitleColor:forState:))];
     [self setTitleColor:[[HSkin share] colorWithKey:key] forState:UIControlStateNormal];
-    [[_HSkinUtil share] addObject:self operation:@selector(setTitleColor:forState:)];
+    [[_HSkinUtil share] addObject:self];
 }
 - (void)skin_setSelectedTextColor:(NSString *)color {
     NSString *key = [color mutableCopy];
     [self setSelectedTextColorSelector:key];
+    [self setSelectedTextColorSelector:NSStringFromSelector(@selector(setTitleColor:forState:))];
     [self setTitleColor:[[HSkin share] colorWithKey:key] forState:UIControlStateSelected];
-    [[_HSkinUtil share] addObject:self operation:@selector(setTitleColor:forState:)];
+    [[_HSkinUtil share] addObject:self];
 }
 - (void)skin_setNormalImage:(NSString *)image {
     NSString *key = [image mutableCopy];
     [self setImageKey:key];
+    [self setImageSelector:NSStringFromSelector(@selector(setImage:forState:))];
     [self setImage:[[HSkin share] imageWithKey:key ofType:nil] forState:UIControlStateNormal];
-    [[_HSkinUtil share] addObject:self operation:@selector(setImage:forState:)];
+    [[_HSkinUtil share] addObject:self];
 }
 - (void)skin_setSelectedImage:(NSString *)image {
     NSString *key = [image mutableCopy];
     [self setSeletedImageKey:key];
+    [self setSelectedImageSelector:NSStringFromSelector(@selector(setImage:forState:))];
     [self setImage:[[HSkin share] imageWithKey:key ofType:nil] forState:UIControlStateSelected];
-    [[_HSkinUtil share] addObject:self operation:@selector(setImage:forState:)];
+    [[_HSkinUtil share] addObject:self];
 }
 @end
 
@@ -411,14 +323,16 @@ _Pragma("clang diagnostic pop") \
 - (void)skin_setFont:(NSString *)font {
     NSString *key = [font mutableCopy];
     [self setFontKey:key];
+    [self setFontSelector:NSStringFromSelector(@selector(setFont:))];
     [self setFont:[[HSkin share] fontWithKey:key]];
-    [[_HSkinUtil share] addObject:self operation:@selector(setFont:)];
+    [[_HSkinUtil share] addObject:self];
 }
 - (void)skin_setTextColor:(NSString *)color {
     NSString *key = [color mutableCopy];
     [self setTextColorKey:key];
+    [self setTextColorSelector:NSStringFromSelector(@selector(setTextColor:))];
     [self setTextColor:[[HSkin share] colorWithKey:key]];
-    [[_HSkinUtil share] addObject:self operation:@selector(setTextColor:)];
+    [[_HSkinUtil share] addObject:self];
 }
 @end
 
@@ -426,8 +340,9 @@ _Pragma("clang diagnostic pop") \
 - (void)skin_setImage:(NSString *)image {
     NSString *key = [image mutableCopy];
     [self setImageKey:key];
+    [self setImageSelector:NSStringFromSelector(@selector(setImage:))];
     [self setImage:[[HSkin share] imageWithKey:key ofType:nil]];
-    [[_HSkinUtil share] addObject:self operation:@selector(setImage:)];
+    [[_HSkinUtil share] addObject:self];
 }
 @end
 

@@ -402,8 +402,8 @@
 		15038EAF20CD5CB400A16FC9 /* HSkin */ = {
 			isa = PBXGroup;
 			children = (
-				15038EB020CD5CB400A16FC9 /* HSkin.m */,
 				15038EB120CD5CB400A16FC9 /* HSkin.h */,
+				15038EB020CD5CB400A16FC9 /* HSkin.m */,
 			);
 			path = HSkin;
 			sourceTree = "<group>";
