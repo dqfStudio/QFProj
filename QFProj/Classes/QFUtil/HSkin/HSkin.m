@@ -33,7 +33,7 @@ return objc_getAssociatedObject(self, _cmd);\
 @property (nonatomic) NSDictionary *currentFontDict;
 @property (nonatomic) NSDictionary *currentColorDict;
 + (HSkin *)share;
-- (UIFont *)fontWithKey:(NSString *)aKey;
+- (UIFont *)fontWithKey:(NSString *)aKey type:(NSInteger)type;
 - (UIColor *)colorWithKey:(NSString *)aKey;
 - (UIImage *)imageWithKey:(NSString *)aKey ofType:(nullable NSString *)ext;
 @end
@@ -46,23 +46,24 @@ return objc_getAssociatedObject(self, _cmd);\
 @end
 
 @interface UIView (UISkinKeys)
-@property (nonatomic) NSString *fontKey;
-@property (nonatomic) NSString *fontSelector;
+@property (nonatomic) NSString  *fontKey;
+@property (nonatomic) NSInteger fontType;
+@property (nonatomic) NSString  *fontSelector;
 
-@property (nonatomic) NSString *textColorKey;
-@property (nonatomic) NSString *textColorSelector;
+@property (nonatomic) NSString  *textColorKey;
+@property (nonatomic) NSString  *textColorSelector;
 
-@property (nonatomic) NSString *selectedTextColorKey;
-@property (nonatomic) NSString *selectedTextColorSelector;
+@property (nonatomic) NSString  *selectedTextColorKey;
+@property (nonatomic) NSString  *selectedTextColorSelector;
 
-@property (nonatomic) NSString *backgroundColorKey;
-@property (nonatomic) NSString *backgroundColorSelector;
+@property (nonatomic) NSString  *backgroundColorKey;
+@property (nonatomic) NSString  *backgroundColorSelector;
 
-@property (nonatomic) NSString *imageKey;
-@property (nonatomic) NSString *imageSelector;
+@property (nonatomic) NSString  *imageKey;
+@property (nonatomic) NSString  *imageSelector;
 
-@property (nonatomic) NSString *seletedImageKey;
-@property (nonatomic) NSString *selectedImageSelector;
+@property (nonatomic) NSString  *seletedImageKey;
+@property (nonatomic) NSString  *selectedImageSelector;
 @end
 
 @implementation UIView (UISkinKeys)
@@ -132,7 +133,7 @@ H_SkinProperty(selectedImageSelector, setSelectedImageSelector)
                     SEL selector = NSSelectorFromString(label.fontSelector);
                     if ([label respondsToSelector:selector]) {
                         NSString *key = label.fontKey;
-                        UIFont *content = [[HSkin share] fontWithKey:key];
+                        UIFont *content = [[HSkin share] fontWithKey:key type:label.fontType];
                         SuppressPerformSelectorLeakWarning([label performSelector:selector withObject:content];);
                     }
                 }else if (label.textColorSelector) {
@@ -149,7 +150,7 @@ H_SkinProperty(selectedImageSelector, setSelectedImageSelector)
                     SEL selector = NSSelectorFromString(textView.fontSelector);
                     if ([textView respondsToSelector:selector]) {
                         NSString *key = textView.fontKey;
-                        UIFont *content = [[HSkin share] fontWithKey:key];
+                        UIFont *content = [[HSkin share] fontWithKey:key type:textView.fontType];
                         SuppressPerformSelectorLeakWarning([textView performSelector:selector withObject:content];);
                     }
                 }else if (textView.textColorSelector) {
@@ -166,7 +167,7 @@ H_SkinProperty(selectedImageSelector, setSelectedImageSelector)
                     SEL selector = NSSelectorFromString(button.fontSelector);
                     if ([button respondsToSelector:selector]) {
                         NSString *key = button.fontKey;
-                        UIFont *content = [[HSkin share] fontWithKey:key];
+                        UIFont *content = [[HSkin share] fontWithKey:key type:button.fontType];
                         SuppressPerformSelectorLeakWarning([button performSelector:selector withObject:content];);
                     }
                 }else if (button.textColorSelector) {
@@ -268,8 +269,17 @@ H_SkinProperty(selectedImageSelector, setSelectedImageSelector)
 - (void)skin_setFont:(NSString *)font {
     NSString *key = [font mutableCopy];
     [self setFontKey:key];
+    [self setFontType:0];
     [self setFontSelector:NSStringFromSelector(@selector(setFont:))];
-    [self setFont:[[HSkin share] fontWithKey:key]];
+    [self setFont:[[HSkin share] fontWithKey:key type:0]];
+    [[_HSkinUtil share] addObject:self];
+}
+- (void)skin_setBoldFont:(NSString *)font {
+    NSString *key = [font mutableCopy];
+    [self setFontKey:key];
+    [self setFontType:1];
+    [self setFontSelector:NSStringFromSelector(@selector(setFont:))];
+    [self setFont:[[HSkin share] fontWithKey:key type:1]];
     [[_HSkinUtil share] addObject:self];
 }
 - (void)skin_setTextColor:(NSString *)color {
@@ -285,8 +295,17 @@ H_SkinProperty(selectedImageSelector, setSelectedImageSelector)
 - (void)skin_setFont:(NSString *)font {
     NSString *key = [font mutableCopy];
     [self setFontKey:key];
+    [self setFontType:0];
     [self setFontSelector:NSStringFromSelector(@selector(setFont:))];
-    [self.titleLabel setFont:[[HSkin share] fontWithKey:key]];
+    [self.titleLabel setFont:[[HSkin share] fontWithKey:key type:0]];
+    [[_HSkinUtil share] addObject:self];
+}
+- (void)skin_setBoldFont:(NSString *)font {
+    NSString *key = [font mutableCopy];
+    [self setFontKey:key];
+    [self setFontType:1];
+    [self setFontSelector:NSStringFromSelector(@selector(setFont:))];
+    [self.titleLabel setFont:[[HSkin share] fontWithKey:key type:1]];
     [[_HSkinUtil share] addObject:self];
 }
 - (void)skin_setNormalTextColor:(NSString *)color {
@@ -323,8 +342,17 @@ H_SkinProperty(selectedImageSelector, setSelectedImageSelector)
 - (void)skin_setFont:(NSString *)font {
     NSString *key = [font mutableCopy];
     [self setFontKey:key];
+    [self setFontType:0];
     [self setFontSelector:NSStringFromSelector(@selector(setFont:))];
-    [self setFont:[[HSkin share] fontWithKey:key]];
+    [self setFont:[[HSkin share] fontWithKey:key type:0]];
+    [[_HSkinUtil share] addObject:self];
+}
+- (void)skin_setBoldFont:(NSString *)font {
+    NSString *key = [font mutableCopy];
+    [self setFontKey:key];
+    [self setFontType:1];
+    [self setFontSelector:NSStringFromSelector(@selector(setFont:))];
+    [self setFont:[[HSkin share] fontWithKey:key type:1]];
     [[_HSkinUtil share] addObject:self];
 }
 - (void)skin_setTextColor:(NSString *)color {
@@ -377,10 +405,11 @@ H_SkinProperty(selectedImageSelector, setSelectedImageSelector)
     return self;
 }
 
-- (UIFont *)fontWithKey:(NSString *)aKey {
+- (UIFont *)fontWithKey:(NSString *)aKey type:(NSInteger)type {
     if (!aKey) {
         NSString *value = self.currentFontDict[aKey];
-        return [UIFont systemFontOfSize:value.integerValue];
+        if (type == 0) return [UIFont systemFontOfSize:value.integerValue];
+        return [UIFont boldSystemFontOfSize:value.integerValue];
     }
     return nil;
 }

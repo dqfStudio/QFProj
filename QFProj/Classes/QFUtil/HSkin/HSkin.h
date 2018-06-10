@@ -30,11 +30,13 @@
 
 @interface UILabel (UISkin)
 - (void)skin_setFont:(NSString *)font;
+- (void)skin_setBoldFont:(NSString *)font;
 - (void)skin_setTextColor:(NSString *)color;
 @end
 
 @interface UIButton (UISkin)
 - (void)skin_setFont:(NSString *)font;
+- (void)skin_setBoldFont:(NSString *)font;
 - (void)skin_setNormalTextColor:(NSString *)color;
 - (void)skin_setSelectedTextColor:(NSString *)color;
 - (void)skin_setNormalImage:(NSString *)image;
@@ -43,6 +45,7 @@
 
 @interface UITextView (UISkin)
 - (void)skin_setFont:(NSString *)font;
+- (void)skin_setBoldFont:(NSString *)font;
 - (void)skin_setTextColor:(NSString *)color;
 @end
 
