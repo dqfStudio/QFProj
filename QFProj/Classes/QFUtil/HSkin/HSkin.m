@@ -69,6 +69,12 @@ return objc_getAssociatedObject(self, _cmd);\
 @implementation UIView (UISkinKeys)
 
 H_SkinProperty(fontKey, setFontKey)
+- (NSInteger)fontType {
+    return [objc_getAssociatedObject(self, _cmd) integerValue];
+}
+- (void)setFontType:(NSInteger)fontType {
+    objc_setAssociatedObject(self, @selector(fontType), @(fontType), OBJC_ASSOCIATION_RETAIN_NONATOMIC);\
+}
 H_SkinProperty(fontSelector, setFontSelector)
 
 H_SkinProperty(textColorKey, setTextColorKey)
