@@ -46,7 +46,7 @@
         //调整leftImageView的坐标
         CGRect tmpFrame = self.imageView.frame;
         tmpFrame.origin.x = self.leftImageEdgeInsets.left;
-        tmpFrame.origin.y = self.frame.size.height/2-tmpFrame.size.height/2;
+        tmpFrame.origin.y = self.leftImageEdgeInsets.height/2-tmpFrame.size.height/2;
         if (!CGRectEqualToRect(self.leftImageView.frame, tmpFrame)) {
             self.imageView.frame = tmpFrame;
             self.leftImageView.frame = tmpFrame;
