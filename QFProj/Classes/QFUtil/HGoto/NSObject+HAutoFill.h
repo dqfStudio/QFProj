@@ -20,8 +20,13 @@
 + (id)autoFill;
 + (NSArray *)autoFillWithCount:(NSInteger)count;
 
++ (id)autoFill:(id)params;
 - (void)autoFill:(id)params;
+
++ (id)autoFill:(id)params map:(NSDictionary *)mapKeys;
 - (void)autoFill:(id)params map:(NSDictionary *)mapKeys;
+
++ (id)autoFill:(id)params map:(NSDictionary *)mapKeys exclusive:(BOOL)exclusive;
 - (void)autoFill:(id)params map:(NSDictionary *)mapKeys exclusive:(BOOL)exclusive;
 
 @end
