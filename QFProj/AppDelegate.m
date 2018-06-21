@@ -22,9 +22,9 @@
 //    [@"ViewController".toClass() aspectInstead:@selector(testAction:) usingBlock:^(id<AspectInfo> info, id sender) {
 //        NSLog(@"");
 //    }];
-    [[HTestManager share] jump:^{
-        
-    }];
+//    [[HTestManager share] jump:^{
+//        
+//    }];
 
     return YES;
 }
