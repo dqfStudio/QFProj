@@ -54,7 +54,7 @@
         dict = [NSJSONSerialization JSONObjectWithData:params
                                                options:NSJSONReadingMutableContainers
                                                  error:nil];
-    }else if ([params isKindOfClass:NSArray.class]) {
+    }else if ([params isKindOfClass:NSString.class]) {
         dict = [NSJSONSerialization JSONObjectWithData:[params dataUsingEncoding:NSUTF8StringEncoding]
                                                options:NSJSONReadingMutableContainers
                                                  error:nil];
