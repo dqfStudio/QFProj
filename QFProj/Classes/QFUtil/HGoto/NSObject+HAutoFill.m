@@ -42,11 +42,26 @@
 }
 
 
++ (id)autoFill:(id)params {
+    NSObject *object = [self new];
+    [object autoFill:params map:nil];
+    return object;
+}
 - (void)autoFill:(id)params {
     [self autoFill:params map:nil];
 }
++ (id)autoFill:(id)params map:(NSDictionary *)mapKeys {
+    NSObject *object = [self new];
+    [object autoFill:params map:mapKeys exclusive:NO];
+    return object;
+}
 - (void)autoFill:(id)params map:(NSDictionary *)mapKeys {
     [self autoFill:params map:mapKeys exclusive:NO];
+}
++ (id)autoFill:(id)params map:(NSDictionary *)mapKeys exclusive:(BOOL)exclusive {
+    NSObject *object = [self new];
+    [object autoFill:params map:mapKeys exclusive:exclusive];
+    return object;
 }
 - (void)autoFill:(id)params map:(NSDictionary *)mapKeys exclusive:(BOOL)exclusive {
     NSDictionary *dict = nil;
@@ -54,7 +69,7 @@
         dict = [NSJSONSerialization JSONObjectWithData:params
                                                options:NSJSONReadingMutableContainers
                                                  error:nil];
-    }else if ([params isKindOfClass:NSArray.class]) {
+    }else if ([params isKindOfClass:NSString.class]) {
         dict = [NSJSONSerialization JSONObjectWithData:[params dataUsingEncoding:NSUTF8StringEncoding]
                                                options:NSJSONReadingMutableContainers
                                                  error:nil];
