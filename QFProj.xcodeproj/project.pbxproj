@@ -15,6 +15,13 @@
 		1528DF4C20BF0FE200D0A004 /* UIAlertController+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1528DF4B20BF0FE200D0A004 /* UIAlertController+HUtil.m */; };
 		1538FFA5209405CC002E3A29 /* HFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1538FFA3209405CC002E3A29 /* HFileCache.m */; };
 		1538FFA92094065A002E3A29 /* NSFileManager+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1538FFA72094065A002E3A29 /* NSFileManager+HUtil.m */; };
+		153F081220E28CA000C74850 /* HAlphaNumericValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 153F080420E28CA000C74850 /* HAlphaNumericValidator.m */; };
+		153F081320E28CA000C74850 /* HAlphaValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 153F080620E28CA000C74850 /* HAlphaValidator.m */; };
+		153F081420E28CA000C74850 /* HEmailValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 153F080820E28CA000C74850 /* HEmailValidator.m */; };
+		153F081520E28CA000C74850 /* HInputValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 153F080B20E28CA000C74850 /* HInputValidator.m */; };
+		153F081620E28CA000C74850 /* HNumericValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 153F080D20E28CA000C74850 /* HNumericValidator.m */; };
+		153F081720E28CA000C74850 /* HPhoneValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 153F080F20E28CA000C74850 /* HPhoneValidator.m */; };
+		153F081820E28CA000C74850 /* UITextField+HRegular.m in Sources */ = {isa = PBXBuildFile; fileRef = 153F081120E28CA000C74850 /* UITextField+HRegular.m */; };
 		15464B7720A2C26300CDD27E /* HTestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15464B7420A2C26300CDD27E /* HTestManager.m */; };
 		15464B7820A2C26300CDD27E /* HTestVC-DQF.m in Sources */ = {isa = PBXBuildFile; fileRef = 15464B7520A2C26300CDD27E /* HTestVC-DQF.m */; };
 		15707E8E20B4525900493839 /* HUpImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15707E8D20B4525900493839 /* HUpImageCell.m */; };
@@ -158,6 +165,20 @@
 		1538FFA4209405CC002E3A29 /* HFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFileCache.h; sourceTree = "<group>"; };
 		1538FFA72094065A002E3A29 /* NSFileManager+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+HUtil.m"; sourceTree = "<group>"; };
 		1538FFA82094065A002E3A29 /* NSFileManager+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+HUtil.h"; sourceTree = "<group>"; };
+		153F080320E28CA000C74850 /* HAlphaNumericValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAlphaNumericValidator.h; sourceTree = "<group>"; };
+		153F080420E28CA000C74850 /* HAlphaNumericValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAlphaNumericValidator.m; sourceTree = "<group>"; };
+		153F080520E28CA000C74850 /* HAlphaValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAlphaValidator.h; sourceTree = "<group>"; };
+		153F080620E28CA000C74850 /* HAlphaValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAlphaValidator.m; sourceTree = "<group>"; };
+		153F080720E28CA000C74850 /* HEmailValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEmailValidator.h; sourceTree = "<group>"; };
+		153F080820E28CA000C74850 /* HEmailValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEmailValidator.m; sourceTree = "<group>"; };
+		153F080A20E28CA000C74850 /* HInputValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HInputValidator.h; sourceTree = "<group>"; };
+		153F080B20E28CA000C74850 /* HInputValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HInputValidator.m; sourceTree = "<group>"; };
+		153F080C20E28CA000C74850 /* HNumericValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNumericValidator.h; sourceTree = "<group>"; };
+		153F080D20E28CA000C74850 /* HNumericValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNumericValidator.m; sourceTree = "<group>"; };
+		153F080E20E28CA000C74850 /* HPhoneValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPhoneValidator.h; sourceTree = "<group>"; };
+		153F080F20E28CA000C74850 /* HPhoneValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPhoneValidator.m; sourceTree = "<group>"; };
+		153F081020E28CA000C74850 /* UITextField+HRegular.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+HRegular.h"; sourceTree = "<group>"; };
+		153F081120E28CA000C74850 /* UITextField+HRegular.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+HRegular.m"; sourceTree = "<group>"; };
 		15464B7320A2C26300CDD27E /* HTestVC-DQF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HTestVC-DQF.h"; sourceTree = "<group>"; };
 		15464B7420A2C26300CDD27E /* HTestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTestManager.m; sourceTree = "<group>"; };
 		15464B7520A2C26300CDD27E /* HTestVC-DQF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HTestVC-DQF.m"; sourceTree = "<group>"; };
@@ -340,6 +361,7 @@
 		15C573AC20B3DE340070327C /* HBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBaseCell.m; sourceTree = "<group>"; };
 		15C573B420B3DE340070327C /* HLeftImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLeftImageCell.m; sourceTree = "<group>"; };
 		15C573B620B3DE340070327C /* HBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBaseCell.h; sourceTree = "<group>"; };
+		15CC6E9120E28D77005F1792 /* HInputHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HInputHeader.h; sourceTree = "<group>"; };
 		15E1388B20DB785C0070ED08 /* NSDictionary+HOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HOrder.h"; sourceTree = "<group>"; };
 		15E1388C20DB785C0070ED08 /* NSDictionary+HOrder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+HOrder.m"; sourceTree = "<group>"; };
 		15F0294D20BE8D79003287AA /* mgf_loading_new_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mgf_loading_new_2@2x.png"; sourceTree = "<group>"; };
@@ -429,6 +451,28 @@
 			);
 			name = "NSFileManager+HUtil";
 			path = "QFUtil/NSFileManager+HUtil";
+			sourceTree = "<group>";
+		};
+		153F080220E28CA000C74850 /* HInputValidator */ = {
+			isa = PBXGroup;
+			children = (
+				15CC6E9120E28D77005F1792 /* HInputHeader.h */,
+				153F080320E28CA000C74850 /* HAlphaNumericValidator.h */,
+				153F080420E28CA000C74850 /* HAlphaNumericValidator.m */,
+				153F080520E28CA000C74850 /* HAlphaValidator.h */,
+				153F080620E28CA000C74850 /* HAlphaValidator.m */,
+				153F080720E28CA000C74850 /* HEmailValidator.h */,
+				153F080820E28CA000C74850 /* HEmailValidator.m */,
+				153F080A20E28CA000C74850 /* HInputValidator.h */,
+				153F080B20E28CA000C74850 /* HInputValidator.m */,
+				153F080C20E28CA000C74850 /* HNumericValidator.h */,
+				153F080D20E28CA000C74850 /* HNumericValidator.m */,
+				153F080E20E28CA000C74850 /* HPhoneValidator.h */,
+				153F080F20E28CA000C74850 /* HPhoneValidator.m */,
+				153F081020E28CA000C74850 /* UITextField+HRegular.h */,
+				153F081120E28CA000C74850 /* UITextField+HRegular.m */,
+			);
+			path = HInputValidator;
 			sourceTree = "<group>";
 		};
 		15464B7220A2C26300CDD27E /* HTestUtil */ = {
@@ -533,6 +577,7 @@
 		15B4DD7E2092F96B00773E04 /* QFUtil */ = {
 			isa = PBXGroup;
 			children = (
+				153F080220E28CA000C74850 /* HInputValidator */,
 				15038EAF20CD5CB400A16FC9 /* HSkin */,
 				15038EA520CC0C6A00A16FC9 /* HSwitchLanguage */,
 				15C5737520B3DD9F0070327C /* HTable */,
@@ -1205,6 +1250,7 @@
 				15C5736A20B3DD7B0070327C /* HTupleHorizontalCell.m in Sources */,
 				15B4DDF82092F96C00773E04 /* UIImage+Util.m in Sources */,
 				15B4DE092092F96C00773E04 /* HWebImageView.m in Sources */,
+				153F081620E28CA000C74850 /* HNumericValidator.m in Sources */,
 				15B4DDE92092F96C00773E04 /* HDebugUtil.m in Sources */,
 				15B4DE0D2092F96C00773E04 /* NSObject+HSafeNotify.m in Sources */,
 				1528DF4620BF0A0200D0A004 /* MBProgressHUD.m in Sources */,
@@ -1238,6 +1284,7 @@
 				15B4DDFE2092F96C00773E04 /* NSString+HUtil.m in Sources */,
 				15707EC020B5675A00493839 /* HTupleSignal.m in Sources */,
 				15C5738420B3DD9F0070327C /* HCellModel.m in Sources */,
+				153F081220E28CA000C74850 /* HAlphaNumericValidator.m in Sources */,
 				15E1388D20DB785C0070ED08 /* NSDictionary+HOrder.m in Sources */,
 				15C5738620B3DD9F0070327C /* HSectionModel.m in Sources */,
 				15B4DDF72092F96C00773E04 /* UIDevice+HUtil.m in Sources */,
@@ -1261,6 +1308,7 @@
 				15B4DE1D209302BF00773E04 /* HGoTo.m in Sources */,
 				15F9152320A17E95000261C4 /* TestViewController.m in Sources */,
 				15C5737020B3DD7B0070327C /* HTupleReusableView.m in Sources */,
+				153F081420E28CA000C74850 /* HEmailValidator.m in Sources */,
 				15C5729320AE51B30070327C /* HSort.m in Sources */,
 				15C5738720B3DD9F0070327C /* HTableView.m in Sources */,
 				1587D8E120C257A900C0391D /* HTableSignal.m in Sources */,
@@ -1273,12 +1321,16 @@
 				15C5736920B3DD7B0070327C /* HTupleVerticalCell.m in Sources */,
 				15B4DE012092F96C00773E04 /* HSpeechUtil.m in Sources */,
 				15707E8E20B4525900493839 /* HUpImageCell.m in Sources */,
+				153F081820E28CA000C74850 /* UITextField+HRegular.m in Sources */,
 				15B4DE112092F96C00773E04 /* NSArray+HSafeUtil.m in Sources */,
 				15F9152920A18CA9000261C4 /* HAspectsCenter.m in Sources */,
 				15B4DE1C209302BF00773E04 /* HGotoRuntimeSupport.m in Sources */,
 				15C5727620A982CA0070327C /* NSObject+HAutoFill.m in Sources */,
+				153F081720E28CA000C74850 /* HPhoneValidator.m in Sources */,
+				153F081320E28CA000C74850 /* HAlphaValidator.m in Sources */,
 				15B4DDEF2092F96C00773E04 /* UIViewController+HUtil.m in Sources */,
 				15B4DE0B2092F96C00773E04 /* NSString+HSafeUtil.m in Sources */,
+				153F081520E28CA000C74850 /* HInputValidator.m in Sources */,
 				15B4DD762092F88700773E04 /* main.m in Sources */,
 				15B4DDF52092F96C00773E04 /* UINavigationController+HUtil.m in Sources */,
 				15B4DDFC2092F96C00773E04 /* UIImage+HChain.m in Sources */,

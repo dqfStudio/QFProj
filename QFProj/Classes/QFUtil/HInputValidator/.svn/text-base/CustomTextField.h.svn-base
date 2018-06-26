@@ -1,0 +1,19 @@
+//
+//  CustomTextField.h
+//  P2PCamera
+//
+//  Created by dqf on 1/16/16.
+//  Copyright © 2016 scsocool. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "InputValidator.h"
+
+@interface CustomTextField : UITextField
+
+@property (nonatomic, strong) InputValidator *inputValidator;
+
+- (BOOL)validate;
+- (BOOL)lengthInRange:(NSRange)range;
+
+@end
