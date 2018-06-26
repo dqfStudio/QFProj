@@ -54,7 +54,7 @@ if (![arg isKindOfClass:[_class class]])\
 @property (nonatomic) t p; \
 @property (nonatomic) NSRange p##_;
 
-#define H_CheckProperty2(p) H_CheckProperty(NSInteger,p,p##_)
+#define H_CheckProperty2(p) H_CheckProperty(NSInteger,p)
 
 #define H_CheckPropertyRange(p,location,length) \
 - (NSRange)p##_ {\
@@ -81,10 +81,12 @@ return NSMakeRange(location, length);\
 // property list of some class , it will iterate search
 + (NSArray *)depPPListOfClass:(Class)theClass;
 
+//whether object is system class
 + (BOOL)isSystemClass:(Class)aClass;
 
 - (BOOL)isSystemClass:(Class)aClass;
 
+//return super system class
 + (Class)seekToSystemClass:(Class)aClass;
 
 - (Class)seekToSystemClass:(Class)aClass;
