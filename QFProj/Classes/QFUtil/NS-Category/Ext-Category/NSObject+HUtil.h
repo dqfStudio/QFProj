@@ -118,7 +118,10 @@ return NSMakeRange(location, length);\
  *                      eg: faction '-init', and the preTag is 'abc',  then the function like - ***abcinit will invoked。
  *  @param firstParameter arguments
  */
-- (void)extendInvoke:(NSString *)invokeString withPre:(NSString *)preTag withMethodArgments:(void *)firstParameter, ...;
+//特定匹配符
+- (id)extendInvoke1:(NSString *)invokeString withPre:(NSString *)preTag withMethodArgments:(void *)firstParameter, ...;
+//通用匹配符
+- (void)extendInvoke2:(NSString *)invokeString withPre:(NSString *)preTag withMethodArgments:(void *)firstParameter, ...;
 
 @end
 

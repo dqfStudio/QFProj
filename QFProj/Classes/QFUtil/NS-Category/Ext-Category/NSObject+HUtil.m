@@ -186,7 +186,7 @@
 }
 
 //特定匹配符
-- (void)extendInvoke1:(NSString *)invokeString withPre:(NSString *)preTag withMethodArgments:(void *)firstParameter, ... {
+- (id)extendInvoke1:(NSString *)invokeString withPre:(NSString *)preTag withMethodArgments:(void *)firstParameter, ... {
     //deal the type and function name
     NSArray * clsArr = [invokeString componentsSeparatedByString:@" "];
     BOOL isClassMethod = [[invokeString substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"+"];
@@ -202,6 +202,7 @@
         cls = objc_getMetaClass([clsStr cStringUsingEncoding:NSUTF8StringEncoding]);
     }
     unsigned int count = 0;
+    id res = nil;
     Method *methods = class_copyMethodList(cls, &count);
     for (int i = 0; i < count; i++) {
         Method method = methods[i];
@@ -226,10 +227,18 @@
                 va_end(arg_ptr);
             }
             [invocation invoke];
+            
+            //判断当前方法是否有返回值
+            if (sig.methodReturnLength!=0) {
+                //getReturnValue获取返回值
+                [invocation getReturnValue:&res];
+            }
             break;
         }
     }
+    
     free(methods);
+    return res;
 }
 
 //通用匹配符
