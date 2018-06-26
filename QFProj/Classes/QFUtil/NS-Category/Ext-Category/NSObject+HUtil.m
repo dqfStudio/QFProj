@@ -185,8 +185,8 @@
     }
 }
 
-
-- (void)extendInvoke:(NSString *)invokeString withPre:(NSString *)preTag withMethodArgments:(void *)firstParameter, ... {
+//特定匹配符
+- (void)extendInvoke1:(NSString *)invokeString withPre:(NSString *)preTag withMethodArgments:(void *)firstParameter, ... {
     //deal the type and function name
     NSArray * clsArr = [invokeString componentsSeparatedByString:@" "];
     BOOL isClassMethod = [[invokeString substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"+"];
@@ -207,7 +207,54 @@
         Method method = methods[i];
         SEL selector = method_getName(method);
         NSString *name = NSStringFromSelector(selector);
-        NSString * nMethodName = [NSString stringWithFormat:@"_%@",methodName];
+        NSString * nMethodName = [NSString stringWithFormat:@"%@%@",preTag,methodName];
+        
+        if ([name hasSuffix:nMethodName]) {
+            NSMethodSignature * sig = [cls instanceMethodSignatureForSelector:selector];
+            NSInvocation * invocation = [NSInvocation invocationWithMethodSignature:sig];
+            [invocation setTarget:self];
+            [invocation setSelector:selector];
+            //if it has params
+            if (sig.numberOfArguments > 2) {
+                [invocation setArgument:firstParameter atIndex:2];
+                va_list arg_ptr;
+                va_start(arg_ptr, firstParameter);
+                for (NSUInteger i = 3; i < sig.numberOfArguments; i++) {
+                    void * parameter = va_arg(arg_ptr, void *);
+                    [invocation setArgument:parameter atIndex:i];
+                }
+                va_end(arg_ptr);
+            }
+            [invocation invoke];
+            break;
+        }
+    }
+    free(methods);
+}
+
+//通用匹配符
+- (void)extendInvoke2:(NSString *)invokeString withPre:(NSString *)preTag withMethodArgments:(void *)firstParameter, ... {
+    //deal the type and function name
+    NSArray * clsArr = [invokeString componentsSeparatedByString:@" "];
+    BOOL isClassMethod = [[invokeString substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"+"];
+    NSString * clsStr = [clsArr[0] substringFromIndex:2];
+    NSString * methodString = clsArr[1];
+    NSString * methodName = [clsArr[1] substringToIndex:methodString.length-1];
+    NSUInteger kuohaoLocation = [clsStr rangeOfString:@"("].location;
+    if (kuohaoLocation != NSNotFound) {
+        clsStr = [clsStr substringToIndex:kuohaoLocation];
+    }
+    Class cls = NSClassFromString(clsStr);
+    if (isClassMethod) {
+        cls = objc_getMetaClass([clsStr cStringUsingEncoding:NSUTF8StringEncoding]);
+    }
+    unsigned int count = 0;
+    Method *methods = class_copyMethodList(cls, &count);
+    for (int i = 0; i < count; i++) {
+        Method method = methods[i];
+        SEL selector = method_getName(method);
+        NSString *name = NSStringFromSelector(selector);
+        NSString *nMethodName = [NSString stringWithFormat:@"_%@",methodName];
         
         if ([name hasSuffix:nMethodName]) {
             NSMethodSignature * sig = [cls instanceMethodSignatureForSelector:selector];
@@ -230,8 +277,6 @@
     }
     free(methods);
 }
-
-
 
 @end
 

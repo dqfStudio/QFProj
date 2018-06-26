@@ -33,14 +33,24 @@ _Pragma("clang diagnostic pop") \
  *                     eg: faction '-init', and the preTag is 'abc',  then the function like - ***abcinit will invoked。
  * @param arguments
  */
-#define H_ExtendInvoke1(preTag, args...) \
+//特定匹配符
+#define H_ExtendInvoke_pre(preTag, args...) \
 { \
-NSString * methodName = [NSString stringWithFormat:@"%s", __func__]; \
-[self extendInvoke:methodName withPre:preTag withMethodArgments:args];\
+NSString *methodName = [NSString stringWithFormat:@"%s", __func__]; \
+[self extendInvoke1:methodName withPre:preTag withMethodArgments:args];\
 }
-#define H_ExtendInvoke2(preTag) H_ExtendInvoke1(preTag, nil)
-#define H_ExtendInvoke3(args...) H_ExtendInvoke1(@"_", args)
-#define H_ExtendInvoke4 H_ExtendInvoke1(@"_", nil)
+#define H_ExtendInvoke1(preTag) H_ExtendInvoke_pre(preTag, nil)
+#define H_ExtendInvoke2(preTag, args...) H_ExtendInvoke_pre(preTag, args)
+#define H_ExtendInvoke3(preTag) H_ExtendInvoke_pre([NSString stringWithFormat:@"%@_", preTag], nil)
+#define H_ExtendInvoke4(preTag, args...) H_ExtendInvoke_pre([NSString stringWithFormat:@"%@_", preTag], args)
+//通用匹配符
+#define H_ExtendInvoke_(preTag, args...) \
+{ \
+NSString *methodName = [NSString stringWithFormat:@"%s", __func__]; \
+[self extendInvoke2:methodName withPre:preTag withMethodArgments:args];\
+}
+#define H_ExtendInvoke5(args...) H_ExtendInvoke_(@"_", args)
+#define H_ExtendInvoke6 H_ExtendInvoke_(@"_", nil)
 
 
 //TODO will delete
