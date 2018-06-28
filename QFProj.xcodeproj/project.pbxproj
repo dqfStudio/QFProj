@@ -984,8 +984,8 @@
 		15C5737620B3DD9F0070327C /* NSObject+selector */ = {
 			isa = PBXGroup;
 			children = (
-				15C5737720B3DD9F0070327C /* NSObject+selector.m */,
 				15C5737820B3DD9F0070327C /* NSObject+selector.h */,
+				15C5737720B3DD9F0070327C /* NSObject+selector.m */,
 			);
 			path = "NSObject+selector";
 			sourceTree = "<group>";

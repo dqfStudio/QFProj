@@ -87,15 +87,15 @@
 //        [self methodSwizzleWithOrigSEL:@selector(setObject:forKey:) overrideSEL:@selector(safe_setObject:forKey:)];
     });
 }
-- (void)safe_setObject:(id)anObject forKey:(id)aKey {
-    if (aKey != nil && ![aKey isKindOfClass:objc_getClass("__NSCFConstantString")] && ![aKey isKindOfClass:objc_getClass("__NSCFString")]) {
-        [aKey setAlias:@(self.count).stringValue];
-        [self safe_setObject:anObject forKey:aKey];
-    }else {
-#if DEBUG
-        NSAssert(NO,nil);
-#endif
-    }
-}
+//- (void)safe_setObject:(id)anObject forKey:(id)aKey {
+//    if (aKey != nil && ![aKey isKindOfClass:objc_getClass("__NSCFConstantString")] && ![aKey isKindOfClass:objc_getClass("__NSCFString")]) {
+//        [aKey setAlias:@(self.count).stringValue];
+//        [self safe_setObject:anObject forKey:aKey];
+//    }else {
+//#if DEBUG
+//        NSAssert(NO,nil);
+//#endif
+//    }
+//}
 @end
 
