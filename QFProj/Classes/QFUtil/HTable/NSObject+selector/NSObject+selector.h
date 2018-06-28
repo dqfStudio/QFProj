@@ -12,8 +12,4 @@
 
 - (id)performSelector:(SEL)aSelector withObjects:(NSArray*)objects;
 
-- (id)performSelector:(SEL)aSelector withMethodArgments:(void *)firstParameter, ...;
-
-- (id)performSelector:(SEL)aSelector withPre:(NSString *)pre withMethodArgments:(void *)firstParameter, ...;
-
 @end
