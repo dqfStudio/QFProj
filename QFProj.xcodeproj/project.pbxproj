@@ -743,8 +743,8 @@
 		15B4DDC62092F96B00773E04 /* Block-Category */ = {
 			isa = PBXGroup;
 			children = (
-				15B4DDC72092F96B00773E04 /* NSObject+BlockSEL.m */,
 				15B4DDC82092F96B00773E04 /* NSObject+BlockSEL.h */,
+				15B4DDC72092F96B00773E04 /* NSObject+BlockSEL.m */,
 			);
 			path = "Block-Category";
 			sourceTree = "<group>";

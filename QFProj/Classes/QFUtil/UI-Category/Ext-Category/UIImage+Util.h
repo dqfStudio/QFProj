@@ -14,4 +14,7 @@
 + (UIImage *)imageFromFile:(NSString *)filePath;
 + (UIImage *)imageFromData:(NSData *)imageData;
 
++ (UIImage *)testImage;//默认200*200
++ (UIImage *)testImage:(CGSize)size;
+
 @end

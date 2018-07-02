@@ -28,6 +28,7 @@
 #import "NSObject+HUtil.h"
 #import "NSDictionary+HSafeUtil.h"
 #import "NSObject+selector.h"
+#import "UIImage+Util.h"
 
 @interface ViewController () <HTupleViewDelegate> {
     UILabel *label;
