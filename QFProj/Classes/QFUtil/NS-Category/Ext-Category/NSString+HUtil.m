@@ -71,15 +71,6 @@
 #pragma clang diagnostic pop
 }
 
-- (CGSize)sizeWithFont:(UIFont *)font constrainedSize:(CGSize)size {
-    return [self boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
-    
-}
-
-- (CGSize)sizeWithFont:(UIFont *)font {
-    return [self sizeWithAttributes:@{NSFontAttributeName:font}];
-}
-
 //判断是否有emoji
 - (BOOL)stringContainsEmoji {
     __block BOOL returnValue = NO;

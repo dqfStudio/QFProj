@@ -24,9 +24,6 @@
 
 - (NSString *)decode;
 
-- (CGSize)sizeWithFont:(UIFont *)font constrainedSize:(CGSize)size;
-- (CGSize)sizeWithFont:(UIFont *)font;
-
 //String contains Emoji
 - (BOOL)stringContainsEmoji;
 
