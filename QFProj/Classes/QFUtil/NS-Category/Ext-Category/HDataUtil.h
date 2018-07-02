@@ -10,25 +10,25 @@
 
 @interface NSDictionary (HJson)
 //将字典转化成json data
-- (NSData *)toJsonData;
+- (NSData *)jsonData;
 //将字典转化成字符串 如：rn=1&tt=3&rr=4
-- (NSString *)toLinkString;
+- (NSString *)linkString;
 //将字典转化成json字符串
-- (NSString *)toJsonString;
+- (NSString *)jsonString;
 //去掉json字符串中的空格和换行符
-- (NSString *)toJsonString2;
+- (NSString *)jsonString2;
 @end
 
 @interface NSString (HJson)
 //将json字符串转化成字典
-- (NSDictionary *)toDictionary;
+- (NSDictionary *)dictionary;
 //将字符串转化data
-- (NSData *)toData;
+- (NSData *)data;
 @end
 
 @interface NSData (HJson)
 //将json data转化成字典
-- (NSDictionary *)toDictionary;
+- (NSDictionary *)dictionary;
 //将data转化成字符串
-- (NSString *)toString;
+- (NSString *)string;
 @end
