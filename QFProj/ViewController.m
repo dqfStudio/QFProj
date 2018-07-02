@@ -360,9 +360,8 @@ H_CheckPropertyRange(rrr, 0, 150)
 //
 //}
 
-- (void)sectionModel:(id)sender {
-    HSectionModel *sectionModel = sender;
-    sectionModel.headerHeight = 22;
+- (void)sectionModel:(HSM)model {
+    model.headerHeight = 22;
 }
 
 - (void)cellModel:(id)sender {
@@ -372,11 +371,16 @@ H_CheckPropertyRange(rrr, 0, 150)
     cellModel.selectionBlock = [self selectionBlock];
 }
 
-- (void)cellModel2:(id)sender {
-    HCellModel *cellModel = sender;
-    cellModel.height = 55;
-    cellModel.renderBlock = [self renderBlock2];
-    cellModel.selectionBlock = [self selectionBlock];
+- (void)cellModel2:(HCM)model {
+    model.height = 55;
+    model.renderBlock = [self renderBlock2];
+    model.selectionBlock = [self selectionBlock];
+//    [model cellBlock:^UITableViewCell *(NSIndexPath *indexPath, HTableView *table) {
+//
+//        return nil;
+//    } selectionBlock:^(NSIndexPath *indexPath, HTableView *table) {
+//
+//    }];
 }
 
 - (HCellRenderBlock)renderBlock {

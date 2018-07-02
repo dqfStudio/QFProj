@@ -18,4 +18,9 @@
     return self;
 }
 
+- (void)cellBlock:(HCellRenderBlock)cellBlock selectionBlock:(HCellSelectionBlock)selectionBlock {
+    self.renderBlock    = cellBlock;
+    self.selectionBlock = selectionBlock;
+}
+
 @end
