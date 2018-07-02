@@ -12,7 +12,7 @@
 
 #pragma --make 执行实例方法
 
-- (id)performSelector:(SEL)aSelector withObjects:(NSArray*)objects {
+- (id)performSelector:(SEL)aSelector withObjects:(NSArray *)objects {
     
     //1、创建签名对象
     NSMethodSignature *signature = [[self class] instanceMethodSignatureForSelector:aSelector];
@@ -128,7 +128,7 @@
 
 #pragma --make 执行类方法
 
-- (id)performClassSelector:(SEL)aSelector withObjects:(NSArray*)objects {
+- (id)performClassSelector:(SEL)aSelector withObjects:(NSArray *)objects {
     
     //1、创建签名对象
     NSMethodSignature *signature = [[self class] methodSignatureForSelector:aSelector];
