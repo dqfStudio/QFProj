@@ -11,6 +11,13 @@
 
 @implementation NSString (HUtil)
 
+//用于测试阶段自动生成字符串
++ (NSString *)testString {
+    NSString *mockString = @"太阳初升万物初始生之气最盛虽不能如传说中那般餐霞食气但这样迎霞锻体自也有莫大好处可充盈人体生机天之计在于晨每日早起多用功强筋壮骨活血炼筋将来才能在这苍莽山脉中有活命的本钱";
+    int index = arc4random() % (mockString.length - 3);
+    return [mockString substringWithRange:NSMakeRange(index, 3)];
+}
+
 - (id)JSONValue {
     NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error = nil;
@@ -37,6 +44,8 @@
 }
 
 - (NSString *)encode {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     NSString *outputStr =
     (NSString *) CFBridgingRelease(
                                    CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
@@ -46,9 +55,12 @@
                                                                            kCFStringEncodingUTF8)
                                    );
     return outputStr;
+#pragma clang diagnostic pop
 }
 
 - (NSString *)decode {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     NSMutableString *outputStr = [NSMutableString stringWithString:self];
     [outputStr replaceOccurrencesOfString:@"+"
                                withString:@" "
@@ -56,6 +68,7 @@
                                     range:NSMakeRange(0, [outputStr length])];
     
     return [outputStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+#pragma clang diagnostic pop
 }
 
 - (CGSize)sizeWithFont:(UIFont *)font constrainedSize:(CGSize)size {
