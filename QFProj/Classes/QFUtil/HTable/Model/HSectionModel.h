@@ -16,7 +16,7 @@ typedef CGFloat (^HSectionHeightBlock)(NSInteger section, HTableView *table);
 
 typedef HSectionModel* HSM;
 
-#define KSectionModelName @"sectionModel"
+#define KSectionModelName @"sectionMode"
 
 /** Table view's section model */
 @interface HSectionModel : NSObject

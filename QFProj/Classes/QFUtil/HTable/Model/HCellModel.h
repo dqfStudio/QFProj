@@ -22,7 +22,7 @@ UITableViewCellEditingStyle editingStyle);
 
 typedef HCellModel* HCM;
 
-#define KCellModelName @"cellModel"
+#define KCellModelName @"cellMode"
 
 /** Table view's row model */
 @interface HCellModel : NSObject
