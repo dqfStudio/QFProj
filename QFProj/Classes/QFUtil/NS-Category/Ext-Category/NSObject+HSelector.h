@@ -20,6 +20,13 @@
 
 #pragma --make 执行类方法
 
++ (id)performClassSelector:(SEL)aSelector withObjects:(NSArray *)objects;
 - (id)performClassSelector:(SEL)aSelector withObjects:(NSArray *)objects;
+
++ (id)performClassSelector:(SEL)aSelector withMethodArgments:(void *)firstParameter, ...;
+- (id)performClassSelector:(SEL)aSelector withMethodArgments:(void *)firstParameter, ...;
+
++ (id)performClassSelector:(SEL)aSelector withPre:(NSString *)pre withMethodArgments:(void *)firstParameter, ...;
+- (id)performClassSelector:(SEL)aSelector withPre:(NSString *)pre withMethodArgments:(void *)firstParameter, ...;
 
 @end
