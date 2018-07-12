@@ -32,7 +32,6 @@
 
 //Ext-Category
 #import "NSError+HUtil.h"
-#import "HDataUtil.h"
 #import "HHexUtil.h"
 #import "HSpeechUtil.h"
 #import "NSDate+HUtil.h"

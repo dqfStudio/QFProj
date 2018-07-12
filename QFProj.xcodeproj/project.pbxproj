@@ -62,7 +62,6 @@
 		15B4DDFC2092F96C00773E04 /* UIImage+HChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDB02092F96B00773E04 /* UIImage+HChain.m */; };
 		15B4DDFD2092F96C00773E04 /* UIFont+HChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDB32092F96B00773E04 /* UIFont+HChain.m */; };
 		15B4DDFE2092F96C00773E04 /* NSString+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDB62092F96B00773E04 /* NSString+HUtil.m */; };
-		15B4DDFF2092F96C00773E04 /* HDataUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDB82092F96B00773E04 /* HDataUtil.m */; };
 		15B4DE002092F96C00773E04 /* NSDate+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDB92092F96B00773E04 /* NSDate+HUtil.m */; };
 		15B4DE012092F96C00773E04 /* HSpeechUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDBB2092F96B00773E04 /* HSpeechUtil.m */; };
 		15B4DE022092F96C00773E04 /* NSUserDefaults+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDBC2092F96B00773E04 /* NSUserDefaults+HUtil.m */; };
@@ -261,13 +260,11 @@
 		15B4DDB32092F96B00773E04 /* UIFont+HChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+HChain.m"; sourceTree = "<group>"; };
 		15B4DDB62092F96B00773E04 /* NSString+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HUtil.m"; sourceTree = "<group>"; };
 		15B4DDB72092F96B00773E04 /* NSObject+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HUtil.h"; sourceTree = "<group>"; };
-		15B4DDB82092F96B00773E04 /* HDataUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDataUtil.m; sourceTree = "<group>"; };
 		15B4DDB92092F96B00773E04 /* NSDate+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+HUtil.m"; sourceTree = "<group>"; };
 		15B4DDBA2092F96B00773E04 /* NSError+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+HUtil.h"; sourceTree = "<group>"; };
 		15B4DDBB2092F96B00773E04 /* HSpeechUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSpeechUtil.m; sourceTree = "<group>"; };
 		15B4DDBC2092F96B00773E04 /* NSUserDefaults+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+HUtil.m"; sourceTree = "<group>"; };
 		15B4DDBD2092F96B00773E04 /* HHexUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHexUtil.h; sourceTree = "<group>"; };
-		15B4DDBE2092F96B00773E04 /* HDataUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDataUtil.h; sourceTree = "<group>"; };
 		15B4DDBF2092F96B00773E04 /* NSString+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HUtil.h"; sourceTree = "<group>"; };
 		15B4DDC02092F96B00773E04 /* NSObject+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HUtil.m"; sourceTree = "<group>"; };
 		15B4DDC12092F96B00773E04 /* HSpeechUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSpeechUtil.h; sourceTree = "<group>"; };
@@ -722,8 +719,6 @@
 		15B4DDB52092F96B00773E04 /* Ext-Category */ = {
 			isa = PBXGroup;
 			children = (
-				15B4DDBE2092F96B00773E04 /* HDataUtil.h */,
-				15B4DDB82092F96B00773E04 /* HDataUtil.m */,
 				15B4DDBD2092F96B00773E04 /* HHexUtil.h */,
 				15B4DDC42092F96B00773E04 /* HHexUtil.m */,
 				15B4DDC12092F96B00773E04 /* HSpeechUtil.h */,
@@ -1365,7 +1360,6 @@
 				15C573BD20B3DE340070327C /* HLeftImageCell.m in Sources */,
 				157696EB20A0AB6900E31469 /* hFelix.m in Sources */,
 				15C572A020AEAC340070327C /* UILabel+HState.m in Sources */,
-				15B4DDFF2092F96C00773E04 /* HDataUtil.m in Sources */,
 				15B4DE032092F96C00773E04 /* NSObject+HUtil.m in Sources */,
 				15C5737420B3DD7B0070327C /* HTupleView.m in Sources */,
 				15B4DE102092F96C00773E04 /* HNotiCenter.m in Sources */,

@@ -10,6 +10,23 @@
 
 @interface NSObject (HSelector)
 
-- (id)performClassSelector:(SEL)aSelector withObjects:(NSArray*)objects;
+#pragma --make 执行实例方法
+
+- (id)performSelector:(SEL)aSelector withObjects:(NSArray *)objects;
+
+- (id)performSelector:(SEL)aSelector withMethodArgments:(void *)firstParameter, ...;
+
+- (id)performSelector:(SEL)aSelector withPre:(NSString *)pre withMethodArgments:(void *)firstParameter, ...;
+
+#pragma --make 执行类方法
+
++ (id)performClassSelector:(SEL)aSelector withObjects:(NSArray *)objects;
+- (id)performClassSelector:(SEL)aSelector withObjects:(NSArray *)objects;
+
++ (id)performClassSelector:(SEL)aSelector withMethodArgments:(void *)firstParameter, ...;
+- (id)performClassSelector:(SEL)aSelector withMethodArgments:(void *)firstParameter, ...;
+
++ (id)performClassSelector:(SEL)aSelector withPre:(NSString *)pre withMethodArgments:(void *)firstParameter, ...;
+- (id)performClassSelector:(SEL)aSelector withPre:(NSString *)pre withMethodArgments:(void *)firstParameter, ...;
 
 @end

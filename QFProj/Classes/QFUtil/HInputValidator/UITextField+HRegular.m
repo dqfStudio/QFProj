@@ -25,12 +25,15 @@
     BOOL validationResult = [self.inputValidator validateInput:self error:&error];
     
     if (!validationResult) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[error localizedDescription]
                                                             message:[error localizedFailureReason]
                                                            delegate:nil
                                                   cancelButtonTitle:NSLocalizedString(@"OK", @"")
                                                   otherButtonTitles:nil];
         [alertView show];
+#pragma clang diagnostic pop
     }
     
     return validationResult;
@@ -41,12 +44,15 @@
     BOOL rangeResult = [self.inputValidator input:self inRange:range error:&error];
     
     if (!rangeResult) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[error localizedDescription]
                                                             message:[error localizedFailureReason]
                                                            delegate:nil
                                                   cancelButtonTitle:NSLocalizedString(@"OK", @"")
                                                   otherButtonTitles:nil];
         [alertView show];
+#pragma clang diagnostic pop
     }
     
     return rangeResult;

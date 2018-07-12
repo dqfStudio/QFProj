@@ -11,6 +11,9 @@
 
 @interface NSString (HUtil)
 
+//用于测试阶段自动生成字符串
++ (NSString *)testString;
+
 - (id)JSONValue;
 
 - (NSString *)trim;
@@ -20,9 +23,6 @@
 - (NSString *)encode;
 
 - (NSString *)decode;
-
-- (CGSize)sizeWithFont:(UIFont *)font constrainedSize:(CGSize)size;
-- (CGSize)sizeWithFont:(UIFont *)font;
 
 //String contains Emoji
 - (BOOL)stringContainsEmoji;

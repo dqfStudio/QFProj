@@ -27,6 +27,8 @@
 #import "NSObject+HAutoFill.h"
 #import "NSObject+HUtil.h"
 #import "NSDictionary+HSafeUtil.h"
+#import "NSObject+selector.h"
+#import "UIImage+Util.h"
 
 @interface ViewController () <HTupleViewDelegate> {
     UILabel *label;
@@ -64,6 +66,43 @@ H_CheckPropertyRange(rrr, 0, 150)
     [dict setObject:@"333" forKey:@"www"];
     [dict setObject:@"11111111" forKey:@"date"];
 //    NSString *sf = dict[@"TestString"];
+    
+//    [self performSelector:@selector(testAction) withObjects:nil];
+    NSLog(@"hello222");
+//    NSString *ss = [NSString stringWithFormat:@"dqf_%@:",NSStringFromSelector(_cmd)];
+    NSString *ss = @"dqf_viewDidLoad:ff:";
+    
+    [self performSelector:NSSelectorFromString(ss) withObjects:@[@(3), @(4), @(5)]];
+    
+    NSInteger nu = 3;
+    NSInteger rr = 5;
+//    &nu;
+    
+//    [self performSelector:NSSelectorFromString(ss) withObjects:@[@(3)]];
+//    [self performSelector:NSSelectorFromString(ss) withMethodArgments:&nu, &rr];
+    
+    [self performSelector:_cmd withPre:@"dqf" withMethodArgments:&nu, &rr];
+    NSLog(@"hello");
+}
+
+- (void)dqf_viewDidLoad:(NSInteger)num ff:(NSInteger)rr {
+    NSLog(@"world");
+}
+
+- (void)dqf_viewDidLoad {
+    NSLog(@"world");
+}
+
+- (void)testAction:(NSString *)pre {
+    NSLog(@"world");
+    
+    NSString *selectorString = [NSString stringWithFormat:@"pre_%@:",NSStringFromSelector(_cmd)];
+    SEL selector = NSSelectorFromString(selectorString);
+    
+    NSInteger nu = 3;
+    NSInteger rr = 5;
+    
+    [self performSelector:selector withMethodArgments:&nu, &rr];
 }
 
 //- (void)viewDidLoad {
@@ -322,9 +361,8 @@ H_CheckPropertyRange(rrr, 0, 150)
 //
 //}
 
-- (void)sectionModel:(id)sender {
-    HSectionModel *sectionModel = sender;
-    sectionModel.headerHeight = 22;
+- (void)sectionModel:(HSM)model {
+    model.headerHeight = 22;
 }
 
 - (void)cellModel:(id)sender {
@@ -334,11 +372,16 @@ H_CheckPropertyRange(rrr, 0, 150)
     cellModel.selectionBlock = [self selectionBlock];
 }
 
-- (void)cellModel2:(id)sender {
-    HCellModel *cellModel = sender;
-    cellModel.height = 55;
-    cellModel.renderBlock = [self renderBlock2];
-    cellModel.selectionBlock = [self selectionBlock];
+- (void)cellModel2:(HCM)model {
+    model.height = 55;
+    model.renderBlock = [self renderBlock2];
+    model.selectionBlock = [self selectionBlock];
+//    [model cellBlock:^UITableViewCell *(NSIndexPath *indexPath, HTableView *table) {
+//
+//        return nil;
+//    } selectionBlock:^(NSIndexPath *indexPath, HTableView *table) {
+//
+//    }];
 }
 
 - (HCellRenderBlock)renderBlock {

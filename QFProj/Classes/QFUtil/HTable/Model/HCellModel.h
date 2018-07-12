@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 
 @class HTableView;
+@class HCellModel;
 
 typedef CGFloat (^HCellHeightBlock)(NSIndexPath *indexPath, HTableView *table);
 typedef UITableViewCell * (^HCellRenderBlock)(NSIndexPath *indexPath, HTableView *table);
@@ -18,6 +19,10 @@ typedef void (^HCellSelectionBlock)(NSIndexPath *indexPath, HTableView *table);
 typedef void (^HCellWillDisplayBlock)(UITableViewCell *cell, NSIndexPath *indexPath, HTableView *table);
 typedef void (^HCellCommitEditBlock)(NSIndexPath *indexPath, HTableView *table,
 UITableViewCellEditingStyle editingStyle);
+
+typedef HCellModel* HCM;
+
+#define KCellModelName @"cellMode"
 
 /** Table view's row model */
 @interface HCellModel : NSObject
@@ -37,5 +42,7 @@ UITableViewCellEditingStyle editingStyle);
 @property (nonatomic, assign) UITableViewCellEditingStyle editingStyle;  // cell's editing style
 @property (nonatomic, copy) NSString *deleteConfirmationButtonTitle;  // delete confirmation title
 @property (nonatomic, strong) NSString *selector; //cell对应的selector
+
+- (void)cellBlock:(HCellRenderBlock)cellBlock selectionBlock:(HCellSelectionBlock)selectionBlock;
 
 @end

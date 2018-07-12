@@ -9,6 +9,12 @@
 #import "HTableView.h"
 #import <objc/runtime.h>
 
+typedef NS_ENUM(NSInteger, HTableViewFormatType) {
+    HTableViewFormatTypeUnknow = -1,
+    HTableViewFormatTypeNumber,
+    HTableViewFormatTypeCustom
+};
+
 #define KDefaultPageSize 20
 
 @interface NSString (util)
@@ -222,11 +228,36 @@
     
     for (NSString *url in arr) {
         
-        NSArray<NSString *> *tmpArr = url.componentsBySetString(@"<>");
+        NSArray<NSString *> *tmpArr = nil;
+        NSString *sectionSelector = nil;
+        NSString *section = nil;
+        NSString *cellSelector = nil;
         
-        NSString *sectionSelector = tmpArr[0].append(@":");
-        NSString *section = tmpArr[1];
-        NSString *cellSelector = tmpArr[2].append(@":");
+        HTableViewFormatType formatType = [self urlFormat:url];
+        
+        switch (formatType) {
+            case HTableViewFormatTypeNumber:
+            {
+                tmpArr = url.componentsBySetString(@":");
+                
+                sectionSelector = KSectionModelName.append(tmpArr[0]).append(@":");
+                section = tmpArr[1];
+                cellSelector = KCellModelName.append(tmpArr[2]).append(@":");;
+            }
+                break;
+            case HTableViewFormatTypeCustom:
+            {
+                tmpArr = url.componentsBySetString(@"<>");
+                
+                sectionSelector = tmpArr[0].append(@":");
+                section = tmpArr[1];
+                cellSelector = tmpArr[2].append(@":");
+            }
+                break;
+                
+            default:
+                break;
+        }
         
         HSectionModel *sectionModel = [self sectionAtIndex:section.integerValue];
         if (!sectionModel) {
@@ -258,12 +289,21 @@
             cellModel.renderBlock = [self renderBlock];
             cellModel.selectionBlock = [self selectionBlock];
         }
-
+        
     }
     
     //刷新列表
     [self reloadData];
     [self endRefresh];
+}
+
+- (HTableViewFormatType)urlFormat:(NSString *)string {
+    if ([string containsString:@"<"] && [string containsString:@">"]) {
+        return HTableViewFormatTypeCustom;
+    }else if ([string containsString:@":"]) {
+        return HTableViewFormatTypeNumber;
+    }
+    return HTableViewFormatTypeUnknow;
 }
 
 - (HCellRenderBlock)renderBlock {

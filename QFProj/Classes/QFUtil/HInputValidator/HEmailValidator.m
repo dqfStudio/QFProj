@@ -74,7 +74,7 @@
             NSDictionary *userInfo = [NSDictionary dictionaryWithObjects:objArray
                                                                  forKeys:keyArray];
             *error = [NSError errorWithDomain:HInputValidationErrorDomain
-                                         code:EmailCode2
+                                         code:EmailCode
                                      userInfo:userInfo];
         }
 
