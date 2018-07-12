@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class NSMutableSet;
+
 @interface NSObject (HExclusive)
+
 - (void)exclusive:(void (^)(void))exc;
 - (void)synchronized:(void (^)(void))sync;
+
 @end
