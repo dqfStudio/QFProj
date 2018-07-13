@@ -32,6 +32,15 @@
         [self.exclusiveSet removeObject:exc];
     }
 }
+- (void)exclusive:(NSString * _Nonnull)exc block:(void (^)(HExclusive stop))block {
+    if (block && ![self.exclusiveSet containsObject:exc]) {
+        [self.exclusiveSet addObject:exc];
+        HExclusive exclusive = ^ {
+            [self.exclusiveSet removeObject:exc];
+        };
+        block(exclusive);
+    }
+}
 - (void)synchronized:(void (^)(void))sync {
     @synchronized(self) {
         sync();

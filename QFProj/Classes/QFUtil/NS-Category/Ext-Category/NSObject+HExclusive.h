@@ -10,9 +10,12 @@
 
 @class NSMutableSet;
 
+typedef void(^HExclusive)(void);
+
 @interface NSObject (HExclusive)
 
 - (void)exclusive:(void (^)(void))exc;
+- (void)exclusive:(NSString * _Nonnull)exc block:(void (^)(HExclusive stop))block;
 - (void)synchronized:(void (^)(void))sync;
 
 @end
