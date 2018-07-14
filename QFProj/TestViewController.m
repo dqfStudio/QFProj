@@ -39,6 +39,10 @@
         NSLog(@"");
     }];
     
+    [UIView animateWithDuration:4 animations:^{
+        
+    }];
+    
 //    [self.btn1 aspectInstead:@selector(testAction:) usingBlock:^(id<AspectInfo> info, id sender) {
 //        NSLog(@"");
 //    }];
