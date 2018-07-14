@@ -30,7 +30,9 @@
     if (![self.exclusiveSet containsObject:excString]) {
         [self.exclusiveSet addObject:excString];
         HExclusive exclusive = ^ {
-            [self.exclusiveSet removeObject:excString];
+            if ([self.exclusiveSet containsObject:excString]) {
+                [self.exclusiveSet removeObject:excString];
+            }
         };
         block(exclusive);
     }
