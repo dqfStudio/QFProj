@@ -26,9 +26,7 @@
     objc_setAssociatedObject(self, @selector(exclusiveSet), exclusiveSet, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 - (void)exclusive:(void (^)(void))exc {
-    NSString *classString = NSStringFromClass(self.class);
-    NSString *cmdString = NSStringFromSelector(_cmd);
-    NSString *excString = [classString stringByAppendingString:cmdString];
+    NSString *excString = [NSString stringWithFormat:@"%p", self];
     if (![self.exclusiveSet containsObject:excString]) {
         [self.exclusiveSet addObject:excString];
         exc();
@@ -36,9 +34,7 @@
     }
 }
 - (void)exclusive:(NSString * _Nonnull)exc block:(void (^)(HExclusive stop))block {
-    NSString *classString = NSStringFromClass(self.class);
-    NSString *cmdString = NSStringFromSelector(_cmd);
-    NSString *excString = [[classString stringByAppendingString:cmdString] stringByAppendingString:exc];
+    NSString *excString = [[NSString stringWithFormat:@"%p", self] stringByAppendingString:exc];
     if (![self.exclusiveSet containsObject:excString]) {
         [self.exclusiveSet addObject:excString];
         HExclusive exclusive = ^ {
