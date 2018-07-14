@@ -29,6 +29,7 @@
 #import "NSDictionary+HSafeUtil.h"
 #import "NSObject+selector.h"
 #import "UIImage+Util.h"
+#import "NSTimer+HUtil.h"
 
 @interface ViewController () <HTupleViewDelegate> {
     UILabel *label;
@@ -67,8 +68,23 @@ H_CheckPropertyRange(rrr, 0, 150)
     [dict setObject:@"11111111" forKey:@"date"];
 //    NSString *sf = dict[@"TestString"];
     
+    [NSTimer scheduledTimerImmediatelyWithTimeInterval:2 times:2 block:^(NSTimer *timer) {
+        NSLog(@"1111111111");
+    } completion:^{
+        NSLog(@"22222222222");
+    }];
+    
+    [NSTimer scheduledTimerWithTimeInterval:2 times:2 block:^(NSTimer *timer) {
+        NSLog(@"1111111111");
+    } completion:^{
+        NSLog(@"22222222222");
+    }];
+    
+    
+    
+    
 //    [self performSelector:@selector(testAction) withObjects:nil];
-    NSLog(@"hello222");
+//    NSLog(@"hello222");
 //    NSString *ss = [NSString stringWithFormat:@"dqf_%@:",NSStringFromSelector(_cmd)];
     NSString *ss = @"dqf_viewDidLoad:ff:";
     
@@ -86,7 +102,7 @@ H_CheckPropertyRange(rrr, 0, 150)
 }
 
 - (void)dqf_viewDidLoad:(NSInteger)num ff:(NSInteger)rr {
-    NSLog(@"world");
+//    NSLog(@"world");
 }
 
 - (void)dqf_viewDidLoad {
