@@ -26,17 +26,23 @@
     objc_setAssociatedObject(self, @selector(exclusiveSet), exclusiveSet, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 - (void)exclusive:(void (^)(void))exc {
-    if (exc && ![self.exclusiveSet containsObject:exc]) {
-        [self.exclusiveSet addObject:exc];
+    NSString *classString = NSStringFromClass(self.class);
+    NSString *cmdString = NSStringFromSelector(_cmd);
+    NSString *excString = [classString stringByAppendingString:cmdString];
+    if (![self.exclusiveSet containsObject:excString]) {
+        [self.exclusiveSet addObject:excString];
         exc();
-        [self.exclusiveSet removeObject:exc];
+        [self.exclusiveSet removeObject:excString];
     }
 }
 - (void)exclusive:(NSString * _Nonnull)exc block:(void (^)(HExclusive stop))block {
-    if (block && ![self.exclusiveSet containsObject:exc]) {
-        [self.exclusiveSet addObject:exc];
+    NSString *classString = NSStringFromClass(self.class);
+    NSString *cmdString = NSStringFromSelector(_cmd);
+    NSString *excString = [[classString stringByAppendingString:cmdString] stringByAppendingString:exc];
+    if (![self.exclusiveSet containsObject:excString]) {
+        [self.exclusiveSet addObject:excString];
         HExclusive exclusive = ^ {
-            [self.exclusiveSet removeObject:exc];
+            [self.exclusiveSet removeObject:excString];
         };
         block(exclusive);
     }
