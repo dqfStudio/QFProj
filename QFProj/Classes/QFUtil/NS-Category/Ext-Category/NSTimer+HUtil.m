@@ -11,6 +11,21 @@
 
 @implementation NSTimer (HUtil)
 
++ (NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)interval times:(NSTimeInterval)times block:(void (^)(NSTimer *timer))block {
+    __block NSTimeInterval count = 0;
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:interval repeats:YES block:^(NSTimer * _Nonnull timer) {
+        count += interval;
+        if (count < interval * times) {
+            if (block) block(timer);
+        }else if (count >= interval * times) {
+            [timer invalidate];
+            if (block) block(timer);
+            timer = nil;
+        }
+    }];
+    return timer;
+}
+
 + (NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)interval times:(NSTimeInterval)times block:(void (^)(NSTimer *timer))block completion:(void (^)(void))completion {
     __block NSTimeInterval count = 0;
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:interval repeats:YES block:^(NSTimer * _Nonnull timer) {
