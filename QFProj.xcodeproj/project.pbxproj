@@ -13,6 +13,7 @@
 		1510793F20F98E4800860D1C /* NSTimer+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1510793E20F98E4800860D1C /* NSTimer+HUtil.m */; };
 		1510794520F99ABB00860D1C /* NSObject+HExclusive.m in Sources */ = {isa = PBXBuildFile; fileRef = 1510794420F99ABB00860D1C /* NSObject+HExclusive.m */; };
 		15112C6A210574DB00842FE4 /* UIAlertController+HError.m in Sources */ = {isa = PBXBuildFile; fileRef = 15112C69210574DB00842FE4 /* UIAlertController+HError.m */; };
+		15112C772105A19600842FE4 /* HUncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 15112C752105A19600842FE4 /* HUncaughtExceptionHandler.m */; };
 		1528DF4320BEF6BC00D0A004 /* HNaviToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1528DF4220BEF6BC00D0A004 /* HNaviToastView.m */; };
 		1528DF4620BF0A0200D0A004 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1528DF4520BF0A0200D0A004 /* MBProgressHUD.m */; };
 		1528DF4920BF0A7A00D0A004 /* HShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1528DF4820BF0A7A00D0A004 /* HShowView.m */; };
@@ -165,6 +166,8 @@
 		1510794420F99ABB00860D1C /* NSObject+HExclusive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HExclusive.m"; sourceTree = "<group>"; };
 		15112C68210574DA00842FE4 /* UIAlertController+HError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+HError.h"; sourceTree = "<group>"; };
 		15112C69210574DB00842FE4 /* UIAlertController+HError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+HError.m"; sourceTree = "<group>"; };
+		15112C752105A19600842FE4 /* HUncaughtExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUncaughtExceptionHandler.m; sourceTree = "<group>"; };
+		15112C762105A19600842FE4 /* HUncaughtExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUncaughtExceptionHandler.h; sourceTree = "<group>"; };
 		1528DF4120BEF6BC00D0A004 /* HNaviToastView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNaviToastView.h; sourceTree = "<group>"; };
 		1528DF4220BEF6BC00D0A004 /* HNaviToastView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNaviToastView.m; sourceTree = "<group>"; };
 		1528DF4420BF0A0100D0A004 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -455,6 +458,15 @@
 			path = QFUtil/HDictionary;
 			sourceTree = "<group>";
 		};
+		15112C742105A19600842FE4 /* HUncaughtExceptionHandler */ = {
+			isa = PBXGroup;
+			children = (
+				15112C762105A19600842FE4 /* HUncaughtExceptionHandler.h */,
+				15112C752105A19600842FE4 /* HUncaughtExceptionHandler.m */,
+			);
+			path = HUncaughtExceptionHandler;
+			sourceTree = "<group>";
+		};
 		1538FFA2209405CC002E3A29 /* HCache */ = {
 			isa = PBXGroup;
 			children = (
@@ -609,6 +621,7 @@
 		15B4DD7E2092F96B00773E04 /* QFUtil */ = {
 			isa = PBXGroup;
 			children = (
+				15112C742105A19600842FE4 /* HUncaughtExceptionHandler */,
 				153F080220E28CA000C74850 /* HInputValidator */,
 				157684CF20E2157E00D8DC5B /* NSBlockChain */,
 				15038EAF20CD5CB400A16FC9 /* HSkin */,
@@ -1372,6 +1385,7 @@
 				153F081320E28CA000C74850 /* HAlphaValidator.m in Sources */,
 				15B4DDEF2092F96C00773E04 /* UIViewController+HUtil.m in Sources */,
 				15B4DE0B2092F96C00773E04 /* NSString+HSafeUtil.m in Sources */,
+				15112C772105A19600842FE4 /* HUncaughtExceptionHandler.m in Sources */,
 				153F081520E28CA000C74850 /* HInputValidator.m in Sources */,
 				15B4DD762092F88700773E04 /* main.m in Sources */,
 				15B4DDF52092F96C00773E04 /* UINavigationController+HUtil.m in Sources */,
