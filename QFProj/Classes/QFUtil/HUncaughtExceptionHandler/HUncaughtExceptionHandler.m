@@ -9,6 +9,7 @@
 #import "HUncaughtExceptionHandler.h"
 #include <libkern/OSAtomic.h>
 #include <execinfo.h>
+#include <stdatomic.h>
 
 NSString * const UncaughtExceptionHandlerSignalExceptionName = @"UncaughtExceptionHandlerSignalExceptionName";
 NSString * const UncaughtExceptionHandlerSignalKey = @"UncaughtExceptionHandlerSignalKey";
@@ -92,7 +93,10 @@ const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
 
 void HandleException(NSException *exception)
 {
-	int32_t exceptionCount = OSAtomicIncrement32(&UncaughtExceptionCount);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    int32_t exceptionCount = OSAtomicIncrement32(&UncaughtExceptionCount);
+#pragma clang diagnostic pop
 	if (exceptionCount > UncaughtExceptionMaximum) {
 		return;
 	}
@@ -116,7 +120,11 @@ void HandleException(NSException *exception)
 
 void SignalHandler(int signal)
 {
-	int32_t exceptionCount = OSAtomicIncrement32(&UncaughtExceptionCount);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    int32_t exceptionCount = OSAtomicIncrement32(&UncaughtExceptionCount);
+#pragma clang diagnostic pop
+	
 	if (exceptionCount > UncaughtExceptionMaximum) {
 		return;
 	}
@@ -144,12 +152,14 @@ void SignalHandler(int signal)
 
 void InstallUncaughtExceptionHandler(void)
 {
-	NSSetUncaughtExceptionHandler(&HandleException);
-	signal(SIGABRT, SignalHandler);
-	signal(SIGILL, SignalHandler);
-	signal(SIGSEGV, SignalHandler);
-	signal(SIGFPE, SignalHandler);
-	signal(SIGBUS, SignalHandler);
-	signal(SIGPIPE, SignalHandler);
+#ifdef DEBUG
+    NSSetUncaughtExceptionHandler(&HandleException);
+    signal(SIGABRT, SignalHandler);
+    signal(SIGILL, SignalHandler);
+    signal(SIGSEGV, SignalHandler);
+    signal(SIGFPE, SignalHandler);
+    signal(SIGBUS, SignalHandler);
+    signal(SIGPIPE, SignalHandler);
+#endif
 }
 
