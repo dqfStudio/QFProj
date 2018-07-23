@@ -12,6 +12,7 @@
 		1508255520EB1C0F008CAE57 /* HDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1508255420EB1C0F008CAE57 /* HDictionary.m */; };
 		1510793F20F98E4800860D1C /* NSTimer+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1510793E20F98E4800860D1C /* NSTimer+HUtil.m */; };
 		1510794520F99ABB00860D1C /* NSObject+HExclusive.m in Sources */ = {isa = PBXBuildFile; fileRef = 1510794420F99ABB00860D1C /* NSObject+HExclusive.m */; };
+		15112C6A210574DB00842FE4 /* UIAlertController+HError.m in Sources */ = {isa = PBXBuildFile; fileRef = 15112C69210574DB00842FE4 /* UIAlertController+HError.m */; };
 		1528DF4320BEF6BC00D0A004 /* HNaviToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1528DF4220BEF6BC00D0A004 /* HNaviToastView.m */; };
 		1528DF4620BF0A0200D0A004 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1528DF4520BF0A0200D0A004 /* MBProgressHUD.m */; };
 		1528DF4920BF0A7A00D0A004 /* HShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1528DF4820BF0A7A00D0A004 /* HShowView.m */; };
@@ -162,6 +163,8 @@
 		1510793E20F98E4800860D1C /* NSTimer+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+HUtil.m"; sourceTree = "<group>"; };
 		1510794320F99AB900860D1C /* NSObject+HExclusive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HExclusive.h"; sourceTree = "<group>"; };
 		1510794420F99ABB00860D1C /* NSObject+HExclusive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HExclusive.m"; sourceTree = "<group>"; };
+		15112C68210574DA00842FE4 /* UIAlertController+HError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+HError.h"; sourceTree = "<group>"; };
+		15112C69210574DB00842FE4 /* UIAlertController+HError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+HError.m"; sourceTree = "<group>"; };
 		1528DF4120BEF6BC00D0A004 /* HNaviToastView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNaviToastView.h; sourceTree = "<group>"; };
 		1528DF4220BEF6BC00D0A004 /* HNaviToastView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNaviToastView.m; sourceTree = "<group>"; };
 		1528DF4420BF0A0100D0A004 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -678,6 +681,8 @@
 		15B4DD902092F96B00773E04 /* Ext-Category */ = {
 			isa = PBXGroup;
 			children = (
+				15112C68210574DA00842FE4 /* UIAlertController+HError.h */,
+				15112C69210574DB00842FE4 /* UIAlertController+HError.m */,
 				15B4DD992092F96B00773E04 /* UIApplication+HUtil.h */,
 				15B4DDA72092F96B00773E04 /* UIApplication+HUtil.m */,
 				15B4DDAE2092F96B00773E04 /* UIButton+HUtil.h */,
@@ -1328,6 +1333,7 @@
 				15B4DDFB2092F96C00773E04 /* UIColor+HUtil.m in Sources */,
 				15C572AA20AEDAB90070327C /* HLabelView.m in Sources */,
 				15B4DDE82092F96C00773E04 /* AppDelegate+HDebug.m in Sources */,
+				15112C6A210574DB00842FE4 /* UIAlertController+HError.m in Sources */,
 				15B4DDEA2092F96C00773E04 /* HDebugView.m in Sources */,
 				15B4DE122092F96C00773E04 /* NSObject+HSwizzleUtil.m in Sources */,
 				15B4DE062092F96C00773E04 /* NSObject+BlockSEL.m in Sources */,
