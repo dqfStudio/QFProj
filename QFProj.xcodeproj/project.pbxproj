@@ -29,6 +29,10 @@
 		153F081820E28CA000C74850 /* UITextField+HRegular.m in Sources */ = {isa = PBXBuildFile; fileRef = 153F081120E28CA000C74850 /* UITextField+HRegular.m */; };
 		15464B7720A2C26300CDD27E /* HTestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15464B7420A2C26300CDD27E /* HTestManager.m */; };
 		15464B7820A2C26300CDD27E /* HTestVC-DQF.m in Sources */ = {isa = PBXBuildFile; fileRef = 15464B7520A2C26300CDD27E /* HTestVC-DQF.m */; };
+		1547B88E210C4E09009E0374 /* UIViewController+HTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1547B886210C4E09009E0374 /* UIViewController+HTracking.m */; };
+		1547B88F210C4E09009E0374 /* UITableView+HTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1547B888210C4E09009E0374 /* UITableView+HTracking.m */; };
+		1547B890210C4E09009E0374 /* UIControl+HTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1547B889210C4E09009E0374 /* UIControl+HTracking.m */; };
+		1547B891210C4E09009E0374 /* UICollectionView+HTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1547B88C210C4E09009E0374 /* UICollectionView+HTracking.m */; };
 		15707E8E20B4525900493839 /* HUpImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15707E8D20B4525900493839 /* HUpImageCell.m */; };
 		15707EC020B5675A00493839 /* HTupleSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 15707EBF20B5675A00493839 /* HTupleSignal.m */; };
 		157684D220E2157E00D8DC5B /* NSBlockChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 157684D020E2157E00D8DC5B /* NSBlockChain.m */; };
@@ -198,6 +202,14 @@
 		15464B7420A2C26300CDD27E /* HTestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTestManager.m; sourceTree = "<group>"; };
 		15464B7520A2C26300CDD27E /* HTestVC-DQF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HTestVC-DQF.m"; sourceTree = "<group>"; };
 		15464B7620A2C26300CDD27E /* HTestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTestManager.h; sourceTree = "<group>"; };
+		1547B886210C4E09009E0374 /* UIViewController+HTracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HTracking.m"; sourceTree = "<group>"; };
+		1547B887210C4E09009E0374 /* UICollectionView+HTracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+HTracking.h"; sourceTree = "<group>"; };
+		1547B888210C4E09009E0374 /* UITableView+HTracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+HTracking.m"; sourceTree = "<group>"; };
+		1547B889210C4E09009E0374 /* UIControl+HTracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+HTracking.m"; sourceTree = "<group>"; };
+		1547B88A210C4E09009E0374 /* UIViewController+HTracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HTracking.h"; sourceTree = "<group>"; };
+		1547B88B210C4E09009E0374 /* UITableView+HTracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+HTracking.h"; sourceTree = "<group>"; };
+		1547B88C210C4E09009E0374 /* UICollectionView+HTracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+HTracking.m"; sourceTree = "<group>"; };
+		1547B88D210C4E09009E0374 /* UIControl+HTracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+HTracking.h"; sourceTree = "<group>"; };
 		15707E8C20B4525900493839 /* HUpImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUpImageCell.h; sourceTree = "<group>"; };
 		15707E8D20B4525900493839 /* HUpImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HUpImageCell.m; sourceTree = "<group>"; };
 		15707EBE20B5675A00493839 /* HTupleSignal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleSignal.h; sourceTree = "<group>"; };
@@ -521,6 +533,22 @@
 			path = QFUtil/HTestUtil;
 			sourceTree = "<group>";
 		};
+		1547B885210C4E09009E0374 /* HTracking */ = {
+			isa = PBXGroup;
+			children = (
+				1547B887210C4E09009E0374 /* UICollectionView+HTracking.h */,
+				1547B88C210C4E09009E0374 /* UICollectionView+HTracking.m */,
+				1547B88D210C4E09009E0374 /* UIControl+HTracking.h */,
+				1547B889210C4E09009E0374 /* UIControl+HTracking.m */,
+				1547B88B210C4E09009E0374 /* UITableView+HTracking.h */,
+				1547B888210C4E09009E0374 /* UITableView+HTracking.m */,
+				1547B88A210C4E09009E0374 /* UIViewController+HTracking.h */,
+				1547B886210C4E09009E0374 /* UIViewController+HTracking.m */,
+			);
+			name = HTracking;
+			path = QFUtil/HTracking;
+			sourceTree = "<group>";
+		};
 		15707EBD20B5674E00493839 /* HTupleCommon */ = {
 			isa = PBXGroup;
 			children = (
@@ -604,6 +632,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1547B885210C4E09009E0374 /* HTracking */,
 				1508255220EB1C06008CAE57 /* HDictionary */,
 				15C5731B20B3B1900070327C /* HSimilarity */,
 				15C572A720AEDAB90070327C /* HLabelView */,
@@ -1320,16 +1349,19 @@
 				15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */,
 				15B4DDED2092F96C00773E04 /* UIView+HImage.m in Sources */,
 				15B4DE30209319FA00773E04 /* NSObject+HSelector.m in Sources */,
+				1547B890210C4E09009E0374 /* UIControl+HTracking.m in Sources */,
 				15C5738520B3DD9F0070327C /* HTableModel.m in Sources */,
 				15B4DE0F2092F96C00773E04 /* NSObject+HSafeSEL.m in Sources */,
 				1528DF4C20BF0FE200D0A004 /* UIAlertController+HUtil.m in Sources */,
 				15B4DDEB2092F96C00773E04 /* UIView+HDebug.m in Sources */,
+				1547B891210C4E09009E0374 /* UICollectionView+HTracking.m in Sources */,
 				15B4DDF62092F96C00773E04 /* UIApplication+HUtil.m in Sources */,
 				1538FFA92094065A002E3A29 /* NSFileManager+HUtil.m in Sources */,
 				1538FFA5209405CC002E3A29 /* HFileCache.m in Sources */,
 				15B4DE1B209302BF00773E04 /* HGoToApp.m in Sources */,
 				15C5737120B3DD7B0070327C /* HTupleBaseView.m in Sources */,
 				15B4DE282093034700773E04 /* HGCDUtil.m in Sources */,
+				1547B88F210C4E09009E0374 /* UITableView+HTracking.m in Sources */,
 				15C5736820B3DD7B0070327C /* HTupleBaseCell.m in Sources */,
 				15B4DE0C2092F96C00773E04 /* NSTimer+HSafeUtil.m in Sources */,
 				15B4DE002092F96C00773E04 /* NSDate+HUtil.m in Sources */,
@@ -1349,6 +1381,7 @@
 				15112C6A210574DB00842FE4 /* UIAlertController+HError.m in Sources */,
 				15B4DDEA2092F96C00773E04 /* HDebugView.m in Sources */,
 				15B4DE122092F96C00773E04 /* NSObject+HSwizzleUtil.m in Sources */,
+				1547B88E210C4E09009E0374 /* UIViewController+HTracking.m in Sources */,
 				15B4DE062092F96C00773E04 /* NSObject+BlockSEL.m in Sources */,
 				15F9152620A1817F000261C4 /* QFButton.m in Sources */,
 				15C572B020B016CA0070327C /* UIView+HAccessoryView.m in Sources */,
