@@ -29,6 +29,7 @@
 		153F081820E28CA000C74850 /* UITextField+HRegular.m in Sources */ = {isa = PBXBuildFile; fileRef = 153F081120E28CA000C74850 /* UITextField+HRegular.m */; };
 		15464B7720A2C26300CDD27E /* HTestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15464B7420A2C26300CDD27E /* HTestManager.m */; };
 		15464B7820A2C26300CDD27E /* HTestVC-DQF.m in Sources */ = {isa = PBXBuildFile; fileRef = 15464B7520A2C26300CDD27E /* HTestVC-DQF.m */; };
+		1547855D211599CE00DC9EAE /* HRegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 1547855C211599CE00DC9EAE /* HRegularExpression.m */; };
 		1547B88E210C4E09009E0374 /* UIViewController+HTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1547B886210C4E09009E0374 /* UIViewController+HTracking.m */; };
 		1547B88F210C4E09009E0374 /* UITableView+HTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1547B888210C4E09009E0374 /* UITableView+HTracking.m */; };
 		1547B890210C4E09009E0374 /* UIControl+HTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1547B889210C4E09009E0374 /* UIControl+HTracking.m */; };
@@ -202,6 +203,8 @@
 		15464B7420A2C26300CDD27E /* HTestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTestManager.m; sourceTree = "<group>"; };
 		15464B7520A2C26300CDD27E /* HTestVC-DQF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HTestVC-DQF.m"; sourceTree = "<group>"; };
 		15464B7620A2C26300CDD27E /* HTestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTestManager.h; sourceTree = "<group>"; };
+		1547855B211599CE00DC9EAE /* HRegularExpression.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRegularExpression.h; sourceTree = "<group>"; };
+		1547855C211599CE00DC9EAE /* HRegularExpression.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRegularExpression.m; sourceTree = "<group>"; };
 		1547B886210C4E09009E0374 /* UIViewController+HTracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HTracking.m"; sourceTree = "<group>"; };
 		1547B887210C4E09009E0374 /* UICollectionView+HTracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+HTracking.h"; sourceTree = "<group>"; };
 		1547B888210C4E09009E0374 /* UITableView+HTracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+HTracking.m"; sourceTree = "<group>"; };
@@ -533,6 +536,16 @@
 			path = QFUtil/HTestUtil;
 			sourceTree = "<group>";
 		};
+		1547855A211599C200DC9EAE /* HRegularExpression */ = {
+			isa = PBXGroup;
+			children = (
+				1547855B211599CE00DC9EAE /* HRegularExpression.h */,
+				1547855C211599CE00DC9EAE /* HRegularExpression.m */,
+			);
+			name = HRegularExpression;
+			path = QFUtil/HRegularExpression;
+			sourceTree = "<group>";
+		};
 		1547B885210C4E09009E0374 /* HTracking */ = {
 			isa = PBXGroup;
 			children = (
@@ -615,23 +628,16 @@
 				15C572AF20B016CA0070327C /* UIView+HAccessoryView.m */,
 				15F9152120A17E95000261C4 /* TestViewController.h */,
 				15F9152220A17E95000261C4 /* TestViewController.m */,
-				15B4DD7C2092F96B00773E04 /* Vendors */,
 				15B4DD692092F88700773E04 /* ViewController.h */,
 				15B4DD6A2092F88700773E04 /* ViewController.m */,
 			);
 			path = QFProj;
 			sourceTree = "<group>";
 		};
-		15B4DD7C2092F96B00773E04 /* Vendors */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Vendors;
-			sourceTree = "<group>";
-		};
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1547855A211599C200DC9EAE /* HRegularExpression */,
 				1547B885210C4E09009E0374 /* HTracking */,
 				1508255220EB1C06008CAE57 /* HDictionary */,
 				15C5731B20B3B1900070327C /* HSimilarity */,
@@ -1362,6 +1368,7 @@
 				15C5737120B3DD7B0070327C /* HTupleBaseView.m in Sources */,
 				15B4DE282093034700773E04 /* HGCDUtil.m in Sources */,
 				1547B88F210C4E09009E0374 /* UITableView+HTracking.m in Sources */,
+				1547855D211599CE00DC9EAE /* HRegularExpression.m in Sources */,
 				15C5736820B3DD7B0070327C /* HTupleBaseCell.m in Sources */,
 				15B4DE0C2092F96C00773E04 /* NSTimer+HSafeUtil.m in Sources */,
 				15B4DE002092F96C00773E04 /* NSDate+HUtil.m in Sources */,
