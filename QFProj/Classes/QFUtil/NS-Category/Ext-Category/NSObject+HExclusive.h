@@ -6,6 +6,7 @@
 //  Copyright © 2018年 socool. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
 @class NSMutableSet;
@@ -18,4 +19,8 @@ typedef void(^HExclusive)(void);
 - (void)removeExclusive:(NSString * _Nonnull)exc;
 - (void)synchronized:(void (^)(void))sync;
 
+@end
+
+@interface UIView (HExclusive)
+- (void)setTouchExclusive;
 @end

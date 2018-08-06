@@ -49,3 +49,12 @@
     }
 }
 @end
+
+
+@implementation UIView (HExclusive)
+
+- (void)setTouchExclusive {
+    [[UIView appearance] setExclusiveTouch:YES];
+}
+
+@end
