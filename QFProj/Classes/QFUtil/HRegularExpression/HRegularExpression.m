@@ -13,16 +13,23 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        [self test:nil test2:nil];
+        [self test:nil test2:nil ];
         //查找命令
         //test:(.*) test2:(.*)\]
         //替换命令
-        //test:$1 test2:$2 completion:nil]
+        //test:$1    test2:$2 completion:nil]
     }
     return self;
 }
 
-- (void)test:(NSString *)test test2:(NSString *)test2 {
+-  (void)test:(NSString *)test test2:(NSString *)test2 {
+    NSLog(@"ff");
+    NSLog(@"ff");
+    NSLog(@"ff");
+    NSLog(@"ff");
+}
+
+-  (void)test:(NSString *)test test22:(NSString *)test2 test3:(NSString *)test3  {
     NSLog(@"ff");
     NSLog(@"ff");
     NSLog(@"ff");
