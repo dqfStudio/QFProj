@@ -22,6 +22,6 @@ typedef void(^HExclusive)(void);
 @end
 
 @interface UIView (HExclusive)
-- (void)setExclusiveOtherTouch;
-+ (void)setExclusiveOtherTouch;
+- (void)exclusiveOtherTouch;
++ (void)exclusiveOtherTouch;
 @end
