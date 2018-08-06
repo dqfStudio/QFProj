@@ -53,8 +53,10 @@
 
 @implementation UIView (HExclusive)
 
+- (void)setTouchExclusive {
+    [self setExclusiveTouch:YES];
+}
 + (void)setTouchExclusive {
     [[UIView appearance] setExclusiveTouch:YES];
 }
-
 @end
