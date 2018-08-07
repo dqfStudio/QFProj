@@ -10,6 +10,7 @@
 		15038EA820CC0C6A00A16FC9 /* HSwitchLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = 15038EA620CC0C6A00A16FC9 /* HSwitchLanguage.m */; };
 		15038EB220CD5CB400A16FC9 /* HSkin.m in Sources */ = {isa = PBXBuildFile; fileRef = 15038EB020CD5CB400A16FC9 /* HSkin.m */; };
 		1508255520EB1C0F008CAE57 /* HDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1508255420EB1C0F008CAE57 /* HDictionary.m */; };
+		150C7CA5211978E800A05347 /* UIViewController+HPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7CA3211978E700A05347 /* UIViewController+HPrinter.m */; };
 		1510793F20F98E4800860D1C /* NSTimer+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1510793E20F98E4800860D1C /* NSTimer+HUtil.m */; };
 		1510794520F99ABB00860D1C /* NSObject+HExclusive.m in Sources */ = {isa = PBXBuildFile; fileRef = 1510794420F99ABB00860D1C /* NSObject+HExclusive.m */; };
 		15112C6A210574DB00842FE4 /* UIAlertController+HError.m in Sources */ = {isa = PBXBuildFile; fileRef = 15112C69210574DB00842FE4 /* UIAlertController+HError.m */; };
@@ -57,7 +58,6 @@
 		15B4DDED2092F96C00773E04 /* UIView+HImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD932092F96B00773E04 /* UIView+HImage.m */; };
 		15B4DDEE2092F96C00773E04 /* UIViewController+HBackHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD952092F96B00773E04 /* UIViewController+HBackHandler.m */; };
 		15B4DDEF2092F96C00773E04 /* UIViewController+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD972092F96B00773E04 /* UIViewController+HUtil.m */; };
-		15B4DDF02092F96C00773E04 /* UIViewController+HPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD9B2092F96B00773E04 /* UIViewController+HPrinter.m */; };
 		15B4DDF22092F96C00773E04 /* UIButton+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD9F2092F96B00773E04 /* UIButton+HUtil.m */; };
 		15B4DDF32092F96C00773E04 /* UIView+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDA12092F96B00773E04 /* UIView+HUtil.m */; };
 		15B4DDF42092F96C00773E04 /* UIGestureRecognizer+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDA32092F96B00773E04 /* UIGestureRecognizer+HUtil.m */; };
@@ -165,6 +165,8 @@
 		15038EB120CD5CB400A16FC9 /* HSkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSkin.h; sourceTree = "<group>"; };
 		1508255320EB1C0F008CAE57 /* HDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDictionary.h; sourceTree = "<group>"; };
 		1508255420EB1C0F008CAE57 /* HDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDictionary.m; sourceTree = "<group>"; };
+		150C7CA3211978E700A05347 /* UIViewController+HPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HPrinter.m"; sourceTree = "<group>"; };
+		150C7CA4211978E700A05347 /* UIViewController+HPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HPrinter.h"; sourceTree = "<group>"; };
 		1510793D20F98E4800860D1C /* NSTimer+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTimer+HUtil.h"; sourceTree = "<group>"; };
 		1510793E20F98E4800860D1C /* NSTimer+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+HUtil.m"; sourceTree = "<group>"; };
 		1510794320F99AB900860D1C /* NSObject+HExclusive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HExclusive.h"; sourceTree = "<group>"; };
@@ -263,7 +265,6 @@
 		15B4DD982092F96B00773E04 /* UIImage+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Util.h"; sourceTree = "<group>"; };
 		15B4DD992092F96B00773E04 /* UIApplication+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+HUtil.h"; sourceTree = "<group>"; };
 		15B4DD9A2092F96B00773E04 /* UIDevice+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+HUtil.h"; sourceTree = "<group>"; };
-		15B4DD9B2092F96B00773E04 /* UIViewController+HPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HPrinter.m"; sourceTree = "<group>"; };
 		15B4DD9D2092F96B00773E04 /* UIColor+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HUtil.h"; sourceTree = "<group>"; };
 		15B4DD9E2092F96B00773E04 /* UILabel+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HUtil.h"; sourceTree = "<group>"; };
 		15B4DD9F2092F96B00773E04 /* UIButton+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+HUtil.m"; sourceTree = "<group>"; };
@@ -272,7 +273,6 @@
 		15B4DDA22092F96B00773E04 /* UIView+HImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HImage.h"; sourceTree = "<group>"; };
 		15B4DDA32092F96B00773E04 /* UIGestureRecognizer+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+HUtil.m"; sourceTree = "<group>"; };
 		15B4DDA42092F96B00773E04 /* UINavigationController+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+HUtil.m"; sourceTree = "<group>"; };
-		15B4DDA52092F96B00773E04 /* UIViewController+HPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HPrinter.h"; sourceTree = "<group>"; };
 		15B4DDA72092F96B00773E04 /* UIApplication+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+HUtil.m"; sourceTree = "<group>"; };
 		15B4DDA82092F96B00773E04 /* UIDevice+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+HUtil.m"; sourceTree = "<group>"; };
 		15B4DDA92092F96B00773E04 /* UIImage+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Util.m"; sourceTree = "<group>"; };
@@ -473,6 +473,16 @@
 			path = QFUtil/HDictionary;
 			sourceTree = "<group>";
 		};
+		150C7CA2211978E700A05347 /* HPrinter */ = {
+			isa = PBXGroup;
+			children = (
+				150C7CA4211978E700A05347 /* UIViewController+HPrinter.h */,
+				150C7CA3211978E700A05347 /* UIViewController+HPrinter.m */,
+			);
+			name = HPrinter;
+			path = QFUtil/HPrinter;
+			sourceTree = "<group>";
+		};
 		15112C742105A19600842FE4 /* HUncaughtExceptionHandler */ = {
 			isa = PBXGroup;
 			children = (
@@ -637,6 +647,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				150C7CA2211978E700A05347 /* HPrinter */,
 				1547855A211599C200DC9EAE /* HRegularExpression */,
 				1547B885210C4E09009E0374 /* HTracking */,
 				1508255220EB1C06008CAE57 /* HDictionary */,
@@ -757,8 +768,6 @@
 				15B4DDA12092F96B00773E04 /* UIView+HUtil.m */,
 				15B4DDA02092F96B00773E04 /* UIViewController+HBackHandler.h */,
 				15B4DD952092F96B00773E04 /* UIViewController+HBackHandler.m */,
-				15B4DDA52092F96B00773E04 /* UIViewController+HPrinter.h */,
-				15B4DD9B2092F96B00773E04 /* UIViewController+HPrinter.m */,
 				15B4DDAA2092F96B00773E04 /* UIViewController+HUtil.h */,
 				15B4DD972092F96B00773E04 /* UIViewController+HUtil.m */,
 			);
@@ -1345,6 +1354,7 @@
 				15B4DE2D209311F900773E04 /* NSObject+HMessy.m in Sources */,
 				1528DF4920BF0A7A00D0A004 /* HShowView.m in Sources */,
 				15F9151D20A14A33000261C4 /* UIView+HShow.m in Sources */,
+				150C7CA5211978E800A05347 /* UIViewController+HPrinter.m in Sources */,
 				15C5738320B3DD9F0070327C /* NSObject+selector.m in Sources */,
 				1528DF4320BEF6BC00D0A004 /* HNaviToastView.m in Sources */,
 				15B4DDF92092F96C00773E04 /* UIScreen+HUtil.m in Sources */,
@@ -1406,7 +1416,6 @@
 				15C5729320AE51B30070327C /* HSort.m in Sources */,
 				15C5738720B3DD9F0070327C /* HTableView.m in Sources */,
 				1587D8E120C257A900C0391D /* HTableSignal.m in Sources */,
-				15B4DDF02092F96C00773E04 /* UIViewController+HPrinter.m in Sources */,
 				1590609320BE76D600CB4EA6 /* HRequestWaitingView.m in Sources */,
 				15B4DDEE2092F96C00773E04 /* UIViewController+HBackHandler.m in Sources */,
 				15B4DE022092F96C00773E04 /* NSUserDefaults+HUtil.m in Sources */,

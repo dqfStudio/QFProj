@@ -60,6 +60,11 @@ H_CheckPropertyRange(rrr, 0, 150)
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIView *view = UIView.new;
+    [view setFrame:self.view.frame];
+    [self.view addSubview:view];
+    
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     [dict setObject:@"test" forKey:@"TestString"];
     [dict setObject:@"1" forKey:@"yn"];

@@ -18,6 +18,12 @@
         //test:(.*) test2:(.*)\]
         //替换命令
         //test:$1    test2:$2 completion:nil]
+        
+        
+        //查找命令
+        //addSubview:(.*);
+        //替换命令
+        //addSubview:$1; NSLog(@"class:%@ function:%s line:%d", NSStringFromClass([self class]), __FUNCTION__, __LINE__);
     }
     return self;
 }
