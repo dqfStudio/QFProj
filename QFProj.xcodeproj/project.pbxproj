@@ -11,6 +11,9 @@
 		15038EB220CD5CB400A16FC9 /* HSkin.m in Sources */ = {isa = PBXBuildFile; fileRef = 15038EB020CD5CB400A16FC9 /* HSkin.m */; };
 		1508255520EB1C0F008CAE57 /* HDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1508255420EB1C0F008CAE57 /* HDictionary.m */; };
 		150C7CA5211978E800A05347 /* UIViewController+HPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7CA3211978E700A05347 /* UIViewController+HPrinter.m */; };
+		150C7CB12119961F00A05347 /* UIWindow+HPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7CB02119961F00A05347 /* UIWindow+HPrinter.m */; };
+		150C7CB4211996E800A05347 /* HPrinterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7CB3211996E800A05347 /* HPrinterManager.m */; };
+		150C7CB721199D9000A05347 /* UIView+HPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7CB621199D9000A05347 /* UIView+HPrinter.m */; };
 		1510793F20F98E4800860D1C /* NSTimer+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1510793E20F98E4800860D1C /* NSTimer+HUtil.m */; };
 		1510794520F99ABB00860D1C /* NSObject+HExclusive.m in Sources */ = {isa = PBXBuildFile; fileRef = 1510794420F99ABB00860D1C /* NSObject+HExclusive.m */; };
 		15112C6A210574DB00842FE4 /* UIAlertController+HError.m in Sources */ = {isa = PBXBuildFile; fileRef = 15112C69210574DB00842FE4 /* UIAlertController+HError.m */; };
@@ -167,6 +170,12 @@
 		1508255420EB1C0F008CAE57 /* HDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDictionary.m; sourceTree = "<group>"; };
 		150C7CA3211978E700A05347 /* UIViewController+HPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HPrinter.m"; sourceTree = "<group>"; };
 		150C7CA4211978E700A05347 /* UIViewController+HPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HPrinter.h"; sourceTree = "<group>"; };
+		150C7CAF2119961F00A05347 /* UIWindow+HPrinter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIWindow+HPrinter.h"; sourceTree = "<group>"; };
+		150C7CB02119961F00A05347 /* UIWindow+HPrinter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+HPrinter.m"; sourceTree = "<group>"; };
+		150C7CB2211996E800A05347 /* HPrinterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HPrinterManager.h; sourceTree = "<group>"; };
+		150C7CB3211996E800A05347 /* HPrinterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HPrinterManager.m; sourceTree = "<group>"; };
+		150C7CB521199D9000A05347 /* UIView+HPrinter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HPrinter.h"; sourceTree = "<group>"; };
+		150C7CB621199D9000A05347 /* UIView+HPrinter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+HPrinter.m"; sourceTree = "<group>"; };
 		1510793D20F98E4800860D1C /* NSTimer+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTimer+HUtil.h"; sourceTree = "<group>"; };
 		1510793E20F98E4800860D1C /* NSTimer+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+HUtil.m"; sourceTree = "<group>"; };
 		1510794320F99AB900860D1C /* NSObject+HExclusive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HExclusive.h"; sourceTree = "<group>"; };
@@ -478,6 +487,12 @@
 			children = (
 				150C7CA4211978E700A05347 /* UIViewController+HPrinter.h */,
 				150C7CA3211978E700A05347 /* UIViewController+HPrinter.m */,
+				150C7CAF2119961F00A05347 /* UIWindow+HPrinter.h */,
+				150C7CB02119961F00A05347 /* UIWindow+HPrinter.m */,
+				150C7CB521199D9000A05347 /* UIView+HPrinter.h */,
+				150C7CB621199D9000A05347 /* UIView+HPrinter.m */,
+				150C7CB2211996E800A05347 /* HPrinterManager.h */,
+				150C7CB3211996E800A05347 /* HPrinterManager.m */,
 			);
 			name = HPrinter;
 			path = QFUtil/HPrinter;
@@ -1359,6 +1374,7 @@
 				1528DF4320BEF6BC00D0A004 /* HNaviToastView.m in Sources */,
 				15B4DDF92092F96C00773E04 /* UIScreen+HUtil.m in Sources */,
 				15B4DDF22092F96C00773E04 /* UIButton+HUtil.m in Sources */,
+				150C7CB721199D9000A05347 /* UIView+HPrinter.m in Sources */,
 				1587D8D020BF708900C0391D /* HFormController.m in Sources */,
 				15464B7720A2C26300CDD27E /* HTestManager.m in Sources */,
 				15038EA820CC0C6A00A16FC9 /* HSwitchLanguage.m in Sources */,
@@ -1384,6 +1400,7 @@
 				15B4DE002092F96C00773E04 /* NSDate+HUtil.m in Sources */,
 				15B4DDFE2092F96C00773E04 /* NSString+HUtil.m in Sources */,
 				15707EC020B5675A00493839 /* HTupleSignal.m in Sources */,
+				150C7CB12119961F00A05347 /* UIWindow+HPrinter.m in Sources */,
 				15C5738420B3DD9F0070327C /* HCellModel.m in Sources */,
 				153F081220E28CA000C74850 /* HAlphaNumericValidator.m in Sources */,
 				15E1388D20DB785C0070ED08 /* NSDictionary+HOrder.m in Sources */,
@@ -1411,6 +1428,7 @@
 				15B4DE1D209302BF00773E04 /* HGoTo.m in Sources */,
 				1510794520F99ABB00860D1C /* NSObject+HExclusive.m in Sources */,
 				15F9152320A17E95000261C4 /* TestViewController.m in Sources */,
+				150C7CB4211996E800A05347 /* HPrinterManager.m in Sources */,
 				15C5737020B3DD7B0070327C /* HTupleReusableView.m in Sources */,
 				153F081420E28CA000C74850 /* HEmailValidator.m in Sources */,
 				15C5729320AE51B30070327C /* HSort.m in Sources */,

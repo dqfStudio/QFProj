@@ -7,6 +7,7 @@
 //
 
 #import "HRegularExpression.h"
+#import "HPrinterManager.h"
 
 @implementation HRegularExpression
 
@@ -23,7 +24,11 @@
         //查找命令
         //addSubview:(.*);
         //替换命令
-        //addSubview:$1; NSLog(@"class:%@ function:%s line:%d", NSStringFromClass([self class]), __FUNCTION__, __LINE__);
+//        addSubview:$1;
+//        NSLog(@"class:%@ function:%s line:%d", NSStringFromClass([self class]), __FUNCTION__, __LINE__);
+        
+//        addSubview:$1;
+//        [[HPrinterManager share] setObject:[NSString stringWithFormat:@"function:%s line:%d", __FUNCTION__, __LINE__] forKey:[NSString stringWithFormat:@"%p", [HPrinterManager share].view]];
     }
     return self;
 }
