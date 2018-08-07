@@ -31,7 +31,9 @@
 - (void)setObject:(id)anObject forKey:(NSString *)aKey {
     [self.printerDict setObject:anObject forKey:aKey];
 }
-
+- (BOOL)containsObject:(id)anObject {
+    return [self.printerDict.allKeys containsObject:anObject];
+}
 - (NSString *)objectForKey:(NSString *)aKey {
     if ([self.printerDict.allKeys containsObject:aKey]) {
         return [self.printerDict objectForKey:aKey];

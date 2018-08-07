@@ -12,38 +12,15 @@
 @implementation UIView (HPrinter)
 
 #if DEBUG
-+ (void)load {
-    if (self == UIView.class) {
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            [self replaceClass:[self class] originalSelector:@selector(addSubview:) withCustomSelector:@selector(custom_addSubview:)];
-        });
+- (void)addString:(NSString *)aString withView:(UIView *)view {
+    SEL selector = NSSelectorFromString(@"addSubview:");
+    if ([self respondsToSelector:selector]) {
+_Pragma("clang diagnostic push")
+_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"")
+        [self performSelector:selector withObject:view];
+_Pragma("clang diagnostic pop")
+        [[HPrinterManager share] setObject:aString forKey:[NSString stringWithFormat:@"%p", view]];
     }
-}
-
-+ (void)replaceClass:(Class)class originalSelector:(SEL)originalSelector withCustomSelector:(SEL)customSelector {
-    
-    Method originalMethod = class_getInstanceMethod(class, originalSelector);
-    Method swizzledMethod = class_getInstanceMethod(class, customSelector);
-    
-    BOOL didAddMethod = class_addMethod(class,
-                                        originalSelector,
-                                        method_getImplementation(swizzledMethod),
-                                        method_getTypeEncoding(swizzledMethod));
-    if (didAddMethod) {
-        class_replaceMethod(class,
-                            customSelector,
-                            method_getImplementation(originalMethod),
-                            method_getTypeEncoding(originalMethod));
-    } else {
-        method_exchangeImplementations(originalMethod, swizzledMethod);
-    }
-    
-}
-
-- (void)custom_addSubview:(UIView *)view {
-    [self custom_addSubview:view];
-    [[HPrinterManager share] setView:view];
 }
 #endif
 

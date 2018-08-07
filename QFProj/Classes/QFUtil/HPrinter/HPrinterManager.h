@@ -10,12 +10,10 @@
 
 @interface HPrinterManager : NSObject
 
-@property (nonatomic, weak) UIView *view;
-
 + (instancetype)share;
 
 - (void)setObject:(id)anObject forKey:(NSString *)aKey;
-
+- (BOOL)containsObject:(id)anObject;
 - (NSString *)objectForKey:(NSString *)aKey;
 
 @end

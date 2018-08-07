@@ -40,9 +40,12 @@
 
 - (void)printInfoWithView:(UIView *)view {
     if ([view isKindOfClass:UIView.class]) {
-        NSString *content = [[HPrinterManager share] objectForKey:[NSString stringWithFormat:@"%p", view]];
-        if (content) {
-            NSLog(@"%@",content);
+        NSString *ipString = [NSString stringWithFormat:@"%p", view];
+        if ([[HPrinterManager share] containsObject:ipString]) {
+            NSString *content = [[HPrinterManager share] objectForKey:ipString];
+            if (content) {
+                NSLog(@"%@",content);
+            }
         }
     }
 }

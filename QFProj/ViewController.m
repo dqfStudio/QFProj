@@ -31,6 +31,7 @@
 #import "UIImage+Util.h"
 #import "NSTimer+HUtil.h"
 #import "HPrinterManager.h"
+//#import "UIView+HPrinter.h"
 
 @interface ViewController () <HTupleViewDelegate> {
     UILabel *label;
@@ -65,7 +66,6 @@ H_CheckPropertyRange(rrr, 0, 150)
     UIView *view = UIView.new;
     [view setFrame:self.view.frame];
     [self.view addSubview:view];
-    [[HPrinterManager share] setObject:[NSString stringWithFormat:@"function:%s line:%d", __FUNCTION__, __LINE__] forKey:[NSString stringWithFormat:@"%p", [HPrinterManager share].view]];
     
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     [dict setObject:@"test" forKey:@"TestString"];

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "HPrinterManager.h"
 
-@interface UIView (HPrinter)
+#define addSubview addString:[NSString stringWithFormat:@"function:%s line:%d", __FUNCTION__, __LINE__] withView
 
+@interface UIView (HPrinter)
+- (void)addString:(NSString *)aString withView:(UIView *)view;
 @end
