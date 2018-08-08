@@ -176,6 +176,7 @@
 		150C7CB3211996E800A05347 /* HPrinterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HPrinterManager.m; sourceTree = "<group>"; };
 		150C7CB521199D9000A05347 /* UIView+HPrinter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HPrinter.h"; sourceTree = "<group>"; };
 		150C7CB621199D9000A05347 /* UIView+HPrinter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+HPrinter.m"; sourceTree = "<group>"; };
+		150C7CB8211A7BC800A05347 /* HPrinterHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HPrinterHeader.h; sourceTree = "<group>"; };
 		1510793D20F98E4800860D1C /* NSTimer+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTimer+HUtil.h"; sourceTree = "<group>"; };
 		1510793E20F98E4800860D1C /* NSTimer+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+HUtil.m"; sourceTree = "<group>"; };
 		1510794320F99AB900860D1C /* NSObject+HExclusive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HExclusive.h"; sourceTree = "<group>"; };
@@ -493,6 +494,7 @@
 				150C7CB621199D9000A05347 /* UIView+HPrinter.m */,
 				150C7CB2211996E800A05347 /* HPrinterManager.h */,
 				150C7CB3211996E800A05347 /* HPrinterManager.m */,
+				150C7CB8211A7BC800A05347 /* HPrinterHeader.h */,
 			);
 			name = HPrinter;
 			path = QFUtil/HPrinter;
