@@ -47,6 +47,7 @@
 		1587D8DE20C2578900C0391D /* HBaseHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1587D8DC20C2578800C0391D /* HBaseHeaderFooterView.m */; };
 		1587D8E120C257A900C0391D /* HTableSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1587D8E020C257A800C0391D /* HTableSignal.m */; };
 		1590609320BE76D600CB4EA6 /* HRequestWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1590609220BE76D600CB4EA6 /* HRequestWaitingView.m */; };
+		15AD7130211B3B4F00D8185F /* NSObject+HName.m in Sources */ = {isa = PBXBuildFile; fileRef = 15AD712F211B3B4F00D8185F /* NSObject+HName.m */; };
 		15B4DD682092F88700773E04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD672092F88700773E04 /* AppDelegate.m */; };
 		15B4DD6B2092F88700773E04 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD6A2092F88700773E04 /* ViewController.m */; };
 		15B4DD6E2092F88700773E04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B4DD6C2092F88700773E04 /* Main.storyboard */; };
@@ -243,6 +244,8 @@
 		1587D8E020C257A800C0391D /* HTableSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableSignal.m; sourceTree = "<group>"; };
 		1590609120BE76D600CB4EA6 /* HRequestWaitingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRequestWaitingView.h; sourceTree = "<group>"; };
 		1590609220BE76D600CB4EA6 /* HRequestWaitingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRequestWaitingView.m; sourceTree = "<group>"; };
+		15AD712E211B3B4F00D8185F /* NSObject+HName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HName.h"; sourceTree = "<group>"; };
+		15AD712F211B3B4F00D8185F /* NSObject+HName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HName.m"; sourceTree = "<group>"; };
 		15B4DD632092F88700773E04 /* QFProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QFProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15B4DD662092F88700773E04 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		15B4DD672092F88700773E04 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -494,6 +497,8 @@
 				150C7CB621199D9000A05347 /* UIView+HPrinter.m */,
 				150C7CB2211996E800A05347 /* HPrinterManager.h */,
 				150C7CB3211996E800A05347 /* HPrinterManager.m */,
+				15AD712E211B3B4F00D8185F /* NSObject+HName.h */,
+				15AD712F211B3B4F00D8185F /* NSObject+HName.m */,
 				150C7CB8211A7BC800A05347 /* HPrinterHeader.h */,
 			);
 			name = HPrinter;
@@ -1457,6 +1462,7 @@
 				15112C772105A19600842FE4 /* HUncaughtExceptionHandler.m in Sources */,
 				153F081520E28CA000C74850 /* HInputValidator.m in Sources */,
 				15B4DD762092F88700773E04 /* main.m in Sources */,
+				15AD7130211B3B4F00D8185F /* NSObject+HName.m in Sources */,
 				15B4DDF52092F96C00773E04 /* UINavigationController+HUtil.m in Sources */,
 				15B4DDFC2092F96C00773E04 /* UIImage+HChain.m in Sources */,
 				15B4DDF42092F96C00773E04 /* UIGestureRecognizer+HUtil.m in Sources */,
