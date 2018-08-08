@@ -44,7 +44,7 @@
         if ([[HPrinterManager share] containsObject:ipString]) {
             NSString *content = [[HPrinterManager share] objectForKey:ipString];
             if (content) {
-                NSLog(@"%@",content);
+                NSLog(@"printInfoWithView:%@",content);
             }
         }
     }
