@@ -13,4 +13,5 @@
 
 @interface UIView (HPrinter)
 - (void)addString:(NSString *)aString withView:(UIView *)view;
+- (void)logMark;
 @end

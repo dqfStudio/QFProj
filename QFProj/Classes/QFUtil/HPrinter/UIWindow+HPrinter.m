@@ -29,25 +29,13 @@
         CGPoint childP = [self convertPoint:point toView:childV];
         UIView *fitView = [childV hitTest:childP withEvent:event];
         if (fitView) {
-            [self printInfoWithView:fitView];
+            [fitView logMark];
             return fitView;
         }
     }
     // 如果没有符合条件的子控件，那么就自己最适合处理
-    [self printInfoWithView:self];
+    [self logMark];
     return self;
-}
-
-- (void)printInfoWithView:(UIView *)view {
-    if ([view isKindOfClass:UIView.class]) {
-        NSString *ipString = [NSString stringWithFormat:@"%p", view];
-        if ([[HPrinterManager share] containsObject:ipString]) {
-            NSString *content = [[HPrinterManager share] objectForKey:ipString];
-            if (content) {
-                NSLog(@"printInfoWithView:%@",content);
-            }
-        }
-    }
 }
 #endif
 

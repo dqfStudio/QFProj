@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HPrinterManager.h"
+#import "UIView+HPrinter.h"
 
 @interface UIWindow (HPrinter)
 
