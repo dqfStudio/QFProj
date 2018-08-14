@@ -34,7 +34,14 @@ _Pragma("clang diagnostic pop")
     }else if (self.superview && ![self isSystemClass:self.superview.class]){
         NSLog(@"super[1]ClassName:%@", NSStringFromClass(self.superview.class));
         return;
-    }else if (self.superview.superview && ![self isSystemClass:self.superview.superview.class]){
+    }
+    if ([self isKindOfClass:UILabel.class]) {
+        UILabel *label = (UILabel *)self;
+        if (label.text.length > 0 && ![label.text isEqualToString:@""]) {
+            NSLog(@"label.text:%@", label.text);
+        }
+    }
+    if (self.superview.superview && ![self isSystemClass:self.superview.superview.class]){
         NSLog(@"super[2]ClassName:%@", NSStringFromClass(self.superview.superview.class));
     }else if (self.superview.superview.superview && ![self isSystemClass:self.superview.superview.superview.class]){
         NSLog(@"super[3]ClassName:%@", NSStringFromClass(self.superview.superview.superview.class));
