@@ -30,9 +30,9 @@
     }
 }
 
-- (void)setFilletedCorner:(BOOL)filletedCorner {
-    if (_filletedCorner != filletedCorner) {
-        _filletedCorner = filletedCorner;
+- (void)setLeftImageViewCornerRadius:(CGFloat)leftImageViewCornerRadius {
+    if (_leftImageViewCornerRadius != leftImageViewCornerRadius) {
+        _leftImageViewCornerRadius = leftImageViewCornerRadius;
         [self layoutSubviews];
     }
 }
@@ -52,10 +52,10 @@
             self.leftImageView.frame = tmpFrame;
         }
         
-        //设置leftImageView为圆角
-        if (self.filletedCorner) {
+        //设置leftImageView为圆角幅
+        if (self.leftImageViewCornerRadius > 0) {
             self.leftImageView.layer.masksToBounds = YES;
-            self.leftImageView.layer.cornerRadius = self.leftImageView.frame.size.width/2;
+            self.leftImageView.layer.cornerRadius = self.leftImageViewCornerRadius;
         }
         
         //释放上下文

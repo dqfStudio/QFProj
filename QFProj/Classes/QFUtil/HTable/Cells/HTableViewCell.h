@@ -29,5 +29,5 @@ UIKIT_STATIC_INLINE bool HCellEdgeEqualToEdge(HCellEdgeInsets edge1, HCellEdgeIn
 @interface HTableViewCell : HBaseCell
 @property (nonatomic) UIImageView *leftImageView; //代替系统的imageView控件
 @property (nonatomic) HCellEdgeInsets leftImageEdgeInsets; //图片大小和左右边距，上下边距自动计算且居中
-@property (nonatomic) BOOL filletedCorner; //leftImageView控件是否圆角，默认不是圆角，如果是圆角则为圆形
+@property (nonatomic) CGFloat leftImageViewCornerRadius;//leftImageView控件圆角弧度
 @end
