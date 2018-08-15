@@ -8,6 +8,20 @@
 
 #import "HTableViewCell.h"
 
+HCellEdgeInsets HCellEdgeInsetsMake(CGFloat width, CGFloat height, CGFloat left, CGFloat right) {
+    HCellEdgeInsets insets = {width ,height, left, right};
+    return insets;
+}
+
+bool HCellEdgeEqualToEdge(HCellEdgeInsets edge1, HCellEdgeInsets edge2) {
+    bool equal = true;
+    if (edge1.width != edge2.width) equal = false;
+    else if (edge1.height != edge2.height) equal = false;
+    else if (edge1.left != edge2.left) equal = false;
+    else if (edge1.right != edge2.right) equal = false;
+    return equal;
+}
+
 @implementation HTableViewCell
 
 - (UIImageView *)leftImageView {

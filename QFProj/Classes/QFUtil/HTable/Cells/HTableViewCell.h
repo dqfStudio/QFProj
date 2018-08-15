@@ -12,19 +12,8 @@ typedef struct HCellEdgeInsets {
     CGFloat width, height, left, right;
 } HCellEdgeInsets;
 
-UIKIT_STATIC_INLINE HCellEdgeInsets HCellEdgeInsetsMake(CGFloat width, CGFloat height, CGFloat left, CGFloat right) {
-    HCellEdgeInsets insets = {width ,height, left, right};
-    return insets;
-}
-
-UIKIT_STATIC_INLINE bool HCellEdgeEqualToEdge(HCellEdgeInsets edge1, HCellEdgeInsets edge2) {
-    bool equal = true;
-    if (edge1.width != edge2.width) equal = false;
-    else if (edge1.height != edge2.height) equal = false;
-    else if (edge1.left != edge2.left) equal = false;
-    else if (edge1.right != edge2.right) equal = false;
-    return equal;
-}
+CG_EXTERN HCellEdgeInsets HCellEdgeInsetsMake(CGFloat width, CGFloat height, CGFloat left, CGFloat right);
+CG_EXTERN bool HCellEdgeEqualToEdge(HCellEdgeInsets edge1, HCellEdgeInsets edge2);
 
 @interface HTableViewCell : HBaseCell
 @property (nonatomic) UIImageView *leftImageView; //代替系统的imageView控件
