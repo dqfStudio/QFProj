@@ -29,4 +29,14 @@
     });
 }
 
+- (void)getDataWithDict:(NSDictionary *)dict success:(HNetworkSuccessBlock)success failure:(HNetworkFailureBlock)failure {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (success) {
+            success(dict);
+        }else if (failure) {
+            failure(NSError.new);
+        }
+    });
+}
+
 @end

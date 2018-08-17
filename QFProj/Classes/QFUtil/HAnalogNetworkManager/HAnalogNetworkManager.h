@@ -18,4 +18,6 @@ typedef void(^HNetworkFailureBlock)(NSError *error);
 
 - (void)getDataWithClass:(Class)cls success:(HNetworkSuccessBlock)success  failure:(HNetworkFailureBlock)failure;
 
+- (void)getDataWithDict:(NSDictionary *)dict success:(HNetworkSuccessBlock)success failure:(HNetworkFailureBlock)failure;
+
 @end
