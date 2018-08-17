@@ -14,6 +14,7 @@
 		150C7CB12119961F00A05347 /* UIWindow+HPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7CB02119961F00A05347 /* UIWindow+HPrinter.m */; };
 		150C7CB4211996E800A05347 /* HPrinterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7CB3211996E800A05347 /* HPrinterManager.m */; };
 		150C7CB721199D9000A05347 /* UIView+HPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7CB621199D9000A05347 /* UIView+HPrinter.m */; };
+		150DE9902126AE50004B9E77 /* HAnalogNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 150DE98F2126AE50004B9E77 /* HAnalogNetworkManager.m */; };
 		1510793F20F98E4800860D1C /* NSTimer+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1510793E20F98E4800860D1C /* NSTimer+HUtil.m */; };
 		1510794520F99ABB00860D1C /* NSObject+HExclusive.m in Sources */ = {isa = PBXBuildFile; fileRef = 1510794420F99ABB00860D1C /* NSObject+HExclusive.m */; };
 		15112C6A210574DB00842FE4 /* UIAlertController+HError.m in Sources */ = {isa = PBXBuildFile; fileRef = 15112C69210574DB00842FE4 /* UIAlertController+HError.m */; };
@@ -179,6 +180,8 @@
 		150C7CB521199D9000A05347 /* UIView+HPrinter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HPrinter.h"; sourceTree = "<group>"; };
 		150C7CB621199D9000A05347 /* UIView+HPrinter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+HPrinter.m"; sourceTree = "<group>"; };
 		150C7CB8211A7BC800A05347 /* HPrinterHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HPrinterHeader.h; sourceTree = "<group>"; };
+		150DE98E2126AE50004B9E77 /* HAnalogNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAnalogNetworkManager.h; sourceTree = "<group>"; };
+		150DE98F2126AE50004B9E77 /* HAnalogNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAnalogNetworkManager.m; sourceTree = "<group>"; };
 		1510793D20F98E4800860D1C /* NSTimer+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTimer+HUtil.h"; sourceTree = "<group>"; };
 		1510793E20F98E4800860D1C /* NSTimer+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+HUtil.m"; sourceTree = "<group>"; };
 		1510794320F99AB900860D1C /* NSObject+HExclusive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HExclusive.h"; sourceTree = "<group>"; };
@@ -508,6 +511,16 @@
 			path = QFUtil/HPrinter;
 			sourceTree = "<group>";
 		};
+		150DE98D2126AE47004B9E77 /* HAnalogNetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				150DE98E2126AE50004B9E77 /* HAnalogNetworkManager.h */,
+				150DE98F2126AE50004B9E77 /* HAnalogNetworkManager.m */,
+			);
+			name = HAnalogNetworkManager;
+			path = QFUtil/HAnalogNetworkManager;
+			sourceTree = "<group>";
+		};
 		15112C742105A19600842FE4 /* HUncaughtExceptionHandler */ = {
 			isa = PBXGroup;
 			children = (
@@ -682,6 +695,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				150DE98D2126AE47004B9E77 /* HAnalogNetworkManager */,
 				15780E4321257829006392CF /* HAuthorizeManager */,
 				150C7CA2211978E700A05347 /* HPrinter */,
 				1547855A211599C200DC9EAE /* HRegularExpression */,
@@ -1467,6 +1481,7 @@
 				15707E8E20B4525900493839 /* HUpImageCell.m in Sources */,
 				153F081820E28CA000C74850 /* UITextField+HRegular.m in Sources */,
 				15B4DE112092F96C00773E04 /* NSArray+HSafeUtil.m in Sources */,
+				150DE9902126AE50004B9E77 /* HAnalogNetworkManager.m in Sources */,
 				15F9152920A18CA9000261C4 /* HAspectsCenter.m in Sources */,
 				15B4DE1C209302BF00773E04 /* HGotoRuntimeSupport.m in Sources */,
 				15C5727620A982CA0070327C /* NSObject+HAutoFill.m in Sources */,
