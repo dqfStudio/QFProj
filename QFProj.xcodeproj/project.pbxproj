@@ -38,6 +38,7 @@
 		1547B88F210C4E09009E0374 /* UITableView+HTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1547B888210C4E09009E0374 /* UITableView+HTracking.m */; };
 		1547B890210C4E09009E0374 /* UIControl+HTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1547B889210C4E09009E0374 /* UIControl+HTracking.m */; };
 		1547B891210C4E09009E0374 /* UICollectionView+HTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1547B88C210C4E09009E0374 /* UICollectionView+HTracking.m */; };
+		15545781212B022300DA7898 /* MGHostUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15545780212B022300DA7898 /* MGHostUrlManager.m */; };
 		15707E8E20B4525900493839 /* HUpImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15707E8D20B4525900493839 /* HUpImageCell.m */; };
 		15707EC020B5675A00493839 /* HTupleSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 15707EBF20B5675A00493839 /* HTupleSignal.m */; };
 		157684D220E2157E00D8DC5B /* NSBlockChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 157684D020E2157E00D8DC5B /* NSBlockChain.m */; };
@@ -227,6 +228,8 @@
 		1547B88B210C4E09009E0374 /* UITableView+HTracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+HTracking.h"; sourceTree = "<group>"; };
 		1547B88C210C4E09009E0374 /* UICollectionView+HTracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+HTracking.m"; sourceTree = "<group>"; };
 		1547B88D210C4E09009E0374 /* UIControl+HTracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+HTracking.h"; sourceTree = "<group>"; };
+		1554577F212B022300DA7898 /* MGHostUrlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGHostUrlManager.h; sourceTree = "<group>"; };
+		15545780212B022300DA7898 /* MGHostUrlManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGHostUrlManager.m; sourceTree = "<group>"; };
 		15707E8C20B4525900493839 /* HUpImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUpImageCell.h; sourceTree = "<group>"; };
 		15707E8D20B4525900493839 /* HUpImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HUpImageCell.m; sourceTree = "<group>"; };
 		15707EBE20B5675A00493839 /* HTupleSignal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleSignal.h; sourceTree = "<group>"; };
@@ -605,6 +608,16 @@
 			path = QFUtil/HTracking;
 			sourceTree = "<group>";
 		};
+		1554577E212B022300DA7898 /* MGHostUrlManager */ = {
+			isa = PBXGroup;
+			children = (
+				1554577F212B022300DA7898 /* MGHostUrlManager.h */,
+				15545780212B022300DA7898 /* MGHostUrlManager.m */,
+			);
+			name = MGHostUrlManager;
+			path = QFUtil/MGHostUrlManager;
+			sourceTree = "<group>";
+		};
 		15707EBD20B5674E00493839 /* HTupleCommon */ = {
 			isa = PBXGroup;
 			children = (
@@ -690,6 +703,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1554577E212B022300DA7898 /* MGHostUrlManager */,
 				150DE98D2126AE47004B9E77 /* HAnalogNetworkManager */,
 				15780E4321257829006392CF /* HAuthorizeManager */,
 				150C7CA2211978E700A05347 /* HPrinter */,
@@ -1450,6 +1464,7 @@
 				15F9152620A1817F000261C4 /* QFButton.m in Sources */,
 				15C572B020B016CA0070327C /* UIView+HAccessoryView.m in Sources */,
 				15C5737220B3DD7B0070327C /* UICollectionViewSectionVerticalAlignedLayout.m in Sources */,
+				15545781212B022300DA7898 /* MGHostUrlManager.m in Sources */,
 				15C5731E20B3B1900070327C /* HSimilarity.m in Sources */,
 				15B4DE052092F96C00773E04 /* HHexUtil.m in Sources */,
 				15B4DE0E2092F96C00773E04 /* NSDictionary+HSafeUtil.m in Sources */,
