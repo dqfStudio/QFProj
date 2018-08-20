@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		15038EA820CC0C6A00A16FC9 /* HSwitchLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = 15038EA620CC0C6A00A16FC9 /* HSwitchLanguage.m */; };
-		15038EB220CD5CB400A16FC9 /* HSkin.m in Sources */ = {isa = PBXBuildFile; fileRef = 15038EB020CD5CB400A16FC9 /* HSkin.m */; };
 		1508255520EB1C0F008CAE57 /* HDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1508255420EB1C0F008CAE57 /* HDictionary.m */; };
 		150C7CA5211978E800A05347 /* UIViewController+HPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7CA3211978E700A05347 /* UIViewController+HPrinter.m */; };
 		150C7CB12119961F00A05347 /* UIWindow+HPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7CB02119961F00A05347 /* UIWindow+HPrinter.m */; };
@@ -167,8 +166,6 @@
 		1049599A6188933E5342328E /* Pods-QFProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.debug.xcconfig"; sourceTree = "<group>"; };
 		15038EA620CC0C6A00A16FC9 /* HSwitchLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSwitchLanguage.m; sourceTree = "<group>"; };
 		15038EA720CC0C6A00A16FC9 /* HSwitchLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSwitchLanguage.h; sourceTree = "<group>"; };
-		15038EB020CD5CB400A16FC9 /* HSkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSkin.m; sourceTree = "<group>"; };
-		15038EB120CD5CB400A16FC9 /* HSkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSkin.h; sourceTree = "<group>"; };
 		1508255320EB1C0F008CAE57 /* HDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDictionary.h; sourceTree = "<group>"; };
 		1508255420EB1C0F008CAE57 /* HDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDictionary.m; sourceTree = "<group>"; };
 		150C7CA3211978E700A05347 /* UIViewController+HPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HPrinter.m"; sourceTree = "<group>"; };
@@ -476,8 +473,6 @@
 		15038EAF20CD5CB400A16FC9 /* HSkin */ = {
 			isa = PBXGroup;
 			children = (
-				15038EB120CD5CB400A16FC9 /* HSkin.h */,
-				15038EB020CD5CB400A16FC9 /* HSkin.m */,
 			);
 			path = HSkin;
 			sourceTree = "<group>";
@@ -1444,7 +1439,6 @@
 				15B4DDF72092F96C00773E04 /* UIDevice+HUtil.m in Sources */,
 				15B4DD6B2092F88700773E04 /* ViewController.m in Sources */,
 				1587D8DE20C2578900C0391D /* HBaseHeaderFooterView.m in Sources */,
-				15038EB220CD5CB400A16FC9 /* HSkin.m in Sources */,
 				15B4DDFB2092F96C00773E04 /* UIColor+HUtil.m in Sources */,
 				15C572AA20AEDAB90070327C /* HLabelView.m in Sources */,
 				15B4DDE82092F96C00773E04 /* AppDelegate+HDebug.m in Sources */,
