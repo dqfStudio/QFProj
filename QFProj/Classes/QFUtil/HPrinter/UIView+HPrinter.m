@@ -41,6 +41,18 @@ _Pragma("clang diagnostic pop")
             NSLog(@"label.text:%@", label.text);
         }
     }
+    else if ([self isKindOfClass:UITextView.class]) {
+        UITextView *textView = (UITextView *)self;
+        if (textView.text.length > 0 && ![textView.text isEqualToString:@""]) {
+            NSLog(@"textView.text:%@", textView.text);
+        }
+    }
+    else if ([self isKindOfClass:UIButton.class]) {
+        UIButton *btn = (UIButton *)self;
+        if (btn.titleLabel.text.length > 0 && ![btn.titleLabel.text isEqualToString:@""]) {
+            NSLog(@"btn.text:%@", btn.titleLabel.text);
+        }
+    }
     if (self.superview.superview && ![self isSystemClass:self.superview.superview.class]){
         NSLog(@"super[2]ClassName:%@", NSStringFromClass(self.superview.superview.class));
     }else if (self.superview.superview.superview && ![self isSystemClass:self.superview.superview.superview.class]){

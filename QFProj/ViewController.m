@@ -33,6 +33,7 @@
 #import "HPrinterManager.h"
 //#import "UIView+HPrinter.h"
 #import "HSwitchLanguage.h"
+#import "HPrinterHeader.h"
 
 @interface ViewController () <HTupleViewDelegate> {
     UILabel *label;
