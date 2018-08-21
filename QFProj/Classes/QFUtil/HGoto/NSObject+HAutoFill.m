@@ -52,11 +52,19 @@
 }
 + (id)autoFill:(id)params map:(NSDictionary *)mapKeys {
     NSObject *object = [self new];
+#ifdef DEBUG
     [object autoFill:params map:mapKeys exclusive:NO];
+#else
+    [object autoFill:params map:mapKeys exclusive:YES];
+#endif
     return object;
 }
 - (void)autoFill:(id)params map:(NSDictionary *)mapKeys {
+#ifdef DEBUG
     [self autoFill:params map:mapKeys exclusive:NO];
+#else
+    [self autoFill:params map:mapKeys exclusive:YES];
+#endif
 }
 + (id)autoFill:(id)params map:(NSDictionary *)mapKeys exclusive:(BOOL)exclusive {
     NSObject *object = [self new];
