@@ -142,7 +142,11 @@ _Pragma("clang diagnostic pop") \
     [self skin_setText:content];
     //重新设置保存的文字颜色
     [self setTextColor:color];
-    [[_HSkinUtil share] addObject:self operation:@selector(skin_setText:)];
+    if(key){
+        [[_HSkinUtil share] addObject:self operation:@selector(skin_setText:)];
+    }else {
+        [[_HSkinUtil share] removeObject:self];
+    }
 }
 
 - (void)skin_dealloc {
@@ -169,10 +173,22 @@ _Pragma("clang diagnostic pop") \
 - (void)skin_setText:(NSString *)text {
     NSString *key = [text mutableCopy];
     NSString *tbl = KSKinTbl;
-    NSString *content = HLocalizedStringFromTable(key, tbl);
+    NSString *content = nil;
+    if (key) {
+        content = HLocalizedStringFromTable(key, tbl);
+    }
+    //保存文字颜色
+    UIColor *color = self.textColor;
     [self setTextKey:key];
+    //此处文字颜色会被更改掉
     [self skin_setText:content];
-    [[_HSkinUtil share] addObject:self operation:@selector(skin_setText:)];
+    //重新设置保存的文字颜色
+    [self setTextColor:color];
+    if(key){
+        [[_HSkinUtil share] addObject:self operation:@selector(skin_setText:)];
+    }else {
+        [[_HSkinUtil share] removeObject:self];
+    }
 }
 - (void)skin_dealloc {
     if (self && [NSStringFromClass([self class]) characterAtIndex:0] != '_') {

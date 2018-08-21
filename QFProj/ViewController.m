@@ -32,6 +32,7 @@
 #import "NSTimer+HUtil.h"
 #import "HPrinterManager.h"
 //#import "UIView+HPrinter.h"
+#import "HSwitchLanguage.h"
 
 @interface ViewController () <HTupleViewDelegate> {
     UILabel *label;
@@ -62,6 +63,8 @@ H_CheckPropertyRange(rrr, 0, 150)
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSString *str = [[[HSwitchLanguage share].currentBundle localizedInfoDictionary] objectForKey:@"张三峰"];
     
     UIView *view = UIView.new;
     [view setFrame:self.view.frame];

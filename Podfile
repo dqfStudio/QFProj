@@ -16,7 +16,7 @@ target 'QFProj' do
   pod "SDWebImage"
   pod 'AFNetworking',	'~> 3.0'
   pod 'Aspects'
-  pod 'HAccess'
+  #pod 'HAccess'
   pod 'ReactiveCocoa',	'~> 2.1.8'
 
 end
