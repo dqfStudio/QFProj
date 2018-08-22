@@ -52,6 +52,15 @@ _Pragma("clang diagnostic pop")
         if (btn.titleLabel.text.length > 0 && ![btn.titleLabel.text isEqualToString:@""]) {
             NSLog(@"btn.text:%@", btn.titleLabel.text);
         }
+        if (btn.imageView.image.accessibilityIdentifier) {
+            NSLog(@"btn.image.name:%@", btn.imageView.image.accessibilityIdentifier);
+        }
+    }
+    else if ([self isKindOfClass:UIImageView.class]) {
+        UIImageView *imageView = (UIImageView *)self;
+        if (imageView.image.accessibilityIdentifier) {
+            NSLog(@"image.name:%@", imageView.image.accessibilityIdentifier);
+        }
     }
     if (self.superview.superview && ![self isSystemClass:self.superview.superview.class]){
         NSLog(@"super[2]ClassName:%@", NSStringFromClass(self.superview.superview.class));

@@ -12,5 +12,6 @@
 #import "UIView+HPrinter.h"
 #import "UIViewController+HPrinter.h"
 #import "NSObject+HName.h"
+#import "UIImage+HName.h"
 
 #endif /* HPrinterHeader_h */
