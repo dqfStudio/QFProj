@@ -34,6 +34,7 @@
 //#import "UIView+HPrinter.h"
 #import "HSwitchLanguage.h"
 #import "HPrinterHeader.h"
+#import "UIImage+HName.h"
 
 @interface ViewController () <HTupleViewDelegate> {
     UILabel *label;
@@ -65,7 +66,11 @@ H_CheckPropertyRange(rrr, 0, 150)
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString *str = [[[HSwitchLanguage share].currentBundle localizedInfoDictionary] objectForKey:@"张三峰"];
+    UIImageView *imageView = UIImageView.new;
+    UIImage *image = [UIImage imageNamed:@"qq"];
+    NSLog(@"%@",image.accessibilityIdentifier);
+    [imageView setImage:image];
+    NSLog(@"%@",imageView.image.accessibilityIdentifier);
     
     UIView *view = UIView.new;
     [view setFrame:self.view.frame];

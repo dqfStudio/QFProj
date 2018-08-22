@@ -11,4 +11,5 @@
 
 @interface NSObject (HSwizzleUtil)
 + (void)methodSwizzleWithOrigSEL:(SEL)origSEL overrideSEL:(SEL)overrideSEL;
++ (void)classMethodSwizzleWithOrigSEL:(SEL)origSEL overrideSEL:(SEL)overrideSEL;
 @end

@@ -20,4 +20,16 @@
         method_exchangeImplementations(origMethod,overrideMethod);
     }
 }
++ (void)classMethodSwizzleWithOrigSEL:(SEL)origSEL overrideSEL:(SEL)overrideSEL {
+    Method origMethod = class_getClassMethod(self, origSEL);
+    Method overrideMethod= class_getClassMethod(self, overrideSEL);
+    Class metaClass = object_getClass(self);
+    if(class_addMethod(metaClass, origSEL,
+                       method_getImplementation(overrideMethod),
+                       method_getTypeEncoding(overrideMethod))) {
+        class_replaceMethod(metaClass,overrideSEL, method_getImplementation(origMethod), method_getTypeEncoding(origMethod));
+    }else {
+        method_exchangeImplementations(origMethod,overrideMethod);
+    }
+}
 @end

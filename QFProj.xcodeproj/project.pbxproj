@@ -133,6 +133,8 @@
 		15C573B920B3DE340070327C /* HBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C573AC20B3DE340070327C /* HBaseCell.m */; };
 		15C573BD20B3DE340070327C /* HLeftImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C573B420B3DE340070327C /* HLeftImageCell.m */; };
 		15E1388D20DB785C0070ED08 /* NSDictionary+HOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E1388C20DB785C0070ED08 /* NSDictionary+HOrder.m */; };
+		15E56511212CFA28003A63E5 /* qq.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E56510212CFA28003A63E5 /* qq.png */; };
+		15E56514212D013D003A63E5 /* UIImage+HName.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E56512212D013D003A63E5 /* UIImage+HName.m */; };
 		15F0296420BE8D79003287AA /* mgf_loading_new_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F0294D20BE8D79003287AA /* mgf_loading_new_2@2x.png */; };
 		15F0296520BE8D79003287AA /* mgf_loading_new_12@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F0294E20BE8D79003287AA /* mgf_loading_new_12@2x.png */; };
 		15F0296620BE8D79003287AA /* mgf_loading_new_10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F0294F20BE8D79003287AA /* mgf_loading_new_10@2x.png */; };
@@ -416,6 +418,9 @@
 		15CC6E9120E28D77005F1792 /* HInputHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HInputHeader.h; sourceTree = "<group>"; };
 		15E1388B20DB785C0070ED08 /* NSDictionary+HOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HOrder.h"; sourceTree = "<group>"; };
 		15E1388C20DB785C0070ED08 /* NSDictionary+HOrder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+HOrder.m"; sourceTree = "<group>"; };
+		15E56510212CFA28003A63E5 /* qq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qq.png; sourceTree = "<group>"; };
+		15E56512212D013D003A63E5 /* UIImage+HName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HName.m"; sourceTree = "<group>"; };
+		15E56513212D013D003A63E5 /* UIImage+HName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HName.h"; sourceTree = "<group>"; };
 		15F0294D20BE8D79003287AA /* mgf_loading_new_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mgf_loading_new_2@2x.png"; sourceTree = "<group>"; };
 		15F0294E20BE8D79003287AA /* mgf_loading_new_12@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mgf_loading_new_12@2x.png"; sourceTree = "<group>"; };
 		15F0294F20BE8D79003287AA /* mgf_loading_new_10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mgf_loading_new_10@2x.png"; sourceTree = "<group>"; };
@@ -506,6 +511,8 @@
 				150C7CB3211996E800A05347 /* HPrinterManager.m */,
 				15AD712E211B3B4F00D8185F /* NSObject+HName.h */,
 				15AD712F211B3B4F00D8185F /* NSObject+HName.m */,
+				15E56513212D013D003A63E5 /* UIImage+HName.h */,
+				15E56512212D013D003A63E5 /* UIImage+HName.m */,
 				150C7CB8211A7BC800A05347 /* HPrinterHeader.h */,
 			);
 			name = HPrinter;
@@ -705,6 +712,7 @@
 				15F9152520A1817F000261C4 /* QFButton.m */,
 				15C572AE20B016CA0070327C /* UIView+HAccessoryView.h */,
 				15C572AF20B016CA0070327C /* UIView+HAccessoryView.m */,
+				15E56510212CFA28003A63E5 /* qq.png */,
 				15F9152120A17E95000261C4 /* TestViewController.h */,
 				15F9152220A17E95000261C4 /* TestViewController.m */,
 				15B4DD692092F88700773E04 /* ViewController.h */,
@@ -1350,6 +1358,7 @@
 				15F0297120BE8D79003287AA /* mgf_loading_new_5@2x.png in Resources */,
 				15C5736E20B3DD7B0070327C /* icon_tuple_arrow_right@2x.png in Resources */,
 				15F0296420BE8D79003287AA /* mgf_loading_new_2@2x.png in Resources */,
+				15E56511212CFA28003A63E5 /* qq.png in Resources */,
 				15C5736D20B3DD7B0070327C /* icon_tuple_arrow_down@2x.png in Resources */,
 				15F0296F20BE8D79003287AA /* mgf_loading_new_1@2x.png in Resources */,
 				15F0297420BE8D79003287AA /* mgf_icon_no_server@3x.png in Resources */,
@@ -1512,6 +1521,7 @@
 				153F081720E28CA000C74850 /* HPhoneValidator.m in Sources */,
 				153F081320E28CA000C74850 /* HAlphaValidator.m in Sources */,
 				15B4DDEF2092F96C00773E04 /* UIViewController+HUtil.m in Sources */,
+				15E56514212D013D003A63E5 /* UIImage+HName.m in Sources */,
 				15B4DE0B2092F96C00773E04 /* NSString+HSafeUtil.m in Sources */,
 				15112C772105A19600842FE4 /* HUncaughtExceptionHandler.m in Sources */,
 				153F081520E28CA000C74850 /* HInputValidator.m in Sources */,
