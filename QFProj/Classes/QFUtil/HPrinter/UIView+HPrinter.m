@@ -8,6 +8,7 @@
 
 #import "UIView+HPrinter.h"
 #import <objc/runtime.h>
+#import "NSObject+HExclusive.h"
 
 @implementation UIView (HPrinter)
 
@@ -23,6 +24,14 @@ _Pragma("clang diagnostic pop")
     }
 }
 - (void)logMark {
+    [self exclusive:@"logMarkExclusive" block:^(HExclusive stop) {
+        [self logAction];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            stop();
+        });
+    }];
+}
+- (void)logAction {
     if (![self isSystemClass:self.class]) {
         NSLog(@"className:%@", NSStringFromClass(self.class));
         return;
