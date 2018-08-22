@@ -31,9 +31,6 @@ _Pragma("clang diagnostic pop")
     if (loginfo) {
         NSLog(@"loginfo:%@", loginfo);
         return;
-    }else if (self.superview && ![self isSystemClass:self.superview.class]){
-        NSLog(@"super[1]ClassName:%@", NSStringFromClass(self.superview.class));
-        return;
     }
     if ([self isKindOfClass:UILabel.class]) {
         UILabel *label = (UILabel *)self;
@@ -50,19 +47,24 @@ _Pragma("clang diagnostic pop")
     else if ([self isKindOfClass:UIButton.class]) {
         UIButton *btn = (UIButton *)self;
         if (btn.titleLabel.text.length > 0 && ![btn.titleLabel.text isEqualToString:@""]) {
-            NSLog(@"btn.text:%@", btn.titleLabel.text);
+            NSLog(@"button.text:%@", btn.titleLabel.text);
         }
         if (btn.imageView.image.accessibilityIdentifier) {
-            NSLog(@"btn.image.name:%@", btn.imageView.image.accessibilityIdentifier);
+            NSLog(@"button.image.name:%@", btn.imageView.image.accessibilityIdentifier);
+            return;
         }
     }
     else if ([self isKindOfClass:UIImageView.class]) {
         UIImageView *imageView = (UIImageView *)self;
         if (imageView.image.accessibilityIdentifier) {
-            NSLog(@"image.name:%@", imageView.image.accessibilityIdentifier);
+            NSLog(@"imageView.image.name:%@", imageView.image.accessibilityIdentifier);
         }
+        return;
     }
-    if (self.superview.superview && ![self isSystemClass:self.superview.superview.class]){
+    
+    if (self.superview && ![self isSystemClass:self.superview.class]){
+        NSLog(@"super[1]ClassName:%@", NSStringFromClass(self.superview.class));
+    }else if (self.superview.superview && ![self isSystemClass:self.superview.superview.class]){
         NSLog(@"super[2]ClassName:%@", NSStringFromClass(self.superview.superview.class));
     }else if (self.superview.superview.superview && ![self isSystemClass:self.superview.superview.superview.class]){
         NSLog(@"super[3]ClassName:%@", NSStringFromClass(self.superview.superview.superview.class));
