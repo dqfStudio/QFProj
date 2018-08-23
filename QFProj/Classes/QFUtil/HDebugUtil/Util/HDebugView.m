@@ -49,7 +49,7 @@
 }
 
 - (void)sectionMode0:(HSM)model {
-    model.headerHeight = 22;
+    model.headerHeight = KStatusBarHeight;
 }
 
 - (void)cellMode0:(HCM)model {
