@@ -135,6 +135,7 @@
 		15E1388D20DB785C0070ED08 /* NSDictionary+HOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E1388C20DB785C0070ED08 /* NSDictionary+HOrder.m */; };
 		15E56511212CFA28003A63E5 /* qq.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E56510212CFA28003A63E5 /* qq.png */; };
 		15E56514212D013D003A63E5 /* UIImage+HName.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E56512212D013D003A63E5 /* UIImage+HName.m */; };
+		15E5651D212E5D77003A63E5 /* HHostSegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E5651C212E5D77003A63E5 /* HHostSegmentCell.m */; };
 		15F0296420BE8D79003287AA /* mgf_loading_new_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F0294D20BE8D79003287AA /* mgf_loading_new_2@2x.png */; };
 		15F0296520BE8D79003287AA /* mgf_loading_new_12@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F0294E20BE8D79003287AA /* mgf_loading_new_12@2x.png */; };
 		15F0296620BE8D79003287AA /* mgf_loading_new_10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F0294F20BE8D79003287AA /* mgf_loading_new_10@2x.png */; };
@@ -421,6 +422,8 @@
 		15E56510212CFA28003A63E5 /* qq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qq.png; sourceTree = "<group>"; };
 		15E56512212D013D003A63E5 /* UIImage+HName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HName.m"; sourceTree = "<group>"; };
 		15E56513212D013D003A63E5 /* UIImage+HName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HName.h"; sourceTree = "<group>"; };
+		15E56519212E599C003A63E5 /* HHostSegmentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHostSegmentCell.h; sourceTree = "<group>"; };
+		15E5651C212E5D77003A63E5 /* HHostSegmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHostSegmentCell.m; sourceTree = "<group>"; };
 		15F0294D20BE8D79003287AA /* mgf_loading_new_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mgf_loading_new_2@2x.png"; sourceTree = "<group>"; };
 		15F0294E20BE8D79003287AA /* mgf_loading_new_12@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mgf_loading_new_12@2x.png"; sourceTree = "<group>"; };
 		15F0294F20BE8D79003287AA /* mgf_loading_new_10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mgf_loading_new_10@2x.png"; sourceTree = "<group>"; };
@@ -797,6 +800,8 @@
 				15B4DD892092F96B00773E04 /* HDebugView.m */,
 				15B4DD872092F96B00773E04 /* UIView+HDebug.h */,
 				15B4DD8C2092F96B00773E04 /* UIView+HDebug.m */,
+				15E56519212E599C003A63E5 /* HHostSegmentCell.h */,
+				15E5651C212E5D77003A63E5 /* HHostSegmentCell.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1521,6 +1526,7 @@
 				153F081720E28CA000C74850 /* HPhoneValidator.m in Sources */,
 				153F081320E28CA000C74850 /* HAlphaValidator.m in Sources */,
 				15B4DDEF2092F96C00773E04 /* UIViewController+HUtil.m in Sources */,
+				15E5651D212E5D77003A63E5 /* HHostSegmentCell.m in Sources */,
 				15E56514212D013D003A63E5 /* UIImage+HName.m in Sources */,
 				15B4DE0B2092F96C00773E04 /* NSString+HSafeUtil.m in Sources */,
 				15112C772105A19600842FE4 /* HUncaughtExceptionHandler.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HTableView.h"
 
 @interface HDebugView : UIControl
 @property (nonatomic) UIControl *lineView;

@@ -20,6 +20,8 @@ typedef NS_ENUM(NSUInteger, TMGHostUrlMode)
     EMGHostUrlModeSimulation = 3
 };
 
+#define KHostURLModelKey @"KHostURLModelKey"
+
 #define KMGVersion1 @"MIGUM2.0/v1.0/"
 #define KMGVersion2 @"MIGUM2.0/v2.0/"
 #define KMGVersion2_1 @"MIGUM2.0/v2.1/"

@@ -8,8 +8,6 @@
 
 #import "MGHostUrlManager.h"
 
-#define KHostURLModelKey @"KHostURLModelKey"
-
 @interface NSString (hostVersion)
 - (NSString *(^)(NSString *))appendVersion;
 @end
