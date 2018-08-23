@@ -53,14 +53,26 @@ _Pragma("clang diagnostic pop")
             NSLog(@"textView.text:%@", textView.text);
         }
     }
-    else if ([self isKindOfClass:UIButton.class]) {
-        UIButton *btn = (UIButton *)self;
-        if (btn.titleLabel.text.length > 0 && ![btn.titleLabel.text isEqualToString:@""]) {
-            NSLog(@"button.text:%@", btn.titleLabel.text);
-        }
-        if (btn.imageView.image.accessibilityIdentifier) {
-            NSLog(@"button.image.name:%@", btn.imageView.image.accessibilityIdentifier);
-            return;
+    else if ([self isKindOfClass:UIButton.class] || [self isKindOfClass:UIControl.class]) {
+        if ([self isKindOfClass:UIButton.class]) {
+            UIButton *btn = (UIButton *)self;
+            if (btn.titleLabel.text.length > 0 && ![btn.titleLabel.text isEqualToString:@""]) {
+                NSLog(@"button.text:%@", btn.titleLabel.text);
+            }
+            if (btn.allTargets.count > 0) {
+                NSObject *objc = [[btn.allTargets allObjects] firstObject];
+                NSLog(@"button.targets:%@", NSStringFromClass(objc.class));
+            }
+            if (btn.imageView.image.accessibilityIdentifier) {
+                NSLog(@"button.image.name:%@", btn.imageView.image.accessibilityIdentifier);
+                return;
+            }
+        }else if ([self isKindOfClass:UIControl.class]) {
+            UIControl *control = (UIControl *)self;
+            if (control.allTargets.count > 0) {
+                NSObject *objc = [[control.allTargets allObjects] firstObject];
+                NSLog(@"control.targets:%@", NSStringFromClass(objc.class));
+            }
         }
     }
     else if ([self isKindOfClass:UIImageView.class]) {
