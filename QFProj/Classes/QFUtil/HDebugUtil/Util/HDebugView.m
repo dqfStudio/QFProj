@@ -74,7 +74,7 @@
                             [[NSUserDefaults standardUserDefaults] synchronize];
                             break;
                         case 1:
-                            [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:KHostURLModelKey];
+                            [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:KHostURLModelKey];
                             [[NSUserDefaults standardUserDefaults] synchronize];
                             break;
                             
