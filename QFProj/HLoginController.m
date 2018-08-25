@@ -56,10 +56,10 @@
             return CGSizeMake(CGRectGetWidth(tupleView.frame)-80, 60);
             break;
         case 4:
-            return CGSizeMake(80, 60);
+            return CGSizeMake(80, 50);
             break;
         case 5:
-            return CGSizeMake(CGRectGetWidth(tupleView.frame)-80-120, 60);
+            return CGSizeMake(CGRectGetWidth(tupleView.frame)-80-120, 50);
             break;
         case 6:
             return CGSizeMake(120, 50);
@@ -68,7 +68,7 @@
             return CGSizeMake(CGRectGetWidth(tupleView.frame), 40);
             break;
         case 8:
-            return CGSizeMake(CGRectGetWidth(tupleView.frame), 50);
+            return CGSizeMake(CGRectGetWidth(tupleView.frame), 45);
             break;
         case 9:
             return CGSizeMake(CGRectGetWidth(tupleView.frame)-120, 20);
@@ -103,10 +103,10 @@
             return UIEdgeInsetsMake(10, 10, 10, 15);
             break;
         case 4:
-            return UIEdgeInsetsMake(10, 15, 10, 0);
+            return UIEdgeInsetsMake(10, 15, 0, 0);
             break;
         case 5:
-            return UIEdgeInsetsMake(10, 10, 10, 10);
+            return UIEdgeInsetsMake(10, 10, 0, 10);
             break;
         case 6:
             return UIEdgeInsetsMake(10, 0, 0, 15);
@@ -118,10 +118,10 @@
             return UIEdgeInsetsMake(0, 15, 0, 15);
             break;
         case 9:
-            return UIEdgeInsetsMake(0, 15, 0, 0);
+            return UIEdgeInsetsMake(5, 15, 0, 0);
             break;
         case 10:
-            return UIEdgeInsetsMake(0, 0, 0, 15);
+            return UIEdgeInsetsMake(5, 0, 0, 15);
             break;
             
         default:
