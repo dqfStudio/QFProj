@@ -135,15 +135,15 @@
             HTextViewCell *cell = itemBlock(HTextViewCell.class);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.label setBackgroundColor:[UIColor grayColor]];
-            [cell.label setText:@"+86"];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
+            [cell.label setText:@"+86"];
         }
             break;
         case 1:
         {
             HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
-            [cell.button setBackgroundColor:[UIColor grayColor]];
             [cell setBackgroundColor:[UIColor clearColor]];
+            [cell.button setBackgroundColor:[UIColor grayColor]];
             [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
                 
             }];
@@ -154,15 +154,15 @@
             HTextViewCell *cell = itemBlock(HTextViewCell.class);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.label setBackgroundColor:[UIColor grayColor]];
-            [cell.label setText:@"昵称"];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
+            [cell.label setText:@"昵称"];
         }
             break;
         case 3:
         {
             HImageViewCell *cell = itemBlock(HImageViewCell.class);
-            [cell.imageView setBackgroundColor:[UIColor grayColor]];
             [cell setBackgroundColor:[UIColor clearColor]];
+            [cell.imageView setBackgroundColor:[UIColor grayColor]];
             [cell setImageViewBlock:^(HWebImageView *webImageView, HImageViewCell *imageCell) {
                 
             }];
@@ -173,15 +173,15 @@
             HTextViewCell *cell = itemBlock(HTextViewCell.class);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.label setBackgroundColor:[UIColor grayColor]];
-            [cell.label setText:@"验证码"];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
+            [cell.label setText:@"验证码"];
         }
             break;
         case 5:
         {
             HImageViewCell *cell = itemBlock(HImageViewCell.class);
-            [cell.imageView setBackgroundColor:[UIColor grayColor]];
             [cell setBackgroundColor:[UIColor clearColor]];
+            [cell.imageView setBackgroundColor:[UIColor grayColor]];
             [cell setImageViewBlock:^(HWebImageView *webImageView, HImageViewCell *imageCell) {
                 
             }];
@@ -190,8 +190,8 @@
         case 6:
         {
             HImageViewCell *cell = itemBlock(HImageViewCell.class);
-            [cell.imageView setBackgroundColor:[UIColor grayColor]];
             [cell setBackgroundColor:[UIColor clearColor]];
+            [cell.imageView setBackgroundColor:[UIColor grayColor]];
             [cell setImageViewBlock:^(HWebImageView *webImageView, HImageViewCell *imageCell) {
                 
             }];
@@ -206,9 +206,9 @@
         case 8:
         {
             HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
+            [cell setBackgroundColor:[UIColor clearColor]];
             [cell.button setBackgroundColor:[UIColor grayColor]];
             [cell.button.button setTitle:@"开始"];
-            [cell setBackgroundColor:[UIColor clearColor]];
             [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
                 
             }];
@@ -217,22 +217,22 @@
         case 9:
         {
             HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            [cell setBackgroundColor:[UIColor clearColor]];
             [cell.label setBackgroundColor:[UIColor clearColor]];
             [cell.label setText:@"点击开始,即表示已阅读并同意"];
             [cell.label setFont:[UIFont systemFontOfSize:12]];
             [cell.label setTextAlignment:NSTextAlignmentRight];
-            [cell setBackgroundColor:[UIColor clearColor]];
         }
             break;
         case 10:
         {
             HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
+            [cell setBackgroundColor:[UIColor clearColor]];
             [cell.button setBackgroundColor:[UIColor clearColor]];
             [cell.button.button setTitle:@"《服务协议》"];
             [cell.button.button setFont:[UIFont systemFontOfSize:12]];
             [cell.button.button setTitleColor:[UIColor greenColor]];
             [cell.button.button setTextAlignment:NSTextAlignmentLeft];
-            [cell setBackgroundColor:[UIColor clearColor]];
             [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
                 
             }];
@@ -241,9 +241,8 @@
             
         default:
         {
-            HImageViewCell *cell = itemBlock(HImageViewCell.class);
-            [cell.imageView setBackgroundColor:[UIColor greenColor]];
-            [cell setBackgroundColor:[UIColor grayColor]];
+            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            [cell setBackgroundColor:[UIColor clearColor]];
         }
             break;
     }
