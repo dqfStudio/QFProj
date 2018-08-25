@@ -35,6 +35,7 @@
 #import "HSwitchLanguage.h"
 #import "HPrinterHeader.h"
 #import "UIImage+HName.h"
+#import "HLoginController.h"
 
 @interface ViewController () <HTupleViewDelegate> {
     UILabel *label;
@@ -96,7 +97,9 @@ H_CheckPropertyRange(rrr, 0, 150)
         NSLog(@"22222222222");
     }];
     
+
     
+    [self.navigationController pushViewController:HLoginController.new animated:YES];
     
     
 //    [self performSelector:@selector(testAction) withObjects:nil];
