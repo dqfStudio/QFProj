@@ -122,7 +122,7 @@
             return UIEdgeInsetsMake(5, 15, 0, 0);
             break;
         case 10:
-            return UIEdgeInsetsMake(5, 0, 0, 15+20);
+            return UIEdgeInsetsMake(5, 0, 0, 15);
             break;
             
         default:
@@ -240,7 +240,7 @@
             [cell.button.button setTitle:@"《服务协议》"];
             [cell.button.button setFont:[UIFont systemFontOfSize:12]];
             [cell.button.button setTitleColor:[UIColor colorWithString:@"#34BDD7"]];
-            [cell.button.button setTextAlignment:NSTextAlignmentLeft];
+            [cell.button.button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
             [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
 
             }];
