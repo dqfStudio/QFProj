@@ -483,6 +483,12 @@ typedef NS_ENUM(NSInteger, HTableViewFormatType) {
     });
 }
 
+- (id (^)(NSInteger row, NSInteger section))cell {
+    return ^id (NSInteger row, NSInteger section) {
+        return [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+    };
+}
+
 @end
 
 @implementation NSString (util)

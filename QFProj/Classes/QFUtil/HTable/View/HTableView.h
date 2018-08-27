@@ -97,6 +97,8 @@ typedef void(^HCHeaderFooterInitBlock)(id view);
 - (void)signalToAllFooter:(HTableSignal *)signal;
 - (void)signal:(HTableSignal *)signal footerSection:(NSInteger)section;
 
+- (id (^)(NSInteger row, NSInteger section))cell;
+
 @end
 
 @interface NSArray (HTableView)

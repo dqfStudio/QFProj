@@ -220,8 +220,9 @@
             [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
                 HTextFieldCell *tfCell1 = tupleView.cell(1, 0);
                 HTextFieldCell *tfCell2 = tupleView.cell(3, 0);
+                HTextFieldCell *tfCell3 = tupleView.cell(5, 0);
                 
-                if ([tfCell1.textField validate] && tfCell2.textField.text > 0) {
+                if ([tfCell1.textField validate] && tfCell2.textField.text > 0 && tfCell3.textField.text > 0) {
                     
                 }
             }];
