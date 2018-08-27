@@ -29,6 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self setTitle:@"登录"];
 }
 
 
@@ -56,13 +57,13 @@
             return CGSizeMake(CGRectGetWidth(tupleView.frame)-80, 60);
             break;
         case 4:
-            return CGSizeMake(80, 50);
+            return CGSizeMake(80, 60);
             break;
         case 5:
-            return CGSizeMake(CGRectGetWidth(tupleView.frame)-80-120, 50);
+            return CGSizeMake(CGRectGetWidth(tupleView.frame)-80-120, 60);
             break;
         case 6:
-            return CGSizeMake(120, 50);
+            return CGSizeMake(120, 60);
             break;
         case 7:
             return CGSizeMake(CGRectGetWidth(tupleView.frame), 40);
@@ -71,10 +72,10 @@
             return CGSizeMake(CGRectGetWidth(tupleView.frame), 45);
             break;
         case 9:
-            return CGSizeMake(CGRectGetWidth(tupleView.frame)-120, 20);
+            return CGSizeMake(CGRectGetWidth(tupleView.frame)/2+45, 20);
             break;
         case 10:
-            return CGSizeMake(120, 20);
+            return CGSizeMake(CGRectGetWidth(tupleView.frame)/2-45, 20);
             break;
 
         default:
@@ -91,25 +92,25 @@
 - (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:
-            return UIEdgeInsetsMake(10, 15, 10, 0);
+            return UIEdgeInsetsMake(15, 15, 0, 0);
             break;
         case 1:
-            return UIEdgeInsetsMake(10, 10, 10, 15);
+            return UIEdgeInsetsMake(15, 0, 0, 15);
             break;
         case 2:
-            return UIEdgeInsetsMake(10, 15, 10, 0);
+            return UIEdgeInsetsMake(15, 15, 0, 0);
             break;
         case 3:
-            return UIEdgeInsetsMake(10, 10, 10, 15);
+            return UIEdgeInsetsMake(15, 0, 0, 15);
             break;
         case 4:
-            return UIEdgeInsetsMake(10, 15, 0, 0);
+            return UIEdgeInsetsMake(15, 15, 0, 0);
             break;
         case 5:
-            return UIEdgeInsetsMake(10, 10, 0, 10);
+            return UIEdgeInsetsMake(15, 0, 0, 10);
             break;
         case 6:
-            return UIEdgeInsetsMake(10, 0, 0, 15);
+            return UIEdgeInsetsMake(15, 0, 0, 15);
             break;
         case 7:
             return UIEdgeInsetsMake(0, 15, 0, 15);
@@ -121,7 +122,7 @@
             return UIEdgeInsetsMake(5, 15, 0, 0);
             break;
         case 10:
-            return UIEdgeInsetsMake(5, 0, 0, 15);
+            return UIEdgeInsetsMake(5, 0, 0, 15+20);
             break;
             
         default:
@@ -134,65 +135,70 @@
         case 0:{
             HTextViewCell *cell = itemBlock(HTextViewCell.class);
             [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.label setBackgroundColor:[UIColor grayColor]];
+            [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setText:@"+86"];
+            [cell.label setFont:[UIFont systemFontOfSize:14]];
         }
             break;
         case 1:
         {
-            HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
+            HTextFieldCell *cell = itemBlock(HTextFieldCell.class);
             [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.button setBackgroundColor:[UIColor grayColor]];
-            [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
-                
-            }];
+            [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
+            [cell.textField setPlaceholder:@"请输入手机号"];
+            [cell.textField setTintColor:[UIColor colorWithString:@"#BABABF"]];
+            [cell.textField setFont:[UIFont systemFontOfSize:14]];
         }
             break;
         case 2:
         {
             HTextViewCell *cell = itemBlock(HTextViewCell.class);
             [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.label setBackgroundColor:[UIColor grayColor]];
+            [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setText:@"昵称"];
+            [cell.label setFont:[UIFont systemFontOfSize:14]];
         }
             break;
         case 3:
         {
-            HImageViewCell *cell = itemBlock(HImageViewCell.class);
+            HTextFieldCell *cell = itemBlock(HTextFieldCell.class);
             [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.imageView setBackgroundColor:[UIColor grayColor]];
-            [cell setImageViewBlock:^(HWebImageView *webImageView, HImageViewCell *imageCell) {
-                
-            }];
+            [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
+            [cell.textField setPlaceholder:@"请输入昵称"];
+            [cell.textField setTintColor:[UIColor colorWithString:@"#BABABF"]];
+            [cell.textField setFont:[UIFont systemFontOfSize:14]];
         }
             break;
         case 4:
         {
             HTextViewCell *cell = itemBlock(HTextViewCell.class);
             [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.label setBackgroundColor:[UIColor grayColor]];
+            [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setText:@"验证码"];
+            [cell.label setFont:[UIFont systemFontOfSize:14]];
         }
             break;
         case 5:
         {
-            HImageViewCell *cell = itemBlock(HImageViewCell.class);
+            HTextFieldCell *cell = itemBlock(HTextFieldCell.class);
             [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.imageView setBackgroundColor:[UIColor grayColor]];
-            [cell setImageViewBlock:^(HWebImageView *webImageView, HImageViewCell *imageCell) {
-                
-            }];
+            [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
+            [cell.textField setPlaceholder:@"请输入验证码"];
+            [cell.textField setTintColor:[UIColor colorWithString:@"#BABABF"]];
+            [cell.textField setFont:[UIFont systemFontOfSize:14]];
         }
             break;
         case 6:
         {
-            HImageViewCell *cell = itemBlock(HImageViewCell.class);
+            HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
             [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.imageView setBackgroundColor:[UIColor grayColor]];
-            [cell setImageViewBlock:^(HWebImageView *webImageView, HImageViewCell *imageCell) {
+            [cell.button setBackgroundColor:[UIColor colorWithString:@"#CCCCCC"]];
+            [cell.button.button setTitle:@"获取验证码"];
+            [cell.button.button setFont:[UIFont systemFontOfSize:14]];
+            [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
                 
             }];
         }
@@ -207,7 +213,7 @@
         {
             HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
             [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.button setBackgroundColor:[UIColor grayColor]];
+            [cell.button setBackgroundColor:[UIColor colorWithString:@"#CCCCCC"]];
             [cell.button.button setTitle:@"开始"];
             [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
                 
@@ -220,6 +226,7 @@
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.label setBackgroundColor:[UIColor clearColor]];
             [cell.label setText:@"点击开始,即表示已阅读并同意"];
+            [cell.label setTextColor:[UIColor colorWithString:@"#BABABF"]];
             [cell.label setFont:[UIFont systemFontOfSize:12]];
             [cell.label setTextAlignment:NSTextAlignmentRight];
         }
@@ -229,13 +236,25 @@
             HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.button setBackgroundColor:[UIColor clearColor]];
+            [cell.button.button setBackgroundColor:[UIColor clearColor]];
             [cell.button.button setTitle:@"《服务协议》"];
             [cell.button.button setFont:[UIFont systemFontOfSize:12]];
-            [cell.button.button setTitleColor:[UIColor greenColor]];
+            [cell.button.button setTitleColor:[UIColor colorWithString:@"#34BDD7"]];
             [cell.button.button setTextAlignment:NSTextAlignmentLeft];
+            [cell.button.button.titleLabel setTextAlignment:NSTextAlignmentLeft];
+            [cell.button.button setContentMode:UIViewContentModeLeft];
+            [cell.button setContentMode:UIViewContentModeLeft];
             [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
-                
+
             }];
+            
+//            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+//            [cell setBackgroundColor:[UIColor clearColor]];
+//            [cell.label setBackgroundColor:[UIColor clearColor]];
+//            [cell.label setText:@"《服务协议》"];
+//            [cell.label setTextColor:[UIColor colorWithString:@"#34BDD7"]];
+//            [cell.label setFont:[UIFont systemFontOfSize:12]];
+//            [cell.label setTextAlignment:NSTextAlignmentLeft];
         }
             break;
             

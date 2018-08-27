@@ -42,3 +42,7 @@ typedef void(^HImageViewBlock)(HWebImageView *webImageView, HImageViewCell *imag
 @property (nonatomic) HWebImageView *imageView;
 @property (nonatomic, copy) HImageViewBlock imageViewBlock;
 @end
+
+@interface HTextFieldCell : HTupleBaseCell
+@property (nonatomic) UITextField *textField;
+@end

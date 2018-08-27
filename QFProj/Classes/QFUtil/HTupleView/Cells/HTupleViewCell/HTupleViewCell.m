@@ -157,3 +157,18 @@
     HLayoutTupleView(self.imageView)
 }
 @end
+
+@implementation HTextFieldCell
+
+- (UITextField *)textField {
+    if (!_textField) {
+        _textField = UITextField.new;
+        [self addSubview:_textField];
+    }
+    return _textField;
+}
+
+- (void)layoutContentView {
+    HLayoutTupleView(self.textField)
+}
+@end
