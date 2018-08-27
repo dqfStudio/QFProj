@@ -149,6 +149,7 @@
             [cell.textField setPlaceholder:@"请输入手机号"];
             [cell.textField setTintColor:[UIColor colorWithString:@"#BABABF"]];
             [cell.textField setFont:[UIFont systemFontOfSize:14]];
+            cell.textField.inputValidator = HPhoneValidator.new;
         }
             break;
         case 2:
@@ -189,6 +190,7 @@
             [cell.textField setPlaceholder:@"请输入验证码"];
             [cell.textField setTintColor:[UIColor colorWithString:@"#BABABF"]];
             [cell.textField setFont:[UIFont systemFontOfSize:14]];
+            cell.textField.inputValidator = HNumericValidator.new;
         }
             break;
         case 6:
@@ -216,7 +218,12 @@
             [cell.button setBackgroundColor:[UIColor colorWithString:@"#CCCCCC"]];
             [cell.button.button setTitle:@"开始"];
             [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
+                HTextFieldCell *tfCell1 = tupleView.cell(1, 0);
+                HTextFieldCell *tfCell2 = tupleView.cell(3, 0);
                 
+                if ([tfCell1.textField validate] && tfCell2.textField.text > 0) {
+                    
+                }
             }];
         }
             break;

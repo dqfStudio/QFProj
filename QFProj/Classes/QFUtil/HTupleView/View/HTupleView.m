@@ -86,6 +86,7 @@
     }
     return [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
 }
+
 #pragma mark - signal
 - (void)signalToTupleView:(HTupleSignal *)signal {
     if (self.signalBlock) {
@@ -194,6 +195,11 @@
             }
         }
     });
+}
+- (id (^)(NSInteger row, NSInteger section))cell {
+    return ^id (NSInteger row, NSInteger section) {
+        return [self cellForItemAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+    };
 }
 #pragma mark - UICollectionViewDatasource  & delegate
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {    

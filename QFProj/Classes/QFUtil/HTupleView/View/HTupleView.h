@@ -52,6 +52,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleViewScrollDirection) {
 - (void)signalToAllFooter:(HTupleSignal *)signal;
 - (void)signal:(HTupleSignal *)signal footerSection:(NSInteger)section;
 
+- (id (^)(NSInteger row, NSInteger section))cell;
+
 @end
 
 @interface HTupleView : UICollectionView <HTupleViewDelegate>

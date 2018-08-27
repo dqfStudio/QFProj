@@ -7,6 +7,9 @@
 //
 
 #import "HTupleView.h"
+#import "UITextField+HRegular.h"
+#import "HNumericValidator.h"
+#import "HPhoneValidator.h"
 
 @interface HLoginController : UIViewController
 
