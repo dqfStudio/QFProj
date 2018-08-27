@@ -1205,8 +1205,8 @@
 		15E5652A2133A002003A63E5 /* HLoginController */ = {
 			isa = PBXGroup;
 			children = (
-				15E5652B2133A002003A63E5 /* HLoginController.m */,
 				15E5652C2133A002003A63E5 /* HLoginController.h */,
+				15E5652B2133A002003A63E5 /* HLoginController.m */,
 			);
 			name = HLoginController;
 			path = QFUtil/HLoginController;

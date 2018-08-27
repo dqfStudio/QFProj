@@ -247,14 +247,6 @@
             [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
 
             }];
-            
-//            HTextViewCell *cell = itemBlock(HTextViewCell.class);
-//            [cell setBackgroundColor:[UIColor clearColor]];
-//            [cell.label setBackgroundColor:[UIColor clearColor]];
-//            [cell.label setText:@"《服务协议》"];
-//            [cell.label setTextColor:[UIColor colorWithString:@"#34BDD7"]];
-//            [cell.label setFont:[UIFont systemFontOfSize:12]];
-//            [cell.label setTextAlignment:NSTextAlignmentLeft];
         }
             break;
             
