@@ -22,8 +22,6 @@ UITableViewCellEditingStyle editingStyle);
 
 typedef HCellModel* HCM;
 
-#define KCellModelName @"cellMode"
-
 /** Table view's row model */
 @interface HCellModel : NSObject
 

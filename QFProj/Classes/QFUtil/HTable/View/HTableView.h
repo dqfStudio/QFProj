@@ -13,6 +13,7 @@
 #import "HBaseHeaderFooterView.h"
 #import "HBaseCell.h"
 #import "HTableSignal.h"
+#import "NSIndexModel.h"
 #import "MJRefresh.h"
 
 typedef void (^HRefreshBlock)(void);
@@ -102,10 +103,5 @@ typedef void(^HCHeaderFooterInitBlock)(id view);
 @end
 
 @interface NSArray (HTableView)
-- (NSArray *(^)(NSArray *))linkCell;
-- (void (^)(NSUInteger section, NSString *sectionModel))setSectionModel;
-@end
-
-@interface NSString (HTableView)
-- (NSArray *(^)(NSUInteger))multiple;
+- (NSArray *(^)(NSArray *))append;
 @end

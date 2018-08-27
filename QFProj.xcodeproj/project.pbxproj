@@ -137,6 +137,7 @@
 		15E56514212D013D003A63E5 /* UIImage+HName.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E56512212D013D003A63E5 /* UIImage+HName.m */; };
 		15E5651D212E5D77003A63E5 /* HHostSegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E5651C212E5D77003A63E5 /* HHostSegmentCell.m */; };
 		15E5652D2133A002003A63E5 /* HLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E5652B2133A002003A63E5 /* HLoginController.m */; };
+		15E565332133E602003A63E5 /* NSIndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E565322133E602003A63E5 /* NSIndexModel.m */; };
 		15F0296420BE8D79003287AA /* mgf_loading_new_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F0294D20BE8D79003287AA /* mgf_loading_new_2@2x.png */; };
 		15F0296520BE8D79003287AA /* mgf_loading_new_12@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F0294E20BE8D79003287AA /* mgf_loading_new_12@2x.png */; };
 		15F0296620BE8D79003287AA /* mgf_loading_new_10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F0294F20BE8D79003287AA /* mgf_loading_new_10@2x.png */; };
@@ -427,6 +428,8 @@
 		15E5651C212E5D77003A63E5 /* HHostSegmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHostSegmentCell.m; sourceTree = "<group>"; };
 		15E5652B2133A002003A63E5 /* HLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLoginController.m; sourceTree = "<group>"; };
 		15E5652C2133A002003A63E5 /* HLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLoginController.h; sourceTree = "<group>"; };
+		15E565312133E602003A63E5 /* NSIndexModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSIndexModel.h; sourceTree = "<group>"; };
+		15E565322133E602003A63E5 /* NSIndexModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSIndexModel.m; sourceTree = "<group>"; };
 		15F0294D20BE8D79003287AA /* mgf_loading_new_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mgf_loading_new_2@2x.png"; sourceTree = "<group>"; };
 		15F0294E20BE8D79003287AA /* mgf_loading_new_12@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mgf_loading_new_12@2x.png"; sourceTree = "<group>"; };
 		15F0294F20BE8D79003287AA /* mgf_loading_new_10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mgf_loading_new_10@2x.png"; sourceTree = "<group>"; };
@@ -1181,6 +1184,8 @@
 				15C5738120B3DD9F0070327C /* HTableView.m */,
 				1587D8DF20C257A800C0391D /* HTableSignal.h */,
 				1587D8E020C257A800C0391D /* HTableSignal.m */,
+				15E565312133E602003A63E5 /* NSIndexModel.h */,
+				15E565322133E602003A63E5 /* NSIndexModel.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1448,6 +1453,7 @@
 				15B4DE092092F96C00773E04 /* HWebImageView.m in Sources */,
 				1508255520EB1C0F008CAE57 /* HDictionary.m in Sources */,
 				153F081620E28CA000C74850 /* HNumericValidator.m in Sources */,
+				15E565332133E602003A63E5 /* NSIndexModel.m in Sources */,
 				15B4DDE92092F96C00773E04 /* HDebugUtil.m in Sources */,
 				15B4DE0D2092F96C00773E04 /* NSObject+HSafeNotify.m in Sources */,
 				1528DF4620BF0A0200D0A004 /* MBProgressHUD.m in Sources */,

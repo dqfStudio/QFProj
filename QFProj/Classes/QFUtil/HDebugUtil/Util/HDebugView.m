@@ -27,7 +27,7 @@
         
         [self addSubview:self.tableView];
         
-        NSArray *arr = @[@"0:0:0"];
+        NSArray *arr = @[[NSIndexModel indexModelForRow:0 andSection:0 inSection:0]];
 
         [self.tableView refreshView:self withArr:arr];
         

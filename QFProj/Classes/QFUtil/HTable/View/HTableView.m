@@ -17,11 +17,6 @@ typedef NS_ENUM(NSInteger, HTableViewFormatType) {
 
 #define KDefaultPageSize 20
 
-@interface NSString (util)
-- (NSString *(^)(id))append;
-- (NSArray<NSString *> *(^)(NSString *))componentsBySetString;
-@end
-
 @interface HTableView ()
 @property (nonatomic, weak)   id objc;
 @property (nonatomic, strong) HTableModel *tableModel;
@@ -226,38 +221,11 @@ typedef NS_ENUM(NSInteger, HTableViewFormatType) {
     
     if (!self.objc || self.objc != object) self.objc = object;
     
-    for (NSString *url in arr) {
-        
-        NSArray<NSString *> *tmpArr = nil;
-        NSString *sectionSelector = nil;
-        NSString *section = nil;
-        NSString *cellSelector = nil;
-        
-        HTableViewFormatType formatType = [self urlFormat:url];
-        
-        switch (formatType) {
-            case HTableViewFormatTypeNumber:
-            {
-                tmpArr = url.componentsBySetString(@":");
-                
-                sectionSelector = KSectionModelName.append(tmpArr[0]).append(@":");
-                section = tmpArr[1];
-                cellSelector = KCellModelName.append(tmpArr[2]).append(@":");;
-            }
-                break;
-            case HTableViewFormatTypeCustom:
-            {
-                tmpArr = url.componentsBySetString(@"<>");
-                
-                sectionSelector = tmpArr[0].append(@":");
-                section = tmpArr[1];
-                cellSelector = tmpArr[2].append(@":");
-            }
-                break;
-                
-            default:
-                break;
-        }
+    for (NSIndexModel *indexModel in arr) {
+    
+        NSString *sectionSelector = indexModel.sectionModel;
+        NSString *section = indexModel.section;
+        NSString *cellSelector = indexModel.rowModel;
         
         HSectionModel *sectionModel = [self sectionAtIndex:section.integerValue];
         if (!sectionModel) {
@@ -482,94 +450,17 @@ typedef NS_ENUM(NSInteger, HTableViewFormatType) {
         }
     });
 }
-
 - (id (^)(NSInteger row, NSInteger section))cell {
     return ^id (NSInteger row, NSInteger section) {
         return [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
     };
 }
-
-@end
-
-@implementation NSString (util)
-- (NSString *(^)(id))append {
-    return ^NSString *(id obj) {
-        return [NSString stringWithFormat:@"%@%@", self,obj];
-    };
-}
-- (NSArray<NSString *> *(^)(NSString *))componentsBySetString {
-    return ^NSArray<NSString *> *(NSString *separator) {
-        NSCharacterSet *characterSet = [NSCharacterSet characterSetWithCharactersInString:separator];
-        NSCharacterSet *charSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-        NSArray *arr = [self componentsSeparatedByCharactersInSet:characterSet];
-        NSMutableArray *mutablerArr = [NSMutableArray new];
-        //过滤掉为空的字符串
-        for (int i=0; i<arr.count; i++) {
-            NSString *str = arr[i];
-            if (str.length > 0) {
-                //过滤掉字符串两端为空的字符
-                NSString *trimStr = [str stringByTrimmingCharactersInSet:charSet];
-                if (trimStr.length > 0) {
-                    [mutablerArr addObject:trimStr];
-                }
-            }
-        }
-        return mutablerArr;
-    };
-}
-
-@end
-
-@interface NSArray ()
-@property (nonatomic) NSInteger section;
-@property (nonatomic) NSString *sectionModel;
 @end
 
 @implementation NSArray (HTableView)
-- (NSInteger)section {
-    return [objc_getAssociatedObject(self, _cmd) integerValue];
-}
-- (void)setSection:(NSInteger)section {
-    objc_setAssociatedObject(self, @selector(section), @(section), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (NSString *)sectionModel {
-    return objc_getAssociatedObject(self, _cmd);
-}
-- (void)setSectionModel:(NSString *)sectionModel {
-    objc_setAssociatedObject(self, @selector(sectionModel), sectionModel, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (NSArray *(^)(NSArray *))linkCell {
+- (NSArray *(^)(NSArray *))append {
     return ^NSArray *(NSArray *obj) {
-        NSMutableArray *mutableArr = [[NSMutableArray alloc] init];
-        for (int i=0; i<self.count; i++) {
-            NSString *model = self.sectionModel.append(@"<").append(@(self.section)).append(@">").append(self[i]);
-            [mutableArr addObject:model];
-        }
-        for (int i=0; i<obj.count; i++) {
-            NSString *model = obj.sectionModel.append(@"<").append(@(obj.section)).append(@">").append(obj[i]);
-            [mutableArr addObject:model];
-        }
-        return mutableArr;
-    };
-}
-- (void (^)(NSUInteger section, NSString *sectionModel))setSectionModel {
-    return ^void (NSUInteger section, NSString *sectionModel) {
-        self.section = section;
-        self.sectionModel = sectionModel;
-    };
-}
-@end
-
-@implementation NSString (HTableView)
-- (NSArray *(^)(NSUInteger))multiple {
-    return ^NSArray *(NSUInteger count) {
-        NSMutableArray *mutableArr = [[NSMutableArray alloc] init];
-        for (int i=0; i<count; i++) {
-            [mutableArr addObject:self];
-        }
-        return mutableArr;
+        return [self arrayByAddingObjectsFromArray:obj];
     };
 }
 @end
