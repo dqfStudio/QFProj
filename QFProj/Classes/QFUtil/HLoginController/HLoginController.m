@@ -241,9 +241,6 @@
             [cell.button.button setFont:[UIFont systemFontOfSize:12]];
             [cell.button.button setTitleColor:[UIColor colorWithString:@"#34BDD7"]];
             [cell.button.button setTextAlignment:NSTextAlignmentLeft];
-            [cell.button.button.titleLabel setTextAlignment:NSTextAlignmentLeft];
-            [cell.button.button setContentMode:UIViewContentModeLeft];
-            [cell.button setContentMode:UIViewContentModeLeft];
             [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
 
             }];
