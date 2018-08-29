@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "NSObject+HAspects.h"
 #import "HTestManager.h"
+#import "HTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -25,7 +26,15 @@
 //    [[HTestManager share] jump:^{
 //        
 //    }];
+    
+//    HTabBarController
 
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    RootViewController *controller = [[RootViewController alloc] init];
+//    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+//    navController.navigationBar.hidden = YES;
+    self.window.rootViewController = HTabBarController.new;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

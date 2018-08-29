@@ -26,7 +26,6 @@ PODS:
   - SDWebImage (4.1.0):
     - SDWebImage/Core (= 4.1.0)
   - SDWebImage/Core (4.1.0)
-  - YPTabBarController (2.2.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
@@ -35,7 +34,6 @@ DEPENDENCIES:
   - MJRefresh
   - ReactiveCocoa (~> 2.1.8)
   - SDWebImage
-  - YPTabBarController
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -45,7 +43,6 @@ SPEC REPOS:
     - MJRefresh
     - ReactiveCocoa
     - SDWebImage
-    - YPTabBarController
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -54,8 +51,7 @@ SPEC CHECKSUMS:
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   ReactiveCocoa: f89f2e009a87951b50321bf9feb958823fcc617e
   SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
-  YPTabBarController: 2e0e97b2d9d4b28b722ecb57700b7cd4d1b38a47
 
-PODFILE CHECKSUM: 4c058f7dd5b3eb30706b013202f8aa9fcf7b1614
+PODFILE CHECKSUM: ad1a7cac41b7d1317246aced7e2935cdda8470b0
 
 COCOAPODS: 1.5.3

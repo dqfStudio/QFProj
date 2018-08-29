@@ -138,6 +138,13 @@
 		15E5651D212E5D77003A63E5 /* HHostSegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E5651C212E5D77003A63E5 /* HHostSegmentCell.m */; };
 		15E5652D2133A002003A63E5 /* HLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E5652B2133A002003A63E5 /* HLoginController.m */; };
 		15E565332133E602003A63E5 /* NSIndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E565322133E602003A63E5 /* NSIndexModel.m */; };
+		15E6BB882136E4E500EBE794 /* HTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6BB872136E4E500EBE794 /* HTabBarController.m */; };
+		15E6BB992136E7E300EBE794 /* UIScrollView+YPTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6BB8E2136E7E200EBE794 /* UIScrollView+YPTab.m */; };
+		15E6BB9A2136E7E300EBE794 /* UIViewController+YPTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6BB902136E7E200EBE794 /* UIViewController+YPTab.m */; };
+		15E6BB9B2136E7E300EBE794 /* YPTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6BB922136E7E200EBE794 /* YPTabBar.m */; };
+		15E6BB9C2136E7E300EBE794 /* YPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6BB942136E7E200EBE794 /* YPTabBarController.m */; };
+		15E6BB9D2136E7E300EBE794 /* YPTabContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6BB962136E7E200EBE794 /* YPTabContentView.m */; };
+		15E6BB9E2136E7E300EBE794 /* YPTabItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6BB982136E7E200EBE794 /* YPTabItem.m */; };
 		15F0296420BE8D79003287AA /* mgf_loading_new_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F0294D20BE8D79003287AA /* mgf_loading_new_2@2x.png */; };
 		15F0296520BE8D79003287AA /* mgf_loading_new_12@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F0294E20BE8D79003287AA /* mgf_loading_new_12@2x.png */; };
 		15F0296620BE8D79003287AA /* mgf_loading_new_10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F0294F20BE8D79003287AA /* mgf_loading_new_10@2x.png */; };
@@ -430,6 +437,20 @@
 		15E5652C2133A002003A63E5 /* HLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLoginController.h; sourceTree = "<group>"; };
 		15E565312133E602003A63E5 /* NSIndexModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSIndexModel.h; sourceTree = "<group>"; };
 		15E565322133E602003A63E5 /* NSIndexModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSIndexModel.m; sourceTree = "<group>"; };
+		15E6BB862136E4E500EBE794 /* HTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTabBarController.h; sourceTree = "<group>"; };
+		15E6BB872136E4E500EBE794 /* HTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTabBarController.m; sourceTree = "<group>"; };
+		15E6BB8D2136E7E200EBE794 /* UIScrollView+YPTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+YPTab.h"; sourceTree = "<group>"; };
+		15E6BB8E2136E7E200EBE794 /* UIScrollView+YPTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+YPTab.m"; sourceTree = "<group>"; };
+		15E6BB8F2136E7E200EBE794 /* UIViewController+YPTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YPTab.h"; sourceTree = "<group>"; };
+		15E6BB902136E7E200EBE794 /* UIViewController+YPTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YPTab.m"; sourceTree = "<group>"; };
+		15E6BB912136E7E200EBE794 /* YPTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPTabBar.h; sourceTree = "<group>"; };
+		15E6BB922136E7E200EBE794 /* YPTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPTabBar.m; sourceTree = "<group>"; };
+		15E6BB932136E7E200EBE794 /* YPTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPTabBarController.h; sourceTree = "<group>"; };
+		15E6BB942136E7E200EBE794 /* YPTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPTabBarController.m; sourceTree = "<group>"; };
+		15E6BB952136E7E200EBE794 /* YPTabContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPTabContentView.h; sourceTree = "<group>"; };
+		15E6BB962136E7E200EBE794 /* YPTabContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPTabContentView.m; sourceTree = "<group>"; };
+		15E6BB972136E7E200EBE794 /* YPTabItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPTabItem.h; sourceTree = "<group>"; };
+		15E6BB982136E7E200EBE794 /* YPTabItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPTabItem.m; sourceTree = "<group>"; };
 		15F0294D20BE8D79003287AA /* mgf_loading_new_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mgf_loading_new_2@2x.png"; sourceTree = "<group>"; };
 		15F0294E20BE8D79003287AA /* mgf_loading_new_12@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mgf_loading_new_12@2x.png"; sourceTree = "<group>"; };
 		15F0294F20BE8D79003287AA /* mgf_loading_new_10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mgf_loading_new_10@2x.png"; sourceTree = "<group>"; };
@@ -726,6 +747,9 @@
 				15F9152220A17E95000261C4 /* TestViewController.m */,
 				15B4DD692092F88700773E04 /* ViewController.h */,
 				15B4DD6A2092F88700773E04 /* ViewController.m */,
+				15E6BB862136E4E500EBE794 /* HTabBarController.h */,
+				15E6BB872136E4E500EBE794 /* HTabBarController.m */,
+				15E6BB8C2136E7E200EBE794 /* YPTabBarController */,
 			);
 			path = QFProj;
 			sourceTree = "<group>";
@@ -1217,6 +1241,25 @@
 			path = QFUtil/HLoginController;
 			sourceTree = "<group>";
 		};
+		15E6BB8C2136E7E200EBE794 /* YPTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				15E6BB8D2136E7E200EBE794 /* UIScrollView+YPTab.h */,
+				15E6BB8E2136E7E200EBE794 /* UIScrollView+YPTab.m */,
+				15E6BB8F2136E7E200EBE794 /* UIViewController+YPTab.h */,
+				15E6BB902136E7E200EBE794 /* UIViewController+YPTab.m */,
+				15E6BB912136E7E200EBE794 /* YPTabBar.h */,
+				15E6BB922136E7E200EBE794 /* YPTabBar.m */,
+				15E6BB932136E7E200EBE794 /* YPTabBarController.h */,
+				15E6BB942136E7E200EBE794 /* YPTabBarController.m */,
+				15E6BB952136E7E200EBE794 /* YPTabContentView.h */,
+				15E6BB962136E7E200EBE794 /* YPTabContentView.m */,
+				15E6BB972136E7E200EBE794 /* YPTabItem.h */,
+				15E6BB982136E7E200EBE794 /* YPTabItem.m */,
+			);
+			path = YPTabBarController;
+			sourceTree = "<group>";
+		};
 		15F0294C20BE8D79003287AA /* MGLoading */ = {
 			isa = PBXGroup;
 			children = (
@@ -1452,6 +1495,7 @@
 				15B4DDF82092F96C00773E04 /* UIImage+Util.m in Sources */,
 				15B4DE092092F96C00773E04 /* HWebImageView.m in Sources */,
 				1508255520EB1C0F008CAE57 /* HDictionary.m in Sources */,
+				15E6BB882136E4E500EBE794 /* HTabBarController.m in Sources */,
 				153F081620E28CA000C74850 /* HNumericValidator.m in Sources */,
 				15E565332133E602003A63E5 /* NSIndexModel.m in Sources */,
 				15B4DDE92092F96C00773E04 /* HDebugUtil.m in Sources */,
@@ -1475,12 +1519,14 @@
 				15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */,
 				15B4DDED2092F96C00773E04 /* UIView+HImage.m in Sources */,
 				15B4DE30209319FA00773E04 /* NSObject+HSelector.m in Sources */,
+				15E6BB9E2136E7E300EBE794 /* YPTabItem.m in Sources */,
 				1547B890210C4E09009E0374 /* UIControl+HTracking.m in Sources */,
 				15C5738520B3DD9F0070327C /* HTableModel.m in Sources */,
 				15B4DE0F2092F96C00773E04 /* NSObject+HSafeSEL.m in Sources */,
 				1528DF4C20BF0FE200D0A004 /* UIAlertController+HUtil.m in Sources */,
 				15B4DDEB2092F96C00773E04 /* UIView+HDebug.m in Sources */,
 				1547B891210C4E09009E0374 /* UICollectionView+HTracking.m in Sources */,
+				15E6BB9C2136E7E300EBE794 /* YPTabBarController.m in Sources */,
 				15545789212B063900DA7898 /* MGVersionManager.m in Sources */,
 				15B4DDF62092F96C00773E04 /* UIApplication+HUtil.m in Sources */,
 				1538FFA92094065A002E3A29 /* NSFileManager+HUtil.m in Sources */,
@@ -1535,6 +1581,7 @@
 				1510793F20F98E4800860D1C /* NSTimer+HUtil.m in Sources */,
 				15B4DE082092F96C00773E04 /* HWebButtonView.m in Sources */,
 				15C5736920B3DD7B0070327C /* HTupleVerticalCell.m in Sources */,
+				15E6BB9A2136E7E300EBE794 /* UIViewController+YPTab.m in Sources */,
 				15545790212B0C6300DA7898 /* HFileCache.m in Sources */,
 				15B4DE012092F96C00773E04 /* HSpeechUtil.m in Sources */,
 				15707E8E20B4525900493839 /* HUpImageCell.m in Sources */,
@@ -1554,6 +1601,7 @@
 				153F081520E28CA000C74850 /* HInputValidator.m in Sources */,
 				15B4DD762092F88700773E04 /* main.m in Sources */,
 				15AD7130211B3B4F00D8185F /* NSObject+HName.m in Sources */,
+				15E6BB992136E7E300EBE794 /* UIScrollView+YPTab.m in Sources */,
 				15B4DDF52092F96C00773E04 /* UINavigationController+HUtil.m in Sources */,
 				15B4DDFC2092F96C00773E04 /* UIImage+HChain.m in Sources */,
 				15B4DDF42092F96C00773E04 /* UIGestureRecognizer+HUtil.m in Sources */,
@@ -1568,7 +1616,9 @@
 				157696EB20A0AB6900E31469 /* hFelix.m in Sources */,
 				15C572A020AEAC340070327C /* UILabel+HState.m in Sources */,
 				15B4DE032092F96C00773E04 /* NSObject+HUtil.m in Sources */,
+				15E6BB9B2136E7E300EBE794 /* YPTabBar.m in Sources */,
 				15C5737420B3DD7B0070327C /* HTupleView.m in Sources */,
+				15E6BB9D2136E7E300EBE794 /* YPTabContentView.m in Sources */,
 				15B4DE102092F96C00773E04 /* HNotiCenter.m in Sources */,
 				15464B7820A2C26300CDD27E /* HTestVC-DQF.m in Sources */,
 				15B4DE292093034700773E04 /* NSObject+annotation.m in Sources */,
