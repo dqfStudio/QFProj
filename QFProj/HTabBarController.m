@@ -8,6 +8,8 @@
 
 #import "HTabBarController.h"
 #import "ViewController.h"
+#import "HLoginController.h"
+#import "GViewController.h"
 
 @interface HTabBarController ()
 
@@ -61,10 +63,10 @@
 }
 
 - (void)initViewControllers {
-    ViewController *controller1 = [[ViewController alloc] init];
+    HLoginController *controller1 = [[HLoginController alloc] init];
     controller1.yp_tabItemTitle = @"title1";
     
-    ViewController *controller2 = [[ViewController alloc] init];
+    GViewController *controller2 = [[GViewController alloc] init];
     controller2.yp_tabItemTitle = @"title2";
     
     self.viewControllers = [NSMutableArray arrayWithObjects:controller1, controller2, nil];

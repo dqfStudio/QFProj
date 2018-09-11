@@ -335,6 +335,9 @@
     return 0.f;
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    if ([self.tupleDelegate respondsToSelector:@selector(tupleView:layout:insetForSectionAtIndex:)]) {
+        return [self.tupleDelegate tupleView:self layout:collectionViewLayout insetForSectionAtIndex:section];
+    }
     return UIEdgeInsetsMake(0.f, 0.f, 0.f, 0.f);
 }
 @end

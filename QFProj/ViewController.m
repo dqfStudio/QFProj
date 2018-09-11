@@ -98,7 +98,7 @@ H_CheckPropertyRange(rrr, 0, 150)
     
 
     
-//    [self.navigationController pushViewController:HLoginController.new animated:YES];
+    [self.navigationController pushViewController:HLoginController.new animated:YES];
     
     
 //    [self performSelector:@selector(testAction) withObjects:nil];
