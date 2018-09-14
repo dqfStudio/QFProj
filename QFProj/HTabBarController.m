@@ -63,13 +63,14 @@
 }
 
 - (void)initViewControllers {
-    HLoginController *controller1 = [[HLoginController alloc] init];
-    controller1.yp_tabItemTitle = @"title1";
+//    HLoginController *controller1 = [[HLoginController alloc] init];
+//    controller1.yp_tabItemTitle = @"title1";
     
     GViewController *controller2 = [[GViewController alloc] init];
     controller2.yp_tabItemTitle = @"title2";
     
-    self.viewControllers = [NSMutableArray arrayWithObjects:controller1, controller2, nil];
+//    self.viewControllers = [NSMutableArray arrayWithObjects:controller1, controller2, nil];
+    self.viewControllers = [NSMutableArray arrayWithObjects:controller2, nil];
 }
 
 @end

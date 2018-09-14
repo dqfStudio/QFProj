@@ -223,7 +223,11 @@
         _leftNaviButton.frame = CGRectMake(0, 0, HTopBarHeight, HTopBarHeight);
         [_leftNaviButton.button setFont:[UIFont systemFontOfSize:16]];
         _leftNaviButton.button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        [_leftNaviButton.button addTarget:self action:@selector(leftNaviButtonPressed)];
+        @weakify(self)
+        [_leftNaviButton setPressed:^(id sender, id data) {
+            @strongify(self)
+            [self leftNaviButtonPressed];
+        }];
         _leftNaviButton.imageView.contentMode = UIViewContentModeCenter;
         [self.topBar addSubview:_leftNaviButton];
     }
@@ -238,7 +242,11 @@
         _rightNaviButton.frame = CGRectMake(self.topBar.h_width - HTopBarHeight, 0, HTopBarHeight, HTopBarHeight);
         _rightNaviButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
         _rightNaviButton.button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-        [_rightNaviButton.button addTarget:self action:@selector(rightNaviButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+        @weakify(self)
+        [_rightNaviButton setPressed:^(id sender, id data) {
+            @strongify(self)
+            [self rightNaviButtonPressed];
+        }];
         [self.topBar addSubview:_rightNaviButton];
     }
     return _rightNaviButton;

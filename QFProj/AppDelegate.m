@@ -10,6 +10,7 @@
 #import "NSObject+HAspects.h"
 #import "HTestManager.h"
 #import "HTabBarController.h"
+#import "GViewController.h"
 
 @interface AppDelegate ()
 
@@ -33,7 +34,8 @@
 //    RootViewController *controller = [[RootViewController alloc] init];
 //    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
 //    navController.navigationBar.hidden = YES;
-    self.window.rootViewController = HTabBarController.new;
+//    self.window.rootViewController = HTabBarController.new;
+    self.window.rootViewController = GViewController.new;
     [self.window makeKeyAndVisible];
     return YES;
 }

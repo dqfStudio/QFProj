@@ -38,7 +38,7 @@
 }
 
 - (NSInteger)tupleView:(UICollectionView *)tupleView numberOfItemsInSection:(NSInteger)section {
-    return 11;
+    return 9;
 }
 
 - (CGSize)tupleView:(UICollectionView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -69,12 +69,12 @@
             break;
         case 1:
         {
-            HTextFieldCell *cell = itemBlock(HTextFieldCell.class);
+            HTextViewCell *cell = itemBlock(HTextViewCell.class);
             [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
-            [cell.textField setPlaceholder:@"请输入手机号"];
-            [cell.textField setTintColor:[UIColor colorWithString:@"#BABABF"]];
-            [cell.textField setFont:[UIFont systemFontOfSize:14]];
+            [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
+            [cell.label setTextAlignment:NSTextAlignmentCenter];
+            [cell.label setText:@"+86"];
+            [cell.label setFont:[UIFont systemFontOfSize:14]];
         }
             break;
         case 2:
@@ -85,6 +85,106 @@
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setText:@"昵称"];
             [cell.label setFont:[UIFont systemFontOfSize:14]];
+            [cell.label setTextColor:[UIColor blackColor]];
+        }
+            break;
+        case 3:
+        {
+            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            [cell setBackgroundColor:[UIColor clearColor]];
+            [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
+            [cell.label setTextAlignment:NSTextAlignmentCenter];
+            [cell.label setText:@"昵称"];
+            [cell.label setFont:[UIFont systemFontOfSize:14]];
+            [cell.label setTextColor:[UIColor blackColor]];
+        }
+            break;
+        case 4:
+        {
+            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            [cell setBackgroundColor:[UIColor lightGrayColor]];
+            [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
+            [cell.label setTextAlignment:NSTextAlignmentCenter];
+            [cell.label setText:@"昵称"];
+            [cell.label setFont:[UIFont systemFontOfSize:14]];
+            [cell.label setTextColor:[UIColor blackColor]];
+        }
+            break;
+        case 5:
+        {
+            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            [cell setBackgroundColor:[UIColor clearColor]];
+            [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
+            [cell.label setTextAlignment:NSTextAlignmentCenter];
+            [cell.label setText:@"昵称"];
+            [cell.label setFont:[UIFont systemFontOfSize:14]];
+            [cell.label setTextColor:[UIColor blackColor]];
+        }
+            break;
+        case 6:
+        {
+            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            [cell setBackgroundColor:[UIColor clearColor]];
+            [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
+            [cell.label setTextAlignment:NSTextAlignmentCenter];
+            [cell.label setText:@"昵称"];
+            [cell.label setFont:[UIFont systemFontOfSize:14]];
+            [cell.label setTextColor:[UIColor blackColor]];
+        }
+            break;
+        case 7:
+        {
+            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            [cell setBackgroundColor:[UIColor greenColor]];
+            [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
+            [cell.label setTextAlignment:NSTextAlignmentCenter];
+            [cell.label setText:@"昵称"];
+            [cell.label setFont:[UIFont systemFontOfSize:14]];
+            [cell.label setTextColor:[UIColor blackColor]];
+        }
+            break;
+        case 8:
+        {
+            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            [cell setBackgroundColor:[UIColor yellowColor]];
+            [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
+            [cell.label setTextAlignment:NSTextAlignmentCenter];
+            [cell.label setText:@"昵称"];
+            [cell.label setFont:[UIFont systemFontOfSize:14]];
+            [cell.label setTextColor:[UIColor blackColor]];
+        }
+            break;
+        case 9:
+        {
+            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            [cell setBackgroundColor:[UIColor redColor]];
+            [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
+            [cell.label setTextAlignment:NSTextAlignmentCenter];
+            [cell.label setText:@"昵称"];
+            [cell.label setFont:[UIFont systemFontOfSize:14]];
+            [cell.label setTextColor:[UIColor blackColor]];
+        }
+            break;
+        case 10:
+        {
+            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            [cell setBackgroundColor:[UIColor blueColor]];
+            [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
+            [cell.label setTextAlignment:NSTextAlignmentCenter];
+            [cell.label setText:@"昵称"];
+            [cell.label setFont:[UIFont systemFontOfSize:14]];
+            [cell.label setTextColor:[UIColor blackColor]];
+        }
+            break;
+        case 11:
+        {
+            HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
+            [cell setBackgroundColor:[UIColor blackColor]];
+//            [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
+//            [cell.label setTextAlignment:NSTextAlignmentCenter];
+//            [cell.label setText:@"昵称"];
+//            [cell.label setFont:[UIFont systemFontOfSize:14]];
+//            [cell.label setTextColor:[UIColor blackColor]];
         }
             break;
             
@@ -93,6 +193,10 @@
             HTextViewCell *cell = itemBlock(HTextViewCell.class);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.label setBackgroundColor:[UIColor redColor]];
+            NSLog(@"%@",@(indexPath.row));
+            NSString *str = [NSString stringWithFormat:@"%@",@(indexPath.row)];
+            [cell.label setText:str];
+            [cell.label setTextColor:[UIColor blackColor]];
         }
             break;
     }
