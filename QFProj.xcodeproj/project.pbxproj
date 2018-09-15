@@ -175,6 +175,7 @@
 		15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9152D20A27D1C000261C4 /* HRequestResultView.m */; };
 		171E540C3ECD9B640D790516 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E16C30E2760E6660FC02C1 /* libPods-QFProj.a */; };
 		A434870C214809F80030209A /* GViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A434870B214809F80030209A /* GViewController.m */; };
+		A4DDC172214CF10F001F1000 /* HTupleDoubleImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DDC171214CF10F001F1000 /* HTupleDoubleImageCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -491,6 +492,8 @@
 		60580163C2E51E9CB5D59084 /* Pods-QFProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.release.xcconfig"; sourceTree = "<group>"; };
 		A434870A214809F80030209A /* GViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GViewController.h; sourceTree = "<group>"; };
 		A434870B214809F80030209A /* GViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GViewController.m; sourceTree = "<group>"; };
+		A4DDC170214CF10F001F1000 /* HTupleDoubleImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleDoubleImageCell.h; sourceTree = "<group>"; };
+		A4DDC171214CF10F001F1000 /* HTupleDoubleImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleDoubleImageCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1133,6 +1136,8 @@
 				15C5735120B3DD7B0070327C /* HTupleVerticalCell.m */,
 				15C5735020B3DD7B0070327C /* HTupleViewCell.h */,
 				15C5735420B3DD7B0070327C /* HTupleViewCell.m */,
+				A4DDC170214CF10F001F1000 /* HTupleDoubleImageCell.h */,
+				A4DDC171214CF10F001F1000 /* HTupleDoubleImageCell.m */,
 				15C5735620B3DD7B0070327C /* tuple_arrow_icons */,
 			);
 			path = HTupleViewCell;
@@ -1580,6 +1585,7 @@
 				15C5729320AE51B30070327C /* HSort.m in Sources */,
 				15C5738720B3DD9F0070327C /* HTableView.m in Sources */,
 				1587D8E120C257A900C0391D /* HTableSignal.m in Sources */,
+				A4DDC172214CF10F001F1000 /* HTupleDoubleImageCell.m in Sources */,
 				1590609320BE76D600CB4EA6 /* HRequestWaitingView.m in Sources */,
 				15B4DDEE2092F96C00773E04 /* UIViewController+HBackHandler.m in Sources */,
 				15B4DE022092F96C00773E04 /* NSUserDefaults+HUtil.m in Sources */,

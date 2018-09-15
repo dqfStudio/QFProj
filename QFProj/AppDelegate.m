@@ -34,8 +34,7 @@
 //    RootViewController *controller = [[RootViewController alloc] init];
 //    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
 //    navController.navigationBar.hidden = YES;
-//    self.window.rootViewController = HTabBarController.new;
-    self.window.rootViewController = GViewController.new;
+    self.window.rootViewController = HTabBarController.new;
     [self.window makeKeyAndVisible];
     return YES;
 }

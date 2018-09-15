@@ -28,6 +28,7 @@
         flowLayout = [[UICollectionViewFlowLayout alloc] init];
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     }else {
+        //UICollectionViewLeftAlignedLayout 显示多行会有问题
         flowLayout = [[UICollectionViewLeftAlignedLayout alloc] init];
         flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     }
@@ -216,7 +217,7 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     __block UICollectionViewCell *cell = nil;
-    UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
+    __block UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
     if ([self.tupleDelegate respondsToSelector:@selector(tupleView:itemTuple:atIndexPath:)]) {
         [self.tupleDelegate tupleView:self itemTuple:^id(__unsafe_unretained Class aClass) {
             NSString *identifier = [NSString stringWithFormat:@"%@ItemCell",NSStringFromClass(aClass)];
@@ -230,17 +231,17 @@
             }else {
                 cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
             }
+            if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForItemAtIndexPath:)]) {
+                edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForItemAtIndexPath:indexPath];
+            }
+            if ([cell respondsToSelector:@selector(edgeInsets)]) {
+                [(HTupleBaseCell *)cell setEdgeInsets:edgeInsets];
+            }
+            if ([cell respondsToSelector:@selector(layoutContentView)]) {
+                [(HTupleBaseCell *)cell layoutContentView];
+            }
             return cell;
         } atIndexPath:indexPath];
-        if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForItemAtIndexPath:)]) {
-            edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForItemAtIndexPath:indexPath];
-        }
-        if ([cell respondsToSelector:@selector(edgeInsets)]) {
-            [(HTupleBaseCell *)cell setEdgeInsets:edgeInsets];
-        }
-        if ([cell respondsToSelector:@selector(layoutContentView)]) {
-            [(HTupleBaseCell *)cell layoutContentView];
-        }
     }
     return cell;
 }
@@ -254,17 +255,17 @@
     if ([self.tupleDelegate respondsToSelector:@selector(tupleView:sizeForHeaderInSection:)]) {
         return [self.tupleDelegate tupleView:self sizeForHeaderInSection:section];
     }
-    return CGSizeMake(0.f, 0.f);
+    return CGSizeZero;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     if ([self.tupleDelegate respondsToSelector:@selector(tupleView:sizeForFooterInSection:)]) {
         return [self.tupleDelegate tupleView:self sizeForFooterInSection:section];
     }
-    return CGSizeMake(0.f, 0.f);
+    return CGSizeZero;
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     __block UICollectionReusableView *cell = nil;
-    UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
+    __block UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
     if (kind == UICollectionElementKindSectionHeader) {
         if ([self.tupleDelegate respondsToSelector:@selector(tupleView:headerTuple:inSection:)]) {
             [self.tupleDelegate tupleView:self headerTuple:^id(__unsafe_unretained Class aClass) {
@@ -280,17 +281,17 @@
                 }else {
                     cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
                 }
+                if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForHeaderInSection:)]) {
+                    edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForHeaderInSection:indexPath.section];
+                }
+                if ([cell respondsToSelector:@selector(edgeInsets)]) {
+                    [(HTupleBaseView *)cell setEdgeInsets:edgeInsets];
+                }
+                if ([cell respondsToSelector:@selector(layoutContentView)]) {
+                    [(HTupleBaseView *)cell layoutContentView];
+                }
                 return cell;
             } inSection:indexPath.section];
-            if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForHeaderInSection:)]) {
-                edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForHeaderInSection:indexPath.section];
-            }
-            if ([cell respondsToSelector:@selector(edgeInsets)]) {
-                [(HTupleBaseView *)cell setEdgeInsets:edgeInsets];
-            }
-            if ([cell respondsToSelector:@selector(layoutContentView)]) {
-                [(HTupleBaseView *)cell layoutContentView];
-            }
         }
         
     }else if (kind == UICollectionElementKindSectionFooter) {
@@ -308,17 +309,17 @@
                 }else {
                     cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
                 }
+                if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForFooterInSection:)]) {
+                    edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForFooterInSection:indexPath.section];
+                }
+                if ([cell respondsToSelector:@selector(edgeInsets)]) {
+                    [(HTupleBaseView *)cell setEdgeInsets:edgeInsets];
+                }
+                if ([cell respondsToSelector:@selector(layoutContentView)]) {
+                    [(HTupleBaseView *)cell layoutContentView];
+                }
                 return cell;
             } inSection:indexPath.section];
-            if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForFooterInSection:)]) {
-                edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForFooterInSection:indexPath.section];
-            }
-            if ([cell respondsToSelector:@selector(edgeInsets)]) {
-                [(HTupleBaseView *)cell setEdgeInsets:edgeInsets];
-            }
-            if ([cell respondsToSelector:@selector(layoutContentView)]) {
-                [(HTupleBaseView *)cell layoutContentView];
-            }
         }
     }
     return cell;
@@ -338,7 +339,7 @@
     if ([self.tupleDelegate respondsToSelector:@selector(tupleView:layout:insetForSectionAtIndex:)]) {
         return [self.tupleDelegate tupleView:self layout:collectionViewLayout insetForSectionAtIndex:section];
     }
-    return UIEdgeInsetsMake(0.f, 0.f, 0.f, 0.f);
+    return UIEdgeInsetsZero;
 }
 @end
 
