@@ -175,6 +175,7 @@
 		15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9152D20A27D1C000261C4 /* HRequestResultView.m */; };
 		171E540C3ECD9B640D790516 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E16C30E2760E6660FC02C1 /* libPods-QFProj.a */; };
 		A434870C214809F80030209A /* GViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A434870B214809F80030209A /* GViewController.m */; };
+		A454FDD82157C6C0003355C9 /* UILabel+HAttributeTextTapEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = A454FDD72157C6BF003355C9 /* UILabel+HAttributeTextTapEvent.m */; };
 		A4DDC172214CF10F001F1000 /* HTupleDoubleImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DDC171214CF10F001F1000 /* HTupleDoubleImageCell.m */; };
 /* End PBXBuildFile section */
 
@@ -492,6 +493,8 @@
 		60580163C2E51E9CB5D59084 /* Pods-QFProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.release.xcconfig"; sourceTree = "<group>"; };
 		A434870A214809F80030209A /* GViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GViewController.h; sourceTree = "<group>"; };
 		A434870B214809F80030209A /* GViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GViewController.m; sourceTree = "<group>"; };
+		A454FDD62157C6BF003355C9 /* UILabel+HAttributeTextTapEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeTextTapEvent.h"; sourceTree = "<group>"; };
+		A454FDD72157C6BF003355C9 /* UILabel+HAttributeTextTapEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+HAttributeTextTapEvent.m"; sourceTree = "<group>"; };
 		A4DDC170214CF10F001F1000 /* HTupleDoubleImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleDoubleImageCell.h; sourceTree = "<group>"; };
 		A4DDC171214CF10F001F1000 /* HTupleDoubleImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleDoubleImageCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -765,6 +768,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A454FDD52157C6BF003355C9 /* HAttributeTextTapEvent */,
 				15E5652A2133A002003A63E5 /* HLoginController */,
 				15545786212B063900DA7898 /* VersionManager */,
 				1554577E212B022300DA7898 /* MGHostUrlManager */,
@@ -1358,6 +1362,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A454FDD52157C6BF003355C9 /* HAttributeTextTapEvent */ = {
+			isa = PBXGroup;
+			children = (
+				A454FDD62157C6BF003355C9 /* UILabel+HAttributeTextTapEvent.h */,
+				A454FDD72157C6BF003355C9 /* UILabel+HAttributeTextTapEvent.m */,
+			);
+			name = HAttributeTextTapEvent;
+			path = QFUtil/HAttributeTextTapEvent;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1626,6 +1640,7 @@
 				15B4DDFA2092F96C00773E04 /* UILabel+HUtil.m in Sources */,
 				15C573BD20B3DE340070327C /* HLeftImageCell.m in Sources */,
 				157696EB20A0AB6900E31469 /* hFelix.m in Sources */,
+				A454FDD82157C6C0003355C9 /* UILabel+HAttributeTextTapEvent.m in Sources */,
 				15C572A020AEAC340070327C /* UILabel+HState.m in Sources */,
 				15B4DE032092F96C00773E04 /* NSObject+HUtil.m in Sources */,
 				15E6BB9B2136E7E300EBE794 /* YPTabBar.m in Sources */,
