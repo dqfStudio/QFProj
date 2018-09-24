@@ -22,5 +22,7 @@
 - (void)imageAndTextWithSpacing:(CGFloat)spacing;
 //图右文字左
 - (void)textAndImageWithSpacing:(CGFloat)spacing;
+//图上文字下
+- (void)imageUpAndTextDownWithSpacing:(CGFloat)spacing;
 
 @end

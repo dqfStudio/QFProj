@@ -53,4 +53,10 @@
     [self setImageEdgeInsets:UIEdgeInsetsMake(0, self.titleLabel.bounds.size.width-spacing, 0, -self.titleLabel.bounds.size.width)];
 }
 
+//图上文字下
+- (void)imageUpAndTextDownWithSpacing:(CGFloat)spacing {
+    self.titleEdgeInsets = UIEdgeInsetsMake(0, -self.imageView.frame.size.width, -self.imageView.frame.size.height-spacing/2, 0);
+    self.imageEdgeInsets = UIEdgeInsetsMake(-self.titleLabel.intrinsicContentSize.height-spacing/2, 0, 0, -self.titleLabel.intrinsicContentSize.width);
+}
+
 @end
