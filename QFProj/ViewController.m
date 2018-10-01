@@ -106,21 +106,27 @@ H_CheckPropertyRange(rrr, 0, 150)
 //    NSString *ss = [NSString stringWithFormat:@"dqf_%@:",NSStringFromSelector(_cmd)];
     NSString *ss = @"dqf_viewDidLoad:ff:";
     
-    [self performSelector:NSSelectorFromString(ss) withObjects:@[@(3), @(4), @(5)]];
+//    [self performSelector:NSSelectorFromString(ss) withObjects:@[@(3), @(4), @(5)]];
     
     NSInteger nu = 3;
     NSInteger rr = 5;
 //    &nu;
     
 //    [self performSelector:NSSelectorFromString(ss) withObjects:@[@(3)]];
-//    [self performSelector:NSSelectorFromString(ss) withMethodArgments:&nu, &rr];
+    [self performSelector:NSSelectorFromString(ss) withMethodArgments:&nu, &rr];
     
-    [self performSelector:_cmd withPre:@"dqf" withMethodArgments:&nu, &rr];
+//    [self performSelector:_cmd withPre:@"dqf" withMethodArgments:&nu, &rr];
     NSLog(@"hello");
 }
 
 - (void)dqf_viewDidLoad:(NSInteger)num ff:(NSInteger)rr {
-//    NSLog(@"world");
+    NSLog(@"world");
+    [self performSelector:_cmd withPre:@"" withMethodArgments:&num, &rr];
+}
+
+- (void)_dqf_viewDidLoad:(NSInteger)num ff:(NSInteger)rr {
+    NSLog(@"world");
+//    [self performSelector:_cmd withPre:@"" withMethodArgments:&num, &rr];
 }
 
 - (void)dqf_viewDidLoad {

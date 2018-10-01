@@ -11,6 +11,7 @@
 #import "HTestManager.h"
 #import "HTabBarController.h"
 #import "GViewController.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -32,9 +33,10 @@
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 //    RootViewController *controller = [[RootViewController alloc] init];
-//    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ViewController.new];
 //    navController.navigationBar.hidden = YES;
-    self.window.rootViewController = HTabBarController.new;
+//    self.window.rootViewController = HTabBarController.new;
+    self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
     return YES;
 }
