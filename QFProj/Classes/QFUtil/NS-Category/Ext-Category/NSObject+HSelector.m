@@ -62,15 +62,49 @@
     [invocation invoke];
     
     //7、获取返回值
-    id res = nil;
-    //判断当前方法是否有返回值
-    //    NSLog(@"methodReturnType = %s",signature.methodReturnType);
-    //    NSLog(@"methodReturnTypeLength = %zd",signature.methodReturnLength);
-    if (signature.methodReturnLength!=0) {
-        //getReturnValue获取返回值
-        [invocation getReturnValue:&res];
+
+    //获得返回值类型
+    const char *returnType = signature.methodReturnType;
+    //声明返回值变量
+    id returnValue;
+    //如果没有返回值，也就是消息声明为void，那么returnValue=nil
+    if(!strcmp(returnType, @encode(void)) ){
+        returnValue =  nil;
     }
-    return res;
+    //如果返回值为对象，那么为变量赋值
+    else if(!strcmp(returnType, @encode(id)) ){
+        [invocation getReturnValue:&returnValue];
+    }
+    else{
+        //如果返回值为普通类型NSInteger/BOOL等
+        
+        //返回值长度
+        NSUInteger length = [signature methodReturnLength];
+        //根据长度申请内存
+        void *buffer = (void *)malloc(length);
+        //为变量赋值
+        [invocation getReturnValue:buffer];
+        
+        if(!strcmp(returnType, @encode(BOOL)) ) {
+            returnValue = [NSNumber numberWithBool:*((BOOL*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(NSInteger)) ){
+            returnValue = [NSNumber numberWithInteger:*((NSInteger*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(NSUInteger)) ){
+            returnValue = [NSNumber numberWithUnsignedInteger:*((NSUInteger*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(int))) {
+            returnValue = [NSNumber numberWithInt:*((int*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(char))) {
+            returnValue = [NSNumber numberWithChar:*((char*)buffer)];
+        }
+        else {
+            returnValue = [NSValue valueWithBytes:buffer objCType:returnType];
+        }
+    }
+    return returnValue;
 }
 
 - (id)performSelector:(SEL)aSelector withMethodArgments:(void *)firstParameter, ... {
@@ -109,15 +143,49 @@
     [invocation invoke];
     
     //7、获取返回值
-    id res = nil;
-    //判断当前方法是否有返回值
-    //    NSLog(@"methodReturnType = %s",signature.methodReturnType);
-    //    NSLog(@"methodReturnTypeLength = %zd",signature.methodReturnLength);
-    if (signature.methodReturnLength!=0) {
-        //getReturnValue获取返回值
-        [invocation getReturnValue:&res];
+    
+    //获得返回值类型
+    const char *returnType = signature.methodReturnType;
+    //声明返回值变量
+    id returnValue;
+    //如果没有返回值，也就是消息声明为void，那么returnValue=nil
+    if(!strcmp(returnType, @encode(void)) ){
+        returnValue =  nil;
     }
-    return res;
+    //如果返回值为对象，那么为变量赋值
+    else if(!strcmp(returnType, @encode(id)) ){
+        [invocation getReturnValue:&returnValue];
+    }
+    else{
+        //如果返回值为普通类型NSInteger/BOOL等
+        
+        //返回值长度
+        NSUInteger length = [signature methodReturnLength];
+        //根据长度申请内存
+        void *buffer = (void *)malloc(length);
+        //为变量赋值
+        [invocation getReturnValue:buffer];
+        
+        if(!strcmp(returnType, @encode(BOOL)) ) {
+            returnValue = [NSNumber numberWithBool:*((BOOL*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(NSInteger)) ){
+            returnValue = [NSNumber numberWithInteger:*((NSInteger*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(NSUInteger)) ){
+            returnValue = [NSNumber numberWithUnsignedInteger:*((NSUInteger*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(int))) {
+            returnValue = [NSNumber numberWithInt:*((int*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(char))) {
+            returnValue = [NSNumber numberWithChar:*((char*)buffer)];
+        }
+        else {
+            returnValue = [NSValue valueWithBytes:buffer objCType:returnType];
+        }
+    }
+    return returnValue;
 }
 
 - (id)performSelector:(SEL)aSelector withPre:(NSString *)pre withMethodArgments:(void *)firstParameter, ... {
@@ -157,15 +225,49 @@
     [invocation invoke];
     
     //7、获取返回值
-    id res = nil;
-    //判断当前方法是否有返回值
-    //    NSLog(@"methodReturnType = %s",signature.methodReturnType);
-    //    NSLog(@"methodReturnTypeLength = %zd",signature.methodReturnLength);
-    if (signature.methodReturnLength!=0) {
-        //getReturnValue获取返回值
-        [invocation getReturnValue:&res];
+    
+    //获得返回值类型
+    const char *returnType = signature.methodReturnType;
+    //声明返回值变量
+    id returnValue;
+    //如果没有返回值，也就是消息声明为void，那么returnValue=nil
+    if(!strcmp(returnType, @encode(void)) ){
+        returnValue =  nil;
     }
-    return res;
+    //如果返回值为对象，那么为变量赋值
+    else if(!strcmp(returnType, @encode(id)) ){
+        [invocation getReturnValue:&returnValue];
+    }
+    else{
+        //如果返回值为普通类型NSInteger/BOOL等
+        
+        //返回值长度
+        NSUInteger length = [signature methodReturnLength];
+        //根据长度申请内存
+        void *buffer = (void *)malloc(length);
+        //为变量赋值
+        [invocation getReturnValue:buffer];
+        
+        if(!strcmp(returnType, @encode(BOOL)) ) {
+            returnValue = [NSNumber numberWithBool:*((BOOL*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(NSInteger)) ){
+            returnValue = [NSNumber numberWithInteger:*((NSInteger*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(NSUInteger)) ){
+            returnValue = [NSNumber numberWithUnsignedInteger:*((NSUInteger*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(int))) {
+            returnValue = [NSNumber numberWithInt:*((int*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(char))) {
+            returnValue = [NSNumber numberWithChar:*((char*)buffer)];
+        }
+        else {
+            returnValue = [NSValue valueWithBytes:buffer objCType:returnType];
+        }
+    }
+    return returnValue;
 }
 
 #pragma --mark 执行类方法
@@ -220,15 +322,49 @@
     [invocation invoke];
     
     //7、获取返回值
-    id res = nil;
-    //判断当前方法是否有返回值
-    //    NSLog(@"methodReturnType = %s",signature.methodReturnType);
-    //    NSLog(@"methodReturnTypeLength = %zd",signature.methodReturnLength);
-    if (signature.methodReturnLength!=0) {
-        //getReturnValue获取返回值
-        [invocation getReturnValue:&res];
+
+    //获得返回值类型
+    const char *returnType = signature.methodReturnType;
+    //声明返回值变量
+    id returnValue;
+    //如果没有返回值，也就是消息声明为void，那么returnValue=nil
+    if(!strcmp(returnType, @encode(void)) ){
+        returnValue =  nil;
     }
-    return res;
+    //如果返回值为对象，那么为变量赋值
+    else if(!strcmp(returnType, @encode(id)) ){
+        [invocation getReturnValue:&returnValue];
+    }
+    else{
+        //如果返回值为普通类型NSInteger/BOOL等
+        
+        //返回值长度
+        NSUInteger length = [signature methodReturnLength];
+        //根据长度申请内存
+        void *buffer = (void *)malloc(length);
+        //为变量赋值
+        [invocation getReturnValue:buffer];
+        
+        if(!strcmp(returnType, @encode(BOOL)) ) {
+            returnValue = [NSNumber numberWithBool:*((BOOL*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(NSInteger)) ){
+            returnValue = [NSNumber numberWithInteger:*((NSInteger*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(NSUInteger)) ){
+            returnValue = [NSNumber numberWithUnsignedInteger:*((NSUInteger*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(int))) {
+            returnValue = [NSNumber numberWithInt:*((int*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(char))) {
+            returnValue = [NSNumber numberWithChar:*((char*)buffer)];
+        }
+        else {
+            returnValue = [NSValue valueWithBytes:buffer objCType:returnType];
+        }
+    }
+    return returnValue;
 }
 
 - (id)performClassSelector:(SEL)aSelector withObjects:(NSArray *)objects {
@@ -274,15 +410,49 @@
     [invocation invoke];
     
     //7、获取返回值
-    id res = nil;
-    //判断当前方法是否有返回值
-    //    NSLog(@"methodReturnType = %s",signature.methodReturnType);
-    //    NSLog(@"methodReturnTypeLength = %zd",signature.methodReturnLength);
-    if (signature.methodReturnLength!=0) {
-        //getReturnValue获取返回值
-        [invocation getReturnValue:&res];
+
+    //获得返回值类型
+    const char *returnType = signature.methodReturnType;
+    //声明返回值变量
+    id returnValue;
+    //如果没有返回值，也就是消息声明为void，那么returnValue=nil
+    if(!strcmp(returnType, @encode(void)) ){
+        returnValue =  nil;
     }
-    return res;
+    //如果返回值为对象，那么为变量赋值
+    else if(!strcmp(returnType, @encode(id)) ){
+        [invocation getReturnValue:&returnValue];
+    }
+    else{
+        //如果返回值为普通类型NSInteger/BOOL等
+        
+        //返回值长度
+        NSUInteger length = [signature methodReturnLength];
+        //根据长度申请内存
+        void *buffer = (void *)malloc(length);
+        //为变量赋值
+        [invocation getReturnValue:buffer];
+        
+        if(!strcmp(returnType, @encode(BOOL)) ) {
+            returnValue = [NSNumber numberWithBool:*((BOOL*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(NSInteger)) ){
+            returnValue = [NSNumber numberWithInteger:*((NSInteger*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(NSUInteger)) ){
+            returnValue = [NSNumber numberWithUnsignedInteger:*((NSUInteger*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(int))) {
+            returnValue = [NSNumber numberWithInt:*((int*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(char))) {
+            returnValue = [NSNumber numberWithChar:*((char*)buffer)];
+        }
+        else {
+            returnValue = [NSValue valueWithBytes:buffer objCType:returnType];
+        }
+    }
+    return returnValue;
 }
 
 - (id)performClassSelector:(SEL)aSelector withMethodArgments:(void *)firstParameter, ... {

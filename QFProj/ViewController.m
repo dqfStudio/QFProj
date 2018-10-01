@@ -124,8 +124,9 @@ H_CheckPropertyRange(rrr, 0, 150)
     [self performSelector:_cmd withPre:@"" withMethodArgments:&num, &rr];
 }
 
-- (void)_dqf_viewDidLoad:(NSInteger)num ff:(NSInteger)rr {
+- (NSInteger)_dqf_viewDidLoad:(NSInteger)num ff:(NSInteger)rr {
     NSLog(@"world");
+    return 1;
 //    [self performSelector:_cmd withPre:@"" withMethodArgments:&num, &rr];
 }
 
