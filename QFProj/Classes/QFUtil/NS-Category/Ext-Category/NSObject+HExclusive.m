@@ -71,7 +71,7 @@
     NSMutableSet *set = objc_getAssociatedObject(self, _cmd);
     if (!set) {
         set = NSMutableSet.new;
-        [self setExclusiveSet:set];
+        [self setIdSet:set];
     }
     return set;
 }
