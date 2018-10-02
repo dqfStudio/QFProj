@@ -60,3 +60,37 @@
     [[UIView appearance] setExclusiveTouch:YES];
 }
 @end
+
+@interface UIView ()
+@property (nonatomic) NSMutableSet *idSet;
+@end
+
+@implementation UIView (HMark)
+
+- (NSMutableSet *)idSet {
+    NSMutableSet *set = objc_getAssociatedObject(self, _cmd);
+    if (!set) {
+        set = NSMutableSet.new;
+        [self setExclusiveSet:set];
+    }
+    return set;
+}
+- (void)setIdSet:(NSMutableSet *)idSet {
+    objc_setAssociatedObject(self, @selector(idSet), idSet, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)containsId:(NSString *)anId {
+    return [self.idSet containsObject:anId];
+}
+- (void)addId:(NSString *)anId {
+    if (![self.idSet containsObject:anId]) {
+        [self.idSet addObject:anId];
+    }
+}
+- (void)removeId:(NSString *)anId {
+    if ([self.idSet containsObject:anId]) {
+        [self.idSet removeObject:anId];
+    }
+}
+
+@end

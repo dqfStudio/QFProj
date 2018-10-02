@@ -25,3 +25,9 @@ typedef void(^HExclusive)(void);
 - (void)exclusiveOtherTouch;
 + (void)exclusiveOtherTouch;
 @end
+
+@interface UIView (HMark)
+- (BOOL)containsId:(NSString *)anId;
+- (void)addId:(NSString *)anId;
+- (void)removeId:(NSString *)anId;
+@end
