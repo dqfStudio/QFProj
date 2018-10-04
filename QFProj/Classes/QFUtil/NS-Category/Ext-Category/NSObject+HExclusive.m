@@ -94,3 +94,21 @@
 }
 
 @end
+
+
+@interface NSObject ()
+@property (nonatomic) NSInteger segStatue;
+@end
+
+@implementation NSObject (HState)
+- (NSInteger)segStatue {
+    NSNumber *statue = objc_getAssociatedObject(self, _cmd);
+    if (!statue) {
+        return 0;
+    }
+    return statue.integerValue;
+}
+- (void)setSegStatue:(NSInteger)segStatue {
+    objc_setAssociatedObject(self, @selector(segStatue), @(segStatue), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+@end

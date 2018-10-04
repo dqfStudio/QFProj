@@ -31,3 +31,8 @@ typedef void(^HExclusive)(void);
 - (void)addId:(NSString *)anId;
 - (void)removeId:(NSString *)anId;
 @end
+
+@interface NSObject (HState)
+- (NSInteger)segStatue;
+- (void)setSegStatue:(NSInteger)segStatue;
+@end
