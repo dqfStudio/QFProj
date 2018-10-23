@@ -169,4 +169,38 @@
     }
 }
 
+- (void)autoClear {
+    
+    NSDictionary *dict = [self serialization];
+    
+    if (dict) {
+        NSArray<HGOTOPropertyDetail *> *pplist = [HGotoRuntimeSupport entityPropertyDetailList:[self class] isDepSearch:YES];
+        for (HGOTOPropertyDetail *ppDetail in pplist) {
+            NSString *mappedKey = ppDetail.name;
+            id value = [dict valueForKey:mappedKey];
+            if (value && [value isKindOfClass:[NSString class]]) {
+                if ([ppDetail.typeString isEqualToString:NSStringFromClass(NSString.class)]) {
+                    [self setValue:nil forKey:ppDetail.name];
+                }
+                else if (!ppDetail.isObj || [ppDetail.typeString isEqualToString:NSStringFromClass(NSNumber.class)]) {
+                    [self setValue:[NSNumber numberFrom:nil] forKey:ppDetail.name];
+                }
+                else if ([ppDetail.typeString isEqualToString:NSStringFromClass(NSDate.class)]) {
+                    [self setValue:nil forKey:ppDetail.name];
+                }
+            }else if ((!value || [value isKindOfClass:NSNull.class])) {
+                if ([ppDetail.typeString isEqualToString:NSStringFromClass(NSString.class)]) {
+                    [self setValue:nil forKey:ppDetail.name];
+                }
+                else if (!ppDetail.isObj || [ppDetail.typeString isEqualToString:NSStringFromClass(NSNumber.class)]) {
+                    [self setValue:[NSNumber numberFrom:nil] forKey:ppDetail.name];
+                }
+                else if ([ppDetail.typeString isEqualToString:NSStringFromClass(NSDate.class)]) {
+                    [self setValue:nil forKey:ppDetail.name];
+                }
+            }
+        }
+    }
+}
+
 @end

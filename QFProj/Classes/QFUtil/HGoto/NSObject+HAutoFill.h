@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "HGotoRuntimeSupport.h"
+#import "NSObject+HUtil.h"
 
 @interface NSObject (HAutoFill)
 
@@ -28,5 +29,8 @@
 
 + (id)autoFill:(id)params map:(NSDictionary *)mapKeys exclusive:(BOOL)exclusive;
 - (void)autoFill:(id)params map:(NSDictionary *)mapKeys exclusive:(BOOL)exclusive;
+
+//把属性的值置空
+- (void)autoClear;
 
 @end

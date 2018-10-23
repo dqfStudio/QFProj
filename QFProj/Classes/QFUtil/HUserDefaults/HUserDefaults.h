@@ -54,6 +54,13 @@
 @property (nonatomic, copy) NSString *password;
 @property (nonatomic, copy) NSString *phonenumber;
 
+
+//线上环境链接
+@property (nonatomic) NSString *baseLink;
+@property (nonatomic) NSString *h5Link;
+@property (nonatomic) NSString *platCodeLink;
+@property (nonatomic) NSString *src1Link;
+
 + (HUserDefaults *)defaults;
 
 //登出的时候需要移除用户信息

@@ -177,6 +177,7 @@
 		A434870C214809F80030209A /* GViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A434870B214809F80030209A /* GViewController.m */; };
 		A45401E6215E1CE7003355C9 /* HNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45401E5215E1CE7003355C9 /* HNavigationController.m */; };
 		A454FDD82157C6C0003355C9 /* UILabel+HAttributeTextTapEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = A454FDD72157C6BF003355C9 /* UILabel+HAttributeTextTapEvent.m */; };
+		A4759710217EC61D00AAAEA9 /* HUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A475970F217EC61C00AAAEA9 /* HUserDefaults.m */; };
 		A4DDC172214CF10F001F1000 /* HTupleDoubleImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DDC171214CF10F001F1000 /* HTupleDoubleImageCell.m */; };
 /* End PBXBuildFile section */
 
@@ -498,6 +499,8 @@
 		A45401E5215E1CE7003355C9 /* HNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNavigationController.m; sourceTree = "<group>"; };
 		A454FDD62157C6BF003355C9 /* UILabel+HAttributeTextTapEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeTextTapEvent.h"; sourceTree = "<group>"; };
 		A454FDD72157C6BF003355C9 /* UILabel+HAttributeTextTapEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+HAttributeTextTapEvent.m"; sourceTree = "<group>"; };
+		A475970E217EC61C00AAAEA9 /* HUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUserDefaults.h; sourceTree = "<group>"; };
+		A475970F217EC61C00AAAEA9 /* HUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUserDefaults.m; sourceTree = "<group>"; };
 		A4DDC170214CF10F001F1000 /* HTupleDoubleImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleDoubleImageCell.h; sourceTree = "<group>"; };
 		A4DDC171214CF10F001F1000 /* HTupleDoubleImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleDoubleImageCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -798,6 +801,7 @@
 		15B4DD7E2092F96B00773E04 /* QFUtil */ = {
 			isa = PBXGroup;
 			children = (
+				A475970D217EC61C00AAAEA9 /* HUserDefaults */,
 				15112C742105A19600842FE4 /* HUncaughtExceptionHandler */,
 				153F080220E28CA000C74850 /* HInputValidator */,
 				157684CF20E2157E00D8DC5B /* NSBlockChain */,
@@ -1386,6 +1390,15 @@
 			path = QFUtil/HAttributeTextTapEvent;
 			sourceTree = "<group>";
 		};
+		A475970D217EC61C00AAAEA9 /* HUserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				A475970E217EC61C00AAAEA9 /* HUserDefaults.h */,
+				A475970F217EC61C00AAAEA9 /* HUserDefaults.m */,
+			);
+			path = HUserDefaults;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1563,6 +1576,7 @@
 				15B4DE0F2092F96C00773E04 /* NSObject+HSafeSEL.m in Sources */,
 				1528DF4C20BF0FE200D0A004 /* UIAlertController+HUtil.m in Sources */,
 				15B4DDEB2092F96C00773E04 /* UIView+HDebug.m in Sources */,
+				A4759710217EC61D00AAAEA9 /* HUserDefaults.m in Sources */,
 				1547B891210C4E09009E0374 /* UICollectionView+HTracking.m in Sources */,
 				15E6BB9C2136E7E300EBE794 /* YPTabBarController.m in Sources */,
 				15545789212B063900DA7898 /* MGVersionManager.m in Sources */,
