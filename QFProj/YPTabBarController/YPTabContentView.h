@@ -33,6 +33,11 @@
 - (void)tabContentView:(YPTabContentView *)tabConentView didSelectedTabAtIndex:(NSUInteger)index;
 
 /**
+ *  重复点击到指定index
+ */
+- (void)tabContentView:(YPTabContentView *)tabConentView reSelectedTabAtIndex:(NSUInteger)index;
+
+/**
  *  当设置headerView时，内容视图竖向滚动时的y坐标偏移量
  */
 - (void)tabContentView:(YPTabContentView *)tabConentView didChangedContentOffsetY:(CGFloat)offsetY;

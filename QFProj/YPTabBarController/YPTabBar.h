@@ -35,7 +35,14 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorAnimationStyle) {
  */
 - (void)yp_tabBar:(YPTabBar *)tabBar didSelectedItemAtIndex:(NSUInteger)index;
 
+/**
+ *  重复点击到指定index
+ */
+- (void)yp_tabBar:(YPTabBar *)tabBar reSelectedTabAtIndex:(NSUInteger)index;
+
 @end
+
+typedef void(^HTabbardSelectedBlock)(NSInteger idx);
 
 @interface YPTabBar : UIView
 
@@ -63,6 +70,8 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorAnimationStyle) {
 @property (nonatomic, assign) CGFloat trailingSpace;                // 最后一个item与右边或者下边的距离
 
 @property (nonatomic, assign) NSUInteger selectedItemIndex;          // 选中某一个item
+
+@property (nonatomic, copy) HTabbardSelectedBlock tabbardSelectedBlock;
 
 /**
  *  拖动内容视图时，item的颜色是否根据拖动位置显示渐变效果，默认为YES

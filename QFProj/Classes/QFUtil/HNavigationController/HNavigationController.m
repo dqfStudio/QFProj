@@ -42,9 +42,9 @@
 #pragma mark - Life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //  这句很核心 稍后讲解
+    //  这句很核心
     id target = self.interactivePopGestureRecognizer.delegate;
-    //  这句很核心 稍后讲解
+    //  这句很核心
     SEL handler = NSSelectorFromString(@"handleNavigationTransition:");
     //  获取添加系统边缘触发手势的View
     UIView *targetView = self.interactivePopGestureRecognizer.view;

@@ -529,6 +529,12 @@ tabBarStopOnTopHeight:(CGFloat)tabBarStopOnTopHeight {
     }
 }
 
+- (void)yp_tabBar:(YPTabBar *)tabBar reSelectedTabAtIndex:(NSUInteger)index {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(tabContentView:reSelectedTabAtIndex:)]) {
+        [self.delegate tabContentView:self reSelectedTabAtIndex:index];
+    }
+}
+
 #pragma mark - _YPTabContentScrollViewDelegate
 
 - (BOOL)scrollView:(_YPTabContentScrollView *)scrollView shouldScrollToPageIndex:(NSUInteger)index {

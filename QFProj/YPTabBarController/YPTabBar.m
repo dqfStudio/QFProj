@@ -304,6 +304,9 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
     if (selectedItemIndex == _selectedItemIndex ||
         selectedItemIndex >= self.items.count ||
         self.items.count == 0) {
+        if (selectedItemIndex == _selectedItemIndex) {
+            [self.delegate yp_tabBar:self reSelectedTabAtIndex:selectedItemIndex];
+        }
         return;
     }
     
@@ -357,6 +360,9 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(yp_tabBar:didSelectedItemAtIndex:)]) {
         [self.delegate yp_tabBar:self didSelectedItemAtIndex:selectedItemIndex];
+    }
+    if (self.tabbardSelectedBlock) {
+        self.tabbardSelectedBlock(selectedItemIndex);
     }
 }
 
