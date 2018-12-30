@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "NSObject+HMessy.h"
+#import "UILabel+HAttributeText.h"
 
 typedef NS_ENUM(NSInteger, NSWordAlign) {
     NSWordAlignBottom = 0,
     NSWordAlignCenter,
     NSWordAlignTop
 };
+
+typedef void(^HTapKeywordsBlock)(NSInteger index);
 
 @interface UILabel (HUtil)
 
@@ -26,6 +29,10 @@ typedef NS_ENUM(NSInteger, NSWordAlign) {
 @property (nonatomic, copy)   NSString *keywords;
 @property (nonatomic, strong) UIFont   *keywordsFont;
 @property (nonatomic, strong) UIColor  *keywordsColor;
+
+//点击事件
+@property (nonatomic, copy)   NSArray *tapKeywordsArr;
+@property (nonatomic, copy)   HTapKeywordsBlock tapKeywordsBlock;
 
 //插入图片
 @property (nonatomic, assign) NSInteger   imgIndex;

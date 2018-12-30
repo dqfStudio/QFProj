@@ -47,6 +47,20 @@
     [self setAssociateValue:keywordsColor withKey:@selector(keywordsColor)];
 }
 
+- (NSArray *)tapKeywordsArr {
+    return [self getAssociatedValueForKey:_cmd];
+}
+- (void)setTapKeywordsArr:(NSArray *)tapKeywordsArr {
+    [self setAssociateValue:tapKeywordsArr withKey:@selector(tapKeywordsArr)];
+}
+
+- (HTapKeywordsBlock)tapKeywordsBlock {
+    return [self getAssociatedValueForKey:_cmd];
+}
+- (void)setTapKeywordsBlock:(HTapKeywordsBlock)tapKeywordsBlock {
+    [self setAssociateValue:tapKeywordsBlock withKey:@selector(tapKeywordsBlock)];
+}
+
 - (NSInteger)imgIndex {
     return [[self getAssociatedValueForKey:_cmd] integerValue];
 }
@@ -189,7 +203,7 @@
         [string appendAttributedString:rightSpaceString];
         
         if ([self.imgUrl containsString:@"http://"] || [self.imgUrl containsString:@"https://"]) {
-            //            [self loadImageForUrl:url toAttach:attch syncLoadCache:NO range:range text:temp];
+//            [self loadImageForUrl:url toAttach:attch syncLoadCache:NO range:range text:temp];
         }else {//加载本地图片
             if ([NSStringFromCGSize(CGSizeZero) isEqualToString:NSStringFromCGSize(self.frame.size)]) {
                 CGSize imageSize = self.imgSize;
@@ -276,6 +290,17 @@
         if (self.keywordsColor) {
             [attributedString addAttribute:NSForegroundColorAttributeName value:self.keywordsColor range:itemRange];
         }
+    }
+    
+    //点击事件
+    if (self.tapKeywordsArr) {
+        __weak typeof(self) weakSelf = self;
+        [self addAttributeTapActionWithStrings:self.tapKeywordsArr tapClicked:^(UILabel *label, NSString *string, NSRange range, NSInteger index) {
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            if (strongSelf.tapKeywordsBlock) {
+                strongSelf.tapKeywordsBlock(index);
+            }
+        }];
     }
     
     //下划线
