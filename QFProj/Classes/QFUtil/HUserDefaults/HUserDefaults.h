@@ -6,37 +6,13 @@
 //  Copyright © 2018年 dqf. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
 @interface HUserDefaults : NSObject
 
 /** 是否登录 */
 @property (nonatomic) BOOL isLogin;
-
-/** 用户名 */
-@property (nonatomic, copy) NSString *nickName;
-/** 头像 */
-@property (nonatomic, copy) NSString *avatar;
-/** 生日 */
-@property (nonatomic, copy) NSString *birthday;
-/** 性别 */
-@property (nonatomic, copy) NSString *gender;
-/** 省份 */
-@property (nonatomic, copy) NSString *province;
-/** 城市 */
-@property (nonatomic, copy) NSString *city;
-/** 地区 */
-@property (nonatomic, copy) NSString *district;
-/** 地址 */
-@property (nonatomic, copy) NSString *address;
-/** 组织 */
-@property (nonatomic, copy) NSString *organization;
-/** 职位名 */
-@property (nonatomic, copy) NSString *position_name;
-/** 信息是否完整 */
-@property (nonatomic, assign) BOOL is_complete;
-/** token 用户身份验证信息 */
-@property (nonatomic, copy) NSString *token;
 /** 本地存储 邮箱 */
 @property (nonatomic, copy) NSString *user_email;
 
@@ -44,26 +20,46 @@
 /** userKey */
 @property (nonatomic, copy) NSString *userKey;
 /** 用户ID */
+@property (nonatomic, copy) NSString *fullName;
 @property (nonatomic, copy) NSString *userName;
+@property (nonatomic, copy) NSString *realname;
 /** balance */
 @property (nonatomic, copy) NSString *balance;
 @property (nonatomic, copy) NSString *integral;
+@property (nonatomic, copy) NSString *vip_level;
+
+@property (nonatomic, copy) NSString *mobile;
+@property (nonatomic, copy) NSString *loginmobile;
+
+@property (nonatomic, copy) NSString *login_time;
+@property (nonatomic, copy) NSString *reg_date;
+
+/** 银行卡列表,里面为字典 card_num和bank_name */
+@property (nonatomic, copy) NSArray *bankList;
+//是否已经设置取款密码
+@property (nonatomic) BOOL settedqkpwd;
 
 
 /** 密码 */
 @property (nonatomic, copy) NSString *password;
-@property (nonatomic, copy) NSString *phonenumber;
-
-
-//线上环境链接
-@property (nonatomic) NSString *baseLink;
-@property (nonatomic) NSString *h5Link;
-@property (nonatomic) NSString *platCodeLink;
-@property (nonatomic) NSString *src1Link;
 
 + (HUserDefaults *)defaults;
 
 //登出的时候需要移除用户信息
 - (void)removeUser;
+
+
+//线上环境链接
+- (void)setBaseLink:(NSString *)baseLink;
+- (NSString *)baseLink;
+
+- (void)setH5Link:(NSString *)h5Link;
+- (NSString *)h5Link;
+
+- (void)setPlatCodeLink:(NSString *)platCodeLink;
+- (NSString *)platCodeLink;
+
+- (void)setSrc1Link:(NSString *)src1Link;
+- (NSString *)src1Link;
 
 @end
