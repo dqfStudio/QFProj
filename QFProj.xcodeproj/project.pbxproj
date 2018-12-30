@@ -122,7 +122,6 @@
 		15C5736F20B3DD7B0070327C /* icon_tuple_arrow_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C5735A20B3DD7B0070327C /* icon_tuple_arrow_left@2x.png */; };
 		15C5737020B3DD7B0070327C /* HTupleReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5735D20B3DD7B0070327C /* HTupleReusableView.m */; };
 		15C5737120B3DD7B0070327C /* HTupleBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5735E20B3DD7B0070327C /* HTupleBaseView.m */; };
-		15C5737220B3DD7B0070327C /* UICollectionViewSectionVerticalAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5736420B3DD7B0070327C /* UICollectionViewSectionVerticalAlignedLayout.m */; };
 		15C5737320B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5736520B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.m */; };
 		15C5737420B3DD7B0070327C /* HTupleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5736720B3DD7B0070327C /* HTupleView.m */; };
 		15C5738320B3DD9F0070327C /* NSObject+selector.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5737720B3DD9F0070327C /* NSObject+selector.m */; };
@@ -174,11 +173,12 @@
 		15F9152920A18CA9000261C4 /* HAspectsCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9152820A18CA9000261C4 /* HAspectsCenter.m */; };
 		15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9152D20A27D1C000261C4 /* HRequestResultView.m */; };
 		171E540C3ECD9B640D790516 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E16C30E2760E6660FC02C1 /* libPods-QFProj.a */; };
+		A28EF2E821D86DD8002F92ED /* ULBCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */; };
+		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
 		A434870C214809F80030209A /* GViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A434870B214809F80030209A /* GViewController.m */; };
 		A45401E6215E1CE7003355C9 /* HNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45401E5215E1CE7003355C9 /* HNavigationController.m */; };
 		A454FDD82157C6C0003355C9 /* UILabel+HAttributeTextTapEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = A454FDD72157C6BF003355C9 /* UILabel+HAttributeTextTapEvent.m */; };
 		A4759710217EC61D00AAAEA9 /* HUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A475970F217EC61C00AAAEA9 /* HUserDefaults.m */; };
-		A4DDC172214CF10F001F1000 /* HTupleDoubleImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DDC171214CF10F001F1000 /* HTupleDoubleImageCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -412,9 +412,7 @@
 		15C5736020B3DD7B0070327C /* HTupleReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTupleReusableView.h; sourceTree = "<group>"; };
 		15C5736220B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLeftAlignedLayout.h; sourceTree = "<group>"; };
 		15C5736320B3DD7B0070327C /* HTupleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTupleView.h; sourceTree = "<group>"; };
-		15C5736420B3DD7B0070327C /* UICollectionViewSectionVerticalAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewSectionVerticalAlignedLayout.m; sourceTree = "<group>"; };
 		15C5736520B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftAlignedLayout.m; sourceTree = "<group>"; };
-		15C5736620B3DD7B0070327C /* UICollectionViewSectionVerticalAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewSectionVerticalAlignedLayout.h; sourceTree = "<group>"; };
 		15C5736720B3DD7B0070327C /* HTupleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTupleView.m; sourceTree = "<group>"; };
 		15C5737720B3DD9F0070327C /* NSObject+selector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+selector.m"; sourceTree = "<group>"; };
 		15C5737820B3DD9F0070327C /* NSObject+selector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+selector.h"; sourceTree = "<group>"; };
@@ -493,6 +491,10 @@
 		15F9152E20A27D1C000261C4 /* HRequestResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRequestResultView.h; sourceTree = "<group>"; };
 		31E16C30E2760E6660FC02C1 /* libPods-QFProj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QFProj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60580163C2E51E9CB5D59084 /* Pods-QFProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.release.xcconfig"; sourceTree = "<group>"; };
+		A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULBCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		A28EF2E721D86DD8002F92ED /* ULBCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ULBCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		A28EF2EA21D86E43002F92ED /* UILabel+HAttributeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeText.h"; sourceTree = "<group>"; };
+		A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+HAttributeText.m"; sourceTree = "<group>"; };
 		A434870A214809F80030209A /* GViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GViewController.h; sourceTree = "<group>"; };
 		A434870B214809F80030209A /* GViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GViewController.m; sourceTree = "<group>"; };
 		A45401E4215E1CE7003355C9 /* HNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNavigationController.h; sourceTree = "<group>"; };
@@ -501,8 +503,6 @@
 		A454FDD72157C6BF003355C9 /* UILabel+HAttributeTextTapEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+HAttributeTextTapEvent.m"; sourceTree = "<group>"; };
 		A475970E217EC61C00AAAEA9 /* HUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUserDefaults.h; sourceTree = "<group>"; };
 		A475970F217EC61C00AAAEA9 /* HUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUserDefaults.m; sourceTree = "<group>"; };
-		A4DDC170214CF10F001F1000 /* HTupleDoubleImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleDoubleImageCell.h; sourceTree = "<group>"; };
-		A4DDC171214CF10F001F1000 /* HTupleDoubleImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleDoubleImageCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -774,6 +774,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A28EF2E921D86E43002F92ED /* UILabel+HAttributeText */,
 				A45401E3215E1CE7003355C9 /* HNavigationController */,
 				A454FDD52157C6BF003355C9 /* HAttributeTextTapEvent */,
 				15E5652A2133A002003A63E5 /* HLoginController */,
@@ -1148,8 +1149,6 @@
 				15C5735120B3DD7B0070327C /* HTupleVerticalCell.m */,
 				15C5735020B3DD7B0070327C /* HTupleViewCell.h */,
 				15C5735420B3DD7B0070327C /* HTupleViewCell.m */,
-				A4DDC170214CF10F001F1000 /* HTupleDoubleImageCell.h */,
-				A4DDC171214CF10F001F1000 /* HTupleDoubleImageCell.m */,
 				15C5735620B3DD7B0070327C /* tuple_arrow_icons */,
 			);
 			path = HTupleViewCell;
@@ -1184,8 +1183,8 @@
 				15C5736720B3DD7B0070327C /* HTupleView.m */,
 				15C5736220B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.h */,
 				15C5736520B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.m */,
-				15C5736620B3DD7B0070327C /* UICollectionViewSectionVerticalAlignedLayout.h */,
-				15C5736420B3DD7B0070327C /* UICollectionViewSectionVerticalAlignedLayout.m */,
+				A28EF2E721D86DD8002F92ED /* ULBCollectionViewFlowLayout.h */,
+				A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1368,6 +1367,16 @@
 				31E16C30E2760E6660FC02C1 /* libPods-QFProj.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A28EF2E921D86E43002F92ED /* UILabel+HAttributeText */ = {
+			isa = PBXGroup;
+			children = (
+				A28EF2EA21D86E43002F92ED /* UILabel+HAttributeText.h */,
+				A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */,
+			);
+			name = "UILabel+HAttributeText";
+			path = "QFUtil/UILabel+HAttributeText";
 			sourceTree = "<group>";
 		};
 		A45401E3215E1CE7003355C9 /* HNavigationController */ = {
@@ -1599,6 +1608,7 @@
 				15C5738620B3DD9F0070327C /* HSectionModel.m in Sources */,
 				15B4DDF72092F96C00773E04 /* UIDevice+HUtil.m in Sources */,
 				15B4DD6B2092F88700773E04 /* ViewController.m in Sources */,
+				A28EF2E821D86DD8002F92ED /* ULBCollectionViewFlowLayout.m in Sources */,
 				1587D8DE20C2578900C0391D /* HBaseHeaderFooterView.m in Sources */,
 				15B4DDFB2092F96C00773E04 /* UIColor+HUtil.m in Sources */,
 				15C572AA20AEDAB90070327C /* HLabelView.m in Sources */,
@@ -1611,7 +1621,6 @@
 				15B4DE062092F96C00773E04 /* NSObject+BlockSEL.m in Sources */,
 				15F9152620A1817F000261C4 /* QFButton.m in Sources */,
 				15C572B020B016CA0070327C /* UIView+HAccessoryView.m in Sources */,
-				15C5737220B3DD7B0070327C /* UICollectionViewSectionVerticalAlignedLayout.m in Sources */,
 				15545781212B022300DA7898 /* MGHostUrlManager.m in Sources */,
 				15C5731E20B3B1900070327C /* HSimilarity.m in Sources */,
 				15B4DE052092F96C00773E04 /* HHexUtil.m in Sources */,
@@ -1627,7 +1636,6 @@
 				15C5729320AE51B30070327C /* HSort.m in Sources */,
 				15C5738720B3DD9F0070327C /* HTableView.m in Sources */,
 				1587D8E120C257A900C0391D /* HTableSignal.m in Sources */,
-				A4DDC172214CF10F001F1000 /* HTupleDoubleImageCell.m in Sources */,
 				1590609320BE76D600CB4EA6 /* HRequestWaitingView.m in Sources */,
 				15B4DDEE2092F96C00773E04 /* UIViewController+HBackHandler.m in Sources */,
 				15B4DE022092F96C00773E04 /* NSUserDefaults+HUtil.m in Sources */,
@@ -1653,6 +1661,7 @@
 				15E56514212D013D003A63E5 /* UIImage+HName.m in Sources */,
 				15B4DE0B2092F96C00773E04 /* NSString+HSafeUtil.m in Sources */,
 				15112C772105A19600842FE4 /* HUncaughtExceptionHandler.m in Sources */,
+				A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */,
 				153F081520E28CA000C74850 /* HInputValidator.m in Sources */,
 				15B4DD762092F88700773E04 /* main.m in Sources */,
 				15AD7130211B3B4F00D8185F /* NSObject+HName.m in Sources */,

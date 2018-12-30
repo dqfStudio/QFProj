@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSObject+HMessy.h"
 #import "UILabel+HState.h"
 #import "UILabel+HUtil.h"
 #import "UIButton+HUtil.h"
@@ -21,9 +22,12 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 @property (nonatomic, copy) HTupleCellSignalBlock signalBlock;
 @end
 
+typedef void(^HTupleBaseCellBlock)(NSIndexPath *idxPath);
+
 @interface HTupleBaseCell : UICollectionViewCell
 @property (nonatomic, weak) UICollectionView *collection;
 @property (nonatomic, copy) HTupleCellInitBlock initBlock;
+@property (nonatomic, copy) HTupleBaseCellBlock baseBlock;
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UIEdgeInsets edgeInsets;
 - (CGRect)getContentFrame;
@@ -31,4 +35,7 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 //需要子类重写该方法
 - (void)initUI;
 - (void)layoutContentView;
+- (CGFloat)width;
+- (CGFloat)height;
+- (CGSize)size;
 @end

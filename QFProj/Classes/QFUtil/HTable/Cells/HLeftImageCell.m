@@ -81,19 +81,19 @@
 - (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
-            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
             [cell.label setBackgroundColor:[UIColor greenColor]];
             [cell.label setText:@"第一个label"];
         }
             break;
         case 1: {
-            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
             [cell.label setText:@"第二个label"];
             [cell.label setBackgroundColor:[UIColor grayColor]];
         }
             break;
         case 2: {
-            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
             [cell.label setText:@"第三个label"];
             [cell.label setBackgroundColor:[UIColor redColor]];
         }
@@ -116,8 +116,8 @@
 
 - (void)tupleView:(UICollectionView *)tupleView footerTuple:(id (^)(Class aClass))footerBlock inSection:(NSInteger)section {
     HReusableButtonView *cell = footerBlock(HReusableButtonView.class);
-    [cell.button setBackgroundColor:[UIColor clearColor]];
-    [cell.button.button setImage:[UIImage imageNamed:@"icon_tuple_arrow_right"] forState:UIControlStateNormal];
+    [cell.buttonView setBackgroundColor:[UIColor clearColor]];
+    [cell.buttonView.button setImage:[UIImage imageNamed:@"icon_tuple_arrow_right"] forState:UIControlStateNormal];
     [cell setReusableButtonViewBlock:^(HWebButtonView *webButtonView, HReusableButtonView *buttonView) {
         
     }];

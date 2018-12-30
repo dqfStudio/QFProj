@@ -491,7 +491,7 @@ H_CheckPropertyRange(rrr, 0, 150)
 - (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:{
-            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
             [cell.label setBackgroundColor:[UIColor redColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
             [cell setInitBlock:^{
@@ -546,7 +546,7 @@ H_CheckPropertyRange(rrr, 0, 150)
 - (void)tupleView:(UICollectionView *)tupleView headerTuple:(id (^)(Class aClass))headerBlock inSection:(NSInteger)section {
     switch (section) {
         case 0:{
-            HReusableTextView *cell = headerBlock(HReusableTextView.class);
+            HReusableLabelView *cell = headerBlock(HReusableLabelView.class);
             [cell.label setBackgroundColor:[UIColor yellowColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
@@ -554,7 +554,7 @@ H_CheckPropertyRange(rrr, 0, 150)
         case 1:
         {
             HReusableButtonView *cell = headerBlock(HReusableButtonView.class);
-            [cell.button setBackgroundColor:[UIColor blueColor]];
+            [cell.buttonView setBackgroundColor:[UIColor blueColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
             break;
@@ -579,7 +579,7 @@ H_CheckPropertyRange(rrr, 0, 150)
 - (void)tupleView:(UICollectionView *)tupleView footerTuple:(id (^)(Class aClass))footerBlock inSection:(NSInteger)section {
     switch (section) {
         case 0:{
-            HReusableTextView *cell = footerBlock(HReusableTextView.class);
+            HReusableLabelView *cell = footerBlock(HReusableLabelView.class);
             [cell.label setBackgroundColor:[UIColor yellowColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
@@ -587,7 +587,7 @@ H_CheckPropertyRange(rrr, 0, 150)
         case 1:
         {
             HReusableButtonView *cell = footerBlock(HReusableButtonView.class);
-            [cell.button setBackgroundColor:[UIColor blueColor]];
+            [cell.buttonView setBackgroundColor:[UIColor blueColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
             break;

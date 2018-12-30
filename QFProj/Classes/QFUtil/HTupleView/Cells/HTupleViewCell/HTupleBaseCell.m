@@ -17,12 +17,20 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        [self setBackgroundColor:[UIColor clearColor]];
         [self initUI];
         if (self.initBlock) {
             self.initBlock();
         }
     }
     return self;
+}
+
+- (HTupleCellSignalBlock)signalBlock {
+    return [self getAssociatedValueForKey:_cmd];
+}
+- (void)setSignalBlock:(HTupleCellSignalBlock)signalBlock {
+    [self setAssociateValue:signalBlock withKey:@selector(signalBlock)];
 }
 
 - (UITapGestureRecognizer *)baseTap {
@@ -54,4 +62,17 @@
 - (void)addReturnKeyBoard {
     [self addGestureRecognizer:self.baseTap];
 }
+
+- (CGFloat)width {
+    return CGRectGetWidth(self.frame);
+}
+
+- (CGFloat)height {
+    return CGRectGetHeight(self.frame);
+}
+
+- (CGSize)size {
+    return self.frame.size;
+}
+
 @end

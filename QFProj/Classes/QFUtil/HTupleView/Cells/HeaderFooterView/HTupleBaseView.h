@@ -21,9 +21,12 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 @property (nonatomic, copy) HTupleCellSignalBlock signalBlock;
 @end
 
+typedef void(^HTupleBaseViewBlock)(NSIndexPath *idxPath);
+
 @interface HTupleBaseView : UICollectionReusableView
 @property (nonatomic, weak) UICollectionView *collection;
 @property (nonatomic, copy) HTupleCellInitBlock initBlock;
+@property (nonatomic, copy) HTupleBaseViewBlock baseBlock;
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UIEdgeInsets edgeInsets;
 - (CGRect)getContentFrame;
@@ -31,4 +34,7 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 //需要子类重写该方法
 - (void)initUI;
 - (void)layoutContentView;
+- (CGFloat)width;
+- (CGFloat)height;
+- (CGSize)size;
 @end

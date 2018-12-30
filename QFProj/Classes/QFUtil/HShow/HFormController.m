@@ -329,8 +329,8 @@ UIKIT_STATIC_INLINE long getTotalPages(long totalLines, long pageLines);
             }
             HButtonViewCell *cell = itemBlock(class);
             [cell setBackgroundColor:self.formController.bgColor];
-            [cell.button setBackgroundColor:self.formController.itemBgColor];
-            [cell.button.button setTitle:self.formController.titles[indexPath.row]];
+            [cell.buttonView setBackgroundColor:self.formController.itemBgColor];
+            [cell.buttonView.button setTitle:self.formController.titles[indexPath.row]];
             [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
                 if (self.formController.buttonBlock) self.formController.buttonBlock(indexPath.row);
             }];
@@ -348,8 +348,8 @@ UIKIT_STATIC_INLINE long getTotalPages(long totalLines, long pageLines);
             }
             HButtonViewCell *cell = itemBlock(class);
             [cell setBackgroundColor:self.formController.bgColor];
-            [cell.button setBackgroundColor:self.formController.itemBgColor];
-            [cell.button.button setTitle:self.formController.titles[indexPath.row+pageItems*tag]];
+            [cell.buttonView setBackgroundColor:self.formController.itemBgColor];
+            [cell.buttonView.button setTitle:self.formController.titles[indexPath.row+pageItems*tag]];
             [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
                 if (self.formController.buttonBlock) self.formController.buttonBlock(indexPath.row+pageItems*tag);
             }];

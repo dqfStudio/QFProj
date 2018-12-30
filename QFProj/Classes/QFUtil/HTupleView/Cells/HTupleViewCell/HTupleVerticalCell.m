@@ -8,18 +8,31 @@
 
 #import "HTupleVerticalCell.h"
 
+@implementation HTupleVerticalModel
+
+@end
+
 @implementation HTupleVerticalCell
 
 - (HTupleView *)tupleView {
     if (!_tupleView) {
-        _tupleView = [[HTupleView alloc] initWithFrame:self.frame];
+        _tupleView = [[HTupleView alloc] initWithFrame:self.bounds];
         [_tupleView setTupleDelegate:self];
         [self addSubview:_tupleView];
     }
     return _tupleView;
 }
+
 - (void)layoutContentView {
     HLayoutTupleView(self.tupleView)
+}
+
+- (void)setModel:(HTupleVerticalModel *)model {
+    if (_model != model) {
+        _model = nil;
+        _model = model;
+        [self.tupleView reloadData];
+    }
 }
 
 - (NSInteger)tupleView:(UICollectionView *)tupleView numberOfItemsInSection:(NSInteger)section {
@@ -38,7 +51,7 @@
 - (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:{
-            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
             [cell.label setBackgroundColor:[UIColor grayColor]];
             [cell setBackgroundColor:[UIColor blueColor]];
         }
@@ -46,7 +59,7 @@
         case 1:
         {
             HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
-            [cell.button setBackgroundColor:[UIColor blueColor]];
+            [cell.buttonView setBackgroundColor:[UIColor blueColor]];
             [cell setBackgroundColor:[UIColor redColor]];
             [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
                 

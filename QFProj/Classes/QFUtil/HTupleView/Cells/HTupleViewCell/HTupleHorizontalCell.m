@@ -8,18 +8,31 @@
 
 #import "HTupleHorizontalCell.h"
 
+@implementation HTupleHorizontalModel
+
+@end
+
 @implementation HTupleHorizontalCell
 
 - (HTupleView *)tupleView {
     if (!_tupleView) {
-        _tupleView = [[HTupleView alloc] initWithFrame:self.frame scrollDirection:HTupleViewScrollDirectionHorizontal];
+        _tupleView = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleViewScrollDirectionHorizontal];
         [_tupleView setTupleDelegate:self];
         [self addSubview:_tupleView];
     }
     return _tupleView;
 }
+
 - (void)layoutContentView {
     HLayoutTupleView(self.tupleView)
+}
+
+- (void)setModel:(HTupleHorizontalModel *)model {
+    if (_model != model) {
+        _model = nil;
+        _model = model;
+        [self.tupleView reloadData];
+    }
 }
 
 - (NSInteger)tupleView:(UICollectionView *)tupleView numberOfItemsInSection:(NSInteger)section {
@@ -47,7 +60,7 @@
 - (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:{
-            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
             [cell.label setBackgroundColor:[UIColor redColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
@@ -55,7 +68,7 @@
         case 1:
         {
             HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
-            [cell.button setBackgroundColor:[UIColor blueColor]];
+            [cell.buttonView setBackgroundColor:[UIColor blueColor]];
             [cell setBackgroundColor:[UIColor redColor]];
             [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
                 
@@ -96,7 +109,7 @@
 - (void)tupleView:(UICollectionView *)tupleView headerTuple:(id (^)(Class aClass))headerBlock inSection:(NSInteger)section {
     switch (section) {
         case 0:{
-            HReusableTextView *cell = headerBlock(HReusableTextView.class);
+            HReusableLabelView *cell = headerBlock(HReusableLabelView.class);
             [cell.label setBackgroundColor:[UIColor yellowColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
@@ -104,7 +117,7 @@
         case 1:
         {
             HReusableButtonView *cell = headerBlock(HReusableButtonView.class);
-            [cell.button setBackgroundColor:[UIColor blueColor]];
+            [cell.buttonView setBackgroundColor:[UIColor blueColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
             break;

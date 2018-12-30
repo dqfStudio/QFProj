@@ -7,7 +7,6 @@
 //
 
 #import "GViewController.h"
-#import "HTupleDoubleImageCell.h"
 
 @interface GViewController () <HTupleViewDelegate>
 @property (nonatomic) HTupleView *tupleView;
@@ -102,7 +101,7 @@
         {
             switch (indexPath.row) {
                 case 0:{
-                    HTextViewCell *cell = itemBlock(HTextViewCell.class);
+                    HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
                     [cell setBackgroundColor:[UIColor clearColor]];
 //                    [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setBackgroundColor:[UIColor greenColor]];
@@ -114,7 +113,7 @@
                     break;
                 case 1:
                 {
-                    HTextViewCell *cell = itemBlock(HTextViewCell.class);
+                    HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
                     [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -124,7 +123,7 @@
                     break;
                 case 2:
                 {
-                    HTextViewCell *cell = itemBlock(HTextViewCell.class);
+                    HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
                     [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -135,7 +134,7 @@
                     break;
                 case 3:
                 {
-                    HTextViewCell *cell = itemBlock(HTextViewCell.class);
+                    HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
                     [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -146,7 +145,7 @@
                     break;
                 case 4:
                 {
-                    HTextViewCell *cell = itemBlock(HTextViewCell.class);
+                    HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
                     [cell setBackgroundColor:[UIColor lightGrayColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -157,7 +156,7 @@
                     break;
                 case 5:
                 {
-                    HTextViewCell *cell = itemBlock(HTextViewCell.class);
+                    HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
                     [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -168,7 +167,7 @@
                     break;
                 case 6:
                 {
-                    HTextViewCell *cell = itemBlock(HTextViewCell.class);
+                    HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
                     [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -179,7 +178,7 @@
                     break;
                 case 7:
                 {
-                    HTextViewCell *cell = itemBlock(HTextViewCell.class);
+                    HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
                     [cell setBackgroundColor:[UIColor greenColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -190,7 +189,7 @@
                     break;
                 case 8:
                 {
-                    HTextViewCell *cell = itemBlock(HTextViewCell.class);
+                    HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
                     [cell setBackgroundColor:[UIColor yellowColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -201,7 +200,7 @@
                     break;
                 case 9:
                 {
-                    HTextViewCell *cell = itemBlock(HTextViewCell.class);
+                    HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
                     [cell setBackgroundColor:[UIColor redColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -212,7 +211,7 @@
                     break;
                 case 10:
                 {
-                    HTextViewCell *cell = itemBlock(HTextViewCell.class);
+                    HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
                     [cell setBackgroundColor:[UIColor blueColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -235,7 +234,7 @@
                     
                 default:
                 {
-                    HTextViewCell *cell = itemBlock(HTextViewCell.class);
+                    HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
                     [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor redColor]];
                     NSLog(@"%@",@(indexPath.row));
@@ -252,7 +251,7 @@
         {
             switch (indexPath.row) {
                 case 0:{
-                    HTextViewCell *cell = itemBlock(HTextViewCell.class);
+                    HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
                     [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -267,14 +266,16 @@
                     break;
                 case 2:
                 {
-                    HTupleDoubleImageCell *cell = itemBlock(HTupleDoubleImageCell.class);
+//                    HTupleDoubleImageCell *cell = itemBlock(HTupleDoubleImageCell.class);
+//                    [cell setBackgroundColor:[UIColor clearColor]];
+                    HImageViewCell *cell = itemBlock(HImageViewCell.class);
                     [cell setBackgroundColor:[UIColor clearColor]];
                 }
                     break;
                     
                 default:
                 {
-                    HTextViewCell *cell = itemBlock(HTextViewCell.class);
+                    HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
                     [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor redColor]];
                     NSLog(@"%@",@(indexPath.row));

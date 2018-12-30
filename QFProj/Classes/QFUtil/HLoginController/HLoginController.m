@@ -133,7 +133,7 @@
 - (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:{
-            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -154,7 +154,7 @@
             break;
         case 2:
         {
-            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -174,7 +174,7 @@
             break;
         case 4:
         {
-            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -197,9 +197,9 @@
         {
             HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
             [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.button setBackgroundColor:[UIColor colorWithString:@"#CCCCCC"]];
-            [cell.button.button setTitle:@"获取验证码"];
-            [cell.button.button setFont:[UIFont systemFontOfSize:14]];
+            [cell.buttonView setBackgroundColor:[UIColor colorWithString:@"#CCCCCC"]];
+            [cell.buttonView.button setTitle:@"获取验证码"];
+            [cell.buttonView.button setFont:[UIFont systemFontOfSize:14]];
             [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
                 
             }];
@@ -215,8 +215,8 @@
         {
             HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
             [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.button setBackgroundColor:[UIColor colorWithString:@"#CCCCCC"]];
-            [cell.button.button setTitle:@"开始"];
+            [cell.buttonView setBackgroundColor:[UIColor colorWithString:@"#CCCCCC"]];
+            [cell.buttonView.button setTitle:@"开始"];
             [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
                 HTextFieldCell *tfCell1 = tupleView.cell(1, 0);
                 HTextFieldCell *tfCell2 = tupleView.cell(3, 0);
@@ -230,7 +230,7 @@
             break;
         case 9:
         {
-            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.label setBackgroundColor:[UIColor clearColor]];
             [cell.label setText:@"点击开始,即表示已阅读并同意"];
@@ -243,12 +243,12 @@
         {
             HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
             [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.button setBackgroundColor:[UIColor clearColor]];
-            [cell.button.button setBackgroundColor:[UIColor clearColor]];
-            [cell.button.button setTitle:@"《服务协议》"];
-            [cell.button.button setFont:[UIFont systemFontOfSize:12]];
-            [cell.button.button setTitleColor:[UIColor colorWithString:@"#34BDD7"]];
-            [cell.button.button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+            [cell.buttonView setBackgroundColor:[UIColor clearColor]];
+            [cell.buttonView.button setBackgroundColor:[UIColor clearColor]];
+            [cell.buttonView.button setTitle:@"《服务协议》"];
+            [cell.buttonView.button setFont:[UIFont systemFontOfSize:12]];
+            [cell.buttonView.button setTitleColor:[UIColor colorWithString:@"#34BDD7"]];
+            [cell.buttonView.button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
             [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
 
             }];

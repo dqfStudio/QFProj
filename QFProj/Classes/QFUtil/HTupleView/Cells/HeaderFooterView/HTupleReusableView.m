@@ -21,7 +21,7 @@
 }
 @end
 
-@implementation HReusableTextView
+@implementation HReusableLabelView
 - (UILabel *)label {
     if (!_label) {
         _label = [UILabel new];
@@ -34,23 +34,38 @@
 }
 @end
 
-@implementation HReusableButtonView
-- (HWebButtonView *)button {
-    if (!_button) {
-        _button = [HWebButtonView new];
-        @weakify(self)
-        [_button setPressed:^(id sender, id data) {
-            @strongify(self)
-            if (self.reusableButtonViewBlock) {
-                self.reusableButtonViewBlock(self.button, self);
-            }
-        }];
-        [self addSubview:_button];
+@implementation HReusableTextView
+- (UITextView *)textView {
+    if (!_textView) {
+        _textView = [UITextView new];
+        [_textView setScrollEnabled:NO];
+        [_textView setUserInteractionEnabled:NO];
+        [self addSubview:_textView];
     }
-    return _button;
+    return _textView;
 }
 - (void)layoutContentView {
-    HLayoutReusableView(self.button)
+    HLayoutReusableView(self.textView)
+}
+@end
+
+@implementation HReusableButtonView
+- (HWebButtonView *)buttonView {
+    if (!_buttonView) {
+        _buttonView = [HWebButtonView new];
+        @weakify(self)
+        [_buttonView setPressed:^(id sender, id data) {
+            @strongify(self)
+            if (self.reusableButtonViewBlock) {
+                self.reusableButtonViewBlock(self.buttonView, self);
+            }
+        }];
+        [self addSubview:_buttonView];
+    }
+    return _buttonView;
+}
+- (void)layoutContentView {
+    HLayoutReusableView(self.buttonView)
 }
 @end
 

@@ -17,6 +17,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        [self setBackgroundColor:[UIColor clearColor]];
         [self initUI];
         if (self.initBlock) {
             self.initBlock();
@@ -53,5 +54,14 @@
 }
 - (void)addReturnKeyBoard {
     [self addGestureRecognizer:self.baseTap];
+}
+- (CGFloat)width {
+    return CGRectGetWidth(self.frame);
+}
+- (CGFloat)height {
+    return CGRectGetHeight(self.frame);
+}
+- (CGSize)size {
+    return self.frame.size;
 }
 @end

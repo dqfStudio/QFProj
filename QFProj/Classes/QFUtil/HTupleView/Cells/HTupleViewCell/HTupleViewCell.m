@@ -21,6 +21,49 @@
 }
 @end
 
+@implementation HLabelViewCell
+- (UILabel *)label {
+    if (!_label) {
+        _label = [UILabel new];
+        [self addSubview:_label];
+    }
+    return _label;
+}
+- (void)layoutContentView {
+    HLayoutTupleView(self.label)
+}
+@end
+
+@implementation HTextViewCell
+- (UITextView *)textView {
+    if (!_textView) {
+        _textView = [UITextView new];
+        [_textView setScrollEnabled:NO];
+        [_textView setUserInteractionEnabled:NO];
+        [self addSubview:_textView];
+    }
+    return _textView;
+}
+- (void)layoutContentView {
+    HLayoutTupleView(self.textView)
+}
+@end
+
+@implementation HTextFieldCell
+
+- (UITextField *)textField {
+    if (!_textField) {
+        _textField = UITextField.new;
+        [self addSubview:_textField];
+    }
+    return _textField;
+}
+
+- (void)layoutContentView {
+    HLayoutTupleView(self.textField)
+}
+@end
+
 @implementation HScrollViewCell
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
@@ -34,24 +77,71 @@
 }
 @end
 
-@implementation HTextViewCell
-- (UILabel *)label {
-    if (!_label) {
-        _label = [UILabel new];
-        [self addSubview:_label];
+@implementation HButtonViewCell
+- (HWebButtonView *)buttonView {
+    if (!_buttonView) {
+        _buttonView = [HWebButtonView new];
+        @weakify(self)
+        [_buttonView setPressed:^(id sender, id data) {
+            @strongify(self)
+            if (self.buttonViewBlock) {
+                self.buttonViewBlock(self.buttonView, self);
+            }
+        }];
+        [self addSubview:_buttonView];
     }
-    return _label;
+    return _buttonView;
 }
 - (void)layoutContentView {
-    HLayoutTupleView(self.label)
+    HLayoutTupleView(self.buttonView)
 }
 @end
 
-@interface HTextViewCell2 ()
+@interface HImageViewCell ()
+@property (nonatomic) UITapGestureRecognizer *tapGesture;
+@end
+
+@implementation HImageViewCell
+- (HWebImageView *)imageView {
+    if (!_imageView) {
+        _imageView = [HWebImageView new];
+        [self addSubview:_imageView];
+    }
+    return _imageView;
+}
+- (UITapGestureRecognizer *)tapGesture {
+    if (!_tapGesture) {
+        _tapGesture = [[UITapGestureRecognizer alloc] init];
+        _tapGesture.numberOfTapsRequired = 1;
+        _tapGesture.numberOfTouchesRequired = 1;
+        [_tapGesture addTarget:self action:@selector(tapGestureAction)];
+    }
+    return _tapGesture;
+}
+- (void)tapGestureAction {
+    if (_imageViewBlock) {
+        _imageViewBlock(self.imageView, self);
+    }
+}
+- (void)setImageViewBlock:(HImageViewBlock)imageViewBlock {
+    if (_imageViewBlock != imageViewBlock) {
+        _imageViewBlock = nil;
+        _imageViewBlock = imageViewBlock;
+        if (!self.tapGesture.view) {
+            [self.imageView addGestureRecognizer:self.tapGesture];
+        }
+    }
+}
+- (void)layoutContentView {
+    HLayoutTupleView(self.imageView)
+}
+@end
+
+@interface HText2ViewCell ()
 @property (nonatomic) UIView *bgView;
 @end
 
-@implementation HTextViewCell2
+@implementation HText2ViewCell
 - (UIView *)bgView {
     if (!_bgView) {
         _bgView = [UIView new];
@@ -98,77 +188,42 @@
 }
 @end
 
-@implementation HButtonViewCell
-- (HWebButtonView *)button {
-    if (!_button) {
-        _button = [HWebButtonView new];
-        @weakify(self)
-        [_button setPressed:^(id sender, id data) {
-            @strongify(self)
-            if (self.buttonViewBlock) {
-                self.buttonViewBlock(self.button, self);
-            }
-        }];
-        [self addSubview:_button];
-    }
-    return _button;
-}
-- (void)layoutContentView {
-    HLayoutTupleView(self.button)
-}
+@interface HText3ViewCell ()
+@property (nonatomic) UIView *bgView;
 @end
 
-@interface HImageViewCell ()
-@property (nonatomic) UITapGestureRecognizer *tapGesture;
-@end
-
-@implementation HImageViewCell
-- (HWebImageView *)imageView {
-    if (!_imageView) {
-        _imageView = [HWebImageView new];
-        [self addSubview:_imageView];
+@implementation HText3ViewCell
+- (UIView *)bgView {
+    if (!_bgView) {
+        _bgView = [UIView new];
+        [self addSubview:_bgView];
     }
-    return _imageView;
+    return _bgView;
 }
-- (UITapGestureRecognizer *)tapGesture {
-    if (!_tapGesture) {
-        _tapGesture = [[UITapGestureRecognizer alloc] init];
-        _tapGesture.numberOfTapsRequired = 1;
-        _tapGesture.numberOfTouchesRequired = 1;
-        [_tapGesture addTarget:self action:@selector(tapGestureAction)];
+- (UILabel *)upLabel {
+    if (!_upLabel) {
+        _upLabel = [UILabel new];
+        [self.bgView addSubview:_upLabel];
     }
-    return _tapGesture;
+    return _upLabel;
 }
-- (void)tapGestureAction {
-    if (_imageViewBlock) {
-        _imageViewBlock(self.imageView, self);
+- (UILabel *)downLabel {
+    if (!_downLabel) {
+        _downLabel = [UILabel new];
+        [self.bgView addSubview:_downLabel];
     }
-}
-- (void)setImageViewBlock:(HImageViewBlock)imageViewBlock {
-    if (_imageViewBlock != imageViewBlock) {
-        _imageViewBlock = nil;
-        _imageViewBlock = imageViewBlock;
-        if (!self.tapGesture.view) {
-            [self.imageView addGestureRecognizer:self.tapGesture];
-        }
-    }
+    return _downLabel;
 }
 - (void)layoutContentView {
-    HLayoutTupleView(self.imageView)
-}
-@end
-
-@implementation HTextFieldCell
-
-- (UITextField *)textField {
-    if (!_textField) {
-        _textField = UITextField.new;
-        [self addSubview:_textField];
-    }
-    return _textField;
-}
-
-- (void)layoutContentView {
-    HLayoutTupleView(self.textField)
+    HLayoutTupleView(self.bgView)
+    
+    CGRect frame = [self getContentFrame];
+    frame.origin = CGPointZero;
+    
+    frame.size.height /= 2;
+    self.upLabel.frame = frame;
+    
+    frame.origin.y = frame.size.height;
+    self.downLabel.frame = frame;
 }
 @end

@@ -8,6 +8,11 @@
 
 #import "HTupleView.h"
 
+@interface HTupleVerticalModel : NSObject
+@property (nonatomic, copy) NSString *payload;
+@end
+
 @interface HTupleVerticalCell : HTupleBaseCell <HTupleViewDelegate>
 @property (nonatomic) HTupleView *tupleView;
+@property (nonatomic) HTupleVerticalModel *model;
 @end
