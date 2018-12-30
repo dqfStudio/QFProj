@@ -33,6 +33,12 @@ typedef void(^HExclusive)(void);
 @end
 
 @interface NSObject (HState)
-- (NSInteger)segStatue;
-- (void)setSegStatue:(NSInteger)segStatue;
+@property (nonatomic) NSString *segAlias;
+@property (nonatomic) NSInteger segStatue;
+@property (nonatomic, readonly) NSInteger segStatues;
+- (void)setObject:(id)anObject forSegStatue:(NSInteger)segStatue;
+- (nullable id)objectForSegStatue:(NSInteger)segStatue;
+- (void)removeObjectForSegStatue:(NSInteger)segStatue;
+- (BOOL)containObjectOfSegAlias;
+- (void)clearSegStatue;
 @end
