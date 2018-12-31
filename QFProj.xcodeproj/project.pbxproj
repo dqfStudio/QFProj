@@ -213,6 +213,8 @@
 		A28EF3AE21D8ECC9002F92ED /* loading_new_8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28EF39E21D8ECC9002F92ED /* loading_new_8@2x.png */; };
 		A28EF3AF21D8ECC9002F92ED /* loading_new_9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28EF39F21D8ECC9002F92ED /* loading_new_9@2x.png */; };
 		A28EF3B521D9C9A2002F92ED /* HWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF3B421D9C9A2002F92ED /* HWaitingView.m */; };
+		A28EF3C321DA1DFE002F92ED /* HFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF3C021DA1DFE002F92ED /* HFormController.m */; };
+		A28EF3C421DA1DFE002F92ED /* HFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF3C221DA1DFE002F92ED /* HFormCell.m */; };
 		A434870C214809F80030209A /* GViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A434870B214809F80030209A /* GViewController.m */; };
 		A45401E6215E1CE7003355C9 /* HNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45401E5215E1CE7003355C9 /* HNavigationController.m */; };
 		A454FDD82157C6C0003355C9 /* UILabel+HAttributeTextTapEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = A454FDD72157C6BF003355C9 /* UILabel+HAttributeTextTapEvent.m */; };
@@ -574,6 +576,10 @@
 		A28EF39F21D8ECC9002F92ED /* loading_new_9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading_new_9@2x.png"; sourceTree = "<group>"; };
 		A28EF3B321D9C9A2002F92ED /* HWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWaitingView.h; sourceTree = "<group>"; };
 		A28EF3B421D9C9A2002F92ED /* HWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWaitingView.m; sourceTree = "<group>"; };
+		A28EF3BF21DA1DFD002F92ED /* HFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFormCell.h; sourceTree = "<group>"; };
+		A28EF3C021DA1DFE002F92ED /* HFormController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFormController.m; sourceTree = "<group>"; };
+		A28EF3C121DA1DFE002F92ED /* HFormController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFormController.h; sourceTree = "<group>"; };
+		A28EF3C221DA1DFE002F92ED /* HFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFormCell.m; sourceTree = "<group>"; };
 		A434870A214809F80030209A /* GViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GViewController.h; sourceTree = "<group>"; };
 		A434870B214809F80030209A /* GViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GViewController.m; sourceTree = "<group>"; };
 		A45401E4215E1CE7003355C9 /* HNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNavigationController.h; sourceTree = "<group>"; };
@@ -1620,6 +1626,10 @@
 				A28EF36C21D8EC2A002F92ED /* HResultView.m */,
 				A28EF3B321D9C9A2002F92ED /* HWaitingView.h */,
 				A28EF3B421D9C9A2002F92ED /* HWaitingView.m */,
+				A28EF3BF21DA1DFD002F92ED /* HFormCell.h */,
+				A28EF3C221DA1DFE002F92ED /* HFormCell.m */,
+				A28EF3C121DA1DFE002F92ED /* HFormController.h */,
+				A28EF3C021DA1DFE002F92ED /* HFormController.m */,
 			);
 			name = HResultView;
 			path = QFUtil/HResultView;
@@ -1912,6 +1922,7 @@
 				1528DF4C20BF0FE200D0A004 /* UIAlertController+HUtil.m in Sources */,
 				15B4DDEB2092F96C00773E04 /* UIView+HDebug.m in Sources */,
 				A4759710217EC61D00AAAEA9 /* HUserDefaults.m in Sources */,
+				A28EF3C421DA1DFE002F92ED /* HFormCell.m in Sources */,
 				1547B891210C4E09009E0374 /* UICollectionView+HTracking.m in Sources */,
 				15E6BB9C2136E7E300EBE794 /* YPTabBarController.m in Sources */,
 				15545789212B063900DA7898 /* MGVersionManager.m in Sources */,
@@ -1998,6 +2009,7 @@
 				15B4DDFC2092F96C00773E04 /* UIImage+HChain.m in Sources */,
 				15B4DDF42092F96C00773E04 /* UIGestureRecognizer+HUtil.m in Sources */,
 				15C5737320B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.m in Sources */,
+				A28EF3C321DA1DFE002F92ED /* HFormController.m in Sources */,
 				1587D8D520C2438C00C0391D /* HTableViewCell.m in Sources */,
 				15F9152020A171A8000261C4 /* NSObject+HAspects.m in Sources */,
 				15B4DE0A2092F96C00773E04 /* HViewController.m in Sources */,

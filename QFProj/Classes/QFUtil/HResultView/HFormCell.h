@@ -1,0 +1,28 @@
+//
+//  HFormCell.h
+//  HProjectModel1
+//
+//  Created by wind on 2018/12/31.
+//  Copyright © 2018年 dqf. All rights reserved.
+//
+
+#import "HTupleViewCell.h"
+#import "HTupleView.h"
+
+@class HFormModel;
+
+typedef void(^HFormCellBlock)(NSIndexPath *idxPath, HFormModel *model);
+
+@interface HFormModel : NSObject
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *icon;
++ (HFormModel *)modelWithTitle:(NSString *)title icon:(NSString *)icon;
+@end
+
+@interface HFormCell : HTupleBaseCell <HTupleViewDelegate>
+@property (nonatomic) HTupleView *tupleView;
+@property (nonatomic) NSArray <HFormModel *>*modelArr;
+@property (nonatomic) NSInteger rows;//显示几排，默认为1.
+@property (nonatomic) NSInteger rowItems;//每排显示几个，默认为4.
+@property (nonatomic, copy) HFormCellBlock formCellBlock;
+@end
