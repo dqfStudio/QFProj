@@ -7,11 +7,11 @@
 //
 
 #import "HTupleView.h"
+#import "AFNetworkReachabilityManager.h"
 
 typedef NS_ENUM(NSInteger, HResultType) {
     HResultTypeNoData, // 没有数据
-    HResultTypeLoadError, // 请求失败
-    HResultTypeNoNetwork  // 没有网络
+    HResultTypeLoadError // 请求失败
 };
 
 typedef void (^HResultClickedBlock)(void);
@@ -23,6 +23,7 @@ typedef void (^HResultClickedBlock)(void);
 + (void)showInView:(UIView *)view withType:(HResultType)type hideImage:(BOOL)yn clickedBlock:(HResultClickedBlock)clickedBlock;
 
 @end
+
 
 @interface UIView (HResultView)
 @property(nonatomic) HResultView *mgResultView;

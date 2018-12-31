@@ -16,6 +16,8 @@
 
 #define KMarginTop  1/2
 
+#define KNoNetwork  1000
+
 @interface HResultView () <HTupleViewDelegate>
 @property (nonatomic) HTupleView *tupleView;
 @property (nonatomic) HResultType resultType;
@@ -100,10 +102,15 @@
 + (void)showInView:(UIView *)view withType:(HResultType)type hideImage:(BOOL)yn clickedBlock:(HResultClickedBlock)clickedBlock {
     if (view) {
         HResultView *resultView = [[HResultView alloc] initWithFrame:view.frame];
-        resultView.resultType = type;
+        if (![AFNetworkReachabilityManager sharedManager].isReachable && type != HResultTypeNoData) {
+            resultView.resultType = KNoNetwork;
+        }else {
+            resultView.resultType = type;
+        }
         resultView.hideImage = yn;
         resultView.clickedBlock = clickedBlock;
         [view addSubview:resultView];
+        [view setMgResultView:resultView];
     }
 }
 
@@ -211,13 +218,13 @@
                 HImageViewCell *cell = itemBlock(HImageViewCell.class);
                 switch (_resultType) {
                     case HResultTypeNoData:
-                        [cell.imageView setImage:[UIImage imageNamed:@"icon_load_nothing"]];
+                        [cell.imageView setImage:[UIImage imageNamed:@"mgf_icon_load_nothing"]];
                         break;
                     case HResultTypeLoadError:
-                        [cell.imageView setImage:[UIImage imageNamed:@"icon_no_server"]];
+                        [cell.imageView setImage:[UIImage imageNamed:@"mgf_icon_no_server"]];
                         break;
-                    case HResultTypeNoNetwork:
-                        [cell.imageView setImage:[UIImage imageNamed:@"icon_no_network"]];
+                    case KNoNetwork:
+                        [cell.imageView setImage:[UIImage imageNamed:@"mgf_icon_no_network"]];
                         break;
                         
                     default:
@@ -242,7 +249,7 @@
                 case HResultTypeLoadError:
                     [cell.label setText:@"服务器开小差了，请稍后再试~"];
                     break;
-                case HResultTypeNoNetwork:
+                case KNoNetwork:
                     [cell.label setText:@"网络已断开"];
                     break;
                     
@@ -264,7 +271,7 @@
                 case HResultTypeLoadError:
                     [cell.label setText:nil];
                     break;
-                case HResultTypeNoNetwork:
+                case KNoNetwork:
                     [cell.label setText:@"点击重试"];
                     break;
                     
