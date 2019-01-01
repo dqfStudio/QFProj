@@ -10,7 +10,7 @@
 #import "HWebImageView.h"
 #import "HWebButtonView.h"
 #import "Masonry.h"
-#import <YYLabel.h>
+//#import <YYLabel.h>
 
 @class HButtonViewCell, HImageViewCell;
 
@@ -43,9 +43,9 @@ typedef void(^HImageViewBlock)(HWebImageView *webImageView, HImageViewCell *imag
 @property (nonatomic) UITextView *textView;
 @end
 
-@interface HTextViewCell5 : HTupleBaseCell
-@property (nonatomic) YYLabel *label;
-@end
+//@interface HTextViewCell5 : HTupleBaseCell
+//@property (nonatomic) YYLabel *label;
+//@end
 
 @interface HButtonViewCell : HTupleBaseCell
 @property (nonatomic) HWebButtonView *button;

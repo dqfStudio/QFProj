@@ -153,18 +153,18 @@
 }
 @end
 
-@implementation HTextViewCell5
-- (YYLabel *)label {
-    if (!_label) {
-        _label = [YYLabel new];
-        [self addSubview:_label];
-    }
-    return _label;
-}
-- (void)layoutContentView {
-    HLayoutTupleView(self.label)
-}
-@end
+//@implementation HTextViewCell5
+//- (YYLabel *)label {
+//    if (!_label) {
+//        _label = [YYLabel new];
+//        [self addSubview:_label];
+//    }
+//    return _label;
+//}
+//- (void)layoutContentView {
+//    HLayoutTupleView(self.label)
+//}
+//@end
 
 @implementation HButtonViewCell
 - (HWebButtonView *)button {
