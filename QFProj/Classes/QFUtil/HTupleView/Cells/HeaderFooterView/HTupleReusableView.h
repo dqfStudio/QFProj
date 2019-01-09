@@ -11,10 +11,11 @@
 #import "HWebButtonView.h"
 #import "UILabel+HAttributeText.h"
 
-@class HReusableButtonView, HReusableImageView;
+@class HReusableButtonView, HReusableImageView, HReusableImageView2;
 
 typedef void(^HReusableButtonViewBlock)(HWebButtonView *webButtonView, HReusableButtonView *buttonView);
 typedef void(^HReusableImageViewBlock)(HWebImageView *webImageView, HReusableImageView *imageView);
+typedef void(^HReusableImageViewBlock2)(HWebImageView *webImageView, HReusableImageView2 *imageView);
 
 @interface HReusableView : HTupleBaseView
 @property (nonatomic) UIView *view;
@@ -36,5 +37,14 @@ typedef void(^HReusableImageViewBlock)(HWebImageView *webImageView, HReusableIma
 @interface HReusableImageView : HTupleBaseView
 @property (nonatomic) HWebImageView *imageView;
 @property (nonatomic, copy) HReusableImageViewBlock reusableImageViewBlock;
+@end
+
+@interface HReusableImageView2 : HTupleBaseView
+@property (nonatomic) HWebImageView *imageView;//显示在顶部
+@property (nonatomic) UILabel *label;//显示在底部
+@property (nonatomic) NSInteger labelHeight;//显示在底部，默认高度为20
+@property(nonatomic)  UIEdgeInsets imageEdgeInsets;// default is UIEdgeInsetsZero
+@property(nonatomic)  UIEdgeInsets titleEdgeInsets;// default is UIEdgeInsetsZero
+@property (nonatomic, copy) HReusableImageViewBlock2 reusableImageViewBlock;
 @end
 
