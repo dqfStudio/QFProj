@@ -8,6 +8,15 @@
 
 #import "HTupleViewCell.h"
 
+bool CGEdgeEqualToEdge(UIEdgeInsets edge1, UIEdgeInsets edge2) {
+    bool equal = true;
+    if (edge1.top != edge2.left) equal = false;
+    else if (edge1.left != edge2.left) equal = false;
+    else if (edge1.bottom != edge2.right) equal = false;
+    else if (edge1.right != edge2.right) equal = false;
+    return equal;
+}
+
 @implementation HViewCell
 - (UIView *)view {
     if (!_view) {
@@ -248,6 +257,18 @@
         [self addSubview:_label];
     }
     return _label;
+}
+- (void)setImageEdgeInsets:(UIEdgeInsets)imageEdgeInsets {
+    if(!CGEdgeEqualToEdge(_imageEdgeInsets, imageEdgeInsets)) {
+        _imageEdgeInsets = imageEdgeInsets;
+        [self layoutContentView];
+    }
+}
+- (void)setTitleEdgeInsets:(UIEdgeInsets)titleEdgeInsets {
+    if(!CGEdgeEqualToEdge(_titleEdgeInsets, titleEdgeInsets)) {
+        _titleEdgeInsets = titleEdgeInsets;
+        [self layoutContentView];
+    }
 }
 - (UITapGestureRecognizer *)tapGesture {
     if (!_tapGesture) {
