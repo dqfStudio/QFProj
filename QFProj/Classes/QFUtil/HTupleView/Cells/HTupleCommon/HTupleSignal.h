@@ -11,6 +11,8 @@
 
 @class HTupleSignal;
 
+CG_EXTERN bool CGEdgeEqualToEdge(UIEdgeInsets edge1, UIEdgeInsets edge2);
+
 typedef void(^HTupleCellInitBlock)(void);
 typedef void(^HTupleCellSignalBlock)(HTupleSignal *signal);
 
