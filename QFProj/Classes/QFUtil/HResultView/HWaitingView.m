@@ -146,15 +146,15 @@
     return UIEdgeInsetsZero;
 }
 
-- (void)tupleView:(UICollectionView *)tupleView headerTuple:(id (^)(Class aClass))headerBlock inSection:(NSInteger)section {
+- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock headerTuple:(id (^)(Class aClass))headerBlock inSection:(NSInteger)section {
     headerBlock(HViewCell.class);
 }
 
-- (void)tupleView:(UICollectionView *)tupleView footerTuple:(id (^)(Class aClass))footerBlock inSection:(NSInteger)section {
+- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock footerTuple:(id (^)(Class aClass))footerBlock inSection:(NSInteger)section {
     footerBlock(HViewCell.class);
 }
 
-- (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
             HImageViewCell *cell = itemBlock(HImageViewCell.class);

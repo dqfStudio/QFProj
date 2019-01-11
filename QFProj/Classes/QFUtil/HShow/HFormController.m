@@ -320,7 +320,7 @@ UIKIT_STATIC_INLINE long getTotalPages(long totalLines, long pageLines);
 - (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     return self.formController.edgeInsets;
 }
-- (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
     if (tupleView.tag == KTupleViewTag) {
         if (indexPath.row < self.formController.titles.count) {
             Class class = HButtonViewCell.class;

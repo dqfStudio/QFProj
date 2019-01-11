@@ -40,17 +40,13 @@ typedef NS_OPTIONS(NSUInteger, HTupleViewStyle) {
 
 - (UIEdgeInsets)tupleView:(UICollectionView *)tupleView layout:(UICollectionViewLayout *)layout insetForSectionAtIndex:(NSInteger)section;
 
-- (void)tupleView:(UICollectionView *)tupleView headerTuple:(id (^)(Class aClass))headerBlock inSection:(NSInteger)section;
-- (void)tupleView:(UICollectionView *)tupleView footerTuple:(id (^)(Class aClass))footerBlock inSection:(NSInteger)section;
-- (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath;
+- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock headerTuple:(id (^)(Class aClass))headerBlock inSection:(NSInteger)section;
+- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock footerTuple:(id (^)(Class aClass))footerBlock inSection:(NSInteger)section;
+- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath;
 
-- (void)tupleView:(UICollectionView *)tupleView headerTupleWithPrefix:(id (^)(Class aClass, NSString *prefix))headerBlock inSection:(NSInteger)section;
-- (void)tupleView:(UICollectionView *)tupleView footerTupleWithPrefix:(id (^)(Class aClass, NSString *prefix))footerBlock inSection:(NSInteger)section;
-- (void)tupleView:(UICollectionView *)tupleView itemTupleWithPrefix:(id (^)(Class aClass, NSString *prefix))itemBlock atIndexPath:(NSIndexPath *)indexPath;
-
-- (void)tupleView:(UICollectionView *)tupleView headerTupleWithClass:(id (^)(Class aClass))headerBlock inSection:(NSInteger)section;
-- (void)tupleView:(UICollectionView *)tupleView footerTupleWithClass:(id (^)(Class aClass))footerBlock inSection:(NSInteger)section;
-- (void)tupleView:(UICollectionView *)tupleView itemTupleWithClass:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath;
+- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock headerTuple_prefix:(id (^)(Class aClass, NSString *prefix, BOOL idx))headerBlock inSection:(NSInteger)section;
+- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock footerTuple_prefix:(id (^)(Class aClass, NSString *prefix, BOOL idx))footerBlock inSection:(NSInteger)section;
+- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock itemTuple_prefix:(id (^)(Class aClass, NSString *prefix, BOOL idx))itemBlock atIndexPath:(NSIndexPath *)indexPath;
 
 - (void)tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 @end
@@ -76,13 +72,23 @@ typedef NS_OPTIONS(NSUInteger, HTupleViewStyle) {
 
 - (CGFloat)width;
 - (CGFloat)height;
+- (NSString *)string;
 
+@end
+
+@interface NSIndexPath (HString)
+- (NSString *)string;
 @end
 
 @interface HTupleView : UICollectionView <HTupleViewDelegate, ULBCollectionViewDelegateFlowLayout>
 @property (nonatomic, weak, nullable) id <HTupleViewDelegate> tupleDelegate;
 - (instancetype)initWithFrame:(CGRect)frame;
-- (instancetype)initWithFrame:(CGRect)frame style:(HTupleViewStyle)style;
 - (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction;
+- (instancetype)initWithFrame:(CGRect)frame style:(HTupleViewStyle)style;
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout;
+
+- (id)headerWithReuseClass:(Class)aClass atIndexPath:(NSIndexPath *)indexPath;
+- (id)footerWithReuseClass:(Class)aClass atIndexPath:(NSIndexPath *)indexPath;
+- (id)itemWithReuseClass:(Class)aClass atIndexPath:(NSIndexPath *)indexPath;
+
 @end

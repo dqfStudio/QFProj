@@ -176,19 +176,6 @@
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
 		A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */; };
 		A28EF2F321D876A3002F92ED /* HTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2F121D876A3002F92ED /* HTabBarController.m */; };
-		A28EF31121D877A1002F92ED /* ruby.rb in Resources */ = {isa = PBXBuildFile; fileRef = A28EF2F821D877A1002F92ED /* ruby.rb */; };
-		A28EF31221D877A1002F92ED /* ruby.rb in Resources */ = {isa = PBXBuildFile; fileRef = A28EF2FA21D877A1002F92ED /* ruby.rb */; };
-		A28EF31321D877A1002F92ED /* HAutoPackage_Debug.sh in Resources */ = {isa = PBXBuildFile; fileRef = A28EF2FE21D877A1002F92ED /* HAutoPackage_Debug.sh */; };
-		A28EF31421D877A1002F92ED /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = A28EF2FF21D877A1002F92ED /* exportOptions.plist */; };
-		A28EF31521D877A1002F92ED /* HAutoPackage_Release.sh in Resources */ = {isa = PBXBuildFile; fileRef = A28EF30321D877A1002F92ED /* HAutoPackage_Release.sh */; };
-		A28EF31621D877A1002F92ED /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = A28EF30421D877A1002F92ED /* exportOptions.plist */; };
-		A28EF31721D877A1002F92ED /* HAutoPackage_Release.sh in Resources */ = {isa = PBXBuildFile; fileRef = A28EF30621D877A1002F92ED /* HAutoPackage_Release.sh */; };
-		A28EF31821D877A1002F92ED /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = A28EF30721D877A1002F92ED /* exportOptions.plist */; };
-		A28EF31921D877A1002F92ED /* HAutoPackage_Release.sh in Resources */ = {isa = PBXBuildFile; fileRef = A28EF30A21D877A1002F92ED /* HAutoPackage_Release.sh */; };
-		A28EF31A21D877A1002F92ED /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = A28EF30B21D877A1002F92ED /* exportOptions.plist */; };
-		A28EF31B21D877A1002F92ED /* HAutoPackage_Release.sh in Resources */ = {isa = PBXBuildFile; fileRef = A28EF30D21D877A1002F92ED /* HAutoPackage_Release.sh */; };
-		A28EF31C21D877A1002F92ED /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = A28EF30E21D877A1002F92ED /* exportOptions.plist */; };
-		A28EF31D21D877A1002F92ED /* codec.sh in Resources */ = {isa = PBXBuildFile; fileRef = A28EF31021D877A1002F92ED /* codec.sh */; };
 		A28EF38321D8EC2A002F92ED /* HResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF36C21D8EC2A002F92ED /* HResultView.m */; };
 		A28EF38A21D8ECBE002F92ED /* icon_load_nothing@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28EF38421D8ECBD002F92ED /* icon_load_nothing@3x.png */; };
 		A28EF38B21D8ECBE002F92ED /* icon_no_network@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28EF38521D8ECBD002F92ED /* icon_no_network@2x.png */; };
@@ -537,19 +524,6 @@
 		A28EF2EE21D8763A002F92ED /* YPTabBar+HSubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YPTabBar+HSubView.h"; sourceTree = "<group>"; };
 		A28EF2F121D876A3002F92ED /* HTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTabBarController.m; sourceTree = "<group>"; };
 		A28EF2F221D876A3002F92ED /* HTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTabBarController.h; sourceTree = "<group>"; };
-		A28EF2F821D877A1002F92ED /* ruby.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = ruby.rb; sourceTree = "<group>"; };
-		A28EF2FA21D877A1002F92ED /* ruby.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = ruby.rb; sourceTree = "<group>"; };
-		A28EF2FE21D877A1002F92ED /* HAutoPackage_Debug.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = HAutoPackage_Debug.sh; sourceTree = "<group>"; };
-		A28EF2FF21D877A1002F92ED /* exportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = exportOptions.plist; sourceTree = "<group>"; };
-		A28EF30321D877A1002F92ED /* HAutoPackage_Release.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = HAutoPackage_Release.sh; sourceTree = "<group>"; };
-		A28EF30421D877A1002F92ED /* exportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = exportOptions.plist; sourceTree = "<group>"; };
-		A28EF30621D877A1002F92ED /* HAutoPackage_Release.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = HAutoPackage_Release.sh; sourceTree = "<group>"; };
-		A28EF30721D877A1002F92ED /* exportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = exportOptions.plist; sourceTree = "<group>"; };
-		A28EF30A21D877A1002F92ED /* HAutoPackage_Release.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = HAutoPackage_Release.sh; sourceTree = "<group>"; };
-		A28EF30B21D877A1002F92ED /* exportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = exportOptions.plist; sourceTree = "<group>"; };
-		A28EF30D21D877A1002F92ED /* HAutoPackage_Release.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = HAutoPackage_Release.sh; sourceTree = "<group>"; };
-		A28EF30E21D877A1002F92ED /* exportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = exportOptions.plist; sourceTree = "<group>"; };
-		A28EF31021D877A1002F92ED /* codec.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = codec.sh; sourceTree = "<group>"; };
 		A28EF35221D8EC2A002F92ED /* HResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HResultView.h; sourceTree = "<group>"; };
 		A28EF36C21D8EC2A002F92ED /* HResultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HResultView.m; sourceTree = "<group>"; };
 		A28EF38421D8ECBD002F92ED /* icon_load_nothing@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_load_nothing@3x.png"; sourceTree = "<group>"; };
@@ -858,7 +832,6 @@
 			isa = PBXGroup;
 			children = (
 				A28EF35121D8EC2A002F92ED /* HResultView */,
-				A28EF2F421D877A1002F92ED /* 脚本 */,
 				A28EF2F021D876A3002F92ED /* HTabBarController */,
 				A28EF2E921D86E43002F92ED /* UILabel+HAttributeText */,
 				A45401E3215E1CE7003355C9 /* HNavigationController */,
@@ -1477,147 +1450,6 @@
 			path = QFUtil/HTabBarController;
 			sourceTree = "<group>";
 		};
-		A28EF2F421D877A1002F92ED /* 脚本 */ = {
-			isa = PBXGroup;
-			children = (
-				A28EF2F521D877A1002F92ED /* 003向工程添加文件 */,
-				A28EF2FB21D877A1002F92ED /* 001打包 */,
-				A28EF30F21D877A1002F92ED /* 002文件加密 */,
-			);
-			name = "脚本";
-			path = "QFUtil/脚本";
-			sourceTree = "<group>";
-		};
-		A28EF2F521D877A1002F92ED /* 003向工程添加文件 */ = {
-			isa = PBXGroup;
-			children = (
-				A28EF2F621D877A1002F92ED /* 003删除文件 */,
-				A28EF2F721D877A1002F92ED /* 002添加图片 */,
-				A28EF2F921D877A1002F92ED /* 001添加代码文件 */,
-			);
-			path = "003向工程添加文件";
-			sourceTree = "<group>";
-		};
-		A28EF2F621D877A1002F92ED /* 003删除文件 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "003删除文件";
-			sourceTree = "<group>";
-		};
-		A28EF2F721D877A1002F92ED /* 002添加图片 */ = {
-			isa = PBXGroup;
-			children = (
-				A28EF2F821D877A1002F92ED /* ruby.rb */,
-			);
-			path = "002添加图片";
-			sourceTree = "<group>";
-		};
-		A28EF2F921D877A1002F92ED /* 001添加代码文件 */ = {
-			isa = PBXGroup;
-			children = (
-				A28EF2FA21D877A1002F92ED /* ruby.rb */,
-			);
-			path = "001添加代码文件";
-			sourceTree = "<group>";
-		};
-		A28EF2FB21D877A1002F92ED /* 001打包 */ = {
-			isa = PBXGroup;
-			children = (
-				A28EF2FC21D877A1002F92ED /* 001Debug */,
-				A28EF30021D877A1002F92ED /* 002Release */,
-			);
-			path = "001打包";
-			sourceTree = "<group>";
-		};
-		A28EF2FC21D877A1002F92ED /* 001Debug */ = {
-			isa = PBXGroup;
-			children = (
-				A28EF2FD21D877A1002F92ED /* 001单平台打包 */,
-			);
-			path = 001Debug;
-			sourceTree = "<group>";
-		};
-		A28EF2FD21D877A1002F92ED /* 001单平台打包 */ = {
-			isa = PBXGroup;
-			children = (
-				A28EF2FE21D877A1002F92ED /* HAutoPackage_Debug.sh */,
-				A28EF2FF21D877A1002F92ED /* exportOptions.plist */,
-			);
-			path = "001单平台打包";
-			sourceTree = "<group>";
-		};
-		A28EF30021D877A1002F92ED /* 002Release */ = {
-			isa = PBXGroup;
-			children = (
-				A28EF30121D877A1002F92ED /* 002批量打包 */,
-				A28EF30521D877A1002F92ED /* 003渠道包 */,
-				A28EF30821D877A1002F92ED /* 001单平台打包 */,
-			);
-			path = 002Release;
-			sourceTree = "<group>";
-		};
-		A28EF30121D877A1002F92ED /* 002批量打包 */ = {
-			isa = PBXGroup;
-			children = (
-				A28EF30221D877A1002F92ED /* 001慎重选择此打包方式 */,
-			);
-			path = "002批量打包";
-			sourceTree = "<group>";
-		};
-		A28EF30221D877A1002F92ED /* 001慎重选择此打包方式 */ = {
-			isa = PBXGroup;
-			children = (
-				A28EF30321D877A1002F92ED /* HAutoPackage_Release.sh */,
-				A28EF30421D877A1002F92ED /* exportOptions.plist */,
-			);
-			path = "001慎重选择此打包方式";
-			sourceTree = "<group>";
-		};
-		A28EF30521D877A1002F92ED /* 003渠道包 */ = {
-			isa = PBXGroup;
-			children = (
-				A28EF30621D877A1002F92ED /* HAutoPackage_Release.sh */,
-				A28EF30721D877A1002F92ED /* exportOptions.plist */,
-			);
-			path = "003渠道包";
-			sourceTree = "<group>";
-		};
-		A28EF30821D877A1002F92ED /* 001单平台打包 */ = {
-			isa = PBXGroup;
-			children = (
-				A28EF30921D877A1002F92ED /* 001版本号递增 */,
-				A28EF30C21D877A1002F92ED /* 002版本号不递增 */,
-			);
-			path = "001单平台打包";
-			sourceTree = "<group>";
-		};
-		A28EF30921D877A1002F92ED /* 001版本号递增 */ = {
-			isa = PBXGroup;
-			children = (
-				A28EF30A21D877A1002F92ED /* HAutoPackage_Release.sh */,
-				A28EF30B21D877A1002F92ED /* exportOptions.plist */,
-			);
-			path = "001版本号递增";
-			sourceTree = "<group>";
-		};
-		A28EF30C21D877A1002F92ED /* 002版本号不递增 */ = {
-			isa = PBXGroup;
-			children = (
-				A28EF30D21D877A1002F92ED /* HAutoPackage_Release.sh */,
-				A28EF30E21D877A1002F92ED /* exportOptions.plist */,
-			);
-			path = "002版本号不递增";
-			sourceTree = "<group>";
-		};
-		A28EF30F21D877A1002F92ED /* 002文件加密 */ = {
-			isa = PBXGroup;
-			children = (
-				A28EF31021D877A1002F92ED /* codec.sh */,
-			);
-			path = "002文件加密";
-			sourceTree = "<group>";
-		};
 		A28EF35121D8EC2A002F92ED /* HResultView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1774,35 +1606,27 @@
 				A28EF3A321D8ECC9002F92ED /* loading_new_4@2x.png in Resources */,
 				15F0297020BE8D79003287AA /* mgf_loading_new_15@2x.png in Resources */,
 				15F0297220BE8D79003287AA /* mgf_loading_new_9@2x.png in Resources */,
-				A28EF31421D877A1002F92ED /* exportOptions.plist in Resources */,
 				15F0296E20BE8D79003287AA /* mgf_loading_new_11@2x.png in Resources */,
 				15F0296820BE8D79003287AA /* mgf_loading_new_4@2x.png in Resources */,
-				A28EF31921D877A1002F92ED /* HAutoPackage_Release.sh in Resources */,
 				15F0296D20BE8D79003287AA /* mgf_loading_new_13@2x.png in Resources */,
 				15F0296620BE8D79003287AA /* mgf_loading_new_10@2x.png in Resources */,
 				A28EF3A921D8ECC9002F92ED /* loading_new_7@2x.png in Resources */,
-				A28EF31C21D877A1002F92ED /* exportOptions.plist in Resources */,
 				A28EF3AC21D8ECC9002F92ED /* loading_new_3@2x.png in Resources */,
 				15F0296A20BE8D79003287AA /* mgf_loading_new_6@2x.png in Resources */,
 				A28EF3A821D8ECC9002F92ED /* loading_new_2@2x.png in Resources */,
 				A28EF38A21D8ECBE002F92ED /* icon_load_nothing@3x.png in Resources */,
 				15B4DD732092F88700773E04 /* LaunchScreen.storyboard in Resources */,
-				A28EF31521D877A1002F92ED /* HAutoPackage_Release.sh in Resources */,
 				A28EF3A021D8ECC9002F92ED /* loading_new_11@2x.png in Resources */,
 				A28EF3AE21D8ECC9002F92ED /* loading_new_8@2x.png in Resources */,
 				A28EF38E21D8ECBE002F92ED /* icon_no_server@2x.png in Resources */,
-				A28EF31821D877A1002F92ED /* exportOptions.plist in Resources */,
 				A28EF3A221D8ECC9002F92ED /* loading_new_15@2x.png in Resources */,
 				15F0296720BE8D79003287AA /* mgf_loading_new_14@2x.png in Resources */,
 				15B4DDEC2092F96C00773E04 /* HLaunchImage.jpg in Resources */,
 				15F0297520BE8D79003287AA /* mgf_icon_no_server@2x.png in Resources */,
 				A28EF3AB21D8ECC9002F92ED /* loading_new_16@2x.png in Resources */,
-				A28EF31121D877A1002F92ED /* ruby.rb in Resources */,
 				15F0296520BE8D79003287AA /* mgf_loading_new_12@2x.png in Resources */,
 				15F0297720BE8D79003287AA /* mgf_icon_load_nothing@2x.png in Resources */,
-				A28EF31D21D877A1002F92ED /* codec.sh in Resources */,
 				15C5736F20B3DD7B0070327C /* icon_tuple_arrow_left@2x.png in Resources */,
-				A28EF31621D877A1002F92ED /* exportOptions.plist in Resources */,
 				15F0297120BE8D79003287AA /* mgf_loading_new_5@2x.png in Resources */,
 				A28EF3A521D8ECC9002F92ED /* loading_new_6@2x.png in Resources */,
 				A28EF3AF21D8ECC9002F92ED /* loading_new_9@2x.png in Resources */,
@@ -1814,20 +1638,15 @@
 				15E56511212CFA28003A63E5 /* qq.png in Resources */,
 				15C5736D20B3DD7B0070327C /* icon_tuple_arrow_down@2x.png in Resources */,
 				15F0296F20BE8D79003287AA /* mgf_loading_new_1@2x.png in Resources */,
-				A28EF31221D877A1002F92ED /* ruby.rb in Resources */,
 				15F0297420BE8D79003287AA /* mgf_icon_no_server@3x.png in Resources */,
-				A28EF31A21D877A1002F92ED /* exportOptions.plist in Resources */,
 				15C5736C20B3DD7B0070327C /* icon_tuple_arrow_up@2x.png in Resources */,
 				15F0296B20BE8D79003287AA /* mgf_loading_new_16@2x.png in Resources */,
 				A28EF38D21D8ECBE002F92ED /* icon_load_nothing@2x.png in Resources */,
-				A28EF31321D877A1002F92ED /* HAutoPackage_Debug.sh in Resources */,
 				15F0297820BE8D79003287AA /* mgf_icon_no_network@2x.png in Resources */,
-				A28EF31B21D877A1002F92ED /* HAutoPackage_Release.sh in Resources */,
 				A28EF3A621D8ECC9002F92ED /* loading_new_13@2x.png in Resources */,
 				15F0297320BE8D79003287AA /* mgf_loading_new_7@2x.png in Resources */,
 				15F0297620BE8D79003287AA /* mgf_icon_load_nothing@3x.png in Resources */,
 				15F0297920BE8D79003287AA /* mgf_icon_no_network@3x.png in Resources */,
-				A28EF31721D877A1002F92ED /* HAutoPackage_Release.sh in Resources */,
 				A28EF3A721D8ECC9002F92ED /* loading_new_1@2x.png in Resources */,
 				15B4DD702092F88700773E04 /* Assets.xcassets in Resources */,
 				A28EF3AD21D8ECC9002F92ED /* loading_new_12@2x.png in Resources */,

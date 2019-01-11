@@ -488,7 +488,7 @@ H_CheckPropertyRange(rrr, 0, 150)
 //- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
 //    return UIEdgeInsetsMake(10, 0, 10, 0);
 //}
-- (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:{
             HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
@@ -543,7 +543,7 @@ H_CheckPropertyRange(rrr, 0, 150)
     }
 }
 
-- (void)tupleView:(UICollectionView *)tupleView headerTuple:(id (^)(Class aClass))headerBlock inSection:(NSInteger)section {
+- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock headerTuple:(id (^)(Class aClass))headerBlock inSection:(NSInteger)section {
     switch (section) {
         case 0:{
             HReusableLabelView *cell = headerBlock(HReusableLabelView.class);
@@ -576,7 +576,7 @@ H_CheckPropertyRange(rrr, 0, 150)
     }
 }
 
-- (void)tupleView:(UICollectionView *)tupleView footerTuple:(id (^)(Class aClass))footerBlock inSection:(NSInteger)section {
+- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock footerTuple:(id (^)(Class aClass))footerBlock inSection:(NSInteger)section {
     switch (section) {
         case 0:{
             HReusableLabelView *cell = footerBlock(HReusableLabelView.class);
