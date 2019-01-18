@@ -358,5 +358,15 @@
     UITextPosition *end = [textField positionFromPosition:start offset:range.length];
     [textField setSelectedTextRange:[textField textRangeFromPosition:start toPosition:end]];
 }
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+    if (self.forbidPaste) {
+        UIMenuController*menuController = [UIMenuController sharedMenuController];
+        if(menuController) {
+            [UIMenuController sharedMenuController].menuVisible = NO;
+            return NO;
+        }
+    }
+    return YES;
+}
 @end
 
