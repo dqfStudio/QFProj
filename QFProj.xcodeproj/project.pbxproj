@@ -172,6 +172,7 @@
 		15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9152D20A27D1C000261C4 /* HRequestResultView.m */; };
 		171E540C3ECD9B640D790516 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E16C30E2760E6660FC02C1 /* libPods-QFProj.a */; };
 		A219F228222F72BC00241FD7 /* HFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F227222F72BC00241FD7 /* HFormController.m */; };
+		A219F22F222FB46A00241FD7 /* HIFS.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F22D222FB46A00241FD7 /* HIFS.m */; };
 		A28EF2E821D86DD8002F92ED /* ULBCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */; };
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
 		A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */; };
@@ -516,6 +517,8 @@
 		60580163C2E51E9CB5D59084 /* Pods-QFProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.release.xcconfig"; sourceTree = "<group>"; };
 		A219F226222F72BC00241FD7 /* HFormController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFormController.h; sourceTree = "<group>"; };
 		A219F227222F72BC00241FD7 /* HFormController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFormController.m; sourceTree = "<group>"; };
+		A219F22D222FB46A00241FD7 /* HIFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIFS.m; sourceTree = "<group>"; };
+		A219F22E222FB46A00241FD7 /* HIFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIFS.h; sourceTree = "<group>"; };
 		A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULBCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A28EF2E721D86DD8002F92ED /* ULBCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ULBCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		A28EF2EA21D86E43002F92ED /* UILabel+HAttributeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeText.h"; sourceTree = "<group>"; };
@@ -861,6 +864,7 @@
 		15B4DD7E2092F96B00773E04 /* QFUtil */ = {
 			isa = PBXGroup;
 			children = (
+				A219F22C222FB46A00241FD7 /* HIFS */,
 				A475970D217EC61C00AAAEA9 /* HUserDefaults */,
 				15112C742105A19600842FE4 /* HUncaughtExceptionHandler */,
 				153F080220E28CA000C74850 /* HInputValidator */,
@@ -1430,6 +1434,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A219F22C222FB46A00241FD7 /* HIFS */ = {
+			isa = PBXGroup;
+			children = (
+				A219F22D222FB46A00241FD7 /* HIFS.m */,
+				A219F22E222FB46A00241FD7 /* HIFS.h */,
+			);
+			path = HIFS;
+			sourceTree = "<group>";
+		};
 		A28EF2E921D86E43002F92ED /* UILabel+HAttributeText */ = {
 			isa = PBXGroup;
 			children = (
@@ -1836,6 +1849,7 @@
 				15C573B920B3DE340070327C /* HBaseCell.m in Sources */,
 				15B4DDFA2092F96C00773E04 /* UILabel+HUtil.m in Sources */,
 				15C573BD20B3DE340070327C /* HLeftImageCell.m in Sources */,
+				A219F22F222FB46A00241FD7 /* HIFS.m in Sources */,
 				A28EF2F321D876A3002F92ED /* HTabBarController.m in Sources */,
 				157696EB20A0AB6900E31469 /* hFelix.m in Sources */,
 				A454FDD82157C6C0003355C9 /* UILabel+HAttributeTextTapEvent.m in Sources */,
