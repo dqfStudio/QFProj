@@ -276,17 +276,15 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     __block UICollectionViewCell *cell = nil;
-    __block UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-    __block HTupleCellInitBlock initCellBlock;
-    if ([self.tupleDelegate respondsToSelector:@selector(tupleView:initTuple:itemTuple:atIndexPath:)]) {
-        [self.tupleDelegate tupleView:self initTuple:^(HTupleCellInitBlock initBlock) {
-            initCellBlock = initBlock;
-        } itemTuple:^id(__unsafe_unretained Class aClass) {
-            NSString *idxPath = [NSString stringWithFormat:@"%@%@",@(indexPath.section),@(indexPath.row)];
-            NSString *identifier = [NSString stringWithFormat:@"%@ItemCell%@",NSStringFromClass(aClass),idxPath];
+    if ([self.tupleDelegate respondsToSelector:@selector(tupleView:itemTuple:atIndexPath:)]) {
+        [self.tupleDelegate tupleView:self itemTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+            NSString *identifier = NSStringFromClass(cls);
+            identifier = [identifier stringByAppendingString:@"ItemCell"];
+            if (pre) identifier = [identifier stringByAppendingString:pre];
+            if (idx) identifier = [identifier stringByAppendingString:[indexPath string]];
             if (![self.allReuseCells containsObject:identifier]) {
                 [self.allReuseCells addObject:identifier];
-                [self registerClass:aClass forCellWithReuseIdentifier:identifier];
+                [self registerClass:cls forCellWithReuseIdentifier:identifier];
                 cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
                 HTupleBaseCell *tmpCell = (HTupleBaseCell *)cell;
                 tmpCell.collection = self;
@@ -294,46 +292,18 @@
             }else {
                 cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
             }
+            UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
             if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForItemAtIndexPath:)]) {
                 edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForItemAtIndexPath:indexPath];
             }
             if ([cell respondsToSelector:@selector(edgeInsets)]) {
                 [(HTupleBaseCell *)cell setEdgeInsets:edgeInsets];
             }
-            if (initCellBlock) {
-                initCellBlock();
-            }
-            if ([cell respondsToSelector:@selector(layoutContentView)]) {
-                [(HTupleBaseCell *)cell layoutContentView];
-            }
-            return cell;
-        } atIndexPath:indexPath];
-    }else if ([self.tupleDelegate respondsToSelector:@selector(tupleView:initTuple:itemTuple_prefix:atIndexPath:)]) {
-        [self.tupleDelegate tupleView:self initTuple:^(HTupleCellInitBlock initBlock) {
-            initCellBlock = initBlock;
-        } itemTuple_prefix:^id(__unsafe_unretained Class aClass, NSString *prefix, BOOL idx) {
-            NSString *idxPath = @"";
-            if (idx) idxPath = [NSString stringWithFormat:@"%@%@",@(indexPath.section),@(indexPath.row)];
-            prefix = prefix ? : @"";
-            NSString *identifier = [NSString stringWithFormat:@"%@%@ItemCell%@", prefix,NSStringFromClass(aClass),idxPath];
-            if (![self.allReuseCells containsObject:identifier]) {
-                [self.allReuseCells addObject:identifier];
-                [self registerClass:aClass forCellWithReuseIdentifier:identifier];
-                cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-                HTupleBaseCell *tmpCell = (HTupleBaseCell *)cell;
-                tmpCell.collection = self;
-                tmpCell.indexPath = indexPath;
-            }else {
-                cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-            }
-            if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForItemAtIndexPath:)]) {
-                edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForItemAtIndexPath:indexPath];
-            }
-            if ([cell respondsToSelector:@selector(edgeInsets)]) {
-                [(HTupleBaseCell *)cell setEdgeInsets:edgeInsets];
-            }
-            if (initCellBlock) {
-                initCellBlock();
+            if (iblk) {
+                HTupleCellInitBlock initCellBlock = iblk;
+                if (initCellBlock) {
+                    initCellBlock(self);
+                }
             }
             if ([cell respondsToSelector:@selector(layoutContentView)]) {
                 [(HTupleBaseCell *)cell layoutContentView];
@@ -353,30 +323,27 @@
     if ([self.tupleDelegate respondsToSelector:@selector(tupleView:sizeForHeaderInSection:)]) {
         return [self.tupleDelegate tupleView:self sizeForHeaderInSection:section];
     }
-    return CGSizeMake(0.f, 0.f);
+    return CGSizeZero;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     if ([self.tupleDelegate respondsToSelector:@selector(tupleView:sizeForFooterInSection:)]) {
         return [self.tupleDelegate tupleView:self sizeForFooterInSection:section];
     }
-    return CGSizeMake(0.f, 0.f);
+    return CGSizeZero;
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     __block UICollectionReusableView *cell = nil;
-    __block UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-    __block HTupleCellInitBlock initHeaderBlock;
-    __block HTupleCellInitBlock initFooterBlock;
     if (kind == UICollectionElementKindSectionHeader) {
-        if ([self.tupleDelegate respondsToSelector:@selector(tupleView:initTuple:headerTuple:inSection:)]) {
-            [self.tupleDelegate tupleView:self initTuple:^(HTupleCellInitBlock initBlock) {
-                initHeaderBlock = initBlock;
-            } headerTuple:^id(__unsafe_unretained Class aClass) {
-                NSString *idxPath = [NSString stringWithFormat:@"%@%@",@(indexPath.section),@(indexPath.row)];
-                NSString *identifier = [NSString stringWithFormat:@"%@HeaderCell%@",NSStringFromClass(aClass),idxPath];
+        if ([self.tupleDelegate respondsToSelector:@selector(tupleView:headerTuple:inSection:)]) {
+            [self.tupleDelegate tupleView:self headerTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+                NSString *identifier = NSStringFromClass(cls);
+                identifier = [identifier stringByAppendingString:@"HeaderCell"];
+                if (pre) identifier = [identifier stringByAppendingString:pre];
+                if (idx) identifier = [identifier stringByAppendingString:[indexPath string]];
                 if (![self.allReuseCells containsObject:identifier]) {
                     [self.allReuseCells addObject:identifier];
                     [self.allReuseHeaders setObject:identifier forKey:@(indexPath.section).stringValue];
-                    [self registerClass:aClass forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier];
+                    [self registerClass:cls forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier];
                     cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
                     HTupleBaseView *tmpCell = (HTupleBaseView *)cell;
                     tmpCell.collection = self;
@@ -384,47 +351,18 @@
                 }else {
                     cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
                 }
+                UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
                 if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForHeaderInSection:)]) {
                     edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForHeaderInSection:indexPath.section];
                 }
                 if ([cell respondsToSelector:@selector(edgeInsets)]) {
                     [(HTupleBaseView *)cell setEdgeInsets:edgeInsets];
                 }
-                if (initHeaderBlock) {
-                    initHeaderBlock();
-                }
-                if ([cell respondsToSelector:@selector(layoutContentView)]) {
-                    [(HTupleBaseView *)cell layoutContentView];
-                }
-                return cell;
-            } inSection:indexPath.section];
-        }else if ([self.tupleDelegate respondsToSelector:@selector(tupleView:initTuple:headerTuple_prefix:inSection:)]) {
-            [self.tupleDelegate tupleView:self initTuple:^(HTupleCellInitBlock initBlock) {
-                initHeaderBlock = initBlock;
-            } headerTuple_prefix:^id(__unsafe_unretained Class aClass, NSString *prefix, BOOL idx) {
-                NSString *idxPath = @"";
-                if (idx) idxPath = [NSString stringWithFormat:@"%@%@",@(indexPath.section),@(indexPath.row)];
-                prefix = prefix ? : @"";
-                NSString *identifier = [NSString stringWithFormat:@"%@%@HeaderCell%@",prefix,NSStringFromClass(aClass),idxPath];
-                if (![self.allReuseCells containsObject:identifier]) {
-                    [self.allReuseCells addObject:identifier];
-                    [self.allReuseHeaders setObject:identifier forKey:@(indexPath.section).stringValue];
-                    [self registerClass:aClass forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier];
-                    cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
-                    HTupleBaseView *tmpCell = (HTupleBaseView *)cell;
-                    tmpCell.collection = self;
-                    tmpCell.indexPath = indexPath;
-                }else {
-                    cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
-                }
-                if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForHeaderInSection:)]) {
-                    edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForHeaderInSection:indexPath.section];
-                }
-                if ([cell respondsToSelector:@selector(edgeInsets)]) {
-                    [(HTupleBaseView *)cell setEdgeInsets:edgeInsets];
-                }
-                if (initHeaderBlock) {
-                    initHeaderBlock();
+                if (iblk) {
+                    HTupleCellInitBlock initHeaderBlock = iblk;
+                    if (initHeaderBlock) {
+                        initHeaderBlock(self);
+                    }
                 }
                 if ([cell respondsToSelector:@selector(layoutContentView)]) {
                     [(HTupleBaseView *)cell layoutContentView];
@@ -432,18 +370,17 @@
                 return cell;
             } inSection:indexPath.section];
         }
-        
     }else if (kind == UICollectionElementKindSectionFooter) {
-        if ([self.tupleDelegate respondsToSelector:@selector(tupleView:initTuple:footerTuple:inSection:)]) {
-            [self.tupleDelegate tupleView:self initTuple:^(HTupleCellInitBlock initBlock) {
-                initFooterBlock = initBlock;
-            } footerTuple:^id(__unsafe_unretained Class aClass) {
-                NSString *idxPath = [NSString stringWithFormat:@"%@%@",@(indexPath.section),@(indexPath.row)];
-                NSString *identifier = [NSString stringWithFormat:@"%@FooterCell%@",NSStringFromClass(aClass),idxPath];
+        if ([self.tupleDelegate respondsToSelector:@selector(tupleView:footerTuple:inSection:)]) {
+            [self.tupleDelegate tupleView:self footerTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+                NSString *identifier = NSStringFromClass(cls);
+                identifier = [identifier stringByAppendingString:@"FooterCell"];
+                if (pre) identifier = [identifier stringByAppendingString:pre];
+                if (idx) identifier = [identifier stringByAppendingString:[indexPath string]];
                 if (![self.allReuseCells containsObject:identifier]) {
                     [self.allReuseCells addObject:identifier];
                     [self.allReuseFooters setObject:identifier forKey:@(indexPath.section).stringValue];
-                    [self registerClass:aClass forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier];
+                    [self registerClass:cls forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier];
                     cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
                     HTupleBaseView *tmpCell = (HTupleBaseView *)cell;
                     tmpCell.collection = self;
@@ -451,48 +388,18 @@
                 }else {
                     cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
                 }
+                UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
                 if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForFooterInSection:)]) {
                     edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForFooterInSection:indexPath.section];
                 }
                 if ([cell respondsToSelector:@selector(edgeInsets)]) {
                     [(HTupleBaseView *)cell setEdgeInsets:edgeInsets];
                 }
-                if (initFooterBlock) {
-                    initFooterBlock();
-                }
-                if ([cell respondsToSelector:@selector(layoutContentView)]) {
-                    [(HTupleBaseView *)cell layoutContentView];
-                }
-                return cell;
-            } inSection:indexPath.section];
-        }
-        else if ([self.tupleDelegate respondsToSelector:@selector(tupleView:initTuple:footerTuple_prefix:inSection:)]) {
-            [self.tupleDelegate tupleView:self initTuple:^(HTupleCellInitBlock initBlock) {
-                initFooterBlock = initBlock;
-            } footerTuple_prefix:^id(__unsafe_unretained Class aClass, NSString *prefix, BOOL idx) {
-                NSString *idxPath = @"";
-                if (idx) idxPath = [NSString stringWithFormat:@"%@%@",@(indexPath.section),@(indexPath.row)];
-                prefix = prefix ? : @"";
-                NSString *identifier = [NSString stringWithFormat:@"%@%@FooterCell%@",prefix,NSStringFromClass(aClass),idxPath];
-                if (![self.allReuseCells containsObject:identifier]) {
-                    [self.allReuseCells addObject:identifier];
-                    [self.allReuseFooters setObject:identifier forKey:@(indexPath.section).stringValue];
-                    [self registerClass:aClass forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier];
-                    cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
-                    HTupleBaseView *tmpCell = (HTupleBaseView *)cell;
-                    tmpCell.collection = self;
-                    tmpCell.indexPath = indexPath;
-                }else {
-                    cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
-                }
-                if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForFooterInSection:)]) {
-                    edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForFooterInSection:indexPath.section];
-                }
-                if ([cell respondsToSelector:@selector(edgeInsets)]) {
-                    [(HTupleBaseView *)cell setEdgeInsets:edgeInsets];
-                }
-                if (initFooterBlock) {
-                    initFooterBlock();
+                if (iblk) {
+                    HTupleCellInitBlock initFooterBlock = iblk;
+                    if (initFooterBlock) {
+                        initFooterBlock(self);
+                    }
                 }
                 if ([cell respondsToSelector:@selector(layoutContentView)]) {
                     [(HTupleBaseView *)cell layoutContentView];
@@ -518,7 +425,7 @@
     if ([self.tupleDelegate respondsToSelector:@selector(tupleView:layout:insetForSectionAtIndex:)]) {
         return [self.tupleDelegate tupleView:self layout:collectionViewLayout insetForSectionAtIndex:section];
     }
-    return UIEdgeInsetsMake(0.f, 0.f, 0.f, 0.f);
+    return UIEdgeInsetsZero;
 }
 @end
 

@@ -488,15 +488,15 @@ H_CheckPropertyRange(rrr, 0, 150)
 //- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
 //    return UIEdgeInsetsMake(10, 0, 10, 0);
 //}
-- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(id iblk, Class cls, id pre, bool idx))itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:{
-            HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
+            HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
             [cell.label setBackgroundColor:[UIColor redColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
-            [cell setInitBlock:^{
-                
-            }];
+//            [cell setInitBlock:^{
+//
+//            }];
             [cell setSignalBlock:^(HTupleSignal *signal) {
                 
             }];
@@ -504,14 +504,14 @@ H_CheckPropertyRange(rrr, 0, 150)
             break;
         case 1:
         {
-            HTupleVerticalCell *cell = itemBlock(HTupleVerticalCell.class);
+            HTupleVerticalCell *cell = itemBlock(nil, HTupleVerticalCell.class, nil, YES);
 //            [cell.button setBackgroundColor:[UIColor blueColor]];
             [cell setBackgroundColor:[UIColor redColor]];
         }
             break;
         case 2:
         {
-            HImageViewCell *cell = itemBlock(HImageViewCell.class);
+            HImageViewCell *cell = itemBlock(nil, HImageViewCell.class, nil, YES);
             [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
             [cell setImageViewBlock:^(HWebImageView *webImageView, HImageViewCell *imageCell) {
@@ -524,7 +524,7 @@ H_CheckPropertyRange(rrr, 0, 150)
             break;
         case 3:
         {
-            HImageViewCell *cell = itemBlock(HImageViewCell.class);
+            HImageViewCell *cell = itemBlock(nil, HImageViewCell.class, nil, YES);
             [cell.imageView setBackgroundColor:[UIColor redColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
             [cell setImageViewBlock:^(HWebImageView *webImageView, HImageViewCell *imageCell) {
@@ -535,7 +535,7 @@ H_CheckPropertyRange(rrr, 0, 150)
             
         default:
         {
-            HImageViewCell *cell = itemBlock(HImageViewCell.class);
+            HImageViewCell *cell = itemBlock(nil, HImageViewCell.class, nil, YES);
             [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
@@ -543,24 +543,24 @@ H_CheckPropertyRange(rrr, 0, 150)
     }
 }
 
-- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock headerTuple:(id (^)(Class aClass))headerBlock inSection:(NSInteger)section {
+- (void)tupleView:(UICollectionView *)tupleView headerTuple:(id (^)(id iblk, Class cls, id pre, bool idx))headerBlock inSection:(NSInteger)section {
     switch (section) {
         case 0:{
-            HReusableLabelView *cell = headerBlock(HReusableLabelView.class);
+            HReusableLabelView *cell = headerBlock(nil, HReusableLabelView.class, nil, YES);
             [cell.label setBackgroundColor:[UIColor yellowColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
             break;
         case 1:
         {
-            HReusableButtonView *cell = headerBlock(HReusableButtonView.class);
+            HReusableButtonView *cell = headerBlock(nil, HReusableButtonView.class, nil, YES);
             [cell.buttonView setBackgroundColor:[UIColor blueColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
             break;
         case 2:
         {
-            HReusableImageView *cell = headerBlock(HReusableImageView.class);
+            HReusableImageView *cell = headerBlock(nil, HReusableImageView.class, nil, YES);
             [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
@@ -568,7 +568,7 @@ H_CheckPropertyRange(rrr, 0, 150)
             
         default:
         {
-            HReusableImageView *cell = headerBlock(HReusableImageView.class);
+            HReusableImageView *cell = headerBlock(nil, HReusableImageView.class, nil, YES);
             [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
@@ -576,24 +576,24 @@ H_CheckPropertyRange(rrr, 0, 150)
     }
 }
 
-- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock footerTuple:(id (^)(Class aClass))footerBlock inSection:(NSInteger)section {
+- (void)tupleView:(UICollectionView *)tupleView footerTuple:(id (^)(id iblk, Class cls, id pre, bool idx))footerBlock inSection:(NSInteger)section {
     switch (section) {
         case 0:{
-            HReusableLabelView *cell = footerBlock(HReusableLabelView.class);
+            HReusableLabelView *cell = footerBlock(nil, HReusableLabelView.class, nil, YES);
             [cell.label setBackgroundColor:[UIColor yellowColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
             break;
         case 1:
         {
-            HReusableButtonView *cell = footerBlock(HReusableButtonView.class);
+            HReusableButtonView *cell = footerBlock(nil, HReusableButtonView.class, nil, YES);
             [cell.buttonView setBackgroundColor:[UIColor blueColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
             break;
         case 2:
         {
-            HReusableImageView *cell = footerBlock(HReusableImageView.class);
+            HReusableImageView *cell = footerBlock(nil, HReusableImageView.class, nil, YES);
             [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
@@ -601,7 +601,7 @@ H_CheckPropertyRange(rrr, 0, 150)
             
         default:
         {
-            HReusableImageView *cell = footerBlock(HReusableImageView.class);
+            HReusableImageView *cell = footerBlock(nil, HReusableImageView.class, nil, YES);
             [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }

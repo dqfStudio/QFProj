@@ -78,22 +78,22 @@
     }
     return UIEdgeInsetsMake(0.f, 0.f, 0.f, 0.f);
 }
-- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(id iblk, Class cls, id pre, bool idx))itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
-            HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
+            HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
             [cell.label setBackgroundColor:[UIColor greenColor]];
             [cell.label setText:@"第一个label"];
         }
             break;
         case 1: {
-            HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
+            HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
             [cell.label setText:@"第二个label"];
             [cell.label setBackgroundColor:[UIColor grayColor]];
         }
             break;
         case 2: {
-            HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
+            HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
             [cell.label setText:@"第三个label"];
             [cell.label setBackgroundColor:[UIColor redColor]];
         }
@@ -104,8 +104,8 @@
     }
 }
 
-- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock headerTuple:(id (^)(Class aClass))headerBlock inSection:(NSInteger)section {
-    HReusableImageView *cell = headerBlock(HReusableImageView.class);
+- (void)tupleView:(UICollectionView *)tupleView headerTuple:(id (^)(id iblk, Class cls, id pre, bool idx))headerBlock inSection:(NSInteger)section {
+    HReusableImageView *cell = headerBlock(nil, HReusableImageView.class, nil, YES);
     [cell.imageView setBackgroundColor:[UIColor greenColor]];
     cell.imageView.layer.cornerRadius = KCornerWidth/2;
     [cell setReusableImageViewBlock:^(HWebImageView *webImageView, HReusableImageView *imageView) {
@@ -114,8 +114,8 @@
 }
 
 
-- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock footerTuple:(id (^)(Class aClass))footerBlock inSection:(NSInteger)section {
-    HReusableButtonView *cell = footerBlock(HReusableButtonView.class);
+- (void)tupleView:(UICollectionView *)tupleView footerTuple:(id (^)(id iblk, Class cls, id pre, bool idx))footerBlock inSection:(NSInteger)section {
+    HReusableButtonView *cell = footerBlock(nil, HReusableButtonView.class, nil, YES);
     [cell.buttonView setBackgroundColor:[UIColor clearColor]];
     [cell.buttonView.button setImage:[UIImage imageNamed:@"icon_tuple_arrow_right"] forState:UIControlStateNormal];
     [cell setReusableButtonViewBlock:^(HWebButtonView *webButtonView, HReusableButtonView *buttonView) {

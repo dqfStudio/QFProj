@@ -29,16 +29,16 @@ HLoadErrorProtocol>
 
 @end
 
-@interface HResultView : UIView
+@interface HResultView2 : UIView
 @property (nonatomic) UIView  *bgView;
 @property (nonatomic) UILabel *titleLabel;
 @property (nonatomic) UILabel *subTitleLabel;
 + (instancetype)awakeView;
 @end
 
-@interface HResultImageView : HResultView
+@interface HResultImageView : HResultView2
 @property (nonatomic) UIImageView *activeImageView;
 @end
 
-@interface HResultTextView : HResultView
+@interface HResultTextView : HResultView2
 @end

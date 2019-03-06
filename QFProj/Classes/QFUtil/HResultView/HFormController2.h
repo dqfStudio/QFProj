@@ -9,6 +9,6 @@
 #import "HTupleView.h"
 #import "HFormCell.h"
 
-@interface HFormController : NSObject
-+ (HFormController *)formInstance;
+@interface HFormController2 : NSObject
++ (HFormController2 *)formInstance;
 @end

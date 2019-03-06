@@ -130,10 +130,10 @@
     }
     return UIEdgeInsetsMake(10, 0, 10, 0);
 }
-- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(id iblk, Class cls, id pre, bool idx))itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:{
-            HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
+            HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -143,7 +143,7 @@
             break;
         case 1:
         {
-            HTextFieldCell *cell = itemBlock(HTextFieldCell.class);
+            HTextFieldCell *cell = itemBlock(nil,HTextFieldCell.class, nil, YES);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
             [cell.textField setPlaceholder:@"请输入手机号"];
@@ -154,7 +154,7 @@
             break;
         case 2:
         {
-            HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
+            HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -164,7 +164,7 @@
             break;
         case 3:
         {
-            HTextFieldCell *cell = itemBlock(HTextFieldCell.class);
+            HTextFieldCell *cell = itemBlock(nil, HTextFieldCell.class, nil, YES);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
             [cell.textField setPlaceholder:@"请输入昵称"];
@@ -174,7 +174,7 @@
             break;
         case 4:
         {
-            HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
+            HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -184,7 +184,7 @@
             break;
         case 5:
         {
-            HTextFieldCell *cell = itemBlock(HTextFieldCell.class);
+            HTextFieldCell *cell = itemBlock(nil, HTextFieldCell.class, nil, YES);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
             [cell.textField setPlaceholder:@"请输入验证码"];
@@ -195,7 +195,7 @@
             break;
         case 6:
         {
-            HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
+            HButtonViewCell *cell = itemBlock(nil, HButtonViewCell.class, nil, YES);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.buttonView setBackgroundColor:[UIColor colorWithString:@"#CCCCCC"]];
             [cell.buttonView.button setTitle:@"获取验证码"];
@@ -207,13 +207,13 @@
             break;
         case 7:
         {
-            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
             [cell setBackgroundColor:[UIColor clearColor]];
         }
             break;
         case 8:
         {
-            HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
+            HButtonViewCell *cell = itemBlock(nil, HButtonViewCell.class, nil, YES);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.buttonView setBackgroundColor:[UIColor colorWithString:@"#CCCCCC"]];
             [cell.buttonView.button setTitle:@"开始"];
@@ -230,7 +230,7 @@
             break;
         case 9:
         {
-            HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
+            HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.label setBackgroundColor:[UIColor clearColor]];
             [cell.label setText:@"点击开始,即表示已阅读并同意"];
@@ -241,7 +241,7 @@
             break;
         case 10:
         {
-            HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
+            HButtonViewCell *cell = itemBlock(nil, HButtonViewCell.class, nil, YES);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.buttonView setBackgroundColor:[UIColor clearColor]];
             [cell.buttonView.button setBackgroundColor:[UIColor clearColor]];
@@ -257,7 +257,7 @@
             
         default:
         {
-            HTextViewCell *cell = itemBlock(HTextViewCell.class);
+            HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
             [cell setBackgroundColor:[UIColor clearColor]];
         }
             break;

@@ -34,7 +34,7 @@
 }
 @end
 
-@implementation HTextViewCell
+@implementation HLabelViewCell
 - (UILabel *)label {
     if (!_label) {
         _label = [UILabel new];
@@ -167,22 +167,22 @@
 //@end
 
 @implementation HButtonViewCell
-- (HWebButtonView *)button {
-    if (!_button) {
-        _button = [HWebButtonView new];
+- (HWebButtonView *)buttonView {
+    if (!_buttonView) {
+        _buttonView = [HWebButtonView new];
         @weakify(self)
-        [_button setPressed:^(id sender, id data) {
+        [_buttonView setPressed:^(id sender, id data) {
             @strongify(self)
             if (self.buttonViewBlock) {
-                self.buttonViewBlock(self.button, self);
+                self.buttonViewBlock(self.buttonView, self);
             }
         }];
-        [self addSubview:_button];
+        [self addSubview:_buttonView];
     }
-    return _button;
+    return _buttonView;
 }
 - (void)layoutContentView {
-    HLayoutTupleView(self.button)
+    HLayoutTupleView(self.buttonView)
 }
 @end
 

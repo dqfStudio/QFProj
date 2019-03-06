@@ -77,13 +77,13 @@
 - (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     return UIEdgeInsetsZero;
 }
-- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(id iblk, Class cls, id pre, bool idx))itemBlock atIndexPath:(NSIndexPath *)indexPath {
     
     NSInteger index = indexPath.section*self.rows*self.rowItems + indexPath.row;
     
     if (index < self.modelArr.count) {
         
-        HButtonViewCell *cell = itemBlock(HButtonViewCell.class);
+        HButtonViewCell *cell = itemBlock(nil, HButtonViewCell.class, nil, YES);
         [cell.buttonView setBackgroundColor:[UIColor clearColor]];
         [cell.buttonView.button setTitleColor:[UIColor blackColor]];
         
@@ -99,7 +99,7 @@
         }];
         
     }else {
-        itemBlock(HViewCell.class);
+        itemBlock(nil, HViewCell.class, nil, YES);
     }
     
 }

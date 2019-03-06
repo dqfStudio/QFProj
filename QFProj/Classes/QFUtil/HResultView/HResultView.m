@@ -203,19 +203,19 @@
     return UIEdgeInsetsZero;
 }
 
-- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock headerTuple:(id (^)(Class aClass))headerBlock inSection:(NSInteger)section {
-    headerBlock(HViewCell.class);
+- (void)tupleView:(UICollectionView *)tupleView headerTuple:(id (^)(id iblk, Class cls, id pre, bool idx))headerBlock inSection:(NSInteger)section {
+    headerBlock(nil, HViewCell.class, nil, YES);
 }
 
-- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock footerTuple:(id (^)(Class aClass))footerBlock inSection:(NSInteger)section {
-    footerBlock(HViewCell.class);
+- (void)tupleView:(UICollectionView *)tupleView footerTuple:(id (^)(id iblk, Class cls, id pre, bool idx))footerBlock inSection:(NSInteger)section {
+    footerBlock(nil, HViewCell.class, nil, YES);
 }
 
-- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(id iblk, Class cls, id pre, bool idx))itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
             if (!_hideImage) {
-                HImageViewCell *cell = itemBlock(HImageViewCell.class);
+                HImageViewCell *cell = itemBlock(nil, HImageViewCell.class, nil, YES);
                 switch (_resultType) {
                     case HResultTypeNoData:
                         [cell.imageView setImage:[UIImage imageNamed:@"mgf_icon_load_nothing"]];
@@ -232,12 +232,12 @@
                 }
                 
             }else {
-                itemBlock(HViewCell.class);
+                itemBlock(nil, HViewCell.class, nil, YES);
             }
         }
             break;
         case 1: {
-            HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
+            HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
             [cell.label setTextColor:[UIColor blackColor]];
             [cell.label setFont:[UIFont systemFontOfSize:14]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -259,7 +259,7 @@
         }
             break;
         case 2: {
-            HLabelViewCell *cell = itemBlock(HLabelViewCell.class);
+            HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
             [cell.label setTextColor:[UIColor blackColor]];
             [cell.label setFont:[UIFont systemFontOfSize:14]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];

@@ -26,7 +26,7 @@ typedef void(^HImageViewBlock2)(HWebImageView *webImageView, HImageViewCell2 *im
 @property (nonatomic) UIScrollView *scrollView;
 @end
 
-@interface HTextViewCell : HTupleBaseCell
+@interface HLabelViewCell : HTupleBaseCell
 @property (nonatomic) UILabel *label;
 @end
 
@@ -49,7 +49,7 @@ typedef void(^HImageViewBlock2)(HWebImageView *webImageView, HImageViewCell2 *im
 //@end
 
 @interface HButtonViewCell : HTupleBaseCell
-@property (nonatomic) HWebButtonView *button;
+@property (nonatomic) HWebButtonView *buttonView;
 @property (nonatomic, copy) HButtonViewBlock buttonViewBlock;
 @end
 

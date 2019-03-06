@@ -6,21 +6,21 @@
 //  Copyright © 2018年 dqf. All rights reserved.
 //
 
-#import "HFormController.h"
+#import "HFormController2.h"
 
 #define KItemHeight     80
 #define KFooterHeight   50
 
 #define HIPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 
-@interface HFormController () <HTupleViewDelegate>
+@interface HFormController2 () <HTupleViewDelegate>
 @property (nonatomic) HTupleView *tupleView;
 @property (nonatomic) NSInteger numberOfRows;
 @end
 
-@implementation HFormController
+@implementation HFormController2
 
-static HFormController *formController = nil;
+static HFormController2 *formController = nil;
 
 - (instancetype)init {
     self = [super init];
@@ -32,8 +32,8 @@ static HFormController *formController = nil;
     return self;
 }
 
-+ (HFormController *)formInstance {
-     return HFormController.new;
++ (HFormController2 *)formInstance {
+     return HFormController2.new;
 }
 
 - (HTupleView *)tupleView {
@@ -89,8 +89,8 @@ static HFormController *formController = nil;
     return UIEdgeInsetsMake(10, 0, height, 0);
 }
 
-- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock headerTuple:(id (^)(Class aClass))headerBlock inSection:(NSInteger)section {
-    HReusableButtonView *cell = headerBlock(HReusableButtonView.class);
+- (void)tupleView:(UICollectionView *)tupleView headerTuple:(id (^)(id iblk, Class cls, id pre, bool idx))headerBlock inSection:(NSInteger)section {
+    HReusableButtonView *cell = headerBlock(nil, HReusableButtonView.class, nil, YES);
     [cell.buttonView setBackgroundColor:[UIColor clearColor]];
 //    [cell.buttonView setPressed:^(id sender, id data) {
 //        //销毁对象
@@ -98,8 +98,8 @@ static HFormController *formController = nil;
 //    }];
 }
 
-- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock footerTuple:(id (^)(Class aClass))footerBlock inSection:(NSInteger)section {
-    HReusableButtonView *cell = footerBlock(HReusableButtonView.class);
+- (void)tupleView:(UICollectionView *)tupleView footerTuple:(id (^)(id iblk, Class cls, id pre, bool idx))footerBlock inSection:(NSInteger)section {
+    HReusableButtonView *cell = footerBlock(nil, HReusableButtonView.class, nil, YES);
     [cell.buttonView setBackgroundColor:[UIColor whiteColor]];
     [cell.buttonView.button setTitleColor:[UIColor blackColor]];
     [cell.buttonView.button setTitle:@"取消"];
@@ -109,9 +109,9 @@ static HFormController *formController = nil;
     }];
 }
 
-- (void)tupleView:(UICollectionView *)tupleView initTuple:(void (^)(HTupleCellInitBlock initBlock))initBlock itemTuple:(id (^)(Class aClass))itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(id iblk, Class cls, id pre, bool idx))itemBlock atIndexPath:(NSIndexPath *)indexPath {
     
-    HFormCell *cell = itemBlock(HFormCell.class);
+    HFormCell *cell = itemBlock(nil, HFormCell.class, nil, YES);
 
     NSMutableArray *mutableArr = NSMutableArray.array;
     

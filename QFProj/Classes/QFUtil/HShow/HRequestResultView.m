@@ -9,7 +9,7 @@
 #import "HRequestResultView.h"
 
 @interface HRequestResultView ()
-@property (nonatomic, weak) HResultView *resultView;
+@property (nonatomic, weak) HResultView2 *resultView;
 @property (nonatomic) HResultImageView *resultImageView;
 @property (nonatomic) HResultTextView  *resultTextView;
 
@@ -202,7 +202,7 @@
 
 @end
 
-@implementation HResultView
+@implementation HResultView2
 - (UIView *)bgView {
     if (!_bgView) _bgView = [UIView new];
     return _bgView;
@@ -224,7 +224,7 @@
     return _subTitleLabel;
 }
 + (instancetype)awakeView {
-    return [HResultView new];
+    return [HResultView2 new];
 }
 @end
 
