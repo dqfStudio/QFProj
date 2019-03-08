@@ -37,7 +37,6 @@
         flowLayout = [[UICollectionViewLeftAlignedLayout alloc] init];
         flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     }
-    
     self = [super initWithFrame:frame collectionViewLayout:flowLayout];
     if (self) {
         [self setup];
@@ -51,7 +50,6 @@
     }else {
         flowLayout = [[ULBCollectionViewFlowLayout alloc] init];
     }
-    
     self = [super initWithFrame:frame collectionViewLayout:flowLayout];
     if (self) {
         [self setup];
@@ -89,30 +87,6 @@
     _allReuseFooters = [NSMutableDictionary new];
     self.delegate = self;
     self.dataSource = self;
-}
-- (id)headerWithReuseClass:(Class)aClass atIndexPath:(NSIndexPath *)indexPath {
-    NSString *identifier = [NSString stringWithFormat:@"%@HeaderCell",NSStringFromClass(aClass)];
-    if (![self.allReuseCells containsObject:identifier]) {
-        [self.allReuseCells addObject:identifier];
-        [self registerClass:aClass forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier];
-    }
-    return [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
-}
-- (id)footerWithReuseClass:(Class)aClass atIndexPath:(NSIndexPath *)indexPath {
-    NSString *identifier = [NSString stringWithFormat:@"%@FooterCell",NSStringFromClass(aClass)];
-    if (![self.allReuseCells containsObject:identifier]) {
-        [self.allReuseCells addObject:identifier];
-        [self registerClass:aClass forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier];
-    }
-    return [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
-}
-- (id)itemWithReuseClass:(Class)aClass atIndexPath:(NSIndexPath *)indexPath {
-    NSString *identifier = [NSString stringWithFormat:@"%@ItemCell",NSStringFromClass(aClass)];
-    if (![self.allReuseCells containsObject:identifier]) {
-        [self.allReuseCells addObject:identifier];
-        [self registerClass:aClass forCellWithReuseIdentifier:identifier];
-    }
-    return [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
 }
 
 #pragma mark - signal
@@ -279,6 +253,7 @@
     if ([self.tupleDelegate respondsToSelector:@selector(tupleView:itemTuple:atIndexPath:)]) {
         [self.tupleDelegate tupleView:self itemTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
             NSString *identifier = NSStringFromClass(cls);
+            identifier = [identifier stringByAppendingString:[self string]];
             identifier = [identifier stringByAppendingString:@"ItemCell"];
             if (pre) identifier = [identifier stringByAppendingString:pre];
             if (idx) identifier = [identifier stringByAppendingString:[indexPath string]];
@@ -337,6 +312,7 @@
         if ([self.tupleDelegate respondsToSelector:@selector(tupleView:headerTuple:inSection:)]) {
             [self.tupleDelegate tupleView:self headerTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
                 NSString *identifier = NSStringFromClass(cls);
+                identifier = [identifier stringByAppendingString:[self string]];
                 identifier = [identifier stringByAppendingString:@"HeaderCell"];
                 if (pre) identifier = [identifier stringByAppendingString:pre];
                 if (idx) identifier = [identifier stringByAppendingString:[indexPath string]];
@@ -374,6 +350,7 @@
         if ([self.tupleDelegate respondsToSelector:@selector(tupleView:footerTuple:inSection:)]) {
             [self.tupleDelegate tupleView:self footerTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
                 NSString *identifier = NSStringFromClass(cls);
+                identifier = [identifier stringByAppendingString:[self string]];
                 identifier = [identifier stringByAppendingString:@"FooterCell"];
                 if (pre) identifier = [identifier stringByAppendingString:pre];
                 if (idx) identifier = [identifier stringByAppendingString:[indexPath string]];

@@ -84,9 +84,4 @@ typedef NS_OPTIONS(NSUInteger, HTupleViewStyle) {
 - (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction;
 - (instancetype)initWithFrame:(CGRect)frame style:(HTupleViewStyle)style;
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout;
-
-- (id)headerWithReuseClass:(Class)aClass atIndexPath:(NSIndexPath *)indexPath;
-- (id)footerWithReuseClass:(Class)aClass atIndexPath:(NSIndexPath *)indexPath;
-- (id)itemWithReuseClass:(Class)aClass atIndexPath:(NSIndexPath *)indexPath;
-
 @end
