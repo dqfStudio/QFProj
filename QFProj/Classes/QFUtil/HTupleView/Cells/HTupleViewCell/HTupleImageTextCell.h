@@ -8,6 +8,8 @@
 
 #import "HTupleView.h"
 
+typedef void(^HTupleImageTextBlock)(NSInteger idx);
+
 @interface HTupleImageTextModel : NSObject
 @property (nonatomic, copy) NSString *cellImage;
 @property (nonatomic, copy) NSString *cellText;
@@ -17,4 +19,5 @@
 @property (nonatomic) HTupleView *tupleView;
 @property (nonatomic) HTupleImageTextModel *model;
 @property (nonatomic) NSInteger textHeight;//default 25
+@property (nonatomic, copy) HTupleImageTextBlock imageTextBlock;
 @end

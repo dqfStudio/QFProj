@@ -64,7 +64,9 @@
 }
 
 - (void)tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    if (self.imageTextBlock) {
+        self.imageTextBlock(indexPath.row);
+    }
 }
 
 @end
