@@ -21,19 +21,6 @@
 }
 @end
 
-@implementation HScrollViewCell
-- (UIScrollView *)scrollView {
-    if (!_scrollView) {
-        _scrollView = [UIScrollView new];
-        [self addSubview:_scrollView];
-    }
-    return _scrollView;
-}
-- (void)layoutContentView {
-    HLayoutTupleView(self.scrollView)
-}
-@end
-
 @implementation HLabelViewCell
 - (UILabel *)label {
     if (!_label) {
@@ -42,103 +29,19 @@
     }
     return _label;
 }
+//- (YYLabel *)label {
+//    if (!_label) {
+//        _label = [YYLabel new];
+//        [self addSubview:_label];
+//    }
+//    return _label;
+//}
 - (void)layoutContentView {
     HLayoutTupleView(self.label)
 }
 @end
 
-@interface HTextViewCell2 ()
-@property (nonatomic) UIView *bgView;
-@end
-
-@implementation HTextViewCell2
-- (UIView *)bgView {
-    if (!_bgView) {
-        _bgView = [UIView new];
-        [self addSubview:_bgView];
-    }
-    return _bgView;
-}
-- (UILabel *)leftLabel {
-    if (!_leftLabel) {
-        _leftLabel = [UILabel new];
-        [self.bgView addSubview:_leftLabel];
-    }
-    return _leftLabel;
-}
-- (UILabel *)rightLabel {
-    if (!_rightLabel) {
-        _rightLabel = [UILabel new];
-        [self.bgView addSubview:_rightLabel];
-    }
-    return _rightLabel;
-}
-- (void)layoutContentView {
-    HLayoutTupleView(self.bgView)
-}
-- (void)initUI {
-    
-    [self.leftLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
-    [self.rightLabel setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-    
-    [self.leftLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
-    [self.rightLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-    
-    [self.leftLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@10);
-        make.top.equalTo(@10);
-        make.right.equalTo(self.rightLabel.mas_left).offset(-10);
-    }];
-    
-    [self.rightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.leftLabel.mas_right).offset(10);
-        make.top.equalTo(self.leftLabel);
-        make.right.equalTo(@(-10));
-    }];
-}
-@end
-
-@interface HTextViewCell3 ()
-@property (nonatomic) UIView *bgView;
-@end
-
-@implementation HTextViewCell3
-- (UIView *)bgView {
-    if (!_bgView) {
-        _bgView = [UIView new];
-        [self addSubview:_bgView];
-    }
-    return _bgView;
-}
-- (UILabel *)upLabel {
-    if (!_upLabel) {
-        _upLabel = [UILabel new];
-        [self.bgView addSubview:_upLabel];
-    }
-    return _upLabel;
-}
-- (UILabel *)downLabel {
-    if (!_downLabel) {
-        _downLabel = [UILabel new];
-        [self.bgView addSubview:_downLabel];
-    }
-    return _downLabel;
-}
-- (void)layoutContentView {
-    HLayoutTupleView(self.bgView)
-    
-    CGRect frame = [self getContentFrame];
-    frame.origin = CGPointZero;
-    
-    frame.size.height /= 2;
-    self.upLabel.frame = frame;
-    
-    frame.origin.y = frame.size.height;
-    self.downLabel.frame = frame;
-}
-@end
-
-@implementation HTextViewCell4
+@implementation HTextViewCell
 - (UITextView *)textView {
     if (!_textView) {
         _textView = [UITextView new];
@@ -152,19 +55,6 @@
     HLayoutTupleView(self.textView)
 }
 @end
-
-//@implementation HTextViewCell5
-//- (YYLabel *)label {
-//    if (!_label) {
-//        _label = [YYLabel new];
-//        [self addSubview:_label];
-//    }
-//    return _label;
-//}
-//- (void)layoutContentView {
-//    HLayoutTupleView(self.label)
-//}
-//@end
 
 @implementation HButtonViewCell
 - (HWebButtonView *)buttonView {
