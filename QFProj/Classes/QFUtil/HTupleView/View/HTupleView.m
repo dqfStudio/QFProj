@@ -28,6 +28,19 @@
     }
     return self;
 }
+- (instancetype)initWithFrame:(CGRect)frame style:(HTupleViewStyle)style {
+    UICollectionViewFlowLayout *flowLayout = nil;
+    if (style == HTupleViewStyleLeftAlignedLayout) {
+        flowLayout = [[UICollectionViewLeftAlignedLayout alloc] init];
+    }else {
+        flowLayout = [[ULBCollectionViewFlowLayout alloc] init];
+    }
+    self = [super initWithFrame:frame collectionViewLayout:flowLayout];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
 - (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction {
     UICollectionViewFlowLayout *flowLayout = nil;
     if (direction == HTupleViewScrollDirectionHorizontal) {
@@ -36,19 +49,6 @@
     }else {
         flowLayout = [[UICollectionViewLeftAlignedLayout alloc] init];
         flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    }
-    self = [super initWithFrame:frame collectionViewLayout:flowLayout];
-    if (self) {
-        [self setup];
-    }
-    return self;
-}
-- (instancetype)initWithFrame:(CGRect)frame style:(HTupleViewStyle)style {
-    UICollectionViewFlowLayout *flowLayout = nil;
-    if (style == HTupleViewStyleLeftAlignedLayout) {
-        flowLayout = [[UICollectionViewLeftAlignedLayout alloc] init];
-    }else {
-        flowLayout = [[ULBCollectionViewFlowLayout alloc] init];
     }
     self = [super initWithFrame:frame collectionViewLayout:flowLayout];
     if (self) {
