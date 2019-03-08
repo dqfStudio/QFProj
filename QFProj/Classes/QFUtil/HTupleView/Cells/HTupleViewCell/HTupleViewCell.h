@@ -11,7 +11,7 @@
 #import "HWebButtonView.h"
 //#import <YYLabel.h>
 
-@class HButtonViewCell, HImageViewCell, HImageViewCell2;
+@class HButtonViewCell, HImageViewCell;
 
 typedef void(^HButtonViewBlock)(HWebButtonView *webButtonView, HButtonViewCell *buttonCell);
 typedef void(^HImageViewBlock)(HWebImageView *webImageView, HImageViewCell *imageCell);

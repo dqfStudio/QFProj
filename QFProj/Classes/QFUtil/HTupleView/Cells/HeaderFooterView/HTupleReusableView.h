@@ -11,7 +11,7 @@
 #import "HWebButtonView.h"
 #import "UILabel+HAttributeText.h"
 
-@class HReusableButtonView, HReusableImageView, HReusableImageView2;
+@class HReusableButtonView, HReusableImageView;
 
 typedef void(^HReusableButtonViewBlock)(HWebButtonView *webButtonView, HReusableButtonView *buttonView);
 typedef void(^HReusableImageViewBlock)(HWebImageView *webImageView, HReusableImageView *imageView);
