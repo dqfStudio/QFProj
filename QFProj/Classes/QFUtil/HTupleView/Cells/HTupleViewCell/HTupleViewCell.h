@@ -45,8 +45,8 @@ typedef void(^HImageViewBlock2)(HWebImageView *webImageView, HImageViewCell2 *im
 @property (nonatomic) HWebImageView *imageView;//显示在顶部
 @property (nonatomic) UILabel *label;//显示在底部
 @property (nonatomic) NSInteger labelHeight;//显示在底部，默认高度为20
-@property(nonatomic)  UIEdgeInsets imageEdgeInsets;// default is UIEdgeInsetsZero
-@property(nonatomic)  UIEdgeInsets titleEdgeInsets;// default is UIEdgeInsetsZero
+@property (nonatomic) UIEdgeInsets imageEdgeInsets;// default is UIEdgeInsetsZero
+@property (nonatomic) UIEdgeInsets titleEdgeInsets;// default is UIEdgeInsetsZero
 @property (nonatomic, copy) HImageViewBlock2 imageViewBlock;
 @end
 
