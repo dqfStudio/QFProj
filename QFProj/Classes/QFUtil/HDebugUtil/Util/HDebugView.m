@@ -41,8 +41,7 @@
 
 - (HTableView *)tableView {
     if (!_tableView) {
-        _tableView = HTableView.new;
-        [_tableView setFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame)-40)];
+        _tableView = [[HTableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame)-40)];
         [_tableView setBackgroundColor:[UIColor clearColor]];
     }
     return _tableView;

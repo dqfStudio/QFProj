@@ -28,4 +28,13 @@
     indexModel.section = @(section).stringValue;
     return indexModel;
 }
++ (instancetype (^)(NSInteger rowModel, NSInteger sectionModel, NSInteger section))indexModel {
+    return ^id (NSInteger rowModel, NSInteger sectionModel, NSInteger section) {
+        NSIndexModel *indexModel = NSIndexModel.new;
+        indexModel.rowModel = KCellModelName.append(@(rowModel)).append(@":");
+        indexModel.sectionModel = KSectionModelName.append(@(sectionModel)).append(@":");
+        indexModel.section = @(section).stringValue;
+        return indexModel;
+    };
+}
 @end

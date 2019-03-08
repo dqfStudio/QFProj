@@ -21,5 +21,6 @@
 @property (nonatomic) NSString *section;
 
 + (instancetype)indexModelForRow:(NSInteger)rowModel andSection:(NSInteger)sectionModel inSection:(NSInteger)section;
++ (instancetype (^)(NSInteger rowModel, NSInteger sectionModel, NSInteger section))indexModel;
 
 @end

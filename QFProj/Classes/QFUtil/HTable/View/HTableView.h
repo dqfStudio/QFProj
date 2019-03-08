@@ -34,6 +34,9 @@ typedef void(^HCHeaderFooterInitBlock)(id view);
 @property (nonatomic, copy) HRefreshBlock  refreshBlock;   // block to refresh data
 @property (nonatomic, copy) HLoadMoreBlock loadMoreBlock;  // block to load more data
 
+- (instancetype)init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+
 - (void)reloadModel;
 
 //clear all model
