@@ -9,7 +9,6 @@
 #import "HTupleBaseCell.h"
 #import "HWebImageView.h"
 #import "HWebButtonView.h"
-#import "Masonry.h"
 //#import <YYLabel.h>
 
 @class HButtonViewCell, HImageViewCell, HImageViewCell2;
