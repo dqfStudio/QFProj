@@ -250,13 +250,13 @@
 }
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
     if (self.forbidPaste) {
-        UIMenuController*menuController = [UIMenuController sharedMenuController];
-        if(menuController) {
-            [UIMenuController sharedMenuController].menuVisible = NO;
+        if([UIMenuController sharedMenuController]) {
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [[UIMenuController sharedMenuController] setMenuVisible:NO animated:NO];
+            }];
             return NO;
         }
     }
-    return YES;
+    return [super canPerformAction:action withSender:sender];
 }
 @end
-
