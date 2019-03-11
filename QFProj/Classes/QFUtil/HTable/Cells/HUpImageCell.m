@@ -92,7 +92,7 @@
     }
     return UIEdgeInsetsMake(0.f, 0.f, 0.f, 0.f);
 }
-- (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(id iblk, Class cls, id pre, bool idx))itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(UICollectionView *)tupleView itemTuple:(HItemBlock)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
             HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
@@ -118,7 +118,7 @@
     }
 }
 
-- (void)tupleView:(UICollectionView *)tupleView headerTuple:(id (^)(id iblk, Class cls, id pre, bool idx))headerBlock inSection:(NSInteger)section {
+- (void)tupleView:(UICollectionView *)tupleView headerTuple:(HHeaderBlock)headerBlock inSection:(NSInteger)section {
     HReusableImageView *cell = headerBlock(nil, HReusableImageView.class, nil, YES);
     [cell.imageView setBackgroundColor:[UIColor greenColor]];
     cell.imageView.layer.cornerRadius = KCornerWidth/2;
@@ -128,7 +128,7 @@
 }
 
 
-- (void)tupleView:(UICollectionView *)tupleView footerTuple:(id (^)(id iblk, Class cls, id pre, bool idx))footerBlock inSection:(NSInteger)section {
+- (void)tupleView:(UICollectionView *)tupleView footerTuple:(HFooterBlock)footerBlock inSection:(NSInteger)section {
     HReusableButtonView *cell = footerBlock(nil, HReusableButtonView.class, nil, YES);
     [cell.buttonView setBackgroundColor:[UIColor clearColor]];
     [cell.buttonView.button setImage:[UIImage imageNamed:@"icon_tuple_arrow_right"] forState:UIControlStateNormal];
