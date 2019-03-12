@@ -270,7 +270,8 @@
     if ([self.tupleDelegate respondsToSelector:@selector(tupleView:colorForSectionAtIndex:)]) {
         return [self.tupleDelegate tupleView:self colorForSectionAtIndex:section];
     }else if (self.colorForSectionBlock) {
-        return self.colorForSectionBlock(section);
+        UIColor *color = self.colorForSectionBlock(section);
+        if (color && [color isKindOfClass:UIColor.class]) return color;
     }
     return [UIColor clearColor];
 }
