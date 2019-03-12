@@ -9,284 +9,78 @@
 #import "HTableView.h"
 #import <objc/runtime.h>
 
-typedef NS_ENUM(NSInteger, HTableViewFormatType) {
-    HTableViewFormatTypeUnknow = -1,
-    HTableViewFormatTypeNumber,
-    HTableViewFormatTypeCustom
-};
-
 #define KDefaultPageSize 20
 
-@interface HTableView ()
-@property (nonatomic, weak)   id objc;
-@property (nonatomic, strong) HTableModel *tableModel;
+@implementation NSIndexPath (HString)
+- (NSString *)string {
+    return [NSString stringWithFormat:@"%@%@",@(self.section),@(self.row)];
+}
+@end
+
+@interface HTableView () <UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic) NSMutableSet *allReuseCells;
+@property (nonatomic) NSMutableDictionary *allReuseHeaders;
+@property (nonatomic) NSMutableDictionary *allReuseFooters;
+
+@property (nonatomic, copy) HNumberOfSectionsBlock numberOfSectionsBlock;
+@property (nonatomic, copy) HNumberOfItemsBlock numberOfItemsBlock;
+
+@property (nonatomic, copy) HeightForHeaderBlock heightForHeaderBlock;
+@property (nonatomic, copy) HeightForFooterBlock heightForFooterBlock;
+@property (nonatomic, copy) HeightForItemBlock heightForItemBlock;
+
+@property (nonatomic, copy) HHeaderTableBlock headerTableBlock;
+@property (nonatomic, copy) HFooterTableBlock footerTableBlock;
+@property (nonatomic, copy) HItemTableBlock itemTableBlock;
+
+@property (nonatomic, copy) HDidSelectItemBlock didSelectItemBlock;
 @end
 
 @implementation HTableView
 
 #pragma --mark init
-
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.estimatedRowHeight = 0;
-        self.estimatedSectionHeaderHeight = 0;
-        self.estimatedSectionFooterHeight = 0;
-        if (@available(iOS 11.0, *)) {
-            self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        }
-        
-        self.tableModel = [[HTableModel alloc] init];
-        self.tableFooterView = [UIView new];
-        self.delegate = self.tableModel;
-        self.dataSource = self.tableModel;
+        [self setup];
     }
     return self;
 }
-
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.estimatedRowHeight = 0;
-        self.estimatedSectionHeaderHeight = 0;
-        self.estimatedSectionFooterHeight = 0;
-        if (@available(iOS 11.0, *)) {
-            self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        }
-        
-        self.tableModel = [[HTableModel alloc] init];
-        self.tableFooterView = [UIView new];
-        self.delegate = self.tableModel;
-        self.dataSource = self.tableModel;
+        [self setup];
     }
     return self;
 }
-
-#pragma --mark register cell
-
-- (id)registerCell:(Class)cellClass indexPath:(NSIndexPath *)indexPath {
-    return [self registerCell:cellClass indexPath:indexPath style:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass(cellClass) initBlock:nil];
-}
-
-
-
-- (id)registerCell:(Class)cellClass indexPath:(NSIndexPath *)indexPath style:(UITableViewCellStyle)style {
-    return [self registerCell:cellClass indexPath:indexPath style:style reuseIdentifier:NSStringFromClass(cellClass) initBlock:nil];
-}
-- (id)registerCell:(Class)cellClass indexPath:(NSIndexPath *)indexPath reuseIdentifier:(NSString *)reuseIdentifier {
-    return [self registerCell:cellClass indexPath:indexPath style:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier initBlock:nil];
-}
-- (id)registerCell:(Class)cellClass indexPath:(NSIndexPath *)indexPath initBlock:(HCellInitBlock)block {
-    return [self registerCell:cellClass indexPath:indexPath style:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass(cellClass) initBlock:block];
-}
-
-
-
-- (id)registerCell:(Class)cellClass indexPath:(NSIndexPath *)indexPath style:(UITableViewCellStyle)style initBlock:(HCellInitBlock)block {
-    return [self registerCell:cellClass indexPath:indexPath style:style reuseIdentifier:NSStringFromClass(cellClass) initBlock:block];
-}
-- (id)registerCell:(Class)cellClass indexPath:(NSIndexPath *)indexPath reuseIdentifier:(NSString *)reuseIdentifier initBlock:(HCellInitBlock)block {
-    return [self registerCell:cellClass indexPath:indexPath style:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier initBlock:block];
-}
-- (id)registerCell:(Class)cellClass indexPath:(NSIndexPath *)indexPath style:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    return [self registerCell:cellClass indexPath:indexPath style:style reuseIdentifier:reuseIdentifier initBlock:nil];
-}
-
-
-
-- (id)registerCell:(Class)cellClass indexPath:(NSIndexPath *)indexPath style:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier initBlock:(HCellInitBlock)block {
-    UITableViewCell *cell = [self dequeueReusableCellWithIdentifier:reuseIdentifier];
-    if (!cell) {
-        cell = [[cellClass alloc] initWithStyle:style reuseIdentifier:reuseIdentifier];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        if ([cell respondsToSelector:@selector(model)]) {
-            HBaseCell *tmpCell = (HBaseCell *)cell;
-            tmpCell.table = self;
-            tmpCell.indexPath = indexPath;
-            tmpCell.model = [self cellAtIndexPath:indexPath];
-        }
-        if (block) {
-            block(cell);
-        }
+- (void)setup {
+    self.alwaysBounceVertical = YES;
+    self.backgroundColor = [UIColor clearColor];
+    self.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    self.showsHorizontalScrollIndicator = NO;
+    self.showsVerticalScrollIndicator = NO;
+    
+    if (@available(iOS 11.0, *)) {
+        self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
-    return cell;
+    
+    self.estimatedRowHeight = 0;
+    self.estimatedSectionHeaderHeight = 0;
+    self.estimatedSectionFooterHeight = 0;
+    
+    _allReuseCells = [NSMutableSet new];
+    _allReuseHeaders = [NSMutableDictionary new];
+    _allReuseFooters = [NSMutableDictionary new];
+    self.delegate = self;
+    self.dataSource = self;
 }
-
-
-- (id)registerHeader:(Class)cellClass section:(NSInteger)section {
-    return [self registerHeaderFooter:cellClass section:section isHeader:YES reuseIdentifier:NSStringFromClass(cellClass) initBlock:nil];
-}
-- (id)registerHeader:(Class)cellClass section:(NSInteger)section initBlock:(HCHeaderFooterInitBlock)block {
-    return [self registerHeaderFooter:cellClass section:section isHeader:YES reuseIdentifier:NSStringFromClass(cellClass) initBlock:block];
-}
-- (id)registerHeader:(Class)cellClass section:(NSInteger)section reuseIdentifier:(NSString *)reuseIdentifier initBlock:(HCHeaderFooterInitBlock)block {
-    return [self registerHeaderFooter:cellClass section:section isHeader:YES reuseIdentifier:reuseIdentifier initBlock:block];
-}
-
-
-
-- (id)registerFooter:(Class)cellClass section:(NSInteger)section {
-    return [self registerHeaderFooter:cellClass section:section isHeader:NO reuseIdentifier:NSStringFromClass(cellClass) initBlock:nil];
-}
-- (id)registerFooter:(Class)cellClass section:(NSInteger)section initBlock:(HCHeaderFooterInitBlock)block {
-    return [self registerHeaderFooter:cellClass section:section isHeader:NO reuseIdentifier:NSStringFromClass(cellClass) initBlock:block];
-}
-- (id)registerFooter:(Class)cellClass section:(NSInteger)section reuseIdentifier:(NSString *)reuseIdentifier initBlock:(HCHeaderFooterInitBlock)block {
-    return [self registerHeaderFooter:cellClass section:section isHeader:NO reuseIdentifier:reuseIdentifier initBlock:block];
-}
-
-
-- (id)registerHeaderFooter:(Class)cellClass section:(NSInteger)section isHeader:(BOOL)header reuseIdentifier:(NSString *)reuseIdentifier initBlock:(HCHeaderFooterInitBlock)block {
-    UITableViewHeaderFooterView *headerFooterView = [self dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
-    if (!headerFooterView) {
-        headerFooterView = [[cellClass alloc] initWithReuseIdentifier:reuseIdentifier];
-        [headerFooterView setIsHeader:header];
-        if ([headerFooterView respondsToSelector:@selector(model)]) {
-            HBaseHeaderFooterView *tmpCell = (HBaseHeaderFooterView *)headerFooterView;
-            tmpCell.table = self;
-            tmpCell.section = section;
-        }
-        if (block) {
-            block(headerFooterView);
-        }
+- (void)setFrame:(CGRect)frame {
+    if(!CGRectEqualToRect(frame, self.frame)) {
+        [super setFrame:frame];
+        [self reloadData];
     }
-    return headerFooterView;
 }
-
 #pragma --mark other methods
-
-//add HSectionModel
-- (void)addModel:(HSectionModel*)anObject {
-    [self.tableModel addModel:anObject];
-}
-
-- (HSectionModel *)sectionAtIndex:(NSUInteger)index {
-    return [self.tableModel sectionAtIndex:index];
-}
-
-- (NSUInteger)indexOfSection:(HSectionModel *)anObject {
-    return [self.tableModel indexOfSection:anObject];
-}
-
-- (HCellModel *)cellAtIndexPath:(NSIndexPath *)indexPath {
-    HSectionModel *sectionModel = [self sectionAtIndex:indexPath.section];
-    return [sectionModel cellAtIndex:indexPath.row];
-}
-
-- (void)cellAtIndexPath:(NSIndexPath *)indexPath resetHeight:(NSInteger)height {
-    HCellModel *cellModel = [self cellAtIndexPath:indexPath];;
-    cellModel.height = height;
-}
-
-- (void)reloadModel {
-    for (int i=0; i<[self.tableModel sections]; i++) {
-        HSectionModel *sectionModel = [self.tableModel sectionAtIndex:i];
-        NSString *sectionSelector = sectionModel.selector;
-        if (sectionSelector.length > 0 && sectionModel) {
-            SEL sel = NSSelectorFromString(sectionModel.selector);
-            if([self.objc respondsToSelector:sel]){
-                [self.objc performSelector:sel withObjects:@[sectionModel]];
-            }
-            
-            for (int j=0; j<[sectionModel cells]; j++) {
-                HCellModel *cellModel = [sectionModel cellAtIndex:j];
-                NSString *cellSelector = cellModel.selector;
-                if (cellSelector.length > 0 && cellModel) {
-                    SEL sel = NSSelectorFromString(cellModel.selector);
-                    if([self.objc respondsToSelector:sel]){
-                        [self.objc performSelector:sel withObjects:@[cellModel]];
-                    }
-                }
-            }
-        }
-    }
-    //刷新列表
-    [self reloadData];
-}
-
-//clear all model
-- (void)clearModel {
-    [self.tableModel clearModel];
-    //刷新列表
-    [self reloadData];
-}
-
-- (void)refreshView:(id)object withArr:(NSArray *)arr {
-    //先清除数据
-    [self clearModel];
-    [self loadView:object withArr:arr];
-}
-
-- (void)loadView:(id)object withArr:(NSArray *)arr {
-    
-    if (!self.objc || self.objc != object) self.objc = object;
-    
-    for (NSIndexModel *indexModel in arr) {
-    
-        NSString *sectionSelector = indexModel.sectionModel;
-        NSString *section = indexModel.section;
-        NSString *cellSelector = indexModel.rowModel;
-        
-        HSectionModel *sectionModel = [self sectionAtIndex:section.integerValue];
-        if (!sectionModel) {
-            sectionModel = [HSectionModel new];
-            [sectionModel setSelector:sectionSelector];
-            [self addModel:sectionModel];
-            
-            if([object respondsToSelector:NSSelectorFromString(sectionSelector)]){
-                [object performSelector:NSSelectorFromString(sectionSelector) withObjects:@[sectionModel]];
-            }else {
-                sectionModel.headerHeight = 0;
-                sectionModel.footerHeight = 0;
-            }
-        }
-        
-        HCellModel *cellModel = [HCellModel new];
-        [cellModel setSelector:cellSelector];
-        [sectionModel addModel:cellModel];
-        
-        if([object respondsToSelector:NSSelectorFromString(cellSelector)]){
-            [object performSelector:NSSelectorFromString(cellSelector) withObjects:@[cellModel]];
-            if (!cellModel.renderBlock) {
-                cellModel.renderBlock = [self renderBlock];
-            }
-            if (!cellModel.selectionBlock) {
-                cellModel.selectionBlock = [self selectionBlock];
-            }
-        }else {
-            cellModel.renderBlock = [self renderBlock];
-            cellModel.selectionBlock = [self selectionBlock];
-        }
-        
-    }
-    
-    //刷新列表
-    [self reloadData];
-    [self endRefresh];
-}
-
-- (HTableViewFormatType)urlFormat:(NSString *)string {
-    if ([string containsString:@"<"] && [string containsString:@">"]) {
-        return HTableViewFormatTypeCustom;
-    }else if ([string containsString:@":"]) {
-        return HTableViewFormatTypeNumber;
-    }
-    return HTableViewFormatTypeUnknow;
-}
-
-- (HCellRenderBlock)renderBlock {
-    return ^UITableViewCell *(NSIndexPath *indexPath, HTableView *table) {
-        UITableViewCell *cell = [table registerCell:UITableViewCell.class indexPath:indexPath];
-        return cell;
-    };
-}
-
-- (HCellSelectionBlock)selectionBlock {
-    return ^(NSIndexPath *indexPath, HTableView *table) {
-        [table deselectRowAtIndexPath:indexPath animated:YES];
-    };
-}
-
 - (NSUInteger)pageNo {
     NSNumber *page = objc_getAssociatedObject(self, _cmd);
     if (!page) {
@@ -294,11 +88,9 @@ typedef NS_ENUM(NSInteger, HTableViewFormatType) {
     }
     return [objc_getAssociatedObject(self, _cmd) unsignedIntegerValue];
 }
-
 - (void)setPageNo:(NSUInteger)pageNo {
     objc_setAssociatedObject(self, @selector(pageNo), @(pageNo), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-
 - (NSUInteger)pageSize {
     NSNumber *pageSize = objc_getAssociatedObject(self, _cmd);
     if (!pageSize) {
@@ -306,24 +98,20 @@ typedef NS_ENUM(NSInteger, HTableViewFormatType) {
     }
     return [pageSize unsignedIntegerValue];
 }
-
 - (void)setPageSize:(NSUInteger)pageSize {
     objc_setAssociatedObject(self, @selector(pageSize), @(pageSize), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-
 - (void)beginRefresh {
     if (_refreshBlock) {
         [self setPageNo:1];
         [self.mj_header beginRefreshing];
     }
 }
-
 //stop refresh
 -(void)endRefresh {
     [self.mj_header endRefreshing];
     [self.mj_footer endRefreshing];
 }
-
 - (void)setRefreshBlock:(HRefreshBlock)refreshBlock {
     _refreshBlock = refreshBlock;
     if (_refreshBlock) {
@@ -335,7 +123,6 @@ typedef NS_ENUM(NSInteger, HTableViewFormatType) {
         self.mj_header = nil;
     }
 }
-
 - (void)setLoadMoreBlock:(HLoadMoreBlock)loadMoreBlock {
     _loadMoreBlock = loadMoreBlock;
     if (_loadMoreBlock) {
@@ -348,7 +135,6 @@ typedef NS_ENUM(NSInteger, HTableViewFormatType) {
         self.mj_footer = nil;
     }
 }
-
 #pragma mark - signal
 - (void)signalToTable:(HTableSignal *)signal {
     if (self.signalBlock) {
@@ -455,12 +241,211 @@ typedef NS_ENUM(NSInteger, HTableViewFormatType) {
         return [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
     };
 }
-@end
-
-@implementation NSArray (HTableView)
-- (NSArray *(^)(NSArray *))append {
-    return ^NSArray *(NSArray *obj) {
-        return [self arrayByAddingObjectsFromArray:obj];
+- (id (^)(NSInteger row, NSInteger section))indexPath {
+    return ^id (NSInteger row, NSInteger section) {
+        return [NSIndexPath indexPathForRow:row inSection:section];
     };
+}
+- (CGFloat)width {
+    return CGRectGetWidth(self.frame);
+}
+- (CGFloat)height {
+    return CGRectGetHeight(self.frame);
+}
+- (NSString *)string {
+    return [NSString stringWithFormat:@"%p", self];
+}
+#pragma mark - UITableViewDatasource  & delegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if ([self.tableDelegate respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
+        return [self.tableDelegate numberOfSectionsInTableView:self];
+    }else if (self.numberOfSectionsBlock) {
+        return self.numberOfSectionsBlock();
+    }
+    return 1;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if ([self.tableDelegate respondsToSelector:@selector(tableView:numberOfRowsInSection:)]) {
+        return [self.tableDelegate tableView:tableView numberOfRowsInSection:section];
+    }else if (self.numberOfItemsBlock) {
+        return self.numberOfItemsBlock(section);
+    }
+    return 0;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if ([self.tableDelegate respondsToSelector:@selector(tableView:heightForHeaderInSection:)]) {
+        return [self.tableDelegate tableView:tableView heightForHeaderInSection:section];
+    }else if (self.heightForHeaderBlock) {
+        return self.heightForHeaderBlock(section);
+    }
+    return 0.f;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if ([self.tableDelegate respondsToSelector:@selector(tableView:heightForFooterInSection:)]) {
+        return [self.tableDelegate tableView:tableView heightForFooterInSection:section];
+    }else if (self.heightForFooterBlock) {
+        return self.heightForFooterBlock(section);
+    }
+    return 0.f;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.tableDelegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
+        return [self.tableDelegate tableView:tableView heightForRowAtIndexPath:indexPath];
+    }else if (self.heightForItemBlock) {
+        return self.heightForItemBlock(indexPath);
+    }
+    return 0.f;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    __block UITableViewHeaderFooterView *cell = nil;
+    id (^HCellForHeaderBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
+        NSString *identifier = NSStringFromClass(cls);
+        identifier = [identifier stringByAppendingString:[self string]];
+        identifier = [identifier stringByAppendingString:@"HeaderCell"];
+        if (pre) identifier = [identifier stringByAppendingString:pre];
+        if (idx) identifier = [identifier stringByAppendingString:@(section).stringValue];
+        if (![self.allReuseCells containsObject:identifier]) {
+            [self.allReuseCells addObject:identifier];
+            [self.allReuseHeaders setObject:identifier forKey:@(section).stringValue];
+            [self registerClass:cls forHeaderFooterViewReuseIdentifier:identifier];
+            cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+            HBaseHeaderFooterView *tmpCell = (HBaseHeaderFooterView *)cell;
+            tmpCell.table = self;
+            tmpCell.section = section;
+            //init method
+            if (iblk) {
+                HTableCellInitBlock initHeaderBlock = iblk;
+                if (initHeaderBlock) {
+                    initHeaderBlock(self);
+                }
+            }
+        }else {
+            cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+        }
+        if ([cell respondsToSelector:@selector(layoutContentView)]) {
+            [(HBaseHeaderFooterView *)cell layoutContentView];
+        }
+        return cell;
+    };
+    if ([self.tableDelegate respondsToSelector:@selector(tableView:headerTuple:inSection:)]) {
+        [self.tableDelegate tableView:self headerTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+            return HCellForHeaderBlock(iblk, cls, pre, idx);
+        } inSection:section];
+    }else if (self.headerTableBlock) {
+        self.headerTableBlock(^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+            return HCellForHeaderBlock(iblk, cls, pre, idx);
+        }, section);
+    }
+    return cell;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    __block UITableViewHeaderFooterView *cell = nil;
+    id (^HCellForFooterBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
+        NSString *identifier = NSStringFromClass(cls);
+        identifier = [identifier stringByAppendingString:[self string]];
+        identifier = [identifier stringByAppendingString:@"FooterCell"];
+        if (pre) identifier = [identifier stringByAppendingString:pre];
+        if (idx) identifier = [identifier stringByAppendingString:@(section).stringValue];
+        if (![self.allReuseCells containsObject:identifier]) {
+            [self.allReuseCells addObject:identifier];
+            [self.allReuseFooters setObject:identifier forKey:@(section).stringValue];
+            [self registerClass:cls forHeaderFooterViewReuseIdentifier:identifier];
+            cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+            HBaseHeaderFooterView *tmpCell = (HBaseHeaderFooterView *)cell;
+            tmpCell.table = self;
+            tmpCell.section = section;
+            //init method
+            if (iblk) {
+                HTableCellInitBlock initFooterBlock = iblk;
+                if (initFooterBlock) {
+                    initFooterBlock(self);
+                }
+            }
+        }else {
+            cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+        }
+        if ([cell respondsToSelector:@selector(layoutContentView)]) {
+            [(HBaseHeaderFooterView *)cell layoutContentView];
+        }
+        return cell;
+    };
+    if ([self.tableDelegate respondsToSelector:@selector(tableView:footerTuple:inSection:)]) {
+        [self.tableDelegate tableView:self footerTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+            return HCellForFooterBlock(iblk, cls, pre, idx);
+        } inSection:section];
+    }else if (self.footerTableBlock) {
+        self.footerTableBlock(^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+            return HCellForFooterBlock(iblk, cls, pre, idx);
+        }, section);
+    }
+    return cell;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    __block UITableViewCell *cell = nil;
+    id (^HCellForItemBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
+        NSString *identifier = NSStringFromClass(cls);
+        identifier = [identifier stringByAppendingString:[self string]];
+        identifier = [identifier stringByAppendingString:@"ItemCell"];
+        if (pre) identifier = [identifier stringByAppendingString:pre];
+        if (idx) identifier = [identifier stringByAppendingString:[indexPath string]];
+        if (![self.allReuseCells containsObject:identifier]) {
+            [self.allReuseCells addObject:identifier];
+            [self registerClass:cls forCellReuseIdentifier:identifier];
+            cell = [self dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+            HBaseCell *tmpCell = (HBaseCell *)cell;
+            tmpCell.table = self;
+            tmpCell.indexPath = indexPath;
+            //init method
+            if (iblk) {
+                HTableCellInitBlock initCellBlock = iblk;
+                if (initCellBlock) {
+                    initCellBlock(self);
+                }
+            }
+        }else {
+            cell = [self dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        }
+        if ([cell respondsToSelector:@selector(layoutContentView)]) {
+            [(HBaseCell *)cell layoutContentView];
+        }
+        return cell;
+    };
+    if ([self.tableDelegate respondsToSelector:@selector(tableView:itemTuple:atIndexPath:)]) {
+        [self.tableDelegate tableView:self itemTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+            return HCellForItemBlock(iblk, cls, pre, idx);
+        } atIndexPath:indexPath];
+    }else if (self.itemTableBlock) {
+        self.itemTableBlock(^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+            return HCellForItemBlock(iblk, cls, pre, idx);
+        }, indexPath);
+    }
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.tableDelegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
+        [self.tableDelegate tableView:tableView didSelectRowAtIndexPath:indexPath];
+    }else if (self.didSelectItemBlock) {
+        self.didSelectItemBlock(indexPath);
+    }
+}
+#pragma mark - UITableView Block
+- (void)tupleWithSections:(HNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items {
+    self.numberOfSectionsBlock = sections;
+    self.numberOfItemsBlock = items;
+}
+- (void)headerWithHeight:(HeightForHeaderBlock)height tuple:(HHeaderTableBlock)block {
+    self.heightForHeaderBlock = height;
+    self.headerTableBlock = block;
+}
+- (void)footerWithHeight:(HeightForFooterBlock)height tuple:(HFooterTableBlock)block {
+    self.heightForFooterBlock = height;
+    self.footerTableBlock = block;
+}
+- (void)itemWithHeight:(HeightForItemBlock)height tuple:(HItemTableBlock)block {
+    self.heightForItemBlock = height;
+    self.itemTableBlock = block;
+}
+- (void)didSelectItem:(HDidSelectItemBlock)block {
+    self.didSelectItemBlock = block;
 }
 @end

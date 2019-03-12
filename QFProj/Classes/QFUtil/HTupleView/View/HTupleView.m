@@ -324,6 +324,13 @@
             HTupleBaseCell *tmpCell = (HTupleBaseCell *)cell;
             tmpCell.collection = self;
             tmpCell.indexPath = indexPath;
+            //init method
+            if (iblk) {
+                HTupleCellInitBlock initCellBlock = iblk;
+                if (initCellBlock) {
+                    initCellBlock(self);
+                }
+            }
         }else {
             cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
         }
@@ -333,12 +340,6 @@
         }
         if ([cell respondsToSelector:@selector(edgeInsets)]) {
             [(HTupleBaseCell *)cell setEdgeInsets:edgeInsets];
-        }
-        if (iblk) {
-            HTupleCellInitBlock initCellBlock = iblk;
-            if (initCellBlock) {
-                initCellBlock(self);
-            }
         }
         if ([cell respondsToSelector:@selector(layoutContentView)]) {
             [(HTupleBaseCell *)cell layoutContentView];
@@ -373,6 +374,13 @@
                 HTupleBaseView *tmpCell = (HTupleBaseView *)cell;
                 tmpCell.collection = self;
                 tmpCell.indexPath = indexPath;
+                //init method
+                if (iblk) {
+                    HTupleCellInitBlock initHeaderBlock = iblk;
+                    if (initHeaderBlock) {
+                        initHeaderBlock(self);
+                    }
+                }
             }else {
                 cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
             }
@@ -382,12 +390,6 @@
             }
             if ([cell respondsToSelector:@selector(edgeInsets)]) {
                 [(HTupleBaseView *)cell setEdgeInsets:edgeInsets];
-            }
-            if (iblk) {
-                HTupleCellInitBlock initHeaderBlock = iblk;
-                if (initHeaderBlock) {
-                    initHeaderBlock(self);
-                }
             }
             if ([cell respondsToSelector:@selector(layoutContentView)]) {
                 [(HTupleBaseView *)cell layoutContentView];
@@ -418,6 +420,13 @@
                 HTupleBaseView *tmpCell = (HTupleBaseView *)cell;
                 tmpCell.collection = self;
                 tmpCell.indexPath = indexPath;
+                //init method
+                if (iblk) {
+                    HTupleCellInitBlock initFooterBlock = iblk;
+                    if (initFooterBlock) {
+                        initFooterBlock(self);
+                    }
+                }
             }else {
                 cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
             }
@@ -427,12 +436,6 @@
             }
             if ([cell respondsToSelector:@selector(edgeInsets)]) {
                 [(HTupleBaseView *)cell setEdgeInsets:edgeInsets];
-            }
-            if (iblk) {
-                HTupleCellInitBlock initFooterBlock = iblk;
-                if (initFooterBlock) {
-                    initFooterBlock(self);
-                }
             }
             if ([cell respondsToSelector:@selector(layoutContentView)]) {
                 [(HTupleBaseView *)cell layoutContentView];

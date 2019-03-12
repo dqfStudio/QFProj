@@ -8,7 +8,7 @@
 
 #import "HSectionModel.h"
 
-@class HTableView;
+@class KTableView;
 
 /**
  *  HTableModel implements some methods in UITableViewDelegate & UITableViewDataSource.

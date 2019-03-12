@@ -8,11 +8,11 @@
 
 #import "HCellModel.h"
 
-@class HTableView;
+@class KTableView;
 @class HSectionModel;
 
-typedef UIView *(^HViewRenderBlock)(NSInteger section, HTableView *table);
-typedef CGFloat (^HSectionHeightBlock)(NSInteger section, HTableView *table);
+typedef UIView *(^HViewRenderBlock)(NSInteger section, KTableView *table);
+typedef CGFloat (^HSectionHeightBlock)(NSInteger section, KTableView *table);
 
 typedef HSectionModel* HSM;
 

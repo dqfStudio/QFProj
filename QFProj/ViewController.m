@@ -18,7 +18,7 @@
 #import "HTupleVerticalCell.h"
 #import "HSimilarity.h"
 
-#import "HTableView.h"
+#import "KTableView.h"
 #import "HTableViewCell.h"
 #import "HLeftImageCell.h"
 
@@ -46,7 +46,7 @@
 @property (nonatomic) NSNumber *ww;
 @property (nonatomic) NSInteger /*2-2*/count2;
 @property (nonatomic) NSDate *date;
-@property (nonatomic) HTableView *table;
+@property (nonatomic) KTableView *table;
 @property (nonatomic) NSRange wcountRange;
 
 H_CheckProperty(NSInteger, rrr)
@@ -426,7 +426,7 @@ H_CheckPropertyRange(rrr, 0, 150)
 }
 
 - (HCellRenderBlock)renderBlock {
-    return ^UITableViewCell *(NSIndexPath *indexPath, HTableView *table) {
+    return ^UITableViewCell *(NSIndexPath *indexPath, KTableView *table) {
         
         HLeftImageCell *cell = [table registerCell:HLeftImageCell.class indexPath:indexPath];
         [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
@@ -453,7 +453,7 @@ H_CheckPropertyRange(rrr, 0, 150)
 }
 
 - (HCellRenderBlock)renderBlock2 {
-    return ^UITableViewCell *(NSIndexPath *indexPath, HTableView *table) {
+    return ^UITableViewCell *(NSIndexPath *indexPath, KTableView *table) {
         
         HTableViewCell *cell = [table registerCell:HTableViewCell.class indexPath:indexPath];
         [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
@@ -464,7 +464,7 @@ H_CheckPropertyRange(rrr, 0, 150)
 }
 
 - (HCellSelectionBlock)selectionBlock {
-    return ^(NSIndexPath *indexPath, HTableView *table) {
+    return ^(NSIndexPath *indexPath, KTableView *table) {
         [table deselectRowAtIndexPath:indexPath animated:YES];
     };
 }

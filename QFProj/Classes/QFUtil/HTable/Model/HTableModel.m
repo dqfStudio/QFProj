@@ -80,7 +80,7 @@
     HCellModel *cellModel = [self cellModelAtIndexPath:indexPath];
     HCellHeightBlock heightBlock = cellModel.heightBlock;
     if (heightBlock) {
-        return heightBlock(indexPath, (HTableView *)tableView);
+        return heightBlock(indexPath, (KTableView *)tableView);
     } else {
         return cellModel.height;
     }
@@ -89,7 +89,7 @@
     HSectionModel *sectionModel = [self sectionModelAtSection:section];
     HSectionHeightBlock headerHeightBlock = sectionModel.headerHeightBlock;
     if (headerHeightBlock) {
-        return headerHeightBlock(section, (HTableView *)tableView);
+        return headerHeightBlock(section, (KTableView *)tableView);
     } else {
         return sectionModel.headerHeight;
     }
@@ -98,7 +98,7 @@
     HSectionModel *sectionModel = [self sectionModelAtSection:section];
     HSectionHeightBlock footerHeightBlock = sectionModel.footerHeightBlock;
     if (footerHeightBlock) {
-        return footerHeightBlock(section, (HTableView *)tableView);
+        return footerHeightBlock(section, (KTableView *)tableView);
     } else {
         return sectionModel.footerHeight;
     }
@@ -107,7 +107,7 @@
     HSectionModel *sectionModel = [self sectionModelAtSection:section];
     HViewRenderBlock headerViewRenderBlock = sectionModel.headerViewRenderBlock;
     if (headerViewRenderBlock) {
-        return headerViewRenderBlock(section, (HTableView *)tableView);
+        return headerViewRenderBlock(section, (KTableView *)tableView);
     } else {
         return sectionModel.headerView;
     }
@@ -116,7 +116,7 @@
     HSectionModel *sectionModel = [self sectionModelAtSection:section];
     HViewRenderBlock footerViewRenderBlock = sectionModel.footerViewRenderBlock;
     if (footerViewRenderBlock) {
-        return footerViewRenderBlock(section, (HTableView *)tableView);
+        return footerViewRenderBlock(section, (KTableView *)tableView);
     } else {
         return sectionModel.footerView;
     }
@@ -126,7 +126,7 @@
     HCellModel *cellModel = [self cellModelAtIndexPath:indexPath];
     HCellWillSelectBlock willSelectBlock = cellModel.willSelectBlock;
     if (willSelectBlock) {
-        return willSelectBlock(indexPath, (HTableView *)tableView);
+        return willSelectBlock(indexPath, (KTableView *)tableView);
     }
     return indexPath;
 }
@@ -135,7 +135,7 @@
     HCellModel *cellModel = [self cellModelAtIndexPath:indexPath];
     HCellWillSelectBlock willDeselectBlock = cellModel.willDeselectBlock;
     if (willDeselectBlock) {
-        return willDeselectBlock(indexPath, (HTableView *)tableView);
+        return willDeselectBlock(indexPath, (KTableView *)tableView);
     }
     return indexPath;
 }
@@ -143,14 +143,14 @@
     HCellModel *cellModel = [self cellModelAtIndexPath:indexPath];
     HCellSelectionBlock selectionBlock = cellModel.selectionBlock;
     if (selectionBlock) {
-        selectionBlock(indexPath, (HTableView *)tableView);
+        selectionBlock(indexPath, (KTableView *)tableView);
     }
 }
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     HCellModel *cellModel = [self cellModelAtIndexPath:indexPath];
     HCellSelectionBlock deselectionBlock = cellModel.deselectionBlock;
     if (deselectionBlock) {
-        deselectionBlock(indexPath, (HTableView *)tableView);
+        deselectionBlock(indexPath, (KTableView *)tableView);
     }
 }
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -171,7 +171,7 @@
     UITableViewCell *cell = nil;
     HCellRenderBlock renderBlock = cellModel.renderBlock;
     if (renderBlock) {
-        cell = renderBlock(indexPath, (HTableView *)tableView);
+        cell = renderBlock(indexPath, (KTableView *)tableView);
     }
     return cell;
 }
@@ -179,7 +179,7 @@
     HCellModel *cellModel = [self cellModelAtIndexPath:indexPath];
     HCellWillDisplayBlock willDisplayBlock = cellModel.willDisplayBlock;
     if (willDisplayBlock) {
-        willDisplayBlock(cell, indexPath, (HTableView *)tableView);
+        willDisplayBlock(cell, indexPath, (KTableView *)tableView);
     }
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -198,7 +198,7 @@
     HCellModel *cellModel = [self cellModelAtIndexPath:indexPath];
     HCellCommitEditBlock commitEditBlock = cellModel.commitEditBlock;
     if (commitEditBlock) {
-        commitEditBlock(indexPath, (HTableView *)tableView, editingStyle);
+        commitEditBlock(indexPath, (KTableView *)tableView, editingStyle);
     }
 }
 

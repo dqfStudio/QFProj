@@ -11,7 +11,7 @@
 
 @class HTableSignal;
 
-typedef void(^HTableCellInitBlock)(void);
+typedef void(^HTableCellInitBlock)(id table);
 typedef void(^HTableCellSignalBlock)(HTableSignal *signal);
 
 @interface HTableSignal : NSObject

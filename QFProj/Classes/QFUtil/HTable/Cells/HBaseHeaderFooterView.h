@@ -19,4 +19,5 @@
 @property (nonatomic) NSInteger section;
 //子类覆盖
 - (void)initUI;
+- (void)layoutContentView;
 @end

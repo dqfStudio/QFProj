@@ -21,5 +21,6 @@
 @property (nonatomic) HCellModel *model;
 //子类覆盖
 - (void)initUI;
+- (void)layoutContentView;
 
 @end

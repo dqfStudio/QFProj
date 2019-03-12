@@ -11,7 +11,7 @@
 #import "MGHostUrlManager.h"
 
 @interface HDebugView ()
-@property (nonatomic) HTableView *tableView;
+@property (nonatomic) KTableView *tableView;
 @end
 
 @implementation HDebugView
@@ -39,9 +39,9 @@
     return self;
 }
 
-- (HTableView *)tableView {
+- (KTableView *)tableView {
     if (!_tableView) {
-        _tableView = [[HTableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame)-40)];
+        _tableView = [[KTableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame)-40)];
         [_tableView setBackgroundColor:[UIColor clearColor]];
     }
     return _tableView;
@@ -58,7 +58,7 @@
 }
 
 - (HCellRenderBlock)renderBlock {
-    return ^UITableViewCell *(NSIndexPath *indexPath, HTableView *table) {
+    return ^UITableViewCell *(NSIndexPath *indexPath, KTableView *table) {
         switch (indexPath.row) {
             case 0: {
                 HHostSegmentCell *cell = [table registerCell:HHostSegmentCell.class indexPath:indexPath initBlock:^(id cell) {
@@ -92,7 +92,7 @@
 }
 
 - (HCellSelectionBlock)selectionBlock {
-    return ^(NSIndexPath *indexPath, HTableView *table) {
+    return ^(NSIndexPath *indexPath, KTableView *table) {
         [table deselectRowAtIndexPath:indexPath animated:YES];
     };
 }

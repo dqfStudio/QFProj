@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HTableView.h"
+#import "KTableView.h"
 #import "HCommonDefine.h"
 
 @interface HDebugView : UIControl

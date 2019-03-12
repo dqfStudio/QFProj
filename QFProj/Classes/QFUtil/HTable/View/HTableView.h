@@ -21,12 +21,41 @@ typedef void (^HLoadMoreBlock)(void);
 typedef void(^HCellInitBlock)(id cell);
 typedef void(^HCHeaderFooterInitBlock)(id view);
 
-/**
- *  HTableView implements some methods in UITableViewDelegate & UITableViewDataSource.
- *  it can be used as the delegate & dataSource of a tableView.
- *  For those methods it doesn't implement, you can implement them in its subclass.
- */
-@interface HTableView : UITableView
+typedef id (^HHeaderBlock)(id iblk, Class cls, id pre, bool idx);
+typedef id (^HFooterBlock)(id iblk, Class cls, id pre, bool idx);
+typedef id (^HItemBlock)(id iblk, Class cls, id pre, bool idx);
+
+typedef CGFloat (^HNumberOfSectionsBlock)(void);
+typedef CGFloat (^HNumberOfItemsBlock)(NSInteger section);
+
+typedef CGFloat (^HeightForHeaderBlock)(NSInteger section);
+typedef CGFloat (^HeightForFooterBlock)(NSInteger section);
+typedef CGFloat (^HeightForItemBlock)(NSIndexPath *indexPath);
+
+typedef void (^HHeaderTableBlock)(HHeaderBlock headerBlock, NSInteger section);
+typedef void (^HFooterTableBlock)(HFooterBlock footerBlock, NSInteger section);
+typedef void (^HItemTableBlock)(HItemBlock itemBlock, NSIndexPath *indexPath);
+
+typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
+
+@protocol HTableViewDelegate <NSObject>
+@optional
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section;
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+
+- (void)tableView:(UITableView *)tableView headerTuple:(HHeaderBlock)headerBlock inSection:(NSInteger)section;
+- (void)tableView:(UITableView *)tableView footerTuple:(HFooterBlock)footerBlock inSection:(NSInteger)section;
+- (void)tableView:(UITableView *)tableView itemTuple:(HItemBlock)itemBlock atIndexPath:(NSIndexPath *)indexPath;
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+@end
+
+@interface HTableView : UITableView <HTableViewDelegate>
+@property (nonatomic, weak, nullable) id <HTableViewDelegate> tableDelegate;
 
 @property (nonatomic, assign) NSUInteger pageNo;    // page number, default 1
 @property (nonatomic, assign) NSUInteger pageSize;  // page size, default 20
@@ -36,53 +65,13 @@ typedef void(^HCHeaderFooterInitBlock)(id view);
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
-
-- (void)reloadModel;
-
-//clear all model
-- (void)clearModel;
-
-//begin refresh
-- (void)beginRefresh;
-
-//stop refresh
-- (void)endRefresh;
-
-#pragma --mark register cell
-
-- (id)registerCell:(Class)cellClass indexPath:(NSIndexPath *)indexPath;
-
-
-- (id)registerCell:(Class)cellClass indexPath:(NSIndexPath *)indexPath style:(UITableViewCellStyle)style;
-- (id)registerCell:(Class)cellClass indexPath:(NSIndexPath *)indexPath reuseIdentifier:(NSString *)reuseIdentifier;
-- (id)registerCell:(Class)cellClass indexPath:(NSIndexPath *)indexPath initBlock:(HCellInitBlock)block;
-
-
-- (id)registerCell:(Class)cellClass indexPath:(NSIndexPath *)indexPath style:(UITableViewCellStyle)style initBlock:(HCellInitBlock)block;
-- (id)registerCell:(Class)cellClass indexPath:(NSIndexPath *)indexPath reuseIdentifier:(NSString *)reuseIdentifier initBlock:(HCellInitBlock)block;
-- (id)registerCell:(Class)cellClass indexPath:(NSIndexPath *)indexPath style:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
-
-
-- (id)registerCell:(Class)cellClass indexPath:(NSIndexPath *)indexPath style:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier initBlock:(HCellInitBlock)block;
-
-
-- (id)registerHeader:(Class)cellClass section:(NSInteger)section;
-- (id)registerHeader:(Class)cellClass section:(NSInteger)section initBlock:(HCHeaderFooterInitBlock)block;
-- (id)registerHeader:(Class)cellClass section:(NSInteger)section reuseIdentifier:(NSString *)reuseIdentifier initBlock:(HCHeaderFooterInitBlock)block;
-
-
-- (id)registerFooter:(Class)cellClass section:(NSInteger)section;
-- (id)registerFooter:(Class)cellClass section:(NSInteger)section initBlock:(HCHeaderFooterInitBlock)block;
-- (id)registerFooter:(Class)cellClass section:(NSInteger)section reuseIdentifier:(NSString *)reuseIdentifier initBlock:(HCHeaderFooterInitBlock)block;
-
-#pragma --mark register cell
-
-- (void)refreshView:(id)object withArr:(NSArray *)arr;
-
-- (void)loadView:(id)object withArr:(NSArray *)arr;
-
-- (void)cellAtIndexPath:(NSIndexPath *)indexPath resetHeight:(NSInteger)height;
-
+- (instancetype)initWithFrame:(CGRect)frame;
+//block methods
+- (void)tupleWithSections:(HNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items;
+- (void)headerWithHeight:(HeightForHeaderBlock)height tuple:(HHeaderTableBlock)block;
+- (void)footerWithHeight:(HeightForFooterBlock)height tuple:(HFooterTableBlock)block;
+- (void)itemWithHeight:(HeightForItemBlock)height tuple:(HItemTableBlock)block;
+- (void)didSelectItem:(HDidSelectItemBlock)block;
 @end
 
 @interface UITableView ()
@@ -102,9 +91,15 @@ typedef void(^HCHeaderFooterInitBlock)(id view);
 - (void)signal:(HTableSignal *)signal footerSection:(NSInteger)section;
 
 - (id (^)(NSInteger row, NSInteger section))cell;
+- (id (^)(NSInteger row, NSInteger section))indexPath;
+
+- (CGFloat)width;
+- (CGFloat)height;
+- (NSString *)string;
 
 @end
 
-@interface NSArray (HTableView)
-- (NSArray *(^)(NSArray *))append;
+@interface NSIndexPath (HString)
+- (NSString *)string;
 @end
+

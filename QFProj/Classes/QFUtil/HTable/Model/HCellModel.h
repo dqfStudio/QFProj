@@ -9,15 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@class HTableView;
+@class KTableView;
 @class HCellModel;
 
-typedef CGFloat (^HCellHeightBlock)(NSIndexPath *indexPath, HTableView *table);
-typedef UITableViewCell * (^HCellRenderBlock)(NSIndexPath *indexPath, HTableView *table);
-typedef NSIndexPath * (^HCellWillSelectBlock)(NSIndexPath *indexPath, HTableView *table);
-typedef void (^HCellSelectionBlock)(NSIndexPath *indexPath, HTableView *table);
-typedef void (^HCellWillDisplayBlock)(UITableViewCell *cell, NSIndexPath *indexPath, HTableView *table);
-typedef void (^HCellCommitEditBlock)(NSIndexPath *indexPath, HTableView *table,
+typedef CGFloat (^HCellHeightBlock)(NSIndexPath *indexPath, KTableView *table);
+typedef UITableViewCell * (^HCellRenderBlock)(NSIndexPath *indexPath, KTableView *table);
+typedef NSIndexPath * (^HCellWillSelectBlock)(NSIndexPath *indexPath, KTableView *table);
+typedef void (^HCellSelectionBlock)(NSIndexPath *indexPath, KTableView *table);
+typedef void (^HCellWillDisplayBlock)(UITableViewCell *cell, NSIndexPath *indexPath, KTableView *table);
+typedef void (^HCellCommitEditBlock)(NSIndexPath *indexPath, KTableView *table,
 UITableViewCellEditingStyle editingStyle);
 
 typedef HCellModel* HCM;

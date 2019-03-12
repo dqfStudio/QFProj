@@ -21,4 +21,6 @@
 //子类覆盖
 - (void)initUI {}
 
+- (void)layoutContentView {};
+
 @end

@@ -22,6 +22,8 @@
 //子类覆盖
 - (void)initUI {}
 
+- (void)layoutContentView {};
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
