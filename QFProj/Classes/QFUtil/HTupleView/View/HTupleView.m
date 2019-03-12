@@ -236,19 +236,15 @@
         return [NSIndexPath indexPathForRow:row inSection:section];
     };
 }
-
 - (CGFloat)width {
     return CGRectGetWidth(self.frame);
 }
-
 - (CGFloat)height {
     return CGRectGetHeight(self.frame);
 }
-
 - (NSString *)string {
     return [NSString stringWithFormat:@"%p", self];
 }
-
 #pragma mark - UICollectionViewDatasource  & delegate
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {    
     if ([self.tupleDelegate respondsToSelector:@selector(numberOfSectionsInTupleView:)]) {
