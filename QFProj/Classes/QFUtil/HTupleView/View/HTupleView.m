@@ -275,6 +275,44 @@
     }
     return [UIColor clearColor];
 }
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 0.f;
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 0.f;
+}
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    if ([self.tupleDelegate respondsToSelector:@selector(tupleView:insetForSectionAtIndex:)]) {
+        return [self.tupleDelegate tupleView:self insetForSectionAtIndex:section];
+    }else if (self.insetForSectionBlock) {
+        return self.insetForSectionBlock(section);
+    }
+    return UIEdgeInsetsZero;
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    if ([self.tupleDelegate respondsToSelector:@selector(tupleView:sizeForHeaderInSection:)]) {
+        return [self.tupleDelegate tupleView:self sizeForHeaderInSection:section];
+    }else if (self.sizeForHeaderBlock) {
+        return self.sizeForHeaderBlock(section);
+    }
+    return CGSizeZero;
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+    if ([self.tupleDelegate respondsToSelector:@selector(tupleView:sizeForFooterInSection:)]) {
+        return [self.tupleDelegate tupleView:self sizeForFooterInSection:section];
+    }else if (self.sizeForFooterBlock) {
+        return self.sizeForFooterBlock(section);
+    }
+    return CGSizeZero;
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.tupleDelegate respondsToSelector:@selector(tupleView:sizeForItemAtIndexPath:)]) {
+        return [self.tupleDelegate tupleView:self sizeForItemAtIndexPath:indexPath];
+    }else if (self.sizeForItemBlock) {
+        return self.sizeForItemBlock(indexPath);
+    }
+    return CGSizeZero;
+}
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     __block UICollectionViewCell *cell = nil;
     id (^HCellForItemBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
@@ -321,30 +359,6 @@
         }, indexPath);
     }
     return cell;
-}
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self.tupleDelegate respondsToSelector:@selector(tupleView:sizeForItemAtIndexPath:)]) {
-        return [self.tupleDelegate tupleView:self sizeForItemAtIndexPath:indexPath];
-    }else if (self.sizeForItemBlock) {
-        return self.sizeForItemBlock(indexPath);
-    }
-    return CGSizeZero;
-}
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    if ([self.tupleDelegate respondsToSelector:@selector(tupleView:sizeForHeaderInSection:)]) {
-        return [self.tupleDelegate tupleView:self sizeForHeaderInSection:section];
-    }else if (self.sizeForHeaderBlock) {
-        return self.sizeForHeaderBlock(section);
-    }
-    return CGSizeZero;
-}
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
-    if ([self.tupleDelegate respondsToSelector:@selector(tupleView:sizeForFooterInSection:)]) {
-        return [self.tupleDelegate tupleView:self sizeForFooterInSection:section];
-    }else if (self.sizeForFooterBlock) {
-        return self.sizeForFooterBlock(section);
-    }
-    return CGSizeZero;
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     __block UICollectionReusableView *cell = nil;
@@ -447,20 +461,6 @@
     }else if (self.didSelectItemBlock) {
         self.didSelectItemBlock(indexPath);
     }
-}
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 0.f;
-}
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 0.f;
-}
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    if ([self.tupleDelegate respondsToSelector:@selector(tupleView:insetForSectionAtIndex:)]) {
-        return [self.tupleDelegate tupleView:self insetForSectionAtIndex:section];
-    }else if (self.insetForSectionBlock) {
-        return self.insetForSectionBlock(section);
-    }
-    return UIEdgeInsetsZero;
 }
 #pragma mark - UICollectionView Block
 - (void)tupleWithSections:(HNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items color:(HColorForSectionBlock)color inset:(HInsetForSectionBlock)inset {
