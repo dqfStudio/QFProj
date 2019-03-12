@@ -71,6 +71,22 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 - (void)tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
+@interface HTupleView : UICollectionView <HTupleViewDelegate, ULBCollectionViewDelegateFlowLayout>
+@property (nonatomic, weak, nullable) id <HTupleViewDelegate> tupleDelegate;
+- (instancetype)init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)initWithFrame:(CGRect)frame;
+- (instancetype)initWithFrame:(CGRect)frame style:(HTupleViewStyle)style;
+- (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction;
+- (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout;
+//block methods
+- (void)tupleWithSections:(HNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items color:(HColorForSectionBlock)color inset:(HInsetForSectionBlock)inset;
+- (void)headerWithSize:(HSizeForHeaderBlock)size edgeInsets:(HEdgeInsetsForHeaderBlock)edge tuple:(HHeaderTupleBlock)block;
+- (void)footerWithSize:(HSizeForFooterBlock)size edgeInsets:(HEdgeInsetsForFooterBlock)edge tuple:(HFooterTupleBlock)block;
+- (void)itemWithSize:(HSizeForItemBlock)size edgeInsets:(HEdgeInsetsForItemBlock)edge tuple:(HItemTupleBlock)block;
+- (void)didSelectItem:(HDidSelectItemBlock)block;
+@end
+
 @interface UICollectionView ()
 
 @property (nonatomic, copy) HTupleCellSignalBlock signalBlock;
@@ -98,20 +114,4 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 
 @interface NSIndexPath (HString)
 - (NSString *)string;
-@end
-
-@interface HTupleView : UICollectionView <HTupleViewDelegate, ULBCollectionViewDelegateFlowLayout>
-@property (nonatomic, weak, nullable) id <HTupleViewDelegate> tupleDelegate;
-- (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)new NS_UNAVAILABLE;
-- (instancetype)initWithFrame:(CGRect)frame;
-- (instancetype)initWithFrame:(CGRect)frame style:(HTupleViewStyle)style;
-- (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction;
-- (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout;
-//block methods
-- (void)tupleWithSections:(HNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items color:(HColorForSectionBlock)color inset:(HInsetForSectionBlock)inset;
-- (void)headerWithSize:(HSizeForHeaderBlock)size edgeInsets:(HEdgeInsetsForHeaderBlock)edge tuple:(HHeaderTupleBlock)block;
-- (void)footerWithSize:(HSizeForFooterBlock)size edgeInsets:(HEdgeInsetsForFooterBlock)edge tuple:(HFooterTupleBlock)block;
-- (void)itemWithSize:(HSizeForItemBlock)size edgeInsets:(HEdgeInsetsForItemBlock)edge tuple:(HItemTupleBlock)block;
-- (void)didSelectItem:(HDidSelectItemBlock)block;
 @end
