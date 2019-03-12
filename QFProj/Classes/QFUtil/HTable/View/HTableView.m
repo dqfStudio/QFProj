@@ -429,7 +429,7 @@
     }
 }
 #pragma mark - UITableView Block
-- (void)tupleWithSections:(HNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items {
+- (void)tableWithSections:(HNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items {
     self.numberOfSectionsBlock = sections;
     self.numberOfItemsBlock = items;
 }

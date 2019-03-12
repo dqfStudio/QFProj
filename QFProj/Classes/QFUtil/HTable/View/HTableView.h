@@ -67,7 +67,7 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)initWithFrame:(CGRect)frame;
 //block methods
-- (void)tupleWithSections:(HNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items;
+- (void)tableWithSections:(HNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items;
 - (void)headerWithHeight:(HeightForHeaderBlock)height tuple:(HHeaderTableBlock)block;
 - (void)footerWithHeight:(HeightForFooterBlock)height tuple:(HFooterTableBlock)block;
 - (void)itemWithHeight:(HeightForItemBlock)height tuple:(HItemTableBlock)block;
