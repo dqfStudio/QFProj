@@ -7,7 +7,6 @@
 //
 
 #import "HTableView.h"
-#import <objc/runtime.h>
 
 #define KDefaultPageSize 20
 

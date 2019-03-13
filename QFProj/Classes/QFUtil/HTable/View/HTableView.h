@@ -7,13 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HTableModel.h"
-#import "NSObject+selector.h"
-#import "HSectionModel.h"
 #import "HBaseHeaderFooterView.h"
 #import "HBaseCell.h"
 #import "HTableSignal.h"
-#import "NSIndexModel.h"
 #import "MJRefresh.h"
 
 typedef void (^HRefreshTableBlock)(void);
