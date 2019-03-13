@@ -23,8 +23,6 @@
 
 @interface HTableView () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) NSMutableSet *allReuseCells;
-@property (nonatomic) NSMutableDictionary *allReuseHeaders;
-@property (nonatomic) NSMutableDictionary *allReuseFooters;
 
 @property (nonatomic, copy) HANumberOfSectionsBlock numberOfSectionsBlock;
 @property (nonatomic, copy) HNumberOfCellsBlock numberOfCellsBlock;
@@ -57,6 +55,13 @@
     }
     return self;
 }
+- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
+    self = [super initWithFrame:frame style:style];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
 - (void)setup {
     self.alwaysBounceVertical = YES;
     self.backgroundColor = [UIColor clearColor];
@@ -73,8 +78,7 @@
     self.estimatedSectionFooterHeight = 0;
     
     _allReuseCells = [NSMutableSet new];
-    _allReuseHeaders = [NSMutableDictionary new];
-    _allReuseFooters = [NSMutableDictionary new];
+    self.tableFooterView = [UIView new];
     self.delegate = self;
     self.dataSource = self;
 }
@@ -310,7 +314,6 @@
         if (idx) identifier = [identifier stringByAppendingString:@(section).stringValue];
         if (![self.allReuseCells containsObject:identifier]) {
             [self.allReuseCells addObject:identifier];
-            [self.allReuseHeaders setObject:identifier forKey:@(section).stringValue];
             [self registerClass:cls forHeaderFooterViewReuseIdentifier:identifier];
             cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
             HBaseHeaderFooterView *tmpCell = (HBaseHeaderFooterView *)cell;
@@ -352,7 +355,6 @@
         if (idx) identifier = [identifier stringByAppendingString:@(section).stringValue];
         if (![self.allReuseCells containsObject:identifier]) {
             [self.allReuseCells addObject:identifier];
-            [self.allReuseFooters setObject:identifier forKey:@(section).stringValue];
             [self registerClass:cls forHeaderFooterViewReuseIdentifier:identifier];
             cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
             HBaseHeaderFooterView *tmpCell = (HBaseHeaderFooterView *)cell;
@@ -426,6 +428,7 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self deselectRowAtIndexPath:indexPath animated:YES];
     if ([self.tableDelegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
         [self.tableDelegate tableView:tableView didSelectRowAtIndexPath:indexPath];
     }else if (self.didSelectCellBlock) {
@@ -451,5 +454,10 @@
 }
 - (void)didSelectCell:(HDidSelectCellBlock)block {
     self.didSelectCellBlock = block;
+}
+- (void)deselectCell:(NSIndexPath *)indexPath {
+    if (indexPath) {
+        [self deselectRowAtIndexPath:indexPath animated:YES];
+    }
 }
 @end

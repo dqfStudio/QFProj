@@ -64,12 +64,14 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)initWithFrame:(CGRect)frame;
+- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style;
 //block methods
 - (void)tableWithSections:(HANumberOfSectionsBlock)sections cells:(HNumberOfCellsBlock)cells;
 - (void)headerWithHeight:(HeightForHeaderBlock)height tuple:(HHeaderTableBlock)block;
 - (void)footerWithHeight:(HeightForFooterBlock)height tuple:(HFooterTableBlock)block;
 - (void)cellWithHeight:(HeightForCellBlock)height tuple:(HCellTableBlock)block;
 - (void)didSelectCell:(HDidSelectCellBlock)block;
+- (void)deselectCell:(NSIndexPath *)indexPath;
 @end
 
 @interface UITableView ()
