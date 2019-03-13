@@ -23,11 +23,11 @@ typedef NS_OPTIONS(NSUInteger, HTupleViewStyle) {
     HTupleViewStyleSectionColorLayout
 };
 
-typedef id (^HHeaderBlock)(id iblk, Class cls, id pre, bool idx);
-typedef id (^HFooterBlock)(id iblk, Class cls, id pre, bool idx);
-typedef id (^HItemBlock)(id iblk, Class cls, id pre, bool idx);
+typedef id (^HHeaderTuple)(id iblk, Class cls, id pre, bool idx);
+typedef id (^HFooterTuple)(id iblk, Class cls, id pre, bool idx);
+typedef id (^HItemTuple)(id iblk, Class cls, id pre, bool idx);
 
-typedef CGFloat (^HNumberOfSectionsBlock)(void);
+typedef CGFloat (^HUNumberOfSectionsBlock)(void);
 typedef CGFloat (^HNumberOfItemsBlock)(NSInteger section);
 typedef UIColor *(^HColorForSectionBlock)(NSInteger section);
 
@@ -41,9 +41,9 @@ typedef UIEdgeInsets (^HEdgeInsetsForItemBlock)(NSIndexPath *indexPath);
 
 typedef UIEdgeInsets (^HInsetForSectionBlock)(NSInteger section);
 
-typedef void (^HHeaderTupleBlock)(HHeaderBlock headerBlock, NSInteger section);
-typedef void (^HFooterTupleBlock)(HFooterBlock footerBlock, NSInteger section);
-typedef void (^HItemTupleBlock)(HItemBlock itemBlock, NSIndexPath *indexPath);
+typedef void (^HHeaderTupleBlock)(HHeaderTuple headerBlock, NSInteger section);
+typedef void (^HFooterTupleBlock)(HFooterTuple footerBlock, NSInteger section);
+typedef void (^HItemTupleBlock)(HItemTuple itemBlock, NSIndexPath *indexPath);
 
 typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 
@@ -64,9 +64,9 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 
 - (UIEdgeInsets)tupleView:(UICollectionView *)tupleView insetForSectionAtIndex:(NSInteger)section;
 
-- (void)tupleView:(UICollectionView *)tupleView headerTuple:(HHeaderBlock)headerBlock inSection:(NSInteger)section;
-- (void)tupleView:(UICollectionView *)tupleView footerTuple:(HFooterBlock)footerBlock inSection:(NSInteger)section;
-- (void)tupleView:(UICollectionView *)tupleView itemTuple:(HItemBlock)itemBlock atIndexPath:(NSIndexPath *)indexPath;
+- (void)tupleView:(UICollectionView *)tupleView headerTuple:(HHeaderTuple)headerBlock inSection:(NSInteger)section;
+- (void)tupleView:(UICollectionView *)tupleView footerTuple:(HFooterTuple)footerBlock inSection:(NSInteger)section;
+- (void)tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath;
 
 - (void)tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 @end
@@ -80,7 +80,7 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 - (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction;
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout;
 //block methods
-- (void)tupleWithSections:(HNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items color:(HColorForSectionBlock)color inset:(HInsetForSectionBlock)inset;
+- (void)tupleWithSections:(HUNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items color:(HColorForSectionBlock)color inset:(HInsetForSectionBlock)inset;
 - (void)headerWithSize:(HSizeForHeaderBlock)size edgeInsets:(HEdgeInsetsForHeaderBlock)edge tuple:(HHeaderTupleBlock)block;
 - (void)footerWithSize:(HSizeForFooterBlock)size edgeInsets:(HEdgeInsetsForFooterBlock)edge tuple:(HFooterTupleBlock)block;
 - (void)itemWithSize:(HSizeForItemBlock)size edgeInsets:(HEdgeInsetsForItemBlock)edge tuple:(HItemTupleBlock)block;
@@ -110,8 +110,4 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 - (CGFloat)height;
 - (NSString *)string;
 
-@end
-
-@interface NSIndexPath (HTupleView)
-- (NSString *)string;
 @end

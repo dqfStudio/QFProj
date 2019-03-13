@@ -57,7 +57,7 @@
 - (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     return UIEdgeInsetsMake(10, 0, 10, 0);
 }
-- (void)tupleView:(UICollectionView *)tupleView itemTuple:(HItemBlock)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:{
             HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
@@ -106,7 +106,7 @@
     }
 }
 
-- (void)tupleView:(UICollectionView *)tupleView headerTuple:(HHeaderBlock)headerBlock inSection:(NSInteger)section {
+- (void)tupleView:(UICollectionView *)tupleView headerTuple:(HHeaderTuple)headerBlock inSection:(NSInteger)section {
     switch (section) {
         case 0:{
             HReusableLabelView *cell = headerBlock(nil, HReusableLabelView.class, nil, YES);

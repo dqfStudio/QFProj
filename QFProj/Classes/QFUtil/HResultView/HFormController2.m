@@ -89,7 +89,7 @@ static HFormController2 *formController = nil;
     return UIEdgeInsetsMake(10, 0, height, 0);
 }
 
-- (void)tupleView:(UICollectionView *)tupleView headerTuple:(HHeaderBlock)headerBlock inSection:(NSInteger)section {
+- (void)tupleView:(UICollectionView *)tupleView headerTuple:(HHeaderTuple)headerBlock inSection:(NSInteger)section {
     HReusableButtonView *cell = headerBlock(nil, HReusableButtonView.class, nil, YES);
     [cell.buttonView setBackgroundColor:[UIColor clearColor]];
 //    [cell.buttonView setPressed:^(id sender, id data) {
@@ -98,7 +98,7 @@ static HFormController2 *formController = nil;
 //    }];
 }
 
-- (void)tupleView:(UICollectionView *)tupleView footerTuple:(HFooterBlock)footerBlock inSection:(NSInteger)section {
+- (void)tupleView:(UICollectionView *)tupleView footerTuple:(HFooterTuple)footerBlock inSection:(NSInteger)section {
     HReusableButtonView *cell = footerBlock(nil, HReusableButtonView.class, nil, YES);
     [cell.buttonView setBackgroundColor:[UIColor whiteColor]];
     [cell.buttonView.button setTitleColor:[UIColor blackColor]];
@@ -109,7 +109,7 @@ static HFormController2 *formController = nil;
     }];
 }
 
-- (void)tupleView:(UICollectionView *)tupleView itemTuple:(HItemBlock)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     
     HFormCell *cell = itemBlock(nil, HFormCell.class, nil, YES);
 

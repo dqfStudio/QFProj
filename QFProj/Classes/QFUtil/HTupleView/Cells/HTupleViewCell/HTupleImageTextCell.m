@@ -45,7 +45,7 @@
         default: return CGSizeZero;
     }
 }
-- (void)tupleView:(UICollectionView *)tupleView itemTuple:(HItemBlock)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:{
             HImageViewCell *cell = itemBlock(nil, HImageViewCell.class, nil, YES);

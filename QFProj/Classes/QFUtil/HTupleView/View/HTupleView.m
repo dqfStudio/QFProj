@@ -8,6 +8,10 @@
 
 #import "HTupleView.h"
 
+@interface NSIndexPath (HTupleView)
+- (NSString *)string;
+@end
+
 @implementation NSIndexPath (HTupleView)
 - (NSString *)string {
     return [NSString stringWithFormat:@"%@%@",@(self.section),@(self.row)];
@@ -19,7 +23,7 @@
 @property (nonatomic) NSMutableDictionary *allReuseHeaders;
 @property (nonatomic) NSMutableDictionary *allReuseFooters;
 
-@property (nonatomic, copy) HNumberOfSectionsBlock numberOfSectionsBlock;
+@property (nonatomic, copy) HUNumberOfSectionsBlock numberOfSectionsBlock;
 @property (nonatomic, copy) HNumberOfItemsBlock numberOfItemsBlock;
 @property (nonatomic, copy) HColorForSectionBlock colorForSectionBlock;
 
@@ -462,7 +466,7 @@
     }
 }
 #pragma mark - UICollectionView Block
-- (void)tupleWithSections:(HNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items color:(HColorForSectionBlock)color inset:(HInsetForSectionBlock)inset {
+- (void)tupleWithSections:(HUNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items color:(HColorForSectionBlock)color inset:(HInsetForSectionBlock)inset {
     self.numberOfSectionsBlock = sections;
     self.numberOfItemsBlock = items;
     self.colorForSectionBlock = color;

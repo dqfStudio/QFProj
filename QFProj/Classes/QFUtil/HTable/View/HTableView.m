@@ -11,6 +11,10 @@
 
 #define KDefaultPageSize 20
 
+@interface NSIndexPath (HTableView)
+- (NSString *)string;
+@end
+
 @implementation NSIndexPath (HTableView)
 - (NSString *)string {
     return [NSString stringWithFormat:@"%@%@",@(self.section),@(self.row)];
@@ -22,18 +26,18 @@
 @property (nonatomic) NSMutableDictionary *allReuseHeaders;
 @property (nonatomic) NSMutableDictionary *allReuseFooters;
 
-@property (nonatomic, copy) HNumberOfSectionsBlock numberOfSectionsBlock;
-@property (nonatomic, copy) HNumberOfItemsBlock numberOfItemsBlock;
+@property (nonatomic, copy) HANumberOfSectionsBlock numberOfSectionsBlock;
+@property (nonatomic, copy) HNumberOfCellsBlock numberOfCellsBlock;
 
 @property (nonatomic, copy) HeightForHeaderBlock heightForHeaderBlock;
 @property (nonatomic, copy) HeightForFooterBlock heightForFooterBlock;
-@property (nonatomic, copy) HeightForItemBlock heightForItemBlock;
+@property (nonatomic, copy) HeightForCellBlock heightForCellBlock;
 
 @property (nonatomic, copy) HHeaderTableBlock headerTableBlock;
 @property (nonatomic, copy) HFooterTableBlock footerTableBlock;
-@property (nonatomic, copy) HItemTableBlock itemTableBlock;
+@property (nonatomic, copy) HCellTableBlock cellTableBlock;
 
-@property (nonatomic, copy) HDidSelectItemBlock didSelectItemBlock;
+@property (nonatomic, copy) HDidSelectCellBlock didSelectCellBlock;
 @end
 
 @implementation HTableView
@@ -112,7 +116,7 @@
     [self.mj_header endRefreshing];
     [self.mj_footer endRefreshing];
 }
-- (void)setRefreshBlock:(HRefreshBlock)refreshBlock {
+- (void)setRefreshBlock:(HRefreshTableBlock)refreshBlock {
     _refreshBlock = refreshBlock;
     if (_refreshBlock) {
         self.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -123,7 +127,7 @@
         self.mj_header = nil;
     }
 }
-- (void)setLoadMoreBlock:(HLoadMoreBlock)loadMoreBlock {
+- (void)setLoadMoreBlock:(HLoadMoreTableBlock)loadMoreBlock {
     _loadMoreBlock = loadMoreBlock;
     if (_loadMoreBlock) {
         [self setPageNo:1];
@@ -141,12 +145,12 @@
         self.signalBlock(signal);
     }
 }
-- (void)signalToAllItems:(HTableSignal *)signal {
+- (void)signalToAllCells:(HTableSignal *)signal {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         NSInteger sections = [self numberOfSections];
         for (int i=0; i<sections; i++) {
-            NSInteger items = [self numberOfRowsInSection:i];
-            for (int j=0; j<items; j++) {
+            NSInteger cells = [self numberOfRowsInSection:i];
+            for (int j=0; j<cells; j++) {
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:j inSection:i];
                 UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
                 if (cell.signalBlock) {
@@ -158,10 +162,10 @@
         }
     });
 }
-- (void)signal:(HTableSignal *)signal itemSection:(NSInteger)section {
+- (void)signal:(HTableSignal *)signal cellSection:(NSInteger)section {
     dispatch_async(dispatch_queue_create(0, 0), ^{
-        NSInteger items = [self numberOfRowsInSection:section];
-        for (int i=0; i<items; i++) {
+        NSInteger cells = [self numberOfRowsInSection:section];
+        for (int i=0; i<cells; i++) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:section];
             UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
             if (cell.signalBlock) {
@@ -267,8 +271,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if ([self.tableDelegate respondsToSelector:@selector(tableView:numberOfRowsInSection:)]) {
         return [self.tableDelegate tableView:tableView numberOfRowsInSection:section];
-    }else if (self.numberOfItemsBlock) {
-        return self.numberOfItemsBlock(section);
+    }else if (self.numberOfCellsBlock) {
+        return self.numberOfCellsBlock(section);
     }
     return 0;
 }
@@ -291,8 +295,8 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self.tableDelegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
         return [self.tableDelegate tableView:tableView heightForRowAtIndexPath:indexPath];
-    }else if (self.heightForItemBlock) {
-        return self.heightForItemBlock(indexPath);
+    }else if (self.heightForCellBlock) {
+        return self.heightForCellBlock(indexPath);
     }
     return 0.f;
 }
@@ -410,12 +414,12 @@
         }
         return cell;
     };
-    if ([self.tableDelegate respondsToSelector:@selector(tableView:itemTuple:atIndexPath:)]) {
-        [self.tableDelegate tableView:self itemTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+    if ([self.tableDelegate respondsToSelector:@selector(tableView:cellTuple:atIndexPath:)]) {
+        [self.tableDelegate tableView:self cellTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
             return HCellForItemBlock(iblk, cls, pre, idx);
         } atIndexPath:indexPath];
-    }else if (self.itemTableBlock) {
-        self.itemTableBlock(^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+    }else if (self.cellTableBlock) {
+        self.cellTableBlock(^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
             return HCellForItemBlock(iblk, cls, pre, idx);
         }, indexPath);
     }
@@ -424,14 +428,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self.tableDelegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
         [self.tableDelegate tableView:tableView didSelectRowAtIndexPath:indexPath];
-    }else if (self.didSelectItemBlock) {
-        self.didSelectItemBlock(indexPath);
+    }else if (self.didSelectCellBlock) {
+        self.didSelectCellBlock(indexPath);
     }
 }
 #pragma mark - UITableView Block
-- (void)tableWithSections:(HNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items {
+- (void)tableWithSections:(HANumberOfSectionsBlock)sections cells:(HNumberOfCellsBlock)cells {
     self.numberOfSectionsBlock = sections;
-    self.numberOfItemsBlock = items;
+    self.numberOfCellsBlock = cells;
 }
 - (void)headerWithHeight:(HeightForHeaderBlock)height tuple:(HHeaderTableBlock)block {
     self.heightForHeaderBlock = height;
@@ -441,11 +445,11 @@
     self.heightForFooterBlock = height;
     self.footerTableBlock = block;
 }
-- (void)itemWithHeight:(HeightForItemBlock)height tuple:(HItemTableBlock)block {
-    self.heightForItemBlock = height;
-    self.itemTableBlock = block;
+- (void)cellWithHeight:(HeightForCellBlock)height tuple:(HCellTableBlock)block {
+    self.heightForCellBlock = height;
+    self.cellTableBlock = block;
 }
-- (void)didSelectItem:(HDidSelectItemBlock)block {
-    self.didSelectItemBlock = block;
+- (void)didSelectCell:(HDidSelectCellBlock)block {
+    self.didSelectCellBlock = block;
 }
 @end

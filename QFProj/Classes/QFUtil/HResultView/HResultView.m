@@ -203,15 +203,15 @@
     return UIEdgeInsetsZero;
 }
 
-- (void)tupleView:(UICollectionView *)tupleView headerTuple:(HHeaderBlock)headerBlock inSection:(NSInteger)section {
+- (void)tupleView:(UICollectionView *)tupleView headerTuple:(HHeaderTuple)headerBlock inSection:(NSInteger)section {
     headerBlock(nil, HViewCell.class, nil, YES);
 }
 
-- (void)tupleView:(UICollectionView *)tupleView footerTuple:(HFooterBlock)footerBlock inSection:(NSInteger)section {
+- (void)tupleView:(UICollectionView *)tupleView footerTuple:(HFooterTuple)footerBlock inSection:(NSInteger)section {
     footerBlock(nil, HViewCell.class, nil, YES);
 }
 
-- (void)tupleView:(UICollectionView *)tupleView itemTuple:(HItemBlock)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
             if (!_hideImage) {
