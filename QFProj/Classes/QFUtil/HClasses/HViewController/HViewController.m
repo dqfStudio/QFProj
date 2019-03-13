@@ -119,6 +119,16 @@
         }];
     }
     _controllableRequests = nil;
+#if DEBUG
+    NSString *message = [NSStringFromClass(self.class) stringByAppendingString:@"--释放内存"];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨提示" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"我知道了"
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:^(UIAlertAction * _Nonnull action) {}];
+    [alertController addAction:cancelAction];
+    UIViewController *rootController = [UIApplication sharedApplication].delegate.window.rootViewController;
+    [rootController presentViewController:alertController animated:YES completion:nil];
+#endif
 }
 
 - (void)viewDidLoad {

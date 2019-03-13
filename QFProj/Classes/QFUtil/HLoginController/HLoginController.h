@@ -10,7 +10,8 @@
 #import "UITextField+HRegular.h"
 #import "HNumericValidator.h"
 #import "HPhoneValidator.h"
+#import "HViewController.h"
 
-@interface HLoginController : UIViewController
+@interface HLoginController : HViewController
 
 @end
