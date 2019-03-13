@@ -87,21 +87,21 @@ typedef void(^HCHeaderFooterInitBlock)(id view);
 
 @interface UITableView ()
 
-@property (nonatomic, copy) HTableCellSignalBlock signalBlock;
-
-- (void)signalToTable:(HTableSignal *)signal;
-
-- (void)signalToAllItems:(HTableSignal *)signal;
-- (void)signal:(HTableSignal *)signal itemSection:(NSInteger)section;
-- (void)signal:(HTableSignal *)signal indexPath:(NSIndexPath *)indexPath;
-
-- (void)signalToAllHeader:(HTableSignal *)signal;
-- (void)signal:(HTableSignal *)signal headerSection:(NSInteger)section;
-
-- (void)signalToAllFooter:(HTableSignal *)signal;
-- (void)signal:(HTableSignal *)signal footerSection:(NSInteger)section;
-
-- (id (^)(NSInteger row, NSInteger section))cell;
+//@property (nonatomic, copy) HTableCellSignalBlock signalBlock;
+//
+//- (void)signalToTable:(HTableSignal *)signal;
+//
+//- (void)signalToAllItems:(HTableSignal *)signal;
+//- (void)signal:(HTableSignal *)signal itemSection:(NSInteger)section;
+//- (void)signal:(HTableSignal *)signal indexPath:(NSIndexPath *)indexPath;
+//
+//- (void)signalToAllHeader:(HTableSignal *)signal;
+//- (void)signal:(HTableSignal *)signal headerSection:(NSInteger)section;
+//
+//- (void)signalToAllFooter:(HTableSignal *)signal;
+//- (void)signal:(HTableSignal *)signal footerSection:(NSInteger)section;
+//
+//- (id (^)(NSInteger row, NSInteger section))cell;
 
 @end
 

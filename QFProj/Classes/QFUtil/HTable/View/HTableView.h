@@ -18,8 +18,6 @@
 
 typedef void (^HRefreshBlock)(void);
 typedef void (^HLoadMoreBlock)(void);
-typedef void(^HCellInitBlock)(id cell);
-typedef void(^HCHeaderFooterInitBlock)(id view);
 
 typedef id (^HHeaderBlock)(id iblk, Class cls, id pre, bool idx);
 typedef id (^HFooterBlock)(id iblk, Class cls, id pre, bool idx);
@@ -99,7 +97,7 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 
 @end
 
-@interface NSIndexPath (HString)
+@interface NSIndexPath (HTableView)
 - (NSString *)string;
 @end
 

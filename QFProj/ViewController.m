@@ -36,6 +36,8 @@
 #import "HPrinterHeader.h"
 #import "UIImage+HName.h"
 #import "HLoginController.h"
+#import "HTableView.h"
+#import "HTupleView.h"
 
 @interface ViewController () <HTupleViewDelegate> {
     UILabel *label;

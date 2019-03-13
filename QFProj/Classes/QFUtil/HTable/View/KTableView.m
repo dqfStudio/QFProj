@@ -351,9 +351,9 @@ typedef NS_ENUM(NSInteger, HTableViewFormatType) {
 
 #pragma mark - signal
 - (void)signalToTable:(HTableSignal *)signal {
-    if (self.signalBlock) {
-        self.signalBlock(signal);
-    }
+//    if (self.signalBlock) {
+//        self.signalBlock(signal);
+//    }
 }
 - (void)signalToAllItems:(HTableSignal *)signal {
     dispatch_async(dispatch_queue_create(0, 0), ^{

@@ -11,7 +11,7 @@
 
 #define KDefaultPageSize 20
 
-@implementation NSIndexPath (HString)
+@implementation NSIndexPath (HTableView)
 - (NSString *)string {
     return [NSString stringWithFormat:@"%@%@",@(self.section),@(self.row)];
 }

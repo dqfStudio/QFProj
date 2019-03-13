@@ -112,6 +112,6 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 
 @end
 
-@interface NSIndexPath (HString)
+@interface NSIndexPath (HTupleView)
 - (NSString *)string;
 @end

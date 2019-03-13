@@ -8,7 +8,7 @@
 
 #import "HTupleView.h"
 
-@implementation NSIndexPath (HString)
+@implementation NSIndexPath (HTupleView)
 - (NSString *)string {
     return [NSString stringWithFormat:@"%@%@",@(self.section),@(self.row)];
 }
