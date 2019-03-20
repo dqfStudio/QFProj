@@ -18,6 +18,10 @@
     return [mockString substringWithRange:NSMakeRange(index, 3)];
 }
 
+- (NSString *)stringValue {
+    return self;
+}
+
 - (id)JSONValue {
     NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error = nil;

@@ -14,6 +14,8 @@
 //用于测试阶段自动生成字符串
 + (NSString *)testString;
 
+- (NSString *)stringValue;
+
 - (id)JSONValue;
 
 - (NSString *)trim;
