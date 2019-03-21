@@ -52,7 +52,6 @@
 #import "NSArray+HSafeUtil.h"
 #import "NSDictionary+HSafeUtil.h"
 #import "NSObject+HSafeNotify.h"
-#import "NSObject+HSafeSEL.h"
 #import "NSObject+HSwizzleUtil.h"
 #import "NSString+HSafeUtil.h"
 #import "NSTimer+HSafeUtil.h"

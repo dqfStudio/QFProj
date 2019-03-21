@@ -92,7 +92,6 @@
 		15B4DE0C2092F96C00773E04 /* NSTimer+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDDC2092F96B00773E04 /* NSTimer+HSafeUtil.m */; };
 		15B4DE0D2092F96C00773E04 /* NSObject+HSafeNotify.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDDD2092F96B00773E04 /* NSObject+HSafeNotify.m */; };
 		15B4DE0E2092F96C00773E04 /* NSDictionary+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDDE2092F96B00773E04 /* NSDictionary+HSafeUtil.m */; };
-		15B4DE0F2092F96C00773E04 /* NSObject+HSafeSEL.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDDF2092F96B00773E04 /* NSObject+HSafeSEL.m */; };
 		15B4DE102092F96C00773E04 /* HNotiCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDE02092F96B00773E04 /* HNotiCenter.m */; };
 		15B4DE112092F96C00773E04 /* NSArray+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDE32092F96B00773E04 /* NSArray+HSafeUtil.m */; };
 		15B4DE122092F96C00773E04 /* NSObject+HSwizzleUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDE42092F96B00773E04 /* NSObject+HSwizzleUtil.m */; };
@@ -384,7 +383,6 @@
 		15B4DDD32092F96B00773E04 /* HViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HViewController.m; sourceTree = "<group>"; };
 		15B4DDD42092F96B00773E04 /* HViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HViewController.h; sourceTree = "<group>"; };
 		15B4DDD62092F96B00773E04 /* HNotiCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNotiCenter.h; sourceTree = "<group>"; };
-		15B4DDD72092F96B00773E04 /* NSObject+HSafeSEL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeSEL.h"; sourceTree = "<group>"; };
 		15B4DDD82092F96B00773E04 /* UIControl+HSafeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+HSafeUtil.h"; sourceTree = "<group>"; };
 		15B4DDD92092F96B00773E04 /* NSObject+HSwizzleUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSwizzleUtil.h"; sourceTree = "<group>"; };
 		15B4DDDA2092F96B00773E04 /* NSArray+HSafeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+HSafeUtil.h"; sourceTree = "<group>"; };
@@ -392,7 +390,6 @@
 		15B4DDDC2092F96B00773E04 /* NSTimer+HSafeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+HSafeUtil.m"; sourceTree = "<group>"; };
 		15B4DDDD2092F96B00773E04 /* NSObject+HSafeNotify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSafeNotify.m"; sourceTree = "<group>"; };
 		15B4DDDE2092F96B00773E04 /* NSDictionary+HSafeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+HSafeUtil.m"; sourceTree = "<group>"; };
-		15B4DDDF2092F96B00773E04 /* NSObject+HSafeSEL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSafeSEL.m"; sourceTree = "<group>"; };
 		15B4DDE02092F96B00773E04 /* HNotiCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNotiCenter.m; sourceTree = "<group>"; };
 		15B4DDE12092F96B00773E04 /* NSTimer+HSafeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+HSafeUtil.h"; sourceTree = "<group>"; };
 		15B4DDE22092F96B00773E04 /* NSString+HSafeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HSafeUtil.h"; sourceTree = "<group>"; };
@@ -1118,8 +1115,6 @@
 				15B4DDDE2092F96B00773E04 /* NSDictionary+HSafeUtil.m */,
 				15B4DDE72092F96B00773E04 /* NSObject+HSafeNotify.h */,
 				15B4DDDD2092F96B00773E04 /* NSObject+HSafeNotify.m */,
-				15B4DDD72092F96B00773E04 /* NSObject+HSafeSEL.h */,
-				15B4DDDF2092F96B00773E04 /* NSObject+HSafeSEL.m */,
 				A2DC22B622424F2F00E540BE /* NSObject+HSafeMessy.h */,
 				A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */,
 				15B4DDD92092F96B00773E04 /* NSObject+HSwizzleUtil.h */,
@@ -1813,7 +1808,6 @@
 				1547B890210C4E09009E0374 /* UIControl+HTracking.m in Sources */,
 				15C5738520B3DD9F0070327C /* HTableModel.m in Sources */,
 				A2ED9C1222314BA100C9D050 /* SimplePing.m in Sources */,
-				15B4DE0F2092F96C00773E04 /* NSObject+HSafeSEL.m in Sources */,
 				1528DF4C20BF0FE200D0A004 /* UIAlertController+HUtil.m in Sources */,
 				15B4DDEB2092F96C00773E04 /* UIView+HDebug.m in Sources */,
 				A4759710217EC61D00AAAEA9 /* HUserDefaults.m in Sources */,

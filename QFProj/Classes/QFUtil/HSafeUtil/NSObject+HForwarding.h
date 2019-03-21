@@ -9,66 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-@interface NSString (HForwarding)
-
-@end
-
-@interface NSValue (HForwarding)
-
-@end
-
-@interface UIResponder (HForwarding)
-
-@end
-
-@interface NSSet (HForwarding)
-
-@end
-
-@interface NSArray (HForwarding)
-
-@end
-
-@interface NSDictionary (HForwarding)
-
-@end
-
-@interface NSTimer (HForwarding)
-
-@end
-
-@interface NSNull (HForwarding)
-
-@end
-
-@interface NSError (HForwarding)
-
-@end
-
-@interface NSData (HForwarding)
-
-@end
-
-@interface NSDate (HForwarding)
-
-@end
-
-@interface UIFont (HForwarding)
-
-@end
-
-@interface UIImage (HForwarding)
-
-@end
-
-@interface UIScreen (HForwarding)
-
-@end
-
-@interface UIDevice (HForwarding)
-
-@end
-
-@interface UIColor (HForwarding)
+@interface NSObject (HForwarding)
 
 @end
