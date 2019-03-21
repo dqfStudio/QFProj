@@ -27,6 +27,14 @@
 //
 //}
 //#pragma clang diagnostic pop
+//- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+//    Method method = class_getInstanceMethod(self.class, aSelector);
+//    struct objc_method_description methodDescription = *method_getDescription(method);
+//    return [NSMethodSignature signatureWithObjCTypes:methodDescription.types];
+//}
+//- (void)forwardInvocation:(NSInvocation *)anInvocation {
+//
+//}
 @end
 
 @implementation NSString (HForwarding)

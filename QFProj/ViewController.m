@@ -68,6 +68,9 @@ H_CheckPropertyRange(rrr, 0, 150)
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    [self performSelector:@selector(sffas:)];
+    
     UIImageView *imageView = UIImageView.new;
     UIImage *image = [UIImage imageNamed:@"qq"];
     NSLog(@"%@",image.accessibilityIdentifier);
