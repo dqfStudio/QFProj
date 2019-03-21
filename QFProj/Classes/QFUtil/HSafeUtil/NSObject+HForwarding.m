@@ -8,15 +8,146 @@
 
 #import "NSObject+HForwarding.h"
 
-@implementation NSObject (HForwarding)
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
-//方法签名
+@implementation NSString (HForwarding)
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
+}
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+
+}
+@end
+
+@implementation NSValue (HForwarding)
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
     return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
 }
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
     
 }
-#pragma clang diagnostic pop
+@end
+
+@implementation UIResponder (HForwarding)
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
+}
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    
+}
+@end
+
+@implementation NSSet (HForwarding)
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
+}
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    
+}
+@end
+
+@implementation NSArray (HForwarding)
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
+}
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    
+}
+@end
+
+@implementation NSDictionary (HForwarding)
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
+}
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    
+}
+@end
+
+@implementation NSTimer (HForwarding)
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
+}
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    
+}
+@end
+
+@implementation NSNull (HForwarding)
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
+}
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    
+}
+@end
+
+@implementation NSError (HForwarding)
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
+}
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    
+}
+@end
+
+@implementation NSData (HForwarding)
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
+}
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    
+}
+@end
+
+@implementation NSDate (HForwarding)
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
+}
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    
+}
+@end
+
+@implementation UIFont (HForwarding)
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
+}
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    
+}
+@end
+
+@implementation UIImage (HForwarding)
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
+}
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    
+}
+@end
+
+@implementation UIScreen (HForwarding)
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
+}
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    
+}
+@end
+
+@implementation UIDevice (HForwarding)
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
+}
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    
+}
+@end
+
+@implementation UIColor (HForwarding)
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
+}
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    
+}
 @end
