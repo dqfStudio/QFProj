@@ -8,6 +8,23 @@
 
 #import "NSObject+HForwarding.h"
 
+//NSString *string = @"v@:";
+//NSString *string = @"@@:";
+//string = [string stringByAppendingString:@"@"];
+
+#define KMethodSignature \
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {\
+    NSString *selectorString = NSStringFromSelector(aSelector);\
+    NSUInteger count = [[selectorString componentsSeparatedByString:@":"] count] - 1;\
+    NSString *string = @":@:";\
+    for (int i=0; i<count; i++) {\
+        string = [string stringByAppendingString:@":"];\
+    }\
+    return [NSMethodSignature signatureWithObjCTypes:[string UTF8String]];\
+}\
+- (void)forwardInvocation:(NSInvocation *)anInvocation {}\
+
+
 @implementation NSObject (HForwarding)
 //#pragma clang diagnostic push
 //#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
@@ -27,300 +44,68 @@
 //
 //}
 //#pragma clang diagnostic pop
-//- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-//    Method method = class_getInstanceMethod(self.class, aSelector);
-//    struct objc_method_description methodDescription = *method_getDescription(method);
-//    return [NSMethodSignature signatureWithObjCTypes:methodDescription.types];
-//}
-//- (void)forwardInvocation:(NSInvocation *)anInvocation {
-//
-//}
 @end
 
 @implementation NSString (HForwarding)
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    NSString *selectorString = NSStringFromSelector(aSelector);
-    NSUInteger count = [[selectorString componentsSeparatedByString:@":"] count] - 1;
-    //NSString *string = @"v@:";
-    //NSString *string = @"@@:";
-    NSString *string = @":@:";
-    for (int i=0; i<count; i++) {
-        string = [string stringByAppendingString:@":"];
-        //string = [string stringByAppendingString:@"@"];
-    }
-    return [NSMethodSignature signatureWithObjCTypes:[string UTF8String]];
-}
-- (void)forwardInvocation:(NSInvocation *)anInvocation {
-    
-}
+KMethodSignature
 @end
 
 @implementation NSValue (HForwarding)
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    NSString *selectorString = NSStringFromSelector(aSelector);
-    NSUInteger count = [[selectorString componentsSeparatedByString:@":"] count] - 1;
-    //NSString *string = @"v@:";
-    //NSString *string = @"@@:";
-    NSString *string = @":@:";
-    for (int i=0; i<count; i++) {
-        string = [string stringByAppendingString:@":"];
-        //string = [string stringByAppendingString:@"@"];
-    }
-    return [NSMethodSignature signatureWithObjCTypes:[string UTF8String]];
-}
-- (void)forwardInvocation:(NSInvocation *)anInvocation {
-    
-}
+KMethodSignature
 @end
 
 @implementation UIResponder (HForwarding)
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    NSString *selectorString = NSStringFromSelector(aSelector);
-    NSUInteger count = [[selectorString componentsSeparatedByString:@":"] count] - 1;
-    //NSString *string = @"v@:";
-    //NSString *string = @"@@:";
-    NSString *string = @":@:";
-    for (int i=0; i<count; i++) {
-        string = [string stringByAppendingString:@":"];
-        //string = [string stringByAppendingString:@"@"];
-    }
-    return [NSMethodSignature signatureWithObjCTypes:[string UTF8String]];
-}
-- (void)forwardInvocation:(NSInvocation *)anInvocation {
-    
-}
+KMethodSignature
 @end
 
 @implementation NSSet (HForwarding)
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    NSString *selectorString = NSStringFromSelector(aSelector);
-    NSUInteger count = [[selectorString componentsSeparatedByString:@":"] count] - 1;
-    //NSString *string = @"v@:";
-    //NSString *string = @"@@:";
-    NSString *string = @":@:";
-    for (int i=0; i<count; i++) {
-        string = [string stringByAppendingString:@":"];
-        //string = [string stringByAppendingString:@"@"];
-    }
-    return [NSMethodSignature signatureWithObjCTypes:[string UTF8String]];
-}
-- (void)forwardInvocation:(NSInvocation *)anInvocation {
-    
-}
+KMethodSignature
 @end
 
 @implementation NSArray (HForwarding)
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    NSString *selectorString = NSStringFromSelector(aSelector);
-    NSUInteger count = [[selectorString componentsSeparatedByString:@":"] count] - 1;
-    //NSString *string = @"v@:";
-    //NSString *string = @"@@:";
-    NSString *string = @":@:";
-    for (int i=0; i<count; i++) {
-        string = [string stringByAppendingString:@":"];
-        //string = [string stringByAppendingString:@"@"];
-    }
-    return [NSMethodSignature signatureWithObjCTypes:[string UTF8String]];
-}
-- (void)forwardInvocation:(NSInvocation *)anInvocation {
-    
-}
+KMethodSignature
 @end
 
 @implementation NSDictionary (HForwarding)
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    NSString *selectorString = NSStringFromSelector(aSelector);
-    NSUInteger count = [[selectorString componentsSeparatedByString:@":"] count] - 1;
-    //NSString *string = @"v@:";
-    //NSString *string = @"@@:";
-    NSString *string = @":@:";
-    for (int i=0; i<count; i++) {
-        string = [string stringByAppendingString:@":"];
-        //string = [string stringByAppendingString:@"@"];
-    }
-    return [NSMethodSignature signatureWithObjCTypes:[string UTF8String]];
-}
-- (void)forwardInvocation:(NSInvocation *)anInvocation {
-    
-}
+KMethodSignature
 @end
 
 @implementation NSTimer (HForwarding)
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    NSString *selectorString = NSStringFromSelector(aSelector);
-    NSUInteger count = [[selectorString componentsSeparatedByString:@":"] count] - 1;
-    //NSString *string = @"v@:";
-    //NSString *string = @"@@:";
-    NSString *string = @":@:";
-    for (int i=0; i<count; i++) {
-        string = [string stringByAppendingString:@":"];
-        //string = [string stringByAppendingString:@"@"];
-    }
-    return [NSMethodSignature signatureWithObjCTypes:[string UTF8String]];
-}
-- (void)forwardInvocation:(NSInvocation *)anInvocation {
-    
-}
+KMethodSignature
 @end
 
 @implementation NSNull (HForwarding)
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    NSString *selectorString = NSStringFromSelector(aSelector);
-    NSUInteger count = [[selectorString componentsSeparatedByString:@":"] count] - 1;
-    //NSString *string = @"v@:";
-    //NSString *string = @"@@:";
-    NSString *string = @":@:";
-    for (int i=0; i<count; i++) {
-        string = [string stringByAppendingString:@":"];
-        //string = [string stringByAppendingString:@"@"];
-    }
-    return [NSMethodSignature signatureWithObjCTypes:[string UTF8String]];
-}
-- (void)forwardInvocation:(NSInvocation *)anInvocation {
-    
-}
+KMethodSignature
 @end
 
 @implementation NSError (HForwarding)
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    NSString *selectorString = NSStringFromSelector(aSelector);
-    NSUInteger count = [[selectorString componentsSeparatedByString:@":"] count] - 1;
-    //NSString *string = @"v@:";
-    //NSString *string = @"@@:";
-    NSString *string = @":@:";
-    for (int i=0; i<count; i++) {
-        string = [string stringByAppendingString:@":"];
-        //string = [string stringByAppendingString:@"@"];
-    }
-    return [NSMethodSignature signatureWithObjCTypes:[string UTF8String]];
-}
-- (void)forwardInvocation:(NSInvocation *)anInvocation {
-    
-}
+KMethodSignature
 @end
 
 @implementation NSData (HForwarding)
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    NSString *selectorString = NSStringFromSelector(aSelector);
-    NSUInteger count = [[selectorString componentsSeparatedByString:@":"] count] - 1;
-    //NSString *string = @"v@:";
-    //NSString *string = @"@@:";
-    NSString *string = @":@:";
-    for (int i=0; i<count; i++) {
-        string = [string stringByAppendingString:@":"];
-        //string = [string stringByAppendingString:@"@"];
-    }
-    return [NSMethodSignature signatureWithObjCTypes:[string UTF8String]];
-}
-- (void)forwardInvocation:(NSInvocation *)anInvocation {
-    
-}
+KMethodSignature
 @end
 
 @implementation NSDate (HForwarding)
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    NSString *selectorString = NSStringFromSelector(aSelector);
-    NSUInteger count = [[selectorString componentsSeparatedByString:@":"] count] - 1;
-    //NSString *string = @"v@:";
-    //NSString *string = @"@@:";
-    NSString *string = @":@:";
-    for (int i=0; i<count; i++) {
-        string = [string stringByAppendingString:@":"];
-        //string = [string stringByAppendingString:@"@"];
-    }
-    return [NSMethodSignature signatureWithObjCTypes:[string UTF8String]];
-}
-- (void)forwardInvocation:(NSInvocation *)anInvocation {
-    
-}
+KMethodSignature
 @end
 
 @implementation UIFont (HForwarding)
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    NSString *selectorString = NSStringFromSelector(aSelector);
-    NSUInteger count = [[selectorString componentsSeparatedByString:@":"] count] - 1;
-    //NSString *string = @"v@:";
-    //NSString *string = @"@@:";
-    NSString *string = @":@:";
-    for (int i=0; i<count; i++) {
-        string = [string stringByAppendingString:@":"];
-        //string = [string stringByAppendingString:@"@"];
-    }
-    return [NSMethodSignature signatureWithObjCTypes:[string UTF8String]];
-}
-- (void)forwardInvocation:(NSInvocation *)anInvocation {
-    
-}
+KMethodSignature
 @end
 
 @implementation UIImage (HForwarding)
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    NSString *selectorString = NSStringFromSelector(aSelector);
-    NSUInteger count = [[selectorString componentsSeparatedByString:@":"] count] - 1;
-    //NSString *string = @"v@:";
-    //NSString *string = @"@@:";
-    NSString *string = @":@:";
-    for (int i=0; i<count; i++) {
-        string = [string stringByAppendingString:@":"];
-        //string = [string stringByAppendingString:@"@"];
-    }
-    return [NSMethodSignature signatureWithObjCTypes:[string UTF8String]];
-}
-- (void)forwardInvocation:(NSInvocation *)anInvocation {
-    
-}
+KMethodSignature
 @end
 
 @implementation UIScreen (HForwarding)
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    NSString *selectorString = NSStringFromSelector(aSelector);
-    NSUInteger count = [[selectorString componentsSeparatedByString:@":"] count] - 1;
-    //NSString *string = @"v@:";
-    //NSString *string = @"@@:";
-    NSString *string = @":@:";
-    for (int i=0; i<count; i++) {
-        string = [string stringByAppendingString:@":"];
-        //string = [string stringByAppendingString:@"@"];
-    }
-    return [NSMethodSignature signatureWithObjCTypes:[string UTF8String]];
-}
-- (void)forwardInvocation:(NSInvocation *)anInvocation {
-    
-}
+KMethodSignature
 @end
 
 @implementation UIDevice (HForwarding)
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    NSString *selectorString = NSStringFromSelector(aSelector);
-    NSUInteger count = [[selectorString componentsSeparatedByString:@":"] count] - 1;
-    //NSString *string = @"v@:";
-    //NSString *string = @"@@:";
-    NSString *string = @":@:";
-    for (int i=0; i<count; i++) {
-        string = [string stringByAppendingString:@":"];
-        //string = [string stringByAppendingString:@"@"];
-    }
-    return [NSMethodSignature signatureWithObjCTypes:[string UTF8String]];
-}
-- (void)forwardInvocation:(NSInvocation *)anInvocation {
-    
-}
+KMethodSignature
 @end
 
 @implementation UIColor (HForwarding)
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    NSString *selectorString = NSStringFromSelector(aSelector);
-    NSUInteger count = [[selectorString componentsSeparatedByString:@":"] count] - 1;
-    //NSString *string = @"v@:";
-    //NSString *string = @"@@:";
-    NSString *string = @":@:";
-    for (int i=0; i<count; i++) {
-        string = [string stringByAppendingString:@":"];
-        //string = [string stringByAppendingString:@"@"];
-    }
-    return [NSMethodSignature signatureWithObjCTypes:[string UTF8String]];
-}
-- (void)forwardInvocation:(NSInvocation *)anInvocation {
-    
-}
+KMethodSignature
 @end
