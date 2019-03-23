@@ -68,6 +68,20 @@ H_CheckPropertyRange(rrr, 0, 150)
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    NSString *str = @"hhh";
+    NSMutableString *str = [[NSMutableString alloc] initWithString:@"ggg"];
+//    [str hasPrefix:nil];
+//    str = [str stringByAppendingString:nil];
+    
+    NSArray *arr = @[@"ww"];
+    
+    [arr objectAtIndex:1];
+    
+//    str = [str substringFromIndex:5];
+    
+//    str = [[NSString alloc] initWithString:nil];
+    
+//    str = [str substringToIndex:15];
     
     [self performSelector:@selector(sffas:)];
     

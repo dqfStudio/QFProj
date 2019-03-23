@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
 
+void HSwizzleClassMethod(Class cls, SEL origSEL, SEL overrideSEL);
+void HSwizzleInstanceMethod(Class cls, SEL origSEL, SEL overrideSEL);
+
+void HSwizzleClassMethodNames(NSArray *classNames, SEL origSEL, SEL overrideSEL);
+void HSwizzleInstanceMethodNames(NSArray *classNames, SEL origSEL, SEL overrideSEL);
+
 @interface NSObject (HSwizzleUtil)
 + (void)methodSwizzleWithOrigSEL:(SEL)origSEL overrideSEL:(SEL)overrideSEL;
 + (void)classMethodSwizzleWithOrigSEL:(SEL)origSEL overrideSEL:(SEL)overrideSEL;

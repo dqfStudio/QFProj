@@ -10,7 +10,7 @@
 #import "NSObject+HMessy.h"
 
 @interface NSDictionary (HSafeUtil)
-- (NSString *)objectAtIndexedSubscript:(NSInteger)index;
+
 @end
 
 @interface NSMutableDictionary (HSafeUtil)
