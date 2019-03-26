@@ -93,7 +93,8 @@ _Pragma("clang diagnostic pop")
     [self logVC];
 }
 - (void)logVC {
-    id next = [self nextResponder];
+    //id next = [self nextResponder];
+    id next = self;
     UIViewController *controller = nil;
     while(![next isKindOfClass:[UIViewController class]]) {
         next = [next nextResponder];
