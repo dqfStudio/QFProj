@@ -41,3 +41,18 @@
 //将data转化成字符串
 - (NSString *)string;
 @end
+
+@interface NSNull (HMessy)
++ (NSString *)stringValue;
+- (NSString *)stringValue;
++ (NSUInteger)length;
+- (NSUInteger)length;
+@end
+
+@interface NSNumber (HMessy)
+- (NSUInteger)length;
+@end
+
+@interface NSString (HMessy)
+- (NSString *)stringValue;
+@end

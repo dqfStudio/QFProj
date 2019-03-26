@@ -87,3 +87,30 @@
     return [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
 }
 @end
+
+@implementation NSNull (HMessy)
++ (NSString *)stringValue {
+    return @"";
+}
+- (NSString *)stringValue {
+    return @"";
+}
++ (NSUInteger)length {
+    return 0;
+}
+- (NSUInteger)length {
+    return 0;
+}
+@end
+
+@implementation NSNumber (HMessy)
+- (NSUInteger)length {
+    return self.stringValue.length;
+}
+@end
+
+@implementation NSString (HMessy)
+- (NSString *)stringValue {
+    return self;
+}
+@end
