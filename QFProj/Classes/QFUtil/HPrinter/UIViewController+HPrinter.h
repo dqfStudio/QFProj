@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSObject+HUtil.h"
 
 @interface UIViewController (HPrinter)
 
+@end
+
+@interface UIApplication (HPrinter)
++ (NSString *)getCurrentVC;
 @end

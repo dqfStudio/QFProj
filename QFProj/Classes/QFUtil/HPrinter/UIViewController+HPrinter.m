@@ -9,9 +9,11 @@
 #import "UIViewController+HPrinter.h"
 #import <objc/runtime.h>
 
+static NSString *_KHCurrentVC;
+
 @implementation UIViewController (HPrinter)
 
-#if DEBUG
+//#if DEBUG
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -41,8 +43,17 @@
 
 - (void)custom_viewDidAppear:(BOOL)animated {
     [self custom_viewDidAppear:animated];
-    NSLog(@"viewDidAppear: %@", NSStringFromClass([self class]));
+    if (![self isSystemClass:self.class]) {
+        _KHCurrentVC = NSStringFromClass(self.class);
+        NSLog(@"viewDidAppear: %@", NSStringFromClass([self class]));
+    }
 }
-#endif
+//#endif
 
+@end
+
+@implementation UIApplication (HPrinter)
++ (NSString *)getCurrentVC {
+    return _KHCurrentVC;
+}
 @end
