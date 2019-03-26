@@ -268,7 +268,8 @@
 }
 - (UIColor *)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout colorForSectionAtIndex:(NSInteger)section {
     if ([self.tupleDelegate respondsToSelector:@selector(tupleView:colorForSectionAtIndex:)]) {
-        return [self.tupleDelegate tupleView:self colorForSectionAtIndex:section];
+        UIColor *color = [self.tupleDelegate tupleView:self colorForSectionAtIndex:section];
+        if (color && [color isKindOfClass:UIColor.class]) return color;
     }else if (self.colorForSectionBlock) {
         UIColor *color = self.colorForSectionBlock(section);
         if (color && [color isKindOfClass:UIColor.class]) return color;
