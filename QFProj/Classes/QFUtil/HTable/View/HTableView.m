@@ -427,7 +427,6 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self deselectRowAtIndexPath:indexPath animated:YES];
     if ([self.tableDelegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
         [self.tableDelegate tableView:tableView didSelectRowAtIndexPath:indexPath];
     }else if (self.didSelectCellBlock) {
