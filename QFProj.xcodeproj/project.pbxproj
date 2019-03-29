@@ -172,6 +172,7 @@
 		171E540C3ECD9B640D790516 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E16C30E2760E6660FC02C1 /* libPods-QFProj.a */; };
 		A219F228222F72BC00241FD7 /* HFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F227222F72BC00241FD7 /* HFormController.m */; };
 		A219F22F222FB46A00241FD7 /* HIFS.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F22D222FB46A00241FD7 /* HIFS.m */; };
+		A21FD5FA224DBC34009F03FB /* HRequestHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A21FD5F9224DBC34009F03FB /* HRequestHUD.m */; };
 		A28EF2E821D86DD8002F92ED /* ULBCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */; };
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
 		A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */; };
@@ -523,6 +524,8 @@
 		A219F227222F72BC00241FD7 /* HFormController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFormController.m; sourceTree = "<group>"; };
 		A219F22D222FB46A00241FD7 /* HIFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIFS.m; sourceTree = "<group>"; };
 		A219F22E222FB46A00241FD7 /* HIFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIFS.h; sourceTree = "<group>"; };
+		A21FD5F8224DBC34009F03FB /* HRequestHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRequestHUD.h; sourceTree = "<group>"; };
+		A21FD5F9224DBC34009F03FB /* HRequestHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRequestHUD.m; sourceTree = "<group>"; };
 		A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULBCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A28EF2E721D86DD8002F92ED /* ULBCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ULBCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		A28EF2EA21D86E43002F92ED /* UILabel+HAttributeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeText.h"; sourceTree = "<group>"; };
@@ -1423,6 +1426,8 @@
 				1528DF4220BEF6BC00D0A004 /* HNaviToastView.m */,
 				1528DF4420BF0A0100D0A004 /* MBProgressHUD.h */,
 				1528DF4520BF0A0200D0A004 /* MBProgressHUD.m */,
+				A21FD5F8224DBC34009F03FB /* HRequestHUD.h */,
+				A21FD5F9224DBC34009F03FB /* HRequestHUD.m */,
 				1528DF4720BF0A7A00D0A004 /* HShowView.h */,
 				1528DF4820BF0A7A00D0A004 /* HShowView.m */,
 				1528DF4A20BF0FE200D0A004 /* UIAlertController+HUtil.h */,
@@ -1768,6 +1773,7 @@
 				15C5736A20B3DD7B0070327C /* HTupleHorizontalCell.m in Sources */,
 				157684D220E2157E00D8DC5B /* NSBlockChain.m in Sources */,
 				A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */,
+				A21FD5FA224DBC34009F03FB /* HRequestHUD.m in Sources */,
 				15B4DDF82092F96C00773E04 /* UIImage+Util.m in Sources */,
 				15B4DE092092F96C00773E04 /* HWebImageView.m in Sources */,
 				1508255520EB1C0F008CAE57 /* HDictionary.m in Sources */,
