@@ -38,6 +38,7 @@
 #import "HLoginController.h"
 #import "HTableView.h"
 #import "HTupleView.h"
+#import "HRequestHUD.h"
 
 @interface ViewController () <HTupleViewDelegate> {
     UILabel *label;
@@ -68,6 +69,10 @@ H_CheckPropertyRange(rrr, 0, 150)
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    HRequestHUD *requestHUD = [[HRequestHUD alloc] initWithFrame:CGRectMake(10, 100, 300, 300)];
+    [requestHUD setBackgroundColor:[UIColor redColor]];
+    [self.view addSubview:requestHUD];
+    
 //    NSString *str = @"hhh";
     NSMutableString *str = [[NSMutableString alloc] initWithString:@"ggg"];
 //    [str hasPrefix:nil];
@@ -75,7 +80,7 @@ H_CheckPropertyRange(rrr, 0, 150)
     
     NSArray *arr = @[@"ww"];
     
-    [arr objectAtIndex:1];
+    [arr objectAtIndex:0];
     
 //    str = [str substringFromIndex:5];
     
@@ -117,7 +122,7 @@ H_CheckPropertyRange(rrr, 0, 150)
     
 
     
-    [self.navigationController pushViewController:HLoginController.new animated:YES];
+//    [self.navigationController pushViewController:HLoginController.new animated:YES];
     
     
 //    [self performSelector:@selector(testAction) withObjects:nil];

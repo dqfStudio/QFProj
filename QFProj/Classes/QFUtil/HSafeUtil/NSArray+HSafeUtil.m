@@ -75,12 +75,6 @@
 #endif
             return nil;
         }
-        if ([objects[i] isKindOfClass:NSNull.class]){
-#if DEBUG
-            NSAssert(NO,nil);
-#endif
-            return nil;
-        }
     }
     return [self safe_initWithObjects:objects count:cnt];
 }

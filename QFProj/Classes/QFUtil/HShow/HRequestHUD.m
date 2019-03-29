@@ -17,6 +17,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setup];
+        [self addSubview:self.requestTuple];
     }
     return self;
 }
@@ -25,27 +26,25 @@
         _requestTuple = [[HTupleView alloc] initWithFrame:CGRectZero];
         [_requestTuple setScrollEnabled:NO];
         [_requestTuple setScrollsToTop:NO];
-        [self addSubview:_requestTuple];
     }
     return _requestTuple;
 }
-- (void)setup {
-    if (_displayCancelButton) {
-        _tupleHeaderSize = CGSizeMake(_requestTuple.width, 20);
-    }else {
-        _tupleHeaderSize = CGSizeMake(_requestTuple.width, 5);
+- (void)setRequestTupleFrame {
+    CGRect frame = _requestTuple.frame;;
+    frame.size.height += _tupleHeaderSize.height+_imageSize.height;
+    frame.size.height += _titleHeaderSize.height+_titleSize.height;
+    frame.size.height += _subTitleHeaderSize.height+_subTitleSize.height;
+    if(!CGRectEqualToRect(frame, self.frame)) {
+        [_requestTuple setFrame:frame];
     }
-    _tupleFooterSize = CGSizeMake(_requestTuple.width, 5);
+    [_requestTuple reloadData];
+}
+- (void)setup {
     
-    _titleHeaderSize = CGSizeMake(_requestTuple.width, 10);
-    _titleSize = CGSizeMake(_requestTuple.width, 20);
-    
-    _subTitleHeaderSize = CGSizeMake(_requestTuple.width, 5);
-    _subTitleSize = CGSizeMake(_requestTuple.width, 20);
 }
 - (void)reloadData {
     [self performSelector:@selector(setup) withPre:self.modePrefix withMethodArgments:nil];
-    [_requestTuple reloadData];
+    [self setRequestTupleFrame];
 }
 - (void)setDisplayCancelButton:(BOOL)displayCancelButton {
     if (_displayCancelButton != displayCancelButton) {
@@ -130,7 +129,19 @@
 
 @implementation HRequestHUD (HMode1)
 - (void)mode1_setup {
-    self.backgroundColor = [UIColor clearColor];
+    if (_displayCancelButton) {
+        _tupleHeaderSize = CGSizeMake(_requestTuple.width, 20);
+    }else {
+        _tupleHeaderSize = CGSizeMake(_requestTuple.width, 5);
+    }
+    _imageSize = CGSizeMake(_requestTuple.width, 100);
+    _tupleFooterSize = CGSizeMake(_requestTuple.width, 5);
+    
+    _titleHeaderSize = CGSizeZero;
+    _titleSize = CGSizeZero;
+    
+    _subTitleHeaderSize = CGSizeZero;
+    _subTitleSize = CGSizeZero;
 }
 - (NSInteger)mode1_numberOfSectionsInTupleView:(UICollectionView *)tupleView {
     return 1;
@@ -178,7 +189,19 @@
 
 @implementation HRequestHUD (HMode2)
 - (void)mode2_setup {
-    self.backgroundColor = [UIColor clearColor];
+    if (_displayCancelButton) {
+        _tupleHeaderSize = CGSizeMake(_requestTuple.width, 20);
+    }else {
+        _tupleHeaderSize = CGSizeMake(_requestTuple.width, 5);
+    }
+    _imageSize = CGSizeMake(_requestTuple.width, 100);
+    _tupleFooterSize = CGSizeMake(_requestTuple.width, 5);
+    
+    _titleHeaderSize = CGSizeMake(_requestTuple.width, 10);
+    _titleSize = CGSizeMake(_requestTuple.width, 20);
+    
+    _subTitleHeaderSize = CGSizeZero;
+    _subTitleSize = CGSizeZero;
 }
 - (NSInteger)mode2_numberOfSectionsInTupleView:(UICollectionView *)tupleView {
     return 2;
@@ -230,7 +253,7 @@
     footerBlock(nil, HReusableView.class, self.modePrefix, YES);
 }
 - (void)mode2_tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    itemBlock(nil, HViewCell.class, self.modePrefix, YES);
+    itemBlock(nil, HImageViewCell.class, self.modePrefix, YES);
 }
 - (void)mode2_tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self didSelectedItem];
@@ -243,7 +266,19 @@
 
 @implementation HRequestHUD (HMode3)
 - (void)mode3_setup {
-    self.backgroundColor = [UIColor clearColor];
+    if (_displayCancelButton) {
+        _tupleHeaderSize = CGSizeMake(_requestTuple.width, 20);
+    }else {
+        _tupleHeaderSize = CGSizeMake(_requestTuple.width, 5);
+    }
+    _imageSize = CGSizeMake(_requestTuple.width, 100);
+    _tupleFooterSize = CGSizeMake(_requestTuple.width, 5);
+    
+    _titleHeaderSize = CGSizeMake(_requestTuple.width, 10);
+    _titleSize = CGSizeMake(_requestTuple.width, 20);
+    
+    _subTitleHeaderSize = CGSizeMake(_requestTuple.width, 5);
+    _subTitleSize = CGSizeMake(_requestTuple.width, 20);
 }
 - (NSInteger)mode3_numberOfSectionsInTupleView:(UICollectionView *)tupleView {
     return 3;
@@ -299,7 +334,7 @@
     footerBlock(nil, HReusableView.class, self.modePrefix, YES);
 }
 - (void)mode3_tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    itemBlock(nil, HViewCell.class, self.modePrefix, YES);
+    itemBlock(nil, HImageViewCell.class, self.modePrefix, YES);
 }
 - (void)mode3_tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self didSelectedItem];
@@ -312,7 +347,19 @@
 
 @implementation HRequestHUD (HMode4)
 - (void)mode4_setup {
-    self.backgroundColor = [UIColor clearColor];
+    if (_displayCancelButton) {
+        _tupleHeaderSize = CGSizeMake(_requestTuple.width, 20);
+    }else {
+        _tupleHeaderSize = CGSizeMake(_requestTuple.width, 5);
+    }
+    _imageSize = CGSizeZero;
+    _tupleFooterSize = CGSizeMake(_requestTuple.width, 5);
+    
+    _titleHeaderSize = CGSizeMake(_requestTuple.width, 10);
+    _titleSize = CGSizeMake(_requestTuple.width, 20);
+    
+    _subTitleHeaderSize = CGSizeZero;
+    _subTitleSize = CGSizeZero;
 }
 - (NSInteger)mode4_numberOfSectionsInTupleView:(UICollectionView *)tupleView {
     return 1;
@@ -348,7 +395,7 @@
     footerBlock(nil, HReusableView.class, self.modePrefix, YES);
 }
 - (void)mode4_tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    itemBlock(nil, HViewCell.class, self.modePrefix, YES);
+    itemBlock(nil, HLabelViewCell.class, self.modePrefix, YES);
 }
 - (void)mode4_tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self didSelectedItem];
@@ -361,7 +408,19 @@
 
 @implementation HRequestHUD (HMode5)
 - (void)mode5_setup {
-    self.backgroundColor = [UIColor clearColor];
+    if (_displayCancelButton) {
+        _tupleHeaderSize = CGSizeMake(_requestTuple.width, 20);
+    }else {
+        _tupleHeaderSize = CGSizeMake(_requestTuple.width, 5);
+    }
+    _imageSize = CGSizeZero;
+    _tupleFooterSize = CGSizeMake(_requestTuple.width, 5);
+    
+    _titleHeaderSize = CGSizeMake(_requestTuple.width, 10);
+    _titleSize = CGSizeMake(_requestTuple.width, 20);
+    
+    _subTitleHeaderSize = CGSizeMake(_requestTuple.width, 5);
+    _subTitleSize = CGSizeMake(_requestTuple.width, 20);
 }
 - (NSInteger)mode5_numberOfSectionsInTupleView:(UICollectionView *)tupleView {
     return 2;
@@ -409,7 +468,7 @@
     footerBlock(nil, HReusableView.class, self.modePrefix, YES);
 }
 - (void)mode5_tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    itemBlock(nil, HViewCell.class, self.modePrefix, YES);
+    itemBlock(nil, HLabelViewCell.class, self.modePrefix, YES);
 }
 - (void)mode5_tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self didSelectedItem];
