@@ -8,6 +8,8 @@
 
 #import "HTupleView.h"
 
+#define KCategoryDesignKey @"section"
+
 @interface NSIndexPath (HTupleView)
 - (NSString *)string;
 @end
@@ -22,6 +24,9 @@
 @property (nonatomic) NSMutableSet *allReuseCells;
 @property (nonatomic) NSMutableDictionary *allReuseHeaders;
 @property (nonatomic) NSMutableDictionary *allReuseFooters;
+
+@property (nonatomic) BOOL categoryDesign;
+@property (nonatomic) NSInteger categoryDesignSections;
 
 @property (nonatomic, copy) HUNumberOfSectionsBlock numberOfSectionsBlock;
 @property (nonatomic, copy) HNumberOfItemsBlock numberOfItemsBlock;
@@ -65,6 +70,17 @@
     }
     return self;
 }
+- (instancetype)initWithFrame:(CGRect)frame sections:(NSInteger)sections {
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewLeftAlignedLayout alloc] init];
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    self = [super initWithFrame:frame collectionViewLayout:flowLayout];
+    if (self) {
+        _categoryDesign = YES;
+        _categoryDesignSections = sections;
+        [self setup];
+    }
+    return self;
+}
 - (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction {
     UICollectionViewFlowLayout *flowLayout = nil;
     if (direction == HTupleViewScrollDirectionHorizontal) {
@@ -87,14 +103,12 @@
     }
     return self;
 }
-
 - (void)setFrame:(CGRect)frame {
     if(!CGRectEqualToRect(frame, self.frame)) {
         [super setFrame:frame];
         [self reloadData];
     }
 }
-
 - (void)setup {
     self.alwaysBounceVertical = YES;
     self.backgroundColor = [UIColor clearColor];
@@ -251,24 +265,31 @@
 }
 #pragma mark - UICollectionViewDatasource  & delegate
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {    
-    if ([self.tupleDelegate respondsToSelector:@selector(numberOfSectionsInTupleView:)]) {
+    if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(numberOfSectionsInTupleView:)]) {
         return [self.tupleDelegate numberOfSectionsInTupleView:self];
+    }else if (_categoryDesign && [self respondsToSelector:@selector(numberOfSectionsInTupleView:)]) {
+        return [self numberOfSectionsInTupleView:self];
     }else if (self.numberOfSectionsBlock) {
         return self.numberOfSectionsBlock();
     }
     return 1;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if ([self.tupleDelegate respondsToSelector:@selector(tupleView:numberOfItemsInSection:)]) {
+    if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:numberOfItemsInSection:)]) {
         return [self.tupleDelegate tupleView:self numberOfItemsInSection:section];
+    }else if (_categoryDesign && [self respondsToSelector:@selector(tupleView:numberOfItemsInSection:)]) {
+        return [self tupleView:self numberOfItemsInSection:section];
     }else if (self.numberOfItemsBlock) {
         return self.numberOfItemsBlock(section);
     }
     return 0;
 }
 - (UIColor *)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout colorForSectionAtIndex:(NSInteger)section {
-    if ([self.tupleDelegate respondsToSelector:@selector(tupleView:colorForSectionAtIndex:)]) {
+    if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:colorForSectionAtIndex:)]) {
         UIColor *color = [self.tupleDelegate tupleView:self colorForSectionAtIndex:section];
+        if (color && [color isKindOfClass:UIColor.class]) return color;
+    }else if (_categoryDesign && [self respondsToSelector:@selector(tupleView:colorForSectionAtIndex:)]) {
+        UIColor *color = [self tupleView:self colorForSectionAtIndex:section];
         if (color && [color isKindOfClass:UIColor.class]) return color;
     }else if (self.colorForSectionBlock) {
         UIColor *color = self.colorForSectionBlock(section);
@@ -283,32 +304,40 @@
     return 0.f;
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    if ([self.tupleDelegate respondsToSelector:@selector(tupleView:insetForSectionAtIndex:)]) {
+    if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:insetForSectionAtIndex:)]) {
         return [self.tupleDelegate tupleView:self insetForSectionAtIndex:section];
+    }else if (_categoryDesign && [self respondsToSelector:@selector(tupleView:insetForSectionAtIndex:)]) {
+        return [self tupleView:self insetForSectionAtIndex:section];
     }else if (self.insetForSectionBlock) {
         return self.insetForSectionBlock(section);
     }
     return UIEdgeInsetsZero;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    if ([self.tupleDelegate respondsToSelector:@selector(tupleView:sizeForHeaderInSection:)]) {
+    if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:sizeForHeaderInSection:)]) {
         return [self.tupleDelegate tupleView:self sizeForHeaderInSection:section];
+    }else if (_categoryDesign && [self respondsToSelector:@selector(tupleView:sizeForHeaderInSection:)]) {
+        return [self tupleView:self sizeForHeaderInSection:section];
     }else if (self.sizeForHeaderBlock) {
         return self.sizeForHeaderBlock(section);
     }
     return CGSizeZero;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
-    if ([self.tupleDelegate respondsToSelector:@selector(tupleView:sizeForFooterInSection:)]) {
+    if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:sizeForFooterInSection:)]) {
         return [self.tupleDelegate tupleView:self sizeForFooterInSection:section];
+    }else if (_categoryDesign && [self respondsToSelector:@selector(tupleView:sizeForFooterInSection:)]) {
+        return [self tupleView:self sizeForFooterInSection:section];
     }else if (self.sizeForFooterBlock) {
         return self.sizeForFooterBlock(section);
     }
     return CGSizeZero;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self.tupleDelegate respondsToSelector:@selector(tupleView:sizeForItemAtIndexPath:)]) {
+    if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:sizeForItemAtIndexPath:)]) {
         return [self.tupleDelegate tupleView:self sizeForItemAtIndexPath:indexPath];
+    }else if (_categoryDesign && [self respondsToSelector:@selector(tupleView:sizeForItemAtIndexPath:)]) {
+        return [self tupleView:self sizeForItemAtIndexPath:indexPath];
     }else if (self.sizeForItemBlock) {
         return self.sizeForItemBlock(indexPath);
     }
@@ -351,8 +380,12 @@
         }
         return cell;
     };
-    if ([self.tupleDelegate respondsToSelector:@selector(tupleView:itemTuple:atIndexPath:)]) {
+    if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:itemTuple:atIndexPath:)]) {
         [self.tupleDelegate tupleView:self itemTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+            return HCellForItemBlock(iblk, cls, pre, idx);
+        } atIndexPath:indexPath];
+    }else if (_categoryDesign && [self respondsToSelector:@selector(tupleView:itemTuple:atIndexPath:)]) {
+        [self tupleView:self itemTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
             return HCellForItemBlock(iblk, cls, pre, idx);
         } atIndexPath:indexPath];
     }else if (self.itemTupleBlock) {
@@ -401,8 +434,12 @@
             }
             return cell;
         };
-        if ([self.tupleDelegate respondsToSelector:@selector(tupleView:headerTuple:inSection:)]) {
+        if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:headerTuple:inSection:)]) {
             [self.tupleDelegate tupleView:self headerTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+                return HCellForHeaderBlock(iblk, cls, pre, idx);
+            } inSection:indexPath.section];
+        }else if (_categoryDesign && [self respondsToSelector:@selector(tupleView:headerTuple:inSection:)]) {
+            [self tupleView:self headerTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
                 return HCellForHeaderBlock(iblk, cls, pre, idx);
             } inSection:indexPath.section];
         }else if (self.headerTupleBlock) {
@@ -447,8 +484,12 @@
             }
             return cell;
         };
-        if ([self.tupleDelegate respondsToSelector:@selector(tupleView:footerTuple:inSection:)]) {
+        if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:footerTuple:inSection:)]) {
             [self.tupleDelegate tupleView:self footerTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+                return HCellForFooterBlock(iblk, cls, pre, idx);
+            } inSection:indexPath.section];
+        }else if (_categoryDesign && [self respondsToSelector:@selector(tupleView:footerTuple:inSection:)]) {
+            [self tupleView:self footerTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
                 return HCellForFooterBlock(iblk, cls, pre, idx);
             } inSection:indexPath.section];
         }else if (self.footerTupleBlock) {
@@ -460,8 +501,10 @@
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self.tupleDelegate respondsToSelector:@selector(tupleView:didSelectItemAtIndexPath:)]) {
+    if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:didSelectItemAtIndexPath:)]) {
         [self.tupleDelegate tupleView:self didSelectItemAtIndexPath:indexPath];
+    }else if (_categoryDesign && [self respondsToSelector:@selector(tupleView:didSelectItemAtIndexPath:)]) {
+        [self tupleView:self didSelectItemAtIndexPath:indexPath];
     }else if (self.didSelectItemBlock) {
         self.didSelectItemBlock(indexPath);
     }
@@ -490,6 +533,103 @@
 }
 - (void)didSelectItem:(HDidSelectItemBlock)block {
     self.didSelectItemBlock = block;
+}
+#pragma mark - Category & Design
+- (NSInteger)numberOfSectionsInTupleView:(UICollectionView *)tupleView {
+    return _categoryDesignSections;
+}
+- (NSInteger)tupleView:(UICollectionView *)tupleView numberOfItemsInSection:(NSInteger)section {
+    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
+        return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section] integerValue];
+    }
+    return 0;
+}
+//style == HTupleViewStyleSectionColorLayout
+- (UIColor *)tupleView:(UICollectionView *)tupleView colorForSectionAtIndex:(NSInteger)section {
+    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
+        return [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section];
+    }
+    return nil;
+}
+
+- (CGSize)tupleView:(UICollectionView *)tupleView sizeForHeaderInSection:(NSInteger)section {
+    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
+        return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section] CGSizeValue];
+    }
+    return CGSizeZero;
+}
+- (CGSize)tupleView:(UICollectionView *)tupleView sizeForFooterInSection:(NSInteger)section {
+    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
+        return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section] CGSizeValue];
+    }
+    return CGSizeZero;
+}
+- (CGSize)tupleView:(UICollectionView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(indexPath.section+1)];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
+        return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &indexPath] CGSizeValue];
+    }
+    return CGSizeZero;
+}
+
+- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
+    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
+        return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section] UIEdgeInsetsValue];
+    }
+    return UIEdgeInsetsZero;
+}
+- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
+    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
+        return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section] UIEdgeInsetsValue];
+    }
+    return UIEdgeInsetsZero;
+}
+- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(indexPath.section+1)];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
+        return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &indexPath] UIEdgeInsetsValue];
+    }
+    return UIEdgeInsetsZero;
+}
+
+- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView insetForSectionAtIndex:(NSInteger)section {
+    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
+        return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section] UIEdgeInsetsValue];
+    }
+    return UIEdgeInsetsZero;
+}
+
+- (void)tupleView:(UICollectionView *)tupleView headerTuple:(HHeaderTuple)headerBlock inSection:(NSInteger)section {
+    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
+        [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &headerBlock, &section];
+    }
+}
+- (void)tupleView:(UICollectionView *)tupleView footerTuple:(HFooterTuple)footerBlock inSection:(NSInteger)section {
+    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
+        [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &footerBlock, &section];
+    }
+}
+- (void)tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(indexPath.section+1)];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
+        [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &itemBlock, &indexPath];
+    }
+}
+
+- (void)tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(indexPath.section+1)];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
+        [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &indexPath];
+    }
 }
 @end
 

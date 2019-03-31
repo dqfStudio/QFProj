@@ -26,6 +26,8 @@
 + (id)performClassSelector:(SEL)aSelector withMethodArgments:(void *)firstParameter, ...;
 - (id)performClassSelector:(SEL)aSelector withMethodArgments:(void *)firstParameter, ...;
 
+- (BOOL)respondsToSelector:(SEL)aSelector withPre:(NSString *)pre;
+
 + (id)performClassSelector:(SEL)aSelector withPre:(NSString *)pre withMethodArgments:(void *)firstParameter, ...;
 - (id)performClassSelector:(SEL)aSelector withPre:(NSString *)pre withMethodArgments:(void *)firstParameter, ...;
 

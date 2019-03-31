@@ -188,6 +188,12 @@
     return returnValue;
 }
 
+- (BOOL)respondsToSelector:(SEL)aSelector withPre:(NSString *)pre {
+    NSString *selectorString = [NSString stringWithFormat:@"%@_%@",pre,NSStringFromSelector(aSelector)];
+    SEL selector = NSSelectorFromString(selectorString);
+    return [self respondsToSelector:selector];
+}
+
 - (id)performSelector:(SEL)aSelector withPre:(NSString *)pre withMethodArgments:(void *)firstParameter, ... {
     NSString *selectorString = [NSString stringWithFormat:@"%@_%@",pre,NSStringFromSelector(aSelector)];
     SEL selector = NSSelectorFromString(selectorString);
