@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HBaseHeaderFooterView.h"
+#import "NSObject+HSelector.h"
 #import "HBaseCell.h"
 #import "HTableSignal.h"
 #import "MJRefresh.h"
@@ -61,6 +62,7 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)initWithFrame:(CGRect)frame;
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style;
+- (instancetype)initWithFrame:(CGRect)frame sections:(NSInteger)sections;
 //block methods
 - (void)tableWithSections:(HANumberOfSectionsBlock)sections cells:(HNumberOfCellsBlock)cells;
 - (void)headerWithHeight:(HeightForHeaderBlock)height tuple:(HHeaderTableBlock)block;
