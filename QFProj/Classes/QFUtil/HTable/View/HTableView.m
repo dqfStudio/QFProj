@@ -277,8 +277,10 @@
 }
 #pragma mark - UITableViewDatasource  & delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if ([self.tableDelegate respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
+    if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
         return [self.tableDelegate numberOfSectionsInTableView:self];
+    }else if (_categoryDesign) {
+        return _categoryDesignSections;
     }else if (self.numberOfSectionsBlock) {
         return self.numberOfSectionsBlock();
     }
