@@ -80,7 +80,7 @@ H_CheckPropertyRange(rrr, 0, 150)
     
     NSArray *arr = @[@"ww"];
     
-    [arr objectAtIndex:0];
+    //[arr objectAtIndex:0];
     
 //    str = [str substringFromIndex:5];
     

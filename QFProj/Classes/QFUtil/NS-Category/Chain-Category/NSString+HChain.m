@@ -239,6 +239,15 @@
     };
 }
 
+- (NSString *(^)(NSArray *))replaceArray {
+    return ^NSString *(NSArray *org) {
+        for (NSString *str in org) {
+            self.replace(str, @"");
+        }
+        return self;
+    };
+}
+
 - (BOOL (^)(NSString *))equal {
     return ^BOOL (NSString *org) {
         return [self isEqualToString:org];

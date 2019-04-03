@@ -67,6 +67,7 @@
 - (NSString *(^)(NSString *, NSUInteger))appendCount;
 
 - (NSString *(^)(NSString *, NSString *))replace;
+- (NSString *(^)(NSArray *))replaceArray;
 - (BOOL (^)(NSString *))equal;
 - (BOOL (^)(Class))isClass;
 
