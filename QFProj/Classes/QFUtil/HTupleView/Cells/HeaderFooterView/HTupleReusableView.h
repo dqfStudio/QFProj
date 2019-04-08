@@ -9,7 +9,6 @@
 #import "HTupleBaseView.h"
 #import "HWebImageView.h"
 #import "HWebButtonView.h"
-#import "UILabel+HAttributeText.h"
 
 @class HReusableButtonView, HReusableImageView;
 

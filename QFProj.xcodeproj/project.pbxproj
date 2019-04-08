@@ -212,7 +212,6 @@
 		A2ED9C1E2232554D00C9D050 /* HTupleImageTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1D2232554D00C9D050 /* HTupleImageTextCell.m */; };
 		A434870C214809F80030209A /* GViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A434870B214809F80030209A /* GViewController.m */; };
 		A45401E6215E1CE7003355C9 /* HNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45401E5215E1CE7003355C9 /* HNavigationController.m */; };
-		A454FDD82157C6C0003355C9 /* UILabel+HAttributeTextTapEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = A454FDD72157C6BF003355C9 /* UILabel+HAttributeTextTapEvent.m */; };
 		A4759710217EC61D00AAAEA9 /* HUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A475970F217EC61C00AAAEA9 /* HUserDefaults.m */; };
 /* End PBXBuildFile section */
 
@@ -582,8 +581,6 @@
 		A434870B214809F80030209A /* GViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GViewController.m; sourceTree = "<group>"; };
 		A45401E4215E1CE7003355C9 /* HNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNavigationController.h; sourceTree = "<group>"; };
 		A45401E5215E1CE7003355C9 /* HNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNavigationController.m; sourceTree = "<group>"; };
-		A454FDD62157C6BF003355C9 /* UILabel+HAttributeTextTapEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeTextTapEvent.h"; sourceTree = "<group>"; };
-		A454FDD72157C6BF003355C9 /* UILabel+HAttributeTextTapEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+HAttributeTextTapEvent.m"; sourceTree = "<group>"; };
 		A475970E217EC61C00AAAEA9 /* HUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUserDefaults.h; sourceTree = "<group>"; };
 		A475970F217EC61C00AAAEA9 /* HUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUserDefaults.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -859,7 +856,6 @@
 				A28EF2F021D876A3002F92ED /* HTabBarController */,
 				A28EF2E921D86E43002F92ED /* UILabel+HAttributeText */,
 				A45401E3215E1CE7003355C9 /* HNavigationController */,
-				A454FDD52157C6BF003355C9 /* HAttributeTextTapEvent */,
 				15E5652A2133A002003A63E5 /* HLoginController */,
 				15545786212B063900DA7898 /* VersionManager */,
 				1554577E212B022300DA7898 /* MGHostUrlManager */,
@@ -1586,16 +1582,6 @@
 			path = QFUtil/HNavigationController;
 			sourceTree = "<group>";
 		};
-		A454FDD52157C6BF003355C9 /* HAttributeTextTapEvent */ = {
-			isa = PBXGroup;
-			children = (
-				A454FDD62157C6BF003355C9 /* UILabel+HAttributeTextTapEvent.h */,
-				A454FDD72157C6BF003355C9 /* UILabel+HAttributeTextTapEvent.m */,
-			);
-			name = HAttributeTextTapEvent;
-			path = QFUtil/HAttributeTextTapEvent;
-			sourceTree = "<group>";
-		};
 		A475970D217EC61C00AAAEA9 /* HUserDefaults */ = {
 			isa = PBXGroup;
 			children = (
@@ -1909,7 +1895,6 @@
 				A28EF2F321D876A3002F92ED /* HTabBarController.m in Sources */,
 				A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */,
 				157696EB20A0AB6900E31469 /* hFelix.m in Sources */,
-				A454FDD82157C6C0003355C9 /* UILabel+HAttributeTextTapEvent.m in Sources */,
 				15C572A020AEAC340070327C /* UILabel+HState.m in Sources */,
 				15B4DE032092F96C00773E04 /* NSObject+HUtil.m in Sources */,
 				15E6BB9B2136E7E300EBE794 /* YPTabBar.m in Sources */,
