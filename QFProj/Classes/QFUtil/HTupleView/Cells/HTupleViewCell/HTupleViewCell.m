@@ -12,6 +12,7 @@
 - (UIView *)view {
     if (!_view) {
         _view = [UIView new];
+        [_view setBackgroundColor:[UIColor clearColor]];
         [self addSubview:_view];
     }
     return _view;
@@ -25,6 +26,7 @@
 - (UILabel *)label {
     if (!_label) {
         _label = [UILabel new];
+        [_label setBackgroundColor:[UIColor clearColor]];
         [self addSubview:_label];
     }
     return _label;
@@ -47,6 +49,7 @@
         _textView = [UITextView new];
         [_textView setScrollEnabled:NO];
         [_textView setUserInteractionEnabled:NO];
+        [_textView setBackgroundColor:[UIColor clearColor]];
         [self addSubview:_textView];
     }
     return _textView;
@@ -67,6 +70,7 @@
                 self.buttonViewBlock(self.buttonView, self);
             }
         }];
+        [_buttonView setBackgroundColor:[UIColor clearColor]];
         [self addSubview:_buttonView];
     }
     return _buttonView;
@@ -84,6 +88,7 @@
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = [HWebImageView new];
+        [_imageView setBackgroundColor:[UIColor clearColor]];
         [self addSubview:_imageView];
     }
     return _imageView;
@@ -126,6 +131,7 @@
     if (!_textField) {
         _textField = UITextField.new;
         [_textField setDelegate:self];
+        [_textField setBackgroundColor:[UIColor clearColor]];
         [self addSubview:_textField];
     }
     return _textField;
@@ -186,7 +192,7 @@
 @implementation HTupleViewCell
 - (HTupleView *)tuple {
     if (!_tuple) {
-        _tuple = [[HTupleView alloc] initWithFrame:self.frame];
+        _tuple = [[HTupleView alloc] initWithFrame:self.bounds];
         [_tuple setScrollEnabled:NO];
         [self addSubview:_tuple];
     }
@@ -244,7 +250,7 @@
         switch (indexPath.row) {
             case 0: {
                 HImageViewCell *cell = itemBlock(nil, HImageViewCell.class, nil, YES);
-                [cell.imageView setImageUrlString:nil];
+                [cell.imageView setImageUrlString:_image];
             }
                 break;
             case 1: {

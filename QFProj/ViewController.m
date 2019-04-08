@@ -69,6 +69,36 @@ H_CheckPropertyRange(rrr, 0, 150)
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    HTupleView *tuple = [[HTupleView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:tuple];
+    
+    [tuple tupleWithSections:^CGFloat{
+        return 1;
+    } items:^CGFloat(NSInteger section) {
+        return 2;
+    } color:^UIColor * _Nullable(NSInteger section) {
+        return nil;
+    } inset:^UIEdgeInsets(NSInteger section) {
+        return UIEdgeInsetsZero;
+    }];
+    
+    [tuple itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+        return CGSizeMake(tuple.width, 100);
+    } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
+        return UIEdgeInsetsZero;
+    } tuple:^(HItemTuple  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+        HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
+//        [cell setBackgroundColor:[UIColor redColor]];
+//        [cell setImage:nil];
+//        [cell setTitle:@"titletitile"];
+//        [cell setDetailTitle:@"detailTitledetailTitle"];
+        [cell synchronize];
+    }];
+    
+    
+    return;
+    
+    
     HRequestHUD *requestHUD = [[HRequestHUD alloc] initWithFrame:CGRectMake(10, 100, 300, 300)];
     [requestHUD setBackgroundColor:[UIColor redColor]];
     [self.view addSubview:requestHUD];

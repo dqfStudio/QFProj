@@ -47,6 +47,8 @@ typedef void(^HImageViewBlock)(HWebImageView *webImageView, HImageViewCell *imag
 @end
 
 @interface HTupleViewCell : HTupleBaseCell
+
+@property (nonatomic) NSString *image;
 @property (nonatomic) UIEdgeInsets imageInsets;
 
 @property (nonatomic, copy) NSString *title;

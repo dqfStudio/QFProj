@@ -41,6 +41,7 @@
 - (void)setup {
     [self addSubview:self.imageView];
     //self.backgroundColor = [UIColor colorWithHex:0xe8e8e8];
+    self.backgroundColor = [UIColor clearColor];
 }
 
 

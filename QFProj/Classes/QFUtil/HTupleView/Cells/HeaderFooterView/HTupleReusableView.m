@@ -12,6 +12,7 @@
 - (UIView *)view {
     if (!_view) {
         _view = [UIView new];
+        [_view setBackgroundColor:[UIColor clearColor]];
         [self addSubview:_view];
     }
     return _view;
@@ -25,6 +26,7 @@
 - (UILabel *)label {
     if (!_label) {
         _label = [UILabel new];
+        [_label setBackgroundColor:[UIColor clearColor]];
         [self addSubview:_label];
     }
     return _label;
@@ -40,6 +42,7 @@
         _textView = [UITextView new];
         [_textView setScrollEnabled:NO];
         [_textView setUserInteractionEnabled:NO];
+        [_textView setBackgroundColor:[UIColor clearColor]];
         [self addSubview:_textView];
     }
     return _textView;
@@ -60,6 +63,7 @@
                 self.reusableButtonViewBlock(self.buttonView, self);
             }
         }];
+        [_buttonView setBackgroundColor:[UIColor clearColor]];
         [self addSubview:_buttonView];
     }
     return _buttonView;
@@ -77,6 +81,7 @@
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = [HWebImageView new];
+        [_imageView setBackgroundColor:[UIColor clearColor]];
         [self addSubview:_imageView];
     }
     return _imageView;
