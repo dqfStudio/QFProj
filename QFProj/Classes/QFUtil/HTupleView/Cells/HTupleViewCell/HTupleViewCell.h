@@ -9,9 +9,10 @@
 #import "HTupleBaseCell.h"
 #import "HWebImageView.h"
 #import "HWebButtonView.h"
+#import "HTupleView.h"
 //#import <YYLabel.h>
 
-@class HButtonViewCell, HImageViewCell;
+@class HButtonViewCell, HImageViewCell, HTupleView;
 
 typedef void(^HButtonViewBlock)(HWebButtonView *webButtonView, HButtonViewCell *buttonCell);
 typedef void(^HImageViewBlock)(HWebImageView *webImageView, HImageViewCell *imageCell);
@@ -43,5 +44,22 @@ typedef void(^HImageViewBlock)(HWebImageView *webImageView, HImageViewCell *imag
 @property (nonatomic) UITextField *textField;
 @property (nonatomic) NSInteger maxInput;//最大输入限制，小于等于0表示不限制，默认为0
 @property (nonatomic) BOOL forbidPaste;//禁止粘贴，默认为NO
+@end
+
+@interface HTupleViewCell : HTupleBaseCell
+@property (nonatomic) UIEdgeInsets imageInsets;
+
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic) UIColor *titleColor;
+@property (nonatomic) UIFont *titleFont;
+
+@property (nonatomic, copy) NSString *detailTitle;
+@property (nonatomic) UIColor *detailTitleColor;
+@property (nonatomic) UIFont *detailTitleFont;
+@property (nonatomic) CGFloat lineSpace;
+
+@property (nonatomic) UIEdgeInsets accessoryInsets;
+
+- (void)synchronize;
 @end
 

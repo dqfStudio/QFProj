@@ -178,3 +178,116 @@
     return [super canPerformAction:action withSender:sender];
 }
 @end
+
+@interface HTupleViewCell ()
+@property (nonatomic) HTupleView *tuple;
+@end
+
+@implementation HTupleViewCell
+- (HTupleView *)tuple {
+    if (!_tuple) {
+        _tuple = [[HTupleView alloc] initWithFrame:self.frame];
+        [_tuple setScrollEnabled:NO];
+        [self addSubview:_tuple];
+    }
+    return _tuple;
+}
+- (void)layoutContentView {
+    HLayoutTupleView(self.tuple)
+}
+- (UIEdgeInsets)accessoryInsets {
+    if (UIEdgeInsetsEqualToEdgeInsets(_accessoryInsets, UIEdgeInsetsZero)) {
+        _accessoryInsets = UIEdgeInsetsMake(self.tuple.height/2-20/2, 0, self.tuple.height/2-20/2, 15);
+    }
+    return _accessoryInsets;
+}
+-  (CGSize)imageSize {
+    CGFloat height = self.tuple.height-_imageInsets.top-_imageInsets.bottom;
+    CGFloat width = height+_imageInsets.left+_imageInsets.right;
+    return CGSizeMake(width, self.tuple.height);
+}
+- (CGSize)accessorySize {
+    CGFloat defaultWidth = 25;
+    CGFloat width = defaultWidth+_accessoryInsets.left+_accessoryInsets.right;
+    return CGSizeMake(width, self.tuple.height);
+}
+- (CGSize)cellSize {
+    CGFloat width = self.tuple.width-self.imageSize.width-self.accessorySize.width;
+    return CGSizeMake(width, self.tuple.height);
+}
+- (void)setup {
+    [self.tuple tupleWithSections:^CGFloat{
+        return 1;
+    } items:^CGFloat(NSInteger section) {
+        return 3;
+    } color:^UIColor * _Nullable(NSInteger section) {
+        return nil;
+    } inset:^UIEdgeInsets(NSInteger section) {
+        return UIEdgeInsetsZero;
+    }];
+    
+    [self.tuple itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+        switch (indexPath.row) {
+            case 0: return self.imageSize;
+            case 1: return self.cellSize;
+            case 2: return self.accessorySize;
+            default: return CGSizeZero;
+        }
+    } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
+        switch (indexPath.row) {
+            case 0: return _imageInsets;
+            case 1: return UIEdgeInsetsZero;
+            case 2: return _accessoryInsets;
+            default: return UIEdgeInsetsZero;
+        }
+    } tuple:^(HItemTuple  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+        switch (indexPath.row) {
+            case 0: {
+                HImageViewCell *cell = itemBlock(nil, HImageViewCell.class, nil, YES);
+                [cell.imageView setImageUrlString:nil];
+            }
+                break;
+            case 1: {
+                HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
+                if (_title) {
+                    _detailTitle = _detailTitle ? :@"";
+                    NSString *content = [_title stringByAppendingString:_detailTitle];
+                    [cell.label setText:content];
+                    if (_titleColor) {
+                        [cell.label setTextColor:_titleColor];
+                    }
+                    if (_titleFont) {
+                        [cell.label setFont:_titleFont];
+                    }
+                    if (_detailTitle.length > 0) {
+                        [cell.label setKeywords:_detailTitle];
+                        if (_detailTitleColor) {
+                            [cell.label setKeywordsColor:_detailTitleColor];
+                        }
+                        if (_detailTitleFont) {
+                            [cell.label setKeywordsFont:_detailTitleFont];
+                        }
+                        _lineSpace = _lineSpace > 0 ? :4;
+                        [cell.label setLineSpace:_lineSpace];
+                        [cell.label formatThatFits];
+                    }
+                }else {
+                    [cell.label setText:nil];
+                }
+            }
+                break;
+            case 2: {
+                HButtonViewCell *cell = itemBlock(nil, HButtonViewCell.class, nil, YES);
+                [cell.buttonView setImageUrlString:@"icon_tuple_arrow_right"];
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }];
+}
+- (void)synchronize {
+    [self setup];
+}
+@end
