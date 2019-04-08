@@ -23,13 +23,15 @@ typedef NS_OPTIONS(NSUInteger, HTupleViewStyle) {
     HTupleViewStyleSectionColorLayout
 };
 
-typedef id (^HHeaderTuple)(id iblk, Class cls, id pre, bool idx);
-typedef id (^HFooterTuple)(id iblk, Class cls, id pre, bool idx);
-typedef id (^HItemTuple)(id iblk, Class cls, id pre, bool idx);
+NS_ASSUME_NONNULL_BEGIN
+
+typedef id _Nonnull (^HHeaderTuple)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
+typedef id _Nonnull (^HFooterTuple)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
+typedef id _Nonnull (^HItemTuple)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
 
 typedef CGFloat (^HUNumberOfSectionsBlock)(void);
 typedef CGFloat (^HNumberOfItemsBlock)(NSInteger section);
-typedef UIColor *(^HColorForSectionBlock)(NSInteger section);
+typedef UIColor *_Nullable(^HColorForSectionBlock)(NSInteger section);
 
 typedef CGSize (^HSizeForHeaderBlock)(NSInteger section);
 typedef CGSize (^HSizeForFooterBlock)(NSInteger section);
@@ -81,28 +83,28 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 - (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction;
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout;
 //block methods
-- (void)tupleWithSections:(HUNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items color:(HColorForSectionBlock)color inset:(HInsetForSectionBlock)inset;
+- (void)tupleWithSections:(HUNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items color:(HColorForSectionBlock _Nonnull )color inset:(HInsetForSectionBlock _Nonnull )inset;
 - (void)headerWithSize:(HSizeForHeaderBlock)size edgeInsets:(HEdgeInsetsForHeaderBlock)edge tuple:(HHeaderTupleBlock)block;
 - (void)footerWithSize:(HSizeForFooterBlock)size edgeInsets:(HEdgeInsetsForFooterBlock)edge tuple:(HFooterTupleBlock)block;
 - (void)itemWithSize:(HSizeForItemBlock)size edgeInsets:(HEdgeInsetsForItemBlock)edge tuple:(HItemTupleBlock)block;
-- (void)didSelectItem:(HDidSelectItemBlock)block;
+- (void)didSelectItem:(HDidSelectItemBlock _Nonnull )block;
 @end
 
 @interface UICollectionView ()
 
-@property (nonatomic, copy) HTupleCellSignalBlock signalBlock;
+@property (nonatomic, copy, nullable) HTupleCellSignalBlock signalBlock;
 
-- (void)signalToTupleView:(HTupleSignal *)signal;
+- (void)signalToTupleView:(HTupleSignal *_Nonnull)signal;
 
-- (void)signalToAllItems:(HTupleSignal *)signal;
-- (void)signal:(HTupleSignal *)signal itemSection:(NSInteger)section;
-- (void)signal:(HTupleSignal *)signal indexPath:(NSIndexPath *)indexPath;
+- (void)signalToAllItems:(HTupleSignal *_Nonnull)signal;
+- (void)signal:(HTupleSignal *_Nonnull)signal itemSection:(NSInteger)section;
+- (void)signal:(HTupleSignal *_Nonnull)signal indexPath:(NSIndexPath *)indexPath;
 
-- (void)signalToAllHeader:(HTupleSignal *)signal;
-- (void)signal:(HTupleSignal *)signal headerSection:(NSInteger)section;
+- (void)signalToAllHeader:(HTupleSignal *_Nonnull)signal;
+- (void)signal:(HTupleSignal *_Nonnull)signal headerSection:(NSInteger)section;
 
-- (void)signalToAllFooter:(HTupleSignal *)signal;
-- (void)signal:(HTupleSignal *)signal footerSection:(NSInteger)section;
+- (void)signalToAllFooter:(HTupleSignal *_Nonnull)signal;
+- (void)signal:(HTupleSignal *_Nonnull)signal footerSection:(NSInteger)section;
 
 - (id (^)(NSInteger row, NSInteger section))cell;
 - (id (^)(NSInteger row, NSInteger section))indexPath;
@@ -112,3 +114,5 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 - (NSString *)string;
 
 @end
+
+NS_ASSUME_NONNULL_END

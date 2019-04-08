@@ -13,12 +13,14 @@
 #import "HTableSignal.h"
 #import "MJRefresh.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef void (^HRefreshTableBlock)(void);
 typedef void (^HLoadMoreTableBlock)(void);
 
-typedef id (^HHeaderTable)(id iblk, Class cls, id pre, bool idx);
-typedef id (^HFooterTable)(id iblk, Class cls, id pre, bool idx);
-typedef id (^HCellTable)(id iblk, Class cls, id pre, bool idx);
+typedef id _Nonnull (^HHeaderTable)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
+typedef id _Nonnull (^HFooterTable)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
+typedef id _Nonnull (^HCellTable)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
 
 typedef CGFloat (^HANumberOfSectionsBlock)(void);
 typedef CGFloat (^HNumberOfCellsBlock)(NSInteger section);
@@ -55,8 +57,8 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 @property (nonatomic, assign) NSUInteger pageNo;    // page number, default 1
 @property (nonatomic, assign) NSUInteger pageSize;  // page size, default 20
 
-@property (nonatomic, copy) HRefreshTableBlock  refreshBlock;   // block to refresh data
-@property (nonatomic, copy) HLoadMoreTableBlock loadMoreBlock;  // block to load more data
+@property (nonatomic, copy, nullable) HRefreshTableBlock  refreshBlock;   // block to refresh data
+@property (nonatomic, copy, nullable) HLoadMoreTableBlock loadMoreBlock;  // block to load more data
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
@@ -74,19 +76,19 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 
 @interface UITableView ()
 
-@property (nonatomic, copy) HTableCellSignalBlock signalBlock;
+@property (nonatomic, copy, nullable) HTableCellSignalBlock  signalBlock;
 
-- (void)signalToTable:(HTableSignal *)signal;
+- (void)signalToTable:(HTableSignal *_Nonnull)signal;
 
-- (void)signalToAllCells:(HTableSignal *)signal;
-- (void)signal:(HTableSignal *)signal cellSection:(NSInteger)section;
-- (void)signal:(HTableSignal *)signal indexPath:(NSIndexPath *)indexPath;
+- (void)signalToAllCells:(HTableSignal *_Nonnull)signal;
+- (void)signal:(HTableSignal *_Nonnull)signal cellSection:(NSInteger)section;
+- (void)signal:(HTableSignal *_Nonnull)signal indexPath:(NSIndexPath *)indexPath;
 
-- (void)signalToAllHeader:(HTableSignal *)signal;
-- (void)signal:(HTableSignal *)signal headerSection:(NSInteger)section;
+- (void)signalToAllHeader:(HTableSignal *_Nonnull)signal;
+- (void)signal:(HTableSignal *_Nonnull)signal headerSection:(NSInteger)section;
 
-- (void)signalToAllFooter:(HTableSignal *)signal;
-- (void)signal:(HTableSignal *)signal footerSection:(NSInteger)section;
+- (void)signalToAllFooter:(HTableSignal *_Nonnull)signal;
+- (void)signal:(HTableSignal *_Nonnull)signal footerSection:(NSInteger)section;
 
 - (id (^)(NSInteger row, NSInteger section))cell;
 - (id (^)(NSInteger row, NSInteger section))indexPath;
@@ -97,3 +99,4 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 
 @end
 
+NS_ASSUME_NONNULL_END
