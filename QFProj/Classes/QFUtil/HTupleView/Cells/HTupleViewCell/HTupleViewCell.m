@@ -253,6 +253,7 @@
                     _detailTitle = _detailTitle ? :@"";
                     NSString *content = [_title stringByAppendingString:_detailTitle];
                     [cell.label setText:content];
+                    [cell.label setNumberOfLines:0];
                     if (_titleColor) {
                         [cell.label setTextColor:_titleColor];
                     }

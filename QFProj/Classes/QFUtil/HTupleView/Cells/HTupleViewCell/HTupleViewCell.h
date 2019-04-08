@@ -56,7 +56,7 @@ typedef void(^HImageViewBlock)(HWebImageView *webImageView, HImageViewCell *imag
 @property (nonatomic, copy) NSString *detailTitle;
 @property (nonatomic) UIColor *detailTitleColor;
 @property (nonatomic) UIFont *detailTitleFont;
-@property (nonatomic) CGFloat lineSpace;
+@property (nonatomic) CGFloat lineSpace;//default 4.
 
 @property (nonatomic) UIEdgeInsets accessoryInsets;
 

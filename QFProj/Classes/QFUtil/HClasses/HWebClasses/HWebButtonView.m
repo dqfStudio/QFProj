@@ -42,7 +42,7 @@
 - (void)setup {
     [self addSubview:self.button];
     [self addSubview:self.imageView];
-    self.backgroundColor = [UIColor colorWithHex:0xe8e8e8];
+    //self.backgroundColor = [UIColor colorWithHex:0xe8e8e8];
 }
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
