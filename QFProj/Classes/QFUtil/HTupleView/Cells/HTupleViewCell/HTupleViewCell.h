@@ -48,8 +48,8 @@ typedef void(^HImageViewBlock)(HWebImageView *webImageView, HImageViewCell *imag
 
 @interface HTupleViewCell : HTupleBaseCell
 
-@property (nonatomic) BOOL oneLine;
 @property (nonatomic) CGFloat lineSpace;
+@property (nonatomic) NSInteger numberOfLines;
 @property (nonatomic) NSTextAlignment textAlignment;
 
 @property (nonatomic) NSString *image;

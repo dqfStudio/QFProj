@@ -256,7 +256,7 @@
             case 1: {
                 HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
                 if (self.title) {
-                    [cell.label setNumberOfLines:0];
+                    [cell.label setNumberOfLines:self.numberOfLines];
                     [cell.label setTextAlignment:self.textAlignment];
                     if (self.titleColor) {
                         [cell.label setTextColor:self.titleColor];
@@ -278,9 +278,6 @@
                         [cell.label setLineSpace:self.lineSpace];
                         [cell.label formatThatFits];
                     }else {
-                        if (self.oneLine) {
-                            [cell.label setNumberOfLines:1];
-                        }
                         [cell.label setText:self.title];
                     }
                 }else {
