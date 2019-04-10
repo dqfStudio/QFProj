@@ -185,14 +185,11 @@
 }
 @end
 
-@interface HTupleViewCell ()
-@property (nonatomic) HTupleView *tuple;
-@end
-
 @implementation HTupleViewCell
 - (HTupleView *)tuple {
     if (!_tuple) {
         _tuple = [[HTupleView alloc] initWithFrame:self.bounds];
+        [_tuple setBackgroundColor:[UIColor clearColor]];
         [_tuple setScrollEnabled:NO];
         [self addSubview:_tuple];
     }
@@ -200,103 +197,5 @@
 }
 - (void)layoutContentView {
     HLayoutTupleView(self.tuple)
-}
-- (UIEdgeInsets)accessoryInsets {
-    if (UIEdgeInsetsEqualToEdgeInsets(_accessoryInsets, UIEdgeInsetsZero)) {
-        _accessoryInsets = UIEdgeInsetsMake(self.tuple.height/2-15/2, 0, self.tuple.height/2-15/2, 10);
-    }
-    return _accessoryInsets;
-}
--  (CGSize)imageSize {
-    CGFloat height = self.tuple.height-self.imageInsets.top-self.imageInsets.bottom;
-    CGFloat width = height+self.imageInsets.left+self.imageInsets.right;
-    return CGSizeMake(width, self.tuple.height);
-}
-- (CGSize)accessorySize {
-    CGFloat defaultWidth = 15;
-    CGFloat width = defaultWidth+self.accessoryInsets.left+self.accessoryInsets.right;
-    return CGSizeMake(width, self.tuple.height);
-}
-- (CGSize)cellSize {
-    CGFloat width = self.tuple.width-self.imageSize.width-self.accessorySize.width;
-    return CGSizeMake(width, self.tuple.height);
-}
-- (void)setup {
-    [self.tuple tupleWithSections:^CGFloat{
-        return 1;
-    } items:^CGFloat(NSInteger section) {
-        return 3;
-    } color:^UIColor * _Nullable(NSInteger section) {
-        return nil;
-    } inset:^UIEdgeInsets(NSInteger section) {
-        return UIEdgeInsetsZero;
-    }];
-    
-    [self.tuple itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
-        switch (indexPath.row) {
-            case 0: return self.imageSize;
-            case 1: return self.cellSize;
-            case 2: return self.accessorySize;
-            default: return CGSizeZero;
-        }
-    } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
-        switch (indexPath.row) {
-            case 0: return self.imageInsets;
-            case 1: return UIEdgeInsetsZero;
-            case 2: return self.accessoryInsets;
-            default: return UIEdgeInsetsZero;
-        }
-    } tuple:^(HItemTuple  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
-        switch (indexPath.row) {
-            case 0: {
-                HImageViewCell *cell = itemBlock(nil, HImageViewCell.class, nil, YES);
-                [cell.imageView setImageUrlString:self.image];
-            }
-                break;
-            case 1: {
-                HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
-                if (self.title) {
-                    [cell.label setNumberOfLines:self.numberOfLines];
-                    [cell.label setTextAlignment:self.textAlignment];
-                    if (self.titleColor) {
-                        [cell.label setTextColor:self.titleColor];
-                    }
-                    if (self.titleFont) {
-                        [cell.label setFont:self.titleFont];
-                    }
-                    if (self.detailTitle.length > 0) {
-                        NSString *content = [self.title stringByAppendingString:@"\n"];
-                        content = [content stringByAppendingString:self.detailTitle];
-                        [cell.label setText:content];
-                        [cell.label setKeywords:self.detailTitle];
-                        if (self.detailTitleColor) {
-                            [cell.label setKeywordsColor:self.detailTitleColor];
-                        }
-                        if (self.detailTitleFont) {
-                            [cell.label setKeywordsFont:self.detailTitleFont];
-                        }
-                        [cell.label setLineSpace:self.lineSpace];
-                        [cell.label formatThatFits];
-                    }else {
-                        [cell.label setText:self.title];
-                    }
-                }else {
-                    [cell.label setText:nil];
-                }
-            }
-                break;
-            case 2: {
-                HButtonViewCell *cell = itemBlock(nil, HButtonViewCell.class, nil, YES);
-                [cell.buttonView setImageUrlString:@"icon_tuple_arrow_right"];
-            }
-                break;
-                
-            default:
-                break;
-        }
-    }];
-}
-- (void)synchronize {
-    [self setup];
 }
 @end
