@@ -102,45 +102,35 @@
 }
 #pragma --mark other methods
 - (NSUInteger)pageNo {
-    NSNumber *page = objc_getAssociatedObject(self, _cmd);
-    if (!page) {
-        [self setPageNo:1];
+    if (_pageNo == 0) {
+        return 1;
     }
-    return [objc_getAssociatedObject(self, _cmd) unsignedIntegerValue];
-}
-- (void)setPageNo:(NSUInteger)pageNo {
-    objc_setAssociatedObject(self, @selector(pageNo), @(pageNo), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return _pageNo;
 }
 - (NSUInteger)pageSize {
-    NSNumber *pageSize = objc_getAssociatedObject(self, _cmd);
-    if (!pageSize) {
+    if (_pageSize == 0) {
         return KDefaultPageSize;
     }
-    return [pageSize unsignedIntegerValue];
-}
-- (void)setPageSize:(NSUInteger)pageSize {
-    objc_setAssociatedObject(self, @selector(pageSize), @(pageSize), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return _pageSize;
 }
 - (NSUInteger)totalNo {
-    NSNumber *totalNo = objc_getAssociatedObject(self, _cmd);
-    if (!totalNo) {
+    if (_totalNo == 0) {
         return MAXFLOAT;
     }
-    return [totalNo unsignedIntegerValue];
+    return _totalNo;
 }
-- (void)setTotalNo:(NSUInteger)totalNo {
-    objc_setAssociatedObject(self, @selector(totalNo), @(totalNo), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-- (void)beginRefresh {
+- (void)beginRefreshingWithCompletionBlock:(void (^)(void))completionBlock {
     if (_refreshBlock) {
         [self setPageNo:1];
-        [self.mj_header beginRefreshing];
+        [self.mj_header beginRefreshingWithCompletionBlock:completionBlock];
     }
 }
 //stop refresh
-- (void)endRefresh {
-    [self.mj_header endRefreshing];
-    [self.mj_footer endRefreshing];
+- (void)endRefreshingWithCompletionBlock:(void (^)(void))completionBlock {
+    [self.mj_header endRefreshingWithCompletionBlock:completionBlock];
+}
+- (void)endLoadMoreWithCompletionBlock:(void (^)(void))completionBlock {
+    [self.mj_footer endRefreshingWithCompletionBlock:completionBlock];
 }
 - (void)setRefreshBlock:(HRefreshTableBlock)refreshBlock {
     _refreshBlock = refreshBlock;
@@ -159,7 +149,7 @@
         [self setPageNo:1];
         self.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             self.pageNo += 1;
-            if (KDefaultPageSize*self.pageNo < self.totalNo) {
+            if (self.pageSize*self.pageNo < self.totalNo) {
                 self->_loadMoreBlock();
             }else {
                 [self.mj_footer endRefreshing];

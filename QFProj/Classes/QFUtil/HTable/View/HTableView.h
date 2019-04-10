@@ -61,6 +61,10 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 @property (nonatomic, copy, nullable) HRefreshTableBlock  refreshBlock;   // block to refresh data
 @property (nonatomic, copy, nullable) HLoadMoreTableBlock loadMoreBlock;  // block to load more data
 
+- (void)beginRefreshingWithCompletionBlock:(void (^)(void))completionBlock;
+- (void)endRefreshingWithCompletionBlock:(void (^)(void))completionBlock;
+- (void)endLoadMoreWithCompletionBlock:(void (^)(void))completionBlock;
+
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)initWithFrame:(CGRect)frame;
