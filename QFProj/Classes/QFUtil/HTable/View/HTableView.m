@@ -137,7 +137,7 @@
     if (_refreshBlock) {
         self.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [self setPageNo:1];
-            _refreshBlock();
+            self->_refreshBlock();
         }];
     }else {
         self.mj_header = nil;
@@ -149,7 +149,7 @@
         [self setPageNo:1];
         self.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             self.pageNo += 1;
-           _loadMoreBlock();
+           self->_loadMoreBlock();
         }];
     }else {
         self.mj_footer = nil;
