@@ -9,8 +9,9 @@
 #import "HTupleBaseView.h"
 #import "HWebImageView.h"
 #import "HWebButtonView.h"
+#import "HTupleView.h"
 
-@class HReusableButtonView, HReusableImageView;
+@class HReusableButtonView, HReusableImageView, HTupleView;
 
 typedef void(^HReusableButtonViewBlock)(HWebButtonView *webButtonView, HReusableButtonView *buttonView);
 typedef void(^HReusableImageViewBlock)(HWebImageView *webImageView, HReusableImageView *imageView);
@@ -35,4 +36,8 @@ typedef void(^HReusableImageViewBlock)(HWebImageView *webImageView, HReusableIma
 @interface HReusableImageView : HTupleBaseView
 @property (nonatomic) HWebImageView *imageView;
 @property (nonatomic, copy) HReusableImageViewBlock reusableImageViewBlock;
+@end
+
+@interface HTupleReusableView : HTupleBaseCell
+@property (nonatomic) HTupleView *tuple;
 @end

@@ -113,3 +113,18 @@
     HLayoutReusableView(self.imageView)
 }
 @end
+
+@implementation HTupleReusableView
+- (HTupleView *)tuple {
+    if (!_tuple) {
+        _tuple = [[HTupleView alloc] initWithFrame:self.bounds];
+        [_tuple setBackgroundColor:[UIColor clearColor]];
+        [_tuple setScrollEnabled:NO];
+        [self addSubview:_tuple];
+    }
+    return _tuple;
+}
+- (void)layoutContentView {
+    HLayoutTupleView(self.tuple)
+}
+@end
