@@ -121,6 +121,16 @@
 - (void)setPageSize:(NSUInteger)pageSize {
     objc_setAssociatedObject(self, @selector(pageSize), @(pageSize), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+- (NSUInteger)totalNo {
+    NSNumber *totalNo = objc_getAssociatedObject(self, _cmd);
+    if (!totalNo) {
+        return MAXFLOAT;
+    }
+    return [totalNo unsignedIntegerValue];
+}
+- (void)setTotalNo:(NSUInteger)totalNo {
+    objc_setAssociatedObject(self, @selector(totalNo), @(totalNo), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 - (void)beginRefresh {
     if (_refreshBlock) {
         [self setPageNo:1];
@@ -128,7 +138,7 @@
     }
 }
 //stop refresh
--(void)endRefresh {
+- (void)endRefresh {
     [self.mj_header endRefreshing];
     [self.mj_footer endRefreshing];
 }
@@ -149,7 +159,11 @@
         [self setPageNo:1];
         self.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             self.pageNo += 1;
-           self->_loadMoreBlock();
+            if (KDefaultPageSize*self.pageNo < self.totalNo) {
+                self->_loadMoreBlock();
+            }else {
+                [self.mj_footer endRefreshing];
+            }
         }];
     }else {
         self.mj_footer = nil;

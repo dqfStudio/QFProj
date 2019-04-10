@@ -8,6 +8,7 @@
 
 #import "HTupleView.h"
 
+#define KDefaultPageSize 20
 #define KCategoryDesignKey @"section"
 
 @interface NSIndexPath (HTupleView)
@@ -126,9 +127,76 @@
     self.delegate = self;
     self.dataSource = self;
 }
-
+#pragma --mark other methods
+- (NSUInteger)pageNo {
+    NSNumber *page = objc_getAssociatedObject(self, _cmd);
+    if (!page) {
+        [self setPageNo:1];
+    }
+    return [objc_getAssociatedObject(self, _cmd) unsignedIntegerValue];
+}
+- (void)setPageNo:(NSUInteger)pageNo {
+    objc_setAssociatedObject(self, @selector(pageNo), @(pageNo), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (NSUInteger)pageSize {
+    NSNumber *pageSize = objc_getAssociatedObject(self, _cmd);
+    if (!pageSize) {
+        return KDefaultPageSize;
+    }
+    return [pageSize unsignedIntegerValue];
+}
+- (void)setPageSize:(NSUInteger)pageSize {
+    objc_setAssociatedObject(self, @selector(pageSize), @(pageSize), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (NSUInteger)totalNo {
+    NSNumber *totalNo = objc_getAssociatedObject(self, _cmd);
+    if (!totalNo) {
+        return MAXFLOAT;
+    }
+    return [totalNo unsignedIntegerValue];
+}
+- (void)setTotalNo:(NSUInteger)totalNo {
+    objc_setAssociatedObject(self, @selector(totalNo), @(totalNo), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (void)beginRefresh {
+    if (_refreshBlock) {
+        [self setPageNo:1];
+        [self.mj_header beginRefreshing];
+    }
+}
+//stop refresh
+- (void)endRefresh {
+    [self.mj_header endRefreshing];
+    [self.mj_footer endRefreshing];
+}
+- (void)setRefreshBlock:(HRefreshTupleBlock)refreshBlock {
+    _refreshBlock = refreshBlock;
+    if (_refreshBlock) {
+        self.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [self setPageNo:1];
+            self->_refreshBlock();
+        }];
+    }else {
+        self.mj_header = nil;
+    }
+}
+- (void)setLoadMoreBlock:(HLoadMoreTupleBlock)loadMoreBlock {
+    _loadMoreBlock = loadMoreBlock;
+    if (_loadMoreBlock) {
+        [self setPageNo:1];
+        self.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            self.pageNo += 1;
+            if (KDefaultPageSize*self.pageNo < self.totalNo) {
+                self->_loadMoreBlock();
+            }else {
+                [self.mj_footer endRefreshing];
+            }
+        }];
+    }else {
+        self.mj_footer = nil;
+    }
+}
 #pragma mark - signal
-
 - (HTupleCellSignalBlock)signalBlock {
     return [self getAssociatedValueForKey:_cmd];
 }

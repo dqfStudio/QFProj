@@ -90,10 +90,6 @@ H_CheckPropertyRange(rrr, 0, 150)
     } tuple:^(HItemTuple  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
         HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
         [cell setBackgroundColor:[UIColor redColor]];
-        [cell setImage:nil];
-        [cell setTitle:@"titletitile"];
-        [cell setDetailTitle:@"detailTitledetailTitle"];
-        [cell synchronize];
     }];
     
     

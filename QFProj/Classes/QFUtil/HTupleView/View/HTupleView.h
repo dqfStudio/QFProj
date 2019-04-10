@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJRefresh.h"
 #import "NSObject+HMessy.h"
 #import "HTupleViewCell.h"
 #import "HTupleReusableView.h"
@@ -24,6 +25,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleViewStyle) {
 };
 
 NS_ASSUME_NONNULL_BEGIN
+
+typedef void (^HRefreshTupleBlock)(void);
+typedef void (^HLoadMoreTupleBlock)(void);
 
 typedef id _Nonnull (^HHeaderTuple)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
 typedef id _Nonnull (^HFooterTuple)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
@@ -75,6 +79,14 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 
 @interface HTupleView : UICollectionView <HTupleViewDelegate, ULBCollectionViewDelegateFlowLayout>
 @property (nonatomic, weak, nullable) id <HTupleViewDelegate> tupleDelegate;
+
+@property (nonatomic, assign) NSUInteger pageNo;    // page number, default 1
+@property (nonatomic, assign) NSUInteger pageSize;  // page size, default 20
+@property (nonatomic, assign) NSUInteger totalNo;  // total number.
+
+@property (nonatomic, copy, nullable) HRefreshTupleBlock  refreshBlock;   // block to refresh data
+@property (nonatomic, copy, nullable) HLoadMoreTupleBlock loadMoreBlock;  // block to load more data
+
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)initWithFrame:(CGRect)frame;

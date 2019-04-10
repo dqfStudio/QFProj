@@ -56,6 +56,7 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 
 @property (nonatomic, assign) NSUInteger pageNo;    // page number, default 1
 @property (nonatomic, assign) NSUInteger pageSize;  // page size, default 20
+@property (nonatomic, assign) NSUInteger totalNo;  // total number.
 
 @property (nonatomic, copy, nullable) HRefreshTableBlock  refreshBlock;   // block to refresh data
 @property (nonatomic, copy, nullable) HLoadMoreTableBlock loadMoreBlock;  // block to load more data
