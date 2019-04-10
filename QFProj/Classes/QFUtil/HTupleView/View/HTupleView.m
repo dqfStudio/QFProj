@@ -264,7 +264,7 @@
     return [NSString stringWithFormat:@"%p", self];
 }
 #pragma mark - UICollectionViewDatasource  & delegate
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {    
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(numberOfSectionsInTupleView:)]) {
         return [self.tupleDelegate numberOfSectionsInTupleView:self];
     }else if (_categoryDesign && [self respondsToSelector:@selector(numberOfSectionsInTupleView:)]) {
@@ -369,8 +369,12 @@
             cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
         }
         UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-        if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForItemAtIndexPath:)]) {
+        if (!self.categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForItemAtIndexPath:)]) {
             edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForItemAtIndexPath:indexPath];
+        }else if (self.categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForItemAtIndexPath:)]) {
+            edgeInsets = [self tupleView:self edgeInsetsForItemAtIndexPath:indexPath];
+        }else if (self.edgeInsetsForItemBlock) {
+            edgeInsets = self.edgeInsetsForItemBlock(indexPath);
         }
         if ([cell respondsToSelector:@selector(edgeInsets)]) {
             [(HTupleBaseCell *)cell setEdgeInsets:edgeInsets];
@@ -423,8 +427,12 @@
                 cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
             }
             UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-            if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForHeaderInSection:)]) {
+            if (!self.categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForHeaderInSection:)]) {
                 edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForHeaderInSection:indexPath.section];
+            }else if (self.categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForHeaderInSection:)]) {
+                edgeInsets = [self tupleView:self edgeInsetsForHeaderInSection:indexPath.section];
+            }else if (self.edgeInsetsForHeaderBlock) {
+                edgeInsets = self.edgeInsetsForHeaderBlock(indexPath.section);
             }
             if ([cell respondsToSelector:@selector(edgeInsets)]) {
                 [(HTupleBaseView *)cell setEdgeInsets:edgeInsets];
@@ -473,8 +481,12 @@
                 cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
             }
             UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-            if ([self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForFooterInSection:)]) {
+            if (!self.categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForFooterInSection:)]) {
                 edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForFooterInSection:indexPath.section];
+            }else if (self.categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForFooterInSection:)]) {
+                edgeInsets = [self tupleView:self edgeInsetsForFooterInSection:indexPath.section];
+            }else if (self.edgeInsetsForFooterBlock) {
+                edgeInsets = self.edgeInsetsForFooterBlock(indexPath.section);
             }
             if ([cell respondsToSelector:@selector(edgeInsets)]) {
                 [(HTupleBaseView *)cell setEdgeInsets:edgeInsets];

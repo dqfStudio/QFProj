@@ -203,18 +203,18 @@
 }
 - (UIEdgeInsets)accessoryInsets {
     if (UIEdgeInsetsEqualToEdgeInsets(_accessoryInsets, UIEdgeInsetsZero)) {
-        _accessoryInsets = UIEdgeInsetsMake(self.tuple.height/2-20/2, 0, self.tuple.height/2-20/2, 15);
+        _accessoryInsets = UIEdgeInsetsMake(self.tuple.height/2-15/2, 0, self.tuple.height/2-15/2, 10);
     }
     return _accessoryInsets;
 }
 -  (CGSize)imageSize {
-    CGFloat height = self.tuple.height-_imageInsets.top-_imageInsets.bottom;
-    CGFloat width = height+_imageInsets.left+_imageInsets.right;
+    CGFloat height = self.tuple.height-self.imageInsets.top-self.imageInsets.bottom;
+    CGFloat width = height+self.imageInsets.left+self.imageInsets.right;
     return CGSizeMake(width, self.tuple.height);
 }
 - (CGSize)accessorySize {
-    CGFloat defaultWidth = 25;
-    CGFloat width = defaultWidth+_accessoryInsets.left+_accessoryInsets.right;
+    CGFloat defaultWidth = 15;
+    CGFloat width = defaultWidth+self.accessoryInsets.left+self.accessoryInsets.right;
     return CGSizeMake(width, self.tuple.height);
 }
 - (CGSize)cellSize {
@@ -241,42 +241,47 @@
         }
     } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
         switch (indexPath.row) {
-            case 0: return _imageInsets;
+            case 0: return self.imageInsets;
             case 1: return UIEdgeInsetsZero;
-            case 2: return _accessoryInsets;
+            case 2: return self.accessoryInsets;
             default: return UIEdgeInsetsZero;
         }
     } tuple:^(HItemTuple  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
         switch (indexPath.row) {
             case 0: {
                 HImageViewCell *cell = itemBlock(nil, HImageViewCell.class, nil, YES);
-                [cell.imageView setImageUrlString:_image];
+                [cell.imageView setImageUrlString:self.image];
             }
                 break;
             case 1: {
                 HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
-                if (_title) {
-                    _detailTitle = _detailTitle ? :@"";
-                    NSString *content = [_title stringByAppendingString:_detailTitle];
-                    [cell.label setText:content];
+                if (self.title) {
                     [cell.label setNumberOfLines:0];
-                    if (_titleColor) {
-                        [cell.label setTextColor:_titleColor];
+                    [cell.label setTextAlignment:self.textAlignment];
+                    if (self.titleColor) {
+                        [cell.label setTextColor:self.titleColor];
                     }
-                    if (_titleFont) {
-                        [cell.label setFont:_titleFont];
+                    if (self.titleFont) {
+                        [cell.label setFont:self.titleFont];
                     }
-                    if (_detailTitle.length > 0) {
-                        [cell.label setKeywords:_detailTitle];
-                        if (_detailTitleColor) {
-                            [cell.label setKeywordsColor:_detailTitleColor];
+                    if (self.detailTitle.length > 0) {
+                        NSString *content = [self.title stringByAppendingString:@"\n"];
+                        content = [content stringByAppendingString:self.detailTitle];
+                        [cell.label setText:content];
+                        [cell.label setKeywords:self.detailTitle];
+                        if (self.detailTitleColor) {
+                            [cell.label setKeywordsColor:self.detailTitleColor];
                         }
-                        if (_detailTitleFont) {
-                            [cell.label setKeywordsFont:_detailTitleFont];
+                        if (self.detailTitleFont) {
+                            [cell.label setKeywordsFont:self.detailTitleFont];
                         }
-                        _lineSpace = _lineSpace > 0 ? :4;
-                        [cell.label setLineSpace:_lineSpace];
+                        [cell.label setLineSpace:self.lineSpace];
                         [cell.label formatThatFits];
+                    }else {
+                        if (self.oneLine) {
+                            [cell.label setNumberOfLines:1];
+                        }
+                        [cell.label setText:self.title];
                     }
                 }else {
                     [cell.label setText:nil];

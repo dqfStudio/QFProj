@@ -48,6 +48,10 @@ typedef void(^HImageViewBlock)(HWebImageView *webImageView, HImageViewCell *imag
 
 @interface HTupleViewCell : HTupleBaseCell
 
+@property (nonatomic) BOOL oneLine;
+@property (nonatomic) CGFloat lineSpace;
+@property (nonatomic) NSTextAlignment textAlignment;
+
 @property (nonatomic) NSString *image;
 @property (nonatomic) UIEdgeInsets imageInsets;
 
@@ -58,7 +62,6 @@ typedef void(^HImageViewBlock)(HWebImageView *webImageView, HImageViewCell *imag
 @property (nonatomic, copy) NSString *detailTitle;
 @property (nonatomic) UIColor *detailTitleColor;
 @property (nonatomic) UIFont *detailTitleFont;
-@property (nonatomic) CGFloat lineSpace;//default 4.
 
 @property (nonatomic) UIEdgeInsets accessoryInsets;
 

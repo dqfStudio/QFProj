@@ -51,6 +51,7 @@
 @property (nonatomic) NSDate *date;
 @property (nonatomic) KTableView *table;
 @property (nonatomic) NSRange wcountRange;
+@property (nonatomic) UILabel *globalLabel;
 
 H_CheckProperty(NSInteger, rrr)
 @end
@@ -88,10 +89,10 @@ H_CheckPropertyRange(rrr, 0, 150)
         return UIEdgeInsetsZero;
     } tuple:^(HItemTuple  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
         HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
-//        [cell setBackgroundColor:[UIColor redColor]];
-//        [cell setImage:nil];
-//        [cell setTitle:@"titletitile"];
-//        [cell setDetailTitle:@"detailTitledetailTitle"];
+        [cell setBackgroundColor:[UIColor redColor]];
+        [cell setImage:nil];
+        [cell setTitle:@"titletitile"];
+        [cell setDetailTitle:@"detailTitledetailTitle"];
         [cell synchronize];
     }];
     
