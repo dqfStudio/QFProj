@@ -15,7 +15,6 @@
 #import "UILabel+HState.h"
 #import "HLabelView.h"
 #import "HTupleView.h"
-#import "HTupleVerticalCell.h"
 #import "HSimilarity.h"
 
 #import "KTableView.h"
@@ -88,7 +87,7 @@ H_CheckPropertyRange(rrr, 0, 150)
     } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
         return UIEdgeInsetsZero;
     } tuple:^(HItemTuple  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
-        HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
+        HTupleVerticalCell *cell = itemBlock(nil, HTupleVerticalCell.class, nil, YES);
         [cell setBackgroundColor:[UIColor redColor]];
     }];
     

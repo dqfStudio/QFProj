@@ -46,6 +46,10 @@ typedef void(^HImageViewBlock)(HWebImageView *webImageView, HImageViewCell *imag
 @property (nonatomic) BOOL forbidPaste;//禁止粘贴，默认为NO
 @end
 
-@interface HTupleViewCell : HTupleBaseCell
+@interface HTupleVerticalCell : HTupleBaseCell
+@property (nonatomic) HTupleView *tuple;
+@end
+
+@interface HTupleHorizontalCell : HTupleBaseCell
 @property (nonatomic) HTupleView *tuple;
 @end

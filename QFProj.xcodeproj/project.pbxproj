@@ -111,8 +111,6 @@
 		15C572B020B016CA0070327C /* UIView+HAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C572AF20B016CA0070327C /* UIView+HAccessoryView.m */; };
 		15C5731E20B3B1900070327C /* HSimilarity.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5731D20B3B1900070327C /* HSimilarity.m */; };
 		15C5736820B3DD7B0070327C /* HTupleBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5734F20B3DD7B0070327C /* HTupleBaseCell.m */; };
-		15C5736920B3DD7B0070327C /* HTupleVerticalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5735120B3DD7B0070327C /* HTupleVerticalCell.m */; };
-		15C5736A20B3DD7B0070327C /* HTupleHorizontalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5735220B3DD7B0070327C /* HTupleHorizontalCell.m */; };
 		15C5736B20B3DD7B0070327C /* HTupleViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5735420B3DD7B0070327C /* HTupleViewCell.m */; };
 		15C5736C20B3DD7B0070327C /* icon_tuple_arrow_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C5735720B3DD7B0070327C /* icon_tuple_arrow_up@2x.png */; };
 		15C5736D20B3DD7B0070327C /* icon_tuple_arrow_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C5735820B3DD7B0070327C /* icon_tuple_arrow_down@2x.png */; };
@@ -218,7 +216,6 @@
 		A2ED9C1222314BA100C9D050 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1022314BA100C9D050 /* SimplePing.m */; };
 		A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1122314BA100C9D050 /* HPingTester.m */; };
 		A2ED9C1722314CAC00C9D050 /* HKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1622314CAC00C9D050 /* HKeyChainStore.m */; };
-		A2ED9C1E2232554D00C9D050 /* HTupleImageTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1D2232554D00C9D050 /* HTupleImageTextCell.m */; };
 		A434870C214809F80030209A /* GViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A434870B214809F80030209A /* GViewController.m */; };
 		A45401E6215E1CE7003355C9 /* HNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45401E5215E1CE7003355C9 /* HNavigationController.m */; };
 		A4759710217EC61D00AAAEA9 /* HUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A475970F217EC61C00AAAEA9 /* HUserDefaults.m */; };
@@ -435,16 +432,12 @@
 		15C5731D20B3B1900070327C /* HSimilarity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSimilarity.m; sourceTree = "<group>"; };
 		15C5734F20B3DD7B0070327C /* HTupleBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTupleBaseCell.m; sourceTree = "<group>"; };
 		15C5735020B3DD7B0070327C /* HTupleViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTupleViewCell.h; sourceTree = "<group>"; };
-		15C5735120B3DD7B0070327C /* HTupleVerticalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTupleVerticalCell.m; sourceTree = "<group>"; };
-		15C5735220B3DD7B0070327C /* HTupleHorizontalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTupleHorizontalCell.m; sourceTree = "<group>"; };
 		15C5735320B3DD7B0070327C /* HTupleBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTupleBaseCell.h; sourceTree = "<group>"; };
 		15C5735420B3DD7B0070327C /* HTupleViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTupleViewCell.m; sourceTree = "<group>"; };
-		15C5735520B3DD7B0070327C /* HTupleVerticalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTupleVerticalCell.h; sourceTree = "<group>"; };
 		15C5735720B3DD7B0070327C /* icon_tuple_arrow_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_arrow_up@2x.png"; sourceTree = "<group>"; };
 		15C5735820B3DD7B0070327C /* icon_tuple_arrow_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_arrow_down@2x.png"; sourceTree = "<group>"; };
 		15C5735920B3DD7B0070327C /* icon_tuple_arrow_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_arrow_right@2x.png"; sourceTree = "<group>"; };
 		15C5735A20B3DD7B0070327C /* icon_tuple_arrow_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_arrow_left@2x.png"; sourceTree = "<group>"; };
-		15C5735B20B3DD7B0070327C /* HTupleHorizontalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTupleHorizontalCell.h; sourceTree = "<group>"; };
 		15C5735D20B3DD7B0070327C /* HTupleReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTupleReusableView.m; sourceTree = "<group>"; };
 		15C5735E20B3DD7B0070327C /* HTupleBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTupleBaseView.m; sourceTree = "<group>"; };
 		15C5735F20B3DD7B0070327C /* HTupleBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTupleBaseView.h; sourceTree = "<group>"; };
@@ -598,8 +591,6 @@
 		A2ED9C1122314BA100C9D050 /* HPingTester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPingTester.m; sourceTree = "<group>"; };
 		A2ED9C1522314CAC00C9D050 /* HKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKeyChainStore.h; sourceTree = "<group>"; };
 		A2ED9C1622314CAC00C9D050 /* HKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKeyChainStore.m; sourceTree = "<group>"; };
-		A2ED9C1C2232554D00C9D050 /* HTupleImageTextCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleImageTextCell.h; sourceTree = "<group>"; };
-		A2ED9C1D2232554D00C9D050 /* HTupleImageTextCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleImageTextCell.m; sourceTree = "<group>"; };
 		A434870A214809F80030209A /* GViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GViewController.h; sourceTree = "<group>"; };
 		A434870B214809F80030209A /* GViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GViewController.m; sourceTree = "<group>"; };
 		A45401E4215E1CE7003355C9 /* HNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNavigationController.h; sourceTree = "<group>"; };
@@ -1254,14 +1245,8 @@
 			children = (
 				15C5735320B3DD7B0070327C /* HTupleBaseCell.h */,
 				15C5734F20B3DD7B0070327C /* HTupleBaseCell.m */,
-				15C5735B20B3DD7B0070327C /* HTupleHorizontalCell.h */,
-				15C5735220B3DD7B0070327C /* HTupleHorizontalCell.m */,
-				15C5735520B3DD7B0070327C /* HTupleVerticalCell.h */,
-				15C5735120B3DD7B0070327C /* HTupleVerticalCell.m */,
 				15C5735020B3DD7B0070327C /* HTupleViewCell.h */,
 				15C5735420B3DD7B0070327C /* HTupleViewCell.m */,
-				A2ED9C1C2232554D00C9D050 /* HTupleImageTextCell.h */,
-				A2ED9C1D2232554D00C9D050 /* HTupleImageTextCell.m */,
 				15C5735620B3DD7B0070327C /* tuple_arrow_icons */,
 			);
 			path = HTupleViewCell;
@@ -1829,7 +1814,6 @@
 				15C5736B20B3DD7B0070327C /* HTupleViewCell.m in Sources */,
 				15B4DE042092F96C00773E04 /* NSError+HUtil.m in Sources */,
 				A28EF38321D8EC2A002F92ED /* HResultView.m in Sources */,
-				15C5736A20B3DD7B0070327C /* HTupleHorizontalCell.m in Sources */,
 				157684D220E2157E00D8DC5B /* NSBlockChain.m in Sources */,
 				A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */,
 				A21FD5FA224DBC34009F03FB /* HRequestHUD.m in Sources */,
@@ -1928,7 +1912,6 @@
 				15B4DE072092F96C00773E04 /* NSString+HChain.m in Sources */,
 				1510793F20F98E4800860D1C /* NSTimer+HUtil.m in Sources */,
 				15B4DE082092F96C00773E04 /* HWebButtonView.m in Sources */,
-				15C5736920B3DD7B0070327C /* HTupleVerticalCell.m in Sources */,
 				A2ED9C1722314CAC00C9D050 /* HKeyChainStore.m in Sources */,
 				15E6BB9A2136E7E300EBE794 /* UIViewController+YPTab.m in Sources */,
 				15545790212B0C6300DA7898 /* HFileCache.m in Sources */,
@@ -1954,7 +1937,6 @@
 				15AD7130211B3B4F00D8185F /* NSObject+HName.m in Sources */,
 				15E6BB992136E7E300EBE794 /* UIScrollView+YPTab.m in Sources */,
 				15B4DDF52092F96C00773E04 /* UINavigationController+HUtil.m in Sources */,
-				A2ED9C1E2232554D00C9D050 /* HTupleImageTextCell.m in Sources */,
 				A28EF3B521D9C9A2002F92ED /* HWaitingView.m in Sources */,
 				15B4DDFC2092F96C00773E04 /* UIImage+HChain.m in Sources */,
 				A24B6571225EE23500B257BB /* HOther.m in Sources */,

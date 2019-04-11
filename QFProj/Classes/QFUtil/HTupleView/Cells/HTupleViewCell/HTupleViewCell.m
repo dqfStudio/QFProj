@@ -185,10 +185,25 @@
 }
 @end
 
-@implementation HTupleViewCell
+@implementation HTupleVerticalCell
 - (HTupleView *)tuple {
     if (!_tuple) {
         _tuple = [[HTupleView alloc] initWithFrame:self.bounds];
+        [_tuple setBackgroundColor:[UIColor clearColor]];
+        [_tuple setScrollEnabled:NO];
+        [self addSubview:_tuple];
+    }
+    return _tuple;
+}
+- (void)layoutContentView {
+    HLayoutTupleView(self.tuple)
+}
+@end
+
+@implementation HTupleHorizontalCell
+- (HTupleView *)tuple {
+    if (!_tuple) {
+        _tuple = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleViewScrollDirectionHorizontal];
         [_tuple setBackgroundColor:[UIColor clearColor]];
         [_tuple setScrollEnabled:NO];
         [self addSubview:_tuple];
