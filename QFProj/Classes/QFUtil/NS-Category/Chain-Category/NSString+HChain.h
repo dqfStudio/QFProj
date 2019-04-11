@@ -10,84 +10,60 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (HChain)
+- (NSString *)idx:(NSInteger)index;
+- (NSString *)range:(NSInteger)loc _:(NSInteger)len;
 
-- (NSString *(^)(NSInteger index))idx;
-- (NSString *(^)(NSInteger loc, NSInteger len))range;
++ (NSString *)format:(NSString *)format, ...;
 
-+ (NSString *(^)(NSString *format, ...))format;
++ (NSString *)fromClass:(Class)cls;
+- (Class)toClass;
 
++ (NSString *)fromRect:(CGRect)rect;
+- (CGRect)toRect;
 
++ (NSString *)fromSize:(CGSize)size;
+- (CGSize)toSize;
 
-+ (NSString *(^)(Class))fromClass;
-- (Class(^)(void))toClass;
++ (NSString *)fromPoint:(CGPoint)point;
+- (CGPoint)toPoint;
 
-+ (NSString *(^)(CGRect))fromRect;
-- (CGRect(^)(void))toRect;
++ (NSString *)fromRange:(NSRange)range;
+- (NSRange)toRange;
 
++ (NSString *)fromSelector:(SEL)aSelector;
+- (SEL)toSelector;
 
-+ (NSString *(^)(CGSize))fromSize;
-- (CGSize(^)(void))toSize;
++ (NSString *)fromProtocol:(Protocol *)proto;
+- (Protocol *)toProtocol;
 
-+ (NSString *(^)(CGPoint))fromPoint;
-- (CGPoint(^)(void))toPoint;
++ (NSString *)fromCString:(const char *)c;
+- (const char *)toCString;
 
+- (NSString *)fromIndex:(NSInteger)loc;
+- (NSString *)toIndex:(NSInteger)index;
+- (NSString *)fromSubString:(NSString *)org;
+- (NSString *)toSubString:(NSString *)org;
 
+- (BOOL)contains:(NSString *)org;
 
++ (NSString *)append:(id)obj;
+- (NSString *)append:(id)obj;
+- (NSString *)appendFormat:(NSString *)format, ...;
 
-+ (NSString *(^)(NSRange))fromRange;
-- (NSRange(^)(void))toRange;
++ (NSString *)appendCount:(NSString *)org _:(NSUInteger)count;
+- (NSString *)appendCount:(NSString *)org _:(NSUInteger)count;
 
-+ (NSString *(^)(SEL))fromSelector;
-- (SEL(^)(void))toSelector;
+- (NSString *)replace:(NSString *)org1 _:(NSString *)org2;
+- (NSString *)replaceArray:(NSArray *)org;
 
+- (BOOL)equal:(NSString *)org;
+- (BOOL)isClass:(Class)aClass;
 
-+ (NSString *(^)(Protocol *))fromProtocol;
-- (Protocol *(^)(void))toProtocol;
-
-+ (NSString *(^)(const char *))fromCString;
-- (const char *(^)(void))toCString;
-
-
-
-- (NSString *(^)(NSInteger loc))fromIndex;
-- (NSString *(^)(NSInteger index))toIndex;
-
-- (NSString *(^)(NSString *))fromSubString;
-- (NSString *(^)(NSString *))toSubString;
-
-
-
-- (BOOL (^)(NSString *))contains;
-
-+ (NSString *(^)(id))append;
-- (NSString *(^)(id))append;
-- (NSString *(^)(NSString *format, ...))appendFormat;
-
-+ (NSString *(^)(NSString *, NSUInteger))appendCount;
-- (NSString *(^)(NSString *, NSUInteger))appendCount;
-
-- (NSString *(^)(NSString *, NSString *))replace;
-- (NSString *(^)(NSArray *))replaceArray;
-- (BOOL (^)(NSString *))equal;
-- (BOOL (^)(Class))isClass;
-
-+ (NSString *(^)(NSUInteger))space;
-- (NSString *(^)(NSUInteger))space;
-
-+ (NSString *(^)(NSUInteger))tab;
-- (NSString *(^)(NSUInteger))tab;
-
-+ (NSString *(^)(NSUInteger))wrap;
-- (NSString *(^)(NSUInteger))wrap;
-
-- (NSArray<NSString *> *(^)(NSString *))componentsByString;
-- (NSArray<NSString *> *(^)(NSString *))componentsBySetString;
-- (NSArray<NSString *> *(^)(NSString *, NSString *))componentsByStringBySetString;
-
-- (BOOL(^)(NSString *))containsString;
-- (BOOL(^)(NSArray<NSString *> *))containsStrArr;
+- (NSArray <NSString *>*)componentsByString:(NSString *)separator;
+- (NSArray <NSString *>*)componentsBySetString:(NSString *)separator;
+- (NSArray <NSString *>*)componentsByStringBySetString:(NSString *)separator _:(NSString *)setSeparator;
+- (BOOL)containsStrArr:(NSArray <NSString *>*)arr;
 
 - (NSString *)objectAtIndexedSubscript:(NSInteger)index;
 - (NSString *)objectForKeyedSubscript:(NSString *)key;
-
 @end

@@ -74,7 +74,7 @@
             self.content = self.content ? :KDefaultPrompt;
             NSString *tmpString = [self.content mutableCopy];
             tmpString = tmpString ? :KDefaultPrompt;
-            tmpString = tmpString.replace(@" ", @"");
+            tmpString = [tmpString replace:@" " _:@""];
             if (tmpString.length == 0) {
                 self.content = KDefaultPrompt;
             }
@@ -121,7 +121,7 @@
             self.content = self.content ? :KDefaultPrompt;
             NSString *tmpString = [self.content mutableCopy];
             tmpString = tmpString ? :KDefaultPrompt;
-            tmpString = tmpString.replace(@" ", @"");
+            tmpString = [tmpString replace:@" " _:@""];
             if (tmpString.length == 0) {
                 self.content = KDefaultPrompt;
             }
@@ -166,11 +166,11 @@
     
     if ((onlineVersion && onlineVersion.length >= 5) && (localVersion && localVersion.length >= 5)) {
         
-        onlineVersion = onlineVersion.replace(@" ", @"");
-        localVersion = localVersion.replace(@" ", @"");
+        onlineVersion = [onlineVersion replace:@" " _:@""];
+        localVersion = [localVersion replace:@" " _:@""];
         
-        NSArray *onlineArr = onlineVersion.componentsByString(@".");
-        NSArray *localArr = localVersion.componentsByString(@".");
+        NSArray *onlineArr = [onlineVersion componentsByString:@"."];
+        NSArray *localArr = [localVersion componentsByString:@"."];
         
         if (onlineArr.count == 3 && localArr.count == 3) {
             NSString *online1 = onlineArr[0];

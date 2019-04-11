@@ -195,7 +195,7 @@
         }
         
         if (modeMethod.length > 0 && methodModePrefix.length > 0) {
-            NSArray *comp = modeMethod.fromSubString(methodModePrefix).componentsByString(@":");
+            NSArray *comp = [[modeMethod fromSubString:methodModePrefix] componentsByString:@":"];
             
             NSMutableArray *valueArr = [[NSMutableArray alloc] init];
             for (NSString *paramKey in comp) {
