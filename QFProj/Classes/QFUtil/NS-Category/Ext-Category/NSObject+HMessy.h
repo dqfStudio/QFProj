@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSObject (HMessy)
 #pragma mark - Associate value
 - (void)setAssociateValue:(nullable id)value withKey:(void *)key;
@@ -56,3 +58,5 @@
 @interface NSString (HMessy)
 - (NSString *)stringValue;
 @end
+
+NS_ASSUME_NONNULL_END

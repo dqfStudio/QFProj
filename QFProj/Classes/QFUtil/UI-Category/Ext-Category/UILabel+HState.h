@@ -13,6 +13,8 @@ typedef NS_OPTIONS(NSUInteger, UILabelState) {
     UILabelStateSelected
 };
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UILabel (HState)
 
 @property(nonatomic, getter=isSelected) BOOL selected; // default is NO
@@ -26,3 +28,4 @@ typedef NS_OPTIONS(NSUInteger, UILabelState) {
 
 @end
 
+NS_ASSUME_NONNULL_END

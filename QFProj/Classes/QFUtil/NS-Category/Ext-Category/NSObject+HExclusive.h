@@ -13,6 +13,8 @@
 
 typedef void(^HExclusive)(void);
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSObject (HExclusive)
 
 - (void)exclusive:(NSString * _Nonnull)exc block:(void (^)(HExclusive stop))block;
@@ -42,3 +44,5 @@ typedef void(^HExclusive)(void);
 - (BOOL)containObjectOfSegAlias;
 - (void)clearSegStatue;
 @end
+
+NS_ASSUME_NONNULL_END
