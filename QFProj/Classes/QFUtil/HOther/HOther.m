@@ -274,4 +274,47 @@
 //    decisionHandler(WKNavigationActionPolicyAllow);
 //}
 
+//- (void)addSpecialItem {
+//    self.registerItem = [YPTabItem buttonWithType:UIButtonTypeCustom];
+//    [RACObserve([HUserDefaults defaults], isLogin) subscribeNext:^(NSNumber *x) {
+//        if (x.integerValue == 0) {
+//            self.registerItem.title = @"注册";
+//            self.registerItem.image = [UIImage imageNamed:@"di_zhuce"];
+//            self.registerItem.selectedImage = [UIImage imageNamed:@"di_zhuce"];
+//        }else {
+//            self.registerItem.title = @"存款";
+//            self.registerItem.image = [UIImage imageNamed:@"di_cunkuan"];
+//            self.registerItem.selectedImage = [UIImage imageNamed:@"di_cunkuan"];
+//        }
+//    }];
+//    self.registerItem.titleColor = [HSkinManager specialColor2];
+//    self.registerItem.titleSelectedColor = [HSkinManager specialColor2];
+//    self.registerItem.backgroundColor = [UIColor clearColor];
+//    self.registerItem.titleFont = [UIFont systemFontOfSize:14];
+//
+//    [self.registerItem setContentHorizontalCenterWithVerticalOffset:13 spacing:10];
+//    // 设置其size，如果不设置，则默认为与其他item一样
+//    self.registerItem.size = CGSizeMake([UIScreen width]/5, 80);
+//    // 高度大于tabBar，所以需要将此属性设置为NO
+//    self.tabBar.clipsToBounds = NO;
+//    //加间隔线
+//    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, UIScreen.width, 1)];
+//    [lineView setBackgroundColor:[HSkinManager lineColor]];
+//    [self.tabBar addSubview:lineView];
+//    [self.tabBar sendSubviewToBack:lineView];
+//
+//    @www
+//    [self.tabBar setSpecialItem:self.registerItem
+//             afterItemWithIndex:1
+//                     tapHandler:^(YPTabItem *item) {
+//                         @sss
+//                         if (![HUserDefaults defaults].isLogin) {
+//                             HNavigationController *registerVC = [[HNavigationController alloc] initWithRootViewController:HRegisterController.new];
+//                             [self presentViewController:registerVC animated:YES completion:nil];
+//                         }else {
+//                             [self.navigationController pushViewController:HDepositVC.new animated:YES];
+//                         }
+//                     }];
+//}
+
 @end
