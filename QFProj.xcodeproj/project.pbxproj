@@ -173,6 +173,12 @@
 		A219F228222F72BC00241FD7 /* HFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F227222F72BC00241FD7 /* HFormController.m */; };
 		A219F22F222FB46A00241FD7 /* HIFS.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F22D222FB46A00241FD7 /* HIFS.m */; };
 		A21FD5FA224DBC34009F03FB /* HRequestHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A21FD5F9224DBC34009F03FB /* HRequestHUD.m */; };
+		A24B6560225EE08900B257BB /* HUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B655F225EE08900B257BB /* HUpdate.m */; };
+		A24B6566225EE0EE00B257BB /* HAutoPackage_Release.sh in Resources */ = {isa = PBXBuildFile; fileRef = A24B6562225EE0EE00B257BB /* HAutoPackage_Release.sh */; };
+		A24B6567225EE0EE00B257BB /* HProjectDRConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A24B6563225EE0EE00B257BB /* HProjectDRConfig.xcconfig */; };
+		A24B6568225EE0EE00B257BB /* README.H.md in Resources */ = {isa = PBXBuildFile; fileRef = A24B6564225EE0EE00B257BB /* README.H.md */; };
+		A24B6569225EE0EE00B257BB /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = A24B6565225EE0EE00B257BB /* exportOptions.plist */; };
+		A24B656D225EE14800B257BB /* HValidate.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B656B225EE14800B257BB /* HValidate.m */; };
 		A28EF2E821D86DD8002F92ED /* ULBCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */; };
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
 		A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */; };
@@ -525,6 +531,14 @@
 		A219F22E222FB46A00241FD7 /* HIFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIFS.h; sourceTree = "<group>"; };
 		A21FD5F8224DBC34009F03FB /* HRequestHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRequestHUD.h; sourceTree = "<group>"; };
 		A21FD5F9224DBC34009F03FB /* HRequestHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRequestHUD.m; sourceTree = "<group>"; };
+		A24B655E225EE08900B257BB /* HUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUpdate.h; sourceTree = "<group>"; };
+		A24B655F225EE08900B257BB /* HUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUpdate.m; sourceTree = "<group>"; };
+		A24B6562225EE0EE00B257BB /* HAutoPackage_Release.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = HAutoPackage_Release.sh; sourceTree = "<group>"; };
+		A24B6563225EE0EE00B257BB /* HProjectDRConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = HProjectDRConfig.xcconfig; sourceTree = "<group>"; };
+		A24B6564225EE0EE00B257BB /* README.H.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.H.md; sourceTree = "<group>"; };
+		A24B6565225EE0EE00B257BB /* exportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = exportOptions.plist; sourceTree = "<group>"; };
+		A24B656B225EE14800B257BB /* HValidate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HValidate.m; sourceTree = "<group>"; };
+		A24B656C225EE14800B257BB /* HValidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HValidate.h; sourceTree = "<group>"; };
 		A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULBCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A28EF2E721D86DD8002F92ED /* ULBCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ULBCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		A28EF2EA21D86E43002F92ED /* UILabel+HAttributeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeText.h"; sourceTree = "<group>"; };
@@ -881,6 +895,9 @@
 		15B4DD7E2092F96B00773E04 /* QFUtil */ = {
 			isa = PBXGroup;
 			children = (
+				A24B656A225EE14800B257BB /* HValidate */,
+				A24B6561225EE0EE00B257BB /* HAutoPackage */,
+				A24B655D225EE08900B257BB /* HUpdate */,
 				A2ED9C1422314CAC00C9D050 /* HKeyChainStore */,
 				A2ED9C0D22314BA100C9D050 /* HPingTool */,
 				A219F22C222FB46A00241FD7 /* HIFS */,
@@ -1470,6 +1487,35 @@
 			path = HIFS;
 			sourceTree = "<group>";
 		};
+		A24B655D225EE08900B257BB /* HUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				A24B655E225EE08900B257BB /* HUpdate.h */,
+				A24B655F225EE08900B257BB /* HUpdate.m */,
+			);
+			path = HUpdate;
+			sourceTree = "<group>";
+		};
+		A24B6561225EE0EE00B257BB /* HAutoPackage */ = {
+			isa = PBXGroup;
+			children = (
+				A24B6562225EE0EE00B257BB /* HAutoPackage_Release.sh */,
+				A24B6563225EE0EE00B257BB /* HProjectDRConfig.xcconfig */,
+				A24B6564225EE0EE00B257BB /* README.H.md */,
+				A24B6565225EE0EE00B257BB /* exportOptions.plist */,
+			);
+			path = HAutoPackage;
+			sourceTree = "<group>";
+		};
+		A24B656A225EE14800B257BB /* HValidate */ = {
+			isa = PBXGroup;
+			children = (
+				A24B656B225EE14800B257BB /* HValidate.m */,
+				A24B656C225EE14800B257BB /* HValidate.h */,
+			);
+			path = HValidate;
+			sourceTree = "<group>";
+		};
 		A28EF2E921D86E43002F92ED /* UILabel+HAttributeText */ = {
 			isa = PBXGroup;
 			children = (
@@ -1656,13 +1702,16 @@
 				A28EF3A321D8ECC9002F92ED /* loading_new_4@2x.png in Resources */,
 				15F0297020BE8D79003287AA /* mgf_loading_new_15@2x.png in Resources */,
 				15F0297220BE8D79003287AA /* mgf_loading_new_9@2x.png in Resources */,
+				A24B6567225EE0EE00B257BB /* HProjectDRConfig.xcconfig in Resources */,
 				15F0296E20BE8D79003287AA /* mgf_loading_new_11@2x.png in Resources */,
 				15F0296820BE8D79003287AA /* mgf_loading_new_4@2x.png in Resources */,
 				15F0296D20BE8D79003287AA /* mgf_loading_new_13@2x.png in Resources */,
 				15F0296620BE8D79003287AA /* mgf_loading_new_10@2x.png in Resources */,
+				A24B6566225EE0EE00B257BB /* HAutoPackage_Release.sh in Resources */,
 				A28EF3A921D8ECC9002F92ED /* loading_new_7@2x.png in Resources */,
 				A28EF3AC21D8ECC9002F92ED /* loading_new_3@2x.png in Resources */,
 				15F0296A20BE8D79003287AA /* mgf_loading_new_6@2x.png in Resources */,
+				A24B6568225EE0EE00B257BB /* README.H.md in Resources */,
 				A28EF3A821D8ECC9002F92ED /* loading_new_2@2x.png in Resources */,
 				A28EF38A21D8ECBE002F92ED /* icon_load_nothing@3x.png in Resources */,
 				15B4DD732092F88700773E04 /* LaunchScreen.storyboard in Resources */,
@@ -1685,6 +1734,7 @@
 				A28EF38F21D8ECBE002F92ED /* icon_no_server@3x.png in Resources */,
 				A28EF3A121D8ECC9002F92ED /* loading_new_14@2x.png in Resources */,
 				15F0296420BE8D79003287AA /* mgf_loading_new_2@2x.png in Resources */,
+				A24B6569225EE0EE00B257BB /* exportOptions.plist in Resources */,
 				15E56511212CFA28003A63E5 /* qq.png in Resources */,
 				15C5736D20B3DD7B0070327C /* icon_tuple_arrow_down@2x.png in Resources */,
 				15F0296F20BE8D79003287AA /* mgf_loading_new_1@2x.png in Resources */,
@@ -1781,6 +1831,7 @@
 				15B4DDF22092F96C00773E04 /* UIButton+HUtil.m in Sources */,
 				15780E4621257840006392CF /* HAuthorizeManager.m in Sources */,
 				150C7CB721199D9000A05347 /* UIView+HPrinter.m in Sources */,
+				A24B656D225EE14800B257BB /* HValidate.m in Sources */,
 				15464B7720A2C26300CDD27E /* HTestManager.m in Sources */,
 				15038EA820CC0C6A00A16FC9 /* HSwitchLanguage.m in Sources */,
 				15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */,
@@ -1885,6 +1936,7 @@
 				15C5737320B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				A28EF3C321DA1DFE002F92ED /* HFormController2.m in Sources */,
 				1587D8D520C2438C00C0391D /* HTableViewCell.m in Sources */,
+				A24B6560225EE08900B257BB /* HUpdate.m in Sources */,
 				15F9152020A171A8000261C4 /* NSObject+HAspects.m in Sources */,
 				15B4DE0A2092F96C00773E04 /* HViewController.m in Sources */,
 				15B4DD682092F88700773E04 /* AppDelegate.m in Sources */,

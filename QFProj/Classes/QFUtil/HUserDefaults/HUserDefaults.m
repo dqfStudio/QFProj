@@ -72,15 +72,76 @@
 #endif
 }
 
+//- (void)saveUser {
+//    if (self.isLogin) {
+//        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self];
+//        [[NSUserDefaults standardUserDefaults] setObject:data forKey:KUSER];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+//    }else {
+//        [[NSUserDefaults standardUserDefaults] removeObjectForKey:KUSER];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+//    }
+//}
+
 - (void)saveUser {
     if (self.isLogin) {
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self];
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:KUSER];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        //将信息保存在钥匙串中
+        NSString *userName = [HUserDefaults defaults].fullName;
+        if (userName.length > 3) {
+            NSString *bundleIdentifier = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
+            HKeyChainStore *keyChainStore = [HKeyChainStore keyChainStoreWithService:bundleIdentifier];
+            if (keyChainStore && data) {
+                userName = [userName uppercaseString];
+                [keyChainStore setData:data forKey:userName];
+                [keyChainStore synchronizable];
+            }
+        }
     }else {
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:KUSER];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
+}
+
+//加载钥匙串中的数据
+- (BOOL)LoadKeyChainDataWith:(NSString *)fullName pwd:(NSString *)pwd {
+    BOOL boolValue = NO;
+    if (fullName.length > 3) {
+        NSString *bundleIdentifier = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
+        HKeyChainStore *keyChainStore = [HKeyChainStore keyChainStoreWithService:bundleIdentifier];
+        if (keyChainStore) {
+            NSString *userName = [fullName uppercaseString];
+            NSData *data = [keyChainStore dataForKey:userName];
+            if (data) {
+                HUserDefaults *userDefaults = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+                id propertyValue = [userDefaults valueForKey:@"password"];
+                //密码不相等则不能提取用户信息
+                if (![pwd isEqualToString:propertyValue]) {
+                    userDefaults = nil;
+                    return boolValue;
+                }
+                boolValue = YES;
+                unsigned int pro_count = 0;
+                objc_property_t *properties = class_copyPropertyList([self class], &pro_count);
+                for (int i = 0; i < pro_count; i ++) {
+                    objc_property_t property = properties[i];
+                    NSString *propertyName = [NSString stringWithFormat:@"%s", property_getName(property)];
+                    //isLogin 这个属性的值由外部业务赋值
+                    if (![propertyName isEqualToString:@"isLogin"]) {
+                        //通过KVC的方式赋值
+                        id propertyValue = [userDefaults valueForKey:propertyName];
+                        [self setValue:propertyValue forKey:propertyName];
+                    }
+                }
+                // 释放
+                userDefaults = nil;
+                free(properties);
+            }
+        }
+    }
+    return boolValue;
 }
 
 - (void)removeUser {

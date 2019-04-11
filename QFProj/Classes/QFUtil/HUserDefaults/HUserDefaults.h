@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import "HKeyChainStore.h"
 
 @interface HUserDefaults : NSObject
 
