@@ -40,7 +40,6 @@
 		15545781212B022300DA7898 /* MGHostUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15545780212B022300DA7898 /* MGHostUrlManager.m */; };
 		15545789212B063900DA7898 /* MGVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15545788212B063900DA7898 /* MGVersionManager.m */; };
 		15545790212B0C6300DA7898 /* HFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1554578F212B0C6300DA7898 /* HFileCache.m */; };
-		15707E8E20B4525900493839 /* HUpImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15707E8D20B4525900493839 /* HUpImageCell.m */; };
 		15707EC020B5675A00493839 /* HTupleSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 15707EBF20B5675A00493839 /* HTupleSignal.m */; };
 		157684D220E2157E00D8DC5B /* NSBlockChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 157684D020E2157E00D8DC5B /* NSBlockChain.m */; };
 		157696EB20A0AB6900E31469 /* hFelix.m in Sources */ = {isa = PBXBuildFile; fileRef = 157696E420A0AB6900E31469 /* hFelix.m */; };
@@ -126,7 +125,6 @@
 		15C5738620B3DD9F0070327C /* HSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5737F20B3DD9F0070327C /* HSectionModel.m */; };
 		15C5738720B3DD9F0070327C /* KTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5738120B3DD9F0070327C /* KTableView.m */; };
 		15C573B920B3DE340070327C /* HBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C573AC20B3DE340070327C /* HBaseCell.m */; };
-		15C573BD20B3DE340070327C /* HLeftImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C573B420B3DE340070327C /* HLeftImageCell.m */; };
 		15E1388D20DB785C0070ED08 /* NSDictionary+HOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E1388C20DB785C0070ED08 /* NSDictionary+HOrder.m */; };
 		15E56511212CFA28003A63E5 /* qq.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E56510212CFA28003A63E5 /* qq.png */; };
 		15E56514212D013D003A63E5 /* UIImage+HName.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E56512212D013D003A63E5 /* UIImage+HName.m */; };
@@ -290,8 +288,6 @@
 		15545788212B063900DA7898 /* MGVersionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGVersionManager.m; sourceTree = "<group>"; };
 		1554578E212B0C6300DA7898 /* HFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFileCache.h; sourceTree = "<group>"; };
 		1554578F212B0C6300DA7898 /* HFileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFileCache.m; sourceTree = "<group>"; };
-		15707E8C20B4525900493839 /* HUpImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUpImageCell.h; sourceTree = "<group>"; };
-		15707E8D20B4525900493839 /* HUpImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HUpImageCell.m; sourceTree = "<group>"; };
 		15707EBE20B5675A00493839 /* HTupleSignal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleSignal.h; sourceTree = "<group>"; };
 		15707EBF20B5675A00493839 /* HTupleSignal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleSignal.m; sourceTree = "<group>"; };
 		157684D020E2157E00D8DC5B /* NSBlockChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSBlockChain.m; sourceTree = "<group>"; };
@@ -456,9 +452,7 @@
 		15C5737F20B3DD9F0070327C /* HSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSectionModel.m; sourceTree = "<group>"; };
 		15C5738120B3DD9F0070327C /* KTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTableView.m; sourceTree = "<group>"; };
 		15C5738220B3DD9F0070327C /* KTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTableView.h; sourceTree = "<group>"; };
-		15C573AB20B3DE340070327C /* HLeftImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLeftImageCell.h; sourceTree = "<group>"; };
 		15C573AC20B3DE340070327C /* HBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBaseCell.m; sourceTree = "<group>"; };
-		15C573B420B3DE340070327C /* HLeftImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLeftImageCell.m; sourceTree = "<group>"; };
 		15C573B620B3DE340070327C /* HBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBaseCell.h; sourceTree = "<group>"; };
 		15CC6E9120E28D77005F1792 /* HInputHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HInputHeader.h; sourceTree = "<group>"; };
 		15E1388B20DB785C0070ED08 /* NSDictionary+HOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HOrder.h"; sourceTree = "<group>"; };
@@ -1344,10 +1338,6 @@
 				1587D8DC20C2578800C0391D /* HBaseHeaderFooterView.m */,
 				1587D8D320C2438B00C0391D /* HTableViewCell.h */,
 				1587D8D420C2438B00C0391D /* HTableViewCell.m */,
-				15C573AB20B3DE340070327C /* HLeftImageCell.h */,
-				15C573B420B3DE340070327C /* HLeftImageCell.m */,
-				15707E8C20B4525900493839 /* HUpImageCell.h */,
-				15707E8D20B4525900493839 /* HUpImageCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1916,7 +1906,6 @@
 				15E6BB9A2136E7E300EBE794 /* UIViewController+YPTab.m in Sources */,
 				15545790212B0C6300DA7898 /* HFileCache.m in Sources */,
 				15B4DE012092F96C00773E04 /* HSpeechUtil.m in Sources */,
-				15707E8E20B4525900493839 /* HUpImageCell.m in Sources */,
 				153F081820E28CA000C74850 /* UITextField+HRegular.m in Sources */,
 				15B4DE112092F96C00773E04 /* NSArray+HSafeUtil.m in Sources */,
 				150DE9902126AE50004B9E77 /* HAnalogNetworkManager.m in Sources */,
@@ -1950,7 +1939,6 @@
 				15B4DD682092F88700773E04 /* AppDelegate.m in Sources */,
 				15C573B920B3DE340070327C /* HBaseCell.m in Sources */,
 				15B4DDFA2092F96C00773E04 /* UILabel+HUtil.m in Sources */,
-				15C573BD20B3DE340070327C /* HLeftImageCell.m in Sources */,
 				A219F22F222FB46A00241FD7 /* HIFS.m in Sources */,
 				A28EF2F321D876A3002F92ED /* HTabBarController.m in Sources */,
 				A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */,
