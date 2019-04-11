@@ -12,7 +12,7 @@
 #import "UIButton+HUtil.h"
 #import "HTupleSignal.h"
 
-#define HLayoutReusableView(v) \
+#define HLayoutReusableTupleView(v) \
 if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
     [v setFrame:[self getContentFrame]];\
 }

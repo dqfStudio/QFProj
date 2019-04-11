@@ -23,4 +23,17 @@
 
 - (void)layoutContentView {};
 
+- (CGRect)getContentFrame {
+    return self.bounds;
+}
+- (CGFloat)width {
+    return CGRectGetWidth(self.frame);
+}
+- (CGFloat)height {
+    return CGRectGetHeight(self.frame);
+}
+- (CGSize)size {
+    return self.frame.size;
+}
 @end
+

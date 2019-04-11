@@ -10,6 +10,11 @@
 #import "HCellModel.h"
 #import "HTableSignal.h"
 
+#define HLayoutTableView(v) \
+if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
+[v setFrame:[self getContentFrame]];\
+}
+
 @interface UITableViewCell ()
 @property (nonatomic, copy) HTableCellSignalBlock signalBlock;
 @end
@@ -19,8 +24,11 @@
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UITableViewCellStyle style;
 @property (nonatomic) HCellModel *model;
-//子类覆盖
+//需要子类重写该方法
 - (void)initUI;
+- (CGRect)getContentFrame;
 - (void)layoutContentView;
-
+- (CGFloat)width;
+- (CGFloat)height;
+- (CGSize)size;
 @end

@@ -18,7 +18,7 @@
     return _view;
 }
 - (void)layoutContentView {
-    HLayoutReusableView(self.view)
+    HLayoutReusableTupleView(self.view)
 }
 @end
 
@@ -32,7 +32,7 @@
     return _label;
 }
 - (void)layoutContentView {
-    HLayoutReusableView(self.label)
+    HLayoutReusableTupleView(self.label)
 }
 @end
 
@@ -48,7 +48,7 @@
     return _textView;
 }
 - (void)layoutContentView {
-    HLayoutReusableView(self.textView)
+    HLayoutReusableTupleView(self.textView)
 }
 @end
 
@@ -69,7 +69,7 @@
     return _buttonView;
 }
 - (void)layoutContentView {
-    HLayoutReusableView(self.buttonView)
+    HLayoutReusableTupleView(self.buttonView)
 }
 @end
 
@@ -110,7 +110,7 @@
     }
 }
 - (void)layoutContentView {
-    HLayoutReusableView(self.imageView)
+    HLayoutReusableTupleView(self.imageView)
 }
 @end
 

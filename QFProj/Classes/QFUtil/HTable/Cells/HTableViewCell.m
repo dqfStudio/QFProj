@@ -12,5 +12,8 @@
 - (void)initUI {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
+- (void)layoutContentView {
+    //HLayoutTableView(self.tuple)
+}
 @end
 

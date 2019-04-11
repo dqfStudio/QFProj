@@ -62,17 +62,13 @@
 - (void)addReturnKeyBoard {
     [self addGestureRecognizer:self.baseTap];
 }
-
 - (CGFloat)width {
     return CGRectGetWidth(self.frame);
 }
-
 - (CGFloat)height {
     return CGRectGetHeight(self.frame);
 }
-
 - (CGSize)size {
     return self.frame.size;
 }
-
 @end

@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "HTableSignal.h"
 
+#define HLayoutReusableTableView(v) \
+if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
+[v setFrame:[self getContentFrame]];\
+}
+
 @interface UITableViewHeaderFooterView ()
 @property (nonatomic, copy) HTableCellSignalBlock signalBlock;
 @property (nonatomic) BOOL isHeader;
@@ -17,7 +22,11 @@
 @interface HBaseHeaderFooterView : UITableViewHeaderFooterView
 @property (nonatomic, weak) UITableView *table;
 @property (nonatomic) NSInteger section;
-//子类覆盖
+//需要子类重写该方法
 - (void)initUI;
+- (CGRect)getContentFrame;
 - (void)layoutContentView;
+- (CGFloat)width;
+- (CGFloat)height;
+- (CGSize)size;
 @end

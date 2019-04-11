@@ -18,21 +18,31 @@
     }
     return self;
 }
-
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    // Initialization code
+}
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    // Configure the view for the selected state
+}
 //子类覆盖
 - (void)initUI {}
 
 - (void)layoutContentView {};
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+- (CGRect)getContentFrame {
+    return self.bounds;
 }
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (CGFloat)width {
+    return CGRectGetWidth(self.frame);
+}
+- (CGFloat)height {
+    return CGRectGetHeight(self.frame);
+}
+- (CGSize)size {
+    return self.frame.size;
 }
 
 @end
+

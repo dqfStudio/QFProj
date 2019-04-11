@@ -33,6 +33,10 @@
     [self setBackgroundColor:[UIColor yellowColor]];
 }
 
+- (void)layoutContentView {
+    HLayoutTableView(self.tupleView)
+}
+
 - (void)setModel:(HCellModel *)model {
     [super setModel:model];
     if (model.height != CGRectGetHeight(self.tupleView.frame)) {
