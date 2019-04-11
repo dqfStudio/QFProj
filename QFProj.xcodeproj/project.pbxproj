@@ -179,6 +179,7 @@
 		A24B6574225EE5C700B257BB /* HTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6573225EE5C700B257BB /* HTool.m */; };
 		A24B6577225EE88600B257BB /* HWebviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6576225EE88600B257BB /* HWebviewVC.m */; };
 		A24B657E225F768000B257BB /* HGameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B657D225F768000B257BB /* HGameVC.m */; };
+		A24B6581225F7A7500B257BB /* HPayWebviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B657F225F7A7500B257BB /* HPayWebviewVC.m */; };
 		A28EF2E821D86DD8002F92ED /* ULBCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */; };
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
 		A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */; };
@@ -538,6 +539,8 @@
 		A24B6576225EE88600B257BB /* HWebviewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebviewVC.m; sourceTree = "<group>"; };
 		A24B657C225F768000B257BB /* HGameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGameVC.h; sourceTree = "<group>"; };
 		A24B657D225F768000B257BB /* HGameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGameVC.m; sourceTree = "<group>"; };
+		A24B657F225F7A7500B257BB /* HPayWebviewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPayWebviewVC.m; sourceTree = "<group>"; };
+		A24B6580225F7A7500B257BB /* HPayWebviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPayWebviewVC.h; sourceTree = "<group>"; };
 		A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULBCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A28EF2E721D86DD8002F92ED /* ULBCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ULBCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		A28EF2EA21D86E43002F92ED /* UILabel+HAttributeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeText.h"; sourceTree = "<group>"; };
@@ -1515,6 +1518,8 @@
 				A24B6576225EE88600B257BB /* HWebviewVC.m */,
 				A24B657C225F768000B257BB /* HGameVC.h */,
 				A24B657D225F768000B257BB /* HGameVC.m */,
+				A24B6580225F7A7500B257BB /* HPayWebviewVC.h */,
+				A24B657F225F7A7500B257BB /* HPayWebviewVC.m */,
 			);
 			path = HOther;
 			sourceTree = "<group>";
@@ -1832,6 +1837,7 @@
 				15B4DDF92092F96C00773E04 /* UIScreen+HUtil.m in Sources */,
 				15B4DDF22092F96C00773E04 /* UIButton+HUtil.m in Sources */,
 				15780E4621257840006392CF /* HAuthorizeManager.m in Sources */,
+				A24B6581225F7A7500B257BB /* HPayWebviewVC.m in Sources */,
 				150C7CB721199D9000A05347 /* UIView+HPrinter.m in Sources */,
 				A24B656D225EE14800B257BB /* HValidate.m in Sources */,
 				15464B7720A2C26300CDD27E /* HTestManager.m in Sources */,
