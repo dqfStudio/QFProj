@@ -19,7 +19,6 @@
 
 #import "KTableView.h"
 #import "HTableViewCell.h"
-#import "HLeftImageCell.h"
 
 #import "UIView+HShow.h"
 #import "HFormController.h"
@@ -477,9 +476,9 @@ H_CheckPropertyRange(rrr, 0, 150)
 
 - (HCellRenderBlock)renderBlock {
     return ^UITableViewCell *(NSIndexPath *indexPath, KTableView *table) {
-        
-        HLeftImageCell *cell = [table registerCell:HLeftImageCell.class indexPath:indexPath];
-        [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
+        return nil;
+//        HLeftImageCell *cell = [table registerCell:HLeftImageCell.class indexPath:indexPath];
+//        [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
 //        switch (indexPath.row) {
 //            case 0:
 //                cell.textLabel.text = @"路径追踪";
@@ -498,7 +497,7 @@ H_CheckPropertyRange(rrr, 0, 150)
 //                cell.textLabel.text = @"else";
 //                break;
 //        }
-        return cell;
+//        return cell;
     };
 }
 
