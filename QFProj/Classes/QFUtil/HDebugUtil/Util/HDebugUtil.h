@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface HDebugUtil : NSObject
-
 + (HDebugUtil *)share;
 - (void)showDebugView;
 - (void)hideDebugView;
-
 @end

@@ -9,12 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface HPrinterManager : NSObject
-
 + (instancetype)share;
-
 - (void)setObject:(id)anObject forKey:(NSString *)aKey;
 - (BOOL)containsObject:(id)anObject;
 - (NSString *)objectForKey:(NSString *)aKey;
-
 @end
 

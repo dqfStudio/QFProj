@@ -10,7 +10,6 @@
 #import "HDebugUtil.h"
 
 @implementation AppDelegate (HDebug)
-
 #if DEBUG
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
@@ -21,5 +20,4 @@
     }
 }
 #endif
-
 @end

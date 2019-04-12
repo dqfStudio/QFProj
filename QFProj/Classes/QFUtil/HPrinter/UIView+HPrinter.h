@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HPrinterManager.h"
+#import "NSObject+HSwizzleUtil.h"
 
 #if DEBUG
 #define addSubview addString:[NSString stringWithFormat:@"function:%s line:%d", __FUNCTION__, __LINE__] withView

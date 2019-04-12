@@ -13,21 +13,18 @@
 @end
 
 @implementation HPrinterManager
-
 - (NSMutableDictionary *)printerDict {
     if (!_printerDict) {
         _printerDict = NSMutableDictionary.dictionary;
     }
     return _printerDict;
 }
-
 + (instancetype)share {
     static dispatch_once_t pred;
     static HPrinterManager *o = nil;
     dispatch_once(&pred, ^{ o = [[self alloc] init]; });
     return o;
 }
-
 - (void)setObject:(id)anObject forKey:(NSString *)aKey {
     [self.printerDict setObject:anObject forKey:aKey];
 }
@@ -40,5 +37,4 @@
     }
     return nil;
 }
-
 @end

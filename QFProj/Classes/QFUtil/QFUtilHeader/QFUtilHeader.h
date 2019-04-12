@@ -23,7 +23,6 @@
 #import "UIView+HImage.h"
 #import "UIView+HUtil.h"
 #import "UIViewController+HBackHandler.h"
-#import "UIViewController+HPrinter.h"
 #import "UIViewController+HUtil.h"
 
 //Ext-Category

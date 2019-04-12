@@ -31,8 +31,6 @@
 #import "HPrinterManager.h"
 //#import "UIView+HPrinter.h"
 #import "HSwitchLanguage.h"
-#import "HPrinterHeader.h"
-#import "UIImage+HName.h"
 #import "HLoginController.h"
 #import "HTableView.h"
 #import "HTupleView.h"

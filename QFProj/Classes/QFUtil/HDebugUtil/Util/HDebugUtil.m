@@ -17,7 +17,6 @@
 @end
 
 @implementation HDebugUtil
-
 + (HDebugUtil *)share {
     static HDebugUtil *shareInstance = nil;
     static dispatch_once_t predicate;
@@ -26,36 +25,28 @@
     });
     return shareInstance;
 }
-
 - (id)init {
     self = [super init];
     if (self) {
-        //初始化单例
         [self initInstance];
     }
     return self;
 }
-
 - (void)initInstance {
     
 }
-
 - (UIWindow *)rootView {
     return [UIApplication sharedApplication].delegate.window;
 }
-
 - (CGRect)originFrame {
     return CGRectMake(0, -CGRectGetHeight([self screenFrame]), CGRectGetWidth([self screenFrame]), CGRectGetHeight([self screenFrame]));
 }
-
 - (CGRect)newFrame {
     return [self screenFrame];
 }
-
 - (CGRect)screenFrame {
     return [UIScreen mainScreen].bounds;
 }
-
 - (HDebugView *)debugView {
     if (!_debugView) {
         _debugView = [[HDebugView alloc] initWithFrame:self.newFrame];
@@ -66,7 +57,6 @@
     }
     return _debugView;
 }
-
 - (void)hideDebugView {
     if (self.debugView.tag == 1) {
         [self.debugView setTag:0];
@@ -78,7 +68,6 @@
         [self showDebugView];
     }
 }
-
 - (void)showDebugView {
     if (self.debugView.tag == 0) {
         [self.debugView setTag:1];
@@ -91,5 +80,4 @@
         [self hideDebugView];
     }
 }
-
 @end
