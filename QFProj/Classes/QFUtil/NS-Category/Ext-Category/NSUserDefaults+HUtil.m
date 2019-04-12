@@ -14,29 +14,24 @@
 #define KUserLoginKey          @"ud_user_login"
 
 @implementation NSUserDefaults (HUtil)
-
-+ (void)setCURUIdentity:(NSString *)aString {
-    [NSUserDefaults saveSTDUDefaults:^(NSUserDefaults * _Nullable theSTDUDefaults) {
-        [theSTDUDefaults setObject:aString forKey:KUserDefaultsKey];
++ (void)setUserDefaultsId:(NSString *)aString {
+    [NSUserDefaults saveStandardDefaults:^(NSUserDefaults * _Nullable theStandardDefaults) {
+        [theStandardDefaults setObject:aString forKey:KUserDefaultsKey];
     }];
 }
-
-+ (nullable id)getCURUIdentity {
++ (nullable id)getUserDefaultsId {
     return [[NSUserDefaults standardUserDefaults] objectForKey:KUserDefaultsKey];
 }
-
-+ (nullable instancetype)theCURUDefaults {
++ (nullable instancetype)theUserDefaults {
     NSString *userKey = [[NSUserDefaults standardUserDefaults] objectForKey:KUserDefaultsKey];
     if (userKey) return [[NSUserDefaults alloc] initWithSuiteName:userKey];
     return nil;
 }
-
-+ (nullable instancetype)theSTDUDefaults {
++ (nullable instancetype)theStandardDefaults {
     return [NSUserDefaults standardUserDefaults];
 }
-
-+ (void)saveCURUDefaults:(void (^)(NSUserDefaults *theCURUDefaults))block {
-    NSUserDefaults *userDefaults = [NSUserDefaults theCURUDefaults];
++ (void)saveUserDefaults:(void (^)(NSUserDefaults *theUserDefaults))block {
+    NSUserDefaults *userDefaults = [NSUserDefaults theUserDefaults];
     if (userDefaults) {
         if (block) {
             block(userDefaults);
@@ -44,8 +39,7 @@
         [userDefaults synchronize];
     }
 }
-
-+ (void)saveSTDUDefaults:(void (^)(NSUserDefaults *theSTDUDefaults))block {
++ (void)saveStandardDefaults:(void (^)(NSUserDefaults *theStandardDefaults))block {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if (userDefaults) {
         if (block) {
@@ -54,45 +48,37 @@
         [userDefaults synchronize];
     }
 }
-
 + (void)setAPPFirstLaunch {
-    [NSUserDefaults saveSTDUDefaults:^(NSUserDefaults * _Nullable theSTDUDefaults) {
-        [theSTDUDefaults setBool:YES forKey:KFirstLaunchKey];
+    [NSUserDefaults saveStandardDefaults:^(NSUserDefaults * _Nullable theStandardDefaults) {
+        [theStandardDefaults setBool:YES forKey:KFirstLaunchKey];
     }];
 }
-
 + (BOOL)isAPPFirstLaunch {
     return [[NSUserDefaults standardUserDefaults] boolForKey:KFirstLaunchKey];
 }
-
-+ (void)setCURUFirstLaunch {
-    [NSUserDefaults saveCURUDefaults:^(NSUserDefaults * _Nullable theCURUDefaults) {
-        [theCURUDefaults setBool:YES forKey:KUserFirstLaunchKey];
++ (void)setUserFirstLaunch {
+    [NSUserDefaults saveUserDefaults:^(NSUserDefaults * _Nullable theUserDefaults) {
+        [theUserDefaults setBool:YES forKey:KUserFirstLaunchKey];
     }];
 }
-
-+ (BOOL)isCURUFirstLaunch {
-    NSUserDefaults *userDefaults = [NSUserDefaults theCURUDefaults];
++ (BOOL)isUserFirstLaunch {
+    NSUserDefaults *userDefaults = [NSUserDefaults theUserDefaults];
     if (userDefaults) return [userDefaults boolForKey:KUserFirstLaunchKey];
     return NO;
 }
-
-+ (void)setCURULogin {
-    [NSUserDefaults saveCURUDefaults:^(NSUserDefaults * _Nullable theCURUDefaults) {
-        [theCURUDefaults setBool:YES forKey:KUserLoginKey];
++ (void)setUserLogin {
+    [NSUserDefaults saveUserDefaults:^(NSUserDefaults * _Nullable theUserDefaults) {
+        [theUserDefaults setBool:YES forKey:KUserLoginKey];
     }];
 }
-
-+ (void)setCURULogout {
-    [NSUserDefaults saveCURUDefaults:^(NSUserDefaults * _Nullable theCURUDefaults) {
-        [theCURUDefaults setBool:NO forKey:KUserLoginKey];
++ (void)setUserLogout {
+    [NSUserDefaults saveUserDefaults:^(NSUserDefaults * _Nullable theUserDefaults) {
+        [theUserDefaults setBool:NO forKey:KUserLoginKey];
     }];
 }
-
-+ (BOOL)isCURULogin {
-    NSUserDefaults *userDefaults = [NSUserDefaults theCURUDefaults];
++ (BOOL)isUserLogin {
+    NSUserDefaults *userDefaults = [NSUserDefaults theUserDefaults];
     if (userDefaults) return [userDefaults boolForKey:KUserLoginKey];
     return NO;
 }
-
 @end

@@ -10,26 +10,23 @@
 
 @interface NSUserDefaults (HUtil)
 
-//CURU: current  user
-//STDU: standard user
++ (void)setUserDefaultsId:(NSString *_Nullable)aString;
++ (nullable id)getUserDefaultsId;
 
-+ (void)setCURUIdentity:(NSString *_Nullable)aString;
-+ (nullable id)getCURUIdentity;
++ (nullable instancetype)theUserDefaults;
++ (nullable instancetype)theStandardDefaults;
 
-+ (nullable instancetype)theCURUDefaults;
-+ (nullable instancetype)theSTDUDefaults;
-
-+ (void)saveCURUDefaults:(void (^_Nullable)(NSUserDefaults * _Nullable theCURUDefaults))block;
-+ (void)saveSTDUDefaults:(void (^_Nullable)(NSUserDefaults * _Nullable theSTDUDefaults))block;
++ (void)saveUserDefaults:(void (^_Nullable)(NSUserDefaults * _Nullable theUserDefaults))block;
++ (void)saveStandardDefaults:(void (^_Nullable)(NSUserDefaults * _Nullable theStandardDefaults))block;
 
 + (void)setAPPFirstLaunch;
 + (BOOL)isAPPFirstLaunch;
 
-+ (void)setCURUFirstLaunch;
-+ (BOOL)isCURUFirstLaunch;
++ (void)setUserFirstLaunch;
++ (BOOL)isUserFirstLaunch;
 
-+ (void)setCURULogin;
-+ (void)setCURULogout;
-+ (BOOL)isCURULogin;
++ (void)setUserLogin;
++ (void)setUserLogout;
++ (BOOL)isUserLogin;
 
 @end
