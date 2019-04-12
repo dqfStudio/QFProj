@@ -353,7 +353,7 @@
             if (iblk) {
                 HTableCellInitBlock initHeaderBlock = iblk;
                 if (initHeaderBlock) {
-                    initHeaderBlock(self);
+                    initHeaderBlock(cell);
                 }
             }
         }else {
@@ -398,7 +398,7 @@
             if (iblk) {
                 HTableCellInitBlock initFooterBlock = iblk;
                 if (initFooterBlock) {
-                    initFooterBlock(self);
+                    initFooterBlock(cell);
                 }
             }
         }else {
@@ -436,21 +436,21 @@
             [self.allReuseCells addObject:identifier];
             [self registerClass:cls forCellReuseIdentifier:identifier];
             cell = [self dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-            HBaseCell *tmpCell = (HBaseCell *)cell;
+            HTableBaseCell *tmpCell = (HTableBaseCell *)cell;
             tmpCell.table = self;
             tmpCell.indexPath = indexPath;
             //init method
             if (iblk) {
                 HTableCellInitBlock initCellBlock = iblk;
                 if (initCellBlock) {
-                    initCellBlock(self);
+                    initCellBlock(cell);
                 }
             }
         }else {
             cell = [self dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
         }
         if ([cell respondsToSelector:@selector(layoutContentView)]) {
-            [(HBaseCell *)cell layoutContentView];
+            [(HTableBaseCell *)cell layoutContentView];
         }
         return cell;
     };

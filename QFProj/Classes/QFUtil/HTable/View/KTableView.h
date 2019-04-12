@@ -11,7 +11,7 @@
 #import "NSObject+selector.h"
 #import "HSectionModel.h"
 #import "HBaseHeaderFooterView.h"
-#import "HBaseCell.h"
+#import "HTableBaseCell.h"
 #import "HTableSignal.h"
 #import "NSIndexModel.h"
 #import "MJRefresh.h"

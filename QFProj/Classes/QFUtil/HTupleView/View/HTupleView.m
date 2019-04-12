@@ -420,7 +420,7 @@
             if (iblk) {
                 HTupleCellInitBlock initCellBlock = iblk;
                 if (initCellBlock) {
-                    initCellBlock(self);
+                    initCellBlock(cell);
                 }
             }
         }else {
@@ -478,7 +478,7 @@
                 if (iblk) {
                     HTupleCellInitBlock initHeaderBlock = iblk;
                     if (initHeaderBlock) {
-                        initHeaderBlock(self);
+                        initHeaderBlock(cell);
                     }
                 }
             }else {
@@ -532,7 +532,7 @@
                 if (iblk) {
                     HTupleCellInitBlock initFooterBlock = iblk;
                     if (initFooterBlock) {
-                        initFooterBlock(self);
+                        initFooterBlock(cell);
                     }
                 }
             }else {

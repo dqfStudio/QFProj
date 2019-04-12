@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HBaseHeaderFooterView.h"
+#import "HTableHeaderFooterView.h"
 #import "NSObject+HSelector.h"
-#import "HBaseCell.h"
+#import "HTableViewCell.h"
 #import "HTableSignal.h"
 #import "MJRefresh.h"
 

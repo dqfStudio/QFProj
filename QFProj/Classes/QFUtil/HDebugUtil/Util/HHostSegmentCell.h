@@ -6,11 +6,11 @@
 //  Copyright © 2018年 dqfStudio. All rights reserved.
 //
 
-#import "HBaseCell.h"
+#import "HTableBaseCell.h"
 
 typedef void (^HSegmentBlock)(NSInteger index);
 
-@interface HHostSegmentCell : HBaseCell
+@interface HHostSegmentCell : HTableBaseCell
 @property (nonatomic, copy) HSegmentBlock segmentBlock;
 @property (nonatomic) NSInteger selectedIndex;
 @end

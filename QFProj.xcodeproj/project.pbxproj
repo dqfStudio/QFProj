@@ -118,7 +118,7 @@
 		15C5738520B3DD9F0070327C /* HTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5737E20B3DD9F0070327C /* HTableModel.m */; };
 		15C5738620B3DD9F0070327C /* HSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5737F20B3DD9F0070327C /* HSectionModel.m */; };
 		15C5738720B3DD9F0070327C /* KTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5738120B3DD9F0070327C /* KTableView.m */; };
-		15C573B920B3DE340070327C /* HBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C573AC20B3DE340070327C /* HBaseCell.m */; };
+		15C573B920B3DE340070327C /* HTableBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C573AC20B3DE340070327C /* HTableBaseCell.m */; };
 		15E56511212CFA28003A63E5 /* qq.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E56510212CFA28003A63E5 /* qq.png */; };
 		15E5651D212E5D77003A63E5 /* HHostSegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E5651C212E5D77003A63E5 /* HHostSegmentCell.m */; };
 		15E5652D2133A002003A63E5 /* HLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E5652B2133A002003A63E5 /* HLoginController.m */; };
@@ -179,6 +179,7 @@
 		A24B659922607E8400B257BB /* Base64Transcoder.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B659122607E8400B257BB /* Base64Transcoder.m */; };
 		A24B659B22607E8400B257BB /* HSK_CFUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B659422607E8400B257BB /* HSK_CFUtilities.m */; };
 		A24B659E22609CE600B257BB /* NSObject+HName.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B659C22609CE600B257BB /* NSObject+HName.m */; };
+		A24B65A12260A07900B257BB /* HTableHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B65A02260A07900B257BB /* HTableHeaderFooterView.m */; };
 		A28EF2E821D86DD8002F92ED /* ULBCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */; };
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
 		A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */; };
@@ -440,8 +441,8 @@
 		15C5737F20B3DD9F0070327C /* HSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSectionModel.m; sourceTree = "<group>"; };
 		15C5738120B3DD9F0070327C /* KTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTableView.m; sourceTree = "<group>"; };
 		15C5738220B3DD9F0070327C /* KTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTableView.h; sourceTree = "<group>"; };
-		15C573AC20B3DE340070327C /* HBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBaseCell.m; sourceTree = "<group>"; };
-		15C573B620B3DE340070327C /* HBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBaseCell.h; sourceTree = "<group>"; };
+		15C573AC20B3DE340070327C /* HTableBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableBaseCell.m; sourceTree = "<group>"; };
+		15C573B620B3DE340070327C /* HTableBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableBaseCell.h; sourceTree = "<group>"; };
 		15CC6E9120E28D77005F1792 /* HInputHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HInputHeader.h; sourceTree = "<group>"; };
 		15E56510212CFA28003A63E5 /* qq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qq.png; sourceTree = "<group>"; };
 		15E56519212E599C003A63E5 /* HHostSegmentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHostSegmentCell.h; sourceTree = "<group>"; };
@@ -537,6 +538,8 @@
 		A24B659422607E8400B257BB /* HSK_CFUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSK_CFUtilities.m; sourceTree = "<group>"; };
 		A24B659C22609CE600B257BB /* NSObject+HName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HName.m"; sourceTree = "<group>"; };
 		A24B659D22609CE600B257BB /* NSObject+HName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HName.h"; sourceTree = "<group>"; };
+		A24B659F2260A07900B257BB /* HTableHeaderFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTableHeaderFooterView.h; sourceTree = "<group>"; };
+		A24B65A02260A07900B257BB /* HTableHeaderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTableHeaderFooterView.m; sourceTree = "<group>"; };
 		A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULBCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A28EF2E721D86DD8002F92ED /* ULBCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ULBCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		A28EF2EA21D86E43002F92ED /* UILabel+HAttributeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeText.h"; sourceTree = "<group>"; };
@@ -1312,10 +1315,12 @@
 		15C573A920B3DE340070327C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				15C573B620B3DE340070327C /* HBaseCell.h */,
-				15C573AC20B3DE340070327C /* HBaseCell.m */,
+				15C573B620B3DE340070327C /* HTableBaseCell.h */,
+				15C573AC20B3DE340070327C /* HTableBaseCell.m */,
 				1587D8DD20C2578800C0391D /* HBaseHeaderFooterView.h */,
 				1587D8DC20C2578800C0391D /* HBaseHeaderFooterView.m */,
+				A24B659F2260A07900B257BB /* HTableHeaderFooterView.h */,
+				A24B65A02260A07900B257BB /* HTableHeaderFooterView.m */,
 				1587D8D320C2438B00C0391D /* HTableViewCell.h */,
 				1587D8D420C2438B00C0391D /* HTableViewCell.m */,
 			);
@@ -1834,6 +1839,7 @@
 				A24B656D225EE14800B257BB /* HValidate.m in Sources */,
 				15464B7720A2C26300CDD27E /* HTestManager.m in Sources */,
 				15038EA820CC0C6A00A16FC9 /* HSwitchLanguage.m in Sources */,
+				A24B65A12260A07900B257BB /* HTableHeaderFooterView.m in Sources */,
 				A24B659522607E8400B257BB /* NSStream+SKPSMTPExtensions.m in Sources */,
 				15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */,
 				15B4DDED2092F96C00773E04 /* UIView+HImage.m in Sources */,
@@ -1940,7 +1946,7 @@
 				15F9152020A171A8000261C4 /* NSObject+HAspects.m in Sources */,
 				15B4DE0A2092F96C00773E04 /* HViewController.m in Sources */,
 				15B4DD682092F88700773E04 /* AppDelegate.m in Sources */,
-				15C573B920B3DE340070327C /* HBaseCell.m in Sources */,
+				15C573B920B3DE340070327C /* HTableBaseCell.m in Sources */,
 				15B4DDFA2092F96C00773E04 /* UILabel+HUtil.m in Sources */,
 				A219F22F222FB46A00241FD7 /* HIFS.m in Sources */,
 				A28EF2F321D876A3002F92ED /* HTabBarController.m in Sources */,

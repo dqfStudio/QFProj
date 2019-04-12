@@ -1,5 +1,5 @@
 //
-//  HBaseCell.h
+//  HTableBaseCell.h
 //  TableModel
 //
 //  Created by dqf on 2017/7/14.
@@ -19,7 +19,7 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 @property (nonatomic, copy) HTableCellSignalBlock signalBlock;
 @end
 
-@interface HBaseCell : UITableViewCell
+@interface HTableBaseCell : UITableViewCell
 @property (nonatomic, weak) UITableView *table;
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UITableViewCellStyle style;

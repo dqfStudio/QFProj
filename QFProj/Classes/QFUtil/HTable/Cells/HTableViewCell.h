@@ -6,8 +6,8 @@
 //  Copyright © 2017年 migu. All rights reserved.
 //
 
-#import "HBaseCell.h"
+#import "HTableBaseCell.h"
 
-@interface HTableViewCell : HBaseCell
+@interface HTableViewCell : HTableBaseCell
 
 @end
