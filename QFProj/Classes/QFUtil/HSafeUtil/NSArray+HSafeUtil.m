@@ -51,7 +51,7 @@
     if(index >= 0 && index < self.count) {
         id obj = [self safe_objectAtIndex:index];
         if ([obj isKindOfClass:[NSNull class]]) {
-            return @"";
+            return nil;
         }
         return obj;
     }else{
@@ -65,7 +65,7 @@
     if(index >= 0 && index < self.count) {
         id obj = [self safe_objectAtIndexedSubscript:index];
         if ([obj isKindOfClass:[NSNull class]]) {
-            return @"";
+            return nil;
         }
         return obj;
     }else{
@@ -161,7 +161,7 @@
     if(index >= 0 && index < self.count) {
         id obj = [self safe_objectAtIndex:index];
         if ([obj isKindOfClass:[NSNull class]]) {
-            return @"";
+            return nil;
         }
         return obj;
     }else {
@@ -175,7 +175,7 @@
     if(index >= 0 && index < self.count) {
         id obj = [self safe_objectAtIndexedSubscript:index];
         if ([obj isKindOfClass:[NSNull class]]) {
-            return @"";
+            return nil;
         }
         return obj;
     }else {

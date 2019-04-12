@@ -23,7 +23,7 @@
     if (aKey) {
         id obj = [self safe_objectForKey:aKey];
         if ([obj isKindOfClass:[NSNull class]]) {
-            return @"";
+            return nil;
         }
         return obj;
     }else {
@@ -31,7 +31,7 @@
         NSAssert(NO,nil);
 #endif
     }
-    return @"";
+    return nil;
 }
 - (instancetype)safe_initWithObjects:(id  _Nonnull const [])objects forKeys:(id<NSCopying>  _Nonnull const [])keys count:(NSUInteger)cnt {
     NSInteger index = 0;
@@ -55,7 +55,7 @@
     if (key && ![key isKindOfClass:NSNull.class]) {
         id obj = [self safe_objectForKeyedSubscript:key];
         if ([obj isKindOfClass:[NSNull class]]) {
-            return @"";
+            return nil;
         }
         return obj;
     }else {
@@ -63,7 +63,7 @@
         NSAssert(NO,nil);
 #endif
     }
-    return @"";
+    return nil;
 }
 @end
 
@@ -106,7 +106,7 @@
     if (key && ![key isKindOfClass:NSNull.class]) {
         id obj = [self safe_objectForKeyedSubscript:key];
         if ([obj isKindOfClass:[NSNull class]]) {
-            return @"";
+            return nil;
         }
         return obj;
     }else {
@@ -114,7 +114,7 @@
         NSAssert(NO,nil);
 #endif
     }
-    return @"";
+    return nil;
 }
 - (void)safe_removeObjectForKey:(id)aKey {
     if (aKey && ![aKey isKindOfClass:NSNull.class]) {
