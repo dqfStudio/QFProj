@@ -49,7 +49,11 @@
 }
 - (id)safe_objectAtIndex:(int)index {
     if(index >= 0 && index < self.count) {
-        return [self safe_objectAtIndex:index];
+        id obj = [self safe_objectAtIndex:index];
+        if ([obj isKindOfClass:[NSNull class]]) {
+            return @"";
+        }
+        return obj;
     }else{
 #if DEBUG
         NSAssert(NO,nil);
@@ -59,7 +63,11 @@
 }
 - (id)safe_objectAtIndexedSubscript:(int)index {
     if(index >= 0 && index < self.count) {
-        return [self safe_objectAtIndexedSubscript:index];
+        id obj = [self safe_objectAtIndexedSubscript:index];
+        if ([obj isKindOfClass:[NSNull class]]) {
+            return @"";
+        }
+        return obj;
     }else{
 #if DEBUG
         NSAssert(NO,nil);
@@ -151,8 +159,12 @@
 }
 - (id)safe_objectAtIndex:(int)index {
     if(index >= 0 && index < self.count) {
-        return [self safe_objectAtIndex:index];
-    }else{
+        id obj = [self safe_objectAtIndex:index];
+        if ([obj isKindOfClass:[NSNull class]]) {
+            return @"";
+        }
+        return obj;
+    }else {
 #if DEBUG
         NSAssert(NO,nil);
 #endif
@@ -161,8 +173,12 @@
 }
 - (id)safe_objectAtIndexedSubscript:(int)index {
     if(index >= 0 && index < self.count) {
-        return [self safe_objectAtIndexedSubscript:index];
-    }else{
+        id obj = [self safe_objectAtIndexedSubscript:index];
+        if ([obj isKindOfClass:[NSNull class]]) {
+            return @"";
+        }
+        return obj;
+    }else {
 #if DEBUG
         NSAssert(NO,nil);
 #endif
