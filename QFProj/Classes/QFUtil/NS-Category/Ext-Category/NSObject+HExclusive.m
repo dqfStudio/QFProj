@@ -52,7 +52,6 @@
 
 
 @implementation UIView (HExclusive)
-
 - (void)exclusiveOtherTouch {
     [self setExclusiveTouch:YES];
 }
@@ -66,7 +65,6 @@
 @end
 
 @implementation UIView (HMark)
-
 - (NSMutableSet *)idSet {
     NSMutableSet *set = objc_getAssociatedObject(self, _cmd);
     if (!set) {
@@ -92,7 +90,6 @@
         [self.idSet removeObject:anId];
     }
 }
-
 @end
 
 
@@ -111,15 +108,15 @@
 - (void)setSegStatue:(NSInteger)segStatue {
     objc_setAssociatedObject(self, @selector(segStatue), @(segStatue), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (NSInteger)segStatues {
+- (NSInteger)segTotalStatue {
     NSNumber *statue = objc_getAssociatedObject(self, _cmd);
     if (!statue) {
         return 0;
     }
     return statue.integerValue;
 }
-- (void)setSegStatues:(NSInteger)segStatues {
-    objc_setAssociatedObject(self, @selector(segStatues), @(segStatues), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setSegTotalStatue:(NSInteger)segTotalStatue {
+    objc_setAssociatedObject(self, @selector(segTotalStatue), @(segTotalStatue), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 - (NSMutableDictionary *)segStatueDict {
     NSMutableDictionary *dict = objc_getAssociatedObject(self, _cmd);

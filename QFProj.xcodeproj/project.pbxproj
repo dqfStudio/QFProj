@@ -91,7 +91,6 @@
 		15B4DE0C2092F96C00773E04 /* NSTimer+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDDC2092F96B00773E04 /* NSTimer+HSafeUtil.m */; };
 		15B4DE0D2092F96C00773E04 /* NSObject+HSafeNotify.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDDD2092F96B00773E04 /* NSObject+HSafeNotify.m */; };
 		15B4DE0E2092F96C00773E04 /* NSDictionary+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDDE2092F96B00773E04 /* NSDictionary+HSafeUtil.m */; };
-		15B4DE102092F96C00773E04 /* HNotiCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDE02092F96B00773E04 /* HNotiCenter.m */; };
 		15B4DE112092F96C00773E04 /* NSArray+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDE32092F96B00773E04 /* NSArray+HSafeUtil.m */; };
 		15B4DE122092F96C00773E04 /* NSObject+HSwizzleUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDE42092F96B00773E04 /* NSObject+HSwizzleUtil.m */; };
 		15B4DE132092F96C00773E04 /* UIControl+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDE52092F96B00773E04 /* UIControl+HSafeUtil.m */; };
@@ -125,7 +124,6 @@
 		15C5738620B3DD9F0070327C /* HSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5737F20B3DD9F0070327C /* HSectionModel.m */; };
 		15C5738720B3DD9F0070327C /* KTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5738120B3DD9F0070327C /* KTableView.m */; };
 		15C573B920B3DE340070327C /* HBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C573AC20B3DE340070327C /* HBaseCell.m */; };
-		15E1388D20DB785C0070ED08 /* NSDictionary+HOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E1388C20DB785C0070ED08 /* NSDictionary+HOrder.m */; };
 		15E56511212CFA28003A63E5 /* qq.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E56510212CFA28003A63E5 /* qq.png */; };
 		15E56514212D013D003A63E5 /* UIImage+HName.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E56512212D013D003A63E5 /* UIImage+HName.m */; };
 		15E5651D212E5D77003A63E5 /* HHostSegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E5651C212E5D77003A63E5 /* HHostSegmentCell.m */; };
@@ -384,7 +382,6 @@
 		15B4DDD12092F96B00773E04 /* HWebButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebButtonView.h; sourceTree = "<group>"; };
 		15B4DDD32092F96B00773E04 /* HViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HViewController.m; sourceTree = "<group>"; };
 		15B4DDD42092F96B00773E04 /* HViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HViewController.h; sourceTree = "<group>"; };
-		15B4DDD62092F96B00773E04 /* HNotiCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNotiCenter.h; sourceTree = "<group>"; };
 		15B4DDD82092F96B00773E04 /* UIControl+HSafeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+HSafeUtil.h"; sourceTree = "<group>"; };
 		15B4DDD92092F96B00773E04 /* NSObject+HSwizzleUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSwizzleUtil.h"; sourceTree = "<group>"; };
 		15B4DDDA2092F96B00773E04 /* NSArray+HSafeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+HSafeUtil.h"; sourceTree = "<group>"; };
@@ -392,7 +389,6 @@
 		15B4DDDC2092F96B00773E04 /* NSTimer+HSafeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+HSafeUtil.m"; sourceTree = "<group>"; };
 		15B4DDDD2092F96B00773E04 /* NSObject+HSafeNotify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSafeNotify.m"; sourceTree = "<group>"; };
 		15B4DDDE2092F96B00773E04 /* NSDictionary+HSafeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+HSafeUtil.m"; sourceTree = "<group>"; };
-		15B4DDE02092F96B00773E04 /* HNotiCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNotiCenter.m; sourceTree = "<group>"; };
 		15B4DDE12092F96B00773E04 /* NSTimer+HSafeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+HSafeUtil.h"; sourceTree = "<group>"; };
 		15B4DDE22092F96B00773E04 /* NSString+HSafeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HSafeUtil.h"; sourceTree = "<group>"; };
 		15B4DDE32092F96B00773E04 /* NSArray+HSafeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+HSafeUtil.m"; sourceTree = "<group>"; };
@@ -457,8 +453,6 @@
 		15C573AC20B3DE340070327C /* HBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBaseCell.m; sourceTree = "<group>"; };
 		15C573B620B3DE340070327C /* HBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBaseCell.h; sourceTree = "<group>"; };
 		15CC6E9120E28D77005F1792 /* HInputHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HInputHeader.h; sourceTree = "<group>"; };
-		15E1388B20DB785C0070ED08 /* NSDictionary+HOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HOrder.h"; sourceTree = "<group>"; };
-		15E1388C20DB785C0070ED08 /* NSDictionary+HOrder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+HOrder.m"; sourceTree = "<group>"; };
 		15E56510212CFA28003A63E5 /* qq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qq.png; sourceTree = "<group>"; };
 		15E56512212D013D003A63E5 /* UIImage+HName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HName.m"; sourceTree = "<group>"; };
 		15E56513212D013D003A63E5 /* UIImage+HName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HName.h"; sourceTree = "<group>"; };
@@ -1056,8 +1050,6 @@
 				15B4DDB62092F96B00773E04 /* NSString+HUtil.m */,
 				15B4DDC52092F96B00773E04 /* NSUserDefaults+HUtil.h */,
 				15B4DDBC2092F96B00773E04 /* NSUserDefaults+HUtil.m */,
-				15E1388B20DB785C0070ED08 /* NSDictionary+HOrder.h */,
-				15E1388C20DB785C0070ED08 /* NSDictionary+HOrder.m */,
 				1510793D20F98E4800860D1C /* NSTimer+HUtil.h */,
 				1510793E20F98E4800860D1C /* NSTimer+HUtil.m */,
 			);
@@ -1114,8 +1106,6 @@
 		15B4DDD52092F96B00773E04 /* HSafeUtil */ = {
 			isa = PBXGroup;
 			children = (
-				15B4DDD62092F96B00773E04 /* HNotiCenter.h */,
-				15B4DDE02092F96B00773E04 /* HNotiCenter.m */,
 				15B4DDDA2092F96B00773E04 /* NSArray+HSafeUtil.h */,
 				15B4DDE32092F96B00773E04 /* NSArray+HSafeUtil.m */,
 				15B4DDE62092F96B00773E04 /* NSDictionary+HSafeUtil.h */,
@@ -1872,7 +1862,6 @@
 				150C7CB12119961F00A05347 /* UIWindow+HPrinter.m in Sources */,
 				15C5738420B3DD9F0070327C /* HCellModel.m in Sources */,
 				153F081220E28CA000C74850 /* HAlphaNumericValidator.m in Sources */,
-				15E1388D20DB785C0070ED08 /* NSDictionary+HOrder.m in Sources */,
 				15C5738620B3DD9F0070327C /* HSectionModel.m in Sources */,
 				15B4DDF72092F96C00773E04 /* UIDevice+HUtil.m in Sources */,
 				A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */,
@@ -1960,7 +1949,6 @@
 				15E6BB9B2136E7E300EBE794 /* YPTabBar.m in Sources */,
 				15C5737420B3DD7B0070327C /* HTupleView.m in Sources */,
 				15E6BB9D2136E7E300EBE794 /* YPTabContentView.m in Sources */,
-				15B4DE102092F96C00773E04 /* HNotiCenter.m in Sources */,
 				A2DC225B22380EFC00E540BE /* HTableView.m in Sources */,
 				15464B7820A2C26300CDD27E /* HTestVC-DQF.m in Sources */,
 				15B4DE292093034700773E04 /* NSObject+annotation.m in Sources */,

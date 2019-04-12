@@ -8,21 +8,18 @@
 
 #import "NSDate+HUtil.h"
 
-static const NSDate *startDate=nil;
+static const NSDate *startDate = nil;
 
 @implementation NSDate (HUtil)
-
 + (void)startTime {
     startDate =  [NSDate date];
 }
-
 + (void)endTime {
     if (startDate) {
         NSLog(@"time: %f", -[startDate timeIntervalSinceNow]);
         [self startTime];
     }
 }
-
 + (void)time:(void(^)(void))callback {
     if (callback) {
         NSDate *startDate = [NSDate date];
@@ -30,5 +27,4 @@ static const NSDate *startDate=nil;
         NSLog(@"block time: %f", -[startDate timeIntervalSinceNow]);
     }
 }
-
 @end

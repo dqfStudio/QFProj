@@ -16,11 +16,9 @@ typedef void(^HExclusive)(void);
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (HExclusive)
-
 - (void)exclusive:(NSString * _Nonnull)exc block:(void (^)(HExclusive stop))block;
 - (void)removeExclusive:(NSString * _Nonnull)exc;
 - (void)synchronized:(void (^)(void))sync;
-
 @end
 
 @interface UIView (HExclusive)
@@ -36,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (HState)
 - (NSInteger)segStatue;
-- (NSInteger)segStatues;
+- (NSInteger)segTotalStatue;
 - (void)setObject:(id)anObject withKey:(NSString *)aKey forSegStatue:(NSInteger)segStatue;
 - (nullable id)objectForKey:(NSString *)aKey andSegStatue:(NSInteger)segStatue;
 - (void)removeObjectForKey:(NSString *)aKey andSegStatue:(NSInteger)segStatue;

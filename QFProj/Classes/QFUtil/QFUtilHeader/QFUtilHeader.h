@@ -48,7 +48,6 @@
 #import "NSString+HChain.h"
 
 //HSafeUtil
-#import "HNotiCenter.h"
 #import "NSArray+HSafeUtil.h"
 #import "NSDictionary+HSafeUtil.h"
 #import "NSObject+HSafeNotify.h"

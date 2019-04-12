@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NSDate (HUtil)
-
 + (void)startTime;
 + (void)endTime;
 + (void)time:(void(^)(void))callback;
-
 @end
