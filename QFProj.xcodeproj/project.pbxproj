@@ -176,6 +176,12 @@
 		A24B6577225EE88600B257BB /* HWebviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6576225EE88600B257BB /* HWebviewVC.m */; };
 		A24B657E225F768000B257BB /* HGameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B657D225F768000B257BB /* HGameVC.m */; };
 		A24B6581225F7A7500B257BB /* HPayWebviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B657F225F7A7500B257BB /* HPayWebviewVC.m */; };
+		A24B659522607E8400B257BB /* NSStream+SKPSMTPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B658822607E8400B257BB /* NSStream+SKPSMTPExtensions.m */; };
+		A24B659622607E8400B257BB /* HEmailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B658D22607E8400B257BB /* HEmailManager.m */; };
+		A24B659722607E8400B257BB /* SKPSMTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B658E22607E8400B257BB /* SKPSMTPMessage.m */; };
+		A24B659822607E8400B257BB /* NSData+Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B659022607E8400B257BB /* NSData+Base64Additions.m */; };
+		A24B659922607E8400B257BB /* Base64Transcoder.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B659122607E8400B257BB /* Base64Transcoder.m */; };
+		A24B659B22607E8400B257BB /* HSK_CFUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B659422607E8400B257BB /* HSK_CFUtilities.m */; };
 		A28EF2E821D86DD8002F92ED /* ULBCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */; };
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
 		A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */; };
@@ -529,6 +535,18 @@
 		A24B657D225F768000B257BB /* HGameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGameVC.m; sourceTree = "<group>"; };
 		A24B657F225F7A7500B257BB /* HPayWebviewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPayWebviewVC.m; sourceTree = "<group>"; };
 		A24B6580225F7A7500B257BB /* HPayWebviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPayWebviewVC.h; sourceTree = "<group>"; };
+		A24B658722607E8400B257BB /* NSData+Base64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64Additions.h"; sourceTree = "<group>"; };
+		A24B658822607E8400B257BB /* NSStream+SKPSMTPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSStream+SKPSMTPExtensions.m"; sourceTree = "<group>"; };
+		A24B658922607E8400B257BB /* SKPSMTPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPSMTPMessage.h; sourceTree = "<group>"; };
+		A24B658B22607E8400B257BB /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
+		A24B658C22607E8400B257BB /* HSK_CFUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSK_CFUtilities.h; sourceTree = "<group>"; };
+		A24B658D22607E8400B257BB /* HEmailManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEmailManager.m; sourceTree = "<group>"; };
+		A24B658E22607E8400B257BB /* SKPSMTPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPSMTPMessage.m; sourceTree = "<group>"; };
+		A24B658F22607E8400B257BB /* NSStream+SKPSMTPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSStream+SKPSMTPExtensions.h"; sourceTree = "<group>"; };
+		A24B659022607E8400B257BB /* NSData+Base64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64Additions.m"; sourceTree = "<group>"; };
+		A24B659122607E8400B257BB /* Base64Transcoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Transcoder.m; sourceTree = "<group>"; };
+		A24B659322607E8400B257BB /* HEmailManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEmailManager.h; sourceTree = "<group>"; };
+		A24B659422607E8400B257BB /* HSK_CFUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSK_CFUtilities.m; sourceTree = "<group>"; };
 		A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULBCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A28EF2E721D86DD8002F92ED /* ULBCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ULBCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		A28EF2EA21D86E43002F92ED /* UILabel+HAttributeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeText.h"; sourceTree = "<group>"; };
@@ -883,6 +901,7 @@
 		15B4DD7E2092F96B00773E04 /* QFUtil */ = {
 			isa = PBXGroup;
 			children = (
+				A24B658622607E8400B257BB /* SMTPLibrary */,
 				A24B656E225EE21800B257BB /* HOther */,
 				A24B656A225EE14800B257BB /* HValidate */,
 				A24B6561225EE0EE00B257BB /* HAutoPackage */,
@@ -1496,6 +1515,25 @@
 			path = HOther;
 			sourceTree = "<group>";
 		};
+		A24B658622607E8400B257BB /* SMTPLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				A24B658B22607E8400B257BB /* Base64Transcoder.h */,
+				A24B659122607E8400B257BB /* Base64Transcoder.m */,
+				A24B659322607E8400B257BB /* HEmailManager.h */,
+				A24B658D22607E8400B257BB /* HEmailManager.m */,
+				A24B658C22607E8400B257BB /* HSK_CFUtilities.h */,
+				A24B659422607E8400B257BB /* HSK_CFUtilities.m */,
+				A24B658722607E8400B257BB /* NSData+Base64Additions.h */,
+				A24B659022607E8400B257BB /* NSData+Base64Additions.m */,
+				A24B658F22607E8400B257BB /* NSStream+SKPSMTPExtensions.h */,
+				A24B658822607E8400B257BB /* NSStream+SKPSMTPExtensions.m */,
+				A24B658922607E8400B257BB /* SKPSMTPMessage.h */,
+				A24B658E22607E8400B257BB /* SKPSMTPMessage.m */,
+			);
+			path = SMTPLibrary;
+			sourceTree = "<group>";
+		};
 		A28EF2E921D86E43002F92ED /* UILabel+HAttributeText */ = {
 			isa = PBXGroup;
 			children = (
@@ -1814,6 +1852,7 @@
 				A24B656D225EE14800B257BB /* HValidate.m in Sources */,
 				15464B7720A2C26300CDD27E /* HTestManager.m in Sources */,
 				15038EA820CC0C6A00A16FC9 /* HSwitchLanguage.m in Sources */,
+				A24B659522607E8400B257BB /* NSStream+SKPSMTPExtensions.m in Sources */,
 				15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */,
 				15B4DDED2092F96C00773E04 /* UIView+HImage.m in Sources */,
 				15B4DE30209319FA00773E04 /* NSObject+HSelector.m in Sources */,
@@ -1827,12 +1866,14 @@
 				A4759710217EC61D00AAAEA9 /* HUserDefaults.m in Sources */,
 				A28EF3C421DA1DFE002F92ED /* HFormCell.m in Sources */,
 				1547B891210C4E09009E0374 /* UICollectionView+HTracking.m in Sources */,
+				A24B659622607E8400B257BB /* HEmailManager.m in Sources */,
 				15E6BB9C2136E7E300EBE794 /* YPTabBarController.m in Sources */,
 				15545789212B063900DA7898 /* MGVersionManager.m in Sources */,
 				15B4DDF62092F96C00773E04 /* UIApplication+HUtil.m in Sources */,
 				1538FFA92094065A002E3A29 /* NSFileManager+HUtil.m in Sources */,
 				15B4DE1B209302BF00773E04 /* HGoToApp.m in Sources */,
 				15C5737120B3DD7B0070327C /* HTupleBaseView.m in Sources */,
+				A24B659B22607E8400B257BB /* HSK_CFUtilities.m in Sources */,
 				15B4DE282093034700773E04 /* HGCDUtil.m in Sources */,
 				1547B88F210C4E09009E0374 /* UITableView+HTracking.m in Sources */,
 				1547855D211599CE00DC9EAE /* HRegularExpression.m in Sources */,
@@ -1914,6 +1955,7 @@
 				15C5737320B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				A28EF3C321DA1DFE002F92ED /* HFormController2.m in Sources */,
 				1587D8D520C2438C00C0391D /* HTableViewCell.m in Sources */,
+				A24B659922607E8400B257BB /* Base64Transcoder.m in Sources */,
 				A24B6560225EE08900B257BB /* HUpdate.m in Sources */,
 				15F9152020A171A8000261C4 /* NSObject+HAspects.m in Sources */,
 				15B4DE0A2092F96C00773E04 /* HViewController.m in Sources */,
@@ -1924,9 +1966,11 @@
 				A28EF2F321D876A3002F92ED /* HTabBarController.m in Sources */,
 				A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */,
 				157696EB20A0AB6900E31469 /* hFelix.m in Sources */,
+				A24B659822607E8400B257BB /* NSData+Base64Additions.m in Sources */,
 				15C572A020AEAC340070327C /* UILabel+HState.m in Sources */,
 				15B4DE032092F96C00773E04 /* NSObject+HUtil.m in Sources */,
 				15E6BB9B2136E7E300EBE794 /* YPTabBar.m in Sources */,
+				A24B659722607E8400B257BB /* SKPSMTPMessage.m in Sources */,
 				15C5737420B3DD7B0070327C /* HTupleView.m in Sources */,
 				15E6BB9D2136E7E300EBE794 /* YPTabContentView.m in Sources */,
 				A2DC225B22380EFC00E540BE /* HTableView.m in Sources */,

@@ -317,4 +317,63 @@
 //                     }];
 //}
 
+//#pragma --mark 崩溃日志收集
+//
+////获取当前控制器信息
+//- (NSString *)currentVCInfo {
+//
+//    HViewController *visibleVC = (HViewController *)self.mainPage.visibleViewController;
+//    HViewController *currentVC = nil;
+//    Protocol *pro = NSProtocolFromString(@"YPTabContentViewDelegate");
+//    NSString *selectIndex= nil;
+//    if ([visibleVC conformsToProtocol:pro]) {
+//
+//        HMenuViewController *rootVC= (HMenuViewController *)visibleVC;
+//        NSInteger index = rootVC.tabBar.selectedItemIndex;
+//        HViewController *selectVC  = (HViewController *)rootVC.viewControllers[index];
+//        if ([selectVC conformsToProtocol:pro]) {
+//            HMenuViewController *rootVC2 = (HMenuViewController *)selectVC;
+//            NSInteger  index = rootVC2.tabBar.selectedItemIndex;
+//            HViewController *selectVC2 = (HViewController *)rootVC2.viewControllers[index];
+//            if ([selectVC2 isKindOfClass:[UINavigationController class]]) {
+//                UINavigationController *nav = (UINavigationController *)selectVC2;
+//                currentVC = nav.viewControllers.firstObject;
+//            }else{
+//                currentVC = selectVC2;
+//            }
+//        }else{
+//            currentVC = selectVC;
+//        }
+//        selectIndex = [NSString stringWithFormat:@"%lu",index];
+//    }else{
+//        currentVC = visibleVC;
+//    }
+//    return  [NSString stringWithFormat:@"__%@__%@__%@",currentVC.titleLabel.text,NSStringFromClass([currentVC class]),selectIndex];
+//}
+//
+//+ (void)crashCollection {
+//#if !DEBUG
+//    //崩溃日志捕捉
+//    InstallCrashExceptionHandler();
+//    [[GHWEmailManager shareInstance] configWithFromEmail:@"txwinding@gmail.com"
+//                                              andPasswod:@"a.000000"
+//                                              andToEmail:@"txwinding@gmail.com"
+//                                            andRelayHose:@"smtp.gmail.com"];
+//    //真机发送崩溃记录
+//    if (!TARGET_IPHONE_SIMULATOR) {
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//            NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0]
+//                                   stringByAppendingPathComponent:@"crash"];
+//            NSString *message = nil;
+//            if ([[NSFileManager defaultManager] fileExistsAtPath:cachePath]) {
+//                message = [NSString stringWithContentsOfFile:cachePath encoding:NSUTF8StringEncoding error:nil];
+//            }
+//            if (message.length > 0) {
+//                [[GHWEmailManager shareInstance] sendEmail:message];
+//            }
+//        });
+//    }
+//#endif
+//}
+
 @end
