@@ -12,11 +12,9 @@
 #define ONE_PIXEL [UIScreen onePixel]
 
 @interface UIScreen (HUtil)
-
 + (CGRect)bounds;
 + (CGSize)size;
 + (CGFloat)height;
 + (CGFloat)width;
 + (CGFloat)onePixel;
-
 @end

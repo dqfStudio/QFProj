@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface HNavigationController : UINavigationController
-
 - (void)addFullScreenPopBlackListItem:(UIViewController *)viewController;
 - (void)removeFromFullScreenPopBlackList:(UIViewController *)viewController;
-
 @end

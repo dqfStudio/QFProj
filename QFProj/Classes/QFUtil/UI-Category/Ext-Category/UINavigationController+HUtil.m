@@ -9,7 +9,6 @@
 #import "UINavigationController+HUtil.h"
 
 @implementation UINavigationController (HUtil)
-
 - (BOOL)popToViewControllerOfClass:(Class)klass animated:(BOOL)animated {
     BOOL success = NO;
     if (klass != NULL) {
@@ -23,7 +22,6 @@
     }
     return success;
 }
-
 - (void)replaceTopViewController:(UIViewController *)vc animated:(BOOL)animated {
     NSMutableArray *vcs = [NSMutableArray arrayWithArray:self.viewControllers];
     if (vcs.count > 0) {
@@ -32,5 +30,4 @@
     }
     [self setViewControllers:vcs animated:animated];
 }
-
 @end

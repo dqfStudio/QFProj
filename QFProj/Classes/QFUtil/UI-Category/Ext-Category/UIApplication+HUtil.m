@@ -21,7 +21,8 @@
     return [[UIApplication sharedApplication] getKeyWindow];
 }
 - (UIWindow *)getKeyWindow {
-    UIWindow *window = self.windows[0];
+    //UIWindow *window = self.windows[0];
+    UIWindow *window = self.keyWindow;
     return window;
 }
 
@@ -56,8 +57,13 @@
     UIViewController *tabVC = [self getKeyWindowRootController];
     if ([tabVC isKindOfClass:[UITabBarController class]]) {
         return (UITabBarController *)tabVC;
+    }else if ([tabVC isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *navi = (UINavigationController *)tabVC;
+        if ([navi.topViewController isKindOfClass:[UITabBarController class]]) {
+            return (UITabBarController *)navi.topViewController;
+        }
     }
-    else return nil;
+    return nil;
 }
 
 + (NSString *)appBundleName {

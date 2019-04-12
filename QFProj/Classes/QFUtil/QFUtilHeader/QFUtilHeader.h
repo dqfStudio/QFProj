@@ -27,10 +27,6 @@
 #import "UIViewController+HUtil.h"
 
 //Ext-Category
-#import "UIFont+HChain.h"
-#import "UIImage+HChain.h"
-
-//Ext-Category
 #import "NSError+HUtil.h"
 #import "HHexUtil.h"
 #import "HSpeechUtil.h"

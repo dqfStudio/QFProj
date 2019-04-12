@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UINavigationController (HUtil)
-
 - (BOOL)popToViewControllerOfClass:(Class)klass animated:(BOOL)animated;
 - (void)replaceTopViewController:(UIViewController *)vc animated:(BOOL)animated;
-
 @end

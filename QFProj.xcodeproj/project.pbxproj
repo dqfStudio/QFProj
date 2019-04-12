@@ -73,8 +73,6 @@
 		15B4DDF92092F96C00773E04 /* UIScreen+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDAB2092F96B00773E04 /* UIScreen+HUtil.m */; };
 		15B4DDFA2092F96C00773E04 /* UILabel+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDAC2092F96B00773E04 /* UILabel+HUtil.m */; };
 		15B4DDFB2092F96C00773E04 /* UIColor+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDAD2092F96B00773E04 /* UIColor+HUtil.m */; };
-		15B4DDFC2092F96C00773E04 /* UIImage+HChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDB02092F96B00773E04 /* UIImage+HChain.m */; };
-		15B4DDFD2092F96C00773E04 /* UIFont+HChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDB32092F96B00773E04 /* UIFont+HChain.m */; };
 		15B4DDFE2092F96C00773E04 /* NSString+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDB62092F96B00773E04 /* NSString+HUtil.m */; };
 		15B4DE002092F96C00773E04 /* NSDate+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDB92092F96B00773E04 /* NSDate+HUtil.m */; };
 		15B4DE012092F96C00773E04 /* HSpeechUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDBB2092F96B00773E04 /* HSpeechUtil.m */; };
@@ -354,10 +352,6 @@
 		15B4DDAC2092F96B00773E04 /* UILabel+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+HUtil.m"; sourceTree = "<group>"; };
 		15B4DDAD2092F96B00773E04 /* UIColor+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HUtil.m"; sourceTree = "<group>"; };
 		15B4DDAE2092F96B00773E04 /* UIButton+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+HUtil.h"; sourceTree = "<group>"; };
-		15B4DDB02092F96B00773E04 /* UIImage+HChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HChain.m"; sourceTree = "<group>"; };
-		15B4DDB12092F96B00773E04 /* UIFont+HChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+HChain.h"; sourceTree = "<group>"; };
-		15B4DDB22092F96B00773E04 /* UIImage+HChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HChain.h"; sourceTree = "<group>"; };
-		15B4DDB32092F96B00773E04 /* UIFont+HChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+HChain.m"; sourceTree = "<group>"; };
 		15B4DDB62092F96B00773E04 /* NSString+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HUtil.m"; sourceTree = "<group>"; };
 		15B4DDB72092F96B00773E04 /* NSObject+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HUtil.h"; sourceTree = "<group>"; };
 		15B4DDB92092F96B00773E04 /* NSDate+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+HUtil.m"; sourceTree = "<group>"; };
@@ -964,7 +958,6 @@
 			isa = PBXGroup;
 			children = (
 				15B4DD902092F96B00773E04 /* Ext-Category */,
-				15B4DDAF2092F96B00773E04 /* Chain-Category */,
 			);
 			path = "UI-Category";
 			sourceTree = "<group>";
@@ -1004,17 +997,6 @@
 				15B4DD972092F96B00773E04 /* UIViewController+HUtil.m */,
 			);
 			path = "Ext-Category";
-			sourceTree = "<group>";
-		};
-		15B4DDAF2092F96B00773E04 /* Chain-Category */ = {
-			isa = PBXGroup;
-			children = (
-				15B4DDB12092F96B00773E04 /* UIFont+HChain.h */,
-				15B4DDB32092F96B00773E04 /* UIFont+HChain.m */,
-				15B4DDB22092F96B00773E04 /* UIImage+HChain.h */,
-				15B4DDB02092F96B00773E04 /* UIImage+HChain.m */,
-			);
-			path = "Chain-Category";
 			sourceTree = "<group>";
 		};
 		15B4DDB42092F96B00773E04 /* NS-Category */ = {
@@ -1887,7 +1869,6 @@
 				15B4DE052092F96C00773E04 /* HHexUtil.m in Sources */,
 				15B4DE0E2092F96C00773E04 /* NSDictionary+HSafeUtil.m in Sources */,
 				15B4DE2A2093034700773E04 /* HClassManager.m in Sources */,
-				15B4DDFD2092F96C00773E04 /* UIFont+HChain.m in Sources */,
 				15B4DE1D209302BF00773E04 /* HGoTo.m in Sources */,
 				1510794520F99ABB00860D1C /* NSObject+HExclusive.m in Sources */,
 				15F9152320A17E95000261C4 /* TestViewController.m in Sources */,
@@ -1928,7 +1909,6 @@
 				15E6BB992136E7E300EBE794 /* UIScrollView+YPTab.m in Sources */,
 				15B4DDF52092F96C00773E04 /* UINavigationController+HUtil.m in Sources */,
 				A28EF3B521D9C9A2002F92ED /* HWaitingView.m in Sources */,
-				15B4DDFC2092F96C00773E04 /* UIImage+HChain.m in Sources */,
 				A24B6571225EE23500B257BB /* HOther.m in Sources */,
 				15B4DDF42092F96C00773E04 /* UIGestureRecognizer+HUtil.m in Sources */,
 				15C5737320B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.m in Sources */,

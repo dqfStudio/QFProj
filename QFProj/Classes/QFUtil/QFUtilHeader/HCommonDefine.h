@@ -63,19 +63,19 @@
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 
 //判断是否是iPhone X
-#define  iPhoneX ((SCREEN_WIDTH == 375.f && SCREEN_HEIGHT == 812.f) || (SCREEN_WIDTH == 812.f && SCREEN_HEIGHT == 375.f))
+#define  KIsIPhoneX ((SCREEN_WIDTH == 375.f && SCREEN_HEIGHT == 812.f) || (SCREEN_WIDTH == 812.f && SCREEN_HEIGHT == 375.f))
 
 //Status bar height.
-#define  KStatusBarHeight     (iPhoneX ? 44.f : 20.f)
+#define  KStatusBarHeight     (KIsIPhoneX ? 44.f : 20.f)
 
 //Navigation bar height.
 #define  kNaviBarHeight       44.f
 
 //Tabbar safe bottom margin.
-#define  kBottomBarHeight     (iPhoneX ? 34.f : 0.f)
+#define  kBottomBarHeight     (KIsIPhoneX ? 34.f : 0.f)
 
 //Status bar & navigation bar height.
-#define  kTopBarHeight        (iPhoneX ? 88.f : 64.f)
+#define  kTopBarHeight        (KIsIPhoneX ? 88.f : 64.f)
 
 //中英状态下键盘的高度
 #define kEnglishKeyboardHeight  (216.f)

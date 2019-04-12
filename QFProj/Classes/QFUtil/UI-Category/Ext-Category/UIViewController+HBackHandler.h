@@ -9,11 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @protocol HBackHandlerProtocol <NSObject>
-
 @optional
 // Override this method in UIViewController derived class to handle 'Back' button click
 - (BOOL)navigationShouldPopOnBackButton;
-
 @end
 
 @interface UIViewController (HBackHandler) <HBackHandlerProtocol>
