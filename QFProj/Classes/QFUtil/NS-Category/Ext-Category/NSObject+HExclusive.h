@@ -35,14 +35,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface NSObject (HState)
-@property (nonatomic) NSString *segAlias;
-@property (nonatomic) NSInteger segStatue;
-@property (nonatomic, readonly) NSInteger segStatues;
-- (void)setObject:(id)anObject forSegStatue:(NSInteger)segStatue;
-- (nullable id)objectForSegStatue:(NSInteger)segStatue;
+- (NSInteger)segStatue;
+- (NSInteger)segStatues;
+- (void)setObject:(id)anObject withKey:(NSString *)aKey forSegStatue:(NSInteger)segStatue;
+- (nullable id)objectForKey:(NSString *)aKey andSegStatue:(NSInteger)segStatue;
+- (void)removeObjectForKey:(NSString *)aKey andSegStatue:(NSInteger)segStatue;
 - (void)removeObjectForSegStatue:(NSInteger)segStatue;
-- (BOOL)containObjectOfSegAlias;
 - (void)clearSegStatue;
 @end
+
 
 NS_ASSUME_NONNULL_END
