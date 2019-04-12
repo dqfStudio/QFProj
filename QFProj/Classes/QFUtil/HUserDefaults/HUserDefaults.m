@@ -47,10 +47,15 @@
     static HUserDefaults *share = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
-        //初始化数据
-        NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:KUSER];
-        if (data) {
-            share = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        NSString *userName = [HUserDefaults defaults].userName;
+        if (userName.length > 0) {
+            NSString *bundleIdentifier = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
+            HKeyChainStore *keyChainStore = [HKeyChainStore keyChainStoreWithService:bundleIdentifier];
+            userName = [userName uppercaseString];
+            NSData *data = [keyChainStore dataForKey:userName];
+            if (data) {
+                share = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+            }
         }
         if (!share || ![share respondsToSelector:@selector(initData)]) {
             share = HUserDefaults.new;
@@ -63,34 +68,18 @@
 //初始化数据
 - (void)initData {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveUser) name:UIApplicationWillTerminateNotification object:nil];
-#if DEBUG
-    [NSTimer scheduledTimerImmediatelyWithTimeInterval:15 times:MAXFLOAT block:^(NSTimer *timer) {
-        dispatch_async(dispatch_queue_create(0, 0), ^{
-            [self saveUser];
-        });
-    }];
-#endif
+//    [[RACObserve(share, isLogin) skip:1] subscribeNext:^(id  _Nullable x) {
+//        if ([x boolValue]) {
+//            [self saveUser];
+//        }
+//    }];
 }
-
-//- (void)saveUser {
-//    if (self.isLogin) {
-//        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self];
-//        [[NSUserDefaults standardUserDefaults] setObject:data forKey:KUSER];
-//        [[NSUserDefaults standardUserDefaults] synchronize];
-//    }else {
-//        [[NSUserDefaults standardUserDefaults] removeObjectForKey:KUSER];
-//        [[NSUserDefaults standardUserDefaults] synchronize];
-//    }
-//}
 
 - (void)saveUser {
     if (self.isLogin) {
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self];
-        [[NSUserDefaults standardUserDefaults] setObject:data forKey:KUSER];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        //将信息保存在钥匙串中
-        NSString *userName = [HUserDefaults defaults].fullName;
-        if (userName.length > 3) {
+        NSString *userName = [HUserDefaults defaults].userName;
+        if (userName.length > 0) {
             NSString *bundleIdentifier = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
             HKeyChainStore *keyChainStore = [HKeyChainStore keyChainStoreWithService:bundleIdentifier];
             if (keyChainStore && data) {
@@ -99,21 +88,18 @@
                 [keyChainStore synchronizable];
             }
         }
-    }else {
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:KUSER];
-        [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 
 //加载钥匙串中的数据
-- (BOOL)LoadKeyChainDataWith:(NSString *)fullName pwd:(NSString *)pwd {
+- (BOOL)LoadKeyChainDataWith:(NSString *)userName pwd:(NSString *)pwd {
     BOOL boolValue = NO;
-    if (fullName.length > 3) {
+    if (userName.length > 3) {
         NSString *bundleIdentifier = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
         HKeyChainStore *keyChainStore = [HKeyChainStore keyChainStoreWithService:bundleIdentifier];
         if (keyChainStore) {
-            NSString *userName = [fullName uppercaseString];
-            NSData *data = [keyChainStore dataForKey:userName];
+            NSString *tmpUserName = [userName uppercaseString];
+            NSData *data = [keyChainStore dataForKey:tmpUserName];
             if (data) {
                 HUserDefaults *userDefaults = [NSKeyedUnarchiver unarchiveObjectWithData:data];
                 id propertyValue = [userDefaults valueForKey:@"password"];

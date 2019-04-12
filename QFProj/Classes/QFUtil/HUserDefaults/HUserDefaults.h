@@ -14,32 +14,12 @@
 
 /** 是否登录 */
 @property (nonatomic) BOOL isLogin;
-/** 本地存储 邮箱 */
-@property (nonatomic, copy) NSString *user_email;
 
-
-/** userKey */
-@property (nonatomic, copy) NSString *userKey;
 /** 用户ID */
-@property (nonatomic, copy) NSString *fullName;
+@property (nonatomic, copy) NSString *userId;
+@property (nonatomic, copy) NSString *userKey;
 @property (nonatomic, copy) NSString *userName;
 @property (nonatomic, copy) NSString *realname;
-/** balance */
-@property (nonatomic, copy) NSString *balance;
-@property (nonatomic, copy) NSString *integral;
-@property (nonatomic, copy) NSString *vip_level;
-
-@property (nonatomic, copy) NSString *mobile;
-@property (nonatomic, copy) NSString *loginmobile;
-
-@property (nonatomic, copy) NSString *login_time;
-@property (nonatomic, copy) NSString *reg_date;
-
-/** 银行卡列表,里面为字典 card_num和bank_name */
-@property (nonatomic, copy) NSArray *bankList;
-//是否已经设置取款密码
-@property (nonatomic) BOOL settedqkpwd;
-
 
 /** 密码 */
 @property (nonatomic, copy) NSString *password;
