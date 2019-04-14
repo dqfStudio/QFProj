@@ -81,7 +81,6 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 
 @interface HTupleView : UICollectionView <HTupleViewDelegate, ULBCollectionViewDelegateFlowLayout>
 @property (nonatomic, weak, nullable) id <HTupleViewDelegate> tupleDelegate;
-@property (nonatomic, assign) HTupleState tupleState; //set tuple view different state
 
 @property (nonatomic, assign) NSUInteger pageNo;    // page number, default 1
 @property (nonatomic, assign) NSUInteger pageSize;  // page size, default 20
@@ -111,6 +110,7 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 
 @interface UICollectionView ()
 
+@property (nonatomic, assign) HTupleState tupleState; //set tuple view different state
 @property (nonatomic, copy, nullable) HTupleCellSignalBlock signalBlock;
 
 - (void)signalToTupleView:(HTupleSignal *_Nonnull)signal;

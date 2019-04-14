@@ -187,6 +187,13 @@
     }
 }
 #pragma mark - signal
+- (HTupleState)tupleState {
+    return [[self getAssociatedValueForKey:_cmd] integerValue];
+}
+- (void)setTupleState:(HTupleState)tupleState {
+    [self setAssociateValue:@(tupleState) withKey:@selector(tupleState)];
+}
+
 - (HTupleCellSignalBlock)signalBlock {
     return [self getAssociatedValueForKey:_cmd];
 }

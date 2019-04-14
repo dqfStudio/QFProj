@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HTableHeaderFooterView.h"
 #import "NSObject+HSelector.h"
+#import "NSObject+HMessy.h"
 #import "HTableViewCell.h"
 #import "HTableSignal.h"
 #import "MJRefresh.h"
@@ -55,7 +56,6 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 
 @interface HTableView : UITableView <HTableViewDelegate>
 @property (nonatomic, weak, nullable) id <HTableViewDelegate> tableDelegate;
-@property (nonatomic, assign) HTableState tableState; //set table view different state
 
 @property (nonatomic, assign) NSUInteger pageNo;    // page number, default 1
 @property (nonatomic, assign) NSUInteger pageSize;  // page size, default 20
@@ -84,7 +84,8 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 
 @interface UITableView ()
 
-@property (nonatomic, copy, nullable) HTableCellSignalBlock  signalBlock;
+@property (nonatomic, assign) HTableState tableState; //set table view different state
+@property (nonatomic, copy, nullable) HTableCellSignalBlock signalBlock;
 
 - (void)signalToTable:(HTableSignal *_Nonnull)signal;
 

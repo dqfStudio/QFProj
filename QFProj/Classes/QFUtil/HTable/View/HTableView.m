@@ -159,7 +159,21 @@
         self.mj_footer = nil;
     }
 }
-#pragma mark - signal
+#pragma mark - signal- (HTupleState)tupleState {
+- (HTableState)tableState {
+    return [[self getAssociatedValueForKey:_cmd] integerValue];
+}
+- (void)setTableState:(HTableState)tableState {
+    [self setAssociateValue:@(tableState) withKey:@selector(tableState)];
+}
+
+- (HTableCellSignalBlock)signalBlock {
+    return [self getAssociatedValueForKey:_cmd];
+}
+- (void)setSignalBlock:(HTableCellSignalBlock)signalBlock {
+    [self setAssociateValue:signalBlock withKey:@selector(signalBlock)];
+}
+
 - (void)signalToTable:(HTableSignal *)signal {
     if (self.signalBlock) {
         self.signalBlock(signal);
