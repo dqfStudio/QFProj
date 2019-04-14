@@ -9,7 +9,8 @@
 #import "HTupleView.h"
 
 #define KDefaultPageSize 20
-#define KCategoryDesignKey @"section"
+#define KSectionDesignKey @"section"
+#define KTupleDesignKey   @"tuple"
 
 @interface NSIndexPath (HTupleView)
 - (NSString *)string;
@@ -22,12 +23,13 @@
 @end
 
 @interface HTupleView () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@property (nonatomic) BOOL categoryDesign;
+@property (nonatomic) NSInteger designSections;
+@property (nonatomic) HTupleDesignStyle designStyle;
+
 @property (nonatomic) NSMutableSet *allReuseCells;
 @property (nonatomic) NSMutableDictionary *allReuseHeaders;
 @property (nonatomic) NSMutableDictionary *allReuseFooters;
-
-@property (nonatomic) BOOL categoryDesign;
-@property (nonatomic) NSInteger categoryDesignSections;
 
 @property (nonatomic, copy) HUNumberOfSectionsBlock numberOfSectionsBlock;
 @property (nonatomic, copy) HNumberOfItemsBlock numberOfItemsBlock;
@@ -71,13 +73,14 @@
     }
     return self;
 }
-- (instancetype)initWithFrame:(CGRect)frame sections:(NSInteger)sections {
+- (instancetype)initWithFrame:(CGRect)frame designStyle:(HTupleDesignStyle)style designSection:(NSInteger)sections {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewLeftAlignedLayout alloc] init];
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     self = [super initWithFrame:frame collectionViewLayout:flowLayout];
     if (self) {
+        _designStyle = style;
         _categoryDesign = YES;
-        _categoryDesignSections = sections;
+        _designSections = sections;
         [self setup];
     }
     return self;
@@ -192,6 +195,7 @@
 }
 - (void)setTupleState:(HTupleState)tupleState {
     [self setAssociateValue:@(tupleState) withKey:@selector(tupleState)];
+    [self reloadData];
 }
 
 - (HTupleCellSignalBlock)signalBlock {
@@ -616,10 +620,23 @@
 }
 #pragma mark - Category & Design
 - (NSInteger)numberOfSectionsInTupleView:(UICollectionView *)tupleView {
-    return _categoryDesignSections;
+    if (self.designStyle == HTupleDesignStyleSection) {
+        return _designSections;
+    }else if (self.designStyle == HTupleDesignStyleTuple) {
+        NSString *prefix = [KTupleDesignKey stringByAppendingFormat:@"%@", @(self.tupleState+1)];
+        if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
+            return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView] integerValue];
+        }
+    }
+    return 0;
 }
 - (NSInteger)tupleView:(UICollectionView *)tupleView numberOfItemsInSection:(NSInteger)section {
-    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    NSString *prefix = nil;
+    if (self.designStyle == HTupleDesignStyleSection) {
+        prefix = [KSectionDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    }else if (self.designStyle == HTupleDesignStyleTuple) {
+        prefix = [KTupleDesignKey stringByAppendingFormat:@"%@", @(self.tupleState+1)];
+    }
     if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
         return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section] integerValue];
     }
@@ -627,7 +644,12 @@
 }
 //style == HTupleViewStyleSectionColorLayout
 - (UIColor *)tupleView:(UICollectionView *)tupleView colorForSectionAtIndex:(NSInteger)section {
-    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    NSString *prefix = nil;
+    if (self.designStyle == HTupleDesignStyleSection) {
+        prefix = [KSectionDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    }else if (self.designStyle == HTupleDesignStyleTuple) {
+        prefix = [KTupleDesignKey stringByAppendingFormat:@"%@", @(self.tupleState+1)];
+    }
     if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
         return [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section];
     }
@@ -635,21 +657,36 @@
 }
 
 - (CGSize)tupleView:(UICollectionView *)tupleView sizeForHeaderInSection:(NSInteger)section {
-    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    NSString *prefix = nil;
+    if (self.designStyle == HTupleDesignStyleSection) {
+        prefix = [KSectionDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    }else if (self.designStyle == HTupleDesignStyleTuple) {
+        prefix = [KTupleDesignKey stringByAppendingFormat:@"%@", @(self.tupleState+1)];
+    }
     if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
         return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section] CGSizeValue];
     }
     return CGSizeZero;
 }
 - (CGSize)tupleView:(UICollectionView *)tupleView sizeForFooterInSection:(NSInteger)section {
-    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    NSString *prefix = nil;
+    if (self.designStyle == HTupleDesignStyleSection) {
+        prefix = [KSectionDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    }else if (self.designStyle == HTupleDesignStyleTuple) {
+        prefix = [KTupleDesignKey stringByAppendingFormat:@"%@", @(self.tupleState+1)];
+    }
     if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
         return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section] CGSizeValue];
     }
     return CGSizeZero;
 }
 - (CGSize)tupleView:(UICollectionView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(indexPath.section+1)];
+    NSString *prefix = nil;
+    if (self.designStyle == HTupleDesignStyleSection) {
+        prefix = [KSectionDesignKey stringByAppendingFormat:@"%@", @(indexPath.section+1)];
+    }else if (self.designStyle == HTupleDesignStyleTuple) {
+        prefix = [KTupleDesignKey stringByAppendingFormat:@"%@", @(self.tupleState+1)];
+    }
     if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
         return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &indexPath] CGSizeValue];
     }
@@ -657,21 +694,36 @@
 }
 
 - (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
-    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    NSString *prefix = nil;
+    if (self.designStyle == HTupleDesignStyleSection) {
+        prefix = [KSectionDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    }else if (self.designStyle == HTupleDesignStyleTuple) {
+        prefix = [KTupleDesignKey stringByAppendingFormat:@"%@", @(self.tupleState+1)];
+    }
     if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
         return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section] UIEdgeInsetsValue];
     }
     return UIEdgeInsetsZero;
 }
 - (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
-    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    NSString *prefix = nil;
+    if (self.designStyle == HTupleDesignStyleSection) {
+        prefix = [KSectionDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    }else if (self.designStyle == HTupleDesignStyleTuple) {
+        prefix = [KTupleDesignKey stringByAppendingFormat:@"%@", @(self.tupleState+1)];
+    }
     if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
         return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section] UIEdgeInsetsValue];
     }
     return UIEdgeInsetsZero;
 }
 - (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(indexPath.section+1)];
+    NSString *prefix = nil;
+    if (self.designStyle == HTupleDesignStyleSection) {
+        prefix = [KSectionDesignKey stringByAppendingFormat:@"%@", @(indexPath.section+1)];
+    }else if (self.designStyle == HTupleDesignStyleTuple) {
+        prefix = [KTupleDesignKey stringByAppendingFormat:@"%@", @(self.tupleState+1)];
+    }
     if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
         return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &indexPath] UIEdgeInsetsValue];
     }
@@ -679,7 +731,12 @@
 }
 
 - (UIEdgeInsets)tupleView:(UICollectionView *)tupleView insetForSectionAtIndex:(NSInteger)section {
-    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    NSString *prefix = nil;
+    if (self.designStyle == HTupleDesignStyleSection) {
+        prefix = [KSectionDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    }else if (self.designStyle == HTupleDesignStyleTuple) {
+        prefix = [KTupleDesignKey stringByAppendingFormat:@"%@", @(self.tupleState+1)];
+    }
     if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
         return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section] UIEdgeInsetsValue];
     }
@@ -687,26 +744,46 @@
 }
 
 - (void)tupleView:(UICollectionView *)tupleView headerTuple:(HHeaderTuple)headerBlock inSection:(NSInteger)section {
-    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    NSString *prefix = nil;
+    if (self.designStyle == HTupleDesignStyleSection) {
+        prefix = [KSectionDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    }else if (self.designStyle == HTupleDesignStyleTuple) {
+        prefix = [KTupleDesignKey stringByAppendingFormat:@"%@", @(self.tupleState+1)];
+    }
     if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
         [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &headerBlock, &section];
     }
 }
 - (void)tupleView:(UICollectionView *)tupleView footerTuple:(HFooterTuple)footerBlock inSection:(NSInteger)section {
-    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    NSString *prefix = nil;
+    if (self.designStyle == HTupleDesignStyleSection) {
+        prefix = [KSectionDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    }else if (self.designStyle == HTupleDesignStyleTuple) {
+        prefix = [KTupleDesignKey stringByAppendingFormat:@"%@", @(self.tupleState+1)];
+    }
     if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
         [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &footerBlock, &section];
     }
 }
 - (void)tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(indexPath.section+1)];
+    NSString *prefix = nil;
+    if (self.designStyle == HTupleDesignStyleSection) {
+        prefix = [KSectionDesignKey stringByAppendingFormat:@"%@", @(indexPath.section+1)];
+    }else if (self.designStyle == HTupleDesignStyleTuple) {
+        prefix = [KTupleDesignKey stringByAppendingFormat:@"%@", @(self.tupleState+1)];
+    }
     if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
         [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &itemBlock, &indexPath];
     }
 }
 
 - (void)tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(indexPath.section+1)];
+    NSString *prefix = nil;
+    if (self.designStyle == HTupleDesignStyleSection) {
+        prefix = [KSectionDesignKey stringByAppendingFormat:@"%@", @(indexPath.section+1)];
+    }else if (self.designStyle == HTupleDesignStyleTuple) {
+        prefix = [KTupleDesignKey stringByAppendingFormat:@"%@", @(self.tupleState+1)];
+    }
     if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
         [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &indexPath];
     }
