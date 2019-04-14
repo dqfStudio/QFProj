@@ -340,6 +340,7 @@
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:[self string]];
         identifier = [identifier stringByAppendingString:@"HeaderCell"];
+        identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
         if (pre) identifier = [identifier stringByAppendingString:pre];
         if (idx) identifier = [identifier stringByAppendingString:@(section).stringValue];
         if (![self.allReuseCells containsObject:identifier]) {
@@ -385,6 +386,7 @@
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:[self string]];
         identifier = [identifier stringByAppendingString:@"FooterCell"];
+        identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
         if (pre) identifier = [identifier stringByAppendingString:pre];
         if (idx) identifier = [identifier stringByAppendingString:@(section).stringValue];
         if (![self.allReuseCells containsObject:identifier]) {
@@ -430,6 +432,7 @@
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:[self string]];
         identifier = [identifier stringByAppendingString:@"ItemCell"];
+        identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
         if (pre) identifier = [identifier stringByAppendingString:pre];
         if (idx) identifier = [identifier stringByAppendingString:[indexPath string]];
         if (![self.allReuseCells containsObject:identifier]) {

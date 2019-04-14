@@ -15,6 +15,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NSUInteger HTableState;
+
 typedef void (^HRefreshTableBlock)(void);
 typedef void (^HLoadMoreTableBlock)(void);
 
@@ -53,6 +55,7 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 
 @interface HTableView : UITableView <HTableViewDelegate>
 @property (nonatomic, weak, nullable) id <HTableViewDelegate> tableDelegate;
+@property (nonatomic, assign) HTableState tableState; //set table view different state
 
 @property (nonatomic, assign) NSUInteger pageNo;    // page number, default 1
 @property (nonatomic, assign) NSUInteger pageSize;  // page size, default 20

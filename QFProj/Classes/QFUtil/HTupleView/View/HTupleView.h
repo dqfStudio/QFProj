@@ -24,6 +24,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleViewStyle) {
     HTupleViewStyleSectionColorLayout
 };
 
+typedef NSUInteger HTupleState;
+
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^HRefreshTupleBlock)(void);
@@ -79,6 +81,7 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 
 @interface HTupleView : UICollectionView <HTupleViewDelegate, ULBCollectionViewDelegateFlowLayout>
 @property (nonatomic, weak, nullable) id <HTupleViewDelegate> tupleDelegate;
+@property (nonatomic, assign) HTupleState tupleState; //set tuple view different state
 
 @property (nonatomic, assign) NSUInteger pageNo;    // page number, default 1
 @property (nonatomic, assign) NSUInteger pageSize;  // page size, default 20
