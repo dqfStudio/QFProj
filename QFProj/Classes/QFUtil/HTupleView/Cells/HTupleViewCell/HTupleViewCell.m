@@ -136,11 +136,12 @@
     }
     return _textField;
 }
-
+- (void)placeholderColor:(UIColor *)color {
+    [self.textField setValue:color forKeyPath:@"_placeholderLabel.textColor"];
+}
 - (void)layoutContentView {
     HLayoutTupleView(self.textField)
 }
-
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if (self.maxInput > 0) {
         NSInteger strLength = textField.text.length - range.length + string.length;
