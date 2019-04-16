@@ -238,7 +238,7 @@
                     [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor redColor]];
                     NSLog(@"%@",@(indexPath.row));
-                    NSString *str = [NSString stringWithFormat:@"%@",@(indexPath.row)];
+                    //NSString *str = [NSString stringWithFormat:@"%@",@(indexPath.row)];
 //                    [cell.label setText:str];
                     [cell.label setTextColor:[UIColor blackColor]];
                 }
@@ -279,7 +279,7 @@
                     [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor redColor]];
                     NSLog(@"%@",@(indexPath.row));
-                    NSString *str = [NSString stringWithFormat:@"%@",@(indexPath.row)];
+                    //NSString *str = [NSString stringWithFormat:@"%@",@(indexPath.row)];
 //                    [cell.label setText:str];
                     [cell.label setTextColor:[UIColor blackColor]];
                 }

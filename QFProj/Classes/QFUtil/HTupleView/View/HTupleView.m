@@ -652,7 +652,7 @@
     if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
         return [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section];
     }
-    return nil;
+    return UIColor.clearColor;
 }
 - (CGSize)tupleView:(UICollectionView *)tupleView sizeForHeaderInSection:(NSInteger)section {
     NSString *prefix = [self tupleWithPrefix:section];
