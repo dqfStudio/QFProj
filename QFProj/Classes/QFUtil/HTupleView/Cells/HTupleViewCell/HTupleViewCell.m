@@ -136,6 +136,11 @@
     }
     return _textField;
 }
+//重写父类方法
+- (void)setPlaceholder:(NSString *)placeholder {
+    [self.textField setPlaceholder:placeholder];
+}
+//重写父类方法
 - (void)placeholderColor:(UIColor *)color {
     [self.textField setValue:color forKeyPath:@"_placeholderLabel.textColor"];
 }

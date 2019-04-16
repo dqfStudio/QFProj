@@ -30,6 +30,13 @@ typedef void(^HTupleBaseCellBlock)(NSIndexPath *idxPath);
 @property (nonatomic, copy) HTupleBaseCellBlock baseBlock;
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UIEdgeInsets edgeInsets;
+
+#pragma --mark textField property
+@property (nonatomic,copy) NSString *placeholder;//需要子类重写该方法
+@property (nonatomic) UIColor *placeholderColor;//需要子类重写该方法
+@property (nonatomic) NSInteger maxInput;//最大输入限制，小于等于0表示不限制，默认为0
+@property (nonatomic) BOOL forbidPaste;//禁止粘贴，默认为NO
+
 - (CGRect)getContentFrame;
 - (void)addReturnKeyBoard;
 //需要子类重写该方法
