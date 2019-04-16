@@ -106,11 +106,11 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 - (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction;
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout;
 //block methods
-- (void)tupleWithSections:(HUNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items color:(HColorForSectionBlock _Nonnull )color inset:(HInsetForSectionBlock _Nonnull )inset;
+- (void)tupleWithSections:(HUNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items color:(HColorForSectionBlock _Nullable )color inset:(HInsetForSectionBlock _Nullable )inset;
 - (void)headerWithSize:(HSizeForHeaderBlock)size edgeInsets:(HEdgeInsetsForHeaderBlock)edge tuple:(HHeaderTupleBlock)block;
 - (void)footerWithSize:(HSizeForFooterBlock)size edgeInsets:(HEdgeInsetsForFooterBlock)edge tuple:(HFooterTupleBlock)block;
 - (void)itemWithSize:(HSizeForItemBlock)size edgeInsets:(HEdgeInsetsForItemBlock)edge tuple:(HItemTupleBlock)block;
-- (void)didSelectItem:(HDidSelectItemBlock _Nonnull )block;
+- (void)didSelectItem:(HDidSelectItemBlock _Nullable )block;
 @end
 
 @interface UICollectionView ()
@@ -118,17 +118,17 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 @property (nonatomic, assign) HTupleState tupleState; //set tuple view different state
 @property (nonatomic, copy, nullable) HTupleCellSignalBlock signalBlock;
 
-- (void)signalToTupleView:(HTupleSignal *_Nonnull)signal;
+- (void)signalToTupleView:(HTupleSignal *_Nullable)signal;
 
-- (void)signalToAllItems:(HTupleSignal *_Nonnull)signal;
-- (void)signal:(HTupleSignal *_Nonnull)signal itemSection:(NSInteger)section;
-- (void)signal:(HTupleSignal *_Nonnull)signal indexPath:(NSIndexPath *)indexPath;
+- (void)signalToAllItems:(HTupleSignal *_Nullable)signal;
+- (void)signal:(HTupleSignal *_Nullable)signal itemSection:(NSInteger)section;
+- (void)signal:(HTupleSignal *_Nullable)signal indexPath:(NSIndexPath *)indexPath;
 
-- (void)signalToAllHeader:(HTupleSignal *_Nonnull)signal;
+- (void)signalToAllHeader:(HTupleSignal *_Nullable)signal;
 - (void)signal:(HTupleSignal *_Nonnull)signal headerSection:(NSInteger)section;
 
-- (void)signalToAllFooter:(HTupleSignal *_Nonnull)signal;
-- (void)signal:(HTupleSignal *_Nonnull)signal footerSection:(NSInteger)section;
+- (void)signalToAllFooter:(HTupleSignal *_Nullable)signal;
+- (void)signal:(HTupleSignal *_Nullable)signal footerSection:(NSInteger)section;
 
 - (id (^)(NSInteger row, NSInteger section))cell;
 - (id (^)(NSInteger row, NSInteger section))indexPath;

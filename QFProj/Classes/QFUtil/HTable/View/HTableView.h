@@ -92,17 +92,17 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 @property (nonatomic, assign) HTableState tableState; //set table view different state
 @property (nonatomic, copy, nullable) HTableCellSignalBlock signalBlock;
 
-- (void)signalToTable:(HTableSignal *_Nonnull)signal;
+- (void)signalToTable:(HTableSignal *_Nullable)signal;
 
-- (void)signalToAllCells:(HTableSignal *_Nonnull)signal;
-- (void)signal:(HTableSignal *_Nonnull)signal cellSection:(NSInteger)section;
-- (void)signal:(HTableSignal *_Nonnull)signal indexPath:(NSIndexPath *)indexPath;
+- (void)signalToAllCells:(HTableSignal *_Nullable)signal;
+- (void)signal:(HTableSignal *_Nullable)signal cellSection:(NSInteger)section;
+- (void)signal:(HTableSignal *_Nullable)signal indexPath:(NSIndexPath *)indexPath;
 
-- (void)signalToAllHeader:(HTableSignal *_Nonnull)signal;
-- (void)signal:(HTableSignal *_Nonnull)signal headerSection:(NSInteger)section;
+- (void)signalToAllHeader:(HTableSignal *_Nullable)signal;
+- (void)signal:(HTableSignal *_Nullable)signal headerSection:(NSInteger)section;
 
-- (void)signalToAllFooter:(HTableSignal *_Nonnull)signal;
-- (void)signal:(HTableSignal *_Nonnull)signal footerSection:(NSInteger)section;
+- (void)signalToAllFooter:(HTableSignal *_Nullable)signal;
+- (void)signal:(HTableSignal *_Nullable)signal footerSection:(NSInteger)section;
 
 - (id (^)(NSInteger row, NSInteger section))cell;
 - (id (^)(NSInteger row, NSInteger section))indexPath;
