@@ -14,9 +14,14 @@
 #import "HTableSignal.h"
 #import "MJRefresh.h"
 
-NS_ASSUME_NONNULL_BEGIN
+typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
+    HTableDesignStyleSection = 0,
+    HTableDesignStyleTable
+};
 
 typedef NSUInteger HTableState;
+
+NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^HRefreshTableBlock)(void);
 typedef void (^HLoadMoreTableBlock)(void);
@@ -72,7 +77,7 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)initWithFrame:(CGRect)frame;
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style;
-- (instancetype)initWithFrame:(CGRect)frame sections:(NSInteger)sections;
+- (instancetype)initWithFrame:(CGRect)frame designStyle:(HTableDesignStyle)style designSection:(NSInteger)sections;
 //block methods
 - (void)tableWithSections:(HANumberOfSectionsBlock)sections cells:(HNumberOfCellsBlock)cells;
 - (void)headerWithHeight:(HeightForHeaderBlock)height tuple:(HHeaderTableBlock)block;

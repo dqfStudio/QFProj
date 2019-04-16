@@ -9,7 +9,8 @@
 #import "HTableView.h"
 
 #define KDefaultPageSize 20
-#define KCategoryDesignKey @"section"
+#define KSectionDesignKey @"section"
+#define KTableDesignKey   @"table"
 
 @interface NSIndexPath (HTableView)
 - (NSString *)string;
@@ -22,10 +23,11 @@
 @end
 
 @interface HTableView () <UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic) NSMutableSet *allReuseCells;
-
 @property (nonatomic) BOOL categoryDesign;
-@property (nonatomic) NSInteger categoryDesignSections;
+@property (nonatomic) NSInteger designSections;
+@property (nonatomic) HTableDesignStyle designStyle;
+
+@property (nonatomic) NSMutableSet *allReuseCells;
 
 @property (nonatomic, copy) HANumberOfSectionsBlock numberOfSectionsBlock;
 @property (nonatomic, copy) HNumberOfCellsBlock numberOfCellsBlock;
@@ -65,11 +67,12 @@
     }
     return self;
 }
-- (instancetype)initWithFrame:(CGRect)frame sections:(NSInteger)sections {
+- (instancetype)initWithFrame:(CGRect)frame designStyle:(HTableDesignStyle)style designSection:(NSInteger)sections {
     self = [super initWithFrame:frame];
     if (self) {
+        _designStyle = style;
         _categoryDesign = YES;
-        _categoryDesignSections = sections;
+        _designSections = sections;
         [self setup];
     }
     return self;
@@ -294,18 +297,36 @@
     return [NSString stringWithFormat:@"%p", self];
 }
 #pragma mark - UITableViewDatasource  & delegate
+- (NSString *)tableWithPrefix:(NSInteger)section {
+    NSString *prefix = nil;
+    if (_categoryDesign) {
+        if (self.designStyle == HTableDesignStyleSection) {
+            prefix = [KSectionDesignKey stringByAppendingFormat:@"%@", @(section)];
+        }else if (self.designStyle == HTableDesignStyleTable) {
+            prefix = [KTableDesignKey stringByAppendingFormat:@"%@", @(self.tableState)];
+        }
+    }
+    return prefix;
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
         return [self.tableDelegate numberOfSectionsInTableView:self];
     }else if (_categoryDesign) {
-        return _categoryDesignSections;
+        if (self.designStyle == HTableDesignStyleSection) {
+            return _designSections;
+        }else if (self.designStyle == HTableDesignStyleTable) {
+            NSString *prefix = [KTableDesignKey stringByAppendingFormat:@"%@", @(self.tableState)];
+            if ([(NSObject *)self.tableDelegate respondsToSelector:_cmd withPre:prefix]) {
+                return [[(NSObject *)self.tableDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tableView] integerValue];
+            }
+        }
     }else if (self.numberOfSectionsBlock) {
         return self.numberOfSectionsBlock();
     }
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    NSString *prefix = [self tableWithPrefix:section];
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:numberOfRowsInSection:)]) {
         return [self.tableDelegate tableView:tableView numberOfRowsInSection:section];
     }else if (_categoryDesign && [(NSObject *)self.tableDelegate respondsToSelector:_cmd withPre:prefix]) {
@@ -316,7 +337,7 @@
     return 0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    NSString *prefix = [self tableWithPrefix:section];
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:heightForHeaderInSection:)]) {
         return [self.tableDelegate tableView:tableView heightForHeaderInSection:section];
     }else if (_categoryDesign && [(NSObject *)self.tableDelegate respondsToSelector:_cmd withPre:prefix]) {
@@ -327,7 +348,7 @@
     return 0.f;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    NSString *prefix = [self tableWithPrefix:section];
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:heightForFooterInSection:)]) {
         return [self.tableDelegate tableView:tableView heightForFooterInSection:section];
     }else if (_categoryDesign && [(NSObject *)self.tableDelegate respondsToSelector:_cmd withPre:prefix]) {
@@ -338,7 +359,7 @@
     return 0.f;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(indexPath.section+1)];
+    NSString *prefix = [self tableWithPrefix:indexPath.section];
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
         return [self.tableDelegate tableView:tableView heightForRowAtIndexPath:indexPath];
     }else if (_categoryDesign && [(NSObject *)self.tableDelegate respondsToSelector:_cmd withPre:prefix]) {
@@ -487,7 +508,7 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(indexPath.section+1)];
+    NSString *prefix = [self tableWithPrefix:indexPath.section];
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
         [self.tableDelegate tableView:tableView didSelectRowAtIndexPath:indexPath];
     }else if (_categoryDesign && [(NSObject *)self.tableDelegate respondsToSelector:_cmd withPre:prefix]) {
@@ -523,19 +544,19 @@
 }
 #pragma mark - Category & Design
 - (void)tableView:(UITableView *)tableView headerTuple:(HHeaderTable)headerBlock inSection:(NSInteger)section {
-    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    NSString *prefix = [self tableWithPrefix:section];
     if ([(NSObject *)self.tableDelegate respondsToSelector:_cmd withPre:prefix]) {
         [(NSObject *)self.tableDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tableView, &headerBlock, &section];
     }
 }
 - (void)tableView:(UITableView *)tableView footerTuple:(HFooterTable)footerBlock inSection:(NSInteger)section {
-    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(section+1)];
+    NSString *prefix = [self tableWithPrefix:section];
     if ([(NSObject *)self.tableDelegate respondsToSelector:_cmd withPre:prefix]) {
         [(NSObject *)self.tableDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tableView, &footerBlock, &section];
     }
 }
 - (void)tableView:(UITableView *)tableView cellTuple:(HCellTable)cellBlock atIndexPath:(NSIndexPath *)indexPath {
-    NSString *prefix = [KCategoryDesignKey stringByAppendingFormat:@"%@", @(indexPath.section+1)];
+    NSString *prefix = [self tableWithPrefix:indexPath.section];
     if ([(NSObject *)self.tableDelegate respondsToSelector:_cmd withPre:prefix]) {
         [(NSObject *)self.tableDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tableView, &cellBlock, &indexPath];
     }

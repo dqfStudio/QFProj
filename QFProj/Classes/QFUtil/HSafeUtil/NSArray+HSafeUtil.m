@@ -50,9 +50,9 @@
 - (id)safe_objectAtIndex:(int)index {
     if(index >= 0 && index < self.count) {
         id obj = [self safe_objectAtIndex:index];
-        if ([obj isKindOfClass:[NSNull class]]) {
-            return nil;
-        }
+//        if ([obj isKindOfClass:[NSNull class]]) {
+//            return nil;
+//        }
         return obj;
     }else{
 #if DEBUG
@@ -64,9 +64,9 @@
 - (id)safe_objectAtIndexedSubscript:(int)index {
     if(index >= 0 && index < self.count) {
         id obj = [self safe_objectAtIndexedSubscript:index];
-        if ([obj isKindOfClass:[NSNull class]]) {
-            return nil;
-        }
+//        if ([obj isKindOfClass:[NSNull class]]) {
+//            return nil;
+//        }
         return obj;
     }else{
 #if DEBUG
@@ -160,9 +160,9 @@
 - (id)safe_objectAtIndex:(int)index {
     if(index >= 0 && index < self.count) {
         id obj = [self safe_objectAtIndex:index];
-        if ([obj isKindOfClass:[NSNull class]]) {
-            return nil;
-        }
+//        if ([obj isKindOfClass:[NSNull class]]) {
+//            return nil;
+//        }
         return obj;
     }else {
 #if DEBUG
@@ -174,9 +174,9 @@
 - (id)safe_objectAtIndexedSubscript:(int)index {
     if(index >= 0 && index < self.count) {
         id obj = [self safe_objectAtIndexedSubscript:index];
-        if ([obj isKindOfClass:[NSNull class]]) {
-            return nil;
-        }
+//        if ([obj isKindOfClass:[NSNull class]]) {
+//            return nil;
+//        }
         return obj;
     }else {
 #if DEBUG
