@@ -126,12 +126,12 @@
 @end
 
 @implementation HTextFieldCell
-
 - (UITextField *)textField {
     if (!_textField) {
         _textField = UITextField.new;
         [_textField setDelegate:self];
         [_textField setBackgroundColor:[UIColor clearColor]];
+        _forbidWhitespaceAndNewline = YES;
         [self addSubview:_textField];
     }
     return _textField;
@@ -142,10 +142,30 @@
 - (void)placeholderColor:(UIColor *)color {
     [self.textField setValue:color forKeyPath:@"_placeholderLabel.textColor"];
 }
+- (NSString *)trimmingWhitespaceAndNewline {
+    NSString *content = [self.textField.text mutableCopy];
+    if (content.length > 0) {
+        content = [content stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    }
+    return content;
+}
+- (NSString *)trimmingAllWhitespaceAndNewline {
+    NSString *content = [self trimmingWhitespaceAndNewline];
+    if (content.length > 0) {
+        content = [content stringByReplacingOccurrencesOfString:@" " withString:@""];
+        content = [content stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    }
+    return content;
+}
 - (void)layoutContentView {
     HLayoutTupleView(self.textField)
 }
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (self.forbidWhitespaceAndNewline && string.length == 1) {//输入字符串
+        if ([string containsString:@" "] || [string containsString:@"\n"]) {
+            return NO;
+        }
+    }
     if (self.maxInput > 0) {
         NSInteger strLength = textField.text.length - range.length + string.length;
         if (strLength > self.maxInput) {
@@ -168,6 +188,11 @@
         return (strLength <= self.maxInput);
     }
     return YES;
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    if (self.forbidWhitespaceAndNewline) {
+        [self.textField setText:[self trimmingAllWhitespaceAndNewline]];
+    }
 }
 //移动光标
 - (void)cursorLocation:(UITextField *)textField index:(NSInteger)index {
