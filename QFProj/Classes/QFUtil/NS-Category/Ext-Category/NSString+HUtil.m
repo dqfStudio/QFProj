@@ -18,6 +18,19 @@
     return [mockString substringWithRange:NSMakeRange(index, 3)];
 }
 
++ (NSString *)leftArrowString {
+    return @"‹";
+}
++ (NSString *)rightArrowString {
+    return @"›";
+}
++ (NSString *)cancelString {
+    return @"✕";
+}
++ (NSString *)checkedString {
+    return @"√";
+}
+
 - (id)JSONValue {
     NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error = nil;

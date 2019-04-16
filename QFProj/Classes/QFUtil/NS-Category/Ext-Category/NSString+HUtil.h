@@ -14,6 +14,11 @@
 //用于测试阶段自动生成字符串
 + (NSString *)testString;
 
++ (NSString *)leftArrowString;
++ (NSString *)rightArrowString;
++ (NSString *)cancelString;
++ (NSString *)checkedString;
+
 - (id)JSONValue;
 
 - (NSString *)trim;
