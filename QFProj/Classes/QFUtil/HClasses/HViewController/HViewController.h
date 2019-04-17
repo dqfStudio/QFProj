@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "HWebButtonView.h"
 
+@interface AppDelegate (HRotate)
+@property (nonatomic, class) BOOL shouldAutorotate;
+@end
 
 @interface HVCAppearance : NSObject
 @property (nonatomic) UIColor *barColor;

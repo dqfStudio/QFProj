@@ -8,6 +8,39 @@
 
 #import "HViewController.h"
 
+@implementation AppDelegate (HRotate)
++ (BOOL)shouldAutorotate {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
++ (void)setShouldAutorotate:(BOOL)shouldAutorotate {
+    objc_setAssociatedObject(self, @selector(shouldAutorotate), @(shouldAutorotate), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+    if (AppDelegate.shouldAutorotate) {
+        return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
+    }
+    return UIInterfaceOrientationMaskPortrait;
+}
+@end
+
+//@interface UIViewController (HRotate)
+//
+//@end
+//
+//@implementation UIViewController (HRotate)
+//+ (void)load {
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        [[self class] methodSwizzleWithOrigSEL:@selector(shouldAutorotate) overrideSEL:@selector(pvc_shouldAutorotate)];
+//    });
+//}
+//- (BOOL)pvc_shouldAutorotate {
+//    BOOL should = [self pvc_shouldAutorotate];
+//    [AppDelegate setShouldAutorotate:should];
+//    return should;
+//}
+//@end
+
 #define IS_KIPHONEX ([UIScreen mainScreen].bounds.size.width == 375.f && [UIScreen mainScreen].bounds.size.height == 812.f ? YES : NO)
 
 @interface HViewControllerMgr : NSObject <UIGestureRecognizerDelegate>
@@ -57,8 +90,6 @@
 @end
 
 
-
-
 @interface HViewController ()
 
 @property (nonatomic) NSMutableArray *controllableRequests;
@@ -69,6 +100,19 @@
 @end
 
 @implementation HViewController
+
+//+ (void)load {
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        [[self class] methodSwizzleWithOrigSEL:@selector(shouldAutorotate) overrideSEL:@selector(pvc_shouldAutorotate)];
+//    });
+//}
+//
+//- (BOOL)pvc_shouldAutorotate {
+//    BOOL should = [self pvc_shouldAutorotate];
+//    [AppDelegate setShouldAutorotate:should];
+//    return should;
+//}
 
 //一般情况下调用 init 方法或者调用 initWithNibName 方法实例化 UIViewController, 不管调用哪个方法都为调用 initWithNibName
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
