@@ -376,4 +376,6 @@
 //#endif
 //}
 
+//[self.sfvc performSelector:NSSelectorFromString(@"_setShowingLinkPreview:") withObject:[NSNumber numberWithBool:YES]];
+
 @end
