@@ -58,7 +58,23 @@
 #pragma mark - rotate
 
 - (BOOL)shouldAutorotate {
-    return [self.tabContentView selectedController].shouldAutorotate;;
+    UIViewController *controller = self.tabContentView.selectedController;
+    if ([controller isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *navi = (UINavigationController *)controller;
+        return navi.topViewController.shouldAutorotate;
+    } else {
+        return controller.shouldAutorotate;
+    }
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    UIViewController *controller = self.tabContentView.selectedController;
+    if ([controller isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *navi = (UINavigationController *)controller;
+        return navi.topViewController.supportedInterfaceOrientations;
+    } else {
+        return controller.supportedInterfaceOrientations;
+    }
 }
 
 @end
