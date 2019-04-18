@@ -26,14 +26,15 @@
 - (UIView *)lineView {
     if (!_lineView) {
         _lineView = UIView.new;
+        [self addSubview:_lineView];
     }
     CGRect frame = self.getLineFrame;
     if (!CGRectEqualToRect(frame, _lineView.frame)) {
         [_lineView setFrame:frame];
+        [self bringSubviewToFront:_lineView];
     }
     return _lineView;
 }
-
 - (CGRect)getLineFrame {
     CGRect frame = CGRectMake(0, 0, CGRectGetHeight(self.frame) - 1, 1);
     frame.origin.x += self.lineInsets.left;

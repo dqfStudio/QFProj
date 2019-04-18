@@ -157,6 +157,7 @@
 - (HWebButtonView *)leftButton {
     if (!_leftButton) {
         _leftButton = [HWebButtonView new];
+        [_leftButton setUserInteractionEnabled:NO];
         @weakify(self)
         [_leftButton setPressed:^(id sender, id data) {
             @strongify(self)
@@ -169,9 +170,16 @@
     }
     return _leftButton;
 }
+- (void)setLeftButtonBlock:(HButtonViewBlock)leftButtonBlock {
+    if (_leftButtonBlock != leftButtonBlock) {
+        _leftButtonBlock = leftButtonBlock;
+        [self.leftButton setUserInteractionEnabled:YES];
+    }
+}
 - (HWebButtonView *)rightButton {
     if (!_rightButton) {
         _rightButton = [HWebButtonView new];
+        [_rightButton setUserInteractionEnabled:NO];
         @weakify(self)
         [_rightButton setPressed:^(id sender, id data) {
             @strongify(self)
@@ -183,6 +191,12 @@
         [self.textField setLeftView:_rightButton];
     }
     return _rightButton;
+}
+- (void)setRightButtonBlock:(HButtonViewBlock)rightButtonBlock {
+    if (_rightButtonBlock != rightButtonBlock) {
+        _rightButtonBlock = rightButtonBlock;
+        [self.rightButton setUserInteractionEnabled:YES];
+    }
 }
 - (void)setPlaceholder:(NSString *)placeholder {
     [self.textField setPlaceholder:placeholder];
@@ -198,7 +212,7 @@
     return content;
 }
 - (NSString *)trimmingAllWhitespaceAndNewline {
-    NSString *content = [self trimmingWhitespaceAndNewline];
+    NSString *content = [self.textField.text mutableCopy];
     if (content.length > 0) {
         content = [content stringByReplacingOccurrencesOfString:@" " withString:@""];
         content = [content stringByReplacingOccurrencesOfString:@"\n" withString:@""];

@@ -28,6 +28,8 @@ typedef void(^HTupleBaseViewBlock)(NSIndexPath *idxPath);
 @property (nonatomic, copy) HTupleBaseViewBlock baseBlock;
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UIEdgeInsets edgeInsets;
+@property (nonatomic) UIView *lineView;
+@property (nonatomic) UIEdgeInsets lineInsets;
 - (CGRect)getContentFrame;
 - (void)addReturnKeyBoard;
 //需要子类重写该方法
