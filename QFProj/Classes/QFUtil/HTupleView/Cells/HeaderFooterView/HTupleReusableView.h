@@ -38,6 +38,10 @@ typedef void(^HReusableImageViewBlock)(HWebImageView *webImageView, HReusableIma
 @property (nonatomic, copy) HReusableImageViewBlock reusableImageViewBlock;
 @end
 
-@interface HTupleReusableView : HTupleBaseCell
+@interface HReusableVerticalView : HTupleBaseCell
+@property (nonatomic) HTupleView *tuple;
+@end
+
+@interface HReusableHorizontalView : HTupleBaseCell
 @property (nonatomic) HTupleView *tuple;
 @end

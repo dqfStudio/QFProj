@@ -114,7 +114,7 @@
 }
 @end
 
-@implementation HTupleReusableView
+@implementation HReusableVerticalView
 - (HTupleView *)tuple {
     if (!_tuple) {
         _tuple = [[HTupleView alloc] initWithFrame:self.bounds];
@@ -128,3 +128,19 @@
     HLayoutTupleView(self.tuple)
 }
 @end
+
+@implementation HReusableHorizontalView
+- (HTupleView *)tuple {
+    if (!_tuple) {
+        _tuple = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleViewScrollDirectionHorizontal];
+        [_tuple setBackgroundColor:[UIColor clearColor]];
+        [_tuple setScrollEnabled:NO];
+        [self addSubview:_tuple];
+    }
+    return _tuple;
+}
+- (void)layoutContentView {
+    HLayoutTupleView(self.tuple)
+}
+@end
+
