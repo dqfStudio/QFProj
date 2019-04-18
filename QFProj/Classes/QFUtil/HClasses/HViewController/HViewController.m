@@ -23,6 +23,23 @@
 }
 @end
 
+@interface UIViewController (HRotate)
+
+@end
+
+@implementation UIViewController (HRotate)
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [[self class] methodSwizzleWithOrigSEL:@selector(viewWillAppear:) overrideSEL:@selector(pvc_viewWillAppear:)];
+    });
+}
+- (void)pvc_viewWillAppear:(BOOL)animated {
+    [self pvc_viewWillAppear:animated];
+    [AppDelegate setShouldAutorotate:self.shouldAutorotate];
+}
+@end
+
 #define IS_KIPHONEX ([UIScreen mainScreen].bounds.size.width == 375.f && [UIScreen mainScreen].bounds.size.height == 812.f ? YES : NO)
 
 @interface HViewControllerMgr : NSObject <UIGestureRecognizerDelegate>
@@ -83,16 +100,16 @@
 
 @implementation HViewController
 
-+ (void)load {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [[self class] methodSwizzleWithOrigSEL:@selector(viewWillAppear:) overrideSEL:@selector(pvc_viewWillAppear:)];
-    });
-}
-- (void)pvc_viewWillAppear:(BOOL)animated {
-    [self pvc_viewWillAppear:animated];
-    [AppDelegate setShouldAutorotate:self.shouldAutorotate];
-}
+//+ (void)load {
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        [[self class] methodSwizzleWithOrigSEL:@selector(viewWillAppear:) overrideSEL:@selector(pvc_viewWillAppear:)];
+//    });
+//}
+//- (void)pvc_viewWillAppear:(BOOL)animated {
+//    [self pvc_viewWillAppear:animated];
+//    [AppDelegate setShouldAutorotate:self.shouldAutorotate];
+//}
 
 //一般情况下调用 init 方法或者调用 initWithNibName 方法实例化 UIViewController, 不管调用哪个方法都为调用 initWithNibName
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
