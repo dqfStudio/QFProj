@@ -43,6 +43,5 @@
 - (CGSize)size {
     return self.frame.size;
 }
-
 @end
 

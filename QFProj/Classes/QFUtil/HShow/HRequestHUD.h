@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSObject+HSelector.h"
 #import "HTupleView.h"
 
 typedef NS_ENUM(NSInteger, HRequestHUDMode) {

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "KTableView.h"
 #import "HTableView.h"
 #import "HCommonDefine.h"
 

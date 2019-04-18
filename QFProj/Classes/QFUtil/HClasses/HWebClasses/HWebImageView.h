@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "QFUtilHeader.h"
+#import "HCommonDefine.h"
+#import "HCommonBlock.h"
+#import "NSError+HUtil.h"
 
 @interface HWebImageView : UIView
 @property (nonatomic) UIImage *placeHoderImage;

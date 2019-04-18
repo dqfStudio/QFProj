@@ -16,8 +16,6 @@
 #import "HLabelView.h"
 #import "HTupleView.h"
 #import "HSimilarity.h"
-
-#import "KTableView.h"
 #import "HTableViewCell.h"
 
 #import "UIView+HShow.h"
@@ -25,7 +23,6 @@
 #import "NSObject+HAutoFill.h"
 #import "NSObject+HUtil.h"
 #import "NSDictionary+HSafeUtil.h"
-#import "NSObject+selector.h"
 #import "UIImage+Util.h"
 #import "NSTimer+HUtil.h"
 #import "HPrinterManager.h"
@@ -45,7 +42,6 @@
 @property (nonatomic) NSNumber *ww;
 @property (nonatomic) NSInteger /*2-2*/count2;
 @property (nonatomic) NSDate *date;
-@property (nonatomic) KTableView *table;
 @property (nonatomic) NSRange wcountRange;
 @property (nonatomic) UILabel *globalLabel;
 
@@ -449,72 +445,6 @@ H_CheckPropertyRange(rrr, 0, 150)
 //
 //}
 
-- (void)sectionModel:(HSM)model {
-    model.headerHeight = 22;
-}
-
-- (void)cellModel:(id)sender {
-    HCellModel *cellModel = sender;
-    cellModel.height = 80;
-    cellModel.renderBlock = [self renderBlock];
-    cellModel.selectionBlock = [self selectionBlock];
-}
-
-- (void)cellModel2:(HCM)model {
-    model.height = 55;
-    model.renderBlock = [self renderBlock2];
-    model.selectionBlock = [self selectionBlock];
-//    [model cellBlock:^UITableViewCell *(NSIndexPath *indexPath, HTableView *table) {
-//
-//        return nil;
-//    } selectionBlock:^(NSIndexPath *indexPath, HTableView *table) {
-//
-//    }];
-}
-
-- (HCellRenderBlock)renderBlock {
-    return ^UITableViewCell *(NSIndexPath *indexPath, KTableView *table) {
-        return nil;
-//        HLeftImageCell *cell = [table registerCell:HLeftImageCell.class indexPath:indexPath];
-//        [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
-//        switch (indexPath.row) {
-//            case 0:
-//                cell.textLabel.text = @"路径追踪";
-////                cell.callback = ^(UISwitch *sender) {};
-//                break;
-//            case 1:
-//                cell.textLabel.text = @"网络调试";
-////                cell.callback = ^(UISwitch *sender) {};
-//                break;
-//            case 2:
-//                cell.textLabel.text = @"点击追踪";
-////                cell.callback = ^(UISwitch *sender) {};
-//                break;
-//
-//            default:
-//                cell.textLabel.text = @"else";
-//                break;
-//        }
-//        return cell;
-    };
-}
-
-- (HCellRenderBlock)renderBlock2 {
-    return ^UITableViewCell *(NSIndexPath *indexPath, KTableView *table) {
-        
-        HTableViewCell *cell = [table registerCell:HTableViewCell.class indexPath:indexPath];
-        [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
-        cell.textLabel.text = @"路径追踪2";
-        //        cell.callback = ^(UISwitch *sender) {};
-        return cell;
-    };
-}
-
-- (HCellSelectionBlock)selectionBlock {
-    return ^(NSIndexPath *indexPath, KTableView *table) {
-        [table deselectRowAtIndexPath:indexPath animated:YES];
-    };
-}
 
 - (NSInteger)numberOfSectionsInTupleView:(UICollectionView *)tupleView {
     return 2;

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 #import "HWebButtonView.h"
+#import "NSObject+HUtil.h"
+#import "NSObject+HUtil.h"
+#import "NSObject+HSwizzleUtil.h"
 
 @interface AppDelegate (HRotate)
 @property (nonatomic, class) BOOL shouldAutorotate;
