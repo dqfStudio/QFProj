@@ -19,9 +19,6 @@
     if (self) {
         [self setBackgroundColor:[UIColor clearColor]];
         [self initUI];
-        if (self.initBlock) {
-            self.initBlock(nil);
-        }
     }
     return self;
 }

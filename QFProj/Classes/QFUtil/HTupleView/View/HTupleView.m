@@ -414,7 +414,9 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     __block UICollectionViewCell *cell = nil;
+    @weakify(self)
     id (^HCellForItemBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
+        @strongify(self)
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:[self string]];
         identifier = [identifier stringByAppendingString:@"ItemCell"];
@@ -471,8 +473,10 @@
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     __block UICollectionReusableView *cell = nil;
+    @weakify(self)
     if (kind == UICollectionElementKindSectionHeader) {
         id (^HCellForHeaderBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
+            @strongify(self)
             NSString *identifier = NSStringFromClass(cls);
             identifier = [identifier stringByAppendingString:[self string]];
             identifier = [identifier stringByAppendingString:@"HeaderCell"];
@@ -528,6 +532,7 @@
         }
     }else if (kind == UICollectionElementKindSectionFooter) {
         id (^HCellForFooterBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
+            @strongify(self)
             NSString *identifier = NSStringFromClass(cls);
             identifier = [identifier stringByAppendingString:[self string]];
             identifier = [identifier stringByAppendingString:@"FooterCell"];

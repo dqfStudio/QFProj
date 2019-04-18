@@ -11,6 +11,7 @@
 #import "NSObject+HSelector.h"
 #import "NSObject+HMessy.h"
 #import "HTableViewCell.h"
+#import "HCommonDefine.h"
 #import "HTableSignal.h"
 #import "MJRefresh.h"
 

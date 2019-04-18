@@ -26,7 +26,6 @@ typedef void(^HTupleBaseCellBlock)(NSIndexPath *idxPath);
 
 @interface HTupleBaseCell : UICollectionViewCell
 @property (nonatomic, weak) UICollectionView *collection;
-@property (nonatomic, copy) HTupleCellInitBlock initBlock;
 @property (nonatomic, copy) HTupleBaseCellBlock baseBlock;
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UIEdgeInsets edgeInsets;

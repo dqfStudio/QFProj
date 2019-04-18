@@ -371,7 +371,9 @@
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     __block UITableViewHeaderFooterView *cell = nil;
+    @weakify(self)
     id (^HCellForHeaderBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
+        @strongify(self)
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:[self string]];
         identifier = [identifier stringByAppendingString:@"HeaderCell"];
@@ -417,7 +419,9 @@
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     __block UITableViewHeaderFooterView *cell = nil;
+    @weakify(self)
     id (^HCellForFooterBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
+        @strongify(self)
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:[self string]];
         identifier = [identifier stringByAppendingString:@"FooterCell"];
@@ -463,7 +467,9 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     __block UITableViewCell *cell = nil;
+    @weakify(self)
     id (^HCellForItemBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
+        @strongify(self)
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:[self string]];
         identifier = [identifier stringByAppendingString:@"ItemCell"];
