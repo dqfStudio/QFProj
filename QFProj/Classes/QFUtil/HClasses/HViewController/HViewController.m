@@ -106,8 +106,7 @@
 //使用storeBoard初始化的
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
-    if (self)
-    {
+    if (self) {
         [self pvc_initialize];
     }
     return self;
