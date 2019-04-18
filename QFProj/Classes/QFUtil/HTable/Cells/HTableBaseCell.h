@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HCellModel.h"
 #import "HTableSignal.h"
 
 #define HLayoutTableView(v) \
@@ -23,7 +22,6 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 @property (nonatomic, weak) UITableView *table;
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UITableViewCellStyle style;
-@property (nonatomic) HCellModel *model;
 //需要子类重写该方法
 - (void)initUI;
 - (CGRect)getContentFrame;

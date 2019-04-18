@@ -103,7 +103,7 @@ typedef NS_ENUM(NSInteger, HTableViewFormatType) {
             HTableBaseCell *tmpCell = (HTableBaseCell *)cell;
             tmpCell.table = self;
             tmpCell.indexPath = indexPath;
-            tmpCell.model = [self cellAtIndexPath:indexPath];
+            //tmpCell.model = [self cellAtIndexPath:indexPath];
         }
         if (block) {
             block(cell);
