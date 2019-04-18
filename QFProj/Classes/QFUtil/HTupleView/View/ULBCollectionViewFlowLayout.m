@@ -53,7 +53,8 @@ static NSString *const ULBCollectionViewSectionColor = @"com.ulb.ULBCollectionEl
     [super prepareLayout];
     
     NSInteger sections = [self.collectionView numberOfSections];
-    id<ULBCollectionViewDelegateFlowLayout> delegate  = self.collectionView.delegate;
+    //id<ULBCollectionViewDelegateFlowLayout> delegate  = self.collectionView.delegate;
+    id<ULBCollectionViewDelegateFlowLayout> delegate  = (id)self.collectionView.delegate;
     if ([delegate respondsToSelector:@selector(collectionView:layout:colorForSectionAtIndex:)]) {
     }else{
         return ;
