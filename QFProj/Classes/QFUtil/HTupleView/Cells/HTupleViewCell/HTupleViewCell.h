@@ -42,6 +42,14 @@ typedef void(^HImageViewBlock)(HWebImageView *webImageView, HImageViewCell *imag
 
 @interface HTextFieldCell : HTupleBaseCell
 @property (nonatomic) UITextField *textField;
+@property (nonatomic) UILabel *leftLabel;
+@property (nonatomic) UILabel *rightLabel;
+
+@property (nonatomic) HWebButtonView *leftButton;
+@property (nonatomic) HWebButtonView *rightButton;
+@property (nonatomic, copy) HButtonViewBlock leftButtonBlock;
+@property (nonatomic, copy) HButtonViewBlock rightButtonBlock;
+
 @property (nonatomic,copy) NSString *placeholder;
 @property (nonatomic) UIColor *placeholderColor;
 @property (nonatomic) NSInteger maxInput;//最大输入限制，小于等于0表示不限制，默认为0

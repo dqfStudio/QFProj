@@ -131,10 +131,58 @@
         _textField = UITextField.new;
         [_textField setDelegate:self];
         [_textField setBackgroundColor:[UIColor clearColor]];
+        [_textField setLeftViewMode:UITextFieldViewModeAlways];
+        [_textField setRightViewMode:UITextFieldViewModeAlways];
         _forbidWhitespaceAndNewline = YES;
         [self addSubview:_textField];
     }
     return _textField;
+}
+- (UILabel *)leftLabel {
+    if (!_leftLabel) {
+        _leftLabel = [UILabel new];
+        [_leftLabel setBackgroundColor:[UIColor clearColor]];
+        [self.textField setLeftView:_leftLabel];
+    }
+    return _leftLabel;
+}
+- (UILabel *)rightLabel {
+    if (!_rightLabel) {
+        _rightLabel = [UILabel new];
+        [_rightLabel setBackgroundColor:[UIColor clearColor]];
+        [self.textField setLeftView:_rightLabel];
+    }
+    return _rightLabel;
+}
+- (HWebButtonView *)leftButton {
+    if (!_leftButton) {
+        _leftButton = [HWebButtonView new];
+        @weakify(self)
+        [_leftButton setPressed:^(id sender, id data) {
+            @strongify(self)
+            if (self.leftButtonBlock) {
+                self.leftButtonBlock(self.leftButton, nil);
+            }
+        }];
+        [_leftButton setBackgroundColor:[UIColor clearColor]];
+        [self.textField setLeftView:_leftButton];
+    }
+    return _leftButton;
+}
+- (HWebButtonView *)rightButton {
+    if (!_rightButton) {
+        _rightButton = [HWebButtonView new];
+        @weakify(self)
+        [_rightButton setPressed:^(id sender, id data) {
+            @strongify(self)
+            if (self.rightButtonBlock) {
+                self.rightButtonBlock(self.rightButton, nil);
+            }
+        }];
+        [_rightButton setBackgroundColor:[UIColor clearColor]];
+        [self.textField setLeftView:_rightButton];
+    }
+    return _rightButton;
 }
 - (void)setPlaceholder:(NSString *)placeholder {
     [self.textField setPlaceholder:placeholder];
