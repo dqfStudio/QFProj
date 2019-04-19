@@ -37,8 +37,7 @@ dispatch_async(dispatch_get_main_queue(), block);\
     return manager;
 }
 
-+ (void)authorizeAll
-{
++ (void)authorizeAll {
     //定位权限
     [[self class] sharemanager];
     //相机权限
@@ -56,8 +55,7 @@ dispatch_async(dispatch_get_main_queue(), block);\
     }];
 }
 
-+ (void)getAutorizationStatusWithType:(AuthorizationType)authorizationType completion:(AuthorizationCompletionBlock)completion
-{
++ (void)getAutorizationStatusWithType:(AuthorizationType)authorizationType completion:(AuthorizationCompletionBlock)completion {
     switch (authorizationType) {
         case AuthorizationTypeCamera:
         {
@@ -123,8 +121,7 @@ dispatch_async(dispatch_get_main_queue(), block);\
     }
 }
 
-+ (void)showAlertWithAuthorizationType:(AuthorizationType)authorizationType
-{
++ (void)showAlertWithAuthorizationType:(AuthorizationType)authorizationType {
     NSString *title;
     NSString *message;
     NSString *confirmTitle = @"设置";
@@ -181,14 +178,13 @@ dispatch_async(dispatch_get_main_queue(), block);\
     });
 }
 
-- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
-{
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     if (status != kCLAuthorizationStatusNotDetermined) {
         if (status == kCLAuthorizationStatusAuthorizedWhenInUse || status == kCLAuthorizationStatusAuthorizedAlways) {
             if (self.authorizationCompletionBlock) {
                 self.authorizationCompletionBlock(AuthorizationStatusAuthorized);
             }
-        }else{
+        }else {
             if (self.authorizationCompletionBlock) {
                 self.authorizationCompletionBlock(AuthorizationStatusDenied);
             }

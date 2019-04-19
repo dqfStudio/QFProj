@@ -8,12 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface HDictionary : NSObject
+@property (readonly) NSUInteger count;
 @property (nonatomic, readonly) NSArray *allKeys;
 @property (nonatomic, readonly) NSArray *allValues;
 
 + (instancetype)dictionary;
 
+- (nullable id)objectForKey:(NSString *)aKey;
 - (void)setObject:(id)anObject forKey:(NSString *)aKey;
 - (void)removeObjectForKey:(NSString *)aKey;
 
@@ -21,3 +25,5 @@
 - (id)objectForKeyedSubscript:(NSString *)aKey;
 
 @end
+
+NS_ASSUME_NONNULL_END

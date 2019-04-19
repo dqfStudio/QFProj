@@ -15,6 +15,10 @@
 
 @implementation HDictionary
 
+- (NSUInteger)count {
+    return self._allKeys.count;
+}
+
 - (NSArray *)allKeys {
     return self._allKeys;
 }
@@ -34,6 +38,16 @@
 
 + (instancetype)dictionary {
     return HDictionary.new;
+}
+
+- (nullable id)objectForKey:(NSString *)aKey {
+    @synchronized(self) {
+        if ([self._allKeys containsObject:aKey]) {
+            NSInteger keyIndex = [self._allKeys indexOfObject:aKey];
+            return [self._allValues objectAtIndex:keyIndex];
+        }
+        return nil;
+    }
 }
 
 - (void)setObject:(id)anObject forKey:(NSString *)aKey {

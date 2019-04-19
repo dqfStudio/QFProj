@@ -13,7 +13,6 @@
 #import "QFButton.h"
 #import "NSFileManager+HUtil.h"
 #import "UILabel+HState.h"
-#import "HLabelView.h"
 #import "HTupleView.h"
 #import "HSimilarity.h"
 #import "HTableViewCell.h"

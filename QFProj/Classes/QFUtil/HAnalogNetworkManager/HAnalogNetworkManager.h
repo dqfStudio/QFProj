@@ -16,7 +16,7 @@ typedef void(^HNetworkFailureBlock)(NSError *error);
 
 + (instancetype)shareInstance;
 
-- (void)getDataWithClass:(Class)cls success:(HNetworkSuccessBlock)success  failure:(HNetworkFailureBlock)failure;
+- (void)getDataWithClass:(Class)cls success:(HNetworkSuccessBlock)success failure:(HNetworkFailureBlock)failure;
 
 - (void)getDataWithDict:(NSDictionary *)dict success:(HNetworkSuccessBlock)success failure:(HNetworkFailureBlock)failure;
 

@@ -29,8 +29,7 @@
     }
 }
 
-void tracking_didSelectRowAtIndexPath(id self, SEL _cmd, id tableView, id indexpath)
-{
+void tracking_didSelectRowAtIndexPath(id self, SEL _cmd, id tableView, id indexpath) {
     SEL selector = NSSelectorFromString(@"tracking_didSelectRowAtIndexPath");
     ((void(*)(id, SEL,id, id))objc_msgSend)(self, selector, tableView, indexpath);
 

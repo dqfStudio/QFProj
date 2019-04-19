@@ -30,8 +30,7 @@
     }
 }
 
-void tracking_didSelectItemAtIndexPath(id self, SEL _cmd, id collectionView, id indexpath)
-{
+void tracking_didSelectItemAtIndexPath(id self, SEL _cmd, id collectionView, id indexpath) {
     SEL selector = NSSelectorFromString(@"tracking_didSelectItemAtIndexPath");
     ((void(*)(id, SEL,id, id))objc_msgSend)(self, selector, collectionView, indexpath);
     
