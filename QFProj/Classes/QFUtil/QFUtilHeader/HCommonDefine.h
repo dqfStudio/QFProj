@@ -126,14 +126,6 @@
 //弹出信息
 #define ALERT(msg) [[[UIAlertView alloc] initWithTitle:nil message:msg delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil] show]
 
-//获取当前语言
-#define HCurrentLanguage ([[NSLocale preferredLanguages] objectAtIndex:0])
-
-//应用程序的名字
-#define AppDisplayName  [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]
-
-#define AppCurVersion  [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
-
 //由角度获取弧度 有弧度获取角度
 #define degreeToRadians(x) (M_PI *(x)/180.0)
 #define radianToDegrees(radian) (radian*180.0)/(M_PI)

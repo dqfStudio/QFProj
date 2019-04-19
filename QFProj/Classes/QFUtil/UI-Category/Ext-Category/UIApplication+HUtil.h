@@ -76,6 +76,11 @@ typedef NS_ENUM(NSInteger, YPNetworkStatus) {
 + (UIImage *_Nullable)appLaunchImage;
 
 /**
+ *  获取当前语言
+ */
++ (NSString *_Nullable)currentLanguage;
+
+/**
  *  根据app状态栏获取网络状态
  */
 + (YPNetworkStatus)networkStatusFromStateBar;

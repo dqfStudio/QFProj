@@ -104,6 +104,10 @@
     return [UIImage imageNamed:launchImageName];
 }
 
++ (NSString *)currentLanguage {
+    return [[NSLocale preferredLanguages] objectAtIndex:0];
+}
+
 + (YPNetworkStatus)networkStatusFromStateBar {
     // 状态栏是由当前app控制的，首先获取当前app
     UIApplication *app = [UIApplication sharedApplication];

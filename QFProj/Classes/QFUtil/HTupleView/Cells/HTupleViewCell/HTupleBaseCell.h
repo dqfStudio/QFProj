@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HTupleSignal.h"
+//方便业务层调用
 #import "NSObject+HMessy.h"
 #import "UILabel+HState.h"
 #import "UILabel+HUtil.h"
 #import "UIButton+HUtil.h"
-#import "HTupleSignal.h"
 
 #define HLayoutTupleView(v) \
 if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
