@@ -307,9 +307,6 @@
 		15B4DD722092F88700773E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15B4DD742092F88700773E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15B4DD752092F88700773E04 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		15B4DD802092F96B00773E04 /* QFUtilHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QFUtilHeader.h; sourceTree = "<group>"; };
-		15B4DD812092F96B00773E04 /* HCommonBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommonBlock.h; sourceTree = "<group>"; };
-		15B4DD822092F96B00773E04 /* HCommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommonDefine.h; sourceTree = "<group>"; };
 		15B4DD852092F96B00773E04 /* AppDelegate+HDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+HDebug.m"; sourceTree = "<group>"; };
 		15B4DD862092F96B00773E04 /* HDebugView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDebugView.h; sourceTree = "<group>"; };
 		15B4DD882092F96B00773E04 /* HDebugUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDebugUtil.m; sourceTree = "<group>"; };
@@ -522,6 +519,9 @@
 		A24B659D22609CE600B257BB /* NSObject+HName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HName.h"; sourceTree = "<group>"; };
 		A24B659F2260A07900B257BB /* HTableHeaderFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTableHeaderFooterView.h; sourceTree = "<group>"; };
 		A24B65A02260A07900B257BB /* HTableHeaderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTableHeaderFooterView.m; sourceTree = "<group>"; };
+		A265FF692269D8AA0093C780 /* HUtilHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUtilHeader.h; sourceTree = "<group>"; };
+		A265FF6A2269D8AA0093C780 /* HCommonBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommonBlock.h; sourceTree = "<group>"; };
+		A265FF6B2269D8AA0093C780 /* HCommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommonDefine.h; sourceTree = "<group>"; };
 		A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULBCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A28EF2E721D86DD8002F92ED /* ULBCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ULBCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		A28EF2EA21D86E43002F92ED /* UILabel+HAttributeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeText.h"; sourceTree = "<group>"; };
@@ -886,8 +886,8 @@
 				15C5737520B3DD9F0070327C /* HTable */,
 				15C5734C20B3DD7B0070327C /* HTupleView */,
 				157696DE20A0AB6900E31469 /* HAspects */,
+				A265FF682269D8AA0093C780 /* HUtilHeader */,
 				15B4DE14209302BF00773E04 /* HGoto */,
-				15B4DD7F2092F96B00773E04 /* QFUtilHeader */,
 				15B4DD832092F96B00773E04 /* HDebugUtil */,
 				15B4DD8F2092F96B00773E04 /* UI-Category */,
 				15B4DDB42092F96B00773E04 /* NS-Category */,
@@ -895,16 +895,6 @@
 				15B4DDD52092F96B00773E04 /* HSafeUtil */,
 			);
 			path = QFUtil;
-			sourceTree = "<group>";
-		};
-		15B4DD7F2092F96B00773E04 /* QFUtilHeader */ = {
-			isa = PBXGroup;
-			children = (
-				15B4DD802092F96B00773E04 /* QFUtilHeader.h */,
-				15B4DD812092F96B00773E04 /* HCommonBlock.h */,
-				15B4DD822092F96B00773E04 /* HCommonDefine.h */,
-			);
-			path = QFUtilHeader;
 			sourceTree = "<group>";
 		};
 		15B4DD832092F96B00773E04 /* HDebugUtil */ = {
@@ -1475,6 +1465,17 @@
 			);
 			path = SMTPLibrary;
 			sourceTree = "<group>";
+		};
+		A265FF682269D8AA0093C780 /* HUtilHeader */ = {
+			isa = PBXGroup;
+			children = (
+				A265FF692269D8AA0093C780 /* HUtilHeader.h */,
+				A265FF6A2269D8AA0093C780 /* HCommonBlock.h */,
+				A265FF6B2269D8AA0093C780 /* HCommonDefine.h */,
+			);
+			name = HUtilHeader;
+			path = QFProj/Classes/QFUtil/HUtilHeader;
+			sourceTree = SOURCE_ROOT;
 		};
 		A28EF2E921D86E43002F92ED /* UILabel+HAttributeText */ = {
 			isa = PBXGroup;

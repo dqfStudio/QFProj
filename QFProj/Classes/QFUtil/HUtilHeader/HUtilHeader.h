@@ -1,13 +1,13 @@
 //
-//  QFUtilHeader.h
+//  HUtilHeader.h
 //  QFProj
 //
 //  Created by dqf on 2018/4/27.
 //  Copyright © 2018年 dqfStudio. All rights reserved.
 //
 
-#ifndef QFUtilHeader_h
-#define QFUtilHeader_h
+#ifndef HUtilHeader_h
+#define HUtilHeader_h
 
 //Ext-Category
 #import "UIAlertController+HError.h"
@@ -82,4 +82,4 @@
 #import "HCommonBlock.h"
 #import "HCommonDefine.h"
 
-#endif /* QFUtilHeader_h */
+#endif /* HUtilHeader_h */
