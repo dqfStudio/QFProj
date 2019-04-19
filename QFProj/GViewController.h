@@ -7,6 +7,7 @@
 //
 
 #import "HTupleView.h"
+#import "UIColor+HUtil.h"
 
 @interface GViewController : UIViewController
 

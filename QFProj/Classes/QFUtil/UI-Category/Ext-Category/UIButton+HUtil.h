@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIColor+HUtil.h"
 
 @interface UIButton (HUtil)
 - (void)setTitle:(NSString *)title;

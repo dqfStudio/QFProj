@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "HWebButtonView.h"
 #import "NSObject+HUtil.h"
-#import "NSObject+HUtil.h"
+#import "UIColor+HUtil.h"
 #import "NSObject+HSwizzleUtil.h"
 
 @interface AppDelegate (HRotate)
