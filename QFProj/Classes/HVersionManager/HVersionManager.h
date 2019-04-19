@@ -1,5 +1,5 @@
 //
-//  MGVersionManager.h
+//  HVersionManager.h
 //  MGMobileMusic
 //
 //  Created by zhaosheng on 2017/4/8.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MGVersionManager : NSObject
+@interface HVersionManager : NSObject
 
 
 //单例
@@ -60,7 +60,7 @@ typedef NS_ENUM(NSInteger, MGVersionCompareResult){
     MGVersionUnknownResult
 };
 
-@interface MGVersionManager (Compare)
+@interface HVersionManager (Compare)
 
 /*
  *当前版本 op version参数，如果参数为空，那么当前版本永远高于nil，version格式：x.x.x，不按照格式的，不能保证结果正确

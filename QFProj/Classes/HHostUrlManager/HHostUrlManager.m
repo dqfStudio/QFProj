@@ -1,18 +1,18 @@
 //
-//  MGHostUrlManager.m
+//  HHostUrlManager.m
 //  MGMobileMusic
 //
 //  Created by dqf on 17/1/18.
 //  Copyright © 2017年 migu. All rights reserved.
 //
 
-#import "MGHostUrlManager.h"
+#import "HHostUrlManager.h"
 
 @interface NSString (hostVersion)
 - (NSString *(^)(NSString *))appendVersion;
 @end
 
-@interface MGHostUrlManager ()
+@interface HHostUrlManager ()
 
 @property (nonatomic, readwrite) NSString *kContentServerHost;
 @property (nonatomic, readwrite) NSString *kProductServerHost;
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation MGHostUrlManager
+@implementation HHostUrlManager
 
 - (NSString *(^)(NSString *))contentServerBaseUrl {
     return ^NSString *(NSString *org) {
@@ -64,9 +64,9 @@
 
 + (instancetype)sharedInstance {
     static dispatch_once_t onceToken;
-    static MGHostUrlManager *_instance = nil;
+    static HHostUrlManager *_instance = nil;
     dispatch_once(&onceToken, ^{
-        _instance = [[MGHostUrlManager alloc] init];
+        _instance = [[HHostUrlManager alloc] init];
     });
     return _instance;
 }
@@ -81,9 +81,9 @@
         }
         else {
 #ifdef DEBUG
-            self.hostUrlMode = EMGHostUrlModeTest;
+            self.hostUrlMode = EHostUrlModeTest;
 #else
-            self.hostUrlMode = EMGHostUrlModeRelease;
+            self.hostUrlMode = EHostUrlModeRelease;
 #endif
         }
     }
@@ -92,7 +92,7 @@
 }
 
 
-- (void)setHostUrlMode:(TMGHostUrlMode)hostUrlMode {
+- (void)setHostUrlMode:(THostUrlMode)hostUrlMode {
     if (_hostUrlMode != hostUrlMode) {
         _hostUrlMode = hostUrlMode;
         [[NSUserDefaults standardUserDefaults] setInteger:self.hostUrlMode forKey:KHostURLModelKey];
@@ -104,7 +104,7 @@
 
 - (void)update {
     switch (_hostUrlMode) {
-        case EMGHostUrlModeDebug:
+        case EHostUrlModeDebug:
             _kContentServerHost = @"";
             _kProductServerHost = _kContentServerHost;
             _kUserServerHost = _kContentServerHost;
@@ -112,8 +112,8 @@
             _kResourceServerHost = _kContentServerHost;
             _kH5ServerHost = @"";
             break;
-        case EMGHostUrlModeTest:
-        case EMGHostUrlModeSimulation:
+        case EHostUrlModeTest:
+        case EHostUrlModeSimulation:
             _kContentServerHost = @"";
             _kProductServerHost = @"";
             _kUserServerHost = @"";
@@ -121,7 +121,7 @@
             _kResourceServerHost = @"";
             _kH5ServerHost = @"";
             break;
-        case EMGHostUrlModeRelease:
+        case EHostUrlModeRelease:
         default:
             _kContentServerHost = @"";
             _kProductServerHost = @"";

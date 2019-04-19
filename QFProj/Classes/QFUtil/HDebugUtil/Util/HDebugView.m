@@ -8,7 +8,7 @@
 
 #import "HDebugView.h"
 #import "HHostSegmentCell.h"
-#import "MGHostUrlManager.h"
+#import "HHostUrlManager.h"
 
 @interface HDebugView ()
 @property (nonatomic) HTableView *table;

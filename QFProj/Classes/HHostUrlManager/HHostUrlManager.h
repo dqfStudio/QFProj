@@ -1,5 +1,5 @@
 //
-//  MGHostUrlManager.h
+//  HHostUrlManager.h
 //  MGMobileMusic
 //
 //  Created by dqf on 17/1/18.
@@ -8,16 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSUInteger, TMGHostUrlMode)
-{
+typedef NS_ENUM(NSUInteger, THostUrlMode) {
     /** 正式环境 */
-    EMGHostUrlModeRelease = 0,
+    EHostUrlModeRelease = 0,
     /** 测试环境 */
-    EMGHostUrlModeDebug = 1,
+    EHostUrlModeDebug = 1,
     /** 准上线环境 */
-    EMGHostUrlModeTest = 2,
+    EHostUrlModeTest = 2,
     /** simulate */
-    EMGHostUrlModeSimulation = 3
+    EHostUrlModeSimulation = 3
 };
 
 #define KHostURLModelKey @"KHostURLModelKey"
@@ -26,11 +25,11 @@ typedef NS_ENUM(NSUInteger, TMGHostUrlMode)
 #define KMGVersion2 @"MIGUM2.0/v2.0/"
 #define KMGVersion2_1 @"MIGUM2.0/v2.1/"
 
-@interface MGHostUrlManager : NSObject
+@interface HHostUrlManager : NSObject
 
 + (instancetype)sharedInstance;
 
-@property (nonatomic) TMGHostUrlMode hostUrlMode;
+@property (nonatomic) THostUrlMode hostUrlMode;
 
 - (NSString *(^)(NSString *))contentServerBaseUrl;
 - (NSString *(^)(NSString *))productServerBaseUrl;
