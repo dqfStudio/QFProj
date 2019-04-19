@@ -1424,8 +1424,8 @@
 		A24B656A225EE14800B257BB /* HValidate */ = {
 			isa = PBXGroup;
 			children = (
-				A24B656B225EE14800B257BB /* HValidate.m */,
 				A24B656C225EE14800B257BB /* HValidate.h */,
+				A24B656B225EE14800B257BB /* HValidate.m */,
 			);
 			path = HValidate;
 			sourceTree = "<group>";
