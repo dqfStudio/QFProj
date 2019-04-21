@@ -8,7 +8,7 @@
 
 #import "HTableView.h"
 
-#define KDefaultPageSize 20
+#define KDefaultPageSize  20
 #define KSectionDesignKey @"section"
 #define KTableDesignKey   @"table"
 
@@ -191,9 +191,7 @@
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:j inSection:i];
                 UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
                 if (cell.signalBlock) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        cell.signalBlock(signal);
-                    });
+                    cell.signalBlock(signal);
                 }
             }
         }
@@ -206,9 +204,7 @@
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:section];
             UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
             if (cell.signalBlock) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    cell.signalBlock(signal);
-                });
+                cell.signalBlock(signal);
             }
         }
     });
@@ -217,9 +213,7 @@
     dispatch_async(dispatch_queue_create(0, 0), ^{
         UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
         if (cell.signalBlock) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                cell.signalBlock(signal);
-            });
+            cell.signalBlock(signal);
         }
     });
 }
@@ -228,12 +222,8 @@
         NSInteger sections = [self numberOfSections];
         for (int i=0; i<sections; i++) {
             UITableViewHeaderFooterView *header = [self headerViewForSection:i];
-            if (header) {
-                if (header.signalBlock) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        header.signalBlock(signal);
-                    });
-                }
+            if (header && header.signalBlock) {
+                header.signalBlock(signal);
             }
         }
     });
@@ -241,12 +231,8 @@
 - (void)signal:(HTableSignal *)signal headerSection:(NSInteger)section {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         UITableViewHeaderFooterView *header = [self headerViewForSection:section];
-        if (header) {
-            if (header.signalBlock) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    header.signalBlock(signal);
-                });
-            }
+        if (header && header.signalBlock) {
+            header.signalBlock(signal);
         }
     });
 }
@@ -255,12 +241,8 @@
         NSInteger sections = [self numberOfSections];
         for (int i=0; i<sections; i++) {
             UITableViewHeaderFooterView *footer = [self footerViewForSection:i];
-            if (footer) {
-                if (footer.signalBlock) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        footer.signalBlock(signal);
-                    });
-                }
+            if (footer && footer.signalBlock) {
+                footer.signalBlock(signal);
             }
         }
     });
@@ -268,12 +250,8 @@
 - (void)signal:(HTableSignal *)signal footerSection:(NSInteger)section {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         UITableViewHeaderFooterView *footer = [self footerViewForSection:section];
-        if (footer) {
-            if (footer.signalBlock) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    footer.signalBlock(signal);
-                });
-            }
+        if (footer && footer.signalBlock) {
+            footer.signalBlock(signal);
         }
     });
 }

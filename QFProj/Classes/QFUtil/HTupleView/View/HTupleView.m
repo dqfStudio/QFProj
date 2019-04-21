@@ -8,7 +8,7 @@
 
 #import "HTupleView.h"
 
-#define KDefaultPageSize 20
+#define KDefaultPageSize  20
 #define KSectionDesignKey @"section"
 #define KTupleDesignKey   @"tuple"
 
@@ -219,9 +219,7 @@
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:j inSection:i];
                 UICollectionViewCell *cell = [self cellForItemAtIndexPath:indexPath];
                 if (cell.signalBlock) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        cell.signalBlock(signal);
-                    });
+                    cell.signalBlock(signal);
                 }
             }
         }
@@ -234,9 +232,7 @@
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:section];
             UICollectionViewCell *cell = [self cellForItemAtIndexPath:indexPath];
             if (cell.signalBlock) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    cell.signalBlock(signal);
-                });
+                cell.signalBlock(signal);
             }
         }
     });
@@ -245,9 +241,7 @@
     dispatch_async(dispatch_queue_create(0, 0), ^{
         UICollectionViewCell *cell = [self cellForItemAtIndexPath:indexPath];
         if (cell.signalBlock) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                cell.signalBlock(signal);
-            });
+            cell.signalBlock(signal);
         }
     });
 }
@@ -260,9 +254,7 @@
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:i];
                 HTupleBaseView *cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
                 if (cell.signalBlock) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        cell.signalBlock(signal);
-                    });
+                    cell.signalBlock(signal);
                 }
             }
         }
@@ -275,9 +267,7 @@
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
             HTupleBaseView *cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
             if (cell.signalBlock) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    cell.signalBlock(signal);
-                });
+                cell.signalBlock(signal);
             }
         }
     });
@@ -291,9 +281,7 @@
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:i];
                 HTupleBaseView *cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
                 if (cell.signalBlock) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        cell.signalBlock(signal);
-                    });
+                    cell.signalBlock(signal);
                 }
             }
         }
@@ -306,9 +294,7 @@
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
             HTupleBaseView *cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
             if (cell.signalBlock) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    cell.signalBlock(signal);
-                });
+                cell.signalBlock(signal);
             }
         }
     });
