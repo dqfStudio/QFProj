@@ -77,6 +77,7 @@
 #import "UILabel+HAttributeText.h"
 #import "HTabBarController.h"
 #import "HNavigationController.h"
+#import "HGCDUtil.h"
 
 //HCommon Define
 #import "HCommonBlock.h"
