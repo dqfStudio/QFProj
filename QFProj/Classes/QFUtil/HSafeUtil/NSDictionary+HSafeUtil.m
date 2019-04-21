@@ -21,11 +21,7 @@
 }
 - (nullable id)safe_objectForKey:(id)aKey {
     if (aKey) {
-        id obj = [self safe_objectForKey:aKey];
-//        if ([obj isKindOfClass:[NSNull class]]) {
-//            return nil;
-//        }
-        return obj;
+        return [self safe_objectForKey:aKey];
     }else {
 #if DEBUG
         NSAssert(NO,nil);
@@ -53,11 +49,7 @@
 }
 - (id)safe_objectForKeyedSubscript:(id)key {
     if (key && ![key isKindOfClass:NSNull.class]) {
-        id obj = [self safe_objectForKeyedSubscript:key];
-//        if ([obj isKindOfClass:[NSNull class]]) {
-//            return nil;
-//        }
-        return obj;
+        return [self safe_objectForKeyedSubscript:key];
     }else {
 #if DEBUG
         NSAssert(NO,nil);
@@ -104,11 +96,7 @@
 }
 - (id)safe_objectForKeyedSubscript:(id)key {
     if (key && ![key isKindOfClass:NSNull.class]) {
-        id obj = [self safe_objectForKeyedSubscript:key];
-//        if ([obj isKindOfClass:[NSNull class]]) {
-//            return nil;
-//        }
-        return obj;
+        return [self safe_objectForKeyedSubscript:key];
     }else {
 #if DEBUG
         NSAssert(NO,nil);
