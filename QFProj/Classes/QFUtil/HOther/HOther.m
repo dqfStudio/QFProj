@@ -378,4 +378,72 @@
 
 //[self.sfvc performSelector:NSSelectorFromString(@"_setShowingLinkPreview:") withObject:[NSNumber numberWithBool:YES]];
 
+//- (void)sendHTTPDataWithBaseURL:(NSString *)baseURL andAppendURL:(NSString *)url RequestWay:(NSString *)way
+//                  withParamters:(NSDictionary *)parameters
+//                      withToken:(NSString *)token
+//                        success:(void(^) (BOOL isSuccess, id responseObject))success
+//                        failure:(void(^) (NSError *error))failure {
+//
+//
+//    AFHTTPSessionManager *sessionManager = [[YTKNetworkAgent sharedAgent] manager];
+//    __block AFHTTPSessionManager *sessionManagerBlock = sessionManager;
+//    [sessionManager setTaskWillPerformHTTPRedirectionBlock:^NSURLRequest * _Nonnull(NSURLSession * _Nonnull session, NSURLSessionTask * _Nonnull task, NSURLResponse * _Nonnull response, NSURLRequest * _Nonnull request)
+//     {
+//         //这里可以重新修改重新向后的请求方式和参数。
+//         if (request) {
+//             NSString *platCode = [HUserDefaults defaults].platCodeLink;
+//             NSString *baseLink = nil;
+//             NSString *h5Link = nil;
+//             if (platCode) {
+//                 platCode = [platCode stringByAppendingString:@"/"];
+//                 NSString *absoluteString = request.URL.absoluteString;
+//                 if (absoluteString) {
+//                     //set base link
+//                     NSRange range = [absoluteString rangeOfString:platCode];
+//                     if (range.location != NSNotFound) {
+//                         if (absoluteString.length >= range.location+range.length) {
+//                             baseLink = [absoluteString substringToIndex:range.location+range.length];
+//                             [[HUserDefaults defaults] setBaseLink:baseLink];
+//                             [[YTKNetworkConfig sharedConfig] setBaseUrl:baseLink];
+//                         }
+//                         //set h5 link
+//                         if (absoluteString.length >= range.location) {
+//                             h5Link = [absoluteString substringToIndex:range.location];
+//                             [[HUserDefaults defaults] setH5Link:h5Link];
+//                         }
+//                     }
+//                 }
+//             }
+//             //set h5 link
+//             if (!h5Link) {
+//                 h5Link = [HUserDefaults defaults].h5Link;
+//             }
+//             NSMutableURLRequest *mutRequest = [sessionManagerBlock.requestSerializer requestWithMethod:way URLString:request.URL.absoluteString parameters:parameters error:nil];
+//             [mutRequest addValue:h5Link forHTTPHeaderField:@"referer"];
+//
+//             return mutRequest;
+//         }
+//         return nil;
+//
+//     }];
+//
+//    if (baseURL) {
+//        HRequestDAO *requestDAO = [[HRequestDAO alloc] initWithUrl:url info:parameters];
+//        [requestDAO startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+//            NSDictionary *responseDict = request.responseJSONObject;
+//            success(YES, responseDict);
+//        } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+//            NSString *description = @"服务器离家出走中，请稍后再试!";
+//            NSString *domain = @"HURLErrorDomain";
+//            NSInteger code = -1000;
+//            NSError *error = [NSError errorWithDomain:domain code:code userInfo:@{NSLocalizedDescriptionKey : description}];
+//            failure(error);
+//        }];
+//
+//    } else {
+//        success(NO, nil);
+//    }
+//
+//}
+
 @end
