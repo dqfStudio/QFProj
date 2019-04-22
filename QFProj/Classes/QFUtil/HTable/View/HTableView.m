@@ -178,7 +178,10 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     return [[self getAssociatedValueForKey:_cmd] integerValue];
 }
 - (void)setTableState:(HTableState)tableState {
-    [self setAssociateValue:@(tableState) withKey:@selector(tableState)];
+    if (self.tableState != tableState) {
+        [self setAssociateValue:@(tableState) withKey:@selector(tableState)];
+        [self reloadData];
+    }
 }
 
 - (HTableCellSignalBlock)signalBlock {

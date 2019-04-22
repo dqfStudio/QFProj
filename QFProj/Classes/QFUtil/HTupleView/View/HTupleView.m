@@ -205,8 +205,10 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     return [[self getAssociatedValueForKey:_cmd] integerValue];
 }
 - (void)setTupleState:(HTupleState)tupleState {
-    [self setAssociateValue:@(tupleState) withKey:@selector(tupleState)];
-    [self reloadData];
+    if (self.tupleState != tupleState) {
+        [self setAssociateValue:@(tupleState) withKey:@selector(tupleState)];
+        [self reloadData];
+    }
 }
 
 - (HTupleCellSignalBlock)signalBlock {
