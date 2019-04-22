@@ -106,7 +106,7 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 - (void)headerWithSize:(HSizeForHeaderBlock)size edgeInsets:(HEdgeInsetsForHeaderBlock)edge tuple:(HHeaderTupleBlock)block;
 - (void)footerWithSize:(HSizeForFooterBlock)size edgeInsets:(HEdgeInsetsForFooterBlock)edge tuple:(HFooterTupleBlock)block;
 - (void)itemWithSize:(HSizeForItemBlock)size edgeInsets:(HEdgeInsetsForItemBlock)edge tuple:(HItemTupleBlock)block;
-- (void)didSelectItem:(HDidSelectItemBlock _Nullable )block;
+- (void)didSelectItem:(HDidSelectItemBlock)block;
 @end
 
 @interface UICollectionView ()
