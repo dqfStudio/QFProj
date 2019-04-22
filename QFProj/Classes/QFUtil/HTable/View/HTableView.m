@@ -133,18 +133,18 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     }
     return _totalNo;
 }
-- (void)beginRefreshingWithCompletionBlock:(void (^)(void))completionBlock {
+- (void)beginRefreshing:(void (^)(void))completion {
     if (_refreshBlock) {
         [self setPageNo:1];
-        [self.mj_header beginRefreshingWithCompletionBlock:completionBlock];
+        [self.mj_header beginRefreshingWithCompletionBlock:completion];
     }
 }
 //stop refresh
-- (void)endRefreshingWithCompletionBlock:(void (^)(void))completionBlock {
-    [self.mj_header endRefreshingWithCompletionBlock:completionBlock];
+- (void)endRefreshing:(void (^)(void))completion {
+    [self.mj_header endRefreshingWithCompletionBlock:completion];
 }
-- (void)endLoadMoreWithCompletionBlock:(void (^)(void))completionBlock {
-    [self.mj_footer endRefreshingWithCompletionBlock:completionBlock];
+- (void)endLoadMore:(void (^)(void))completion {
+    [self.mj_footer endRefreshingWithCompletionBlock:completion];
 }
 - (void)setRefreshBlock:(HRefreshTableBlock)refreshBlock {
     _refreshBlock = refreshBlock;
