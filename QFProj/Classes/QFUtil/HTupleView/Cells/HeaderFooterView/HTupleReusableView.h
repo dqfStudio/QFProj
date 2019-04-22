@@ -10,6 +10,7 @@
 #import "HWebImageView.h"
 #import "HWebButtonView.h"
 #import "HTupleView.h"
+//#import <YYLabel.h>
 
 @class HReusableButtonView, HReusableImageView, HTupleView;
 
@@ -22,6 +23,7 @@ typedef void(^HReusableImageViewBlock)(HWebImageView *webImageView, HReusableIma
 
 @interface HReusableLabelView : HTupleBaseView
 @property (nonatomic) UILabel *label;
+//@property (nonatomic) YYLabel *label;
 @end
 
 @interface HReusableTextView : HTupleBaseView
@@ -30,12 +32,29 @@ typedef void(^HReusableImageViewBlock)(HWebImageView *webImageView, HReusableIma
 
 @interface HReusableButtonView : HTupleBaseView
 @property (nonatomic) HWebButtonView *buttonView;
-@property (nonatomic, copy) HReusableButtonViewBlock reusableButtonViewBlock;
+@property (nonatomic, copy) HReusableButtonViewBlock buttonViewBlock;
 @end
 
 @interface HReusableImageView : HTupleBaseView
 @property (nonatomic) HWebImageView *imageView;
-@property (nonatomic, copy) HReusableImageViewBlock reusableImageViewBlock;
+@property (nonatomic, copy) HReusableImageViewBlock imageViewBlock;
+@end
+
+@interface HReusableTextFieldCell : HTupleBaseView
+@property (nonatomic) UITextField *textField;
+@property (nonatomic) UILabel *leftLabel;
+@property (nonatomic) UILabel *rightLabel;
+
+@property (nonatomic) HWebButtonView *leftButton;
+@property (nonatomic) HWebButtonView *rightButton;
+@property (nonatomic, copy) HReusableButtonViewBlock leftButtonBlock;
+@property (nonatomic, copy) HReusableButtonViewBlock rightButtonBlock;
+
+@property (nonatomic,copy) NSString *placeholder;
+@property (nonatomic) UIColor *placeholderColor;
+@property (nonatomic) NSInteger maxInput;//最大输入限制，小于等于0表示不限制，默认为0
+@property (nonatomic) BOOL forbidPaste;//禁止粘贴，默认为NO
+@property (nonatomic) BOOL forbidWhitespaceAndNewline;//禁止输入空格和换行符，默认为YES
 @end
 
 @interface HReusableVerticalView : HTupleBaseCell
