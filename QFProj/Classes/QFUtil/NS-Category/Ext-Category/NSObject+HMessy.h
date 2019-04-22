@@ -49,14 +49,18 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)stringValue;
 + (NSUInteger)length;
 - (NSUInteger)length;
++ (BOOL)isEmpty;
+- (BOOL)isEmpty;
 @end
 
 @interface NSNumber (HMessy)
 - (NSUInteger)length;
+- (BOOL)isEmpty;
 @end
 
 @interface NSString (HMessy)
 - (NSString *)stringValue;
+- (BOOL)isEmpty;
 @end
 
 NS_ASSUME_NONNULL_END

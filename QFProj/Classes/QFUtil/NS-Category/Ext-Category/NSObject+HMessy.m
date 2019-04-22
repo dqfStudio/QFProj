@@ -101,16 +101,36 @@
 - (NSUInteger)length {
     return 0;
 }
++ (BOOL)isEmpty {
+    return YES;
+}
+- (BOOL)isEmpty {
+    return YES;
+}
 @end
 
 @implementation NSNumber (HMessy)
 - (NSUInteger)length {
     return self.stringValue.length;
 }
+- (BOOL)isEmpty {
+    NSString *string = [self.stringValue stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if (string.length == 0) {
+        return YES;
+    }
+    return NO;
+}
 @end
 
 @implementation NSString (HMessy)
 - (NSString *)stringValue {
     return self;
+}
+- (BOOL)isEmpty {
+    NSString *string = [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if (string.length == 0) {
+        return YES;
+    }
+    return NO;
 }
 @end
