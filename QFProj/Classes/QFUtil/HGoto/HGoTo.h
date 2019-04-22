@@ -13,7 +13,7 @@
 #import "HCommonBlock.h"
 #import <UIKit/UIKit.h>
 #import "HCommonDefine.h"
-#import "HUtilHeader.h"
+#import "NSObject+HSelector.h"
 
 #define HGOTO_NODE_REG_PREFIX @"HGOTO_NODE_REG_PREFIX"
 

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <StoreKit/StoreKit.h>
+#import "NSObject+HUtil.h"
+
 /**
  *  第三方应用跳转点
  *  1.直接打开应用 需要schema参数，优先级高
