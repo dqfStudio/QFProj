@@ -9,9 +9,9 @@
 #ifndef HGoto_HGoToSupport_h
 #define HGoto_HGoToSupport_h
 
+#import <UIKit/UIKit.h>
 #import "HClassManager.h"
 #import "HCommonBlock.h"
-#import <UIKit/UIKit.h>
 #import "HCommonDefine.h"
 #import "NSObject+HSelector.h"
 
