@@ -19,11 +19,6 @@ typedef NS_OPTIONS(NSUInteger, HTupleViewScrollDirection) {
     HTupleViewScrollDirectionHorizontal
 };
 
-typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
-    HTupleDesignStyleSection = 0,
-    HTupleDesignStyleTuple
-};
-
 typedef NS_OPTIONS(NSUInteger, HTupleViewStyle) {
     HTupleViewStyleLeftAlignedLayout = 0,
     HTupleViewStyleSectionColorLayout
@@ -102,9 +97,10 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)initWithFrame:(CGRect)frame;
 - (instancetype)initWithFrame:(CGRect)frame style:(HTupleViewStyle)style;
-- (instancetype)initWithFrame:(CGRect)frame designStyle:(HTupleDesignStyle)style designSection:(NSInteger)sections;
 - (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction;
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout;
++ (instancetype)sectionDesignWith:(CGRect)frame andSections:(NSInteger)sections;
++ (instancetype)tupleDesignWith:(CGRect)frame;
 //block methods
 - (void)tupleWithSections:(HUNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items color:(HColorForSectionBlock _Nullable )color inset:(HInsetForSectionBlock _Nullable )inset;
 - (void)headerWithSize:(HSizeForHeaderBlock)size edgeInsets:(HEdgeInsetsForHeaderBlock)edge tuple:(HHeaderTupleBlock)block;

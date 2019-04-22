@@ -8,6 +8,11 @@
 
 #import "HTupleView.h"
 
+typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
+    HTupleDesignStyleSection = 0,
+    HTupleDesignStyleTuple
+};
+
 #define KDefaultPageSize  20
 #define KSectionDesignKey @"section"
 #define KTupleDesignKey   @"tuple"
@@ -73,18 +78,6 @@
     }
     return self;
 }
-- (instancetype)initWithFrame:(CGRect)frame designStyle:(HTupleDesignStyle)style designSection:(NSInteger)sections {
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewLeftAlignedLayout alloc] init];
-    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    self = [super initWithFrame:frame collectionViewLayout:flowLayout];
-    if (self) {
-        _designStyle = style;
-        _categoryDesign = YES;
-        _designSections = sections;
-        [self setup];
-    }
-    return self;
-}
 - (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction {
     UICollectionViewFlowLayout *flowLayout = nil;
     if (direction == HTupleViewScrollDirectionHorizontal) {
@@ -103,6 +96,24 @@
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
     self = [super initWithFrame:frame collectionViewLayout:layout];
     if (self) {
+        [self setup];
+    }
+    return self;
+}
++ (instancetype)sectionDesignWith:(CGRect)frame andSections:(NSInteger)sections {
+    return [[HTupleView alloc] initWithFrame:frame designStyle:HTupleDesignStyleSection designSection:sections];
+}
++ (instancetype)tupleDesignWith:(CGRect)frame {
+    return [[HTupleView alloc] initWithFrame:frame designStyle:HTupleDesignStyleTuple designSection:0];
+}
+- (instancetype)initWithFrame:(CGRect)frame designStyle:(HTupleDesignStyle)style designSection:(NSInteger)sections {
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewLeftAlignedLayout alloc] init];
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    self = [super initWithFrame:frame collectionViewLayout:flowLayout];
+    if (self) {
+        _designStyle = style;
+        _categoryDesign = YES;
+        _designSections = sections;
         [self setup];
     }
     return self;
