@@ -143,19 +143,19 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 #pragma --mark other methods
 - (NSUInteger)pageNo {
-    if (_pageNo == 0) {
+    if (_pageNo <= 0) {
         return 1;
     }
     return _pageNo;
 }
 - (NSUInteger)pageSize {
-    if (_pageSize == 0) {
+    if (_pageSize <= 0) {
         return KDefaultPageSize;
     }
     return _pageSize;
 }
 - (NSUInteger)totalNo {
-    if (_totalNo == 0) {
+    if (_totalNo <= 0) {
         return MAXFLOAT;
     }
     return _totalNo;
