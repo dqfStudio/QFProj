@@ -8,6 +8,11 @@
 
 #import "HTableView.h"
 
+typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
+    HTableDesignStyleSection = 0,
+    HTableDesignStyleTable
+};
+
 #define KDefaultPageSize  20
 #define KSectionDesignKey @"section"
 #define KTableDesignKey   @"table"
@@ -66,6 +71,12 @@
         [self setup];
     }
     return self;
+}
++ (instancetype)sectionDesignWith:(CGRect)frame andSections:(NSInteger)sections {
+    return [[HTableView alloc] initWithFrame:frame designStyle:HTableDesignStyleSection designSection:sections];
+}
++ (instancetype)tupleDesignWith:(CGRect)frame {
+    return [[HTableView alloc] initWithFrame:frame designStyle:HTableDesignStyleTable designSection:0];
 }
 - (instancetype)initWithFrame:(CGRect)frame designStyle:(HTableDesignStyle)style designSection:(NSInteger)sections {
     self = [super initWithFrame:frame];
