@@ -440,7 +440,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
         if (!self.categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForItemAtIndexPath:)]) {
             edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForItemAtIndexPath:indexPath];
-        }else if (self.categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForItemAtIndexPath:)]) {
+        }else if (self.categoryDesign && [self respondsToSelector:@selector(tupleView:edgeInsetsForItemAtIndexPath:)]) {
             edgeInsets = [self tupleView:self edgeInsetsForItemAtIndexPath:indexPath];
         }else if (self.edgeInsetsForItemBlock) {
             edgeInsets = self.edgeInsetsForItemBlock(indexPath);
@@ -501,7 +501,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
             UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
             if (!self.categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForHeaderInSection:)]) {
                 edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForHeaderInSection:indexPath.section];
-            }else if (self.categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForHeaderInSection:)]) {
+            }else if (self.categoryDesign && [self respondsToSelector:@selector(tupleView:edgeInsetsForHeaderInSection:)]) {
                 edgeInsets = [self tupleView:self edgeInsetsForHeaderInSection:indexPath.section];
             }else if (self.edgeInsetsForHeaderBlock) {
                 edgeInsets = self.edgeInsetsForHeaderBlock(indexPath.section);
@@ -557,7 +557,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
             UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
             if (!self.categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForFooterInSection:)]) {
                 edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForFooterInSection:indexPath.section];
-            }else if (self.categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForFooterInSection:)]) {
+            }else if (self.categoryDesign && [self respondsToSelector:@selector(tupleView:edgeInsetsForFooterInSection:)]) {
                 edgeInsets = [self tupleView:self edgeInsetsForFooterInSection:indexPath.section];
             }else if (self.edgeInsetsForFooterBlock) {
                 edgeInsets = self.edgeInsetsForFooterBlock(indexPath.section);
