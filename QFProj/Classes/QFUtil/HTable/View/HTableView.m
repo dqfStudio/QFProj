@@ -173,7 +173,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         self.mj_footer = nil;
     }
 }
-#pragma mark - signal- (HTupleState)tupleState {
+#pragma mark - signal
 - (HTableState)tableState {
     return [[self getAssociatedValueForKey:_cmd] integerValue];
 }
