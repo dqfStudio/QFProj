@@ -311,64 +311,43 @@
 
 @implementation HGoToPathNode
 
-- (instancetype)initWithNodeString:(NSString *)nodeString
-{
+- (instancetype)initWithNodeString:(NSString *)nodeString {
     self = [super init];
-    if (self)
-    {
+    if (self) {
         NSMutableArray *components = [NSMutableArray new];
         NSMutableString *tempStr = [NSMutableString new];
         int kuohaoCount = 0;
-        for (int i = 0; i < nodeString.length; i ++)
-        {
+        for (int i = 0; i < nodeString.length; i ++) {
             NSString *ch = [nodeString substringWithRange:NSMakeRange(i, 1)];
-            if (kuohaoCount > 0)
-            {
-                if ([ch isEqualToString:@"("])
-                {
+            if (kuohaoCount > 0) {
+                if ([ch isEqualToString:@"("]) {
                     kuohaoCount ++;
-                }
-                else if([ch isEqualToString:@")"])
-                {
+                }else if([ch isEqualToString:@")"]) {
                     kuohaoCount --;
                     if (kuohaoCount == 0) continue;
                 }
                 [tempStr appendString:ch];
-            }
-            else
-            {
-                if ([ch isEqualToString:@"("])
-                {
+            }else {
+                if ([ch isEqualToString:@"("]) {
                     kuohaoCount ++;
-                }
-                else if ([ch isEqualToString:@":"])
-                {
+                }else if ([ch isEqualToString:@":"]) {
                     [components addObject:tempStr];
                     tempStr = [NSMutableString new];
-                }
-                else if ([ch isEqualToString:@"?"])
-                {
+                }else if ([ch isEqualToString:@"?"]) {
                     [components addObject:tempStr];
                     tempStr = [NSMutableString new];
-                }
-                else
-                {
+                }else {
                     [tempStr appendString:ch];
                 }
             }
         }
         if (tempStr.length > 0) [components addObject:tempStr];
         int index = 0;
-        for (NSString *value in components)
-        {
-            if (value.length > 0)
-            {
-                if (index == 0)
-                {
+        for (NSString *value in components) {
+            if (value.length > 0) {
+                if (index == 0) {
                     self.name = value;
-                }
-                else if (index == 1)
-                {
+                }else if (index == 1) {
                     self.param = [value trim];
                     break;
                 }
@@ -379,23 +358,16 @@
     return self;
 }
 
-- (NSDictionary *)paramsMap
-{
-    if (!_paramsMap)
-    {
-        if (self.param.length == 0)
-        {
+- (NSDictionary *)paramsMap {
+    if (!_paramsMap) {
+        if (self.param.length == 0) {
             _paramsMap = [NSDictionary new];
-        }
-        else
-        {
+        }else {
             NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
             NSArray *segments = [self.param componentsSeparatedByString:@"&"];
-            for(NSString *segment in segments)
-            {
+            for(NSString *segment in segments) {
                 NSArray *kv = [segment componentsSeparatedByString:@"="];
-                if (kv.count >= 2)
-                {
+                if (kv.count >= 2) {
                     NSString *key = [kv[0] decode];
                     NSString *value = [kv[1] decode];
                     [dict setObject:value forKey:key];
@@ -407,8 +379,7 @@
     return _paramsMap;
 }
 
-- (NSString *)description
-{
+- (NSString *)description {
     return [NSString stringWithFormat:@"action:%@\nparam:%@", _name, _param];
 }
 
@@ -421,13 +392,11 @@
 
 static const void *gotoCallbackAddress = &gotoCallbackAddress;
 
-- (finish_callback)gotoCallback
-{
+- (finish_callback)gotoCallback {
     return objc_getAssociatedObject(self, gotoCallbackAddress);
 }
 
-- (void)setGotoCallback:(finish_callback)gotoCallback
-{
+- (void)setGotoCallback:(finish_callback)gotoCallback {
     objc_setAssociatedObject(self, gotoCallbackAddress, gotoCallback, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
