@@ -109,9 +109,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     return [[HTupleView alloc] initWithFrame:frame designStyle:HTupleDesignStyleTuple designSection:0];
 }
 - (instancetype)initWithFrame:(CGRect)frame designStyle:(HTupleDesignStyle)style designSection:(NSInteger)sections {
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewLeftAlignedLayout alloc] init];
-    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    self = [super initWithFrame:frame collectionViewLayout:flowLayout];
+    _flowLayout = [[UICollectionViewLeftAlignedLayout alloc] init];
+    _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    self = [super initWithFrame:frame collectionViewLayout:_flowLayout];
     if (self) {
         _designStyle = style;
         _categoryDesign = YES;
