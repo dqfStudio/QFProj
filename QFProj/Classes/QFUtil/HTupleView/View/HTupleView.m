@@ -28,6 +28,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 @end
 
 @interface HTupleView () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+
+@property (nonatomic) UICollectionViewFlowLayout *flowLayout;
+
 @property (nonatomic) BOOL categoryDesign;
 @property (nonatomic) NSInteger designSections;
 @property (nonatomic) HTupleDesignStyle designStyle;
@@ -66,35 +69,34 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     return self;
 }
 - (instancetype)initWithFrame:(CGRect)frame style:(HTupleViewStyle)style {
-    UICollectionViewFlowLayout *flowLayout = nil;
     if (style == HTupleViewStyleLeftAlignedLayout) {
-        flowLayout = [[UICollectionViewLeftAlignedLayout alloc] init];
+        _flowLayout = [[UICollectionViewLeftAlignedLayout alloc] init];
     }else {
-        flowLayout = [[ULBCollectionViewFlowLayout alloc] init];
+        _flowLayout = [[ULBCollectionViewFlowLayout alloc] init];
     }
-    self = [super initWithFrame:frame collectionViewLayout:flowLayout];
+    self = [super initWithFrame:frame collectionViewLayout:_flowLayout];
     if (self) {
         [self setup];
     }
     return self;
 }
 - (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction {
-    UICollectionViewFlowLayout *flowLayout = nil;
     if (direction == HTupleViewScrollDirectionHorizontal) {
-        flowLayout = [[UICollectionViewFlowLayout alloc] init];
-        flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        _flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        _flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     }else {
-        flowLayout = [[UICollectionViewLeftAlignedLayout alloc] init];
-        flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+        _flowLayout = [[UICollectionViewLeftAlignedLayout alloc] init];
+        _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     }
-    self = [super initWithFrame:frame collectionViewLayout:flowLayout];
+    self = [super initWithFrame:frame collectionViewLayout:_flowLayout];
     if (self) {
         [self setup];
     }
     return self;
 }
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
-    self = [super initWithFrame:frame collectionViewLayout:layout];
+    _flowLayout = (UICollectionViewFlowLayout *)layout;
+    self = [super initWithFrame:frame collectionViewLayout:_flowLayout];
     if (self) {
         [self setup];
     }
