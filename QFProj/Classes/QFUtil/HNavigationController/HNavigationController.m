@@ -68,6 +68,7 @@
         }
     }
     
+    //如果这个push  pop 动画正在执行(私有属性)，不允许收拾
     if ([[self valueForKey:@"_isTransitioning"] boolValue]) {
         return NO;
     }
@@ -78,6 +79,7 @@
         return NO;
     }
     
+    //当前控制器为根控制器，不允许收拾
     return self.childViewControllers.count == 1 ? NO : YES;
 }
 
