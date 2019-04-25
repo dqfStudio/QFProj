@@ -24,7 +24,6 @@ typedef void (^HResultClickedBlock)(void);
 
 @end
 
-
 @interface UIView (HResultView)
 @property(nonatomic) HResultView *mgResultView;
 @end

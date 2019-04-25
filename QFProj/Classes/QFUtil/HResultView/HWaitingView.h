@@ -20,7 +20,6 @@ typedef NS_ENUM(NSInteger, HWaitingType) {
 
 @end
 
-
 @interface UIView (HWaitingView)
 @property(nonatomic) HWaitingView *mgWaitingView;
 @end

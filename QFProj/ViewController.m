@@ -31,6 +31,8 @@
 #import "HTableView.h"
 #import "HTupleView.h"
 #import "HRequestHUD.h"
+#import "HWaitingView.h"
+#import "HResultView.h"
 
 @interface ViewController () <HTupleViewDelegate> {
     UILabel *label;
@@ -60,6 +62,15 @@ H_CheckPropertyRange(rrr, 0, 150)
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+//    + (void)showInView:(UIView *)view withType:(HWaitingType)type;
+//    [HWaitingView showInView:self.view withType:HWaitingTypeBlack];
+    
+    [HResultView showInView:self.view withType:HResultTypeLoadError clickedBlock:^{
+        NSLog(@"");
+    }];
+    
+    return;
     
     HTupleView *tuple = [[HTupleView alloc] initWithFrame:self.view.frame];
     [self.view addSubview:tuple];
