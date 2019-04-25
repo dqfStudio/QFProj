@@ -8,9 +8,11 @@
 
 #import "HNavigationController.h"
 
+#define KPushInterl 0.25
+
 @interface HNavigationController () <UIGestureRecognizerDelegate>
 @property(nonatomic, strong) NSMutableArray *blackList;
-
+@property(nonatomic, strong) NSDate *startData;
 @end
 
 @implementation HNavigationController
@@ -56,6 +58,14 @@
     
     // 关闭边缘触发手势 防止和原有边缘手势冲突
     [self.interactivePopGestureRecognizer setEnabled:NO];
+}
+
+//防止前后两次push时间小于0.25这个默认的动画时间
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    if (!_startData || (-[_startData timeIntervalSinceNow] > KPushInterl)) {
+        _startData = NSDate.date;
+        [super pushViewController:viewController animated:animated];
+    }
 }
 
 #pragma mark - UIGestureRecognizerDelegate
