@@ -62,7 +62,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 
 @implementation HTupleView
 - (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame collectionViewLayout:[UICollectionViewLeftAlignedLayout new]];
+    _flowLayout = UICollectionViewLeftAlignedLayout.new;
+    self = [super initWithFrame:frame collectionViewLayout:_flowLayout];
     if (self) {
         [self setup];
     }
@@ -70,9 +71,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 - (instancetype)initWithFrame:(CGRect)frame style:(HTupleViewStyle)style {
     if (style == HTupleViewStyleLeftAlignedLayout) {
-        _flowLayout = [[UICollectionViewLeftAlignedLayout alloc] init];
+        _flowLayout = UICollectionViewLeftAlignedLayout.new;
     }else {
-        _flowLayout = [[ULBCollectionViewFlowLayout alloc] init];
+        _flowLayout = ULBCollectionViewFlowLayout.new;
     }
     self = [super initWithFrame:frame collectionViewLayout:_flowLayout];
     if (self) {
@@ -82,10 +83,10 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 - (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction {
     if (direction == HTupleViewScrollDirectionHorizontal) {
-        _flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        _flowLayout = UICollectionViewFlowLayout.new;
         _flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     }else {
-        _flowLayout = [[UICollectionViewLeftAlignedLayout alloc] init];
+        _flowLayout = UICollectionViewLeftAlignedLayout.new;
         _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     }
     self = [super initWithFrame:frame collectionViewLayout:_flowLayout];
@@ -109,7 +110,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     return [[HTupleView alloc] initWithFrame:frame designStyle:HTupleDesignStyleTuple designSection:0];
 }
 - (instancetype)initWithFrame:(CGRect)frame designStyle:(HTupleDesignStyle)style designSection:(NSInteger)sections {
-    _flowLayout = [[UICollectionViewLeftAlignedLayout alloc] init];
+    _flowLayout = UICollectionViewLeftAlignedLayout.new;
     _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     self = [super initWithFrame:frame collectionViewLayout:_flowLayout];
     if (self) {
