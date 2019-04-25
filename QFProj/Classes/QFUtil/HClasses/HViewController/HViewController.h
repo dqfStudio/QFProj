@@ -12,6 +12,7 @@
 #import "NSObject+HUtil.h"
 #import "UIColor+HUtil.h"
 #import "NSObject+HSwizzleUtil.h"
+#import "UIApplication+HUtil.h"
 
 @interface AppDelegate (HRotate)
 @property (nonatomic, class) BOOL shouldAutorotate;

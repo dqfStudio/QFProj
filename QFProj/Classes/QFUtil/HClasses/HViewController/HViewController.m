@@ -53,8 +53,15 @@
     dispatch_once(&pred, ^{ o = [[self alloc] init]; });
     return o;
 }
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
-    return YES;
+//防止导航控制器只有一个rootViewcontroller时触发手势
+- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
+    // 解决右滑和UITableView左滑删除的冲突
+    CGPoint translation = [gestureRecognizer translationInView:gestureRecognizer.view];
+    if (translation.x <= 0) {
+        return NO;
+    }
+    return (UIApplication.navi.viewControllers.count > 1);
+//    return YES;
 }
 @end
 
