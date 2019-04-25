@@ -19,8 +19,15 @@ typedef void (^HResultClickedBlock)(void);
 @interface HResultView : UIView
 
 + (void)showInView:(UIView *)view withType:(HResultType)type;
-+ (void)showInView:(UIView *)view withType:(HResultType)type clickedBlock:(HResultClickedBlock)clickedBlock;
-+ (void)showInView:(UIView *)view withType:(HResultType)type hideImage:(BOOL)yn clickedBlock:(HResultClickedBlock)clickedBlock;
+
++ (void)showInView:(UIView *)view
+          withType:(HResultType)type
+      clickedBlock:(HResultClickedBlock)clickedBlock;
+
++ (void)showInView:(UIView *)view
+          withType:(HResultType)type
+       imageHidden:(BOOL)hidden
+      clickedBlock:(HResultClickedBlock)clickedBlock;
 
 @end
 

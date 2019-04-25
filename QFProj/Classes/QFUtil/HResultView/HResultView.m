@@ -225,12 +225,15 @@
     }
 }
 + (void)showInView:(UIView *)view withType:(HResultType)type {
-    [HResultView showInView:view withType:type hideImage:NO clickedBlock:nil];
+    [HResultView showInView:view withType:type imageHidden:NO clickedBlock:nil];
 }
 + (void)showInView:(UIView *)view withType:(HResultType)type clickedBlock:(HResultClickedBlock)clickedBlock {
-    [HResultView showInView:view withType:type hideImage:NO clickedBlock:clickedBlock];
+    [HResultView showInView:view withType:type imageHidden:NO clickedBlock:clickedBlock];
 }
-+ (void)showInView:(UIView *)view withType:(HResultType)type hideImage:(BOOL)yn clickedBlock:(HResultClickedBlock)clickedBlock {
++ (void)showInView:(UIView *)view
+          withType:(HResultType)type
+       imageHidden:(BOOL)hidden
+      clickedBlock:(HResultClickedBlock)clickedBlock {
     if (view) {
         HResultView *resultView = [[HResultView alloc] initWithFrame:view.frame];
         if (![AFNetworkReachabilityManager sharedManager].isReachable && type != HResultTypeNoData) {
@@ -238,7 +241,7 @@
         }else {
             resultView.resultType = type;
         }
-        resultView.hideImage = yn;
+        resultView.hideImage = hidden;
         resultView.clickedBlock = clickedBlock;
         [view addSubview:resultView];
         [view setMgResultView:resultView];
