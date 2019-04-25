@@ -8,8 +8,6 @@
 
 #import "HNavigationController.h"
 
-#define KPushInterl 0.25
-
 @interface HNavigationController () <UIGestureRecognizerDelegate>
 @property(nonatomic, strong) NSMutableArray *blackList;
 @end
