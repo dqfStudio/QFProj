@@ -8,6 +8,8 @@
 
 #import "HPrinterManager.h"
 
+#if DEBUG
+
 @interface HPrinterManager ()
 @property (nonatomic) NSMutableDictionary *printerDict;
 @end
@@ -38,3 +40,5 @@
     return nil;
 }
 @end
+
+#endif

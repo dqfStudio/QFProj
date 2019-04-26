@@ -8,9 +8,9 @@
 
 #import "UIWindow+HPrinter.h"
 
-@implementation UIWindow (HPrinter)
-
 #if DEBUG
+
+@implementation UIWindow (HPrinter)
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
     // 判断自己能否接收事件
     if(self.userInteractionEnabled == NO || self.hidden == YES || self.alpha <= 0.01){
@@ -37,6 +37,7 @@
     [self logMark];
     return self;
 }
-#endif
 
 @end
+
+#endif

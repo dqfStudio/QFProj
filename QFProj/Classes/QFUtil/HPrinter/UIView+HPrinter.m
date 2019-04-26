@@ -10,9 +10,10 @@
 #import <objc/runtime.h>
 #import "NSObject+HExclusive.h"
 
+#if DEBUG
+
 @implementation UIView (HPrinter)
 
-#if DEBUG
 - (void)addString:(NSString *)aString withView:(UIView *)view {
     SEL selector = NSSelectorFromString(@"addSubview:");
     if ([self respondsToSelector:selector]) {
@@ -122,7 +123,6 @@ _Pragma("clang diagnostic pop")
         return YES;
     }
 }
-#endif
 
 @end
 
@@ -143,3 +143,5 @@ _Pragma("clang diagnostic pop")
     return image;
 }
 @end
+
+#endif

@@ -12,9 +12,9 @@
 
 #if DEBUG
 #define addSubview addString:[NSString stringWithFormat:@"function:%s line:%d", __FUNCTION__, __LINE__] withView
-#endif
 
 @interface UIView (HPrinter)
 - (void)addString:(NSString *)aString withView:(UIView *)view;
 - (void)logMark;
 @end
+#endif

@@ -10,6 +10,10 @@
 #import "HPrinterManager.h"
 #import "UIView+HPrinter.h"
 
+#if DEBUG
+
 @interface UIWindow (HPrinter)
 
 @end
+
+#endif
