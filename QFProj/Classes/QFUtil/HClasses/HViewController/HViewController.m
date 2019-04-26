@@ -41,36 +41,10 @@
 @end
 
 #define IS_KIPHONEX ([UIScreen mainScreen].bounds.size.width == 375.f && [UIScreen mainScreen].bounds.size.height == 812.f ? YES : NO)
-
-@interface HViewControllerMgr : NSObject <UIGestureRecognizerDelegate>
-
-@end
-
-@implementation HViewControllerMgr :NSObject
-+ (instancetype)shared {
-    static dispatch_once_t pred;
-    static HViewControllerMgr *o = nil;
-    dispatch_once(&pred, ^{ o = [[self alloc] init]; });
-    return o;
-}
-//防止导航控制器只有一个rootViewcontroller时触发手势
-- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
-    // 解决右滑和UITableView左滑删除的冲突
-    CGPoint translation = [gestureRecognizer translationInView:gestureRecognizer.view];
-    if (translation.x <= 0) {
-        return NO;
-    }
-    return (UIApplication.navi.viewControllers.count > 1);
-//    return YES;
-}
-@end
-
-
 #define HTopBarHeight 44.0f
 #define HStatusBarHeight (IS_KIPHONEX?44.0:20.0f)
 #define HNavTitleButtonWidth 70.0f
 #define HNavTitleButtonMargin 10.0f
-
 
 @implementation HVCAppearance
 
@@ -195,8 +169,6 @@
     [self.view bringSubviewToFront:self.topBar];
     //要更新statusbar状态的需要调用下这个方法,最好与viewWillDisappear对应
     [self setNeedsStatusBarAppearanceUpdate];
-    self.navigationController.interactivePopGestureRecognizer.enabled = [self popGestureEnabled];
-    self.navigationController.interactivePopGestureRecognizer.delegate = [HViewControllerMgr shared];
 #ifdef __IPHONE_11_0
     if (@available(iOS 11.0, *)) {
         if ([self.view isKindOfClass:[UIScrollView class]]) {
@@ -465,8 +437,4 @@
 - (void)needReleaseMemory {
     
 }
-- (BOOL)popGestureEnabled {
-    return NO;
-}
-
 @end

@@ -106,9 +106,6 @@
 #pragma mark - 内存控制
 //需要释放内存
 - (void)needReleaseMemory;
-
-#pragma mark - 左滑返回
-- (BOOL)popGestureEnabled;
 @end
 
 
