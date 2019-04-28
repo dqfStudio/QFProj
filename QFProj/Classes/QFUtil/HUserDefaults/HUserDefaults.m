@@ -7,10 +7,7 @@
 //
 
 #import "HUserDefaults.h"
-#import "NSTimer+HUtil.h"
 #import <objc/runtime.h>
-
-#define KUSER @"H_USER_DEFAULTS"
 
 @implementation HUserDefaults
 
