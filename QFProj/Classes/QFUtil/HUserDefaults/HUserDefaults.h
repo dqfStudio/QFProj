@@ -27,7 +27,7 @@
 + (HUserDefaults *)defaults;
 
 //加载钥匙串中的数据
-- (BOOL)LoadKeyChainDataWith:(NSString *)userName pwd:(NSString *)pwd;
+- (BOOL)loadKeyChainDataWith:(NSString *)userName pwd:(NSString *)pwd;
 
 //线上环境链接
 - (void)setBaseLink:(NSString *)baseLink;

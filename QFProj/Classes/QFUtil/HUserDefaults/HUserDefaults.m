@@ -89,7 +89,7 @@
 }
 
 //加载钥匙串中的数据
-- (BOOL)LoadKeyChainDataWith:(NSString *)userName pwd:(NSString *)pwd {
+- (BOOL)loadKeyChainDataWith:(NSString *)userName pwd:(NSString *)pwd {
     BOOL boolValue = NO;
     if (userName.length > 3) {
         NSString *defaultsUserId = [userName uppercaseString];
