@@ -26,9 +26,8 @@
 
 + (HUserDefaults *)defaults;
 
-//登出的时候需要移除用户信息
-- (void)removeUser;
-
+//加载钥匙串中的数据
+- (BOOL)LoadKeyChainDataWith:(NSString *)userName pwd:(NSString *)pwd;
 
 //线上环境链接
 - (void)setBaseLink:(NSString *)baseLink;

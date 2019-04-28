@@ -47,12 +47,9 @@
     static HUserDefaults *share = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
-        NSString *userName = [HUserDefaults defaults].userName;
-        if (userName.length > 0) {
-            NSString *bundleIdentifier = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
-            HKeyChainStore *keyChainStore = [HKeyChainStore keyChainStoreWithService:bundleIdentifier];
-            userName = [userName uppercaseString];
-            NSData *data = [keyChainStore dataForKey:userName];
+        NSString *defaultsUserId = [HUserDefaults defaultsUserId];
+        if (defaultsUserId.length > 0) {
+            NSData *data = [[HKeyChainStore keyChainStore] dataForKey:defaultsUserId];
             if (data) {
                 share = [NSKeyedUnarchiver unarchiveObjectWithData:data];
             }
@@ -65,12 +62,20 @@
     return share;
 }
 
++ (NSString *)defaultsUserId {
+    NSString *userName = [HUserDefaults defaults].userName;
+    userName = [userName uppercaseString];
+    return userName;
+}
+
 //初始化数据
 - (void)initData {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveUser) name:UIApplicationWillTerminateNotification object:nil];
 //    [[RACObserve(share, isLogin) skip:1] subscribeNext:^(id  _Nullable x) {
 //        if ([x boolValue]) {
 //            [self saveUser];
+//        }else {
+//            [self removeUser];
 //        }
 //    }];
 }
@@ -78,15 +83,10 @@
 - (void)saveUser {
     if (self.isLogin) {
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self];
-        NSString *userName = [HUserDefaults defaults].userName;
-        if (userName.length > 0) {
-            NSString *bundleIdentifier = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
-            HKeyChainStore *keyChainStore = [HKeyChainStore keyChainStoreWithService:bundleIdentifier];
-            if (keyChainStore && data) {
-                userName = [userName uppercaseString];
-                [keyChainStore setData:data forKey:userName];
-                [keyChainStore synchronizable];
-            }
+        NSString *defaultsUserId = [HUserDefaults defaultsUserId];
+        if (defaultsUserId.length > 0 && data) {
+            [[HKeyChainStore keyChainStore] setData:data forKey:defaultsUserId];
+            [[HKeyChainStore keyChainStore] synchronizable];
         }
     }
 }
@@ -95,46 +95,41 @@
 - (BOOL)LoadKeyChainDataWith:(NSString *)userName pwd:(NSString *)pwd {
     BOOL boolValue = NO;
     if (userName.length > 3) {
-        NSString *bundleIdentifier = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
-        HKeyChainStore *keyChainStore = [HKeyChainStore keyChainStoreWithService:bundleIdentifier];
-        if (keyChainStore) {
-            NSString *tmpUserName = [userName uppercaseString];
-            NSData *data = [keyChainStore dataForKey:tmpUserName];
-            if (data) {
-                HUserDefaults *userDefaults = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-                id propertyValue = [userDefaults valueForKey:@"password"];
-                //密码不相等则不能提取用户信息
-                if (![pwd isEqualToString:propertyValue]) {
-                    userDefaults = nil;
-                    return boolValue;
-                }
-                boolValue = YES;
-                unsigned int pro_count = 0;
-                objc_property_t *properties = class_copyPropertyList([self class], &pro_count);
-                for (int i = 0; i < pro_count; i ++) {
-                    objc_property_t property = properties[i];
-                    NSString *propertyName = [NSString stringWithFormat:@"%s", property_getName(property)];
-                    //isLogin 这个属性的值由外部业务赋值
-                    if (![propertyName isEqualToString:@"isLogin"]) {
-                        //通过KVC的方式赋值
-                        id propertyValue = [userDefaults valueForKey:propertyName];
-                        [self setValue:propertyValue forKey:propertyName];
-                    }
-                }
-                // 释放
+        NSString *defaultsUserId = [userName uppercaseString];
+        NSData *data = [[HKeyChainStore keyChainStore] dataForKey:defaultsUserId];
+        if (data) {
+            HUserDefaults *userDefaults = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+            id propertyValue = [userDefaults valueForKey:@"password"];
+            //密码不相等则不能提取用户信息
+            if (![pwd isEqualToString:propertyValue]) {
                 userDefaults = nil;
-                free(properties);
+                return boolValue;
             }
+            boolValue = YES;
+            unsigned int pro_count = 0;
+            objc_property_t *properties = class_copyPropertyList([self class], &pro_count);
+            for (int i = 0; i < pro_count; i ++) {
+                objc_property_t property = properties[i];
+                NSString *propertyName = [NSString stringWithFormat:@"%s", property_getName(property)];
+                //isLogin 这个属性的值由外部业务赋值
+                if (![propertyName isEqualToString:@"isLogin"]) {
+                    //通过KVC的方式赋值
+                    id propertyValue = [userDefaults valueForKey:propertyName];
+                    [self setValue:propertyValue forKey:propertyName];
+                }
+            }
+            // 释放
+            userDefaults = nil;
+            free(properties);
         }
     }
     return boolValue;
 }
 
+//登出的时候需要移除用户信息
 - (void)removeUser {
     //清空所有属性值
     [self cleanAllProperties];
-    //保存相关属性值
-    [self saveUser];
 }
 
 /**
