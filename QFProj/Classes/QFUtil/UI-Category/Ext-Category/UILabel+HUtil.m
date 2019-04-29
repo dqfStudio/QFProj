@@ -11,189 +11,129 @@
 
 @implementation UILabel (HUtil)
 
-- (CGFloat)characterSpace {
-    return [[self getAssociatedValueForKey:_cmd] floatValue];
-}
-- (void)setCharacterSpace:(CGFloat)characterSpace {
-    [self setAssociateValue:@(characterSpace) withKey:@selector(characterSpace)];
-}
-
-- (CGFloat)lineSpace {
-    return [[self getAssociatedValueForKey:_cmd] floatValue];
-}
-- (void)setLineSpace:(CGFloat)lineSpace {
-    [self setAssociateValue:@(lineSpace) withKey:@selector(lineSpace)];
-}
-
-
-- (NSString *)keywords {
-    return [self getAssociatedValueForKey:_cmd];
-}
-- (void)setKeywords:(NSString *)keywords {
-    [self setAssociateValue:keywords withKey:@selector(keywords)];
-}
-
-- (UIFont *)keywordsFont {
-    return [self getAssociatedValueForKey:_cmd];
-}
-- (void)setKeywordsFont:(UIFont *)keywordsFont {
-    [self setAssociateValue:keywordsFont withKey:@selector(keywordsFont)];
-}
-
-- (UIColor *)keywordsColor {
-    return [self getAssociatedValueForKey:_cmd];
-}
-- (void)setKeywordsColor:(UIColor *)keywordsColor {
-    [self setAssociateValue:keywordsColor withKey:@selector(keywordsColor)];
-}
-
-- (NSArray *)tapKeywordsArr {
-    return [self getAssociatedValueForKey:_cmd];
-}
-- (void)setTapKeywordsArr:(NSArray *)tapKeywordsArr {
-    [self setAssociateValue:tapKeywordsArr withKey:@selector(tapKeywordsArr)];
-}
-
-- (HTapKeywordsBlock)tapKeywordsBlock {
-    return [self getAssociatedValueForKey:_cmd];
-}
-- (void)setTapKeywordsBlock:(HTapKeywordsBlock)tapKeywordsBlock {
-    [self setAssociateValue:tapKeywordsBlock withKey:@selector(tapKeywordsBlock)];
-}
-
-- (NSInteger)imgIndex {
-    return [[self getAssociatedValueForKey:_cmd] integerValue];
-}
-- (void)setImgIndex:(NSInteger)imgIndex {
-    [self setAssociateValue:@(imgIndex) withKey:@selector(imgIndex)];
-}
-
-- (NSWordAlign)wordAlign {
-    return [[self getAssociatedValueForKey:_cmd] integerValue];
-}
-- (void)setWordAlign:(NSWordAlign)wordAlign {
-    [self setAssociateValue:@(wordAlign) withKey:@selector(wordAlign)];
-}
-
-- (CGSize)imgSize {
-    return CGSizeFromString([self getAssociatedValueForKey:_cmd]);
-}
-- (void)setImgSize:(CGSize)imgSize {
-    [self setAssociateValue:NSStringFromCGSize(imgSize) withKey:@selector(imgSize)];
-}
-
-- (NSString *)imgUrl {
-    return [self getAssociatedValueForKey:_cmd];
-}
-- (void)setImgUrl:(NSString *)imgUrl {
-    [self setAssociateValue:imgUrl withKey:@selector(imgUrl)];
-}
-
-- (NSInteger)leftSpace {
-    return [[self getAssociatedValueForKey:_cmd] integerValue];
-}
-- (void)setLeftSpace:(NSInteger)leftSpace {
-    [self setAssociateValue:@(leftSpace) withKey:@selector(leftSpace)];
-}
-
-- (NSInteger)rightSpace {
-    return [[self getAssociatedValueForKey:_cmd] integerValue];
-}
-- (void)setRightSpace:(NSInteger)rightSpace {
-    [self setAssociateValue:@(rightSpace) withKey:@selector(rightSpace)];
-}
-
-- (NSString *)underlineStr {
-    return [self getAssociatedValueForKey:_cmd];
-}
-- (void)setUnderlineStr:(NSString *)underlineStr {
-    [self setAssociateValue:underlineStr withKey:@selector(underlineStr)];
-    
-}
-
-- (UIFont *)underlineFont {
-    return [self getAssociatedValueForKey:_cmd];
-}
-- (void)setUnderlineFont:(UIFont *)underlineFont {
-    [self setAssociateValue:underlineFont withKey:@selector(underlineFont)];
-}
-
-- (UIColor *)underlineColor {
-    return [self getAssociatedValueForKey:_cmd];
-}
-- (void)setUnderlineColor:(UIColor *)underlineColor {
-    [self setAssociateValue:underlineColor withKey:@selector(underlineColor)];
-}
-
-- (NSString *)middlelineStr {
-    return [self getAssociatedValueForKey:_cmd];
-}
-- (void)setMiddlelineStr:(NSString *)middlelineStr {
-    [self setAssociateValue:middlelineStr withKey:@selector(middlelineStr)];
-}
-
-- (UIFont *)middlelineFont {
-    return [self getAssociatedValueForKey:_cmd];
-}
-- (void)setMiddlelineFont:(UIFont *)middlelineFont {
-    [self setAssociateValue:middlelineFont withKey:@selector(middlelineFont)];
-}
-
-- (UIColor *)middlelineColor {
-    return [self getAssociatedValueForKey:_cmd];
-}
-- (void)setMiddlelineColor:(UIColor *)middlelineColor {
-    [self setAssociateValue:middlelineColor withKey:@selector(middlelineColor)];
-}
-
-/**
- 计算label宽高，必须调用
- 
- @param maxWidth 最大宽度
- @return label的size
- */
-- (CGSize)sizeThatWidth:(CGFloat)maxWidth {
-    CGSize maximumLabelSize = CGSizeMake(maxWidth, MAXFLOAT);//labelsize的最大值
-    CGSize expectSize = [self sizeThatFits:maximumLabelSize];
-    return expectSize;
-}
-
-
-/**
- 获取上述设置的属性字符串，此方法需要在所有属性设置后调用
- */
-- (NSAttributedString *)getCustomFormatString {
-    if (!self.text) self.text = @"";
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self.text];
-    [attributedString addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0,self.text.length)];
-    
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.alignment = self.textAlignment;
-    paragraphStyle.lineBreakMode = self.lineBreakMode;
-    // 行间距
-    if (self.lineSpace > 0) {
-        [paragraphStyle setLineSpacing:self.lineSpace];
-        [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0,self.text.length)];
+- (NSMutableAttributedString *)mutableAttributedString {
+    NSMutableAttributedString *attributedString = [self getAssociatedValueForKey:_cmd];
+    if (!attributedString) {
+        NSString *content = [self.text mutableCopy];
+        content = content ?: @"";
+        attributedString = [NSMutableAttributedString attributedWithString:content
+                                                                attributed:@{NSFontAttributeName: self.font}];
+        [self setMutableAttributedString:attributedString];
     }
-    
-    // 字间距
-    if (self.characterSpace > 0) {
-        long number = self.characterSpace;
+    return attributedString;
+}
+- (void)setMutableAttributedString:(NSMutableAttributedString *)mutableAttributedString {
+    [self setAssociateValue:mutableAttributedString withKey:@selector(mutableAttributedString)];
+}
+
+//字间距
+- (void)setCharSpace:(CGFloat)space {
+    if (space >= 0) {
+        NSMutableDictionary *dict = NSMutableDictionary.dictionary;
+        long number = space;
         CFNumberRef num = CFNumberCreate(kCFAllocatorDefault,kCFNumberSInt8Type,&number);
-        [attributedString addAttribute:(id)kCTKernAttributeName value:(__bridge id)num range:NSMakeRange(0,[attributedString length])];
+        [dict setObject:(__bridge id)num forKey:(id)kCTKernAttributeName];
+        [self.mutableAttributedString attributedWith:dict];
         CFRelease(num);
+        self.attributedText = self.mutableAttributedString;
     }
+}
+
+//行间距
+- (void)setLineSpace:(CGFloat)space {
+    if (space >= 0) {
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.alignment = self.textAlignment;
+        paragraphStyle.lineBreakMode = self.lineBreakMode;
+        [paragraphStyle setLineSpacing:space];
+        NSMutableDictionary *dict = NSMutableDictionary.dictionary;
+        [dict setObject:paragraphStyle forKey:NSParagraphStyleAttributeName];
+        [self.mutableAttributedString attributedWith:dict];
+        self.attributedText = self.mutableAttributedString;
+    }
+}
+
+//关键字
+- (void)setKeywords:(NSString *)keywords font:(NSFont *)font color:(UIColor *)color {
+    if (keywords && [self.text containsString:keywords]) {
+        NSRange itemRange = [self.text rangeOfString:keywords];
+        NSMutableDictionary *dict = NSMutableDictionary.dictionary;
+        if (font) {
+            [dict setObject:font forKey:NSFontAttributeName];
+        }
+        if (color) {
+            [dict setObject:color forKey:NSForegroundColorAttributeName];
+        }
+        if (dict.count > 0) {
+            [self.mutableAttributedString attributedWithRange:itemRange attributed:dict];
+            self.attributedText = self.mutableAttributedString;
+        }
+    }
+}
+
+//点击事件
+- (void)setTapKeywords:(NSArray *)keywords block:(HTapKeywordsBlock)tapBlock {
+    if (keywords.count > 0) {
+        self.attributedText = self.mutableAttributedString;
+        [self addAttributeTapActionWithStrings:keywords tapClicked:^(UILabel *label, NSString *string, NSRange range, NSInteger index) {
+            if (tapBlock) {
+                tapBlock(index);
+            }
+        }];
+    }
+}
+
+//中线
+- (void)setMiddleline:(NSString *)keywords font:(NSFont *)font color:(UIColor *)color {
+    if (keywords && [self.text containsString:keywords]) {
+        NSRange itemRange = [self.text rangeOfString:keywords];
+        NSMutableDictionary *dict = NSMutableDictionary.dictionary;
+        [dict setObject:@(NSUnderlineStyleSingle) forKey:NSBaselineOffsetAttributeName];
+        [dict setObject:@(NSUnderlineStyleSingle) forKey:NSStrikethroughStyleAttributeName];
+        if (font) {
+            [dict setObject:font forKey:NSFontAttributeName];
+        }
+        if (color) {
+            [dict setObject:color forKey:NSForegroundColorAttributeName];
+        }
+        if (dict.count > 0) {
+            [self.mutableAttributedString attributedWithRange:itemRange attributed:dict];
+            self.attributedText = self.mutableAttributedString;
+        }
+    }
+}
+
+//下划线
+- (void)setUnderline:(NSString *)keywords font:(NSFont *)font color:(UIColor *)color {
+    if (keywords && [self.text containsString:keywords]) {
+        NSRange itemRange = [self.text rangeOfString:keywords];
+        NSMutableDictionary *dict = NSMutableDictionary.dictionary;
+        [dict setObject:@(NSUnderlineStyleSingle) forKey:NSUnderlineStyleAttributeName];
+        if (font) {
+            [dict setObject:font forKey:NSFontAttributeName];
+        }
+        if (color) {
+            [dict setObject:color forKey:NSUnderlineColorAttributeName];
+        }
+        if (dict.count > 0) {
+            [self.mutableAttributedString attributedWithRange:itemRange attributed:dict];
+            self.attributedText = self.mutableAttributedString;
+        }
+    }
+}
+
+//插入图片
+- (void)setImageUrl:(NSString *)url index:(NSInteger)idx size:(CGSize)size leftSpace:(NSInteger)left rightSpace:(NSInteger)right wordAlign:(NSWordAlign)align {
     
-    //插入图片
-    if (self.imgUrl.length > 0 && !CGSizeEqualToSize(self.imgSize, CGSizeZero)) {
+    if (url.length > 0 && !CGSizeEqualToSize(size, CGSizeZero)) {
         NSTextAttachment   *attch  = [[NSTextAttachment alloc] init];
         NSAttributedString *imageString = [NSAttributedString attributedStringWithAttachment:attch];
         NSMutableAttributedString *leftSpaceString = [[NSMutableAttributedString alloc] init];
         NSMutableAttributedString *rightSpaceString = [[NSMutableAttributedString alloc] init];
-        for (int i=0; i<self.leftSpace; i++) {
+        for (int i=0; i<left; i++) {
             [leftSpaceString appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
         }
-        for (int i=0; i<self.rightSpace; i++) {
+        for (int i=0; i<right; i++) {
             [rightSpaceString appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
         }
         
@@ -202,12 +142,12 @@
         [string appendAttributedString:imageString];
         [string appendAttributedString:rightSpaceString];
         
-        if ([self.imgUrl hasPrefix:@"http"]) {
+        if ([url hasPrefix:@"http"]) {
 //            [self loadImageForUrl:url toAttach:attch syncLoadCache:NO range:range text:temp];
         }else {//加载本地图片
             if (CGSizeEqualToSize(self.frame.size, CGSizeZero)) {
-                CGSize imageSize = self.imgSize;
-                CGSize frameSize = self.imgSize;
+                CGSize imageSize = size;
+                CGSize frameSize = size;
                 CGSize  wordSize = [self.text boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.font} context:nil].size;
                 
                 frameSize.width = imageSize.width + wordSize.width;
@@ -216,7 +156,7 @@
                 }
                 
                 attch.bounds = CGRectMake(0, 0, imageSize.width, imageSize.height);
-                attch.image = [UIImage imageNamed:self.imgUrl];
+                attch.image = [UIImage imageNamed:url];
                 
                 CGRect frame = CGRectZero;
                 frame.origin = self.frame.origin;
@@ -224,14 +164,14 @@
                 self.frame = frame;
             }else {
                 //调整图片大小
-                CGSize imageSize = self.imgSize;
+                CGSize imageSize = size;
                 attch.bounds = CGRectMake(0, 0, imageSize.width, imageSize.height);
-                attch.image = [UIImage imageNamed:self.imgUrl];
+                attch.image = [UIImage imageNamed:url];
             }
         }
         
         //调整图片位置使文字居上居中居下显示
-        switch (self.wordAlign) {
+        switch (align) {
             case NSWordAlignBottom:
             {
                 CGSize  imageSize = attch.bounds.size;
@@ -265,12 +205,12 @@
         }
         
         //插入图片，插到某个序号前面
-        if (self.imgIndex < 0) {
-            [attributedString insertAttributedString:string atIndex:0];
-        }else if (self.imgIndex >= self.text.length) {
-            [attributedString appendAttributedString:string];
+        if (idx < 0) {
+            [self.mutableAttributedString insertAttributedString:string atIndex:0];
+        }else if (idx >= self.text.length) {
+            [self.mutableAttributedString appendAttributedString:string];
         }else {
-            [attributedString insertAttributedString:string atIndex:self.imgIndex];
+            [self.mutableAttributedString insertAttributedString:string atIndex:idx];
         }
         
     }else if (CGSizeEqualToSize(self.frame.size, CGSizeZero)) {
@@ -280,61 +220,19 @@
         frame.size = wordSize;
         self.frame = frame;
     }
-    
-    //关键字
-    if (self.keywords && [self.text containsString:self.keywords]) {
-        NSRange itemRange = [self.text rangeOfString:self.keywords];
-        if (self.keywordsFont) {
-            [attributedString addAttribute:NSFontAttributeName value:self.keywordsFont range:itemRange];
-        }
-        if (self.keywordsColor) {
-            [attributedString addAttribute:NSForegroundColorAttributeName value:self.keywordsColor range:itemRange];
-        }
-    }
-    
-    //点击事件
-    if (self.tapKeywordsArr) {
-        __weak typeof(self) weakSelf = self;
-        [self addAttributeTapActionWithStrings:self.tapKeywordsArr tapClicked:^(UILabel *label, NSString *string, NSRange range, NSInteger index) {
-            __strong typeof(weakSelf) strongSelf = weakSelf;
-            if (strongSelf.tapKeywordsBlock) {
-                strongSelf.tapKeywordsBlock(index);
-            }
-        }];
-    }
-    
-    //下划线
-    if (self.underlineStr && [self.text containsString:self.underlineStr]) {
-        NSRange itemRange = [self.text rangeOfString:self.underlineStr];
-        [attributedString addAttribute:NSUnderlineStyleAttributeName value:@(NSUnderlineStyleSingle) range:itemRange];
-        if (self.underlineFont) {
-            [attributedString addAttribute:NSFontAttributeName value:self.underlineFont range:itemRange];
-        }
-        if (self.underlineColor) {
-            [attributedString addAttribute:NSUnderlineColorAttributeName value:self.underlineColor range:itemRange];
-        }
-    }
-    
-    //中线
-    if (self.middlelineStr && [self.text containsString:self.middlelineStr]) {
-        NSRange itemRange = [self.text rangeOfString:self.middlelineStr];
-        [attributedString addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlineStyleSingle) range:itemRange];
-        [attributedString addAttribute:NSBaselineOffsetAttributeName value:@(NSUnderlineStyleSingle) range:itemRange];
-        if (self.middlelineFont) {
-            [attributedString addAttribute:NSFontAttributeName value:self.middlelineFont range:itemRange];
-        }
-        if (self.middlelineColor) {
-            [attributedString addAttribute:NSForegroundColorAttributeName value:self.middlelineColor range:itemRange];
-        }
-    }
-    return attributedString;
+    self.attributedText = self.mutableAttributedString;
 }
 
 /**
- 使设置的格式有效
+ 计算label宽高，必须调用
+ 
+ @param maxWidth 最大宽度
+ @return label的size
  */
-- (void)formatThatFits {
-    self.attributedText = [self getCustomFormatString];
+- (CGSize)sizeThatWidth:(CGFloat)maxWidth {
+    CGSize maximumLabelSize = CGSizeMake(maxWidth, MAXFLOAT);//labelsize的最大值
+    CGSize expectSize = [self sizeThatFits:maximumLabelSize];
+    return expectSize;
 }
 
 @end

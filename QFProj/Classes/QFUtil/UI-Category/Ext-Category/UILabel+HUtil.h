@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NSObject+HMessy.h"
 #import "UILabel+HAttributeText.h"
+#import "NSMutableAttributedString+HUtil.h"
 
 typedef NS_ENUM(NSInteger, NSWordAlign) {
     NSWordAlignBottom = 0,
@@ -20,54 +21,35 @@ typedef void(^HTapKeywordsBlock)(NSInteger index);
 
 @interface UILabel (HUtil)
 
+@property (nonatomic, readonly) NSMutableAttributedString *mutableAttributedString;
+
 //字间距
-@property (nonatomic, assign) CGFloat  characterSpace;
+- (void)setCharSpace:(CGFloat)space;
 //行间距
-@property (nonatomic, assign) CGFloat  lineSpace;
-
+- (void)setLineSpace:(CGFloat)space;
 //关键字
-@property (nonatomic, copy)   NSString *keywords;
-@property (nonatomic, strong) UIFont   *keywordsFont;
-@property (nonatomic, strong) UIColor  *keywordsColor;
-
+- (void)setKeywords:(NSString *)keywords font:(NSFont *)font color:(UIColor *)color;
 //点击事件
-@property (nonatomic, copy)   NSArray *tapKeywordsArr;
-@property (nonatomic, copy)   HTapKeywordsBlock tapKeywordsBlock;
+- (void)setTapKeywords:(NSArray *)keywords block:(HTapKeywordsBlock)tapBlock;
+//中线
+- (void)setMiddleline:(NSString *)keywords font:(NSFont *)font color:(UIColor *)color;
+//下划线
+- (void)setUnderline:(NSString *)keywords font:(NSFont *)font color:(UIColor *)color;
 
 //插入图片
-@property (nonatomic, assign) NSInteger   imgIndex;
-@property (nonatomic, assign) NSWordAlign wordAlign;
-@property (nonatomic, assign) CGSize      imgSize;
-@property (nonatomic, strong) NSString    *imgUrl;
-@property (nonatomic, assign) NSInteger   leftSpace;
-@property (nonatomic, assign) NSInteger   rightSpace;
-
-//下划线
-@property (nonatomic, copy)   NSString *underlineStr;
-@property (nonatomic, strong) UIFont   *underlineFont;
-@property (nonatomic, strong) UIColor  *underlineColor;
-
-//中线
-@property (nonatomic, copy)   NSString *middlelineStr;
-@property (nonatomic, strong) UIFont   *middlelineFont;
-@property (nonatomic, strong) UIColor  *middlelineColor;
+- (void)setImageUrl:(NSString *)url
+              index:(NSInteger)idx
+               size:(CGSize)size
+          leftSpace:(NSInteger)left
+         rightSpace:(NSInteger)right
+          wordAlign:(NSWordAlign)align;
 
 /**
  计算label宽高
-
+ 
  @param maxWidth 最大宽度
  @return label的size
  */
 - (CGSize)sizeThatWidth:(CGFloat)maxWidth;
-
-/**
- 获取上述设置的属性字符串，此方法需要在所有属性设置后调用
- */
-- (NSAttributedString *)getCustomFormatString;
-
-/**
- 使设置的格式有效
- */
-- (void)formatThatFits;
 
 @end
