@@ -185,7 +185,7 @@
     }
     
     //插入图片
-    if (self.imgUrl.length > 0 && ![NSStringFromCGSize(self.imgSize) isEqualToString:NSStringFromCGSize(CGSizeZero)]) {
+    if (self.imgUrl.length > 0 && !CGSizeEqualToSize(self.imgSize, CGSizeZero)) {
         NSTextAttachment   *attch  = [[NSTextAttachment alloc] init];
         NSAttributedString *imageString = [NSAttributedString attributedStringWithAttachment:attch];
         NSMutableAttributedString *leftSpaceString = [[NSMutableAttributedString alloc] init];
@@ -202,10 +202,10 @@
         [string appendAttributedString:imageString];
         [string appendAttributedString:rightSpaceString];
         
-        if ([self.imgUrl containsString:@"http://"] || [self.imgUrl containsString:@"https://"]) {
+        if ([self.imgUrl hasPrefix:@"http"]) {
 //            [self loadImageForUrl:url toAttach:attch syncLoadCache:NO range:range text:temp];
         }else {//加载本地图片
-            if ([NSStringFromCGSize(CGSizeZero) isEqualToString:NSStringFromCGSize(self.frame.size)]) {
+            if (CGSizeEqualToSize(self.frame.size, CGSizeZero)) {
                 CGSize imageSize = self.imgSize;
                 CGSize frameSize = self.imgSize;
                 CGSize  wordSize = [self.text boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.font} context:nil].size;
@@ -273,7 +273,7 @@
             [attributedString insertAttributedString:string atIndex:self.imgIndex];
         }
         
-    }else if ([NSStringFromCGSize(CGSizeZero) isEqualToString:NSStringFromCGSize(self.frame.size)]) {
+    }else if (CGSizeEqualToSize(self.frame.size, CGSizeZero)) {
         CGSize  wordSize = [self.text boundingRectWithSize:CGSizeMake(CGRectGetWidth(self.frame), MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.font} context:nil].size;
         CGRect frame = CGRectZero;
         frame.origin = self.frame.origin;
