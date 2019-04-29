@@ -126,21 +126,20 @@
 - (void)setImageUrl:(NSString *)url index:(NSInteger)idx size:(CGSize)size leftSpace:(NSInteger)left rightSpace:(NSInteger)right wordAlign:(NSWordAlign)align {
     
     if (url.length > 0 && !CGSizeEqualToSize(size, CGSizeZero)) {
-        NSTextAttachment   *attch  = [[NSTextAttachment alloc] init];
-        NSAttributedString *imageString = [NSAttributedString attributedStringWithAttachment:attch];
-        NSMutableAttributedString *leftSpaceString = [[NSMutableAttributedString alloc] init];
-        NSMutableAttributedString *rightSpaceString = [[NSMutableAttributedString alloc] init];
+        NSTextAttachment *attch    = [[NSTextAttachment alloc] init];
+        NSString *leftSpaceString  = @"";
+        NSString *rightSpaceString = @"";
         for (int i=0; i<left; i++) {
-            [leftSpaceString appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+            leftSpaceString = [leftSpaceString stringByAppendingString:@" "];
         }
         for (int i=0; i<right; i++) {
-            [rightSpaceString appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+            rightSpaceString = [rightSpaceString stringByAppendingString:@" "];
         }
         
         NSMutableAttributedString *string = [[NSMutableAttributedString alloc] init];
-        [string appendAttributedString:leftSpaceString];
-        [string appendAttributedString:imageString];
-        [string appendAttributedString:rightSpaceString];
+        [string appendAttributedString:[[NSAttributedString alloc] initWithString:leftSpaceString]];
+        [string appendAttributedString:[NSAttributedString attributedStringWithAttachment:attch]];
+        [string appendAttributedString:[[NSAttributedString alloc] initWithString:rightSpaceString]];
         
         if ([url hasPrefix:@"http"]) {
 //            [self loadImageForUrl:url toAttach:attch syncLoadCache:NO range:range text:temp];
@@ -172,14 +171,12 @@
         
         //调整图片位置使文字居上居中居下显示
         switch (align) {
-            case NSWordAlignBottom:
-            {
+            case NSWordAlignBottom: {
                 CGSize  imageSize = attch.bounds.size;
                 attch.bounds = CGRectMake(0, 0, imageSize.width, imageSize.height);
             }
                 break;
-            case NSWordAlignCenter:
-            {
+            case NSWordAlignCenter: {
                 CGSize  imageSize = attch.bounds.size;
                 CGSize  wordSize = [self.text boundingRectWithSize:CGSizeMake(CGRectGetWidth(self.frame), MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.font} context:nil].size;
                 CGFloat height = imageSize.height-wordSize.height;
@@ -189,8 +186,7 @@
                 attch.bounds = CGRectMake(0, height, imageSize.width, imageSize.height);
             }
                 break;
-            case NSWordAlignTop:
-            {
+            case NSWordAlignTop: {
                 CGSize  imageSize = attch.bounds.size;
                 CGSize  wordSize = [self.text boundingRectWithSize:CGSizeMake(CGRectGetWidth(self.frame), MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.font} context:nil].size;
                 CGFloat height = imageSize.height-wordSize.height;
@@ -199,7 +195,6 @@
                 attch.bounds = CGRectMake(0, height, imageSize.width, imageSize.height);
             }
                 break;
-                
             default:
                 break;
         }
