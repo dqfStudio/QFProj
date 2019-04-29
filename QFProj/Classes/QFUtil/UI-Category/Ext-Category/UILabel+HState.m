@@ -73,7 +73,6 @@ DYNAMIC(selectedBackgroundColor,setSelectedBackgroundColor,UIColor*)
 - (void)setLabelState:(UILabelState)labelState {
     objc_setAssociatedObject(self, @selector(labelState), @(labelState), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-
 - (BOOL)isSelecting {
     if (objc_getAssociatedObject(self, _cmd)) {
         return [objc_getAssociatedObject(self, _cmd) boolValue];
@@ -85,7 +84,6 @@ DYNAMIC(selectedBackgroundColor,setSelectedBackgroundColor,UIColor*)
 - (void)setSelecting:(BOOL)selecting {
     objc_setAssociatedObject(self, @selector(isSelecting), @(selecting), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-
 - (BOOL)isSelected {
     if (self.labelState == UILabelStateSelected) return YES;
     return NO;
