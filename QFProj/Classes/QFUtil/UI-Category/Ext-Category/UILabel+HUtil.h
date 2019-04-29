@@ -44,6 +44,9 @@ typedef void(^HTapKeywordsBlock)(NSInteger index);
          rightSpace:(NSInteger)right
           wordAlign:(NSWordAlign)align;
 
+//字间距
+- (void)setCharWith:(NSArray <NSNumber *>*)idxs space:(NSArray <NSNumber *>*)spaces;
+
 /**
  计算label宽高
  

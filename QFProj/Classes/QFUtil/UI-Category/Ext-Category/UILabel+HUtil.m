@@ -122,6 +122,25 @@
     }
 }
 
+//字间距
+- (void)setCharWith:(NSArray <NSNumber *>*)idxs space:(NSArray <NSNumber *>*)spaces {
+    if (idxs.count == spaces.count && idxs.count > 0) {
+        for (int i=0; i<idxs.count; i++) {
+            NSNumber *idx = idxs[i];
+            NSNumber *space = spaces[i];
+            NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
+            paragraphStyle.alignment = self.textAlignment;
+            paragraphStyle.lineBreakMode = self.lineBreakMode;
+            [paragraphStyle setLineSpacing:space.integerValue];
+            NSMutableDictionary *dict = NSMutableDictionary.dictionary;
+            [dict setObject:paragraphStyle forKey:NSParagraphStyleAttributeName];
+            NSRange range = NSMakeRange(idx.integerValue, 1);
+            [self.mutableAttributedString attributedWithRange:range attributed:dict];
+        }
+        self.attributedText = self.mutableAttributedString;
+    }
+}
+
 //插入图片
 - (void)setImageUrl:(NSString *)url index:(NSInteger)idx size:(CGSize)size leftSpace:(NSInteger)left rightSpace:(NSInteger)right wordAlign:(NSWordAlign)align {
     
