@@ -54,7 +54,7 @@
 }
 
 //关键字
-- (void)setKeywords:(NSString *)keywords font:(NSFont *)font color:(UIColor *)color {
+- (void)setKeywords:(NSString *)keywords font:(UIFont *)font color:(UIColor *)color {
     if (keywords && [self.text containsString:keywords]) {
         NSRange itemRange = [self.text rangeOfString:keywords];
         NSMutableDictionary *dict = NSMutableDictionary.dictionary;
@@ -84,7 +84,7 @@
 }
 
 //中线
-- (void)setMiddleline:(NSString *)keywords font:(NSFont *)font color:(UIColor *)color {
+- (void)setMiddleline:(NSString *)keywords font:(UIFont *)font color:(UIColor *)color {
     if (keywords && [self.text containsString:keywords]) {
         NSRange itemRange = [self.text rangeOfString:keywords];
         NSMutableDictionary *dict = NSMutableDictionary.dictionary;
@@ -104,7 +104,7 @@
 }
 
 //下划线
-- (void)setUnderline:(NSString *)keywords font:(NSFont *)font color:(UIColor *)color {
+- (void)setUnderline:(NSString *)keywords font:(UIFont *)font color:(UIColor *)color {
     if (keywords && [self.text containsString:keywords]) {
         NSRange itemRange = [self.text rangeOfString:keywords];
         NSMutableDictionary *dict = NSMutableDictionary.dictionary;
@@ -128,14 +128,13 @@
         for (int i=0; i<idxs.count; i++) {
             NSNumber *idx = idxs[i];
             NSNumber *space = spaces[i];
-            NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
-            paragraphStyle.alignment = self.textAlignment;
-            paragraphStyle.lineBreakMode = self.lineBreakMode;
-            [paragraphStyle setLineSpacing:space.integerValue];
+            long number = space.longValue;
+            CFNumberRef numberRef = CFNumberCreate(kCFAllocatorDefault,kCFNumberSInt8Type,&number);
             NSMutableDictionary *dict = NSMutableDictionary.dictionary;
-            [dict setObject:paragraphStyle forKey:NSParagraphStyleAttributeName];
+            [dict setObject:(__bridge id)numberRef forKey:(id)kCTKernAttributeName];
             NSRange range = NSMakeRange(idx.integerValue, 1);
             [self.mutableAttributedString attributedWithRange:range attributed:dict];
+            CFRelease(numberRef);
         }
         self.attributedText = self.mutableAttributedString;
     }

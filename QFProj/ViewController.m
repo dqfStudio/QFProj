@@ -35,7 +35,7 @@
 #import "HResultView.h"
 
 @interface ViewController () <HTupleViewDelegate> {
-    UILabel *label;
+//    UILabel *label;
 }
 @property (nonatomic) NSString *TestString;
 @property (nonatomic) BOOL yn;
@@ -65,6 +65,13 @@ H_CheckPropertyRange(rrr, 0, 150)
     [self.view setBackgroundColor:[UIColor whiteColor]];
 //    + (void)showInView:(UIView *)view withType:(HWaitingType)type;
 //    [HWaitingView showInView:self.view withType:HWaitingTypeBlack];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 150)];
+    [label setText:@"fdsf"];
+    [label setBackgroundColor:[UIColor yellowColor]];
+    [self.view addSubview:label];
+    
+    return;
     
     [HResultView showInView:self.view withType:HResultTypeLoadError clickedBlock:^{
         NSLog(@"");
@@ -599,12 +606,12 @@ H_CheckPropertyRange(rrr, 0, 150)
 //- (void)tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 
 - (void)btnAction {
-    NSLog(@"%@",label);
-    if (label.isSelected) {
-        [label setSelected:NO];
-    }else {
-        [label setSelected:YES];
-    }
+//    NSLog(@"%@",label);
+//    if (label.isSelected) {
+//        [label setSelected:NO];
+//    }else {
+//        [label setSelected:YES];
+//    }
 }
 
 @end

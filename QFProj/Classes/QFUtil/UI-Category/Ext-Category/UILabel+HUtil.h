@@ -28,13 +28,13 @@ typedef void(^HTapKeywordsBlock)(NSInteger index);
 //行间距
 - (void)setLineSpace:(CGFloat)space;
 //关键字
-- (void)setKeywords:(NSString *)keywords font:(NSFont *)font color:(UIColor *)color;
+- (void)setKeywords:(NSString *)keywords font:(UIFont *)font color:(UIColor *)color;
 //点击事件
 - (void)setTapKeywords:(NSArray *)keywords block:(HTapKeywordsBlock)tapBlock;
 //中线
-- (void)setMiddleline:(NSString *)keywords font:(NSFont *)font color:(UIColor *)color;
+- (void)setMiddleline:(NSString *)keywords font:(UIFont *)font color:(UIColor *)color;
 //下划线
-- (void)setUnderline:(NSString *)keywords font:(NSFont *)font color:(UIColor *)color;
+- (void)setUnderline:(NSString *)keywords font:(UIFont *)font color:(UIColor *)color;
 
 //插入图片
 - (void)setImageUrl:(NSString *)url
