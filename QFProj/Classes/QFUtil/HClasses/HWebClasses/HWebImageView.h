@@ -51,6 +51,13 @@
 - (void)setImageUrlString:(NSString *)urlString syncLoadCache:(BOOL)syncLoadCache;
 
 /**
+ *  设置图片名称，通过文件的方式加载
+ *
+ *  @param fileName 图片名称
+ */
+- (void)setImageWithFile:(NSString *)fileName;
+
+/**
  *  直接设置图片
  *
  *  @param image 图片

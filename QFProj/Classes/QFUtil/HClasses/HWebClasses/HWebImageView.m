@@ -85,6 +85,14 @@
         self.imageView.image = [self.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     }
 }
+- (void)setImageWithFile:(NSString *)fileName {
+    if (fileName) {
+        NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
+        NSString *filePath = [resourcePath stringByAppendingPathComponent:fileName];
+        UIImage *image = [UIImage imageWithContentsOfFile:filePath];
+        [self setImage:image];
+    }
+}
 - (void)setImage:(UIImage *)image {
     [self _setImage:image];
     self.lastURL = nil;
