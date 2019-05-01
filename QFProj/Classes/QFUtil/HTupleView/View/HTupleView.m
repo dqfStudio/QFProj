@@ -441,6 +441,10 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
             }
         }else {
             cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+            if (!cell) {
+                [self registerClass:cls forCellWithReuseIdentifier:identifier];
+                cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+            }
         }
         UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
         if (!self.categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForItemAtIndexPath:)]) {
@@ -502,6 +506,10 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
                 }
             }else {
                 cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
+                if (!cell) {
+                    [self registerClass:cls forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier];
+                    cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
+                }
             }
             UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
             if (!self.categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForHeaderInSection:)]) {
@@ -558,6 +566,10 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
                 }
             }else {
                 cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
+                if (!cell) {
+                    [self registerClass:cls forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier];
+                    cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
+                }
             }
             UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
             if (!self.categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForFooterInSection:)]) {

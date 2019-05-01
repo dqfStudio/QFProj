@@ -388,6 +388,10 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
             }
         }else {
             cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+            if (!cell) {
+                [self registerClass:cls forHeaderFooterViewReuseIdentifier:identifier];
+                cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+            }
         }
         if ([cell respondsToSelector:@selector(layoutContentView)]) {
             [(HBaseHeaderFooterView *)cell layoutContentView];
@@ -436,6 +440,10 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
             }
         }else {
             cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+            if (!cell) {
+                [self registerClass:cls forHeaderFooterViewReuseIdentifier:identifier];
+                cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+            }
         }
         if ([cell respondsToSelector:@selector(layoutContentView)]) {
             [(HBaseHeaderFooterView *)cell layoutContentView];
@@ -484,6 +492,10 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
             }
         }else {
             cell = [self dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+            if (!cell) {
+                [self registerClass:cls forCellReuseIdentifier:identifier];
+                cell = [self dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+            }
         }
         if ([cell respondsToSelector:@selector(layoutContentView)]) {
             [(HTableBaseCell *)cell layoutContentView];
