@@ -103,5 +103,16 @@
 
 @end
 
+@implementation UIViewController (HJumper)
+- (void)presentViewController:(UIViewController *)viewControllerToPresent param:(NSDictionary *)dict animated:(BOOL)flag completion:(void (^ __nullable)(void))completion {
+    if (dict) [viewControllerToPresent autoFill:dict map:nil exclusive:YES isDepSearch:NO];
+    [self presentViewController:viewControllerToPresent animated:flag completion:completion];
+}
+@end
 
-
+@implementation UINavigationController (HJumper)
+- (void)pushViewController:(UIViewController *)viewController param:(NSDictionary *)dict animated:(BOOL)animated {
+    if (dict) [viewController autoFill:dict map:nil exclusive:YES isDepSearch:NO];
+    [self pushViewController:viewController animated:animated];
+}
+@end

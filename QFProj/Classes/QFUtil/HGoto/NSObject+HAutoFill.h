@@ -29,6 +29,7 @@
 
 + (id)autoFill:(id)params map:(NSDictionary *)mapKeys exclusive:(BOOL)exclusive;
 - (void)autoFill:(id)params map:(NSDictionary *)mapKeys exclusive:(BOOL)exclusive;
+- (void)autoFill:(id)params map:(NSDictionary *)mapKeys exclusive:(BOOL)exclusive isDepSearch:(BOOL)deepSearch;
 
 //把属性的值置空
 - (void)autoClear;

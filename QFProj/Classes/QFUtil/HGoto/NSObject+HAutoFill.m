@@ -72,6 +72,9 @@
     return object;
 }
 - (void)autoFill:(id)params map:(NSDictionary *)mapKeys exclusive:(BOOL)exclusive {
+    [self autoFill:params map:mapKeys exclusive:exclusive isDepSearch:YES];
+}
+- (void)autoFill:(id)params map:(NSDictionary *)mapKeys exclusive:(BOOL)exclusive isDepSearch:(BOOL)deepSearch {
     NSDictionary *dict = nil;
     if ([params isKindOfClass:NSData.class]) {
         dict = [NSJSONSerialization JSONObjectWithData:params
@@ -86,7 +89,7 @@
     }
     
     if (dict) {
-        NSArray<HGOTOPropertyDetail *> *pplist = [HGotoRuntimeSupport entityPropertyDetailList:[self class] isDepSearch:YES];
+        NSArray<HGOTOPropertyDetail *> *pplist = [HGotoRuntimeSupport entityPropertyDetailList:[self class] isDepSearch:deepSearch];
         for (HGOTOPropertyDetail *ppDetail in pplist) {
             NSString *mappedKey = nil;
             if (!mappedKey) mappedKey = mapKeys[ppDetail.name];
@@ -134,7 +137,7 @@
         }
     }else {
         NSString *mockString = @"太阳初升万物初始生之气最盛虽不能如传说中那般餐霞食气但这样迎霞锻体自也有莫大好处可充盈人体生机天之计在于晨每日早起多用功强筋壮骨活血炼筋将来才能在这苍莽山脉中有活命的本钱";
-        NSArray<HGOTOPropertyDetail *> *pplist = [HGotoRuntimeSupport entityPropertyDetailList:[self class] isDepSearch:YES];
+        NSArray<HGOTOPropertyDetail *> *pplist = [HGotoRuntimeSupport entityPropertyDetailList:[self class] isDepSearch:deepSearch];
         for (HGOTOPropertyDetail *ppDetail in pplist) {
             if ([ppDetail.typeString isEqualToString:NSStringFromClass(NSString.class)]) {
                 int index = arc4random() % (mockString.length - 3);
