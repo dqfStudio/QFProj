@@ -102,11 +102,15 @@
     }
 }
 - (void)setImageWithFile:(NSString *)fileName {
-    if (fileName) {
+    if (fileName.length > 0) {
         NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
         NSString *filePath = [resourcePath stringByAppendingPathComponent:fileName];
         UIImage *image = [UIImage imageWithContentsOfFile:filePath];
         [self setImage:image];
+    }else {
+        [self _setImage:nil];
+        self.lastURL = nil;
+        if (self.didGetError) self.didGetError(self, herr(kDataFormatErrorCode, ([NSString stringWithFormat:@"url = %@", fileName])));
     }
 }
 - (void)setImage:(UIImage *)image {
