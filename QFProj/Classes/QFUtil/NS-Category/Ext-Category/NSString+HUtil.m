@@ -64,7 +64,7 @@
                                    CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
                                                                            (__bridge CFStringRef)self,
                                                                            NULL,
-                                                                           (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                           (CFStringRef)@"!*'();:@&=-_+$,/?%#[]",
                                                                            kCFStringEncodingUTF8)
                                    );
     return outputStr;
