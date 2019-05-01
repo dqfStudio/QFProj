@@ -170,6 +170,7 @@
 + (void)call:(NSString *)phone {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    if (!phone) return;
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", phone]]];
 #pragma clang diagnostic pop
 }

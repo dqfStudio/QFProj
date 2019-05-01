@@ -57,31 +57,33 @@
 }
 
 - (NSString *)encode {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    NSString *outputStr =
-    (NSString *) CFBridgingRelease(
-                                   CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                           (__bridge CFStringRef)self,
-                                                                           NULL,
-                                                                           (CFStringRef)@"!*'();:@&=-_+$,/?%#[]",
-                                                                           kCFStringEncodingUTF8)
-                                   );
-    return outputStr;
-#pragma clang diagnostic pop
+//#pragma clang diagnostic push
+//#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+//    NSString *outputStr =
+//    (NSString *) CFBridgingRelease(
+//                                   CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+//                                                                           (__bridge CFStringRef)self,
+//                                                                           NULL,
+//                                                                           (CFStringRef)@"!*'();:@&=-_+$,/?%#[]",
+//                                                                           kCFStringEncodingUTF8)
+//                                   );
+//    return outputStr;
+//#pragma clang diagnostic pop
+    return [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
 }
 
 - (NSString *)decode {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    NSMutableString *outputStr = [NSMutableString stringWithString:self];
-    [outputStr replaceOccurrencesOfString:@"+"
-                               withString:@" "
-                                  options:NSLiteralSearch
-                                    range:NSMakeRange(0, [outputStr length])];
-    
-    return [outputStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-#pragma clang diagnostic pop
+//#pragma clang diagnostic push
+//#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+//    NSMutableString *outputStr = [NSMutableString stringWithString:self];
+//    [outputStr replaceOccurrencesOfString:@"+"
+//                               withString:@" "
+//                                  options:NSLiteralSearch
+//                                    range:NSMakeRange(0, [outputStr length])];
+//
+//    return [outputStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//#pragma clang diagnostic pop
+    return [self stringByRemovingPercentEncoding];
 }
 
 //判断是否有emoji

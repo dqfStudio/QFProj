@@ -13,8 +13,6 @@
 
 + (NSString *)stringMoneyFamat:(NSString *)number;
 
-+ (NSString *)stringChineseFamat:(NSString *)number;
-
 + (NSString *)UTCchangeDate:(NSString *)utc;
 
 + (NSString *)getCurrentDateTime;

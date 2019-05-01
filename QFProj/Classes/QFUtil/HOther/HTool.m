@@ -44,11 +44,6 @@
     }
 }
 
-+ (NSString *)stringChineseFamat:(NSString *)number {
-    NSString *url = [number stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    return url;
-}
-
 + (NSString *)UTCchangeDate:(NSString *)utc {
     
     NSTimeInterval time = [utc doubleValue]/1000;
