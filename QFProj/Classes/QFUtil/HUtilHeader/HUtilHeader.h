@@ -38,6 +38,8 @@
 #import "NSObject+HUtil.h"
 #import "NSString+HUtil.h"
 #import "NSTimer+HUtil.h"
+#import "NSDictionary+Util.h"
+#import "NSMutableAttributedString+HUtil.h"
 #import "NSUserDefaults+HUtil.h"
 
 //Block-Category
