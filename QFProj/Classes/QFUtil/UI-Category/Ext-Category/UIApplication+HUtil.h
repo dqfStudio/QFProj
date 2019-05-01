@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSString+HUtil.h"
 #import "AppDelegate.h"
 
 typedef NS_ENUM(NSInteger, YPNetworkStatus) {

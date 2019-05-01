@@ -178,24 +178,7 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     if (!URLString) return;
-    if ([self containChinese:URLString]) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self stringChineseFamat:URLString]]];
-    }else {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URLString]];
-    }
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[URLString encode]]];
 #pragma clang diagnostic pop
-}
-+ (NSString *)stringChineseFamat:(NSString *)aString {
-    return [aString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-}
-//是否含有中文，YES：有中文；NO：没有中文
-+ (BOOL)containChinese:(NSString *)aString {
-    for (int i = 0; i < aString.length; i++) {
-        unichar ch = [aString characterAtIndex:i];
-        if (0x4E00 <= ch  && ch <= 0x9FA5) {
-            return YES;
-        }
-    }
-    return NO;
 }
 @end

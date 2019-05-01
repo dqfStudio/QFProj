@@ -29,7 +29,7 @@ HGotoReg(@"app")
 }
 
 + (BOOL)canOpenURL:(NSString *)url {
-    return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:url]];
+    return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[url decode]]];
 }
 
 + (BOOL)openURL:(NSString *)url {
