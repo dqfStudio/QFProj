@@ -301,8 +301,6 @@
                 }
             }
         }else {
-            //set text
-            [self setKeywords:text font:nil color:nil];
             //遍历其他属性
             for (int j=0; j<idArr.count; j++) {
                 NSString *idString = idArr[j];
@@ -313,11 +311,12 @@
                     if ([value containsString:@"+"]) {
                         value = [value stringByReplacingOccurrencesOfString:@"+" withString:@""];
                         [self setFont:[UIFont boldSystemFontOfSize:value.integerValue]];
+                        [self setKeywords:text font:[UIFont boldSystemFontOfSize:value.integerValue] color:nil];
                     }else {
-                        [self setFont:[UIFont systemFontOfSize:value.integerValue]];
+                        [self setKeywords:text font:[UIFont systemFontOfSize:value.integerValue] color:nil];
                     }
                 }else if ([key isEqualToString:@"color"]) {
-                    [self setTextColor:[UIColor colorWithString:value]];
+                    [self setKeywords:text font:nil color:[UIColor colorWithString:value]];
                 }else if ([key isEqualToString:@"click"]) {
                     if ([value isEqualToString:@"true"]) {
                         [self setTapKeywords:@[text] block:^(NSInteger index) {
