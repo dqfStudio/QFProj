@@ -244,6 +244,7 @@
     NSArray *tagArr = [aString componentsByString:@"<@"];
     for (int i=0; i<tagArr.count; i++) {
         NSString *tagString = tagArr[i];
+        if (tagString.length == 0) continue;
         NSArray *flagArr = [tagString componentsByString:@"@>"];
         NSString *text = flagArr.lastObject;
         NSString *flagString = flagArr.firstObject;

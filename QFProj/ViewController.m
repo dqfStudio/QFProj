@@ -71,6 +71,8 @@ H_CheckPropertyRange(rrr, 0, 150)
     [label setBackgroundColor:[UIColor yellowColor]];
     [self.view addSubview:label];
     
+    [label parse:nil block:nil];
+    
     return;
     
     [HResultView showInView:self.view withType:HResultTypeLoadError clickedBlock:^{
