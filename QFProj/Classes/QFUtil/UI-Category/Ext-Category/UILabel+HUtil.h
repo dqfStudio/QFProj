@@ -10,6 +10,8 @@
 #import "NSObject+HMessy.h"
 #import "UILabel+HAttributeText.h"
 #import "NSMutableAttributedString+HUtil.h"
+#import "NSString+HChain.h"
+#import "UIColor+HUtil.h"
 
 typedef NS_ENUM(NSInteger, NSWordAlign) {
     NSWordAlignBottom = 0,
@@ -46,6 +48,8 @@ typedef void(^HTapKeywordsBlock)(NSInteger index);
 
 //字间距
 - (void)setCharWith:(NSArray <NSNumber *>*)idxs space:(NSArray <NSNumber *>*)spaces;
+
+- (void)parse:(NSString *)aString block:(HTapKeywordsBlock)tapBlock;
 
 /**
  计算label宽高

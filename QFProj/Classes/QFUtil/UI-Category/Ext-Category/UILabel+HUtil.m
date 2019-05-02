@@ -236,6 +236,114 @@
     self.attributedText = self.mutableAttributedString;
 }
 
+- (void)parse:(NSString *)aString block:(HTapKeywordsBlock)tapBlock {
+    
+    //解析如下字符串
+    //NSString *string = @"<@flag=global,linespace=5,lines=0,font=12,color=123456@>张三李四<@font=12,color=123456,headerspace=5,footerspace=10@>张三<@font=12,color=123456,click=action,underliane=true,middleline=true,headerspace=auto@>李四";
+
+    NSArray *tagArr = [aString componentsByString:@"<@"];
+    for (int i=0; i<tagArr.count; i++) {
+        NSString *tagString = tagArr[i];
+        NSArray *flagArr = [tagString componentsByString:@"@>"];
+        NSString *text = flagArr.lastObject;
+        NSString *flagString = flagArr.firstObject;
+        flagString = [flagString stringByReplacingOccurrencesOfString:@"，" withString:@","];
+        flagString = [flagString stringByReplacingOccurrencesOfString:@" " withString:@""];
+        NSArray *idArr = [flagString componentsByString:@","];
+        if ([idArr containsObject:@"flag=global"]) {
+            //set text
+            [self setText:text];
+            //遍历其他属性
+            for (int j=0; j<idArr.count; j++) {
+                NSString *idString = idArr[j];
+                NSArray *arr = [idString componentsByString:@"="];
+                NSString *key = arr.firstObject;
+                NSString *value = arr.lastObject;
+                if ([key isEqualToString:@"lines"]) {
+                    [self setNumberOfLines:value.integerValue];
+                }else if ([key isEqualToString:@"linespace"]) {
+                    [self setLineSpace:value.integerValue];
+                }else if ([key isEqualToString:@"font"]) {
+                    if ([value containsString:@"+"]) {
+                        value = [value stringByReplacingOccurrencesOfString:@"+" withString:@""];
+                        [self setFont:[UIFont boldSystemFontOfSize:value.integerValue]];
+                    }else {
+                        [self setFont:[UIFont systemFontOfSize:value.integerValue]];
+                    }
+                }else if ([key isEqualToString:@"color"]) {
+                    [self setTextColor:[UIColor colorWithString:value]];
+                }else if ([key isEqualToString:@"align"]) {
+                    if ([value isEqualToString:@"left"]) {
+                        [self setTextAlignment:NSTextAlignmentLeft];
+                    }else if ([value isEqualToString:@"center"]) {
+                        [self setTextAlignment:NSTextAlignmentCenter];
+                    }else if ([value isEqualToString:@"right"]) {
+                        [self setTextAlignment:NSTextAlignmentRight];
+                    }
+                }else if ([key isEqualToString:@"click"]) {
+                    if ([value isEqualToString:@"true"]) {
+                        [self setTapKeywords:@[text] block:^(NSInteger index) {
+                            if (tapBlock) {
+                                tapBlock(index);
+                            }
+                        }];
+                    }
+                }else if ([key isEqualToString:@"underliane"]) {
+                    if ([value isEqualToString:@"true"]) {
+                        [self setUnderline:text font:nil color:nil];
+                    }
+                }else if ([key isEqualToString:@"middleline"]) {
+                    if ([value isEqualToString:@"true"]) {
+                        [self setMiddleline:text font:nil color:nil];
+                    }
+                }else if ([key isEqualToString:@"backgroundcolor"]) {
+                    [self setBackgroundColor:[UIColor colorWithString:value]];
+                }
+            }
+        }else {
+            //set text
+            [self setKeywords:text font:nil color:nil];
+            //遍历其他属性
+            for (int j=0; j<idArr.count; j++) {
+                NSString *idString = idArr[j];
+                NSArray *arr = [idString componentsByString:@"="];
+                NSString *key = arr.firstObject;
+                NSString *value = arr.lastObject;
+                if ([key isEqualToString:@"font"]) {
+                    if ([value containsString:@"+"]) {
+                        value = [value stringByReplacingOccurrencesOfString:@"+" withString:@""];
+                        [self setFont:[UIFont boldSystemFontOfSize:value.integerValue]];
+                    }else {
+                        [self setFont:[UIFont systemFontOfSize:value.integerValue]];
+                    }
+                }else if ([key isEqualToString:@"color"]) {
+                    [self setTextColor:[UIColor colorWithString:value]];
+                }else if ([key isEqualToString:@"click"]) {
+                    if ([value isEqualToString:@"true"]) {
+                        [self setTapKeywords:@[text] block:^(NSInteger index) {
+                            if (tapBlock) {
+                                tapBlock(index);
+                            }
+                        }];
+                    }
+                }else if ([key isEqualToString:@"underliane"]) {
+                    if ([value isEqualToString:@"true"]) {
+                        [self setUnderline:text font:nil color:nil];
+                    }
+                }else if ([key isEqualToString:@"middleline"]) {
+                    if ([value isEqualToString:@"true"]) {
+                        [self setMiddleline:text font:nil color:nil];
+                    }
+                }else if ([key isEqualToString:@"headerspace"]) {
+                    
+                }else if ([key isEqualToString:@"footerspace"]) {
+                    
+                }
+            }
+        }
+    }
+}
+
 /**
  计算label宽高，必须调用
  
