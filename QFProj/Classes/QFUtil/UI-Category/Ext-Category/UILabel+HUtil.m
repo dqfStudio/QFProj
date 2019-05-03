@@ -240,6 +240,8 @@
     
     //解析如下字符串
     //NSString *string = @"</flag=global,linespace=5,lines=0,font=12,color=123456/>张三李四</font=12,color=123456,headerspace=5,footerspace=10/>张三</font=12,color=123456,click=true,underliane=true,middleline=true,headerspace=auto/>李四";
+    
+    NSString *string = @"</flag=global,linespace=5,lines=0,font=12,color=123456/>张三李四</flag=text,font=12,color=123456,headerspace=5,footerspace=10/>张三</flag=text,font=12,color=123456,click=true,underliane=true,middleline=true,headerspace=auto/>李四</flag=image,index=0,click=true/>test.png</flag=image,index=0,click=true/>http://test.png";
 
     NSArray *tagArr = [aString componentsByString:@"</"];
     for (int i=0; i<tagArr.count; i++) {
@@ -301,7 +303,7 @@
                     [self setBackgroundColor:[UIColor colorWithString:value]];
                 }
             }
-        }else {
+        }else if ([idArr containsObject:@"flag=text"]) {
             //遍历其他属性
             for (int j=0; j<idArr.count; j++) {
                 NSString *idString = idArr[j];
@@ -334,6 +336,50 @@
                     if ([value isEqualToString:@"true"]) {
                         [self setMiddleline:text font:nil color:nil];
                     }
+                }else if ([key isEqualToString:@"headerspace"]) {
+                    
+                }else if ([key isEqualToString:@"footerspace"]) {
+                    
+                }
+            }
+        }else if ([idArr containsObject:@"flag=image"]) {
+            //</flag=image,index=0,click=true/>http://test.png";
+            //遍历其他属性
+            for (int j=0; j<idArr.count; j++) {
+                NSString *idString = idArr[j];
+                NSArray *arr = [idString componentsByString:@"="];
+                NSString *key = arr.firstObject;
+                NSString *value = arr.lastObject;
+                if ([key isEqualToString:@"index"]) {
+//                    if ([value containsString:@"+"]) {
+//                        value = [value stringByReplacingOccurrencesOfString:@"+" withString:@""];
+//                        [self setFont:[UIFont boldSystemFontOfSize:value.integerValue]];
+//                        [self setKeywords:text font:[UIFont boldSystemFontOfSize:value.integerValue] color:nil];
+//                    }else {
+//                        [self setKeywords:text font:[UIFont systemFontOfSize:value.integerValue] color:nil];
+//                    }
+                    NSTextAttachment *attch = NSTextAttachment.new;
+                    
+                }else if ([key isEqualToString:@"color"]) {
+                    [self setKeywords:text font:nil color:[UIColor colorWithString:value]];
+                }else if ([key isEqualToString:@"click"]) {
+                    if ([value isEqualToString:@"true"]) {
+                        [self setTapKeywords:@[text] block:^(NSInteger index) {
+                            if (tapBlock) {
+                                tapBlock(index);
+                            }
+                        }];
+                    }
+                }else if ([key isEqualToString:@"underliane"]) {
+                    if ([value isEqualToString:@"true"]) {
+                        [self setUnderline:text font:nil color:nil];
+                    }
+                }else if ([key isEqualToString:@"middleline"]) {
+                    if ([value isEqualToString:@"true"]) {
+                        [self setMiddleline:text font:nil color:nil];
+                    }
+                }else if ([key isEqualToString:@"headerspace"]) {
+                    
                 }else if ([key isEqualToString:@"headerspace"]) {
                     
                 }else if ([key isEqualToString:@"footerspace"]) {
