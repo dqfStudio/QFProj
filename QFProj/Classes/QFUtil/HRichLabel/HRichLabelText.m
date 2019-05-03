@@ -158,7 +158,6 @@ static void const * HTextLongPressKey = &HTextLongPressKey;
 
 - (instancetype)initWithAttributeString:(NSAttributedString *)str singleTap:(nullable HTextBlock)singleTap {
     NSMutableAttributedString *one = [[NSMutableAttributedString alloc] initWithAttributedString:str];
-    
     if (singleTap) {
         one.singleTap = singleTap;
     }
@@ -204,9 +203,18 @@ static void const * HTextLongPressKey = &HTextLongPressKey;
     NSAttributedString *str = [[NSAttributedString alloc] initWithString:text];
     [self appendAttributedString:str];
 }
+- (void)appendString:(NSString *)text singleTap:(nullable HTextBlock)singleTap {
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:text singleTap:singleTap];
+    [self appendAttributedString:str];
+}
+
 
 - (void)appendAttachment:(HTextAttachment *)attachment {
     NSMutableAttributedString *one = [[NSMutableAttributedString alloc] initWithAttachment:attachment singleTap:nil];
+    [self appendAttributedString:one];
+}
+- (void)appendAttachment:(HTextAttachment *)attachment singleTap:(nullable HTextBlock)singleTap {
+    NSMutableAttributedString *one = [[NSMutableAttributedString alloc] initWithAttachment:attachment singleTap:singleTap];
     [self appendAttributedString:one];
 }
 

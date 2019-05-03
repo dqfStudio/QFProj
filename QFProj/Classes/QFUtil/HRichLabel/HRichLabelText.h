@@ -67,7 +67,10 @@ NS_EXTENSION_UNAVAILABLE_IOS("");
                          longPress:(nullable HTextBlock)longPress;
 
 - (void)appendString:(NSString *)text;
+- (void)appendString:(NSString *)text singleTap:(nullable HTextBlock)singleTap;
+
 - (void)appendAttachment:(HTextAttachment *)attachment;
+- (void)appendAttachment:(HTextAttachment *)attachment singleTap:(nullable HTextBlock)singleTap;
 
 @end
 

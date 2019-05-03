@@ -17,8 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nullable, nonatomic, copy) NSString *text;
 
-@property (nullable, nonatomic,strong) UIFont *font;
-@property (nullable, nonatomic,strong) UIColor *textColor;
+@property (nullable, nonatomic, strong) UIFont *font;
+@property (nullable, nonatomic, strong) UIColor *textColor;
 
 @property (nullable, nonatomic, copy) NSAttributedString *attributedText;
 
