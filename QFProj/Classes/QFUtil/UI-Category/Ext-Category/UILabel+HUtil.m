@@ -239,7 +239,7 @@
 - (void)parse:(NSString *)aString block:(HTapKeywordsBlock)tapBlock {
     
     //解析如下字符串
-    //NSString *string = @"<@flag=global,linespace=5,lines=0,font=12,color=123456@>张三李四<@font=12,color=123456,headerspace=5,footerspace=10@>张三<@font=12,color=123456,click=action,underliane=true,middleline=true,headerspace=auto@>李四";
+    //NSString *string = @"<@flag=global,linespace=5,lines=0,font=12,color=123456@>张三李四<@font=12,color=123456,headerspace=5,footerspace=10@>张三<@font=12,color=123456,click=true,underliane=true,middleline=true,headerspace=auto@>李四";
 
     NSArray *tagArr = [aString componentsByString:@"<@"];
     for (int i=0; i<tagArr.count; i++) {
