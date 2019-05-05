@@ -23,20 +23,6 @@
 @end
 
 @implementation HReusableLabelView
-- (UILabel *)label {
-    if (!_label) {
-        _label = [UILabel new];
-        [_label setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:_label];
-    }
-    return _label;
-}
-- (void)layoutContentView {
-    HLayoutReusableTupleView(self.label)
-}
-@end
-
-@implementation HReusableRichLabelView
 - (HRichLabel *)label {
     if (!_label) {
         _label = [HRichLabel new];
