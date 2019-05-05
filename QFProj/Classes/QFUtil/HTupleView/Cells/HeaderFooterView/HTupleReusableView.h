@@ -22,6 +22,10 @@ typedef void(^HReusableImageViewBlock)(HWebImageView *webImageView, HReusableIma
 @end
 
 @interface HReusableLabelView : HTupleBaseView
+@property (nonatomic) UILabel *label;
+@end
+
+@interface HReusableRichLabelView : HTupleBaseCell
 @property (nonatomic) HRichLabel *label;
 @end
 
