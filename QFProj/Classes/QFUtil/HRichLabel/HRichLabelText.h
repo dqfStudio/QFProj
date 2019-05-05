@@ -69,8 +69,14 @@ NS_EXTENSION_UNAVAILABLE_IOS("");
 - (void)appendString:(NSString *)text;
 - (void)appendString:(NSString *)text singleTap:(nullable HTextBlock)singleTap;
 
+- (void)insertString:(NSString *)text atIndex:(NSUInteger)loc;
+- (void)insertString:(NSString *)text atIndex:(NSUInteger)loc singleTap:(nullable HTextBlock)singleTap;
+
 - (void)appendAttachment:(HTextAttachment *)attachment;
 - (void)appendAttachment:(HTextAttachment *)attachment singleTap:(nullable HTextBlock)singleTap;
+
+- (void)insertAttachment:(HTextAttachment *)attachment atIndex:(NSUInteger)loc;
+- (void)insertAttachment:(HTextAttachment *)attachment atIndex:(NSUInteger)loc singleTap:(nullable HTextBlock)singleTap;
 
 @end
 

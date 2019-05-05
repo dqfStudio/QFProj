@@ -208,6 +208,15 @@ static void const * HTextLongPressKey = &HTextLongPressKey;
     [self appendAttributedString:str];
 }
 
+- (void)insertString:(NSString *)text atIndex:(NSUInteger)loc {
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:text];
+    [self insertAttributedString:str atIndex:loc];
+}
+- (void)insertString:(NSString *)text atIndex:(NSUInteger)loc singleTap:(nullable HTextBlock)singleTap {
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:text singleTap:singleTap];
+    [self insertAttributedString:str atIndex:loc];
+}
+
 
 - (void)appendAttachment:(HTextAttachment *)attachment {
     NSMutableAttributedString *one = [[NSMutableAttributedString alloc] initWithAttachment:attachment singleTap:nil];
@@ -216,6 +225,15 @@ static void const * HTextLongPressKey = &HTextLongPressKey;
 - (void)appendAttachment:(HTextAttachment *)attachment singleTap:(nullable HTextBlock)singleTap {
     NSMutableAttributedString *one = [[NSMutableAttributedString alloc] initWithAttachment:attachment singleTap:singleTap];
     [self appendAttributedString:one];
+}
+
+- (void)insertAttachment:(HTextAttachment *)attachment atIndex:(NSUInteger)loc {
+    NSMutableAttributedString *one = [[NSMutableAttributedString alloc] initWithAttachment:attachment singleTap:nil];
+    [self insertAttributedString:one atIndex:loc];
+}
+- (void)insertAttachment:(HTextAttachment *)attachment atIndex:(NSUInteger)loc singleTap:(nullable HTextBlock)singleTap {
+    NSMutableAttributedString *one = [[NSMutableAttributedString alloc] initWithAttachment:attachment singleTap:singleTap];
+    [self insertAttributedString:one atIndex:loc];
 }
 
 @end

@@ -140,108 +140,12 @@
     }
 }
 
-//插入图片
-- (void)setImageUrl:(NSString *)url index:(NSInteger)idx size:(CGSize)size leftSpace:(NSInteger)left rightSpace:(NSInteger)right wordAlign:(NSWordAlign)align {
-    
-    if (url.length > 0 && !CGSizeEqualToSize(size, CGSizeZero)) {
-        NSTextAttachment *attch    = [[NSTextAttachment alloc] init];
-        NSString *leftSpaceString  = @"";
-        NSString *rightSpaceString = @"";
-        for (int i=0; i<left; i++) {
-            leftSpaceString = [leftSpaceString stringByAppendingString:@" "];
-        }
-        for (int i=0; i<right; i++) {
-            rightSpaceString = [rightSpaceString stringByAppendingString:@" "];
-        }
-        
-        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] init];
-        [string appendAttributedString:[[NSAttributedString alloc] initWithString:leftSpaceString]];
-        [string appendAttributedString:[NSAttributedString attributedStringWithAttachment:attch]];
-        [string appendAttributedString:[[NSAttributedString alloc] initWithString:rightSpaceString]];
-        
-        if ([url hasPrefix:@"http"]) {
-//            [self loadImageForUrl:url toAttach:attch syncLoadCache:NO range:range text:temp];
-        }else {//加载本地图片
-            if (CGSizeEqualToSize(self.frame.size, CGSizeZero)) {
-                CGSize imageSize = size;
-                CGSize frameSize = size;
-                CGSize  wordSize = [self.text boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.font} context:nil].size;
-                
-                frameSize.width = imageSize.width + wordSize.width;
-                if (wordSize.width > 0 && wordSize.height > imageSize.height) {
-                    frameSize.height = wordSize.height;
-                }
-                
-                attch.bounds = CGRectMake(0, 0, imageSize.width, imageSize.height);
-                attch.image = [UIImage imageNamed:url];
-                
-                CGRect frame = CGRectZero;
-                frame.origin = self.frame.origin;
-                frame.size = frameSize;
-                self.frame = frame;
-            }else {
-                //调整图片大小
-                CGSize imageSize = size;
-                attch.bounds = CGRectMake(0, 0, imageSize.width, imageSize.height);
-                attch.image = [UIImage imageNamed:url];
-            }
-        }
-        
-        //调整图片位置使文字居上居中居下显示
-        switch (align) {
-            case NSWordAlignBottom: {
-                CGSize  imageSize = attch.bounds.size;
-                attch.bounds = CGRectMake(0, 0, imageSize.width, imageSize.height);
-            }
-                break;
-            case NSWordAlignCenter: {
-                CGSize  imageSize = attch.bounds.size;
-                CGSize  wordSize = [self.text boundingRectWithSize:CGSizeMake(CGRectGetWidth(self.frame), MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.font} context:nil].size;
-                CGFloat height = imageSize.height-wordSize.height;
-                if (height > 0) height = -height/2.0;
-                else height = height/2.0;
-                if (wordSize.width <= 0) height = 0;
-                attch.bounds = CGRectMake(0, height, imageSize.width, imageSize.height);
-            }
-                break;
-            case NSWordAlignTop: {
-                CGSize  imageSize = attch.bounds.size;
-                CGSize  wordSize = [self.text boundingRectWithSize:CGSizeMake(CGRectGetWidth(self.frame), MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.font} context:nil].size;
-                CGFloat height = imageSize.height-wordSize.height;
-                if (height > 0) height = -height;
-                if (wordSize.width <= 0) height = 0;
-                attch.bounds = CGRectMake(0, height, imageSize.width, imageSize.height);
-            }
-                break;
-            default:
-                break;
-        }
-        
-        //插入图片，插到某个序号前面
-        if (idx < 0) {
-            [self.mutableAttributedString insertAttributedString:string atIndex:0];
-        }else if (idx >= self.text.length) {
-            [self.mutableAttributedString appendAttributedString:string];
-        }else {
-            [self.mutableAttributedString insertAttributedString:string atIndex:idx];
-        }
-        
-    }else if (CGSizeEqualToSize(self.frame.size, CGSizeZero)) {
-        CGSize  wordSize = [self.text boundingRectWithSize:CGSizeMake(CGRectGetWidth(self.frame), MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.font} context:nil].size;
-        CGRect frame = CGRectZero;
-        frame.origin = self.frame.origin;
-        frame.size = wordSize;
-        self.frame = frame;
-    }
-    self.attributedText = self.mutableAttributedString;
-}
-
 - (void)parse:(NSString *)aString block:(HTapKeywordsBlock)tapBlock {
     
     //解析如下字符串
     //NSString *string = @"</flag=global,linespace=5,lines=0,font=12,color=123456/>张三李四</font=12,color=123456,headerspace=5,footerspace=10/>张三</font=12,color=123456,click=true,underliane=true,middleline=true,headerspace=auto/>李四";
     
-    NSString *string = @"</flag=global,linespace=5,lines=0,font=12,color=123456/>张三李四</flag=text,font=12,color=123456,headerspace=5,footerspace=10/>张三</flag=text,font=12,color=123456,click=true,underliane=true,middleline=true,headerspace=auto/>李四</flag=image,index=0,click=true/>test.png</flag=image,index=0,click=true/>http://test.png";
+//    NSString *string = @"</flag=global,linespace=5,lines=0,font=12,color=123456/>张三李四</flag=text,font=12,color=123456,headerspace=5,footerspace=10/>张三</flag=text,font=12,color=123456,click=true,underliane=true,middleline=true,headerspace=auto/>李四</flag=image,index=0,click=true/>test.png</flag=image,index=0,click=true/>http://test.png";
 
     NSArray *tagArr = [aString componentsByString:@"</"];
     for (int i=0; i<tagArr.count; i++) {
@@ -343,7 +247,6 @@
                 }
             }
         }else if ([idArr containsObject:@"flag=image"]) {
-            //</flag=image,index=0,click=true/>http://test.png";
             //遍历其他属性
             for (int j=0; j<idArr.count; j++) {
                 NSString *idString = idArr[j];
@@ -358,7 +261,6 @@
 //                    }else {
 //                        [self setKeywords:text font:[UIFont systemFontOfSize:value.integerValue] color:nil];
 //                    }
-                    NSTextAttachment *attch = NSTextAttachment.new;
                     
                 }else if ([key isEqualToString:@"color"]) {
                     [self setKeywords:text font:nil color:[UIColor colorWithString:value]];

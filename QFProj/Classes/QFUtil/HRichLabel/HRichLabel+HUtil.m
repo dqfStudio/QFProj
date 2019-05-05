@@ -26,13 +26,6 @@
     [self setAssociateValue:mutableAttributedString withKey:@selector(mutableAttributedString)];
 }
 
-- (HTextAttachment *)attachment {
-    return [self getAssociatedValueForKey:_cmd];
-}
-- (void)setAttachment:(HTextAttachment *)attachment {
-    [self setAssociateValue:attachment withKey:@selector(attachment)];
-}
-
 //关键字
 - (void)setKeywords:(NSString *)keywords font:(UIFont *)font color:(UIColor *)color {
     if (keywords && [self.text containsString:keywords]) {
@@ -58,11 +51,27 @@
         self.attributedText = self.mutableAttributedString;
     }
 }
+- (void)insertString:(NSString *)text atIndex:(NSInteger)loc {
+    if (text.length > 0) {
+        [self.mutableAttributedString insertString:text atIndex:loc];
+        self.attributedText = self.mutableAttributedString;
+    }
+}
 
 //点击事件
 - (void)appendTapKeywords:(NSString *)keywords block:(HTapKeywordsBlock)tapBlock {
     if (keywords.length > 0) {
         [self.mutableAttributedString appendString:keywords singleTap:^(UIView * _Nonnull targetView, NSAttributedString * _Nonnull attributeString, HTextAttachment * _Nullable attachment) {
+            if (tapBlock) {
+                tapBlock();
+            }
+        }];
+        self.attributedText = self.mutableAttributedString;
+    }
+}
+- (void)insertTapKeywords:(NSString *)keywords atIndex:(NSInteger)loc block:(HTapKeywordsBlock)tapBlock {
+    if (keywords.length > 0) {
+        [self.mutableAttributedString insertString:keywords atIndex:loc singleTap:^(UIView * _Nonnull targetView, NSAttributedString * _Nonnull attributeString, HTextAttachment * _Nullable attachment) {
             if (tapBlock) {
                 tapBlock();
             }
@@ -111,17 +120,43 @@
 }
 
 //插入图片
-- (void)appendImageUrl:(NSString *)url index:(NSInteger)idx size:(CGSize)size font:(UIFont *)font block:(HTapKeywordsBlock)tapBlock {
-    HWebImageView *imageView = [[HWebImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];;
-    [imageView setImageUrlString:url];
-    if (tapBlock) {
-        [imageView addSingleTapGestureWithBlock:^(UITapGestureRecognizer *recognizer) {
-            tapBlock();
-        }];
+- (void)appendAttachment:(HAttachmentBlock)block font:(UIFont *)font {
+    if (block) {
+        id content = block();
+        CGSize size = CGSizeZero;
+        if ([content isKindOfClass:UIImage.class]) {
+            UIImage *image = content;
+            size = image.size;
+        }else if ([content isKindOfClass:UIView.class]) {
+            UIView *view = content;
+            size = view.frame.size;
+        }else if ([content isKindOfClass:CALayer.class]) {
+            CALayer *layer = content;
+            size = layer.frame.size;
+        }
+        HTextAttachment *attachment = [HTextAttachment attachmentWithContent:content contentSize:size alignToFont:font];
+        [self.mutableAttributedString appendAttachment:attachment];
+        self.attributedText = self.mutableAttributedString;
     }
-    self.attachment = [HTextAttachment attachmentWithContent:imageView contentSize:size alignToFont:font];
-    [self.mutableAttributedString appendAttachment:self.attachment];
-    self.attributedText = self.mutableAttributedString;
+}
+- (void)insertAttachment:(HAttachmentBlock)block atIndex:(NSInteger)loc font:(UIFont *)font {
+    if (block) {
+        id content = block();
+        CGSize size = CGSizeZero;
+        if ([content isKindOfClass:UIImage.class]) {
+            UIImage *image = content;
+            size = image.size;
+        }else if ([content isKindOfClass:UIView.class]) {
+            UIView *view = content;
+            size = view.frame.size;
+        }else if ([content isKindOfClass:CALayer.class]) {
+            CALayer *layer = content;
+            size = layer.frame.size;
+        }
+        HTextAttachment *attachment = [HTextAttachment attachmentWithContent:content contentSize:size alignToFont:font];
+        [self.mutableAttributedString insertAttachment:attachment atIndex:loc];
+        self.attributedText = self.mutableAttributedString;
+    }
 }
 
 - (void)parse:(NSString *)aString {
@@ -131,7 +166,7 @@
     
 //    NSString *string = @"</flag=global,linespace=5,lines=0,font=12,color=123456/>张三李四</flag=text,font=12,color=123456,headerspace=5,footerspace=10/>张三</flag=text,font=12,color=123456,click=true,underliane=true,middleline=true,headerspace=auto/>李四</flag=image,index=0,size={20,20},click=true/>test.png</flag=image,index=0,click=true/>http://test.png";
     
-    NSString *string = @"</flag=global,linespace=5,lines=0,backgroundcolor=123456/></flag=text,font=12,color=123456,headerspace=5,footerspace=10/>张三</flag=text,font=12,color=123456,click=true,underliane=true,middleline=true,headerspace=auto/>李四</flag=image,index=0,size={20,20},click=true/>test.png</flag=image,index=0,click=true/>http://test.png";
+//    NSString *string = @"</flag=global,linespace=5,lines=0,backgroundcolor=123456/></flag=text,font=12,color=123456,headerspace=5,footerspace=10/>张三</flag=text,font=12,color=123456,click=true,underliane=true,middleline=true,headerspace=auto/>李四</flag=image,index=0,size={20,20},click=true/>test.png</flag=image,index=0,click=true/>http://test.png";
 
     NSArray *tagArr = [aString componentsByString:@"</"];
     for (int i=0; i<tagArr.count; i++) {

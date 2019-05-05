@@ -16,31 +16,29 @@
 #import "HWebImageView.h"
 #import "UIView+HUtil.h"
 
-typedef NS_ENUM(NSInteger, NSWordAlign) {
-    NSWordAlignBottom = 0,
-    NSWordAlignCenter,
-    NSWordAlignTop
-};
-
 typedef void(^HTapKeywordsBlock)(void);
+//supported type: UIImage/UIView/CALayer
+typedef id(^HAttachmentBlock)(void);
 
 @interface HRichLabel (HUtil)
 
 @property (nonatomic, readonly) NSMutableAttributedString *mutableAttributedString;
-@property (nonatomic, readonly) HTextAttachment *attachment;
 
 //关键字
 - (void)setKeywords:(NSString *)keywords font:(UIFont *)font color:(UIColor *)color;
 //追加字符串
 - (void)appendString:(NSString *)text;
+- (void)insertString:(NSString *)text atIndex:(NSInteger)loc;
 //点击事件
 - (void)appendTapKeywords:(NSString *)keywords block:(HTapKeywordsBlock)tapBlock;
+- (void)insertTapKeywords:(NSString *)keywords atIndex:(NSInteger)loc block:(HTapKeywordsBlock)tapBlock;
 //中线
 - (void)setMiddleline:(NSString *)keywords font:(UIFont *)font color:(UIColor *)color;
 //下划线
 - (void)setUnderline:(NSString *)keywords font:(UIFont *)font color:(UIColor *)color;
 //插入图片
-- (void)appendImageUrl:(NSString *)url index:(NSInteger)idx size:(CGSize)size font:(UIFont *)font block:(HTapKeywordsBlock)tapBlock;
+- (void)appendAttachment:(HAttachmentBlock)block font:(UIFont *)font;
+- (void)insertAttachment:(HAttachmentBlock)block atIndex:(NSInteger)loc font:(UIFont *)font;
 
 //解析如下字符串
 //NSString *string = @"</flag=global,linespace=5,lines=0,font=12,color=123456/>张三李四</font=12,color=123456,headerspace=5,footerspace=10/>张三</font=12,color=123456,click=true,underliane=true,middleline=true,headerspace=auto/>李四";

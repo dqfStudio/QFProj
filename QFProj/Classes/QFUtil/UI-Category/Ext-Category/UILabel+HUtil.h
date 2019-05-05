@@ -13,12 +13,6 @@
 #import "NSString+HChain.h"
 #import "UIColor+HUtil.h"
 
-typedef NS_ENUM(NSInteger, NSWordAlign) {
-    NSWordAlignBottom = 0,
-    NSWordAlignCenter,
-    NSWordAlignTop
-};
-
 typedef void(^HTapKeywordsBlock)(NSInteger index);
 
 @interface UILabel (HUtil)
@@ -37,15 +31,6 @@ typedef void(^HTapKeywordsBlock)(NSInteger index);
 - (void)setMiddleline:(NSString *)keywords font:(UIFont *)font color:(UIColor *)color;
 //下划线
 - (void)setUnderline:(NSString *)keywords font:(UIFont *)font color:(UIColor *)color;
-
-//插入图片
-- (void)setImageUrl:(NSString *)url
-              index:(NSInteger)idx
-               size:(CGSize)size
-          leftSpace:(NSInteger)left
-         rightSpace:(NSInteger)right
-          wordAlign:(NSWordAlign)align;
-
 //字间距
 - (void)setCharWith:(NSArray <NSNumber *>*)idxs space:(NSArray <NSNumber *>*)spaces;
 
