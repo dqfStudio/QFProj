@@ -236,4 +236,9 @@ static void const * HTextLongPressKey = &HTextLongPressKey;
     [self insertAttributedString:one atIndex:loc];
 }
 
+- (void)replaceCharactersInRange:(NSRange)range withString:(NSString *)text singleTap:(nullable HTextBlock)singleTap {
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:text singleTap:singleTap];
+    [self replaceCharactersInRange:range withAttributedString:str];
+}
+
 @end

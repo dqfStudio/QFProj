@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "HRichLabel.h"
 #import "NSObject+HMessy.h"
-#import "UILabel+HAttributeText.h"
 #import "NSMutableAttributedString+HUtil.h"
 #import "NSString+HChain.h"
 #import "UIColor+HUtil.h"
@@ -32,9 +31,12 @@ typedef id(^HAttachmentBlock)(void);
 //点击事件
 - (void)appendTapKeywords:(NSString *)keywords block:(HTapKeywordsBlock)tapBlock;
 - (void)insertTapKeywords:(NSString *)keywords atIndex:(NSInteger)loc block:(HTapKeywordsBlock)tapBlock;
+- (void)setTapKeywords:(NSString *)keywords block:(HTapKeywordsBlock)tapBlock;
 //中线
+- (void)setMiddleline:(NSString *)keywords;
 - (void)setMiddleline:(NSString *)keywords font:(UIFont *)font color:(UIColor *)color;
 //下划线
+- (void)setUnderline:(NSString *)keywords;
 - (void)setUnderline:(NSString *)keywords font:(UIFont *)font color:(UIColor *)color;
 //插入图片
 - (void)appendAttachment:(HAttachmentBlock)block font:(UIFont *)font;

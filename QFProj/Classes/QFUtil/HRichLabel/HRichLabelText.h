@@ -78,6 +78,7 @@ NS_EXTENSION_UNAVAILABLE_IOS("");
 - (void)insertAttachment:(HTextAttachment *)attachment atIndex:(NSUInteger)loc;
 - (void)insertAttachment:(HTextAttachment *)attachment atIndex:(NSUInteger)loc singleTap:(nullable HTextBlock)singleTap;
 
+- (void)replaceCharactersInRange:(NSRange)range withString:(NSString *)text singleTap:(nullable HTextBlock)singleTap;
 @end
 
 NS_ASSUME_NONNULL_END

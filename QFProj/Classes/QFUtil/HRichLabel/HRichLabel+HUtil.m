@@ -79,8 +79,30 @@
         self.attributedText = self.mutableAttributedString;
     }
 }
+- (void)setTapKeywords:(NSString *)keywords block:(HTapKeywordsBlock)tapBlock {
+    if (keywords.length > 0) {
+        NSRange range = [self.mutableAttributedString.string rangeOfString:keywords];
+        [self.mutableAttributedString replaceCharactersInRange:range withString:keywords singleTap:^(UIView * _Nonnull targetView, NSAttributedString * _Nonnull attributeString, HTextAttachment * _Nullable attachment) {
+            if (tapBlock) {
+                tapBlock();
+            }
+        }];
+    }
+}
 
 //中线
+- (void)setMiddleline:(NSString *)keywords {
+    if (keywords && [self.text containsString:keywords]) {
+        NSRange itemRange = [self.text rangeOfString:keywords];
+        NSMutableDictionary *dict = NSMutableDictionary.dictionary;
+        [dict setObject:@(NSUnderlineStyleSingle) forKey:NSBaselineOffsetAttributeName];
+        [dict setObject:@(NSUnderlineStyleSingle) forKey:NSStrikethroughStyleAttributeName];
+        if (dict.count > 0) {
+            [self.mutableAttributedString attributedWithRange:itemRange attributed:dict];
+            self.attributedText = self.mutableAttributedString;
+        }
+    }
+}
 - (void)setMiddleline:(NSString *)keywords font:(UIFont *)font color:(UIColor *)color {
     if (keywords && [self.text containsString:keywords]) {
         NSRange itemRange = [self.text rangeOfString:keywords];
@@ -101,6 +123,17 @@
 }
 
 //下划线
+- (void)setUnderline:(NSString *)keywords {
+    if (keywords && [self.text containsString:keywords]) {
+        NSRange itemRange = [self.text rangeOfString:keywords];
+        NSMutableDictionary *dict = NSMutableDictionary.dictionary;
+        [dict setObject:@(NSUnderlineStyleSingle) forKey:NSUnderlineStyleAttributeName];
+        if (dict.count > 0) {
+            [self.mutableAttributedString attributedWithRange:itemRange attributed:dict];
+            self.attributedText = self.mutableAttributedString;
+        }
+    }
+}
 - (void)setUnderline:(NSString *)keywords font:(UIFont *)font color:(UIColor *)color {
     if (keywords && [self.text containsString:keywords]) {
         NSRange itemRange = [self.text rangeOfString:keywords];
