@@ -10,7 +10,8 @@
 #import "HWebImageView.h"
 #import "HWebButtonView.h"
 #import "HTupleView.h"
-#import "HRichLabel.h"
+#import "HTextView.h"
+#import "HLabel.h"
 
 @class HButtonViewCell, HImageViewCell, HTupleView;
 
@@ -22,11 +23,11 @@ typedef void(^HImageViewBlock)(HWebImageView *webImageView, HImageViewCell *imag
 @end
 
 @interface HLabelViewCell : HTupleBaseCell
-@property (nonatomic) HRichLabel *label;
+@property (nonatomic) HLabel *label;
 @end
 
 @interface HTextViewCell : HTupleBaseCell
-@property (nonatomic) UITextView *textView;
+@property (nonatomic) HTextView *textView;
 @end
 
 @interface HButtonViewCell : HTupleBaseCell

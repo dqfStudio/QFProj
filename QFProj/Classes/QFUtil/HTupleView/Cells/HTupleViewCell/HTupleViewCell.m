@@ -23,9 +23,9 @@
 @end
 
 @implementation HLabelViewCell
-- (HRichLabel *)label {
+- (HLabel *)label {
     if (!_label) {
-        _label = [HRichLabel new];
+        _label = [HLabel new];
         [_label setBackgroundColor:[UIColor clearColor]];
         [self addSubview:_label];
     }
@@ -37,11 +37,9 @@
 @end
 
 @implementation HTextViewCell
-- (UITextView *)textView {
+- (HTextView *)textView {
     if (!_textView) {
-        _textView = [UITextView new];
-        [_textView setScrollEnabled:NO];
-        [_textView setUserInteractionEnabled:NO];
+        _textView = [HTextView new];
         [_textView setBackgroundColor:[UIColor clearColor]];
         [self addSubview:_textView];
     }
