@@ -8,6 +8,19 @@
 
 #import "HTableBaseCell.h"
 
+
 @interface HTableViewCell : HTableBaseCell
+
+@end
+
+@interface HTableViewCellValue1 : HTableBaseCell
+
+@end
+
+@interface HTableViewCellValue2 : HTableBaseCell
+
+@end
+
+@interface HTableViewCellSubtitle : HTableBaseCell
 
 @end

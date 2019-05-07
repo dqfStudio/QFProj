@@ -66,28 +66,29 @@ H_CheckPropertyRange(rrr, 0, 150)
 //    + (void)showInView:(UIView *)view withType:(HWaitingType)type;
 //    [HWaitingView showInView:self.view withType:HWaitingTypeBlack];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 150)];
-    [label setText:@"fdsf"];
-    [label setBackgroundColor:[UIColor yellowColor]];
-    [self.view addSubview:label];
-    
-    [label parse:nil block:nil];
-    
-    return;
-    
-    [HResultView showInView:self.view withType:HResultTypeLoadError clickedBlock:^{
-        NSLog(@"");
-    }];
-    
-    return;
-    
-    HTupleView *tuple = [[HTupleView alloc] initWithFrame:self.view.frame];
+//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 150)];
+//    [label setText:@"fdsf"];
+//    [label setBackgroundColor:[UIColor yellowColor]];
+//    [self.view addSubview:label];
+//
+//    [label parse:nil block:nil];
+//
+//    return;
+//
+//    [HResultView showInView:self.view withType:HResultTypeLoadError clickedBlock:^{
+//        NSLog(@"");
+//    }];
+//
+//    return;
+    CGRect frame = self.view.frame;
+    frame.origin.y = 100;
+    HTupleView *tuple = [[HTupleView alloc] initWithFrame:frame];
     [self.view addSubview:tuple];
     
     [tuple tupleWithSections:^CGFloat{
         return 1;
     } items:^CGFloat(NSInteger section) {
-        return 2;
+        return 1;
     } color:^UIColor * _Nullable(NSInteger section) {
         return nil;
     } inset:^UIEdgeInsets(NSInteger section) {
@@ -99,8 +100,11 @@ H_CheckPropertyRange(rrr, 0, 150)
     } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
         return UIEdgeInsetsZero;
     } tuple:^(HItemTuple  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
-        HTupleVerticalCell *cell = itemBlock(nil, HTupleVerticalCell.class, nil, YES);
+//        HTupleVerticalCell *cell = itemBlock(nil, HTupleVerticalCell.class, nil, YES);
+//        [cell setBackgroundColor:[UIColor redColor]];
+        HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
         [cell setBackgroundColor:[UIColor redColor]];
+        [cell.label setText:@"fadsfds"];
     }];
     
     
