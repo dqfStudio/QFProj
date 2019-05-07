@@ -115,6 +115,14 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     }
 }
 #pragma --mark other methods
+- (void)setSeparatorInset:(UIEdgeInsets)separatorInset {
+    if ([super respondsToSelector:@selector(setSeparatorInset:)]) {
+        [super setSeparatorInset:separatorInset];
+    }
+    if ([super respondsToSelector:@selector(setLayoutMargins:)]) {
+        [super setLayoutMargins:separatorInset];
+    }
+}
 - (NSUInteger)pageNo {
     if (_pageNo <= 0) {
         return 1;
@@ -456,6 +464,16 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         }, section);
     }
     return cell;
+}
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.separatorStyle != UITableViewCellSeparatorStyleNone) {
+        if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+            [cell setSeparatorInset:self.separatorInset];
+        }
+        if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+            [cell setLayoutMargins:self.separatorInset];
+        }
+    }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     __block UITableViewCell *cell = nil;
