@@ -12,9 +12,6 @@
 - (void)initUI {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
-- (void)layoutContentView {
-    //HLayoutTableView(self.tuple)
-}
 @end
 
 @implementation HTableViewCellValue1
@@ -23,9 +20,6 @@
 }
 - (void)initUI {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-}
-- (void)layoutContentView {
-    //HLayoutTableView(self.tuple)
 }
 @end
 
@@ -36,9 +30,6 @@
 - (void)initUI {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
-- (void)layoutContentView {
-    //HLayoutTableView(self.tuple)
-}
 @end
 
 @implementation HTableViewCellSubtitle
@@ -48,8 +39,48 @@
 - (void)initUI {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
+@end
+
+@implementation HTableLabelCell
+- (HLabel *)label {
+    if (!_label) {
+        _label = [HLabel new];
+        [_label setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_label];
+    }
+    return _label;
+}
 - (void)layoutContentView {
-    //HLayoutTableView(self.tuple)
+    HLayoutTableView(self.label)
 }
 @end
 
+@implementation HTableVerticalCell
+- (HTupleView *)tuple {
+    if (!_tuple) {
+        _tuple = [[HTupleView alloc] initWithFrame:self.bounds];
+        [_tuple setBackgroundColor:[UIColor clearColor]];
+        [_tuple setScrollEnabled:NO];
+        [self addSubview:_tuple];
+    }
+    return _tuple;
+}
+- (void)layoutContentView {
+    HLayoutTableView(self.tuple)
+}
+@end
+
+@implementation HTableHorizontalCell
+- (HTupleView *)tuple {
+    if (!_tuple) {
+        _tuple = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleViewScrollDirectionHorizontal];
+        [_tuple setBackgroundColor:[UIColor clearColor]];
+        [_tuple setScrollEnabled:NO];
+        [self addSubview:_tuple];
+    }
+    return _tuple;
+}
+- (void)layoutContentView {
+    HLayoutTableView(self.tuple)
+}
+@end

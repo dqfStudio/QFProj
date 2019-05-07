@@ -7,7 +7,8 @@
 //
 
 #import "HTableBaseCell.h"
-
+#import "HTupleView.h"
+#import "HLabel.h"
 
 @interface HTableViewCell : HTableBaseCell
 
@@ -23,4 +24,16 @@
 
 @interface HTableViewCellSubtitle : HTableBaseCell
 
+@end
+
+@interface HTableLabelCell : HTableBaseCell
+@property (nonatomic) HLabel *label;
+@end
+
+@interface HTableVerticalCell : HTableBaseCell
+@property (nonatomic) HTupleView *tuple;
+@end
+
+@interface HTableHorizontalCell : HTableBaseCell
+@property (nonatomic) HTupleView *tuple;
 @end
