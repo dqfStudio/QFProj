@@ -27,11 +27,13 @@ typedef void(^HTupleBaseViewBlock)(NSIndexPath *idxPath);
 
 @interface HTupleBaseView : UICollectionReusableView
 @property (nonatomic, weak) UICollectionView *collection;
-@property (nonatomic, copy) HTupleBaseViewBlock baseBlock;
+@property (nonatomic, copy) HTupleBaseViewBlock actionBlock;
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UIEdgeInsets edgeInsets;
-@property (nonatomic) UIView *lineView;
-@property (nonatomic) UIEdgeInsets lineInsets;
+//间隔线
+@property (nonatomic) UIEdgeInsets separatorInset;
+@property (nonatomic) UIColor *separatorColor;
+@property (nonatomic) BOOL shouldShowSeparator;
 - (CGRect)getContentFrame;
 - (void)addReturnKeyBoard;
 //需要子类重写该方法

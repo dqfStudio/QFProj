@@ -10,6 +10,7 @@
 
 @interface HTupleBaseCell ()
 @property (nonatomic) UITapGestureRecognizer *baseTap;
+@property (nonatomic) UIView *separatorView;
 @end
 
 @implementation HTupleBaseCell
@@ -23,23 +24,40 @@
     return self;
 }
 
-- (UIView *)lineView {
-    if (!_lineView) {
-        _lineView = UIView.new;
-        [self addSubview:_lineView];
+- (UIView *)separatorView {
+    if (!_separatorView) {
+        _separatorView = UIView.new;
+        [self addSubview:_separatorView];
     }
-    CGRect frame = self.getLineFrame;
-    if (!CGRectEqualToRect(frame, _lineView.frame)) {
-        [_lineView setFrame:frame];
-        [self bringSubviewToFront:_lineView];
+    CGRect frame = self.getSeparatorFrame;
+    if (!CGRectEqualToRect(frame, _separatorView.frame)) {
+        [_separatorView setFrame:frame];
     }
-    return _lineView;
+    [_separatorView setBackgroundColor:self.separatorColor];
+    return _separatorView;
 }
-- (CGRect)getLineFrame {
+- (UIColor *)separatorColor {
+    if (!_separatorColor) {
+        _separatorColor = UIColor.lightGrayColor;
+    }
+    return _separatorColor;
+}
+- (CGRect)getSeparatorFrame {
     CGRect frame = CGRectMake(0, 0, CGRectGetHeight(self.frame) - 1, 1);
-    frame.origin.x += self.lineInsets.left;
-    frame.size.width -= self.lineInsets.left + self.lineInsets.right;
+    frame.origin.x += self.separatorInset.left;
+    frame.size.width -= self.separatorInset.left + self.separatorInset.right;
     return frame;
+}
+- (void)setShouldShowSeparator:(BOOL)shouldShowSeparator {
+    if (_shouldShowSeparator != shouldShowSeparator) {
+        _shouldShowSeparator = shouldShowSeparator;
+        if (_shouldShowSeparator) {
+            [self bringSubviewToFront:self.separatorView];
+            [self.separatorView setHidden:NO];
+        }else {
+            [self.separatorView setHidden:YES];
+        }
+    }
 }
 
 - (HTupleCellSignalBlock)signalBlock {
