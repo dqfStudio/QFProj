@@ -43,6 +43,7 @@
     if (!_leftImageView) {
         _leftImageView = HWebImageView.new;
         [_leftImageView setBackgroundColor:[UIColor clearColor]];
+        [self setLeftView:_leftImageView];
     }
     return _leftImageView;
 }
@@ -50,6 +51,7 @@
     if (!_rightImageView) {
         _rightImageView = HWebImageView.new;
         [_rightImageView setBackgroundColor:[UIColor clearColor]];
+        [self setRightView:_rightImageView];
     }
     return _rightImageView;
 }
