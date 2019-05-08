@@ -50,7 +50,7 @@
     }
 }
 
-- (NSInteger)numberOfSectionsInTupleView:(UICollectionView *)tupleView {
+- (NSInteger)numberOfSectionsInTupleView:(HTupleView *)tupleView {
     NSInteger pages = 1;
     if (self.modelArr) {
 
@@ -67,17 +67,17 @@
     return pages;
 }
 
-- (NSInteger)tupleView:(UICollectionView *)tupleView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
     return self.rows*self.rowItems;
 }
 
-- (CGSize)tupleView:(UICollectionView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(tupleView.width/self.rowItems-1, tupleView.height/self.rows-1);
 }
-- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     return UIEdgeInsetsZero;
 }
-- (void)tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(HTupleView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     
     NSInteger index = indexPath.section*self.rows*self.rowItems + indexPath.row;
     

@@ -7,6 +7,7 @@
 //
 
 #import "HTupleBaseView.h"
+#import <objc/runtime.h>
 
 @interface HTupleBaseView ()
 @property (nonatomic) UITapGestureRecognizer *baseTap;
@@ -97,5 +98,14 @@
 }
 - (CGSize)size {
     return self.frame.size;
+}
+@end
+
+@implementation UICollectionReusableView (HSignal)
+- (HTupleCellSignalBlock)signalBlock {
+    return objc_getAssociatedObject(self, _cmd);
+}
+- (void)setSignalBlock:(HTupleCellSignalBlock)signalBlock {
+    objc_setAssociatedObject(self, @selector(signalBlock), signalBlock, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 @end

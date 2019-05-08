@@ -7,6 +7,7 @@
 //
 
 #import "HWaitingView.h"
+#import <objc/runtime.h>
 
 #define KImageWidth  130
 #define KImageHeight 33
@@ -207,9 +208,9 @@
 
 @implementation UIView (HWaitingView)
 - (HWaitingView *)mgWaitingView {
-    return [self getAssociatedValueForKey:_cmd];
+    return objc_getAssociatedObject(self, _cmd);
 }
 - (void)setMgWaitingView:(HWaitingView *)mgWaitingView {
-    [self setAssociateValue:mgWaitingView withKey:@selector(mgWaitingView)];
+    objc_setAssociatedObject(self, @selector(mgWaitingView), mgWaitingView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 @end

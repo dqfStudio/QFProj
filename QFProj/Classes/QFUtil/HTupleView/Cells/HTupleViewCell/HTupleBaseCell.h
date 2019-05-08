@@ -9,19 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "HTupleSignal.h"
 //方便业务层调用
-#import "NSObject+HMessy.h"
-#import "UILabel+HState.h"
-#import "UILabel+HUtil.h"
-#import "UIButton+HUtil.h"
+//#import "NSObject+HMessy.h"
+//#import "UILabel+HState.h"
+//#import "UILabel+HUtil.h"
+//#import "UIButton+HUtil.h"
 
 #define HLayoutTupleView(v) \
 if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
     [v setFrame:[self getContentFrame]];\
 }
-
-@interface UICollectionViewCell ()
-@property (nonatomic, copy) HTupleCellSignalBlock signalBlock;
-@end
 
 typedef void(^HTupleBaseCellBlock)(NSIndexPath *idxPath);
 
@@ -42,4 +38,8 @@ typedef void(^HTupleBaseCellBlock)(NSIndexPath *idxPath);
 - (CGFloat)width;
 - (CGFloat)height;
 - (CGSize)size;
+@end
+
+@interface UICollectionViewCell (HSignal)
+@property (nonatomic, copy) HTupleCellSignalBlock signalBlock;
 @end

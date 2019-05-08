@@ -39,20 +39,22 @@ typedef void (^HCellTableBlock)(HCellTable cellBlock, NSIndexPath *indexPath);
 
 typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 
+@class HTableView;
+
 @protocol HTableViewDelegate <NSObject>
 @optional
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+- (NSInteger)numberOfSectionsInTableView:(HTableView *)tableView;
+- (NSInteger)tableView:(HTableView *)tableView numberOfRowsInSection:(NSInteger)section;
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section;
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section;
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (CGFloat)tableView:(HTableView *)tableView heightForHeaderInSection:(NSInteger)section;
+- (CGFloat)tableView:(HTableView *)tableView heightForFooterInSection:(NSInteger)section;
+- (CGFloat)tableView:(HTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 
-- (void)tableView:(UITableView *)tableView headerTuple:(HHeaderTable)headerBlock inSection:(NSInteger)section;
-- (void)tableView:(UITableView *)tableView footerTuple:(HFooterTable)footerBlock inSection:(NSInteger)section;
-- (void)tableView:(UITableView *)tableView cellTuple:(HCellTable)cellBlock atIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(HTableView *)tableView headerTuple:(HHeaderTable)headerBlock inSection:(NSInteger)section;
+- (void)tableView:(HTableView *)tableView footerTuple:(HFooterTable)footerBlock inSection:(NSInteger)section;
+- (void)tableView:(HTableView *)tableView cellTuple:(HCellTable)cellBlock atIndexPath:(NSIndexPath *)indexPath;
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(HTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @interface HTableView : UITableView <HTableViewDelegate>
@@ -84,7 +86,7 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 - (void)deselectCell:(NSIndexPath *)indexPath;
 @end
 
-@interface UITableView ()
+@interface HTableView (HSignal)
 
 @property (nonatomic, assign) HTableState tableState; //set table view different state
 @property (nonatomic, copy, nullable) HTableCellSignalBlock signalBlock;

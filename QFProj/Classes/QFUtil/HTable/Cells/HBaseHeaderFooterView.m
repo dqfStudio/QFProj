@@ -7,6 +7,7 @@
 //
 
 #import "HBaseHeaderFooterView.h"
+#import <objc/runtime.h>
 
 @implementation HBaseHeaderFooterView
 
@@ -37,3 +38,17 @@
 }
 @end
 
+@implementation UITableViewHeaderFooterView (HSignal)
+- (HTableCellSignalBlock)signalBlock {
+    return objc_getAssociatedObject(self, _cmd);
+}
+- (void)setSignalBlock:(HTableCellSignalBlock)signalBlock {
+    objc_setAssociatedObject(self, @selector(signalBlock), signalBlock, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (BOOL)isHeader {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+- (void)setIsHeader:(BOOL)isHeader {
+    objc_setAssociatedObject(self, @selector(isHeader), @(isHeader), OBJC_ASSOCIATION_ASSIGN);
+}
+@end

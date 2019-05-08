@@ -14,11 +14,6 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 [v setFrame:[self getContentFrame]];\
 }
 
-@interface UITableViewHeaderFooterView ()
-@property (nonatomic, copy) HTableCellSignalBlock signalBlock;
-@property (nonatomic) BOOL isHeader;
-@end
-
 @interface HBaseHeaderFooterView : UITableViewHeaderFooterView
 @property (nonatomic, weak) UITableView *table;
 @property (nonatomic) NSInteger section;
@@ -29,4 +24,9 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 - (CGFloat)width;
 - (CGFloat)height;
 - (CGSize)size;
+@end
+
+@interface UITableViewHeaderFooterView (HSignal)
+@property (nonatomic, copy) HTableCellSignalBlock signalBlock;
+@property (nonatomic) BOOL isHeader;
 @end

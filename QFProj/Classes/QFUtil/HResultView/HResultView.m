@@ -7,6 +7,7 @@
 //
 
 #import "HResultView.h"
+#import <objc/runtime.h>
 
 #define KImageWidth  165
 #define KImageHeight 140
@@ -251,9 +252,9 @@
 
 @implementation UIView (HResultView)
 - (HResultView *)mgResultView {
-    return [self getAssociatedValueForKey:_cmd];
+    return objc_getAssociatedObject(self, _cmd);
 }
 - (void)setMgResultView:(HResultView *)mgResultView {
-    [self setAssociateValue:mgResultView withKey:@selector(mgResultView)];
+    objc_setAssociatedObject(self, @selector(mgResultView), mgResultView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 @end

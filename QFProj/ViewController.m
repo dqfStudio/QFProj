@@ -469,26 +469,26 @@ H_CheckPropertyRange(rrr, 0, 150)
 //}
 
 
-- (NSInteger)numberOfSectionsInTupleView:(UICollectionView *)tupleView {
+- (NSInteger)numberOfSectionsInTupleView:(HTupleView *)tupleView {
     return 2;
 }
-- (NSInteger)tupleView:(UICollectionView *)tupleView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
     return 3;
 }
 
-- (CGSize)tupleView:(UICollectionView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(190, 30);
 }
-- (CGSize)tupleView:(UICollectionView *)tupleView sizeForHeaderInSection:(NSInteger)section {
+- (CGSize)tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section {
     return CGSizeMake(100, 90);
 }
-- (CGSize)tupleView:(UICollectionView *)tupleView sizeForFooterInSection:(NSInteger)section {
+- (CGSize)tupleView:(HTupleView *)tupleView sizeForFooterInSection:(NSInteger)section {
     return CGSizeMake(30, 90);
 }
-//- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+//- (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
 //    return UIEdgeInsetsMake(10, 0, 10, 0);
 //}
-- (void)tupleView:(UICollectionView *)tupleView itemTuple:(id (^)(id iblk, Class cls, id pre, bool idx))itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(HTupleView *)tupleView itemTuple:(id (^)(id iblk, Class cls, id pre, bool idx))itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:{
             HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
@@ -543,7 +543,7 @@ H_CheckPropertyRange(rrr, 0, 150)
     }
 }
 
-- (void)tupleView:(UICollectionView *)tupleView headerTuple:(id (^)(id iblk, Class cls, id pre, bool idx))headerBlock inSection:(NSInteger)section {
+- (void)tupleView:(HTupleView *)tupleView headerTuple:(id (^)(id iblk, Class cls, id pre, bool idx))headerBlock inSection:(NSInteger)section {
     switch (section) {
         case 0:{
             HReusableLabelView *cell = headerBlock(nil, HReusableLabelView.class, nil, YES);
@@ -576,7 +576,7 @@ H_CheckPropertyRange(rrr, 0, 150)
     }
 }
 
-- (void)tupleView:(UICollectionView *)tupleView footerTuple:(id (^)(id iblk, Class cls, id pre, bool idx))footerBlock inSection:(NSInteger)section {
+- (void)tupleView:(HTupleView *)tupleView footerTuple:(id (^)(id iblk, Class cls, id pre, bool idx))footerBlock inSection:(NSInteger)section {
     switch (section) {
         case 0:{
             HReusableLabelView *cell = footerBlock(nil, HReusableLabelView.class, nil, YES);
@@ -609,7 +609,7 @@ H_CheckPropertyRange(rrr, 0, 150)
     }
 }
 
-//- (void)tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+//- (void)tupleView:(HTupleView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 
 - (void)btnAction {
 //    NSLog(@"%@",label);

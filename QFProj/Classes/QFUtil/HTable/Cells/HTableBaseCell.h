@@ -14,10 +14,6 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 [v setFrame:[self getContentFrame]];\
 }
 
-@interface UITableViewCell ()
-@property (nonatomic, copy) HTableCellSignalBlock signalBlock;
-@end
-
 @interface HTableBaseCell : UITableViewCell
 @property (nonatomic, weak) UITableView *table;
 @property (nonatomic) NSIndexPath *indexPath;
@@ -29,4 +25,8 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 - (CGFloat)width;
 - (CGFloat)height;
 - (CGSize)size;
+@end
+
+@interface UITableViewCell (HSignal)
+@property (nonatomic, copy) HTableCellSignalBlock signalBlock;
 @end
