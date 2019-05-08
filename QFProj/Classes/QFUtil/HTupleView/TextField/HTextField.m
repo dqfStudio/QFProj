@@ -39,6 +39,20 @@
     }
     return _rightLabel;
 }
+- (HWebImageView *)leftImageView {
+    if (!_leftImageView) {
+        _leftImageView = HWebImageView.new;
+        [_leftImageView setBackgroundColor:[UIColor clearColor]];
+    }
+    return _leftImageView;
+}
+- (HWebImageView *)rightImageView {
+    if (!_rightImageView) {
+        _rightImageView = HWebImageView.new;
+        [_rightImageView setBackgroundColor:[UIColor clearColor]];
+    }
+    return _rightImageView;
+}
 - (HWebButtonView *)leftButton {
     if (!_leftButton) {
         _leftButton = [HWebButtonView new];

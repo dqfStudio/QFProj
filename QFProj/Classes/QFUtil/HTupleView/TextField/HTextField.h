@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HWebImageView.h"
 #import "HWebButtonView.h"
 
 typedef void(^HTextFieldBlock)(HWebButtonView *webButtonView);
@@ -14,6 +15,9 @@ typedef void(^HTextFieldBlock)(HWebButtonView *webButtonView);
 @interface HTextField : UITextField <UITextFieldDelegate>
 @property (nonatomic) UILabel *leftLabel;
 @property (nonatomic) UILabel *rightLabel;
+
+@property (nonatomic) HWebImageView *leftImageView;
+@property (nonatomic) HWebImageView *rightImageView;
 
 @property (nonatomic) HWebButtonView *leftButton;
 @property (nonatomic) HWebButtonView *rightButton;
