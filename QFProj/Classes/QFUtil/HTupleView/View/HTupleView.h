@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "MJRefresh.h"
 #import "HTupleViewCell.h"
-#import "NSObject+HSelector.h"
 #import "HTupleReusableView.h"
-#import "UICollectionViewLeftAlignedLayout.h"
+#import "NSObject+HSelector.h"
 #import "ULBCollectionViewFlowLayout.h"
+#import "UICollectionViewLeftAlignedLayout.h"
 
 typedef NS_OPTIONS(NSUInteger, HTupleViewScrollDirection) {
     HTupleViewScrollDirectionVertical = 0,

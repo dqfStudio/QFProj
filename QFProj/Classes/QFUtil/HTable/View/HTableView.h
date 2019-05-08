@@ -7,13 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HTableHeaderFooterView.h"
-#import "NSObject+HSelector.h"
-#import "NSObject+HMessy.h"
-#import "HTableViewCell.h"
-#import "HCommonDefine.h"
-#import "HTableSignal.h"
 #import "MJRefresh.h"
+#import "HTableViewCell.h"
+#import "NSObject+HSelector.h"
+#import "HTableHeaderFooterView.h"
 
 typedef NSUInteger HTableState;
 
