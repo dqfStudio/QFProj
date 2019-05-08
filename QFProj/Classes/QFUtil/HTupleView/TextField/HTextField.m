@@ -206,6 +206,10 @@
     if (self.rightView) {
         frame.size.width -= self.rightView.frame.size.width;
     }
+    
+    //光标距右边输入框默认有10pt的距离
+    //此处去掉此默认距离，以达到精准控制
+    frame.size.width += 10;
     return frame;
 }
 @end
