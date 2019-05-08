@@ -10,6 +10,7 @@
 #import "HWebImageView.h"
 #import "HWebButtonView.h"
 #import "HTupleView.h"
+#import "HTextField.h"
 #import "HTextView.h"
 #import "HLabel.h"
 
@@ -41,20 +42,7 @@ typedef void(^HImageViewBlock)(HWebImageView *webImageView, HImageViewCell *imag
 @end
 
 @interface HTextFieldCell : HTupleBaseCell
-@property (nonatomic) UITextField *textField;
-@property (nonatomic) UILabel *leftLabel;
-@property (nonatomic) UILabel *rightLabel;
-
-@property (nonatomic) HWebButtonView *leftButton;
-@property (nonatomic) HWebButtonView *rightButton;
-@property (nonatomic, copy) HButtonViewBlock leftButtonBlock;
-@property (nonatomic, copy) HButtonViewBlock rightButtonBlock;
-
-@property (nonatomic,copy) NSString *placeholder;
-@property (nonatomic) UIColor *placeholderColor;
-@property (nonatomic) NSInteger maxInput;//最大输入限制，小于等于0表示不限制，默认为0
-@property (nonatomic) BOOL forbidPaste;//禁止粘贴，默认为NO
-@property (nonatomic) BOOL forbidWhitespaceAndNewline;//禁止输入空格和换行符，默认为YES
+@property (nonatomic) HTextField *textField;
 @end
 
 @interface HTupleVerticalCell : HTupleBaseCell

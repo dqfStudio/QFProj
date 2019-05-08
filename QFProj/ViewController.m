@@ -102,9 +102,28 @@ H_CheckPropertyRange(rrr, 0, 150)
     } tuple:^(HItemTuple  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
 //        HTupleVerticalCell *cell = itemBlock(nil, HTupleVerticalCell.class, nil, YES);
 //        [cell setBackgroundColor:[UIColor redColor]];
-        HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
+//        HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
+//        [cell setBackgroundColor:[UIColor redColor]];
+//        [cell.label setText:@"fadsfds"];
+        
+        HTextFieldCell *cell = itemBlock(nil, HTextFieldCell.class, nil, YES);
         [cell setBackgroundColor:[UIColor redColor]];
-        [cell.label setText:@"fadsfds"];
+//        [cell.label setText:@"fadsfds"];
+        [cell.textField.leftLabel setFrame:CGRectMake(0, 0, 60, 40)];
+//        [cell.leftLabel setText:@"fsadfds"];
+//        [cell.leftLabel sizeToFit];
+        [cell.textField.leftLabel setBackgroundColor:[UIColor blueColor]];
+        [cell.textField setBackgroundColor:[UIColor yellowColor]];
+        cell.textField.leftInsets = UIEdgeInsetsMake(0, 10, 0, 20);
+        
+        
+        [cell.textField.rightLabel setFrame:CGRectMake(0, 0, 60, 40)];
+        //        [cell.leftLabel setText:@"fsadfds"];
+        //        [cell.leftLabel sizeToFit];
+        [cell.textField.rightLabel setBackgroundColor:[UIColor redColor]];
+        [cell.textField setBackgroundColor:[UIColor yellowColor]];
+        cell.textField.rightInsets = UIEdgeInsetsMake(0, 10, 0, 20);
+//        [cell setPlaceholder:@"fdsafdsa"];
     }];
     
     

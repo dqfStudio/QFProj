@@ -177,6 +177,7 @@
 		A222AE5F22818F7D0013098A /* HTextParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A222AE4222818F7D0013098A /* HTextParser.m */; };
 		A222AE6022818F7D0013098A /* HTextRunDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A222AE4722818F7D0013098A /* HTextRunDelegate.m */; };
 		A222AE6122818F7D0013098A /* HTextAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = A222AE4922818F7D0013098A /* HTextAttribute.m */; };
+		A222AE6522828E5C0013098A /* HTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A222AE6422828E5C0013098A /* HTextField.m */; };
 		A24B6560225EE08900B257BB /* HUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B655F225EE08900B257BB /* HUpdate.m */; };
 		A24B6566225EE0EE00B257BB /* HAutoPackage_Release.sh in Resources */ = {isa = PBXBuildFile; fileRef = A24B6562225EE0EE00B257BB /* HAutoPackage_Release.sh */; };
 		A24B6567225EE0EE00B257BB /* HProjectDRConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A24B6563225EE0EE00B257BB /* HProjectDRConfig.xcconfig */; };
@@ -555,6 +556,8 @@
 		A222AE4722818F7D0013098A /* HTextRunDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTextRunDelegate.m; sourceTree = "<group>"; };
 		A222AE4822818F7D0013098A /* HTextParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTextParser.h; sourceTree = "<group>"; };
 		A222AE4922818F7D0013098A /* HTextAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTextAttribute.m; sourceTree = "<group>"; };
+		A222AE6322828E5C0013098A /* HTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTextField.h; sourceTree = "<group>"; };
+		A222AE6422828E5C0013098A /* HTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTextField.m; sourceTree = "<group>"; };
 		A24B655E225EE08900B257BB /* HUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUpdate.h; sourceTree = "<group>"; };
 		A24B655F225EE08900B257BB /* HUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUpdate.m; sourceTree = "<group>"; };
 		A24B6562225EE0EE00B257BB /* HAutoPackage_Release.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = HAutoPackage_Release.sh; sourceTree = "<group>"; };
@@ -1222,6 +1225,7 @@
 		15C5734C20B3DD7B0070327C /* HTupleView */ = {
 			isa = PBXGroup;
 			children = (
+				A222AE6222828E4B0013098A /* TextField */,
 				A222AE1522818F7D0013098A /* Text */,
 				15C5734D20B3DD7B0070327C /* Cells */,
 				15C5736120B3DD7B0070327C /* View */,
@@ -1529,6 +1533,15 @@
 				A222AE4722818F7D0013098A /* HTextRunDelegate.m */,
 			);
 			path = HString;
+			sourceTree = "<group>";
+		};
+		A222AE6222828E4B0013098A /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				A222AE6322828E5C0013098A /* HTextField.h */,
+				A222AE6422828E5C0013098A /* HTextField.m */,
+			);
+			path = TextField;
 			sourceTree = "<group>";
 		};
 		A24B655D225EE08900B257BB /* HUpdate */ = {
@@ -2070,6 +2083,7 @@
 				15B4DD682092F88700773E04 /* AppDelegate.m in Sources */,
 				15C573B920B3DE340070327C /* HTableBaseCell.m in Sources */,
 				A219F22F222FB46A00241FD7 /* HIFS.m in Sources */,
+				A222AE6522828E5C0013098A /* HTextField.m in Sources */,
 				A28EF2F321D876A3002F92ED /* HTabBarController.m in Sources */,
 				A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */,
 				157696EB20A0AB6900E31469 /* hFelix.m in Sources */,
