@@ -16,6 +16,8 @@
 
 @implementation HTupleBaseCell
 
+@synthesize separatorColor=_separatorColor;
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -28,7 +30,6 @@
 - (UIView *)separatorView {
     if (!_separatorView) {
         _separatorView = UIView.new;
-        [self addSubview:_separatorView];
     }
     CGRect frame = self.getSeparatorFrame;
     if (!CGRectEqualToRect(frame, _separatorView.frame)) {
@@ -43,6 +44,19 @@
     }
     return _separatorColor;
 }
+- (void)setSeparatorColor:(UIColor *)separatorColor {
+    if (_separatorColor != separatorColor) {
+        _separatorColor = nil;
+        _separatorColor = separatorColor;
+        [self.separatorView setBackgroundColor:_separatorColor];
+    }
+}
+- (void)setSeparatorInset:(UIEdgeInsets)separatorInset {
+    if (!UIEdgeInsetsEqualToEdgeInsets(_separatorInset, separatorInset)) {
+        _separatorInset = separatorInset;
+        [_separatorView setFrame:self.getSeparatorFrame];
+    }
+}
 - (CGRect)getSeparatorFrame {
     CGRect frame = CGRectMake(0, 0, CGRectGetHeight(self.frame) - 1, 1);
     frame.origin.x += self.separatorInset.left;
@@ -53,6 +67,7 @@
     if (_shouldShowSeparator != shouldShowSeparator) {
         _shouldShowSeparator = shouldShowSeparator;
         if (_shouldShowSeparator) {
+            [self addSubview:self.separatorView];
             [self bringSubviewToFront:self.separatorView];
             [self.separatorView setHidden:NO];
         }else {

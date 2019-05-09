@@ -16,6 +16,8 @@
 
 @implementation HTupleBaseView
 
+@synthesize separatorColor=_separatorColor;
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -42,6 +44,19 @@
         _separatorColor = UIColor.lightGrayColor;
     }
     return _separatorColor;
+}
+- (void)setSeparatorColor:(UIColor *)separatorColor {
+    if (_separatorColor != separatorColor) {
+        _separatorColor = nil;
+        _separatorColor = separatorColor;
+        [self.separatorView setBackgroundColor:_separatorColor];
+    }
+}
+- (void)setSeparatorInset:(UIEdgeInsets)separatorInset {
+    if (!UIEdgeInsetsEqualToEdgeInsets(_separatorInset, separatorInset)) {
+        _separatorInset = separatorInset;
+        [_separatorView setFrame:self.getSeparatorFrame];
+    }
 }
 - (CGRect)getSeparatorFrame {
     CGRect frame = CGRectMake(0, 0, CGRectGetHeight(self.frame) - 1, 1);
