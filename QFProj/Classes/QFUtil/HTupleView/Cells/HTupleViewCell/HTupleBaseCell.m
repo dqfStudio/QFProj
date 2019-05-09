@@ -30,19 +30,10 @@
 - (UIView *)separatorView {
     if (!_separatorView) {
         _separatorView = UIView.new;
+        [_separatorView setHidden:YES];
+        [_separatorView setBackgroundColor:UIColor.lightGrayColor];
     }
-    CGRect frame = self.getSeparatorFrame;
-    if (!CGRectEqualToRect(frame, _separatorView.frame)) {
-        [_separatorView setFrame:frame];
-    }
-    [_separatorView setBackgroundColor:self.separatorColor];
     return _separatorView;
-}
-- (UIColor *)separatorColor {
-    if (!_separatorColor) {
-        _separatorColor = UIColor.lightGrayColor;
-    }
-    return _separatorColor;
 }
 - (void)setSeparatorColor:(UIColor *)separatorColor {
     if (_separatorColor != separatorColor) {
@@ -54,7 +45,7 @@
 - (void)setSeparatorInset:(UIEdgeInsets)separatorInset {
     if (!UIEdgeInsetsEqualToEdgeInsets(_separatorInset, separatorInset)) {
         _separatorInset = separatorInset;
-        [_separatorView setFrame:self.getSeparatorFrame];
+        [self.separatorView setFrame:self.getSeparatorFrame];
     }
 }
 - (CGRect)getSeparatorFrame {
@@ -72,6 +63,13 @@
             [self.separatorView setHidden:NO];
         }else {
             [self.separatorView setHidden:YES];
+        }
+    }
+    //重设frame
+    if (_shouldShowSeparator) {
+        CGRect frame = self.getSeparatorFrame;
+        if (!CGRectEqualToRect(frame, _separatorView.frame)) {
+            [self.separatorView setFrame:frame];
         }
     }
 }
