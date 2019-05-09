@@ -30,7 +30,6 @@
 - (UIView *)separatorView {
     if (!_separatorView) {
         _separatorView = UIView.new;
-        [self addSubview:_separatorView];
     }
     CGRect frame = self.getSeparatorFrame;
     if (!CGRectEqualToRect(frame, _separatorView.frame)) {
@@ -68,6 +67,7 @@
     if (_shouldShowSeparator != shouldShowSeparator) {
         _shouldShowSeparator = shouldShowSeparator;
         if (_shouldShowSeparator) {
+            [self addSubview:self.separatorView];
             [self bringSubviewToFront:self.separatorView];
             [self.separatorView setHidden:NO];
         }else {
