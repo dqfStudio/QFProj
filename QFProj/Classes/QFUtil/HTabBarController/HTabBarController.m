@@ -77,4 +77,14 @@
     }
 }
 
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    UIViewController *controller = self.tabContentView.selectedController;
+    if ([controller isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *navi = (UINavigationController *)controller;
+        return navi.topViewController.preferredInterfaceOrientationForPresentation;
+    } else {
+        return controller.preferredInterfaceOrientationForPresentation;
+    }
+}
+
 @end

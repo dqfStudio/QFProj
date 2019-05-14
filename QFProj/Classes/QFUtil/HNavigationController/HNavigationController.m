@@ -85,7 +85,7 @@
 #pragma mark - rotate
 
 - (BOOL)shouldAutorotate {
-    return [[self.viewControllers lastObject] shouldAutorotate];
+    return self.topViewController.shouldAutorotate;
 }
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_9_0
@@ -94,11 +94,11 @@
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
 #endif
 {
-    return [[self.viewControllers lastObject] supportedInterfaceOrientations];
+    return self.topViewController.supportedInterfaceOrientations;
 }
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
-    return [[self.viewControllers lastObject] preferredInterfaceOrientationForPresentation];
+    return self.topViewController.preferredInterfaceOrientationForPresentation;
 }
 
 @end
