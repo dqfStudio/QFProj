@@ -178,6 +178,8 @@
 		A222AE6022818F7D0013098A /* HTextRunDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A222AE4722818F7D0013098A /* HTextRunDelegate.m */; };
 		A222AE6122818F7D0013098A /* HTextAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = A222AE4922818F7D0013098A /* HTextAttribute.m */; };
 		A222AE6522828E5C0013098A /* HTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A222AE6422828E5C0013098A /* HTextField.m */; };
+		A2296D59228A62080081A479 /* HGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2296D58228A62080081A479 /* HGameViewController.m */; };
+		A2296D5C228A626B0081A479 /* HSFSafariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2296D5B228A626B0081A479 /* HSFSafariViewController.m */; };
 		A24B6560225EE08900B257BB /* HUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B655F225EE08900B257BB /* HUpdate.m */; };
 		A24B6566225EE0EE00B257BB /* HAutoPackage_Release.sh in Resources */ = {isa = PBXBuildFile; fileRef = A24B6562225EE0EE00B257BB /* HAutoPackage_Release.sh */; };
 		A24B6567225EE0EE00B257BB /* HProjectDRConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A24B6563225EE0EE00B257BB /* HProjectDRConfig.xcconfig */; };
@@ -558,6 +560,10 @@
 		A222AE4922818F7D0013098A /* HTextAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTextAttribute.m; sourceTree = "<group>"; };
 		A222AE6322828E5C0013098A /* HTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTextField.h; sourceTree = "<group>"; };
 		A222AE6422828E5C0013098A /* HTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTextField.m; sourceTree = "<group>"; };
+		A2296D57228A62080081A479 /* HGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGameViewController.h; sourceTree = "<group>"; };
+		A2296D58228A62080081A479 /* HGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGameViewController.m; sourceTree = "<group>"; };
+		A2296D5A228A626A0081A479 /* HSFSafariViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFSafariViewController.h; sourceTree = "<group>"; };
+		A2296D5B228A626B0081A479 /* HSFSafariViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFSafariViewController.m; sourceTree = "<group>"; };
 		A24B655E225EE08900B257BB /* HUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUpdate.h; sourceTree = "<group>"; };
 		A24B655F225EE08900B257BB /* HUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUpdate.m; sourceTree = "<group>"; };
 		A24B6562225EE0EE00B257BB /* HAutoPackage_Release.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = HAutoPackage_Release.sh; sourceTree = "<group>"; };
@@ -1584,6 +1590,10 @@
 				A24B6576225EE88600B257BB /* HWebviewVC.m */,
 				A24B657C225F768000B257BB /* HGameVC.h */,
 				A24B657D225F768000B257BB /* HGameVC.m */,
+				A2296D57228A62080081A479 /* HGameViewController.h */,
+				A2296D58228A62080081A479 /* HGameViewController.m */,
+				A2296D5A228A626A0081A479 /* HSFSafariViewController.h */,
+				A2296D5B228A626B0081A479 /* HSFSafariViewController.m */,
 				A24B6580225F7A7500B257BB /* HPayWebviewVC.h */,
 				A24B657F225F7A7500B257BB /* HPayWebviewVC.m */,
 			);
@@ -1950,6 +1960,7 @@
 				1528DF4320BEF6BC00D0A004 /* HNaviToastView.m in Sources */,
 				A222AE5C22818F7D0013098A /* NSAttributedString+HText.m in Sources */,
 				15E5652D2133A002003A63E5 /* HLoginController.m in Sources */,
+				A2296D59228A62080081A479 /* HGameViewController.m in Sources */,
 				15B4DDF92092F96C00773E04 /* UIScreen+HUtil.m in Sources */,
 				15B4DDF22092F96C00773E04 /* UIButton+HUtil.m in Sources */,
 				A222AE5722818F7D0013098A /* HTextTransaction.m in Sources */,
@@ -2016,6 +2027,7 @@
 				A222AE5F22818F7D0013098A /* HTextParser.m in Sources */,
 				15C5731E20B3B1900070327C /* HSimilarity.m in Sources */,
 				15B4DE052092F96C00773E04 /* HHexUtil.m in Sources */,
+				A2296D5C228A626B0081A479 /* HSFSafariViewController.m in Sources */,
 				15B4DE0E2092F96C00773E04 /* NSDictionary+HSafeUtil.m in Sources */,
 				15B4DE2A2093034700773E04 /* HClassManager.m in Sources */,
 				15B4DE1D209302BF00773E04 /* HGoTo.m in Sources */,
