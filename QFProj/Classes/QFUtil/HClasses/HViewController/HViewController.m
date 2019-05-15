@@ -15,16 +15,24 @@
 + (void)setShouldAutorotate:(BOOL)shouldAutorotate {
     objc_setAssociatedObject(self, @selector(shouldAutorotate), @(shouldAutorotate), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
++ (UIInterfaceOrientationMask)defaultInterfaceOrientation {
+    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
+}
++ (UIInterfaceOrientationMask)interfaceOrientation {
+    return [objc_getAssociatedObject(self, _cmd) integerValue];
+}
++ (void)setInterfaceOrientation:(UIInterfaceOrientationMask)interfaceOrientation {
+    objc_setAssociatedObject(self, @selector(interfaceOrientation), @(interfaceOrientation), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
     if (AppDelegate.shouldAutorotate) {
-        return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
+        if ([AppDelegate defaultInterfaceOrientation] != AppDelegate.interfaceOrientation) {
+            return AppDelegate.interfaceOrientation;
+        }
+        return [AppDelegate defaultInterfaceOrientation];
     }
     return UIInterfaceOrientationMaskPortrait;
 }
-@end
-
-@interface UIViewController (HRotate)
-
 @end
 
 @implementation UIViewController (HRotate)
@@ -37,6 +45,7 @@
 - (void)pvc_viewWillAppear:(BOOL)animated {
     [self pvc_viewWillAppear:animated];
     [AppDelegate setShouldAutorotate:self.shouldAutorotate];
+    [AppDelegate setInterfaceOrientation:self.supportedInterfaceOrientations];
 }
 @end
 

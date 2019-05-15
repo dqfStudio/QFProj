@@ -62,7 +62,7 @@
     if ([controller isKindOfClass:[UINavigationController class]]) {
         UINavigationController *navi = (UINavigationController *)controller;
         return navi.topViewController.shouldAutorotate;
-    } else {
+    }else {
         return controller.shouldAutorotate;
     }
 }
@@ -72,7 +72,7 @@
     if ([controller isKindOfClass:[UINavigationController class]]) {
         UINavigationController *navi = (UINavigationController *)controller;
         return navi.topViewController.supportedInterfaceOrientations;
-    } else {
+    }else {
         return controller.supportedInterfaceOrientations;
     }
 }
@@ -82,7 +82,7 @@
     if ([controller isKindOfClass:[UINavigationController class]]) {
         UINavigationController *navi = (UINavigationController *)controller;
         return navi.topViewController.preferredInterfaceOrientationForPresentation;
-    } else {
+    }else {
         return controller.preferredInterfaceOrientationForPresentation;
     }
 }
