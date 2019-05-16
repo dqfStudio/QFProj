@@ -76,9 +76,6 @@
 		15B4DE052092F96C00773E04 /* HHexUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDC42092F96B00773E04 /* HHexUtil.m */; };
 		15B4DE062092F96C00773E04 /* NSObject+BlockSEL.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDC72092F96B00773E04 /* NSObject+BlockSEL.m */; };
 		15B4DE072092F96C00773E04 /* NSString+HChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDCA2092F96B00773E04 /* NSString+HChain.m */; };
-		15B4DE082092F96C00773E04 /* HWebButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDCF2092F96B00773E04 /* HWebButtonView.m */; };
-		15B4DE092092F96C00773E04 /* HWebImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDD02092F96B00773E04 /* HWebImageView.m */; };
-		15B4DE0A2092F96C00773E04 /* HViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDD32092F96B00773E04 /* HViewController.m */; };
 		15B4DE0B2092F96C00773E04 /* NSString+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDDB2092F96B00773E04 /* NSString+HSafeUtil.m */; };
 		15B4DE0C2092F96C00773E04 /* NSTimer+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDDC2092F96B00773E04 /* NSTimer+HSafeUtil.m */; };
 		15B4DE0D2092F96C00773E04 /* NSObject+HSafeNotify.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDDD2092F96B00773E04 /* NSObject+HSafeNotify.m */; };
@@ -93,7 +90,6 @@
 		15B4DE292093034700773E04 /* NSObject+annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE242093034700773E04 /* NSObject+annotation.m */; };
 		15B4DE2A2093034700773E04 /* HClassManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE262093034700773E04 /* HClassManager.m */; };
 		15B4DE2D209311F900773E04 /* NSObject+HMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE2C209311F900773E04 /* NSObject+HMessy.m */; };
-		15B4DE30209319FA00773E04 /* NSObject+HSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DE2F209319FA00773E04 /* NSObject+HSelector.m */; };
 		15C5727620A982CA0070327C /* NSObject+HAutoFill.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5727520A982CA0070327C /* NSObject+HAutoFill.m */; };
 		15C5729320AE51B30070327C /* HSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5729120AE51B20070327C /* HSort.m */; };
 		15C572A020AEAC340070327C /* UILabel+HState.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5729E20AEAC340070327C /* UILabel+HState.m */; };
@@ -178,6 +174,10 @@
 		A222AE6022818F7D0013098A /* HTextRunDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A222AE4722818F7D0013098A /* HTextRunDelegate.m */; };
 		A222AE6122818F7D0013098A /* HTextAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = A222AE4922818F7D0013098A /* HTextAttribute.m */; };
 		A222AE6522828E5C0013098A /* HTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A222AE6422828E5C0013098A /* HTextField.m */; };
+		A22851F9228D485700961A86 /* HWebButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = A22851F3228D485700961A86 /* HWebButtonView.m */; };
+		A22851FA228D485700961A86 /* HWebImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A22851F4228D485700961A86 /* HWebImageView.m */; };
+		A22851FB228D485700961A86 /* HViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A22851F7228D485700961A86 /* HViewController.m */; };
+		A22851FF228D48C100961A86 /* NSObject+HSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = A22851FD228D48C100961A86 /* NSObject+HSelector.m */; };
 		A2296D59228A62080081A479 /* HGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2296D58228A62080081A479 /* HGameViewController.m */; };
 		A2296D5C228A626B0081A479 /* HSFSafariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2296D5B228A626B0081A479 /* HSFSafariViewController.m */; };
 		A24B6560225EE08900B257BB /* HUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B655F225EE08900B257BB /* HUpdate.m */; };
@@ -380,12 +380,6 @@
 		15B4DDC82092F96B00773E04 /* NSObject+BlockSEL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BlockSEL.h"; sourceTree = "<group>"; };
 		15B4DDCA2092F96B00773E04 /* NSString+HChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HChain.m"; sourceTree = "<group>"; };
 		15B4DDCB2092F96B00773E04 /* NSString+HChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HChain.h"; sourceTree = "<group>"; };
-		15B4DDCE2092F96B00773E04 /* HWebImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebImageView.h; sourceTree = "<group>"; };
-		15B4DDCF2092F96B00773E04 /* HWebButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebButtonView.m; sourceTree = "<group>"; };
-		15B4DDD02092F96B00773E04 /* HWebImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebImageView.m; sourceTree = "<group>"; };
-		15B4DDD12092F96B00773E04 /* HWebButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebButtonView.h; sourceTree = "<group>"; };
-		15B4DDD32092F96B00773E04 /* HViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HViewController.m; sourceTree = "<group>"; };
-		15B4DDD42092F96B00773E04 /* HViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HViewController.h; sourceTree = "<group>"; };
 		15B4DDD82092F96B00773E04 /* UIControl+HSafeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+HSafeUtil.h"; sourceTree = "<group>"; };
 		15B4DDD92092F96B00773E04 /* NSObject+HSwizzleUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSwizzleUtil.h"; sourceTree = "<group>"; };
 		15B4DDDA2092F96B00773E04 /* NSArray+HSafeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+HSafeUtil.h"; sourceTree = "<group>"; };
@@ -414,8 +408,6 @@
 		15B4DE272093034700773E04 /* HClassManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HClassManager.h; sourceTree = "<group>"; };
 		15B4DE2B209311F900773E04 /* NSObject+HMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HMessy.h"; sourceTree = "<group>"; };
 		15B4DE2C209311F900773E04 /* NSObject+HMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HMessy.m"; sourceTree = "<group>"; };
-		15B4DE2E209319FA00773E04 /* NSObject+HSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSelector.h"; sourceTree = "<group>"; };
-		15B4DE2F209319FA00773E04 /* NSObject+HSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSelector.m"; sourceTree = "<group>"; };
 		15C5727420A982CA0070327C /* NSObject+HAutoFill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HAutoFill.h"; sourceTree = "<group>"; };
 		15C5727520A982CA0070327C /* NSObject+HAutoFill.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HAutoFill.m"; sourceTree = "<group>"; };
 		15C5729120AE51B20070327C /* HSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSort.m; sourceTree = "<group>"; };
@@ -560,6 +552,14 @@
 		A222AE4922818F7D0013098A /* HTextAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTextAttribute.m; sourceTree = "<group>"; };
 		A222AE6322828E5C0013098A /* HTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTextField.h; sourceTree = "<group>"; };
 		A222AE6422828E5C0013098A /* HTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTextField.m; sourceTree = "<group>"; };
+		A22851F2228D485700961A86 /* HWebImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebImageView.h; sourceTree = "<group>"; };
+		A22851F3228D485700961A86 /* HWebButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebButtonView.m; sourceTree = "<group>"; };
+		A22851F4228D485700961A86 /* HWebImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebImageView.m; sourceTree = "<group>"; };
+		A22851F5228D485700961A86 /* HWebButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebButtonView.h; sourceTree = "<group>"; };
+		A22851F7228D485700961A86 /* HViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HViewController.m; sourceTree = "<group>"; };
+		A22851F8228D485700961A86 /* HViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HViewController.h; sourceTree = "<group>"; };
+		A22851FD228D48C100961A86 /* NSObject+HSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSelector.m"; sourceTree = "<group>"; };
+		A22851FE228D48C100961A86 /* NSObject+HSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSelector.h"; sourceTree = "<group>"; };
 		A2296D57228A62080081A479 /* HGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGameViewController.h; sourceTree = "<group>"; };
 		A2296D58228A62080081A479 /* HGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGameViewController.m; sourceTree = "<group>"; };
 		A2296D5A228A626A0081A479 /* HSFSafariViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFSafariViewController.h; sourceTree = "<group>"; };
@@ -955,7 +955,6 @@
 				15B4DD832092F96B00773E04 /* HDebugUtil */,
 				15B4DD8F2092F96B00773E04 /* UI-Category */,
 				15B4DDB42092F96B00773E04 /* NS-Category */,
-				15B4DDCC2092F96B00773E04 /* HClasses */,
 				15B4DDD52092F96B00773E04 /* HSafeUtil */,
 			);
 			path = QFUtil;
@@ -1065,8 +1064,6 @@
 				15B4DDC22092F96B00773E04 /* NSError+HUtil.m */,
 				15B4DE2B209311F900773E04 /* NSObject+HMessy.h */,
 				15B4DE2C209311F900773E04 /* NSObject+HMessy.m */,
-				15B4DE2E209319FA00773E04 /* NSObject+HSelector.h */,
-				15B4DE2F209319FA00773E04 /* NSObject+HSelector.m */,
 				15B4DDB72092F96B00773E04 /* NSObject+HUtil.h */,
 				15B4DDC02092F96B00773E04 /* NSObject+HUtil.m */,
 				15B4DDBF2092F96B00773E04 /* NSString+HUtil.h */,
@@ -1099,35 +1096,6 @@
 				15B4DDCA2092F96B00773E04 /* NSString+HChain.m */,
 			);
 			path = "Chain-Category";
-			sourceTree = "<group>";
-		};
-		15B4DDCC2092F96B00773E04 /* HClasses */ = {
-			isa = PBXGroup;
-			children = (
-				15B4DDD22092F96B00773E04 /* HViewController */,
-				15B4DDCD2092F96B00773E04 /* HWebClasses */,
-			);
-			path = HClasses;
-			sourceTree = "<group>";
-		};
-		15B4DDCD2092F96B00773E04 /* HWebClasses */ = {
-			isa = PBXGroup;
-			children = (
-				15B4DDD12092F96B00773E04 /* HWebButtonView.h */,
-				15B4DDCF2092F96B00773E04 /* HWebButtonView.m */,
-				15B4DDCE2092F96B00773E04 /* HWebImageView.h */,
-				15B4DDD02092F96B00773E04 /* HWebImageView.m */,
-			);
-			path = HWebClasses;
-			sourceTree = "<group>";
-		};
-		15B4DDD22092F96B00773E04 /* HViewController */ = {
-			isa = PBXGroup;
-			children = (
-				15B4DDD42092F96B00773E04 /* HViewController.h */,
-				15B4DDD32092F96B00773E04 /* HViewController.m */,
-			);
-			path = HViewController;
 			sourceTree = "<group>";
 		};
 		15B4DDD52092F96B00773E04 /* HSafeUtil */ = {
@@ -1231,6 +1199,8 @@
 		15C5734C20B3DD7B0070327C /* HTupleView */ = {
 			isa = PBXGroup;
 			children = (
+				A22851FC228D48C100961A86 /* HSelector */,
+				A22851F0228D485700961A86 /* HClasses */,
 				A222AE6222828E4B0013098A /* TextField */,
 				A222AE1522818F7D0013098A /* Text */,
 				15C5734D20B3DD7B0070327C /* Cells */,
@@ -1548,6 +1518,44 @@
 				A222AE6422828E5C0013098A /* HTextField.m */,
 			);
 			path = TextField;
+			sourceTree = "<group>";
+		};
+		A22851F0228D485700961A86 /* HClasses */ = {
+			isa = PBXGroup;
+			children = (
+				A22851F1228D485700961A86 /* HWebClasses */,
+				A22851F6228D485700961A86 /* HViewController */,
+			);
+			path = HClasses;
+			sourceTree = "<group>";
+		};
+		A22851F1228D485700961A86 /* HWebClasses */ = {
+			isa = PBXGroup;
+			children = (
+				A22851F2228D485700961A86 /* HWebImageView.h */,
+				A22851F3228D485700961A86 /* HWebButtonView.m */,
+				A22851F4228D485700961A86 /* HWebImageView.m */,
+				A22851F5228D485700961A86 /* HWebButtonView.h */,
+			);
+			path = HWebClasses;
+			sourceTree = "<group>";
+		};
+		A22851F6228D485700961A86 /* HViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A22851F7228D485700961A86 /* HViewController.m */,
+				A22851F8228D485700961A86 /* HViewController.h */,
+			);
+			path = HViewController;
+			sourceTree = "<group>";
+		};
+		A22851FC228D48C100961A86 /* HSelector */ = {
+			isa = PBXGroup;
+			children = (
+				A22851FE228D48C100961A86 /* NSObject+HSelector.h */,
+				A22851FD228D48C100961A86 /* NSObject+HSelector.m */,
+			);
+			path = HSelector;
 			sourceTree = "<group>";
 		};
 		A24B655D225EE08900B257BB /* HUpdate */ = {
@@ -1944,7 +1952,6 @@
 				A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */,
 				A21FD5FA224DBC34009F03FB /* HRequestHUD.m in Sources */,
 				15B4DDF82092F96C00773E04 /* UIImage+Util.m in Sources */,
-				15B4DE092092F96C00773E04 /* HWebImageView.m in Sources */,
 				1508255520EB1C0F008CAE57 /* HDictionary.m in Sources */,
 				A2DC22BE2242994800E540BE /* NSObject+HForwarding.m in Sources */,
 				153F081620E28CA000C74850 /* HNumericValidator.m in Sources */,
@@ -1956,6 +1963,7 @@
 				15B4DE132092F96C00773E04 /* UIControl+HSafeUtil.m in Sources */,
 				15B4DE2D209311F900773E04 /* NSObject+HMessy.m in Sources */,
 				1528DF4920BF0A7A00D0A004 /* HShowView.m in Sources */,
+				A22851F9228D485700961A86 /* HWebButtonView.m in Sources */,
 				15F9151D20A14A33000261C4 /* UIView+HShow.m in Sources */,
 				1528DF4320BEF6BC00D0A004 /* HNaviToastView.m in Sources */,
 				A222AE5C22818F7D0013098A /* NSAttributedString+HText.m in Sources */,
@@ -1974,7 +1982,6 @@
 				A24B659522607E8400B257BB /* NSStream+SKPSMTPExtensions.m in Sources */,
 				15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */,
 				15B4DDED2092F96C00773E04 /* UIView+HImage.m in Sources */,
-				15B4DE30209319FA00773E04 /* NSObject+HSelector.m in Sources */,
 				15E6BB9E2136E7E300EBE794 /* YPTabItem.m in Sources */,
 				A222AE5322818F7D0013098A /* HTextContainerView.m in Sources */,
 				1547B890210C4E09009E0374 /* UIControl+HTracking.m in Sources */,
@@ -1988,6 +1995,7 @@
 				A28EF3C421DA1DFE002F92ED /* HFormCell.m in Sources */,
 				1547B891210C4E09009E0374 /* UICollectionView+HTracking.m in Sources */,
 				A24B659622607E8400B257BB /* HEmailManager.m in Sources */,
+				A22851FB228D485700961A86 /* HViewController.m in Sources */,
 				15E6BB9C2136E7E300EBE794 /* YPTabBarController.m in Sources */,
 				15B4DDF62092F96C00773E04 /* UIApplication+HUtil.m in Sources */,
 				A222A716227C52430013098A /* UILabel+HUtil.m in Sources */,
@@ -1995,9 +2003,11 @@
 				15B4DE1B209302BF00773E04 /* HGoToApp.m in Sources */,
 				15C5737120B3DD7B0070327C /* HTupleBaseView.m in Sources */,
 				A24B659B22607E8400B257BB /* HSK_CFUtilities.m in Sources */,
+				A22851FA228D485700961A86 /* HWebImageView.m in Sources */,
 				15B4DE282093034700773E04 /* HGCDUtil.m in Sources */,
 				1547B88F210C4E09009E0374 /* UITableView+HTracking.m in Sources */,
 				1547855D211599CE00DC9EAE /* HRegularExpression.m in Sources */,
+				A22851FF228D48C100961A86 /* NSObject+HSelector.m in Sources */,
 				15C5736820B3DD7B0070327C /* HTupleBaseCell.m in Sources */,
 				15B4DE0C2092F96C00773E04 /* NSTimer+HSafeUtil.m in Sources */,
 				A222AE5822818F7D0013098A /* HTextAsyncLayer.m in Sources */,
@@ -2045,7 +2055,6 @@
 				15B4DE022092F96C00773E04 /* NSUserDefaults+HUtil.m in Sources */,
 				15B4DE072092F96C00773E04 /* NSString+HChain.m in Sources */,
 				1510793F20F98E4800860D1C /* NSTimer+HUtil.m in Sources */,
-				15B4DE082092F96C00773E04 /* HWebButtonView.m in Sources */,
 				A2ED9C1722314CAC00C9D050 /* HKeyChainStore.m in Sources */,
 				A222AE5522818F7D0013098A /* NSParagraphStyle+HText.m in Sources */,
 				15E6BB9A2136E7E300EBE794 /* UIViewController+YPTab.m in Sources */,
@@ -2090,7 +2099,6 @@
 				A222A6C42279AAAD0013098A /* NSDictionary+Util.m in Sources */,
 				A222AE4C22818F7D0013098A /* HTextDebugOption.m in Sources */,
 				15F9152020A171A8000261C4 /* NSObject+HAspects.m in Sources */,
-				15B4DE0A2092F96C00773E04 /* HViewController.m in Sources */,
 				A222AE5B22818F7D0013098A /* HTextWeakProxy.m in Sources */,
 				15B4DD682092F88700773E04 /* AppDelegate.m in Sources */,
 				15C573B920B3DE340070327C /* HTableBaseCell.m in Sources */,
