@@ -16,12 +16,12 @@
 @property (nonatomic, assign) SEL selector;
 @end
 
-static NSMutableSet *transactionSet = nil;
+static NSMutableSet *hTransactionSet = nil;
 
 static void HRunLoopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info) {
-    if (transactionSet.count == 0) return;
-    NSSet *currentSet = transactionSet;
-    transactionSet = [NSMutableSet new];
+    if (hTransactionSet.count == 0) return;
+    NSSet *currentSet = hTransactionSet;
+    hTransactionSet = [NSMutableSet new];
     [currentSet enumerateObjectsUsingBlock:^(HTextTransaction *transaction, BOOL *stop) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
@@ -33,7 +33,7 @@ static void HRunLoopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopAct
 static void HTextTransactionSetup() {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        transactionSet = [NSMutableSet new];
+        hTransactionSet = [NSMutableSet new];
         CFRunLoopRef runloop = CFRunLoopGetMain();
         CFRunLoopObserverRef observer;
         
@@ -61,7 +61,7 @@ static void HTextTransactionSetup() {
 - (void)commit {
     if (!_target || !_selector) return;
     HTextTransactionSetup();
-    [transactionSet addObject:self];
+    [hTransactionSet addObject:self];
 }
 
 - (NSUInteger)hash {

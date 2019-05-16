@@ -13,61 +13,61 @@
 #import <libkern/OSAtomic.h>
 #import <pthread.h>
 
-static pthread_mutex_t _sharedDebugLock;
-static CFMutableSetRef _sharedDebugTargets = nil;
-static HTextDebugOption *_sharedDebugOption = nil;
+static pthread_mutex_t _hSharedDebugLock;
+static CFMutableSetRef _hSharedDebugTargets = nil;
+static HTextDebugOption *_hSharedDebugOption = nil;
 
-static const void* _sharedDebugSetRetain(CFAllocatorRef allocator, const void *value) {
+static const void* _hSharedDebugSetRetain(CFAllocatorRef allocator, const void *value) {
     return value;
 }
 
-static void _sharedDebugSetRelease(CFAllocatorRef allocator, const void *value) {
+static void _hSharedDebugSetRelease(CFAllocatorRef allocator, const void *value) {
 }
 
-void _sharedDebugSetFunction(const void *value, void *context) {
+void _hSharedDebugSetFunction(const void *value, void *context) {
     id<HTextDebugTarget> target = (__bridge id<HTextDebugTarget>)(value);
-    [target setDebugOption:_sharedDebugOption];
+    [target setDebugOption:_hSharedDebugOption];
 }
 
-static void _initSharedDebug() {
+static void _initHSharedDebug() {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        pthread_mutex_init(&_sharedDebugLock, NULL);
+        pthread_mutex_init(&_hSharedDebugLock, NULL);
         CFSetCallBacks callbacks = kCFTypeSetCallBacks;
-        callbacks.retain = _sharedDebugSetRetain;
-        callbacks.release = _sharedDebugSetRelease;
-        _sharedDebugTargets = CFSetCreateMutable(CFAllocatorGetDefault(), 0, &callbacks);
+        callbacks.retain = _hSharedDebugSetRetain;
+        callbacks.release = _hSharedDebugSetRelease;
+        _hSharedDebugTargets = CFSetCreateMutable(CFAllocatorGetDefault(), 0, &callbacks);
     });
 }
 
-static void _setSharedDebugOption(HTextDebugOption *option) {
-    _initSharedDebug();
-    pthread_mutex_lock(&_sharedDebugLock);
-    _sharedDebugOption = option.copy;
-    CFSetApplyFunction(_sharedDebugTargets, _sharedDebugSetFunction, NULL);
-    pthread_mutex_unlock(&_sharedDebugLock);
+static void _setHSharedDebugOption(HTextDebugOption *option) {
+    _initHSharedDebug();
+    pthread_mutex_lock(&_hSharedDebugLock);
+    _hSharedDebugOption = option.copy;
+    CFSetApplyFunction(_hSharedDebugTargets, _hSharedDebugSetFunction, NULL);
+    pthread_mutex_unlock(&_hSharedDebugLock);
 }
 
-static HTextDebugOption *_getSharedDebugOption() {
-    _initSharedDebug();
-    pthread_mutex_lock(&_sharedDebugLock);
-    HTextDebugOption *op = _sharedDebugOption;
-    pthread_mutex_unlock(&_sharedDebugLock);
+static HTextDebugOption *_getHSharedDebugOption() {
+    _initHSharedDebug();
+    pthread_mutex_lock(&_hSharedDebugLock);
+    HTextDebugOption *op = _hSharedDebugOption;
+    pthread_mutex_unlock(&_hSharedDebugLock);
     return op;
 }
 
-static void _addDebugTarget(id<HTextDebugTarget> target) {
-    _initSharedDebug();
-    pthread_mutex_lock(&_sharedDebugLock);
-    CFSetAddValue(_sharedDebugTargets, (__bridge const void *)(target));
-    pthread_mutex_unlock(&_sharedDebugLock);
+static void _addHDebugTarget(id<HTextDebugTarget> target) {
+    _initHSharedDebug();
+    pthread_mutex_lock(&_hSharedDebugLock);
+    CFSetAddValue(_hSharedDebugTargets, (__bridge const void *)(target));
+    pthread_mutex_unlock(&_hSharedDebugLock);
 }
 
-static void _removeDebugTarget(id<HTextDebugTarget> target) {
-    _initSharedDebug();
-    pthread_mutex_lock(&_sharedDebugLock);
-    CFSetRemoveValue(_sharedDebugTargets, (__bridge const void *)(target));
-    pthread_mutex_unlock(&_sharedDebugLock);
+static void _removeHDebugTarget(id<HTextDebugTarget> target) {
+    _initHSharedDebug();
+    pthread_mutex_lock(&_hSharedDebugLock);
+    CFSetRemoveValue(_hSharedDebugTargets, (__bridge const void *)(target));
+    pthread_mutex_unlock(&_hSharedDebugLock);
 }
 
 
@@ -119,20 +119,20 @@ static void _removeDebugTarget(id<HTextDebugTarget> target) {
 }
 
 + (void)addDebugTarget:(id<HTextDebugTarget>)target {
-    if (target) _addDebugTarget(target);
+    if (target) _addHDebugTarget(target);
 }
 
 + (void)removeDebugTarget:(id<HTextDebugTarget>)target {
-    if (target) _removeDebugTarget(target);
+    if (target) _removeHDebugTarget(target);
 }
 
 + (HTextDebugOption *)sharedDebugOption {
-    return _getSharedDebugOption();
+    return _getHSharedDebugOption();
 }
 
 + (void)setSharedDebugOption:(HTextDebugOption *)option {
     NSAssert([NSThread isMainThread], @"This method must be called on the main thread");
-    _setSharedDebugOption(option);
+    _setHSharedDebugOption(option);
 }
 
 @end

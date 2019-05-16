@@ -30,24 +30,24 @@ static double _HDeviceSystemVersion() {
     return version;
 }
 
-#ifndef kSystemVersion
-#define kSystemVersion _HDeviceSystemVersion()
+#ifndef kHSystemVersion
+#define kHSystemVersion _HDeviceSystemVersion()
 #endif
 
-#ifndef kiOS6Later
-#define kiOS6Later (kSystemVersion >= 6)
+#ifndef kHiOS6Later
+#define kHiOS6Later (kHSystemVersion >= 6)
 #endif
 
-#ifndef kiOS7Later
-#define kiOS7Later (kSystemVersion >= 7)
+#ifndef kHiOS7Later
+#define kHiOS7Later (kHSystemVersion >= 7)
 #endif
 
-#ifndef kiOS8Later
-#define kiOS8Later (kSystemVersion >= 8)
+#ifndef kHiOS8Later
+#define kHiOS8Later (kHSystemVersion >= 8)
 #endif
 
-#ifndef kiOS9Later
-#define kiOS9Later (kSystemVersion >= 9)
+#ifndef kHiOS9Later
+#define kHiOS9Later (kHSystemVersion >= 9)
 #endif
 
 
@@ -108,7 +108,7 @@ static double _HDeviceSystemVersion() {
      We use UIFont for both CoreText and UIKit.
      */
     UIFont *font = [self h_attribute:NSFontAttributeName atIndex:index];
-    if (kSystemVersion <= 6) {
+    if (kHSystemVersion <= 6) {
         if (font) {
             if (CFGetTypeID((__bridge CFTypeRef)(font)) == CTFontGetTypeID()) {
                 CTFontRef CTFont = (__bridge CTFontRef)(font);
@@ -205,7 +205,7 @@ static double _HDeviceSystemVersion() {
 }
 
 - (UIColor *)h_strikethroughColorAtIndex:(NSUInteger)index {
-    if (kSystemVersion >= 7) {
+    if (kHSystemVersion >= 7) {
         return [self h_attribute:NSStrikethroughColorAttributeName atIndex:index];
     }
     return nil;
@@ -226,7 +226,7 @@ static double _HDeviceSystemVersion() {
 
 - (UIColor *)h_underlineColorAtIndex:(NSUInteger)index {
     UIColor *color = nil;
-    if (kSystemVersion >= 7) {
+    if (kHSystemVersion >= 7) {
         color = [self h_attribute:NSUnderlineColorAttributeName atIndex:index];
     }
     if (!color) {
@@ -249,7 +249,7 @@ static double _HDeviceSystemVersion() {
 }
 
 - (NSString *)h_textEffectAtIndex:(NSUInteger)index {
-    if (kSystemVersion >= 7) {
+    if (kHSystemVersion >= 7) {
         return [self h_attribute:NSTextEffectAttributeName atIndex:index];
     }
     return nil;
@@ -260,7 +260,7 @@ static double _HDeviceSystemVersion() {
 }
 
 - (NSNumber *)h_obliquenessAtIndex:(NSUInteger)index {
-    if (kSystemVersion >= 7) {
+    if (kHSystemVersion >= 7) {
         return [self h_attribute:NSObliquenessAttributeName atIndex:index];
     }
     return nil;
@@ -271,7 +271,7 @@ static double _HDeviceSystemVersion() {
 }
 
 - (NSNumber *)h_expansionAtIndex:(NSUInteger)index {
-    if (kSystemVersion >= 7) {
+    if (kHSystemVersion >= 7) {
         return [self h_attribute:NSExpansionAttributeName atIndex:index];
     }
     return nil;
@@ -282,7 +282,7 @@ static double _HDeviceSystemVersion() {
 }
 
 - (NSNumber *)h_baselineOffsetAtIndex:(NSUInteger)index {
-    if (kSystemVersion >= 7) {
+    if (kHSystemVersion >= 7) {
         return [self h_attribute:NSBaselineOffsetAttributeName atIndex:index];
     }
     return nil;
@@ -302,7 +302,7 @@ static double _HDeviceSystemVersion() {
 }
 
 - (NSString *)h_languageAtIndex:(NSUInteger)index {
-    if (kSystemVersion >= 7) {
+    if (kHSystemVersion >= 7) {
         return [self h_attribute:(id)kCTLanguageAttributeName atIndex:index];
     }
     return nil;
@@ -338,142 +338,142 @@ static double _HDeviceSystemVersion() {
     return style;
 }
 
-#define ParagraphAttribute(_attr_) \
+#define HParagraphAttribute(_attr_) \
 NSParagraphStyle *style = self.h_paragraphStyle; \
 if (!style) style = [NSParagraphStyle defaultParagraphStyle]; \
 return style. _attr_;
 
-#define ParagraphAttributeAtIndex(_attr_) \
+#define HParagraphAttributeAtIndex(_attr_) \
 NSParagraphStyle *style = [self h_paragraphStyleAtIndex:index]; \
 if (!style) style = [NSParagraphStyle defaultParagraphStyle]; \
 return style. _attr_;
 
 - (NSTextAlignment)h_alignment {
-    ParagraphAttribute(alignment);
+    HParagraphAttribute(alignment);
 }
 
 - (NSLineBreakMode)h_lineBreakMode {
-    ParagraphAttribute(lineBreakMode);
+    HParagraphAttribute(lineBreakMode);
 }
 
 - (CGFloat)h_lineSpacing {
-    ParagraphAttribute(lineSpacing);
+    HParagraphAttribute(lineSpacing);
 }
 
 - (CGFloat)h_paragraphSpacing {
-    ParagraphAttribute(paragraphSpacing);
+    HParagraphAttribute(paragraphSpacing);
 }
 
 - (CGFloat)h_paragraphSpacingBefore {
-    ParagraphAttribute(paragraphSpacingBefore);
+    HParagraphAttribute(paragraphSpacingBefore);
 }
 
 - (CGFloat)h_firstLineHeadIndent {
-    ParagraphAttribute(firstLineHeadIndent);
+    HParagraphAttribute(firstLineHeadIndent);
 }
 
 - (CGFloat)h_headIndent {
-    ParagraphAttribute(headIndent);
+    HParagraphAttribute(headIndent);
 }
 
 - (CGFloat)h_tailIndent {
-    ParagraphAttribute(tailIndent);
+    HParagraphAttribute(tailIndent);
 }
 
 - (CGFloat)h_minimumLineHeight {
-    ParagraphAttribute(minimumLineHeight);
+    HParagraphAttribute(minimumLineHeight);
 }
 
 - (CGFloat)h_maximumLineHeight {
-    ParagraphAttribute(maximumLineHeight);
+    HParagraphAttribute(maximumLineHeight);
 }
 
 - (CGFloat)h_lineHeightMultiple {
-    ParagraphAttribute(lineHeightMultiple);
+    HParagraphAttribute(lineHeightMultiple);
 }
 
 - (NSWritingDirection)h_baseWritingDirection {
-    ParagraphAttribute(baseWritingDirection);
+    HParagraphAttribute(baseWritingDirection);
 }
 
 - (float)h_hyphenationFactor {
-    ParagraphAttribute(hyphenationFactor);
+    HParagraphAttribute(hyphenationFactor);
 }
 
 - (CGFloat)h_defaultTabInterval {
-    if (!kiOS7Later) return 0;
-    ParagraphAttribute(defaultTabInterval);
+    if (!kHiOS7Later) return 0;
+    HParagraphAttribute(defaultTabInterval);
 }
 
 - (NSArray *)h_tabStops {
-    if (!kiOS7Later) return nil;
-    ParagraphAttribute(tabStops);
+    if (!kHiOS7Later) return nil;
+    HParagraphAttribute(tabStops);
 }
 
 - (NSTextAlignment)h_alignmentAtIndex:(NSUInteger)index {
-    ParagraphAttributeAtIndex(alignment);
+    HParagraphAttributeAtIndex(alignment);
 }
 
 - (NSLineBreakMode)h_lineBreakModeAtIndex:(NSUInteger)index {
-    ParagraphAttributeAtIndex(lineBreakMode);
+    HParagraphAttributeAtIndex(lineBreakMode);
 }
 
 - (CGFloat)h_lineSpacingAtIndex:(NSUInteger)index {
-    ParagraphAttributeAtIndex(lineSpacing);
+    HParagraphAttributeAtIndex(lineSpacing);
 }
 
 - (CGFloat)h_paragraphSpacingAtIndex:(NSUInteger)index {
-    ParagraphAttributeAtIndex(paragraphSpacing);
+    HParagraphAttributeAtIndex(paragraphSpacing);
 }
 
 - (CGFloat)h_paragraphSpacingBeforeAtIndex:(NSUInteger)index {
-    ParagraphAttributeAtIndex(paragraphSpacingBefore);
+    HParagraphAttributeAtIndex(paragraphSpacingBefore);
 }
 
 - (CGFloat)h_firstLineHeadIndentAtIndex:(NSUInteger)index {
-    ParagraphAttributeAtIndex(firstLineHeadIndent);
+    HParagraphAttributeAtIndex(firstLineHeadIndent);
 }
 
 - (CGFloat)h_headIndentAtIndex:(NSUInteger)index {
-    ParagraphAttributeAtIndex(headIndent);
+    HParagraphAttributeAtIndex(headIndent);
 }
 
 - (CGFloat)h_tailIndentAtIndex:(NSUInteger)index {
-    ParagraphAttributeAtIndex(tailIndent);
+    HParagraphAttributeAtIndex(tailIndent);
 }
 
 - (CGFloat)h_minimumLineHeightAtIndex:(NSUInteger)index {
-    ParagraphAttributeAtIndex(minimumLineHeight);
+    HParagraphAttributeAtIndex(minimumLineHeight);
 }
 
 - (CGFloat)h_maximumLineHeightAtIndex:(NSUInteger)index {
-    ParagraphAttributeAtIndex(maximumLineHeight);
+    HParagraphAttributeAtIndex(maximumLineHeight);
 }
 
 - (CGFloat)h_lineHeightMultipleAtIndex:(NSUInteger)index {
-    ParagraphAttributeAtIndex(lineHeightMultiple);
+    HParagraphAttributeAtIndex(lineHeightMultiple);
 }
 
 - (NSWritingDirection)h_baseWritingDirectionAtIndex:(NSUInteger)index {
-    ParagraphAttributeAtIndex(baseWritingDirection);
+    HParagraphAttributeAtIndex(baseWritingDirection);
 }
 
 - (float)h_hyphenationFactorAtIndex:(NSUInteger)index {
-    ParagraphAttributeAtIndex(hyphenationFactor);
+    HParagraphAttributeAtIndex(hyphenationFactor);
 }
 
 - (CGFloat)h_defaultTabIntervalAtIndex:(NSUInteger)index {
-    if (!kiOS7Later) return 0;
-    ParagraphAttributeAtIndex(defaultTabInterval);
+    if (!kHiOS7Later) return 0;
+    HParagraphAttributeAtIndex(defaultTabInterval);
 }
 
 - (NSArray *)h_tabStopsAtIndex:(NSUInteger)index {
-    if (!kiOS7Later) return nil;
-    ParagraphAttributeAtIndex(tabStops);
+    if (!kHiOS7Later) return nil;
+    HParagraphAttributeAtIndex(tabStops);
 }
 
-#undef ParagraphAttribute
-#undef ParagraphAttributeAtIndex
+#undef HParagraphAttribute
+#undef HParagraphAttributeAtIndex
 
 - (HTextShadow *)h_textShadow {
     return [self h_textShadowAtIndex:0];
@@ -704,14 +704,14 @@ return style. _attr_;
         failSet = [NSMutableSet new];
         [failSet addObject:(id)kCTGlyphInfoAttributeName];
         [failSet addObject:(id)kCTCharacterShapeAttributeName];
-        if (kiOS7Later) {
+        if (kHiOS7Later) {
             [failSet addObject:(id)kCTLanguageAttributeName];
         }
         [failSet addObject:(id)kCTRunDelegateAttributeName];
         [failSet addObject:(id)kCTBaselineClassAttributeName];
         [failSet addObject:(id)kCTBaselineInfoAttributeName];
         [failSet addObject:(id)kCTBaselineReferenceInfoAttributeName];
-        if (kiOS8Later) {
+        if (kHiOS8Later) {
             [failSet addObject:(id)kCTRubyAnnotationAttributeName];
         }
         [failSet addObject:HTextShadowAttributeName];
@@ -733,14 +733,14 @@ return style. _attr_;
         for (NSString *str in attrs.allKeys) {
             if ([failSet containsObject:str]) Fail;
         }
-        if (!kiOS7Later) {
+        if (!kHiOS7Later) {
             UIFont *font = attrs[NSFontAttributeName];
             if (CFGetTypeID((__bridge CFTypeRef)(font)) == CTFontGetTypeID()) Fail;
         }
         if (attrs[(id)kCTForegroundColorAttributeName] && !attrs[NSForegroundColorAttributeName]) Fail;
         if (attrs[(id)kCTStrokeColorAttributeName] && !attrs[NSStrokeColorAttributeName]) Fail;
         if (attrs[(id)kCTUnderlineColorAttributeName]) {
-            if (!kiOS7Later) Fail;
+            if (!kHiOS7Later) Fail;
             if (!attrs[NSUnderlineColorAttributeName]) Fail;
         }
         NSParagraphStyle *style = attrs[NSParagraphStyleAttributeName];
@@ -1014,7 +1014,7 @@ return style. _attr_;
 }
 
 - (void)h_setStrikethroughColor:(UIColor *)strikethroughColor range:(NSRange)range {
-    if (kSystemVersion >= 7) {
+    if (kHSystemVersion >= 7) {
         [self h_setAttribute:NSStrikethroughColorAttributeName value:strikethroughColor range:range];
     }
 }
@@ -1026,7 +1026,7 @@ return style. _attr_;
 
 - (void)h_setUnderlineColor:(UIColor *)underlineColor range:(NSRange)range {
     [self h_setAttribute:(id)kCTUnderlineColorAttributeName value:(id)underlineColor.CGColor range:range];
-    if (kSystemVersion >= 7) {
+    if (kHSystemVersion >= 7) {
         [self h_setAttribute:NSUnderlineColorAttributeName value:underlineColor range:range];
     }
 }
@@ -1036,25 +1036,25 @@ return style. _attr_;
 }
 
 - (void)h_setTextEffect:(NSString *)textEffect range:(NSRange)range {
-    if (kSystemVersion >= 7) {
+    if (kHSystemVersion >= 7) {
         [self h_setAttribute:NSTextEffectAttributeName value:textEffect range:range];
     }
 }
 
 - (void)h_setObliqueness:(NSNumber *)obliqueness range:(NSRange)range {
-    if (kSystemVersion >= 7) {
+    if (kHSystemVersion >= 7) {
         [self h_setAttribute:NSObliquenessAttributeName value:obliqueness range:range];
     }
 }
 
 - (void)h_setExpansion:(NSNumber *)expansion range:(NSRange)range {
-    if (kSystemVersion >= 7) {
+    if (kHSystemVersion >= 7) {
         [self h_setAttribute:NSExpansionAttributeName value:expansion range:range];
     }
 }
 
 - (void)h_setBaselineOffset:(NSNumber *)baselineOffset range:(NSRange)range {
-    if (kSystemVersion >= 7) {
+    if (kHSystemVersion >= 7) {
         [self h_setAttribute:NSBaselineOffsetAttributeName value:baselineOffset range:range];
     }
 }
@@ -1065,7 +1065,7 @@ return style. _attr_;
 }
 
 - (void)h_setLanguage:(NSString *)language range:(NSRange)range {
-    if (kSystemVersion >= 7) {
+    if (kHSystemVersion >= 7) {
         [self h_setAttribute:(id)kCTLanguageAttributeName value:language range:range];
     }
 }
@@ -1086,7 +1086,7 @@ return style. _attr_;
     [self h_setAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:range];
 }
 
-#define ParagraphStyleSet(_attr_) \
+#define HParagraphStyleSet(_attr_) \
 [self enumerateAttribute:NSParagraphStyleAttributeName \
                  inRange:range \
                  options:kNilOptions \
@@ -1111,68 +1111,68 @@ return style. _attr_;
               }];
 
 - (void)h_setAlignment:(NSTextAlignment)alignment range:(NSRange)range {
-    ParagraphStyleSet(alignment);
+    HParagraphStyleSet(alignment);
 }
 
 - (void)h_setBaseWritingDirection:(NSWritingDirection)baseWritingDirection range:(NSRange)range {
-    ParagraphStyleSet(baseWritingDirection);
+    HParagraphStyleSet(baseWritingDirection);
 }
 
 - (void)h_setLineSpacing:(CGFloat)lineSpacing range:(NSRange)range {
-    ParagraphStyleSet(lineSpacing);
+    HParagraphStyleSet(lineSpacing);
 }
 
 - (void)h_setParagraphSpacing:(CGFloat)paragraphSpacing range:(NSRange)range {
-    ParagraphStyleSet(paragraphSpacing);
+    HParagraphStyleSet(paragraphSpacing);
 }
 
 - (void)h_setParagraphSpacingBefore:(CGFloat)paragraphSpacingBefore range:(NSRange)range {
-    ParagraphStyleSet(paragraphSpacingBefore);
+    HParagraphStyleSet(paragraphSpacingBefore);
 }
 
 - (void)h_setFirstLineHeadIndent:(CGFloat)firstLineHeadIndent range:(NSRange)range {
-    ParagraphStyleSet(firstLineHeadIndent);
+    HParagraphStyleSet(firstLineHeadIndent);
 }
 
 - (void)h_setHeadIndent:(CGFloat)headIndent range:(NSRange)range {
-    ParagraphStyleSet(headIndent);
+    HParagraphStyleSet(headIndent);
 }
 
 - (void)h_setTailIndent:(CGFloat)tailIndent range:(NSRange)range {
-    ParagraphStyleSet(tailIndent);
+    HParagraphStyleSet(tailIndent);
 }
 
 - (void)h_setLineBreakMode:(NSLineBreakMode)lineBreakMode range:(NSRange)range {
-    ParagraphStyleSet(lineBreakMode);
+    HParagraphStyleSet(lineBreakMode);
 }
 
 - (void)h_setMinimumLineHeight:(CGFloat)minimumLineHeight range:(NSRange)range {
-    ParagraphStyleSet(minimumLineHeight);
+    HParagraphStyleSet(minimumLineHeight);
 }
 
 - (void)h_setMaximumLineHeight:(CGFloat)maximumLineHeight range:(NSRange)range {
-    ParagraphStyleSet(maximumLineHeight);
+    HParagraphStyleSet(maximumLineHeight);
 }
 
 - (void)h_setLineHeightMultiple:(CGFloat)lineHeightMultiple range:(NSRange)range {
-    ParagraphStyleSet(lineHeightMultiple);
+    HParagraphStyleSet(lineHeightMultiple);
 }
 
 - (void)h_setHyphenationFactor:(float)hyphenationFactor range:(NSRange)range {
-    ParagraphStyleSet(hyphenationFactor);
+    HParagraphStyleSet(hyphenationFactor);
 }
 
 - (void)h_setDefaultTabInterval:(CGFloat)defaultTabInterval range:(NSRange)range {
-    if (!kiOS7Later) return;
-    ParagraphStyleSet(defaultTabInterval);
+    if (!kHiOS7Later) return;
+    HParagraphStyleSet(defaultTabInterval);
 }
 
 - (void)h_setTabStops:(NSArray *)tabStops range:(NSRange)range {
-    if (!kiOS7Later) return;
-    ParagraphStyleSet(tabStops);
+    if (!kHiOS7Later) return;
+    HParagraphStyleSet(tabStops);
 }
 
-#undef ParagraphStyleSet
+#undef HParagraphStyleSet
 
 - (void)h_setSuperscript:(NSNumber *)superscript range:(NSRange)range {
     if ([superscript isEqualToNumber:@(0)]) {
@@ -1206,19 +1206,19 @@ return style. _attr_;
 }
 
 - (void)h_setRubyAnnotation:(CTRubyAnnotationRef)ruby range:(NSRange)range {
-    if (kSystemVersion >= 8) {
+    if (kHSystemVersion >= 8) {
         [self h_setAttribute:(id)kCTRubyAnnotationAttributeName value:(__bridge id)ruby range:range];
     }
 }
 
 - (void)h_setAttachment:(NSTextAttachment *)attachment range:(NSRange)range {
-    if (kSystemVersion >= 7) {
+    if (kHSystemVersion >= 7) {
         [self h_setAttribute:NSAttachmentAttributeName value:attachment range:range];
     }
 }
 
 - (void)h_setLink:(id)link range:(NSRange)range {
-    if (kSystemVersion >= 7) {
+    if (kHSystemVersion >= 7) {
         [self h_setAttribute:NSLinkAttributeName value:link range:range];
     }
 }
@@ -1268,7 +1268,7 @@ return style. _attr_;
 }
 
 - (void)h_setTextRubyAnnotation:(HTextRubyAnnotation *)ruby range:(NSRange)range {
-    if (kiOS8Later) {
+    if (kHiOS8Later) {
         CTRubyAnnotationRef rubyRef = [ruby CTRubyAnnotation];
         [self h_setRubyAnnotation:rubyRef range:range];
         if (rubyRef) CFRelease(rubyRef);
@@ -1390,10 +1390,10 @@ return style. _attr_;
                  HTextBackedStringAttributeName,
                  HTextBindingAttributeName,
                  HTextAttachmentAttributeName].mutableCopy;
-        if (kiOS8Later) {
+        if (kHiOS8Later) {
             [keys addObject:(id)kCTRubyAnnotationAttributeName];
         }
-        if (kiOS7Later) {
+        if (kHiOS7Later) {
             [keys addObject:NSAttachmentAttributeName];
         }
     });

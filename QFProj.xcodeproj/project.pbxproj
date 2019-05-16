@@ -1573,10 +1573,10 @@
 		A24B6561225EE0EE00B257BB /* HAutoPackage */ = {
 			isa = PBXGroup;
 			children = (
+				A24B6565225EE0EE00B257BB /* exportOptions.plist */,
 				A24B6562225EE0EE00B257BB /* HAutoPackage_Release.sh */,
 				A24B6563225EE0EE00B257BB /* HProjectDRConfig.xcconfig */,
 				A24B6564225EE0EE00B257BB /* README.H.md */,
-				A24B6565225EE0EE00B257BB /* exportOptions.plist */,
 			);
 			path = HAutoPackage;
 			sourceTree = "<group>";

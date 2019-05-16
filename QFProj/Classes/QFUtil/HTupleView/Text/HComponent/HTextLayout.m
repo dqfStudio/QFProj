@@ -178,12 +178,12 @@ static CGColorRef HTextGetCGColor(CGColorRef color) {
     return self;
 }
 
-#define Getter(...) \
+#define HGetter(...) \
 dispatch_semaphore_wait(_lock, DISPATCH_TIME_FOREVER); \
 __VA_ARGS__; \
 dispatch_semaphore_signal(_lock);
 
-#define Setter(...) \
+#define HSetter(...) \
 if (_readonly) { \
 @throw [NSException exceptionWithName:NSInternalInconsistencyException \
 reason:@"Cannot change the property of the 'container' in 'HTextLayout'." userInfo:nil]; \
@@ -194,19 +194,19 @@ __VA_ARGS__; \
 dispatch_semaphore_signal(_lock);
 
 - (CGSize)size {
-    Getter(CGSize size = _size) return size;
+    HGetter(CGSize size = _size) return size;
 }
 
 - (void)setSize:(CGSize)size {
-    Setter(if(!_path) _size = HTextClipCGSize(size));
+    HSetter(if(!_path) _size = HTextClipCGSize(size));
 }
 
 - (UIEdgeInsets)insets {
-    Getter(UIEdgeInsets insets = _insets) return insets;
+    HGetter(UIEdgeInsets insets = _insets) return insets;
 }
 
 - (void)setInsets:(UIEdgeInsets)insets {
-    Setter(if(!_path){
+    HSetter(if(!_path){
         if (insets.top < 0) insets.top = 0;
         if (insets.left < 0) insets.left = 0;
         if (insets.bottom < 0) insets.bottom = 0;
@@ -216,11 +216,11 @@ dispatch_semaphore_signal(_lock);
 }
 
 - (UIBezierPath *)path {
-    Getter(UIBezierPath *path = _path) return path;
+    HGetter(UIBezierPath *path = _path) return path;
 }
 
 - (void)setPath:(UIBezierPath *)path {
-    Setter(
+    HSetter(
            _path = path.copy;
            if (_path) {
                CGRect bounds = _path.bounds;
@@ -237,71 +237,71 @@ dispatch_semaphore_signal(_lock);
 }
 
 - (NSArray *)exclusionPaths {
-    Getter(NSArray *paths = _exclusionPaths) return paths;
+    HGetter(NSArray *paths = _exclusionPaths) return paths;
 }
 
 - (void)setExclusionPaths:(NSArray *)exclusionPaths {
-    Setter(_exclusionPaths = exclusionPaths.copy);
+    HSetter(_exclusionPaths = exclusionPaths.copy);
 }
 
 - (BOOL)isPathFillEvenOdd {
-    Getter(BOOL is = _pathFillEvenOdd) return is;
+    HGetter(BOOL is = _pathFillEvenOdd) return is;
 }
 
 - (void)setPathFillEvenOdd:(BOOL)pathFillEvenOdd {
-    Setter(_pathFillEvenOdd = pathFillEvenOdd);
+    HSetter(_pathFillEvenOdd = pathFillEvenOdd);
 }
 
 - (CGFloat)pathLineWidth {
-    Getter(CGFloat width = _pathLineWidth) return width;
+    HGetter(CGFloat width = _pathLineWidth) return width;
 }
 
 - (void)setPathLineWidth:(CGFloat)pathLineWidth {
-    Setter(_pathLineWidth = pathLineWidth);
+    HSetter(_pathLineWidth = pathLineWidth);
 }
 
 - (BOOL)isVerticalForm {
-    Getter(BOOL v = _verticalForm) return v;
+    HGetter(BOOL v = _verticalForm) return v;
 }
 
 - (void)setVerticalForm:(BOOL)verticalForm {
-    Setter(_verticalForm = verticalForm);
+    HSetter(_verticalForm = verticalForm);
 }
 
 - (NSUInteger)maximumNumberOfRows {
-    Getter(NSUInteger num = _maximumNumberOfRows) return num;
+    HGetter(NSUInteger num = _maximumNumberOfRows) return num;
 }
 
 - (void)setMaximumNumberOfRows:(NSUInteger)maximumNumberOfRows {
-    Setter(_maximumNumberOfRows = maximumNumberOfRows);
+    HSetter(_maximumNumberOfRows = maximumNumberOfRows);
 }
 
 - (HTextTruncationType)truncationType {
-    Getter(HTextTruncationType type = _truncationType) return type;
+    HGetter(HTextTruncationType type = _truncationType) return type;
 }
 
 - (void)setTruncationType:(HTextTruncationType)truncationType {
-    Setter(_truncationType = truncationType);
+    HSetter(_truncationType = truncationType);
 }
 
 - (NSAttributedString *)truncationToken {
-    Getter(NSAttributedString *token = _truncationToken) return token;
+    HGetter(NSAttributedString *token = _truncationToken) return token;
 }
 
 - (void)setTruncationToken:(NSAttributedString *)truncationToken {
-    Setter(_truncationToken = truncationToken.copy);
+    HSetter(_truncationToken = truncationToken.copy);
 }
 
 - (void)setLinePositionModifier:(id<HTextLinePositionModifier>)linePositionModifier {
-    Setter(_linePositionModifier = [(NSObject *)linePositionModifier copy]);
+    HSetter(_linePositionModifier = [(NSObject *)linePositionModifier copy]);
 }
 
 - (id<HTextLinePositionModifier>)linePositionModifier {
-    Getter(id<HTextLinePositionModifier> m = _linePositionModifier) return m;
+    HGetter(id<HTextLinePositionModifier> m = _linePositionModifier) return m;
 }
 
-#undef Getter
-#undef Setter
+#undef HGetter
+#undef HSetter
 @end
 
 

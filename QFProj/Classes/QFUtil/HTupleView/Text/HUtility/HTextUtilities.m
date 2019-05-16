@@ -66,7 +66,7 @@ NSCharacterSet *HTextVerticalFormRotateAndMoveCharacterSet() {
 }
 
 // return 0 when succeed
-static int matrix_invert(__CLPK_integer N, double *matrix) {
+static int hMatrix_invert(__CLPK_integer N, double *matrix) {
     __CLPK_integer error = 0;
     __CLPK_integer pivot_tmp[6 * 6];
     __CLPK_integer *pivot = pivot_tmp;
@@ -113,7 +113,7 @@ CGAffineTransform HTextCGAffineTransformGetFromPoints(CGPoint before[3], CGPoint
     A[24] = p3.x; A[25] = p3.y; A[26] = 0; A[27] = 0; A[28] = 1; A[29] = 0;
     A[30] = 0; A[31] = 0; A[32] = p3.x; A[33] = p3.y; A[34] = 0; A[35] = 1;
     
-    int error = matrix_invert(6, A);
+    int error = hMatrix_invert(6, A);
     if (error) return CGAffineTransformIdentity;
     
     double B[6];

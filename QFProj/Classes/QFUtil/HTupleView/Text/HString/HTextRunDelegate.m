@@ -10,22 +10,22 @@
 
 #import "HTextRunDelegate.h"
 
-static void DeallocCallback(void *ref) {
+static void HDeallocCallback(void *ref) {
     HTextRunDelegate *self = (__bridge_transfer HTextRunDelegate *)(ref);
     self = nil; // release
 }
 
-static CGFloat GetAscentCallback(void *ref) {
+static CGFloat HGetAscentCallback(void *ref) {
     HTextRunDelegate *self = (__bridge HTextRunDelegate *)(ref);
     return self.ascent;
 }
 
-static CGFloat GetDecentCallback(void *ref) {
+static CGFloat HGetDecentCallback(void *ref) {
     HTextRunDelegate *self = (__bridge HTextRunDelegate *)(ref);
     return self.descent;
 }
 
-static CGFloat GetWidthCallback(void *ref) {
+static CGFloat HGetWidthCallback(void *ref) {
     HTextRunDelegate *self = (__bridge HTextRunDelegate *)(ref);
     return self.width;
 }
@@ -35,10 +35,10 @@ static CGFloat GetWidthCallback(void *ref) {
 - (CTRunDelegateRef)CTRunDelegate CF_RETURNS_RETAINED {
     CTRunDelegateCallbacks callbacks;
     callbacks.version = kCTRunDelegateCurrentVersion;
-    callbacks.dealloc = DeallocCallback;
-    callbacks.getAscent = GetAscentCallback;
-    callbacks.getDescent = GetDecentCallback;
-    callbacks.getWidth = GetWidthCallback;
+    callbacks.dealloc = HDeallocCallback;
+    callbacks.getAscent = HGetAscentCallback;
+    callbacks.getDescent = HGetDecentCallback;
+    callbacks.getWidth = HGetWidthCallback;
     return CTRunDelegateCreate(&callbacks, (__bridge_retained void *)(self.copy));
 }
 
