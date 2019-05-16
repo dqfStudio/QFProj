@@ -162,7 +162,7 @@
 
 - (void)pvc_initView {
     [self setNeedsNavigationBarAppearanceUpdate];
-    [self.leftNaviButton setImageUrlString:@"icon_back_co2"];
+    [self.leftNaviButton setImageUrlString:@"hvc_back_icon"];
 }
 
 - (void)dealloc {

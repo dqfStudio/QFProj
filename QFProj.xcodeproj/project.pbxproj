@@ -178,6 +178,7 @@
 		A22851FA228D485700961A86 /* HWebImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A22851F4228D485700961A86 /* HWebImageView.m */; };
 		A22851FB228D485700961A86 /* HViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A22851F7228D485700961A86 /* HViewController.m */; };
 		A22851FF228D48C100961A86 /* NSObject+HSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = A22851FD228D48C100961A86 /* NSObject+HSelector.m */; };
+		A2285201228D4E2B00961A86 /* hvc_back_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2285200228D4E2B00961A86 /* hvc_back_icon@2x.png */; };
 		A2296D59228A62080081A479 /* HGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2296D58228A62080081A479 /* HGameViewController.m */; };
 		A2296D5C228A626B0081A479 /* HSFSafariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2296D5B228A626B0081A479 /* HSFSafariViewController.m */; };
 		A24B6560225EE08900B257BB /* HUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B655F225EE08900B257BB /* HUpdate.m */; };
@@ -560,6 +561,7 @@
 		A22851F8228D485700961A86 /* HViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HViewController.h; sourceTree = "<group>"; };
 		A22851FD228D48C100961A86 /* NSObject+HSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSelector.m"; sourceTree = "<group>"; };
 		A22851FE228D48C100961A86 /* NSObject+HSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSelector.h"; sourceTree = "<group>"; };
+		A2285200228D4E2B00961A86 /* hvc_back_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hvc_back_icon@2x.png"; sourceTree = "<group>"; };
 		A2296D57228A62080081A479 /* HGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGameViewController.h; sourceTree = "<group>"; };
 		A2296D58228A62080081A479 /* HGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGameViewController.m; sourceTree = "<group>"; };
 		A2296D5A228A626A0081A479 /* HSFSafariViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFSafariViewController.h; sourceTree = "<group>"; };
@@ -1543,8 +1545,9 @@
 		A22851F6228D485700961A86 /* HViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A22851F7228D485700961A86 /* HViewController.m */,
 				A22851F8228D485700961A86 /* HViewController.h */,
+				A22851F7228D485700961A86 /* HViewController.m */,
+				A2285200228D4E2B00961A86 /* hvc_back_icon@2x.png */,
 			);
 			path = HViewController;
 			sourceTree = "<group>";
@@ -1869,6 +1872,7 @@
 				15F0297720BE8D79003287AA /* mgf_icon_load_nothing@2x.png in Resources */,
 				15C5736F20B3DD7B0070327C /* icon_tuple_arrow_left@2x.png in Resources */,
 				15F0297120BE8D79003287AA /* mgf_loading_new_5@2x.png in Resources */,
+				A2285201228D4E2B00961A86 /* hvc_back_icon@2x.png in Resources */,
 				A28EF3A521D8ECC9002F92ED /* loading_new_6@2x.png in Resources */,
 				A28EF3AF21D8ECC9002F92ED /* loading_new_9@2x.png in Resources */,
 				15C5736E20B3DD7B0070327C /* icon_tuple_arrow_right@2x.png in Resources */,
