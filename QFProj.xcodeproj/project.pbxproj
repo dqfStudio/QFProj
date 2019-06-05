@@ -41,9 +41,6 @@
 		157684D220E2157E00D8DC5B /* NSBlockChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 157684D020E2157E00D8DC5B /* NSBlockChain.m */; };
 		157696EB20A0AB6900E31469 /* hFelix.m in Sources */ = {isa = PBXBuildFile; fileRef = 157696E420A0AB6900E31469 /* hFelix.m */; };
 		15780E4621257840006392CF /* HAuthorizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15780E4521257840006392CF /* HAuthorizeManager.m */; };
-		1587D8D520C2438C00C0391D /* HTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1587D8D420C2438B00C0391D /* HTableViewCell.m */; };
-		1587D8DE20C2578900C0391D /* HBaseHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1587D8DC20C2578800C0391D /* HBaseHeaderFooterView.m */; };
-		1587D8E120C257A900C0391D /* HTableSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1587D8E020C257A800C0391D /* HTableSignal.m */; };
 		1590609320BE76D600CB4EA6 /* HRequestWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1590609220BE76D600CB4EA6 /* HRequestWaitingView.m */; };
 		15B4DD682092F88700773E04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD672092F88700773E04 /* AppDelegate.m */; };
 		15B4DD6B2092F88700773E04 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD6A2092F88700773E04 /* ViewController.m */; };
@@ -105,7 +102,6 @@
 		15C5737120B3DD7B0070327C /* HTupleBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5735E20B3DD7B0070327C /* HTupleBaseView.m */; };
 		15C5737320B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5736520B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.m */; };
 		15C5737420B3DD7B0070327C /* HTupleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5736720B3DD7B0070327C /* HTupleView.m */; };
-		15C573B920B3DE340070327C /* HTableBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C573AC20B3DE340070327C /* HTableBaseCell.m */; };
 		15E56511212CFA28003A63E5 /* qq.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E56510212CFA28003A63E5 /* qq.png */; };
 		15E5651D212E5D77003A63E5 /* HHostSegmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E5651C212E5D77003A63E5 /* HHostSegmentCell.m */; };
 		15E5652D2133A002003A63E5 /* HLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E5652B2133A002003A63E5 /* HLoginController.m */; };
@@ -199,9 +195,14 @@
 		A24B659922607E8400B257BB /* Base64Transcoder.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B659122607E8400B257BB /* Base64Transcoder.m */; };
 		A24B659B22607E8400B257BB /* HSK_CFUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B659422607E8400B257BB /* HSK_CFUtilities.m */; };
 		A24B659E22609CE600B257BB /* NSObject+HName.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B659C22609CE600B257BB /* NSObject+HName.m */; };
-		A24B65A12260A07900B257BB /* HTableHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B65A02260A07900B257BB /* HTableHeaderFooterView.m */; };
 		A265FF6F2269F6280093C780 /* HHostUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A265FF6D2269F6280093C780 /* HHostUrlManager.m */; };
 		A265FF732269F70C0093C780 /* HVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A265FF712269F70C0093C780 /* HVersionManager.m */; };
+		A273940722A7FF44009676C1 /* HBaseHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A27393FB22A7FF44009676C1 /* HBaseHeaderFooterView.m */; };
+		A273940822A7FF44009676C1 /* HTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A27393FD22A7FF44009676C1 /* HTableViewCell.m */; };
+		A273940922A7FF44009676C1 /* HTableHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A27393FE22A7FF44009676C1 /* HTableHeaderFooterView.m */; };
+		A273940A22A7FF44009676C1 /* HTableBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A273940022A7FF44009676C1 /* HTableBaseCell.m */; };
+		A273940B22A7FF44009676C1 /* HTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A273940322A7FF44009676C1 /* HTableView.m */; };
+		A273940C22A7FF44009676C1 /* HTableSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = A273940422A7FF44009676C1 /* HTableSignal.m */; };
 		A28EF2E821D86DD8002F92ED /* ULBCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */; };
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
 		A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */; };
@@ -233,7 +234,6 @@
 		A28EF3C321DA1DFE002F92ED /* HFormController2.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF3C021DA1DFE002F92ED /* HFormController2.m */; };
 		A28EF3C421DA1DFE002F92ED /* HFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF3C221DA1DFE002F92ED /* HFormCell.m */; };
 		A2A17DA62276DB1E003FED58 /* NSMutableAttributedString+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A17DA52276DB1E003FED58 /* NSMutableAttributedString+HUtil.m */; };
-		A2DC225B22380EFC00E540BE /* HTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC225A22380EFC00E540BE /* HTableView.m */; };
 		A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */; };
 		A2DC22BE2242994800E540BE /* NSObject+HForwarding.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */; };
 		A2ED9C1222314BA100C9D050 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1022314BA100C9D050 /* SimplePing.m */; };
@@ -314,12 +314,6 @@
 		157696E420A0AB6900E31469 /* hFelix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hFelix.m; sourceTree = "<group>"; };
 		15780E4421257840006392CF /* HAuthorizeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAuthorizeManager.h; sourceTree = "<group>"; };
 		15780E4521257840006392CF /* HAuthorizeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAuthorizeManager.m; sourceTree = "<group>"; };
-		1587D8D320C2438B00C0391D /* HTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableViewCell.h; sourceTree = "<group>"; };
-		1587D8D420C2438B00C0391D /* HTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableViewCell.m; sourceTree = "<group>"; };
-		1587D8DC20C2578800C0391D /* HBaseHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBaseHeaderFooterView.m; sourceTree = "<group>"; };
-		1587D8DD20C2578800C0391D /* HBaseHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBaseHeaderFooterView.h; sourceTree = "<group>"; };
-		1587D8DF20C257A800C0391D /* HTableSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableSignal.h; sourceTree = "<group>"; };
-		1587D8E020C257A800C0391D /* HTableSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableSignal.m; sourceTree = "<group>"; };
 		1590609120BE76D600CB4EA6 /* HRequestWaitingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRequestWaitingView.h; sourceTree = "<group>"; };
 		1590609220BE76D600CB4EA6 /* HRequestWaitingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRequestWaitingView.m; sourceTree = "<group>"; };
 		15B4DD632092F88700773E04 /* QFProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QFProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -435,8 +429,6 @@
 		15C5736320B3DD7B0070327C /* HTupleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTupleView.h; sourceTree = "<group>"; };
 		15C5736520B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftAlignedLayout.m; sourceTree = "<group>"; };
 		15C5736720B3DD7B0070327C /* HTupleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTupleView.m; sourceTree = "<group>"; };
-		15C573AC20B3DE340070327C /* HTableBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableBaseCell.m; sourceTree = "<group>"; };
-		15C573B620B3DE340070327C /* HTableBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableBaseCell.h; sourceTree = "<group>"; };
 		15CC6E9120E28D77005F1792 /* HInputHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HInputHeader.h; sourceTree = "<group>"; };
 		15E56510212CFA28003A63E5 /* qq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qq.png; sourceTree = "<group>"; };
 		15E56519212E599C003A63E5 /* HHostSegmentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHostSegmentCell.h; sourceTree = "<group>"; };
@@ -598,8 +590,6 @@
 		A24B659422607E8400B257BB /* HSK_CFUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSK_CFUtilities.m; sourceTree = "<group>"; };
 		A24B659C22609CE600B257BB /* NSObject+HName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HName.m"; sourceTree = "<group>"; };
 		A24B659D22609CE600B257BB /* NSObject+HName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HName.h"; sourceTree = "<group>"; };
-		A24B659F2260A07900B257BB /* HTableHeaderFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTableHeaderFooterView.h; sourceTree = "<group>"; };
-		A24B65A02260A07900B257BB /* HTableHeaderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTableHeaderFooterView.m; sourceTree = "<group>"; };
 		A265FF692269D8AA0093C780 /* HUtilHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUtilHeader.h; sourceTree = "<group>"; };
 		A265FF6A2269D8AA0093C780 /* HCommonBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommonBlock.h; sourceTree = "<group>"; };
 		A265FF6B2269D8AA0093C780 /* HCommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommonDefine.h; sourceTree = "<group>"; };
@@ -607,6 +597,18 @@
 		A265FF6E2269F6280093C780 /* HHostUrlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHostUrlManager.h; sourceTree = "<group>"; };
 		A265FF712269F70C0093C780 /* HVersionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HVersionManager.m; sourceTree = "<group>"; };
 		A265FF722269F70C0093C780 /* HVersionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HVersionManager.h; sourceTree = "<group>"; };
+		A27393FA22A7FF44009676C1 /* HTableHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableHeaderFooterView.h; sourceTree = "<group>"; };
+		A27393FB22A7FF44009676C1 /* HBaseHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBaseHeaderFooterView.m; sourceTree = "<group>"; };
+		A27393FC22A7FF44009676C1 /* HTableBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableBaseCell.h; sourceTree = "<group>"; };
+		A27393FD22A7FF44009676C1 /* HTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableViewCell.m; sourceTree = "<group>"; };
+		A27393FE22A7FF44009676C1 /* HTableHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableHeaderFooterView.m; sourceTree = "<group>"; };
+		A27393FF22A7FF44009676C1 /* HBaseHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBaseHeaderFooterView.h; sourceTree = "<group>"; };
+		A273940022A7FF44009676C1 /* HTableBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableBaseCell.m; sourceTree = "<group>"; };
+		A273940122A7FF44009676C1 /* HTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableViewCell.h; sourceTree = "<group>"; };
+		A273940322A7FF44009676C1 /* HTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableView.m; sourceTree = "<group>"; };
+		A273940422A7FF44009676C1 /* HTableSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableSignal.m; sourceTree = "<group>"; };
+		A273940522A7FF44009676C1 /* HTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableView.h; sourceTree = "<group>"; };
+		A273940622A7FF44009676C1 /* HTableSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableSignal.h; sourceTree = "<group>"; };
 		A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULBCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A28EF2E721D86DD8002F92ED /* ULBCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ULBCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		A28EF2EA21D86E43002F92ED /* UILabel+HAttributeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeText.h"; sourceTree = "<group>"; };
@@ -647,8 +649,6 @@
 		A28EF3C221DA1DFE002F92ED /* HFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFormCell.m; sourceTree = "<group>"; };
 		A2A17DA42276DB1E003FED58 /* NSMutableAttributedString+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+HUtil.h"; sourceTree = "<group>"; };
 		A2A17DA52276DB1E003FED58 /* NSMutableAttributedString+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+HUtil.m"; sourceTree = "<group>"; };
-		A2DC225922380EFC00E540BE /* HTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableView.h; sourceTree = "<group>"; };
-		A2DC225A22380EFC00E540BE /* HTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableView.m; sourceTree = "<group>"; };
 		A2DC22B622424F2F00E540BE /* NSObject+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeMessy.h"; sourceTree = "<group>"; };
 		A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HForwarding.h"; sourceTree = "<group>"; };
@@ -949,7 +949,7 @@
 				157684CF20E2157E00D8DC5B /* NSBlockChain */,
 				15038EAF20CD5CB400A16FC9 /* HSkin */,
 				15038EA520CC0C6A00A16FC9 /* HSwitchLanguage */,
-				15C5737520B3DD9F0070327C /* HTable */,
+				A27393F822A7FF44009676C1 /* HTableView */,
 				15C5734C20B3DD7B0070327C /* HTupleView */,
 				157696DE20A0AB6900E31469 /* HAspects */,
 				A265FF682269D8AA0093C780 /* HUtilHeader */,
@@ -1266,41 +1266,6 @@
 				A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		15C5737520B3DD9F0070327C /* HTable */ = {
-			isa = PBXGroup;
-			children = (
-				15C573A920B3DE340070327C /* Cells */,
-				15C5738020B3DD9F0070327C /* View */,
-			);
-			path = HTable;
-			sourceTree = "<group>";
-		};
-		15C5738020B3DD9F0070327C /* View */ = {
-			isa = PBXGroup;
-			children = (
-				A2DC225922380EFC00E540BE /* HTableView.h */,
-				A2DC225A22380EFC00E540BE /* HTableView.m */,
-				1587D8DF20C257A800C0391D /* HTableSignal.h */,
-				1587D8E020C257A800C0391D /* HTableSignal.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		15C573A920B3DE340070327C /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				15C573B620B3DE340070327C /* HTableBaseCell.h */,
-				15C573AC20B3DE340070327C /* HTableBaseCell.m */,
-				1587D8DD20C2578800C0391D /* HBaseHeaderFooterView.h */,
-				1587D8DC20C2578800C0391D /* HBaseHeaderFooterView.m */,
-				A24B659F2260A07900B257BB /* HTableHeaderFooterView.h */,
-				A24B65A02260A07900B257BB /* HTableHeaderFooterView.m */,
-				1587D8D320C2438B00C0391D /* HTableViewCell.h */,
-				1587D8D420C2438B00C0391D /* HTableViewCell.m */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		15E5652A2133A002003A63E5 /* HLoginController */ = {
@@ -1661,6 +1626,42 @@
 			path = QFProj/Classes/HVersionManager;
 			sourceTree = SOURCE_ROOT;
 		};
+		A27393F822A7FF44009676C1 /* HTableView */ = {
+			isa = PBXGroup;
+			children = (
+				A27393F922A7FF44009676C1 /* Cells */,
+				A273940222A7FF44009676C1 /* View */,
+			);
+			name = HTableView;
+			path = QFProj/Classes/QFUtil/HTableView;
+			sourceTree = SOURCE_ROOT;
+		};
+		A27393F922A7FF44009676C1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A27393FF22A7FF44009676C1 /* HBaseHeaderFooterView.h */,
+				A27393FB22A7FF44009676C1 /* HBaseHeaderFooterView.m */,
+				A27393FC22A7FF44009676C1 /* HTableBaseCell.h */,
+				A273940022A7FF44009676C1 /* HTableBaseCell.m */,
+				A27393FA22A7FF44009676C1 /* HTableHeaderFooterView.h */,
+				A27393FE22A7FF44009676C1 /* HTableHeaderFooterView.m */,
+				A273940122A7FF44009676C1 /* HTableViewCell.h */,
+				A27393FD22A7FF44009676C1 /* HTableViewCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A273940222A7FF44009676C1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A273940322A7FF44009676C1 /* HTableView.m */,
+				A273940422A7FF44009676C1 /* HTableSignal.m */,
+				A273940522A7FF44009676C1 /* HTableView.h */,
+				A273940622A7FF44009676C1 /* HTableSignal.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A28EF2E921D86E43002F92ED /* UILabel+HAttributeText */ = {
 			isa = PBXGroup;
 			children = (
@@ -1954,6 +1955,7 @@
 				A28EF38321D8EC2A002F92ED /* HResultView.m in Sources */,
 				157684D220E2157E00D8DC5B /* NSBlockChain.m in Sources */,
 				A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */,
+				A273940922A7FF44009676C1 /* HTableHeaderFooterView.m in Sources */,
 				A21FD5FA224DBC34009F03FB /* HRequestHUD.m in Sources */,
 				15B4DDF82092F96C00773E04 /* UIImage+Util.m in Sources */,
 				1508255520EB1C0F008CAE57 /* HDictionary.m in Sources */,
@@ -1961,6 +1963,7 @@
 				153F081620E28CA000C74850 /* HNumericValidator.m in Sources */,
 				A222AE5422818F7D0013098A /* HLabel.m in Sources */,
 				15B4DDE92092F96C00773E04 /* HDebugUtil.m in Sources */,
+				A273940B22A7FF44009676C1 /* HTableView.m in Sources */,
 				15B4DE0D2092F96C00773E04 /* NSObject+HSafeNotify.m in Sources */,
 				A2A17DA62276DB1E003FED58 /* NSMutableAttributedString+HUtil.m in Sources */,
 				1528DF4620BF0A0200D0A004 /* MBProgressHUD.m in Sources */,
@@ -1970,6 +1973,7 @@
 				A22851F9228D485700961A86 /* HWebButtonView.m in Sources */,
 				15F9151D20A14A33000261C4 /* UIView+HShow.m in Sources */,
 				1528DF4320BEF6BC00D0A004 /* HNaviToastView.m in Sources */,
+				A273940C22A7FF44009676C1 /* HTableSignal.m in Sources */,
 				A222AE5C22818F7D0013098A /* NSAttributedString+HText.m in Sources */,
 				15E5652D2133A002003A63E5 /* HLoginController.m in Sources */,
 				A2296D59228A62080081A479 /* HGameViewController.m in Sources */,
@@ -1982,7 +1986,6 @@
 				A24B656D225EE14800B257BB /* HValidate.m in Sources */,
 				15464B7720A2C26300CDD27E /* HTestManager.m in Sources */,
 				15038EA820CC0C6A00A16FC9 /* HSwitchLanguage.m in Sources */,
-				A24B65A12260A07900B257BB /* HTableHeaderFooterView.m in Sources */,
 				A24B659522607E8400B257BB /* NSStream+SKPSMTPExtensions.m in Sources */,
 				15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */,
 				15B4DDED2092F96C00773E04 /* UIView+HImage.m in Sources */,
@@ -1999,6 +2002,7 @@
 				A28EF3C421DA1DFE002F92ED /* HFormCell.m in Sources */,
 				1547B891210C4E09009E0374 /* UICollectionView+HTracking.m in Sources */,
 				A24B659622607E8400B257BB /* HEmailManager.m in Sources */,
+				A273940A22A7FF44009676C1 /* HTableBaseCell.m in Sources */,
 				A22851FB228D485700961A86 /* HViewController.m in Sources */,
 				15E6BB9C2136E7E300EBE794 /* YPTabBarController.m in Sources */,
 				15B4DDF62092F96C00773E04 /* UIApplication+HUtil.m in Sources */,
@@ -2026,7 +2030,6 @@
 				A24B6577225EE88600B257BB /* HWebviewVC.m in Sources */,
 				15B4DD6B2092F88700773E04 /* ViewController.m in Sources */,
 				A28EF2E821D86DD8002F92ED /* ULBCollectionViewFlowLayout.m in Sources */,
-				1587D8DE20C2578900C0391D /* HBaseHeaderFooterView.m in Sources */,
 				A24B657E225F768000B257BB /* HGameVC.m in Sources */,
 				15B4DDFB2092F96C00773E04 /* UIColor+HUtil.m in Sources */,
 				15B4DDE82092F96C00773E04 /* AppDelegate+HDebug.m in Sources */,
@@ -2052,7 +2055,6 @@
 				15C5737020B3DD7B0070327C /* HTupleReusableView.m in Sources */,
 				153F081420E28CA000C74850 /* HEmailValidator.m in Sources */,
 				15C5729320AE51B30070327C /* HSort.m in Sources */,
-				1587D8E120C257A900C0391D /* HTableSignal.m in Sources */,
 				1590609320BE76D600CB4EA6 /* HRequestWaitingView.m in Sources */,
 				15B4DDEE2092F96C00773E04 /* UIViewController+HBackHandler.m in Sources */,
 				A222AE5222818F7D0013098A /* HTextKeyboardManager.m in Sources */,
@@ -2062,6 +2064,7 @@
 				A2ED9C1722314CAC00C9D050 /* HKeyChainStore.m in Sources */,
 				A222AE5522818F7D0013098A /* NSParagraphStyle+HText.m in Sources */,
 				15E6BB9A2136E7E300EBE794 /* UIViewController+YPTab.m in Sources */,
+				A273940822A7FF44009676C1 /* HTableViewCell.m in Sources */,
 				15545790212B0C6300DA7898 /* HFileCache.m in Sources */,
 				15B4DE012092F96C00773E04 /* HSpeechUtil.m in Sources */,
 				153F081820E28CA000C74850 /* UITextField+HRegular.m in Sources */,
@@ -2070,6 +2073,7 @@
 				150DE9902126AE50004B9E77 /* HAnalogNetworkManager.m in Sources */,
 				15F9152920A18CA9000261C4 /* HAspectsCenter.m in Sources */,
 				A222AE5122818F7D0013098A /* HTextLine.m in Sources */,
+				A273940722A7FF44009676C1 /* HBaseHeaderFooterView.m in Sources */,
 				15B4DE1C209302BF00773E04 /* HGotoRuntimeSupport.m in Sources */,
 				A222AE4A22818F7D0013098A /* HTextView.m in Sources */,
 				15C5727620A982CA0070327C /* NSObject+HAutoFill.m in Sources */,
@@ -2096,7 +2100,6 @@
 				15C5737320B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				A222AE4F22818F7D0013098A /* HTextLayout.m in Sources */,
 				A28EF3C321DA1DFE002F92ED /* HFormController2.m in Sources */,
-				1587D8D520C2438C00C0391D /* HTableViewCell.m in Sources */,
 				A222AE5A22818F7D0013098A /* UIPasteboard+HText.m in Sources */,
 				A24B659922607E8400B257BB /* Base64Transcoder.m in Sources */,
 				A24B6560225EE08900B257BB /* HUpdate.m in Sources */,
@@ -2105,7 +2108,6 @@
 				15F9152020A171A8000261C4 /* NSObject+HAspects.m in Sources */,
 				A222AE5B22818F7D0013098A /* HTextWeakProxy.m in Sources */,
 				15B4DD682092F88700773E04 /* AppDelegate.m in Sources */,
-				15C573B920B3DE340070327C /* HTableBaseCell.m in Sources */,
 				A219F22F222FB46A00241FD7 /* HIFS.m in Sources */,
 				A222AE6522828E5C0013098A /* HTextField.m in Sources */,
 				A28EF2F321D876A3002F92ED /* HTabBarController.m in Sources */,
@@ -2120,7 +2122,6 @@
 				A265FF732269F70C0093C780 /* HVersionManager.m in Sources */,
 				15C5737420B3DD7B0070327C /* HTupleView.m in Sources */,
 				15E6BB9D2136E7E300EBE794 /* YPTabContentView.m in Sources */,
-				A2DC225B22380EFC00E540BE /* HTableView.m in Sources */,
 				15464B7820A2C26300CDD27E /* HTestVC-DQF.m in Sources */,
 				15B4DE292093034700773E04 /* NSObject+annotation.m in Sources */,
 				15B4DDF32092F96C00773E04 /* UIView+HUtil.m in Sources */,

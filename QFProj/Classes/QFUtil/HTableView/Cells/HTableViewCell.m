@@ -9,6 +9,9 @@
 #import "HTableViewCell.h"
 
 @implementation HTableViewCell
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    return [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+}
 - (void)initUI {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
