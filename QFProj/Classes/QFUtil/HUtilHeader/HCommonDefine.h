@@ -47,35 +47,12 @@
     #endif
 #endif
 
-
-#define isNil(ojc)       (ojc == nil ? YES : NO)
-#define notNil(ojc)      (ojc != nil ? YES : NO)
-#define isCls(ojc, OJC)  ([ojc isKindOfClass:[OJC class]] ? YES : NO)
-
 //输出frame size point bool
-#define LogRect(f)  NSLog(@"frame->%@",NSStringFromCGRect(f))
-#define LogSize(s)  NSLog(@"size->%@",NSStringFromCGSize(s))
-#define LogPoint(p) NSLog(@"point->%@",NSStringFromCGPoint(p))
-#define LogBool(b)  NSLog(@"bool->%@",(b)?@"YES":@"NO");
-
-//屏幕尺寸
-#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
-#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
-
-//判断是否是iPhone X
-#define  KIsIPhoneX ((SCREEN_WIDTH == 375.f && SCREEN_HEIGHT == 812.f) || (SCREEN_WIDTH == 812.f && SCREEN_HEIGHT == 375.f))
-
-//Status bar height.
-#define  KStatusBarHeight     (KIsIPhoneX ? 44.f : 20.f)
-
-//Navigation bar height.
-#define  kNaviBarHeight       44.f
-
-//Tabbar safe bottom margin.
-#define  kBottomBarHeight     (KIsIPhoneX ? 34.f : 0.f)
-
-//Status bar & navigation bar height.
-#define  kTopBarHeight        (KIsIPhoneX ? 88.f : 64.f)
+#define NSLogRect(f)  NSLog(@"frame->%@",NSStringFromCGRect(f))
+#define NSLogSize(s)  NSLog(@"size->%@",NSStringFromCGSize(s))
+#define NSLogPoint(p) NSLog(@"point->%@",NSStringFromCGPoint(p))
+#define NSLogEdge(e)  NSLog(@"edge->%@",NSStringFromUIEdgeInsets(e))
+#define NSLogBool(b)  NSLog(@"bool->%@",(b)?@"YES":@"NO");
 
 //中英状态下键盘的高度
 #define kEnglishKeyboardHeight  (216.f)
@@ -118,9 +95,9 @@
 
 //DEBUG  模式下打印日志,当前行 并弹出一个警告
 #ifdef DEBUG
-#define HLog(fmt, ...)  { UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%s\n [Line %d] ", __PRETTY_FUNCTION__, __LINE__] message:[NSString stringWithFormat:fmt, ##__VA_ARGS__]  delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil]; [alert show]; }
+#define ALog(fmt, ...)  { UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%s\n [Line %d] ", __PRETTY_FUNCTION__, __LINE__] message:[NSString stringWithFormat:fmt, ##__VA_ARGS__]  delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil]; [alert show]; }
 #else
-#define HLog(...) nil
+#define ALog(...) nil
 #endif
 
 //弹出信息

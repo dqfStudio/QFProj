@@ -18,8 +18,8 @@
 - (UIWebView *)webview {
     if (!_webview) {
         CGRect frame = self.view.frame;
-        frame.origin.y += kTopBarHeight;
-        frame.size.height -= kTopBarHeight;
+        frame.origin.y += UIDevice.topBarHeight;
+        frame.size.height -= UIDevice.topBarHeight;
         _webview = [[UIWebView alloc] initWithFrame:frame];
 //        self.webview.backgroundColor = [HSkinManager vcBgViewColor];
         [self.webview setDelegate:self];
@@ -64,8 +64,8 @@
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     CGRect frame = self.view.frame;
-    frame.origin.y += kTopBarHeight;
-    frame.size.height -= kTopBarHeight;
+    frame.origin.y += UIDevice.topBarHeight;
+    frame.size.height -= UIDevice.topBarHeight;
     [self.webview setFrame:frame];
 }
 

@@ -138,14 +138,14 @@
     self.qMarginTop = marginTop;
 }
 - (void)setNaviMarginTop {
-    self.qMarginTop = kTopBarHeight;
+    self.qMarginTop = UIDevice.topBarHeight;
 }
 
 - (void)setMarginBottom:(CGFloat)marginBottom {
     self.qMarginBottom = marginBottom;
 }
 - (void)setToolBarMarginBottom {
-    self.qMarginBottom = kBottomBarHeight;
+    self.qMarginBottom = UIDevice.bottomBarHeight;
 }
 
 - (void)setYOffset:(CGFloat)yOffset {

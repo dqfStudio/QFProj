@@ -17,8 +17,6 @@
 - (HTupleView *)tupleView {
     if (!_tupleView) {
         CGRect frame = self.view.bounds;
-//        frame.origin.y += kTopBarHeight;
-//        frame.size.height -= kTopBarHeight;
         _tupleView = [[HTupleView alloc] initWithFrame:frame collectionViewLayout:UICollectionViewFlowLayout.new];
         [_tupleView setTupleDelegate:self];
         [_tupleView setBackgroundColor:[UIColor yellowColor]];

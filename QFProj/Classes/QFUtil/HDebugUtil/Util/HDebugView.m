@@ -39,7 +39,7 @@
         }];
         
         [self.table headerWithHeight:^CGFloat(NSInteger section) {
-            return KStatusBarHeight;
+            return UIDevice.statusBarHeight;
         } tuple:^(HHeaderTable  _Nonnull headerBlock, NSInteger section) {
             headerBlock(nil, HTableHeaderFooterView.class, nil, YES);
         }];

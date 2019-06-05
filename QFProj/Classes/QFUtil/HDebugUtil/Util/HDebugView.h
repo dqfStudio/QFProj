@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HTableView.h"
+#import "UIDevice+HUtil.h"
 #import "HCommonDefine.h"
 
 @interface HDebugView : UIControl

@@ -41,8 +41,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.qRatio = 0.5;
-        self.qMarginTop = kTopBarHeight;
-        self.qMarginBottom = kBottomBarHeight;
+        self.qMarginTop = UIDevice.topBarHeight;
+        self.qMarginBottom = UIDevice.topBarHeight;
         //默认是有图片的
         self.needDisplayImage = YES;
         [self addSubview:self.resultImageView];
@@ -89,14 +89,14 @@
     self.qMarginTop = marginTop;
 }
 - (void)setNaviMarginTop {
-    self.qMarginTop = kTopBarHeight;
+    self.qMarginTop = UIDevice.topBarHeight;
 }
 
 - (void)setMarginBottom:(CGFloat)marginBottom {
     self.qMarginBottom = marginBottom;
 }
 - (void)setToolBarMarginBottom {
-    self.qMarginBottom = kBottomBarHeight;
+    self.qMarginBottom = UIDevice.bottomBarHeight;
 }
 
 - (void)setYOffset:(CGFloat)yOffset {

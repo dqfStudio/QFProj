@@ -11,6 +11,7 @@
 #import "HWebButtonView.h"
 #import "NSObject+HUtil.h"
 #import "UIColor+HUtil.h"
+#import "UIDevice+HUtil.h"
 #import "NSObject+HSwizzleUtil.h"
 #import "UIApplication+HUtil.h"
 

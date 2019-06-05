@@ -17,8 +17,8 @@
 - (HTupleView *)tupleView {
     if (!_tupleView) {
         CGRect frame = self.view.frame;
-        frame.origin.y += kTopBarHeight;
-        frame.size.height -= kTopBarHeight;
+        frame.origin.y += UIDevice.topBarHeight;
+        frame.size.height -= UIDevice.topBarHeight;
         _tupleView = [[HTupleView alloc] initWithFrame:frame scrollDirection:HTupleViewScrollDirectionVertical];
         [_tupleView setTupleDelegate:self];
     }

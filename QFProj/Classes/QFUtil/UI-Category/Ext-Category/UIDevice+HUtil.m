@@ -18,6 +18,31 @@
 
 @implementation UIDevice (HUtil)
 
++ (BOOL)isIPhoneX {
+    BOOL iPhoneXSeries = NO;
+    if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+        if (@available(iOS 11.0, *)) {
+            UIWindow *mainWindow = UIApplication.sharedApplication.delegate.window;
+            if (mainWindow.safeAreaInsets.bottom > 0.0) {
+                iPhoneXSeries = YES;
+            }
+        }
+    }
+    return iPhoneXSeries;
+}
++ (CGFloat)statusBarHeight {
+    return UIDevice.isIPhoneX ? 44.0 : 20.0f;
+}
++ (CGFloat)naviBarHeight {
+    return 44.f;
+}
++ (CGFloat)topBarHeight {
+    return UIDevice.isIPhoneX ? 88.f : 64.f;
+}
++ (CGFloat)bottomBarHeight {
+    return UIDevice.isIPhoneX ? 34.f : 0.f;
+}
+
 - (BOOL)isPad {
     static dispatch_once_t onceToken;
     static BOOL pad;

@@ -73,8 +73,6 @@
 }
 @end
 
-#define IS_KIPHONEX ([UIScreen mainScreen].bounds.size.width == 375.f && [UIScreen mainScreen].bounds.size.height == 812.f ? YES : NO)
-
 @interface HViewControllerMgr : NSObject <UIGestureRecognizerDelegate>
 
 @end
@@ -98,8 +96,6 @@
 }
 @end
 
-#define HTopBarHeight 44.0f
-#define HStatusBarHeight (IS_KIPHONEX?44.0:20.0f)
 #define HNavTitleButtonWidth 70.0f
 #define HNavTitleButtonMargin 10.0f
 
@@ -132,7 +128,7 @@
 @property (nonatomic) NSMutableArray *controllableRequests;
 
 //topBar的顶部内边距,如果有statusBar没有系统导航栏的情况下为statusbar的高度(20)
-@property (nonatomic) CGFloat topBarTopPadding;
+@property (nonatomic) CGFloat statusBarPadding;
 
 @end
 
@@ -168,11 +164,11 @@
 }
 
 - (void)pvc_initialize {
-    _topBarTopPadding = 0;
+    _statusBarPadding = 0;
     
     //只有statusBar没有系统导航栏的情况下,statusBar背景色是透明的需要自定义的导航栏多增加一点高度来伪造statusBar的背景
     if (![self prefersStatusBarHidden] && ![self prefersNavigationBarHidden]) {
-        _topBarTopPadding = HStatusBarHeight;
+        _statusBarPadding = UIDevice.statusBarHeight;
     }
 }
 + (HVCAppearance *)appearance {
@@ -276,26 +272,26 @@
         _topBar = [[UIView alloc] init];
         //没有系统导航栏的时候,status背景色是透明的,用自定义导航栏去伪造一个status背景区域
         if([self prefersNavigationBarHidden]) {
-            _topBar.frame = CGRectMake(0, _topBarTopPadding, self.view.h_width, HTopBarHeight);
+            _topBar.frame = CGRectMake(0, _statusBarPadding, self.view.h_width, UIDevice.naviBarHeight);
         }else {
-            _topBar.frame = CGRectMake(0, 0, self.view.h_width, HTopBarHeight + _topBarTopPadding);
-            _topBar.bounds = CGRectMake(0, -_topBarTopPadding, self.view.h_width, HTopBarHeight + _topBarTopPadding);
+            _topBar.frame = CGRectMake(0, 0, self.view.h_width, UIDevice.naviBarHeight + _statusBarPadding);
+            _topBar.bounds = CGRectMake(0, -_statusBarPadding, self.view.h_width, UIDevice.naviBarHeight + _statusBarPadding);
         }
         _topBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         _topBarLine = [[UIView alloc] init];
-        _topBarLine.frame = CGRectMake(0, HTopBarHeight - 1, _topBar.h_width, 1);
+        _topBarLine.frame = CGRectMake(0, UIDevice.naviBarHeight - 1, _topBar.h_width, 1);
         [_topBar addSubview:_topBarLine];
         _topBarLine.hidden = YES;
     }
     return _topBar;
 }
 - (float)topBarHeight {
-    return ([self prefersStatusBarHidden]?0:HStatusBarHeight) + ([self prefersNavigationBarHidden]?0:HTopBarHeight);
+    return ([self prefersStatusBarHidden]?0:UIDevice.statusBarHeight) + ([self prefersNavigationBarHidden]?0:UIDevice.naviBarHeight);
 }
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.frame = CGRectMake(54, 0, self.view.h_width - 54 * 2, HTopBarHeight);
+        _titleLabel.frame = CGRectMake(54, 0, self.view.h_width - 54 * 2, UIDevice.naviBarHeight);
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.font = [UIFont systemFontOfSize:18];
@@ -308,7 +304,7 @@
     if (!_leftNaviButton) {
         _leftNaviButton = [[HWebButtonView alloc] init];
         _leftNaviButton.backgroundColor = nil;
-        _leftNaviButton.frame = CGRectMake(0, 0, HTopBarHeight, HTopBarHeight);
+        _leftNaviButton.frame = CGRectMake(0, 0, UIDevice.naviBarHeight, UIDevice.naviBarHeight);
         [_leftNaviButton.button setFont:[UIFont systemFontOfSize:16]];
         _leftNaviButton.button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         @weakify(self)
@@ -327,7 +323,7 @@
         _rightNaviButton = [[HWebButtonView alloc] init];
         _rightNaviButton.backgroundColor = nil;
         [_rightNaviButton.button setFont:[UIFont systemFontOfSize:16]];
-        _rightNaviButton.frame = CGRectMake(self.topBar.h_width - HTopBarHeight, 0, HTopBarHeight, HTopBarHeight);
+        _rightNaviButton.frame = CGRectMake(self.topBar.h_width - UIDevice.naviBarHeight, 0, UIDevice.naviBarHeight, UIDevice.naviBarHeight);
         _rightNaviButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
         _rightNaviButton.button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         @weakify(self)

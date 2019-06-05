@@ -172,7 +172,7 @@
 }
 + (instancetype)showToastAddedTo:(UIView *)view animated:(BOOL)animated {
     CGFloat width = view.bounds.size.width;
-    HNaviToastView *toastView = [[HNaviToastView alloc] initWithFrame:CGRectMake(0, -kTopBarHeight, width, kTopBarHeight)];
+    HNaviToastView *toastView = [[HNaviToastView alloc] initWithFrame:CGRectMake(0, -UIDevice.topBarHeight, width, UIDevice.topBarHeight)];
     toastView.removeFromSuperViewOnHide = YES;
     [view addSubview:toastView];
     [toastView show:animated];
