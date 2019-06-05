@@ -101,7 +101,9 @@
 #endif
 
 //弹出信息
+#if DEBUG
 #define ALERT(msg) [[[UIAlertView alloc] initWithTitle:nil message:msg delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil] show]
+#endif
 
 //由角度获取弧度 有弧度获取角度
 #define degreeToRadians(x) (M_PI *(x)/180.0)
