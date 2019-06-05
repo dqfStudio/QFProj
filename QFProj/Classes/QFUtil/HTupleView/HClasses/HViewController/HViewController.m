@@ -64,9 +64,9 @@
     [self pvc_viewWillAppear:animated];
     //判断是否基于HViewController的VC
     if ([self isKindOfClass:HViewController.class]) {
-        [AppDelegate setHVCInterfaceOrientation:YES];
-    }else {
         [AppDelegate setHVCInterfaceOrientation:NO];
+    }else {
+        [AppDelegate setHVCInterfaceOrientation:YES];
     }
     [AppDelegate setShouldAutorotate:self.shouldAutorotate];
     [AppDelegate setInterfaceOrientation:self.supportedInterfaceOrientations];
