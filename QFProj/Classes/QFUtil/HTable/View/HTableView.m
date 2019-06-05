@@ -530,7 +530,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         NSInteger sections = [self numberOfSections];
         for (int i=0; i<sections; i++) {
             UITableViewHeaderFooterView *header = [self headerViewForSection:i];
-            if (header && header.signalBlock) {
+            if (header.signalBlock) {
                 header.signalBlock(signal);
             }
         }
@@ -539,7 +539,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 - (void)signal:(HTableSignal *)signal headerSection:(NSInteger)section {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         UITableViewHeaderFooterView *header = [self headerViewForSection:section];
-        if (header && header.signalBlock) {
+        if (header.signalBlock) {
             header.signalBlock(signal);
         }
     });
@@ -549,7 +549,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         NSInteger sections = [self numberOfSections];
         for (int i=0; i<sections; i++) {
             UITableViewHeaderFooterView *footer = [self footerViewForSection:i];
-            if (footer && footer.signalBlock) {
+            if (footer.signalBlock) {
                 footer.signalBlock(signal);
             }
         }
@@ -558,7 +558,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 - (void)signal:(HTableSignal *)signal footerSection:(NSInteger)section {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         UITableViewHeaderFooterView *footer = [self footerViewForSection:section];
-        if (footer && footer.signalBlock) {
+        if (footer.signalBlock) {
             footer.signalBlock(signal);
         }
     });
