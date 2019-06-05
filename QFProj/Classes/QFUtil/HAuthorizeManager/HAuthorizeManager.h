@@ -23,11 +23,11 @@ typedef NS_ENUM(NSInteger){
 
 typedef void(^AuthorizationCompletionBlock)(AuthorizationStatus status);
 
-#define KCHECK_AUTH_CAMERA        @"请在iPhone的“设置”-“隐私”-“相机”功能中，找到“Enigma”打开相机访问权限"
-#define KCHECK_AUTH_PHOTOLIB      @"请在iPhone的“设置”-“隐私”-“照片”功能中，找到“Enigma”打开相册访问权限"
-#define KCHECK_AUTH_MICROPHONE    @"请在iPhone的“设置”-“隐私”-“麦克风”功能中，找到“Enigma”打开麦克风访问权限"
-#define KCHECK_AUTH_CONTACT       @"请在iPhone的“设置”-“隐私”-“通讯录”功能中，找到“Enigma”打开通讯录访问权限"
-#define KCHECK_AUTH_LOCATION      @"请在iPhone的“设置”-“隐私”-“位置”功能中，找到“Enigma”打开位置访问权限"
+#define KCHECK_AUTH_CAMERA        @"请在iPhone的“设置”-“隐私”-“相机”功能中，找到“应用名称”打开相机访问权限"
+#define KCHECK_AUTH_PHOTOLIB      @"请在iPhone的“设置”-“隐私”-“照片”功能中，找到“应用名称”打开相册访问权限"
+#define KCHECK_AUTH_MICROPHONE    @"请在iPhone的“设置”-“隐私”-“麦克风”功能中，找到“应用名称”打开麦克风访问权限"
+#define KCHECK_AUTH_CONTACT       @"请在iPhone的“设置”-“隐私”-“通讯录”功能中，找到“应用名称”打开通讯录访问权限"
+#define KCHECK_AUTH_LOCATION      @"请在iPhone的“设置”-“隐私”-“位置”功能中，找到“应用名称”打开位置访问权限"
 
 @interface HAuthorizeManager : NSObject
 

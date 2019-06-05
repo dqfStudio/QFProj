@@ -8,6 +8,7 @@
 
 #import "HTupleView.h"
 #import "HFormCell.h"
+#import "UIDevice+HUtil.h"
 
 @interface HFormController2 : NSObject
 + (HFormController2 *)formInstance;

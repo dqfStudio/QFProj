@@ -7,6 +7,7 @@
 //
 
 #import "YPTabBar.h"
+#import "UIDevice+HUtil.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

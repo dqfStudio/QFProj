@@ -41,14 +41,11 @@ dispatch_async(dispatch_get_main_queue(), block);\
     //定位权限
     [[self class] sharemanager];
     //相机权限
-    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-    }];
+    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {}];
     //麦克风权限
-    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio completionHandler:^(BOOL granted) {
-    }];
+    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio completionHandler:^(BOOL granted) {}];
     //相册权限
-    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-    }];
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {}];
     //通讯录
     CNContactStore *contactStore = [[CNContactStore alloc] init];
     [contactStore requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {

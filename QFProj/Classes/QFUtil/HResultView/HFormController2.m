@@ -11,8 +11,6 @@
 #define KItemHeight     80
 #define KFooterHeight   50
 
-#define HIPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
-
 @interface HFormController2 () <HTupleViewDelegate>
 @property (nonatomic) HTupleView *tupleView;
 @property (nonatomic) NSInteger numberOfRows;
@@ -59,7 +57,7 @@ static HFormController2 *formController = nil;
 
 - (CGSize)tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section {
     NSInteger height = KFooterHeight;
-    if (HIPhoneX) {
+    if (UIDevice.isIPhoneX) {
         height += 34;
     }
     return CGSizeMake(tupleView.width, tupleView.height-KItemHeight*self.numberOfRows-height);
@@ -67,7 +65,7 @@ static HFormController2 *formController = nil;
 
 - (CGSize)tupleView:(HTupleView *)tupleView sizeForFooterInSection:(NSInteger)section {
     NSInteger height = KFooterHeight;
-    if (HIPhoneX) {
+    if (UIDevice.isIPhoneX) {
         height += 34;
     }
     return CGSizeMake(tupleView.width, height);
@@ -83,7 +81,7 @@ static HFormController2 *formController = nil;
 
 - (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
     NSInteger height = 0;
-    if (HIPhoneX) {
+    if (UIDevice.isIPhoneX) {
         height += 34;
     }
     return UIEdgeInsetsMake(10, 0, height, 0);

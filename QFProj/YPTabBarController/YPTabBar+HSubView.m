@@ -8,12 +8,10 @@
 
 #import "YPTabBar+HSubView.h"
 
-#define HIPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
-
 @implementation YPTabBar (HSubView)
 
 - (void)addBottomViewWithColor:(UIColor *)color {
-    if (HIPhoneX) {
+    if (UIDevice.isIPhoneX) {
         CGRect frame = self.bounds;
         frame.origin.y = frame.size.height;
         frame.size.height = 34;
