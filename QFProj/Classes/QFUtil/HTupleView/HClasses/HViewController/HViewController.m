@@ -15,6 +15,21 @@
 + (void)setShouldAutorotate:(BOOL)shouldAutorotate {
     objc_setAssociatedObject(self, @selector(shouldAutorotate), @(shouldAutorotate), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+
++ (BOOL)hVCInterfaceOrientation {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
++ (void)setHVCInterfaceOrientation:(BOOL)hVCInterfaceOrientation {
+    objc_setAssociatedObject(self, @selector(hVCInterfaceOrientation), @(hVCInterfaceOrientation), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
++ (BOOL)extraInterfaceOrientation {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
++ (void)setExtraInterfaceOrientation:(BOOL)extraInterfaceOrientation {
+    objc_setAssociatedObject(self, @selector(extraInterfaceOrientation), @(extraInterfaceOrientation), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 + (UIInterfaceOrientationMask)defaultInterfaceOrientation {
     return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
 }
@@ -26,10 +41,13 @@
 }
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
     if (AppDelegate.shouldAutorotate) {
-        if ([AppDelegate defaultInterfaceOrientation] != AppDelegate.interfaceOrientation) {
+        if (AppDelegate.extraInterfaceOrientation) {//判断是否手动干预，优先级最高
+            return AppDelegate.interfaceOrientation;
+        }else if (AppDelegate.hVCInterfaceOrientation) {//判断是否基于HViewController的VC
+            return AppDelegate.defaultInterfaceOrientation;
+        }else {//没有手动干预并且基于HViewController的VC
             return AppDelegate.interfaceOrientation;
         }
-        return [AppDelegate defaultInterfaceOrientation];
     }
     return UIInterfaceOrientationMaskPortrait;
 }
@@ -44,6 +62,12 @@
 }
 - (void)pvc_viewWillAppear:(BOOL)animated {
     [self pvc_viewWillAppear:animated];
+    //判断是否基于HViewController的VC
+    if ([self isKindOfClass:HViewController.class]) {
+        [AppDelegate setHVCInterfaceOrientation:YES];
+    }else {
+        [AppDelegate setHVCInterfaceOrientation:NO];
+    }
     [AppDelegate setShouldAutorotate:self.shouldAutorotate];
     [AppDelegate setInterfaceOrientation:self.supportedInterfaceOrientations];
 }
@@ -437,6 +461,7 @@
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
+    //return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
 }
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {

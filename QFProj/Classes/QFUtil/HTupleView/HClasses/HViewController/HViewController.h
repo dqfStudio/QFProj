@@ -16,6 +16,7 @@
 
 @interface AppDelegate (HRotate)
 @property (nonatomic, class) BOOL shouldAutorotate;
+@property (nonatomic, class) BOOL extraInterfaceOrientation;
 @property (nonatomic, class) UIInterfaceOrientationMask interfaceOrientation;
 @end
 
