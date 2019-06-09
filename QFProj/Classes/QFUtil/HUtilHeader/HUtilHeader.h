@@ -41,6 +41,7 @@
 #import "NSDictionary+Util.h"
 #import "NSMutableAttributedString+HUtil.h"
 #import "NSUserDefaults+HUtil.h"
+#import "HAttributedString.h"
 
 //Block-Category
 #import "NSObject+BlockSEL.h"
