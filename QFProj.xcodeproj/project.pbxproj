@@ -145,6 +145,8 @@
 		A208E17B22BA3865009A6FDD /* HTableRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = A208E17A22BA3865009A6FDD /* HTableRefresh.m */; };
 		A208E18022BA40A2009A6FDD /* UIScrollView+HEmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A208E17D22BA40A2009A6FDD /* UIScrollView+HEmptyDataSet.m */; };
 		A208E18122BA40A2009A6FDD /* UIScrollView+HEmptyDataSetExa.m in Sources */ = {isa = PBXBuildFile; fileRef = A208E17F22BA40A2009A6FDD /* UIScrollView+HEmptyDataSetExa.m */; };
+		A208E18422BA429F009A6FDD /* tuple_nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A208E18222BA429E009A6FDD /* tuple_nodata@3x.png */; };
+		A208E18522BA429F009A6FDD /* tuple_nodata@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A208E18322BA429E009A6FDD /* tuple_nodata@2x.png */; };
 		A219F228222F72BC00241FD7 /* HFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F227222F72BC00241FD7 /* HFormController.m */; };
 		A219F22F222FB46A00241FD7 /* HIFS.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F22D222FB46A00241FD7 /* HIFS.m */; };
 		A21FD5FA224DBC34009F03FB /* HRequestHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A21FD5F9224DBC34009F03FB /* HRequestHUD.m */; };
@@ -499,6 +501,8 @@
 		A208E17D22BA40A2009A6FDD /* UIScrollView+HEmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+HEmptyDataSet.m"; sourceTree = "<group>"; };
 		A208E17E22BA40A2009A6FDD /* UIScrollView+HEmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+HEmptyDataSet.h"; sourceTree = "<group>"; };
 		A208E17F22BA40A2009A6FDD /* UIScrollView+HEmptyDataSetExa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+HEmptyDataSetExa.m"; sourceTree = "<group>"; };
+		A208E18222BA429E009A6FDD /* tuple_nodata@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tuple_nodata@3x.png"; sourceTree = "<group>"; };
+		A208E18322BA429E009A6FDD /* tuple_nodata@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tuple_nodata@2x.png"; sourceTree = "<group>"; };
 		A219F226222F72BC00241FD7 /* HFormController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFormController.h; sourceTree = "<group>"; };
 		A219F227222F72BC00241FD7 /* HFormController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFormController.m; sourceTree = "<group>"; };
 		A219F22D222FB46A00241FD7 /* HIFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIFS.m; sourceTree = "<group>"; };
@@ -844,6 +848,8 @@
 				A208E17D22BA40A2009A6FDD /* UIScrollView+HEmptyDataSet.m */,
 				A208E17C22BA40A2009A6FDD /* UIScrollView+HEmptyDataSetExa.h */,
 				A208E17F22BA40A2009A6FDD /* UIScrollView+HEmptyDataSetExa.m */,
+				A208E18322BA429E009A6FDD /* tuple_nodata@2x.png */,
+				A208E18222BA429E009A6FDD /* tuple_nodata@3x.png */,
 			);
 			path = HTupleCommon;
 			sourceTree = "<group>";
@@ -1873,6 +1879,7 @@
 				A28EF3A321D8ECC9002F92ED /* loading_new_4@2x.png in Resources */,
 				15F0297020BE8D79003287AA /* mgf_loading_new_15@2x.png in Resources */,
 				15F0297220BE8D79003287AA /* mgf_loading_new_9@2x.png in Resources */,
+				A208E18422BA429F009A6FDD /* tuple_nodata@3x.png in Resources */,
 				A24B6567225EE0EE00B257BB /* HProjectDRConfig.xcconfig in Resources */,
 				15F0296E20BE8D79003287AA /* mgf_loading_new_11@2x.png in Resources */,
 				15F0296820BE8D79003287AA /* mgf_loading_new_4@2x.png in Resources */,
@@ -1915,6 +1922,7 @@
 				15F0296B20BE8D79003287AA /* mgf_loading_new_16@2x.png in Resources */,
 				A28EF38D21D8ECBE002F92ED /* icon_load_nothing@2x.png in Resources */,
 				15F0297820BE8D79003287AA /* mgf_icon_no_network@2x.png in Resources */,
+				A208E18522BA429F009A6FDD /* tuple_nodata@2x.png in Resources */,
 				A28EF3A621D8ECC9002F92ED /* loading_new_13@2x.png in Resources */,
 				15F0297320BE8D79003287AA /* mgf_loading_new_7@2x.png in Resources */,
 				15F0297620BE8D79003287AA /* mgf_icon_load_nothing@3x.png in Resources */,
