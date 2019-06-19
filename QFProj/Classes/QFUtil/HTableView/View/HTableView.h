@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MJRefresh.h"
+#import "HTableRefresh.h"
 #import "HTableViewCell.h"
 #import "NSObject+HSelector.h"
 #import "HTableHeaderFooterView.h"
@@ -60,6 +61,9 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 @property (nonatomic, assign) NSUInteger pageNo;    // page number, default 1
 @property (nonatomic, assign) NSUInteger pageSize;  // page size, default 20
 @property (nonatomic, assign) NSUInteger totalNo;  // total number.
+
+@property (nonatomic, assign) HTableRefreshHeaderStyle refreshHeaderStyle; //refresh header style
+@property (nonatomic, assign) HTableRefreshFooterStyle refreshFooterStyle; //load more footer style
 
 @property (nonatomic, copy, nullable) HRefreshTableBlock  refreshBlock;   // block to refresh data
 @property (nonatomic, copy, nullable) HLoadMoreTableBlock loadMoreBlock;  // block to load more data

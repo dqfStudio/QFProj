@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MJRefresh.h"
+#import "HTupleRefresh.h"
 #import "HTupleViewCell.h"
 #import "HTupleReusableView.h"
 #import "NSObject+HSelector.h"
@@ -87,6 +88,9 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 @property (nonatomic, assign) NSUInteger pageNo;    // page number, default 1
 @property (nonatomic, assign) NSUInteger pageSize;  // page size, default 20
 @property (nonatomic, assign) NSUInteger totalNo;  // total number.
+
+@property (nonatomic, assign) HTupleRefreshHeaderStyle refreshHeaderStyle; //refresh header style
+@property (nonatomic, assign) HTupleRefreshFooterStyle refreshFooterStyle; //load more footer style
 
 @property (nonatomic, copy, nullable) HRefreshTupleBlock  refreshBlock;   // block to refresh data
 @property (nonatomic, copy, nullable) HLoadMoreTupleBlock loadMoreBlock;  // block to load more data

@@ -141,6 +141,8 @@
 		15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9152D20A27D1C000261C4 /* HRequestResultView.m */; };
 		171E540C3ECD9B640D790516 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E16C30E2760E6660FC02C1 /* libPods-QFProj.a */; };
 		A208D62E22AD373E009A6FDD /* HAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = A208D62C22AD373E009A6FDD /* HAttributedString.m */; };
+		A208E17822BA305C009A6FDD /* HTupleRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = A208E17722BA305C009A6FDD /* HTupleRefresh.m */; };
+		A208E17B22BA3865009A6FDD /* HTableRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = A208E17A22BA3865009A6FDD /* HTableRefresh.m */; };
 		A219F228222F72BC00241FD7 /* HFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F227222F72BC00241FD7 /* HFormController.m */; };
 		A219F22F222FB46A00241FD7 /* HIFS.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F22D222FB46A00241FD7 /* HIFS.m */; };
 		A21FD5FA224DBC34009F03FB /* HRequestHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A21FD5F9224DBC34009F03FB /* HRequestHUD.m */; };
@@ -487,6 +489,10 @@
 		60580163C2E51E9CB5D59084 /* Pods-QFProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.release.xcconfig"; sourceTree = "<group>"; };
 		A208D62C22AD373E009A6FDD /* HAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAttributedString.m; sourceTree = "<group>"; };
 		A208D62D22AD373E009A6FDD /* HAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAttributedString.h; sourceTree = "<group>"; };
+		A208E17622BA305C009A6FDD /* HTupleRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleRefresh.h; sourceTree = "<group>"; };
+		A208E17722BA305C009A6FDD /* HTupleRefresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleRefresh.m; sourceTree = "<group>"; };
+		A208E17922BA3865009A6FDD /* HTableRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTableRefresh.h; sourceTree = "<group>"; };
+		A208E17A22BA3865009A6FDD /* HTableRefresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTableRefresh.m; sourceTree = "<group>"; };
 		A219F226222F72BC00241FD7 /* HFormController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFormController.h; sourceTree = "<group>"; };
 		A219F227222F72BC00241FD7 /* HFormController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFormController.m; sourceTree = "<group>"; };
 		A219F22D222FB46A00241FD7 /* HIFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIFS.m; sourceTree = "<group>"; };
@@ -826,6 +832,8 @@
 			children = (
 				15707EBE20B5675A00493839 /* HTupleSignal.h */,
 				15707EBF20B5675A00493839 /* HTupleSignal.m */,
+				A208E17622BA305C009A6FDD /* HTupleRefresh.h */,
+				A208E17722BA305C009A6FDD /* HTupleRefresh.m */,
 			);
 			path = HTupleCommon;
 			sourceTree = "<group>";
@@ -1659,10 +1667,12 @@
 		A273940222A7FF44009676C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A273940322A7FF44009676C1 /* HTableView.m */,
-				A273940422A7FF44009676C1 /* HTableSignal.m */,
-				A273940522A7FF44009676C1 /* HTableView.h */,
 				A273940622A7FF44009676C1 /* HTableSignal.h */,
+				A273940422A7FF44009676C1 /* HTableSignal.m */,
+				A208E17922BA3865009A6FDD /* HTableRefresh.h */,
+				A208E17A22BA3865009A6FDD /* HTableRefresh.m */,
+				A273940522A7FF44009676C1 /* HTableView.h */,
+				A273940322A7FF44009676C1 /* HTableView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1995,6 +2005,7 @@
 				15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */,
 				15B4DDED2092F96C00773E04 /* UIView+HImage.m in Sources */,
 				15E6BB9E2136E7E300EBE794 /* YPTabItem.m in Sources */,
+				A208E17B22BA3865009A6FDD /* HTableRefresh.m in Sources */,
 				A222AE5322818F7D0013098A /* HTextContainerView.m in Sources */,
 				1547B890210C4E09009E0374 /* UIControl+HTracking.m in Sources */,
 				A222AE4E22818F7D0013098A /* HTextMagnifier.m in Sources */,
@@ -2076,6 +2087,7 @@
 				15B4DE112092F96C00773E04 /* NSArray+HSafeUtil.m in Sources */,
 				A222AE5022818F7D0013098A /* HTextInput.m in Sources */,
 				150DE9902126AE50004B9E77 /* HAnalogNetworkManager.m in Sources */,
+				A208E17822BA305C009A6FDD /* HTupleRefresh.m in Sources */,
 				15F9152920A18CA9000261C4 /* HAspectsCenter.m in Sources */,
 				A222AE5122818F7D0013098A /* HTextLine.m in Sources */,
 				A273940722A7FF44009676C1 /* HBaseHeaderFooterView.m in Sources */,
