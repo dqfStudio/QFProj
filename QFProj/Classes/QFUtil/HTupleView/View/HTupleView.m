@@ -36,9 +36,10 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 @property (nonatomic) NSInteger designSections;
 @property (nonatomic) HTupleDesignStyle designStyle;
 
-@property (nonatomic) NSMutableSet *allReuseCells;
-@property (nonatomic) NSMutableDictionary *allReuseHeaders;
-@property (nonatomic) NSMutableDictionary *allReuseFooters;
+@property (nonatomic) NSMutableSet *allReuseIdentifiers;
+@property (nonatomic) NSMapTable   *allReuseCells;
+@property (nonatomic) NSMapTable   *allReuseHeaders;
+@property (nonatomic) NSMapTable   *allReuseFooters;
 
 @property (nonatomic, copy) HUNumberOfSectionsBlock numberOfSectionsBlock;
 @property (nonatomic, copy) HNumberOfItemsBlock numberOfItemsBlock;
@@ -139,9 +140,10 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     
-    _allReuseCells = [NSMutableSet new];
-    _allReuseHeaders = [NSMutableDictionary new];
-    _allReuseFooters = [NSMutableDictionary new];
+    _allReuseIdentifiers = [NSMutableSet new];
+    _allReuseCells   = [NSMapTable strongToWeakObjectsMapTable];
+    _allReuseHeaders = [NSMapTable strongToWeakObjectsMapTable];
+    _allReuseFooters = [NSMapTable strongToWeakObjectsMapTable];
     self.delegate = self;
     self.dataSource = self;
 }
@@ -295,8 +297,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         identifier = [identifier stringByAppendingFormat:@"%@", @(self.tupleState)];
         if (pre) identifier = [identifier stringByAppendingString:pre];
         if (idx) identifier = [identifier stringByAppendingString:[indexPath string]];
-        if (![self.allReuseCells containsObject:identifier]) {
-            [self.allReuseCells addObject:identifier];
+        if (![self.allReuseIdentifiers containsObject:identifier]) {
+            [self.allReuseIdentifiers addObject:identifier];
             [self registerClass:cls forCellWithReuseIdentifier:identifier];
             cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
             HTupleBaseCell *tmpCell = (HTupleBaseCell *)cell;
@@ -312,6 +314,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         }else {
             cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
         }
+        [self.allReuseCells setObject:cell forKey:indexPath.string];
         UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
         if (!self.categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForItemAtIndexPath:)]) {
             edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForItemAtIndexPath:indexPath];
@@ -355,8 +358,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
             identifier = [identifier stringByAppendingFormat:@"%@", @(self.tupleState)];
             if (pre) identifier = [identifier stringByAppendingString:pre];
             if (idx) identifier = [identifier stringByAppendingString:[indexPath string]];
-            if (![self.allReuseCells containsObject:identifier]) {
-                [self.allReuseCells addObject:identifier];
+            if (![self.allReuseIdentifiers containsObject:identifier]) {
+                [self.allReuseIdentifiers addObject:identifier];
                 [self.allReuseHeaders setObject:identifier forKey:@(indexPath.section).stringValue];
                 [self registerClass:cls forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier];
                 cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
@@ -373,6 +376,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
             }else {
                 cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
             }
+            [self.allReuseHeaders setObject:cell forKey:indexPath.string];
             UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
             if (!self.categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForHeaderInSection:)]) {
                 edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForHeaderInSection:indexPath.section];
@@ -411,8 +415,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
             identifier = [identifier stringByAppendingFormat:@"%@", @(self.tupleState)];
             if (pre) identifier = [identifier stringByAppendingString:pre];
             if (idx) identifier = [identifier stringByAppendingString:[indexPath string]];
-            if (![self.allReuseCells containsObject:identifier]) {
-                [self.allReuseCells addObject:identifier];
+            if (![self.allReuseIdentifiers containsObject:identifier]) {
+                [self.allReuseIdentifiers addObject:identifier];
                 [self.allReuseFooters setObject:identifier forKey:@(indexPath.section).stringValue];
                 [self registerClass:cls forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier];
                 cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
@@ -429,6 +433,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
             }else {
                 cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
             }
+            [self.allReuseFooters setObject:cell forKey:indexPath.string];
             UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
             if (!self.categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:edgeInsetsForFooterInSection:)]) {
                 edgeInsets = [self.tupleDelegate tupleView:self edgeInsetsForFooterInSection:indexPath.section];
@@ -636,7 +641,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
             NSInteger items = [self numberOfItemsInSection:i];
             for (int j=0; j<items; j++) {
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:j inSection:i];
-                UICollectionViewCell *cell = [self cellForItemAtIndexPath:indexPath];
+                UICollectionViewCell *cell = [self.allReuseCells objectForKey:indexPath.string];
                 if (cell.signalBlock) {
                     cell.signalBlock(signal);
                 }
@@ -649,7 +654,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         NSInteger items = [self numberOfItemsInSection:section];
         for (int i=0; i<items; i++) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:section];
-            UICollectionViewCell *cell = [self cellForItemAtIndexPath:indexPath];
+            UICollectionViewCell *cell = [self.allReuseCells objectForKey:indexPath.string];
             if (cell.signalBlock) {
                 cell.signalBlock(signal);
             }
@@ -658,7 +663,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 - (void)signal:(HTupleSignal *)signal indexPath:(NSIndexPath *)indexPath  {
     dispatch_async(dispatch_queue_create(0, 0), ^{
-        UICollectionViewCell *cell = [self cellForItemAtIndexPath:indexPath];
+        UICollectionViewCell *cell = [self.allReuseCells objectForKey:indexPath.string];
         if (cell.signalBlock) {
             cell.signalBlock(signal);
         }
@@ -668,26 +673,20 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         NSInteger sections = [self numberOfSections];
         for (int i=0; i<sections; i++) {
-            NSString *identifier = self.allReuseHeaders[@(i).stringValue];
-            if (identifier) {
-                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:i];
-                HTupleBaseView *cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
-                if (cell.signalBlock) {
-                    cell.signalBlock(signal);
-                }
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:i];
+            HTupleBaseView *cell = [self.allReuseHeaders objectForKey:indexPath.string];
+            if (cell.signalBlock) {
+                cell.signalBlock(signal);
             }
         }
     });
 }
 - (void)signal:(HTupleSignal *)signal headerSection:(NSInteger)section {
     dispatch_async(dispatch_queue_create(0, 0), ^{
-        NSString *identifier = self.allReuseHeaders[@(section).stringValue];
-        if (identifier) {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
-            HTupleBaseView *cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
-            if (cell.signalBlock) {
-                cell.signalBlock(signal);
-            }
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
+        HTupleBaseView *cell = [self.allReuseHeaders objectForKey:indexPath.string];
+        if (cell.signalBlock) {
+            cell.signalBlock(signal);
         }
     });
 }
@@ -695,26 +694,20 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         NSInteger sections = [self numberOfSections];
         for (int i=0; i<sections; i++) {
-            NSString *identifier = self.allReuseFooters[@(i).stringValue];
-            if (identifier) {
-                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:i];
-                HTupleBaseView *cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
-                if (cell.signalBlock) {
-                    cell.signalBlock(signal);
-                }
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:i];
+            HTupleBaseView *cell = [self.allReuseFooters objectForKey:indexPath.string];
+            if (cell.signalBlock) {
+                cell.signalBlock(signal);
             }
         }
     });
 }
 - (void)signal:(HTupleSignal *)signal footerSection:(NSInteger)section {
     dispatch_async(dispatch_queue_create(0, 0), ^{
-        NSString *identifier = self.allReuseFooters[@(section).stringValue];
-        if (identifier) {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
-            HTupleBaseView *cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
-            if (cell.signalBlock) {
-                cell.signalBlock(signal);
-            }
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
+        HTupleBaseView *cell = [self.allReuseFooters objectForKey:indexPath.string];
+        if (cell.signalBlock) {
+            cell.signalBlock(signal);
         }
     });
 }

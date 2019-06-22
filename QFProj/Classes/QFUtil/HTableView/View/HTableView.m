@@ -33,7 +33,10 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 @property (nonatomic) NSInteger designSections;
 @property (nonatomic) HTableDesignStyle designStyle;
 
-@property (nonatomic) NSMutableSet *allReuseCells;
+@property (nonatomic) NSMutableSet *allReuseIdentifiers;
+@property (nonatomic) NSMapTable   *allReuseCells;
+@property (nonatomic) NSMapTable   *allReuseHeaders;
+@property (nonatomic) NSMapTable   *allReuseFooters;
 
 @property (nonatomic, copy) HANumberOfSectionsBlock numberOfSectionsBlock;
 @property (nonatomic, copy) HNumberOfCellsBlock numberOfCellsBlock;
@@ -104,7 +107,10 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     self.estimatedSectionHeaderHeight = 0;
     self.estimatedSectionFooterHeight = 0;
     
-    _allReuseCells = [NSMutableSet new];
+    _allReuseIdentifiers = [NSMutableSet new];
+    _allReuseCells   = [NSMapTable strongToWeakObjectsMapTable];
+    _allReuseHeaders = [NSMapTable strongToWeakObjectsMapTable];
+    _allReuseFooters = [NSMapTable strongToWeakObjectsMapTable];
     self.tableFooterView = [UIView new];
     self.delegate = self;
     self.dataSource = self;
@@ -266,8 +272,8 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
         if (pre) identifier = [identifier stringByAppendingString:pre];
         if (idx) identifier = [identifier stringByAppendingString:@(section).stringValue];
-        if (![self.allReuseCells containsObject:identifier]) {
-            [self.allReuseCells addObject:identifier];
+        if (![self.allReuseIdentifiers containsObject:identifier]) {
+            [self.allReuseIdentifiers addObject:identifier];
             [self registerClass:cls forHeaderFooterViewReuseIdentifier:identifier];
             cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
             HBaseHeaderFooterView *tmpCell = (HBaseHeaderFooterView *)cell;
@@ -284,6 +290,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         }else {
             cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
         }
+        [self.allReuseHeaders setObject:cell forKey:@(section).stringValue];
         if ([cell respondsToSelector:@selector(layoutContentView)]) {
             [(HBaseHeaderFooterView *)cell layoutContentView];
         }
@@ -315,8 +322,8 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
         if (pre) identifier = [identifier stringByAppendingString:pre];
         if (idx) identifier = [identifier stringByAppendingString:@(section).stringValue];
-        if (![self.allReuseCells containsObject:identifier]) {
-            [self.allReuseCells addObject:identifier];
+        if (![self.allReuseIdentifiers containsObject:identifier]) {
+            [self.allReuseIdentifiers addObject:identifier];
             [self registerClass:cls forHeaderFooterViewReuseIdentifier:identifier];
             cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
             HBaseHeaderFooterView *tmpCell = (HBaseHeaderFooterView *)cell;
@@ -333,6 +340,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         }else {
             cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
         }
+        [self.allReuseFooters setObject:cell forKey:@(section).stringValue];
         if ([cell respondsToSelector:@selector(layoutContentView)]) {
             [(HBaseHeaderFooterView *)cell layoutContentView];
         }
@@ -374,8 +382,8 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
         if (pre) identifier = [identifier stringByAppendingString:pre];
         if (idx) identifier = [identifier stringByAppendingString:[indexPath string]];
-        if (![self.allReuseCells containsObject:identifier]) {
-            [self.allReuseCells addObject:identifier];
+        if (![self.allReuseIdentifiers containsObject:identifier]) {
+            [self.allReuseIdentifiers addObject:identifier];
             [self registerClass:cls forCellReuseIdentifier:identifier];
             cell = [self dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
             HTableBaseCell *tmpCell = (HTableBaseCell *)cell;
@@ -391,6 +399,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         }else {
             cell = [self dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
         }
+        [self.allReuseCells setObject:cell forKey:indexPath.string];
         if ([cell respondsToSelector:@selector(layoutContentView)]) {
             [(HTableBaseCell *)cell layoutContentView];
         }
@@ -497,7 +506,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
             NSInteger cells = [self numberOfRowsInSection:i];
             for (int j=0; j<cells; j++) {
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:j inSection:i];
-                UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
+                UITableViewCell *cell = [self.allReuseCells objectForKey:indexPath.string];
                 if (cell.signalBlock) {
                     cell.signalBlock(signal);
                 }
@@ -510,7 +519,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         NSInteger cells = [self numberOfRowsInSection:section];
         for (int i=0; i<cells; i++) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:section];
-            UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
+            UITableViewCell *cell = [self.allReuseCells objectForKey:indexPath.string];
             if (cell.signalBlock) {
                 cell.signalBlock(signal);
             }
@@ -519,7 +528,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 }
 - (void)signal:(HTableSignal *)signal indexPath:(NSIndexPath *)indexPath  {
     dispatch_async(dispatch_queue_create(0, 0), ^{
-        UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
+        UITableViewCell *cell = [self.allReuseCells objectForKey:indexPath.string];
         if (cell.signalBlock) {
             cell.signalBlock(signal);
         }
@@ -529,7 +538,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         NSInteger sections = [self numberOfSections];
         for (int i=0; i<sections; i++) {
-            UITableViewHeaderFooterView *header = [self headerViewForSection:i];
+            UITableViewHeaderFooterView *header = [self.allReuseHeaders objectForKey:@(i).stringValue];
             if (header.signalBlock) {
                 header.signalBlock(signal);
             }
@@ -538,7 +547,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 }
 - (void)signal:(HTableSignal *)signal headerSection:(NSInteger)section {
     dispatch_async(dispatch_queue_create(0, 0), ^{
-        UITableViewHeaderFooterView *header = [self headerViewForSection:section];
+        UITableViewHeaderFooterView *header = [self.allReuseHeaders objectForKey:@(section).stringValue];
         if (header.signalBlock) {
             header.signalBlock(signal);
         }
@@ -548,7 +557,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         NSInteger sections = [self numberOfSections];
         for (int i=0; i<sections; i++) {
-            UITableViewHeaderFooterView *footer = [self footerViewForSection:i];
+            UITableViewHeaderFooterView *footer = [self.allReuseFooters objectForKey:@(i).stringValue];
             if (footer.signalBlock) {
                 footer.signalBlock(signal);
             }
@@ -557,7 +566,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 }
 - (void)signal:(HTableSignal *)signal footerSection:(NSInteger)section {
     dispatch_async(dispatch_queue_create(0, 0), ^{
-        UITableViewHeaderFooterView *footer = [self footerViewForSection:section];
+        UITableViewHeaderFooterView *footer = [self.allReuseFooters objectForKey:@(section).stringValue];
         if (footer.signalBlock) {
             footer.signalBlock(signal);
         }
