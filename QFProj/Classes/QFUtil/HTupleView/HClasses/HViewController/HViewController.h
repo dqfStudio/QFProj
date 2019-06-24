@@ -88,6 +88,12 @@
  */
 - (void)rightNaviButtonPressed;
 
+#pragma mark - push or pop childViewController
+
+- (void)pushChildViewController:(UIViewController *)viewController;
+
+- (void)popChildViewController;
+
 #pragma mark - 状态栏样式订制
 //统一iOS6及以上系统控制状态栏隐藏的方式，匀采用代理方式
 //控制器想要实现状态栏控制及动画，需要实现以下两个方法，当状态栏状态改性时需要调用-setNeedsStatusBarAppearanceUpdate

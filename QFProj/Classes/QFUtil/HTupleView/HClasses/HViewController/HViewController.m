@@ -266,6 +266,34 @@
     
 }
 
+#pragma mark - push or pop childViewController
+
+- (void)pushChildViewController:(UIViewController *)viewController {
+    if (self.childViewControllers.count == 0) {
+        [self.view addSubview:viewController.view];
+        [self addChildViewController:viewController];
+    }else if (self.childViewControllers.count >= 1) {
+        [self addChildViewController:viewController];
+        UIViewController *vc = [self.childViewControllers lastObject];
+        [self transitionFromViewController:vc toViewController:viewController duration:0.25 options:UIViewAnimationOptionCurveEaseInOut animations:nil completion:nil];
+    }
+}
+
+- (void)popChildViewController {
+    if (self.childViewControllers.count == 1) {
+        UIViewController *vc = [self.childViewControllers lastObject];
+        [vc removeFromParentViewController];
+    }else if (self.childViewControllers.count >= 2) {
+        UIViewController *vc1 = [self.childViewControllers objectAtIndex:self.childViewControllers.count -1];
+        UIViewController *vc2 = [self.childViewControllers objectAtIndex:self.childViewControllers.count -2];
+        [self transitionFromViewController:vc1 toViewController:vc2 duration:0.25 options:UIViewAnimationOptionCurveEaseInOut animations:nil completion:^(BOOL finished) {
+            if (finished) {
+                [vc1 removeFromParentViewController];
+            }
+        }];
+    }
+}
+
 #pragma mark - 各个视图
 - (UIView *)topBar {
     if (!_topBar) {
