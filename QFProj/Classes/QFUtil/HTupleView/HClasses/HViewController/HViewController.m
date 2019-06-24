@@ -273,8 +273,8 @@
         [self.view addSubview:viewController.view];
         [self addChildViewController:viewController];
     }else if (self.childViewControllers.count >= 1) {
-        [self addChildViewController:viewController];
         UIViewController *vc = [self.childViewControllers lastObject];
+        [self addChildViewController:viewController];
         [self transitionFromViewController:vc toViewController:viewController duration:0.25 options:UIViewAnimationOptionCurveEaseInOut animations:nil completion:nil];
     }
 }
