@@ -492,6 +492,16 @@
     return UIInterfaceOrientationPortrait;
 }
 
+//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+//    if (UIDeviceOrientationIsLandscape(UIDevice.currentDevice.orientation)) {
+//        switch (UIDevice.currentDevice.orientation) {
+//            case UIDeviceOrientationLandscapeLeft:return UIInterfaceOrientationLandscapeLeft;
+//            case UIDeviceOrientationLandscapeRight: return UIInterfaceOrientationLandscapeRight;
+//            default:return UIInterfaceOrientationLandscapeRight;
+//        }
+//    }
+//    return UIInterfaceOrientationLandscapeRight;
+//}
 
 //#pragma mark - gestureRecognizer delegate
 //
