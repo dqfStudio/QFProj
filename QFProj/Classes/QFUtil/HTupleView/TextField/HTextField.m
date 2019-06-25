@@ -22,6 +22,7 @@
     [self setLeftViewMode:UITextFieldViewModeAlways];
     [self setRightViewMode:UITextFieldViewModeAlways];
     _forbidWhitespaceAndNewline = YES;
+    _editEnabled = YES;
 }
 - (UILabel *)leftLabel {
     if (!_leftLabel) {
@@ -145,6 +146,9 @@
         return (strLength <= self.maxInput);
     }
     return YES;
+}
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    return self.editEnabled;
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     if (self.forbidWhitespaceAndNewline) {
