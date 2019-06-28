@@ -276,6 +276,7 @@
     }else if (count == 1) {
         UIViewController *vc = self.childViewControllers.lastObject;
         if (![vc isEqual:viewController]) {
+            [vc.view removeFromSuperview];
             [vc removeFromParentViewController];
             [self.view addSubview:viewController.view];
             [self addChildViewController:viewController];
@@ -283,6 +284,7 @@
     }else {
         for (int i=0; i<count; i++) {
             UIViewController *vc = self.childViewControllers[i];
+            [vc.view removeFromSuperview];
             [vc removeFromParentViewController];
         }
         [self.view addSubview:viewController.view];
@@ -302,12 +304,14 @@
 - (void)popChildViewController {
     if (self.childViewControllers.count == 1) {
         UIViewController *vc = [self.childViewControllers lastObject];
+        [vc.view removeFromSuperview];
         [vc removeFromParentViewController];
     }else if (self.childViewControllers.count >= 2) {
         UIViewController *vc1 = [self.childViewControllers objectAtIndex:self.childViewControllers.count -1];
         UIViewController *vc2 = [self.childViewControllers objectAtIndex:self.childViewControllers.count -2];
         [self transitionFromViewController:vc1 toViewController:vc2 duration:0.25 options:UIViewAnimationOptionCurveEaseInOut animations:nil completion:^(BOOL finished) {
             if (finished) {
+                [vc1.view removeFromSuperview];
                 [vc1 removeFromParentViewController];
             }
         }];
