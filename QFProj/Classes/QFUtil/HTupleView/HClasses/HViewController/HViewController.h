@@ -90,7 +90,7 @@
 
 #pragma mark - push or pop childViewController
 
-- (void)transitionToViewController:(UIViewController *)viewController;
+- (void)transitionToSelectedItemIndex:(NSUInteger )index;
 - (void)pushChildViewController:(UIViewController *)viewController;
 - (void)popChildViewController;
 

@@ -268,27 +268,19 @@
 
 #pragma mark - push or pop childViewController
 
-- (void)transitionToViewController:(UIViewController *)viewController {
+- (void)transitionToSelectedItemIndex:(NSUInteger )index {
     NSUInteger count = self.childViewControllers.count;
-    if (count == 0) {
-        [self.view addSubview:viewController.view];
-        [self addChildViewController:viewController];
-    }else if (count == 1) {
-        UIViewController *vc = self.childViewControllers.lastObject;
-        if (![vc isEqual:viewController]) {
-            [vc.view removeFromSuperview];
-            [vc removeFromParentViewController];
-            [self.view addSubview:viewController.view];
-            [self addChildViewController:viewController];
-        }
-    }else {
+    if (index >= 0 && index < count) {
         for (int i=0; i<count; i++) {
             UIViewController *vc = self.childViewControllers[i];
-            [vc.view removeFromSuperview];
-            [vc removeFromParentViewController];
+            if (vc.view.superview && index != i) {
+                [vc.view removeFromSuperview];
+            }
         }
-        [self.view addSubview:viewController.view];
-        [self addChildViewController:viewController];
+        UIViewController *vc = self.childViewControllers[index];
+        if (!vc.view.superview) {
+            [self.view addSubview:vc.view];
+        }
     }
 }
 - (void)pushChildViewController:(UIViewController *)viewController {
