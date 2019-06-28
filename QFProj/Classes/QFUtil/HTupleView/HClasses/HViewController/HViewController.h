@@ -90,8 +90,8 @@
 
 #pragma mark - push or pop childViewController
 
+- (void)transitionToViewController:(UIViewController *)viewController;
 - (void)pushChildViewController:(UIViewController *)viewController;
-
 - (void)popChildViewController;
 
 #pragma mark - 状态栏样式订制

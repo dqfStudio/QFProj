@@ -728,6 +728,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 - (CGFloat)height {
     return CGRectGetHeight(self.frame);
 }
+- (CGSize)size {
+    return self.frame.size;
+}
 - (NSString *)string {
     return [NSString stringWithFormat:@"%p", self];
 }

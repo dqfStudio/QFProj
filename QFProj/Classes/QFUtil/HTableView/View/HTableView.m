@@ -589,6 +589,9 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 - (CGFloat)height {
     return CGRectGetHeight(self.frame);
 }
+- (CGSize)size {
+    return self.frame.size;
+}
 - (NSString *)string {
     return [NSString stringWithFormat:@"%p", self];
 }

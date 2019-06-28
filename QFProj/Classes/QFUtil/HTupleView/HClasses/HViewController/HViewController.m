@@ -268,6 +268,27 @@
 
 #pragma mark - push or pop childViewController
 
+- (void)transitionToViewController:(UIViewController *)viewController {
+    NSUInteger count = self.childViewControllers.count;
+    if (count == 0) {
+        [self.view addSubview:viewController.view];
+        [self addChildViewController:viewController];
+    }else if (count == 1) {
+        UIViewController *vc = self.childViewControllers.lastObject;
+        if (![vc isEqual:viewController]) {
+            [vc removeFromParentViewController];
+            [self.view addSubview:viewController.view];
+            [self addChildViewController:viewController];
+        }
+    }else {
+        for (int i=0; i<count; i++) {
+            UIViewController *vc = self.childViewControllers[i];
+            [vc removeFromParentViewController];
+        }
+        [self.view addSubview:viewController.view];
+        [self addChildViewController:viewController];
+    }
+}
 - (void)pushChildViewController:(UIViewController *)viewController {
     if (self.childViewControllers.count == 0) {
         [self.view addSubview:viewController.view];
@@ -278,7 +299,6 @@
         [self transitionFromViewController:vc toViewController:viewController duration:0.25 options:UIViewAnimationOptionCurveEaseInOut animations:nil completion:nil];
     }
 }
-
 - (void)popChildViewController {
     if (self.childViewControllers.count == 1) {
         UIViewController *vc = [self.childViewControllers lastObject];

@@ -110,6 +110,7 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 
 - (CGFloat)width;
 - (CGFloat)height;
+- (CGSize)size;
 - (NSString *)string;
 
 @end
