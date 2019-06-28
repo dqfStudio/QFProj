@@ -574,7 +574,8 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 }
 - (id (^)(NSInteger row, NSInteger section))cell {
     return ^id (NSInteger row, NSInteger section) {
-        return [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+        return [self.allReuseCells objectForKey:indexPath.string];
     };
 }
 - (id (^)(NSInteger row, NSInteger section))indexPath {

@@ -713,7 +713,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 - (id (^)(NSInteger row, NSInteger section))cell {
     return ^id (NSInteger row, NSInteger section) {
-        return [self cellForItemAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+        return [self.allReuseCells objectForKey:indexPath.string];
     };
 }
 - (id (^)(NSInteger row, NSInteger section))indexPath {
