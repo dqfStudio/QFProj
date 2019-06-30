@@ -59,6 +59,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 @property (nonatomic, copy) HFooterTupleBlock footerTupleBlock;
 @property (nonatomic, copy) HItemTupleBlock itemTupleBlock;
 
+@property (nonatomic, copy) HItemWillDisplayBlock itemWillDisplayBlock;
 @property (nonatomic, copy) HDidSelectItemBlock didSelectItemBlock;
 @end
 
@@ -466,6 +467,15 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     }
     return cell;
 }
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:willDisplayCell:forItemAtIndexPath:)]) {
+        [self.tupleDelegate tupleView:self willDisplayCell:cell forItemAtIndexPath:indexPath];
+    }else if (_categoryDesign && [self respondsToSelector:@selector(tupleView:willDisplayCell:forItemAtIndexPath:)]) {
+        [self tupleView:self willDisplayCell:cell forItemAtIndexPath:indexPath];
+    }else if (self.itemWillDisplayBlock) {
+        self.itemWillDisplayBlock(cell, indexPath);
+    }
+}
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:didSelectItemAtIndexPath:)]) {
         [self.tupleDelegate tupleView:self didSelectItemAtIndexPath:indexPath];
@@ -496,6 +506,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     self.sizeForItemBlock = size;
     self.edgeInsetsForItemBlock = edge;
     self.itemTupleBlock = block;
+}
+- (void)itemWillDisplayBlock:(HItemWillDisplayBlock)block {
+    self.itemWillDisplayBlock = block;
 }
 - (void)didSelectItem:(HDidSelectItemBlock)block {
     self.didSelectItemBlock = block;
@@ -601,6 +614,12 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     NSString *prefix = [self tupleWithPrefix:indexPath.section];
     if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
         [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &itemBlock, &indexPath];
+    }
+}
+- (void)tupleView:(UICollectionView *)tupleView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [self tupleWithPrefix:indexPath.section];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
+        [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &cell, &indexPath];
     }
 }
 - (void)tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
