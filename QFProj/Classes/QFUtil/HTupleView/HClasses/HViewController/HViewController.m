@@ -268,7 +268,7 @@
 
 #pragma mark - push or pop childViewController
 
-- (void)transitionChildViewControllerWithIndex:(NSUInteger )index {
+- (void)transitionChildViewControllerWithIndex:(NSUInteger)index {
     NSUInteger count = self.childViewControllers.count;
     if (index >= 0 && index < count) {
         for (int i=0; i<count; i++) {
