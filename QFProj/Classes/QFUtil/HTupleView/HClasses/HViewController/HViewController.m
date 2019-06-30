@@ -494,6 +494,11 @@
     return [UIColor colorWithHex:0xe5e5e5];;
 }
 
+#pragma mark - home indicator
+- (BOOL)prefersHomeIndicatorAutoHidden {
+    return YES;
+}
+
 #pragma mark - 旋转支持
 - (BOOL)shouldAutorotate {
     return YES;
