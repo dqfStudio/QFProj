@@ -361,7 +361,6 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
             if (idx) identifier = [identifier stringByAppendingString:[indexPath string]];
             if (![self.allReuseIdentifiers containsObject:identifier]) {
                 [self.allReuseIdentifiers addObject:identifier];
-                [self.allReuseHeaders setObject:identifier forKey:@(indexPath.section).stringValue];
                 [self registerClass:cls forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier];
                 cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
                 HTupleBaseView *tmpCell = (HTupleBaseView *)cell;
@@ -418,7 +417,6 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
             if (idx) identifier = [identifier stringByAppendingString:[indexPath string]];
             if (![self.allReuseIdentifiers containsObject:identifier]) {
                 [self.allReuseIdentifiers addObject:identifier];
-                [self.allReuseFooters setObject:identifier forKey:@(indexPath.section).stringValue];
                 [self registerClass:cls forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier];
                 cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
                 HTupleBaseView *tmpCell = (HTupleBaseView *)cell;
