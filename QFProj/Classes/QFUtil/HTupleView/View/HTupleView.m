@@ -149,18 +149,6 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     self.dataSource = self;
 }
 #pragma --mark other methods
-- (NSMutableArray *)tupleArr {
-    if (!_tupleArr) {
-        _tupleArr = NSMutableArray.array;
-    }
-    return _tupleArr;
-}
-- (NSMutableDictionary *)tupleDict {
-    if (!_tupleDict) {
-        _tupleDict = NSMutableDictionary.dictionary;
-    }
-    return _tupleDict;
-}
 - (NSUInteger)pageNo {
     if (_pageNo <= 0) {
         return 1;

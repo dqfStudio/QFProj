@@ -1455,9 +1455,9 @@
 		A206882422CA081400661634 /* HViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A206882522CA081400661634 /* HViewController.m */,
-				A206882622CA081400661634 /* HViewController.h */,
 				A206882722CA081400661634 /* hvc_back_icon@2x.png */,
+				A206882622CA081400661634 /* HViewController.h */,
+				A206882522CA081400661634 /* HViewController.m */,
 			);
 			name = HViewController;
 			path = QFUtil/HViewController;

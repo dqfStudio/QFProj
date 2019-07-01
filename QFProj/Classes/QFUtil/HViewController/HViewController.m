@@ -171,12 +171,6 @@
         _statusBarPadding = UIDevice.statusBarHeight;
     }
 }
-- (UIWindow *)window {
-    return UIApplication.sharedApplication.delegate.window;
-}
-- (UIScreen *)screen {
-    return UIScreen.mainScreen;
-}
 + (HVCAppearance *)appearance {
     return [HVCAppearance shared];
 }
@@ -561,5 +555,34 @@
             }
         }];
     }
+}
+@end
+
+@implementation HViewController (HMessy)
+- (UIWindow *)window {
+    return UIApplication.sharedApplication.delegate.window;
+}
+- (UIScreen *)screen {
+    return UIScreen.mainScreen;
+}
+- (NSMutableArray *)sourceArr {
+    NSMutableArray *array = objc_getAssociatedObject(self, _cmd);
+    if (!array) {
+        self.sourceArr = NSMutableArray.array;
+    }
+    return array;
+}
+- (void)setSourceArr:(NSMutableArray *)sourceArr {
+    objc_setAssociatedObject(self, @selector(sourceArr), sourceArr, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (NSMutableDictionary *)sourceDict {
+    NSMutableDictionary *dictionary = objc_getAssociatedObject(self, _cmd);
+    if (!dictionary) {
+        self.sourceDict = NSMutableDictionary.dictionary;
+    }
+    return dictionary;
+}
+- (void)setSourceDict:(NSMutableDictionary *)sourceDict {
+    objc_setAssociatedObject(self, @selector(sourceDict), sourceDict, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 @end

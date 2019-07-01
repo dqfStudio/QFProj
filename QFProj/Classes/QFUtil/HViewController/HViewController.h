@@ -36,10 +36,6 @@
 @property (nonatomic) HWebButtonView *rightNaviButton;
 @property (nonatomic) UIView *topBarLine;
 
-//获取window和screen
-@property (nonatomic, readonly) UIWindow *window;
-@property (nonatomic, readonly) UIScreen *screen;
-
 - (float)topBarHeight;
 
 + (HVCAppearance *)appearance;
@@ -121,4 +117,13 @@
 - (void)transitionChildViewControllerWithIndex:(NSUInteger)index;
 - (void)pushChildViewController:(UIViewController *)viewController;
 - (void)popChildViewController;
+@end
+
+@interface HViewController (HMessy)
+//获取window和screen
+@property (nonatomic, readonly) UIWindow *window;
+@property (nonatomic, readonly) UIScreen *screen;
+//load date
+@property (nonatomic, readonly) NSMutableArray *sourceArr;
+@property (nonatomic, readonly) NSMutableDictionary *sourceDict;
 @end
