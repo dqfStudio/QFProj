@@ -46,17 +46,22 @@
 
 @interface HTupleReusableView : HTupleBaseView
 @property (nonatomic) HLabel *leftLabel;
+@property (nonatomic) HLabel *middleLabel;
 @property (nonatomic) HLabel *rightLabel;
 
 @property (nonatomic) HTextView *leftTextView;
+@property (nonatomic) HTextView *middleTextView;
 @property (nonatomic) HTextView *rightTextView;
 
 @property (nonatomic) HWebButtonView *leftButton;
+@property (nonatomic) HWebButtonView *middleButton;
 @property (nonatomic) HWebButtonView *rightButton;
 
 @property (nonatomic) HWebImageView *leftImageView;
+@property (nonatomic) HWebImageView *middleImageView;
 @property (nonatomic) HWebImageView *rightImageView;
 
 @property (nonatomic) HTextField *leftTextField;
+@property (nonatomic) HTextField *middleTextField;
 @property (nonatomic) HTextField *rightTextField;
 @end

@@ -149,6 +149,14 @@
     }
     return _leftLabel;
 }
+- (HLabel *)middleLabel {
+    if (!_middleLabel) {
+        _middleLabel = [HLabel new];
+        [_middleLabel setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_middleLabel];
+    }
+    return _middleLabel;
+}
 - (HLabel *)rightLabel {
     if (!_rightLabel) {
         _rightLabel = [HLabel new];
@@ -164,6 +172,14 @@
         [self addSubview:_leftTextView];
     }
     return _leftTextView;
+}
+- (HTextView *)middleTextView {
+    if (!_middleTextView) {
+        _middleTextView = [HTextView new];
+        [_middleTextView setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_middleTextView];
+    }
+    return _middleTextView;
 }
 - (HTextView *)rightTextView {
     if (!_rightTextView) {
@@ -181,6 +197,14 @@
     }
     return _leftButton;
 }
+- (HWebButtonView *)middleButton {
+    if (!_middleButton) {
+        _middleButton = [HWebButtonView new];
+        [_middleButton setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_middleButton];
+    }
+    return _middleButton;
+}
 - (HWebButtonView *)rightButton {
     if (!_rightButton) {
         _rightButton = [HWebButtonView new];
@@ -197,6 +221,14 @@
     }
     return _leftImageView;
 }
+- (HWebImageView *)middleImageView {
+    if (!_middleImageView) {
+        _middleImageView = HWebImageView.new;
+        [_middleImageView setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_middleImageView];
+    }
+    return _middleImageView;
+}
 - (HWebImageView *)rightImageView {
     if (!_rightImageView) {
         _rightImageView = HWebImageView.new;
@@ -212,6 +244,14 @@
         [self addSubview:_leftTextField];
     }
     return _leftTextField;
+}
+- (HTextField *)middleTextField {
+    if (!_middleTextField) {
+        _middleTextField = HTextField.new;
+        [_middleTextField setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_middleTextField];
+    }
+    return _middleTextField;
 }
 - (HTextField *)rightTextField {
     if (!_rightTextField) {
