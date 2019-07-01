@@ -146,6 +146,10 @@
 		A206882122C9FDBD00661634 /* HTableBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = A206881822C9FDBC00661634 /* HTableBaseView.m */; };
 		A206882222C9FDBD00661634 /* HTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A206881B22C9FDBD00661634 /* HTableViewCell.m */; };
 		A206882322C9FDBD00661634 /* HTableBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A206881C22C9FDBD00661634 /* HTableBaseCell.m */; };
+		A206882822CA081400661634 /* HViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A206882522CA081400661634 /* HViewController.m */; };
+		A206882922CA081400661634 /* hvc_back_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A206882722CA081400661634 /* hvc_back_icon@2x.png */; };
+		A206882F22CA083700661634 /* HWebButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = A206882C22CA083700661634 /* HWebButtonView.m */; };
+		A206883022CA083700661634 /* HWebImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A206882D22CA083700661634 /* HWebImageView.m */; };
 		A208D62E22AD373E009A6FDD /* HAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = A208D62C22AD373E009A6FDD /* HAttributedString.m */; };
 		A208E17822BA305C009A6FDD /* HTupleRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = A208E17722BA305C009A6FDD /* HTupleRefresh.m */; };
 		A208E18022BA40A2009A6FDD /* UIScrollView+HEmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A208E17D22BA40A2009A6FDD /* UIScrollView+HEmptyDataSet.m */; };
@@ -182,11 +186,7 @@
 		A222AE6022818F7D0013098A /* HTextRunDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A222AE4722818F7D0013098A /* HTextRunDelegate.m */; };
 		A222AE6122818F7D0013098A /* HTextAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = A222AE4922818F7D0013098A /* HTextAttribute.m */; };
 		A222AE6522828E5C0013098A /* HTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A222AE6422828E5C0013098A /* HTextField.m */; };
-		A22851F9228D485700961A86 /* HWebButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = A22851F3228D485700961A86 /* HWebButtonView.m */; };
-		A22851FA228D485700961A86 /* HWebImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A22851F4228D485700961A86 /* HWebImageView.m */; };
-		A22851FB228D485700961A86 /* HViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A22851F7228D485700961A86 /* HViewController.m */; };
 		A22851FF228D48C100961A86 /* NSObject+HSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = A22851FD228D48C100961A86 /* NSObject+HSelector.m */; };
-		A2285201228D4E2B00961A86 /* hvc_back_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2285200228D4E2B00961A86 /* hvc_back_icon@2x.png */; };
 		A2296D59228A62080081A479 /* HGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2296D58228A62080081A479 /* HGameViewController.m */; };
 		A2296D5C228A626B0081A479 /* HSFSafariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2296D5B228A626B0081A479 /* HSFSafariViewController.m */; };
 		A24B6560225EE08900B257BB /* HUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B655F225EE08900B257BB /* HUpdate.m */; };
@@ -503,6 +503,13 @@
 		A206881B22C9FDBD00661634 /* HTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableViewCell.m; sourceTree = "<group>"; };
 		A206881C22C9FDBD00661634 /* HTableBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableBaseCell.m; sourceTree = "<group>"; };
 		A206881D22C9FDBD00661634 /* HTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableViewCell.h; sourceTree = "<group>"; };
+		A206882522CA081400661634 /* HViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HViewController.m; sourceTree = "<group>"; };
+		A206882622CA081400661634 /* HViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HViewController.h; sourceTree = "<group>"; };
+		A206882722CA081400661634 /* hvc_back_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hvc_back_icon@2x.png"; sourceTree = "<group>"; };
+		A206882B22CA083700661634 /* HWebImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebImageView.h; sourceTree = "<group>"; };
+		A206882C22CA083700661634 /* HWebButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebButtonView.m; sourceTree = "<group>"; };
+		A206882D22CA083700661634 /* HWebImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebImageView.m; sourceTree = "<group>"; };
+		A206882E22CA083700661634 /* HWebButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebButtonView.h; sourceTree = "<group>"; };
 		A208D62C22AD373E009A6FDD /* HAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAttributedString.m; sourceTree = "<group>"; };
 		A208D62D22AD373E009A6FDD /* HAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAttributedString.h; sourceTree = "<group>"; };
 		A208E17622BA305C009A6FDD /* HTupleRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleRefresh.h; sourceTree = "<group>"; };
@@ -574,15 +581,8 @@
 		A222AE4922818F7D0013098A /* HTextAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTextAttribute.m; sourceTree = "<group>"; };
 		A222AE6322828E5C0013098A /* HTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTextField.h; sourceTree = "<group>"; };
 		A222AE6422828E5C0013098A /* HTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTextField.m; sourceTree = "<group>"; };
-		A22851F2228D485700961A86 /* HWebImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebImageView.h; sourceTree = "<group>"; };
-		A22851F3228D485700961A86 /* HWebButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebButtonView.m; sourceTree = "<group>"; };
-		A22851F4228D485700961A86 /* HWebImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebImageView.m; sourceTree = "<group>"; };
-		A22851F5228D485700961A86 /* HWebButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebButtonView.h; sourceTree = "<group>"; };
-		A22851F7228D485700961A86 /* HViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HViewController.m; sourceTree = "<group>"; };
-		A22851F8228D485700961A86 /* HViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HViewController.h; sourceTree = "<group>"; };
 		A22851FD228D48C100961A86 /* NSObject+HSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSelector.m"; sourceTree = "<group>"; };
 		A22851FE228D48C100961A86 /* NSObject+HSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSelector.h"; sourceTree = "<group>"; };
-		A2285200228D4E2B00961A86 /* hvc_back_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hvc_back_icon@2x.png"; sourceTree = "<group>"; };
 		A2296D57228A62080081A479 /* HGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGameViewController.h; sourceTree = "<group>"; };
 		A2296D58228A62080081A479 /* HGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGameViewController.m; sourceTree = "<group>"; };
 		A2296D5A228A626A0081A479 /* HSFSafariViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFSafariViewController.h; sourceTree = "<group>"; };
@@ -934,6 +934,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A206882422CA081400661634 /* HViewController */,
 				A28EF35121D8EC2A002F92ED /* HResultView */,
 				A28EF2F021D876A3002F92ED /* HTabBarController */,
 				A28EF2E921D86E43002F92ED /* UILabel+HAttributeText */,
@@ -1230,8 +1231,8 @@
 		15C5734C20B3DD7B0070327C /* HTupleView */ = {
 			isa = PBXGroup;
 			children = (
+				A206882A22CA083700661634 /* HWebClasses */,
 				A22851FC228D48C100961A86 /* HSelector */,
-				A22851F0228D485700961A86 /* HClasses */,
 				A222AE6222828E4B0013098A /* TextField */,
 				A222AE1522818F7D0013098A /* Text */,
 				15C5734D20B3DD7B0070327C /* Cells */,
@@ -1451,6 +1452,28 @@
 			path = HTableViewCell;
 			sourceTree = "<group>";
 		};
+		A206882422CA081400661634 /* HViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A206882522CA081400661634 /* HViewController.m */,
+				A206882622CA081400661634 /* HViewController.h */,
+				A206882722CA081400661634 /* hvc_back_icon@2x.png */,
+			);
+			name = HViewController;
+			path = QFUtil/HViewController;
+			sourceTree = "<group>";
+		};
+		A206882A22CA083700661634 /* HWebClasses */ = {
+			isa = PBXGroup;
+			children = (
+				A206882E22CA083700661634 /* HWebButtonView.h */,
+				A206882C22CA083700661634 /* HWebButtonView.m */,
+				A206882B22CA083700661634 /* HWebImageView.h */,
+				A206882D22CA083700661634 /* HWebImageView.m */,
+			);
+			path = HWebClasses;
+			sourceTree = "<group>";
+		};
 		A219F22C222FB46A00241FD7 /* HIFS */ = {
 			isa = PBXGroup;
 			children = (
@@ -1547,36 +1570,6 @@
 				A222AE6422828E5C0013098A /* HTextField.m */,
 			);
 			path = TextField;
-			sourceTree = "<group>";
-		};
-		A22851F0228D485700961A86 /* HClasses */ = {
-			isa = PBXGroup;
-			children = (
-				A22851F1228D485700961A86 /* HWebClasses */,
-				A22851F6228D485700961A86 /* HViewController */,
-			);
-			path = HClasses;
-			sourceTree = "<group>";
-		};
-		A22851F1228D485700961A86 /* HWebClasses */ = {
-			isa = PBXGroup;
-			children = (
-				A22851F5228D485700961A86 /* HWebButtonView.h */,
-				A22851F3228D485700961A86 /* HWebButtonView.m */,
-				A22851F2228D485700961A86 /* HWebImageView.h */,
-				A22851F4228D485700961A86 /* HWebImageView.m */,
-			);
-			path = HWebClasses;
-			sourceTree = "<group>";
-		};
-		A22851F6228D485700961A86 /* HViewController */ = {
-			isa = PBXGroup;
-			children = (
-				A22851F8228D485700961A86 /* HViewController.h */,
-				A22851F7228D485700961A86 /* HViewController.m */,
-				A2285200228D4E2B00961A86 /* hvc_back_icon@2x.png */,
-			);
-			path = HViewController;
 			sourceTree = "<group>";
 		};
 		A22851FC228D48C100961A86 /* HSelector */ = {
@@ -1929,7 +1922,6 @@
 				15F0297720BE8D79003287AA /* mgf_icon_load_nothing@2x.png in Resources */,
 				15C5736F20B3DD7B0070327C /* icon_tuple_arrow_left@2x.png in Resources */,
 				15F0297120BE8D79003287AA /* mgf_loading_new_5@2x.png in Resources */,
-				A2285201228D4E2B00961A86 /* hvc_back_icon@2x.png in Resources */,
 				A28EF3A521D8ECC9002F92ED /* loading_new_6@2x.png in Resources */,
 				A28EF3AF21D8ECC9002F92ED /* loading_new_9@2x.png in Resources */,
 				15C5736E20B3DD7B0070327C /* icon_tuple_arrow_right@2x.png in Resources */,
@@ -1947,6 +1939,7 @@
 				A28EF38D21D8ECBE002F92ED /* icon_load_nothing@2x.png in Resources */,
 				15F0297820BE8D79003287AA /* mgf_icon_no_network@2x.png in Resources */,
 				A208E18522BA429F009A6FDD /* tuple_nodata@2x.png in Resources */,
+				A206882922CA081400661634 /* hvc_back_icon@2x.png in Resources */,
 				A28EF3A621D8ECC9002F92ED /* loading_new_13@2x.png in Resources */,
 				15F0297320BE8D79003287AA /* mgf_loading_new_7@2x.png in Resources */,
 				15F0297620BE8D79003287AA /* mgf_icon_load_nothing@3x.png in Resources */,
@@ -2026,7 +2019,6 @@
 				15B4DE132092F96C00773E04 /* UIControl+HSafeUtil.m in Sources */,
 				15B4DE2D209311F900773E04 /* NSObject+HMessy.m in Sources */,
 				1528DF4920BF0A7A00D0A004 /* HShowView.m in Sources */,
-				A22851F9228D485700961A86 /* HWebButtonView.m in Sources */,
 				A206882322C9FDBD00661634 /* HTableBaseCell.m in Sources */,
 				15F9151D20A14A33000261C4 /* UIView+HShow.m in Sources */,
 				1528DF4320BEF6BC00D0A004 /* HNaviToastView.m in Sources */,
@@ -2053,6 +2045,7 @@
 				A222AE4E22818F7D0013098A /* HTextMagnifier.m in Sources */,
 				A265FF6F2269F6280093C780 /* HHostUrlManager.m in Sources */,
 				A222AE6022818F7D0013098A /* HTextRunDelegate.m in Sources */,
+				A206883022CA083700661634 /* HWebImageView.m in Sources */,
 				A24B6574225EE5C700B257BB /* HTool.m in Sources */,
 				A2ED9C1222314BA100C9D050 /* SimplePing.m in Sources */,
 				1528DF4C20BF0FE200D0A004 /* UIAlertController+HUtil.m in Sources */,
@@ -2060,14 +2053,12 @@
 				A28EF3C421DA1DFE002F92ED /* HFormCell.m in Sources */,
 				1547B891210C4E09009E0374 /* UICollectionView+HTracking.m in Sources */,
 				A24B659622607E8400B257BB /* HEmailManager.m in Sources */,
-				A22851FB228D485700961A86 /* HViewController.m in Sources */,
 				15E6BB9C2136E7E300EBE794 /* YPTabBarController.m in Sources */,
 				15B4DDF62092F96C00773E04 /* UIApplication+HUtil.m in Sources */,
 				A222A716227C52430013098A /* UILabel+HUtil.m in Sources */,
 				1538FFA92094065A002E3A29 /* NSFileManager+HUtil.m in Sources */,
 				15B4DE1B209302BF00773E04 /* HGoToApp.m in Sources */,
 				A24B659B22607E8400B257BB /* HSK_CFUtilities.m in Sources */,
-				A22851FA228D485700961A86 /* HWebImageView.m in Sources */,
 				15B4DE282093034700773E04 /* HGCDUtil.m in Sources */,
 				1547B88F210C4E09009E0374 /* UITableView+HTracking.m in Sources */,
 				1547855D211599CE00DC9EAE /* HRegularExpression.m in Sources */,
@@ -2174,9 +2165,11 @@
 				A28EF2F321D876A3002F92ED /* HTabBarController.m in Sources */,
 				A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */,
 				157696EB20A0AB6900E31469 /* hFelix.m in Sources */,
+				A206882822CA081400661634 /* HViewController.m in Sources */,
 				A24B659822607E8400B257BB /* NSData+Base64Additions.m in Sources */,
 				A208D62E22AD373E009A6FDD /* HAttributedString.m in Sources */,
 				15C572A020AEAC340070327C /* UILabel+HState.m in Sources */,
+				A206882F22CA083700661634 /* HWebButtonView.m in Sources */,
 				15B4DE032092F96C00773E04 /* NSObject+HUtil.m in Sources */,
 				15E6BB9B2136E7E300EBE794 /* YPTabBar.m in Sources */,
 				A24B659722607E8400B257BB /* SKPSMTPMessage.m in Sources */,
