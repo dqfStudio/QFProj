@@ -75,7 +75,7 @@
     } edgeInsets:^UIEdgeInsets(NSInteger section) {
         return UIEdgeInsetsZero;
     } tuple:^(HHeaderTuple  _Nonnull headerBlock, NSInteger section) {
-        headerBlock(nil, HViewCell.class, nil, YES);
+        headerBlock(nil, HTupleBaseCell.class, nil, YES);
     }];
     
     
@@ -93,7 +93,7 @@
     } edgeInsets:^UIEdgeInsets(NSInteger section) {
         return UIEdgeInsetsZero;
     } tuple:^(HFooterTuple  _Nonnull footerBlock, NSInteger section) {
-        footerBlock(nil, HViewCell.class, nil, YES);
+        footerBlock(nil, HTupleBaseCell.class, nil, YES);
     }];
     
     
@@ -116,7 +116,7 @@
         @sss
         switch (indexPath.row) {
             case 0: {
-                HImageViewCell *cell = itemBlock(nil, HImageViewCell.class, nil, YES);
+                HTupleImageViewCell *cell = itemBlock(nil, HTupleImageViewCell.class, nil, YES);
                 [cell.imageView.imageView setContentMode:UIViewContentModeScaleAspectFit];
                 [cell.imageView setBackgroundColor:[UIColor clearColor]];
                 
@@ -150,7 +150,7 @@
             }
                 break;
             case 1: {
-                HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
+                HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
                 [cell.label setText:@"请稍候..."];
                 [cell.label setFont:[UIFont systemFontOfSize:14]];
                 [cell.label setTextAlignment:NSTextAlignmentCenter];

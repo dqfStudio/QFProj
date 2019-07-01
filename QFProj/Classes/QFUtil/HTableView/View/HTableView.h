@@ -11,7 +11,7 @@
 #import "HTableRefresh.h"
 #import "HTableViewCell.h"
 #import "NSObject+HSelector.h"
-#import "HTableHeaderFooterView.h"
+#import "HTableReusableView.h"
 #import "UIScrollView+HEmptyDataSet.h"
 
 typedef NSUInteger HTableState;

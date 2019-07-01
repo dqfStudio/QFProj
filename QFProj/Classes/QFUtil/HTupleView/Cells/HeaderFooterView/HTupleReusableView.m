@@ -8,21 +8,7 @@
 
 #import "HTupleReusableView.h"
 
-@implementation HReusableView
-- (UIView *)view {
-    if (!_view) {
-        _view = [UIView new];
-        [_view setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:_view];
-    }
-    return _view;
-}
-- (void)layoutContentView {
-    HLayoutReusableTupleView(self.view)
-}
-@end
-
-@implementation HReusableLabelView
+@implementation HTupleReusableLabelView
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
@@ -36,7 +22,7 @@
 }
 @end
 
-@implementation HReusableTextView
+@implementation HTupleReusableTextView
 - (HTextView *)textView {
     if (!_textView) {
         _textView = [HTextView new];
@@ -50,17 +36,10 @@
 }
 @end
 
-@implementation HReusableButtonView
+@implementation HTupleReusableButtonView
 - (HWebButtonView *)buttonView {
     if (!_buttonView) {
         _buttonView = [HWebButtonView new];
-        @weakify(self)
-        [_buttonView setPressed:^(id sender, id data) {
-            @strongify(self)
-            if (self.buttonViewBlock) {
-                self.buttonViewBlock(self.buttonView, self);
-            }
-        }];
         [_buttonView setBackgroundColor:[UIColor clearColor]];
         [self addSubview:_buttonView];
     }
@@ -71,11 +50,7 @@
 }
 @end
 
-@interface HReusableImageView ()
-@property (nonatomic) UITapGestureRecognizer *tapGesture;
-@end
-
-@implementation HReusableImageView
+@implementation HTupleReusableImageView
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = [HWebImageView new];
@@ -84,35 +59,12 @@
     }
     return _imageView;
 }
-- (UITapGestureRecognizer *)tapGesture {
-    if (!_tapGesture) {
-        _tapGesture = [[UITapGestureRecognizer alloc] init];
-        _tapGesture.numberOfTapsRequired = 1;
-        _tapGesture.numberOfTouchesRequired = 1;
-        [_tapGesture addTarget:self action:@selector(tapGestureAction)];
-    }
-    return _tapGesture;
-}
-- (void)tapGestureAction {
-    if (_imageViewBlock) {
-        _imageViewBlock(self.imageView, self);
-    }
-}
-- (void)setImageViewBlock:(HReusableImageViewBlock)imageViewBlock {
-    if (_imageViewBlock != imageViewBlock) {
-        _imageViewBlock = nil;
-        _imageViewBlock = imageViewBlock;
-        if (!self.tapGesture.view) {
-            [self.imageView addGestureRecognizer:self.tapGesture];
-        }
-    }
-}
 - (void)layoutContentView {
     HLayoutReusableTupleView(self.imageView)
 }
 @end
 
-@implementation HReusableTextFieldCell
+@implementation HTupleReusableTextField
 - (HTextField *)textField {
     if (!_textField) {
         _textField = HTextField.new;
@@ -125,7 +77,7 @@
 }
 @end
 
-@implementation HReusableVerticalView
+@implementation HTupleReusableVerticalView
 - (HTupleView *)tuple {
     if (!_tuple) {
         _tuple = [[HTupleView alloc] initWithFrame:self.bounds];
@@ -140,7 +92,7 @@
 }
 @end
 
-@implementation HReusableHorizontalView
+@implementation HTupleReusableHorizontalView
 - (HTupleView *)tuple {
     if (!_tuple) {
         _tuple = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleViewScrollDirectionHorizontal];
@@ -155,3 +107,85 @@
 }
 @end
 
+@implementation HTupleReusableView
+- (HLabel *)leftLabel {
+    if (!_leftLabel) {
+        _leftLabel = [HLabel new];
+        [_leftLabel setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_leftLabel];
+    }
+    return _leftLabel;
+}
+- (HLabel *)rightLabel {
+    if (!_rightLabel) {
+        _rightLabel = [HLabel new];
+        [_rightLabel setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_rightLabel];
+    }
+    return _rightLabel;
+}
+- (HTextView *)leftTextView {
+    if (!_leftTextView) {
+        _leftTextView = [HTextView new];
+        [_leftTextView setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_leftTextView];
+    }
+    return _leftTextView;
+}
+- (HTextView *)rightTextView {
+    if (!_rightTextView) {
+        _rightTextView = [HTextView new];
+        [_rightTextView setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_rightTextView];
+    }
+    return _rightTextView;
+}
+- (HWebButtonView *)leftButton {
+    if (!_leftButton) {
+        _leftButton = [HWebButtonView new];
+        [_leftButton setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_leftButton];
+    }
+    return _leftButton;
+}
+- (HWebButtonView *)rightButton {
+    if (!_rightButton) {
+        _rightButton = [HWebButtonView new];
+        [_rightButton setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_rightButton];
+    }
+    return _rightButton;
+}
+- (HWebImageView *)leftImageView {
+    if (!_leftImageView) {
+        _leftImageView = HWebImageView.new;
+        [_leftImageView setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_leftImageView];
+    }
+    return _leftImageView;
+}
+- (HWebImageView *)rightImageView {
+    if (!_rightImageView) {
+        _rightImageView = HWebImageView.new;
+        [_rightImageView setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_rightImageView];
+    }
+    return _rightImageView;
+}
+- (HTextField *)leftTextField {
+    if (!_leftTextField) {
+        _leftTextField = HTextField.new;
+        [_leftTextField setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_leftTextField];
+    }
+    return _leftTextField;
+}
+- (HTextField *)rightTextField {
+    if (!_rightTextField) {
+        _rightTextField = HTextField.new;
+        [_rightTextField setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_rightTextField];
+    }
+    return _rightTextField;
+}
+@end

@@ -170,13 +170,13 @@
 }
 
 - (void)mode1_tupleView:(UICollectionView *)tupleView headerTuple:(HHeaderTuple)headerBlock inSection:(NSInteger)section {
-    headerBlock(nil, HReusableView.class, self.modePrefix, YES);
+    headerBlock(nil, HTupleReusableView.class, self.modePrefix, YES);
 }
 - (void)mode1_tupleView:(UICollectionView *)tupleView footerTuple:(HFooterTuple)footerBlock inSection:(NSInteger)section {
-    footerBlock(nil, HReusableView.class, self.modePrefix, YES);
+    footerBlock(nil, HTupleReusableView.class, self.modePrefix, YES);
 }
 - (void)mode1_tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    itemBlock(nil, HImageViewCell.class, self.modePrefix, YES);
+    itemBlock(nil, HTupleImageViewCell.class, self.modePrefix, YES);
 }
 - (void)mode1_tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self didSelectedItem];
@@ -247,13 +247,13 @@
 }
 
 - (void)mode2_tupleView:(UICollectionView *)tupleView headerTuple:(HHeaderTuple)headerBlock inSection:(NSInteger)section {
-    headerBlock(nil, HReusableView.class, self.modePrefix, YES);
+    headerBlock(nil, HTupleReusableView.class, self.modePrefix, YES);
 }
 - (void)mode2_tupleView:(UICollectionView *)tupleView footerTuple:(HFooterTuple)footerBlock inSection:(NSInteger)section {
-    footerBlock(nil, HReusableView.class, self.modePrefix, YES);
+    footerBlock(nil, HTupleReusableView.class, self.modePrefix, YES);
 }
 - (void)mode2_tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    itemBlock(nil, HImageViewCell.class, self.modePrefix, YES);
+    itemBlock(nil, HTupleImageViewCell.class, self.modePrefix, YES);
 }
 - (void)mode2_tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self didSelectedItem];
@@ -328,13 +328,13 @@
 }
 
 - (void)mode3_tupleView:(UICollectionView *)tupleView headerTuple:(HHeaderTuple)headerBlock inSection:(NSInteger)section {
-    headerBlock(nil, HReusableView.class, self.modePrefix, YES);
+    headerBlock(nil, HTupleReusableView.class, self.modePrefix, YES);
 }
 - (void)mode3_tupleView:(UICollectionView *)tupleView footerTuple:(HFooterTuple)footerBlock inSection:(NSInteger)section {
-    footerBlock(nil, HReusableView.class, self.modePrefix, YES);
+    footerBlock(nil, HTupleReusableView.class, self.modePrefix, YES);
 }
 - (void)mode3_tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    itemBlock(nil, HImageViewCell.class, self.modePrefix, YES);
+    itemBlock(nil, HTupleImageViewCell.class, self.modePrefix, YES);
 }
 - (void)mode3_tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self didSelectedItem];
@@ -389,13 +389,13 @@
 }
 
 - (void)mode4_tupleView:(UICollectionView *)tupleView headerTuple:(HHeaderTuple)headerBlock inSection:(NSInteger)section {
-    headerBlock(nil, HReusableView.class, self.modePrefix, YES);
+    headerBlock(nil, HTupleReusableView.class, self.modePrefix, YES);
 }
 - (void)mode4_tupleView:(UICollectionView *)tupleView footerTuple:(HFooterTuple)footerBlock inSection:(NSInteger)section {
-    footerBlock(nil, HReusableView.class, self.modePrefix, YES);
+    footerBlock(nil, HTupleReusableView.class, self.modePrefix, YES);
 }
 - (void)mode4_tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    itemBlock(nil, HLabelViewCell.class, self.modePrefix, YES);
+    itemBlock(nil, HTupleLabelViewCell.class, self.modePrefix, YES);
 }
 - (void)mode4_tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self didSelectedItem];
@@ -462,13 +462,13 @@
 }
 
 - (void)mode5_tupleView:(UICollectionView *)tupleView headerTuple:(HHeaderTuple)headerBlock inSection:(NSInteger)section {
-    headerBlock(nil, HReusableView.class, self.modePrefix, YES);
+    headerBlock(nil, HTupleReusableView.class, self.modePrefix, YES);
 }
 - (void)mode5_tupleView:(UICollectionView *)tupleView footerTuple:(HFooterTuple)footerBlock inSection:(NSInteger)section {
-    footerBlock(nil, HReusableView.class, self.modePrefix, YES);
+    footerBlock(nil, HTupleReusableView.class, self.modePrefix, YES);
 }
 - (void)mode5_tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    itemBlock(nil, HLabelViewCell.class, self.modePrefix, YES);
+    itemBlock(nil, HTupleLabelViewCell.class, self.modePrefix, YES);
 }
 - (void)mode5_tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self didSelectedItem];

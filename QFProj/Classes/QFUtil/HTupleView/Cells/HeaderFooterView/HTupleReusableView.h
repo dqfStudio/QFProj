@@ -14,41 +14,49 @@
 #import "HTextView.h"
 #import "HLabel.h"
 
-@class HReusableButtonView, HReusableImageView, HTupleView;
+@class HTupleView;
 
-typedef void(^HReusableButtonViewBlock)(HWebButtonView *webButtonView, HReusableButtonView *buttonView);
-typedef void(^HReusableImageViewBlock)(HWebImageView *webImageView, HReusableImageView *imageView);
-
-@interface HReusableView : HTupleBaseView
-@property (nonatomic) UIView *view;
-@end
-
-@interface HReusableLabelView : HTupleBaseCell
+@interface HTupleReusableLabelView : HTupleBaseCell
 @property (nonatomic) HLabel *label;
 @end
 
-@interface HReusableTextView : HTupleBaseView
+@interface HTupleReusableTextView : HTupleBaseView
 @property (nonatomic) HTextView *textView;
 @end
 
-@interface HReusableButtonView : HTupleBaseView
+@interface HTupleReusableButtonView : HTupleBaseView
 @property (nonatomic) HWebButtonView *buttonView;
-@property (nonatomic, copy) HReusableButtonViewBlock buttonViewBlock;
 @end
 
-@interface HReusableImageView : HTupleBaseView
+@interface HTupleReusableImageView : HTupleBaseView
 @property (nonatomic) HWebImageView *imageView;
-@property (nonatomic, copy) HReusableImageViewBlock imageViewBlock;
 @end
 
-@interface HReusableTextFieldCell : HTupleBaseView
+@interface HTupleReusableTextField : HTupleBaseView
 @property (nonatomic) HTextField *textField;
 @end
 
-@interface HReusableVerticalView : HTupleBaseCell
+@interface HTupleReusableVerticalView : HTupleBaseCell
 @property (nonatomic) HTupleView *tuple;
 @end
 
-@interface HReusableHorizontalView : HTupleBaseCell
+@interface HTupleReusableHorizontalView : HTupleBaseCell
 @property (nonatomic) HTupleView *tuple;
+@end
+
+@interface HTupleReusableView : HTupleBaseView
+@property (nonatomic) HLabel *leftLabel;
+@property (nonatomic) HLabel *rightLabel;
+
+@property (nonatomic) HTextView *leftTextView;
+@property (nonatomic) HTextView *rightTextView;
+
+@property (nonatomic) HWebButtonView *leftButton;
+@property (nonatomic) HWebButtonView *rightButton;
+
+@property (nonatomic) HWebImageView *leftImageView;
+@property (nonatomic) HWebImageView *rightImageView;
+
+@property (nonatomic) HTextField *leftTextField;
+@property (nonatomic) HTextField *rightTextField;
 @end

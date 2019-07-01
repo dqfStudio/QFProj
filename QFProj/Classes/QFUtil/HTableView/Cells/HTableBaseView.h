@@ -1,5 +1,5 @@
 //
-//  HBaseHeaderFooterView.h
+//  HTableBaseView.h
 //  QFTableProject
 //
 //  Created by dqf on 2018/6/2.
@@ -14,7 +14,7 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 [v setFrame:[self getContentFrame]];\
 }
 
-@interface HBaseHeaderFooterView : UITableViewHeaderFooterView
+@interface HTableBaseView : UITableViewHeaderFooterView
 @property (nonatomic, weak) UITableView *table;
 @property (nonatomic) NSInteger section;
 //需要子类重写该方法

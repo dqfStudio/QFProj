@@ -1,14 +1,14 @@
 //
-//  HTupleViewCell.m
+//  HTableReusableView.m
 //  QFProj
 //
-//  Created by dqf on 2018/5/20.
-//  Copyright © 2018年 dqfStudio. All rights reserved.
+//  Created by wind on 2019/4/12.
+//  Copyright © 2019 dqfStudio. All rights reserved.
 //
 
-#import "HTupleViewCell.h"
+#import "HTableReusableView.h"
 
-@implementation HTupleLabelViewCell
+@implementation HTableReusableLabelView
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
@@ -18,11 +18,11 @@
     return _label;
 }
 - (void)layoutContentView {
-    HLayoutTupleView(self.label)
+    HLayoutReusableTableView(self.label)
 }
 @end
 
-@implementation HTupleTextViewCell
+@implementation HTableReusableTextView
 - (HTextView *)textView {
     if (!_textView) {
         _textView = [HTextView new];
@@ -32,11 +32,11 @@
     return _textView;
 }
 - (void)layoutContentView {
-    HLayoutTupleView(self.textView)
+    HLayoutReusableTableView(self.textView)
 }
 @end
 
-@implementation HTupleButtonViewCell
+@implementation HTableReusableButtonView
 - (HWebButtonView *)buttonView {
     if (!_buttonView) {
         _buttonView = [HWebButtonView new];
@@ -46,11 +46,11 @@
     return _buttonView;
 }
 - (void)layoutContentView {
-    HLayoutTupleView(self.buttonView)
+    HLayoutReusableTableView(self.buttonView)
 }
 @end
 
-@implementation HTupleImageViewCell
+@implementation HTableReusableImageView
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = [HWebImageView new];
@@ -60,11 +60,11 @@
     return _imageView;
 }
 - (void)layoutContentView {
-    HLayoutTupleView(self.imageView)
+    HLayoutReusableTableView(self.imageView)
 }
 @end
 
-@implementation HTupleTextFieldCell
+@implementation HTableReusableTextField
 - (HTextField *)textField {
     if (!_textField) {
         _textField = HTextField.new;
@@ -73,11 +73,11 @@
     return _textField;
 }
 - (void)layoutContentView {
-    HLayoutTupleView(self.textField)
+    HLayoutReusableTableView(self.textField)
 }
 @end
 
-@implementation HTupleVerticalCell
+@implementation HTableReusableVerticalView
 - (HTupleView *)tuple {
     if (!_tuple) {
         _tuple = [[HTupleView alloc] initWithFrame:self.bounds];
@@ -88,11 +88,11 @@
     return _tuple;
 }
 - (void)layoutContentView {
-    HLayoutTupleView(self.tuple)
+    HLayoutReusableTableView(self.tuple)
 }
 @end
 
-@implementation HTupleHorizontalCell
+@implementation HTableReusableHorizontalView
 - (HTupleView *)tuple {
     if (!_tuple) {
         _tuple = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleViewScrollDirectionHorizontal];
@@ -103,11 +103,17 @@
     return _tuple;
 }
 - (void)layoutContentView {
-    HLayoutTupleView(self.tuple)
+    HLayoutReusableTableView(self.tuple)
 }
 @end
 
-@implementation HTupleViewCell
+@implementation HTableReusableView
+- (void)initUI {
+    
+}
+- (void)layoutContentView {
+    
+}
 - (HLabel *)leftLabel {
     if (!_leftLabel) {
         _leftLabel = [HLabel new];

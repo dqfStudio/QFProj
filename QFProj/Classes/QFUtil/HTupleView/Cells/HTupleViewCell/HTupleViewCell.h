@@ -14,34 +14,25 @@
 #import "HTextView.h"
 #import "HLabel.h"
 
-@class HButtonViewCell, HImageViewCell, HTupleView;
+@class HTupleView;
 
-typedef void(^HButtonViewBlock)(HWebButtonView *webButtonView, HButtonViewCell *buttonCell);
-typedef void(^HImageViewBlock)(HWebImageView *webImageView, HImageViewCell *imageCell);
-
-@interface HViewCell : HTupleBaseCell
-@property (nonatomic) UIView *view;
-@end
-
-@interface HLabelViewCell : HTupleBaseCell
+@interface HTupleLabelViewCell : HTupleBaseCell
 @property (nonatomic) HLabel *label;
 @end
 
-@interface HTextViewCell : HTupleBaseCell
+@interface HTupleTextViewCell : HTupleBaseCell
 @property (nonatomic) HTextView *textView;
 @end
 
-@interface HButtonViewCell : HTupleBaseCell
+@interface HTupleButtonViewCell : HTupleBaseCell
 @property (nonatomic) HWebButtonView *buttonView;
-@property (nonatomic, copy) HButtonViewBlock buttonViewBlock;
 @end
 
-@interface HImageViewCell : HTupleBaseCell
+@interface HTupleImageViewCell : HTupleBaseCell
 @property (nonatomic) HWebImageView *imageView;
-@property (nonatomic, copy) HImageViewBlock imageViewBlock;
 @end
 
-@interface HTextFieldCell : HTupleBaseCell
+@interface HTupleTextFieldCell : HTupleBaseCell
 @property (nonatomic) HTextField *textField;
 @end
 
@@ -51,4 +42,21 @@ typedef void(^HImageViewBlock)(HWebImageView *webImageView, HImageViewCell *imag
 
 @interface HTupleHorizontalCell : HTupleBaseCell
 @property (nonatomic) HTupleView *tuple;
+@end
+
+@interface HTupleViewCell : HTupleBaseCell
+@property (nonatomic) HLabel *leftLabel;
+@property (nonatomic) HLabel *rightLabel;
+
+@property (nonatomic) HTextView *leftTextView;
+@property (nonatomic) HTextView *rightTextView;
+
+@property (nonatomic) HWebButtonView *leftButton;
+@property (nonatomic) HWebButtonView *rightButton;
+
+@property (nonatomic) HWebImageView *leftImageView;
+@property (nonatomic) HWebImageView *rightImageView;
+
+@property (nonatomic) HTextField *leftTextField;
+@property (nonatomic) HTextField *rightTextField;
 @end

@@ -41,7 +41,7 @@
         [self.table headerWithHeight:^CGFloat(NSInteger section) {
             return UIDevice.statusBarHeight;
         } tuple:^(HHeaderTable  _Nonnull headerBlock, NSInteger section) {
-            headerBlock(nil, HTableHeaderFooterView.class, nil, YES);
+            headerBlock(nil, HTableReusableView.class, nil, YES);
         }];
         
         [self.table cellWithHeight:^CGFloat(NSIndexPath * _Nonnull indexPath) {

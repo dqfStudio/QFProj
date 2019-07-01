@@ -102,11 +102,11 @@ H_CheckPropertyRange(rrr, 0, 150)
     } tuple:^(HItemTuple  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
 //        HTupleVerticalCell *cell = itemBlock(nil, HTupleVerticalCell.class, nil, YES);
 //        [cell setBackgroundColor:[UIColor redColor]];
-//        HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
+//        HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
 //        [cell setBackgroundColor:[UIColor redColor]];
 //        [cell.label setText:@"fadsfds"];
         
-        HTextFieldCell *cell = itemBlock(nil, HTextFieldCell.class, nil, YES);
+        HTupleTextFieldCell *cell = itemBlock(nil, HTupleTextFieldCell.class, nil, YES);
         [cell setBackgroundColor:[UIColor redColor]];
 //        [cell.label setText:@"fadsfds"];
         [cell.textField.leftLabel setFrame:CGRectMake(0, 0, 60, 40)];
@@ -510,7 +510,7 @@ H_CheckPropertyRange(rrr, 0, 150)
 - (void)tupleView:(HTupleView *)tupleView itemTuple:(id (^)(id iblk, Class cls, id pre, bool idx))itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:{
-            HLabelViewCell *cell = itemBlock(nil, HLabelViewCell.class, nil, YES);
+            HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
             [cell.label setBackgroundColor:[UIColor redColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
 //            [cell setInitBlock:^{
@@ -530,10 +530,10 @@ H_CheckPropertyRange(rrr, 0, 150)
             break;
         case 2:
         {
-            HImageViewCell *cell = itemBlock(nil, HImageViewCell.class, nil, YES);
-            [cell.imageView setBackgroundColor:[UIColor greenColor]];
+            HTupleButtonViewCell *cell = itemBlock(nil, HTupleButtonViewCell.class, nil, YES);
+            [cell.buttonView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
-            [cell setImageViewBlock:^(HWebImageView *webImageView, HImageViewCell *imageCell) {
+            [cell.buttonView setPressed:^(id sender, id data) {
                 HTupleSignal *signal = [HTupleSignal new];
                 NSIndexPath *tmpIndexPath = [NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section];
                 signal.signal = @"hello";
@@ -543,10 +543,10 @@ H_CheckPropertyRange(rrr, 0, 150)
             break;
         case 3:
         {
-            HImageViewCell *cell = itemBlock(nil, HImageViewCell.class, nil, YES);
-            [cell.imageView setBackgroundColor:[UIColor redColor]];
+            HTupleButtonViewCell *cell = itemBlock(nil, HTupleButtonViewCell.class, nil, YES);
+            [cell.buttonView setBackgroundColor:[UIColor redColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
-            [cell setImageViewBlock:^(HWebImageView *webImageView, HImageViewCell *imageCell) {
+            [cell.buttonView setPressed:^(id sender, id data) {
                 
             }];
         }
@@ -554,7 +554,7 @@ H_CheckPropertyRange(rrr, 0, 150)
             
         default:
         {
-            HImageViewCell *cell = itemBlock(nil, HImageViewCell.class, nil, YES);
+            HTupleImageViewCell *cell = itemBlock(nil, HTupleImageViewCell.class, nil, YES);
             [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
@@ -565,21 +565,21 @@ H_CheckPropertyRange(rrr, 0, 150)
 - (void)tupleView:(HTupleView *)tupleView headerTuple:(id (^)(id iblk, Class cls, id pre, bool idx))headerBlock inSection:(NSInteger)section {
     switch (section) {
         case 0:{
-            HReusableLabelView *cell = headerBlock(nil, HReusableLabelView.class, nil, YES);
+            HTupleReusableLabelView *cell = headerBlock(nil, HTupleReusableLabelView.class, nil, YES);
             [cell.label setBackgroundColor:[UIColor yellowColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
             break;
         case 1:
         {
-            HReusableButtonView *cell = headerBlock(nil, HReusableButtonView.class, nil, YES);
+            HTupleReusableButtonView *cell = headerBlock(nil, HTupleReusableButtonView.class, nil, YES);
             [cell.buttonView setBackgroundColor:[UIColor blueColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
             break;
         case 2:
         {
-            HReusableImageView *cell = headerBlock(nil, HReusableImageView.class, nil, YES);
+            HTupleReusableImageView *cell = headerBlock(nil, HTupleReusableImageView.class, nil, YES);
             [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
@@ -587,7 +587,7 @@ H_CheckPropertyRange(rrr, 0, 150)
             
         default:
         {
-            HReusableImageView *cell = headerBlock(nil, HReusableImageView.class, nil, YES);
+            HTupleReusableImageView *cell = headerBlock(nil, HTupleReusableImageView.class, nil, YES);
             [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
@@ -598,21 +598,21 @@ H_CheckPropertyRange(rrr, 0, 150)
 - (void)tupleView:(HTupleView *)tupleView footerTuple:(id (^)(id iblk, Class cls, id pre, bool idx))footerBlock inSection:(NSInteger)section {
     switch (section) {
         case 0:{
-            HReusableLabelView *cell = footerBlock(nil, HReusableLabelView.class, nil, YES);
+            HTupleReusableLabelView *cell = footerBlock(nil, HTupleReusableLabelView.class, nil, YES);
             [cell.label setBackgroundColor:[UIColor yellowColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
             break;
         case 1:
         {
-            HReusableButtonView *cell = footerBlock(nil, HReusableButtonView.class, nil, YES);
+            HTupleReusableButtonView *cell = footerBlock(nil, HTupleReusableButtonView.class, nil, YES);
             [cell.buttonView setBackgroundColor:[UIColor blueColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
             break;
         case 2:
         {
-            HReusableImageView *cell = footerBlock(nil, HReusableImageView.class, nil, YES);
+            HTupleReusableImageView *cell = footerBlock(nil, HTupleReusableImageView.class, nil, YES);
             [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
@@ -620,7 +620,7 @@ H_CheckPropertyRange(rrr, 0, 150)
             
         default:
         {
-            HReusableImageView *cell = footerBlock(nil, HReusableImageView.class, nil, YES);
+            HTupleReusableImageView *cell = footerBlock(nil, HTupleReusableImageView.class, nil, YES);
             [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }

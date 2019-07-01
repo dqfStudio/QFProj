@@ -88,7 +88,7 @@ static HFormController2 *formController = nil;
 }
 
 - (void)tupleView:(HTupleView *)tupleView headerTuple:(HHeaderTuple)headerBlock inSection:(NSInteger)section {
-    HReusableButtonView *cell = headerBlock(nil, HReusableButtonView.class, nil, YES);
+    HTupleReusableButtonView *cell = headerBlock(nil, HTupleReusableButtonView.class, nil, YES);
     [cell.buttonView setBackgroundColor:[UIColor clearColor]];
 //    [cell.buttonView setPressed:^(id sender, id data) {
 //        //销毁对象
@@ -97,7 +97,7 @@ static HFormController2 *formController = nil;
 }
 
 - (void)tupleView:(HTupleView *)tupleView footerTuple:(HFooterTuple)footerBlock inSection:(NSInteger)section {
-    HReusableButtonView *cell = footerBlock(nil, HReusableButtonView.class, nil, YES);
+    HTupleReusableButtonView *cell = footerBlock(nil, HTupleReusableButtonView.class, nil, YES);
     [cell.buttonView setBackgroundColor:[UIColor whiteColor]];
     [cell.buttonView.button setTitleColor:[UIColor blackColor]];
     [cell.buttonView.button setTitle:@"取消"];

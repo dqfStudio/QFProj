@@ -8,15 +8,6 @@
 
 #import "HTableViewCell.h"
 
-@implementation HTableViewCell
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    return [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
-}
-- (void)initUI {
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
-}
-@end
-
 @implementation HTableViewCellValue1
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     return [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseIdentifier];
@@ -58,6 +49,61 @@
 }
 @end
 
+@implementation HTableTextViewCell
+- (HTextView *)textView {
+    if (!_textView) {
+        _textView = [HTextView new];
+        [_textView setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_textView];
+    }
+    return _textView;
+}
+- (void)layoutContentView {
+    HLayoutTableView(self.textView)
+}
+@end
+
+@implementation HTableButtonViewCell
+- (HWebButtonView *)buttonView {
+    if (!_buttonView) {
+        _buttonView = [HWebButtonView new];
+        [_buttonView setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_buttonView];
+    }
+    return _buttonView;
+}
+- (void)layoutContentView {
+    HLayoutTableView(self.buttonView)
+}
+@end
+
+@implementation HTableImageViewCell
+- (HWebImageView *)imageView {
+    if (!_imageView) {
+        _imageView = [HWebImageView new];
+        [_imageView setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_imageView];
+    }
+    return _imageView;
+}
+- (void)layoutContentView {
+    HLayoutTableView(self.imageView)
+}
+@end
+
+@implementation HTableTextFieldCell
+- (HTextField *)textField {
+    if (!_textField) {
+        _textField = HTextField.new;
+        [self addSubview:_textField];
+    }
+    return _textField;
+}
+- (void)layoutContentView {
+    HLayoutTableView(self.textField)
+}
+@end
+
 @implementation HTableVerticalCell
 - (HTupleView *)tuple {
     if (!_tuple) {
@@ -85,5 +131,94 @@
 }
 - (void)layoutContentView {
     HLayoutTableView(self.tuple)
+}
+@end
+
+@implementation HTableViewCell
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    return [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+}
+- (void)initUI {
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+}
+- (HLabel *)leftLabel {
+    if (!_leftLabel) {
+        _leftLabel = [HLabel new];
+        [_leftLabel setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_leftLabel];
+    }
+    return _leftLabel;
+}
+- (HLabel *)rightLabel {
+    if (!_rightLabel) {
+        _rightLabel = [HLabel new];
+        [_rightLabel setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_rightLabel];
+    }
+    return _rightLabel;
+}
+- (HTextView *)leftTextView {
+    if (!_leftTextView) {
+        _leftTextView = [HTextView new];
+        [_leftTextView setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_leftTextView];
+    }
+    return _leftTextView;
+}
+- (HTextView *)rightTextView {
+    if (!_rightTextView) {
+        _rightTextView = [HTextView new];
+        [_rightTextView setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_rightTextView];
+    }
+    return _rightTextView;
+}
+- (HWebButtonView *)leftButton {
+    if (!_leftButton) {
+        _leftButton = [HWebButtonView new];
+        [_leftButton setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_leftButton];
+    }
+    return _leftButton;
+}
+- (HWebButtonView *)rightButton {
+    if (!_rightButton) {
+        _rightButton = [HWebButtonView new];
+        [_rightButton setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_rightButton];
+    }
+    return _rightButton;
+}
+- (HWebImageView *)leftImageView {
+    if (!_leftImageView) {
+        _leftImageView = HWebImageView.new;
+        [_leftImageView setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_leftImageView];
+    }
+    return _leftImageView;
+}
+- (HWebImageView *)rightImageView {
+    if (!_rightImageView) {
+        _rightImageView = HWebImageView.new;
+        [_rightImageView setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_rightImageView];
+    }
+    return _rightImageView;
+}
+- (HTextField *)leftTextField {
+    if (!_leftTextField) {
+        _leftTextField = HTextField.new;
+        [_leftTextField setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_leftTextField];
+    }
+    return _leftTextField;
+}
+- (HTextField *)rightTextField {
+    if (!_rightTextField) {
+        _rightTextField = HTextField.new;
+        [_rightTextField setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_rightTextField];
+    }
+    return _rightTextField;
 }
 @end

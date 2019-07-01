@@ -24,17 +24,17 @@
     _forbidWhitespaceAndNewline = YES;
     _editEnabled = YES;
 }
-- (UILabel *)leftLabel {
+- (HLabel *)leftLabel {
     if (!_leftLabel) {
-        _leftLabel = [UILabel new];
+        _leftLabel = [HLabel new];
         [_leftLabel setBackgroundColor:[UIColor clearColor]];
         [self setLeftView:_leftLabel];
     }
     return _leftLabel;
 }
-- (UILabel *)rightLabel {
+- (HLabel *)rightLabel {
     if (!_rightLabel) {
-        _rightLabel = [UILabel new];
+        _rightLabel = [HLabel new];
         [_rightLabel setBackgroundColor:[UIColor clearColor]];
         [self setRightView:_rightLabel];
     }
@@ -59,46 +59,18 @@
 - (HWebButtonView *)leftButton {
     if (!_leftButton) {
         _leftButton = [HWebButtonView new];
-        [_leftButton setUserInteractionEnabled:NO];
-        @weakify(self)
-        [_leftButton setPressed:^(id sender, id data) {
-            @strongify(self)
-            if (self.leftButtonBlock) {
-                self.leftButtonBlock(self.leftButton);
-            }
-        }];
         [_leftButton setBackgroundColor:[UIColor clearColor]];
         [self setLeftView:_leftButton];
     }
     return _leftButton;
 }
-- (void)setLeftButtonBlock:(HTextFieldBlock)leftButtonBlock {
-    if (_leftButtonBlock != leftButtonBlock) {
-        _leftButtonBlock = leftButtonBlock;
-        [self.leftButton setUserInteractionEnabled:YES];
-    }
-}
 - (HWebButtonView *)rightButton {
     if (!_rightButton) {
         _rightButton = [HWebButtonView new];
-        [_rightButton setUserInteractionEnabled:NO];
-        @weakify(self)
-        [_rightButton setPressed:^(id sender, id data) {
-            @strongify(self)
-            if (self.rightButtonBlock) {
-                self.rightButtonBlock(self.rightButton);
-            }
-        }];
         [_rightButton setBackgroundColor:[UIColor clearColor]];
         [self setRightView:_rightButton];
     }
     return _rightButton;
-}
-- (void)setRightButtonBlock:(HTextFieldBlock)rightButtonBlock {
-    if (_rightButtonBlock != rightButtonBlock) {
-        _rightButtonBlock = rightButtonBlock;
-        [self.rightButton setUserInteractionEnabled:YES];
-    }
 }
 - (void)placeholderColor:(UIColor *)color {
     [self setValue:color forKeyPath:@"_placeholderLabel.textColor"];

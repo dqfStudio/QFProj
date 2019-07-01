@@ -83,7 +83,7 @@
     
     if (index < self.modelArr.count) {
         
-        HButtonViewCell *cell = itemBlock(nil, HButtonViewCell.class, nil, YES);
+        HTupleButtonViewCell *cell = itemBlock(nil, HTupleButtonViewCell.class, nil, YES);
         [cell.buttonView setBackgroundColor:[UIColor clearColor]];
         [cell.buttonView.button setTitleColor:[UIColor blackColor]];
         
@@ -92,14 +92,14 @@
         [cell.buttonView.button setImage:[UIImage imageNamed:model.icon]];
         [cell.buttonView.button setTitle:model.title];
         
-        [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
+        [cell.buttonView setPressed:^(id sender, id data) {
             if (self.formCellBlock) {
                 self.formCellBlock(indexPath, model);
             }
         }];
         
     }else {
-        itemBlock(nil, HViewCell.class, nil, YES);
+        itemBlock(nil, HTupleBaseCell.class, nil, YES);
     }
     
 }

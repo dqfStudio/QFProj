@@ -1,56 +1,44 @@
 //
-//  HTableViewCell.h
-//  MGMobileMusic
+//  HTableReusableView.h
+//  QFProj
 //
-//  Created by dqf on 2017/8/4.
-//  Copyright © 2017年 migu. All rights reserved.
+//  Created by wind on 2019/4/12.
+//  Copyright © 2019 dqfStudio. All rights reserved.
 //
 
-#import "HTableBaseCell.h"
+#import "HTableBaseView.h"
 #import "HTupleView.h"
 #import "HLabel.h"
 
-@interface HTableViewCellValue1 : HTableBaseCell
-
-@end
-
-@interface HTableViewCellValue2 : HTableBaseCell
-
-@end
-
-@interface HTableViewCellSubtitle : HTableBaseCell
-
-@end
-
-@interface HTableLabelCell : HTableBaseCell
+@interface HTableReusableLabelView : HTableBaseView
 @property (nonatomic) HLabel *label;
 @end
 
-@interface HTableTextViewCell : HTupleBaseCell
+@interface HTableReusableTextView : HTupleBaseCell
 @property (nonatomic) HTextView *textView;
 @end
 
-@interface HTableButtonViewCell : HTupleBaseCell
+@interface HTableReusableButtonView : HTupleBaseCell
 @property (nonatomic) HWebButtonView *buttonView;
 @end
 
-@interface HTableImageViewCell : HTupleBaseCell
+@interface HTableReusableImageView : HTupleBaseCell
 @property (nonatomic) HWebImageView *imageView;
 @end
 
-@interface HTableTextFieldCell : HTupleBaseCell
+@interface HTableReusableTextField : HTupleBaseCell
 @property (nonatomic) HTextField *textField;
 @end
 
-@interface HTableVerticalCell : HTableBaseCell
+@interface HTableReusableVerticalView : HTableBaseView
 @property (nonatomic) HTupleView *tuple;
 @end
 
-@interface HTableHorizontalCell : HTableBaseCell
+@interface HTableReusableHorizontalView : HTableBaseView
 @property (nonatomic) HTupleView *tuple;
 @end
 
-@interface HTableViewCell : HTableBaseCell
+@interface HTableReusableView : HTableBaseView
 @property (nonatomic) HLabel *leftLabel;
 @property (nonatomic) HLabel *rightLabel;
 
