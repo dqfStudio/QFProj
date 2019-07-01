@@ -516,7 +516,7 @@ H_CheckPropertyRange(rrr, 0, 150)
 //            [cell setInitBlock:^{
 //
 //            }];
-            [cell setSignalBlock:^(HTupleSignal *signal) {
+            [cell setSignalBlock:^(id object, HTupleSignal *signal) {
                 
             }];
         }

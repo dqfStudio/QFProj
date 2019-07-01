@@ -508,7 +508,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 
 - (void)signalToTable:(HTableSignal *)signal {
     if (self.signalBlock) {
-        self.signalBlock(signal);
+        self.signalBlock(self, signal);
     }
 }
 - (void)signalToAllCells:(HTableSignal *)signal {
@@ -520,7 +520,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:j inSection:i];
                 UITableViewCell *cell = [self.allReuseCells objectForKey:indexPath.string];
                 if (cell.signalBlock) {
-                    cell.signalBlock(signal);
+                    cell.signalBlock(cell, signal);
                 }
             }
         }
@@ -533,7 +533,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:section];
             UITableViewCell *cell = [self.allReuseCells objectForKey:indexPath.string];
             if (cell.signalBlock) {
-                cell.signalBlock(signal);
+                cell.signalBlock(cell, signal);
             }
         }
     });
@@ -542,7 +542,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         UITableViewCell *cell = [self.allReuseCells objectForKey:indexPath.string];
         if (cell.signalBlock) {
-            cell.signalBlock(signal);
+            cell.signalBlock(cell, signal);
         }
     });
 }
@@ -552,7 +552,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         for (int i=0; i<sections; i++) {
             UITableViewHeaderFooterView *header = [self.allReuseHeaders objectForKey:@(i).stringValue];
             if (header.signalBlock) {
-                header.signalBlock(signal);
+                header.signalBlock(header, signal);
             }
         }
     });
@@ -561,7 +561,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         UITableViewHeaderFooterView *header = [self.allReuseHeaders objectForKey:@(section).stringValue];
         if (header.signalBlock) {
-            header.signalBlock(signal);
+            header.signalBlock(header, signal);
         }
     });
 }
@@ -571,7 +571,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         for (int i=0; i<sections; i++) {
             UITableViewHeaderFooterView *footer = [self.allReuseFooters objectForKey:@(i).stringValue];
             if (footer.signalBlock) {
-                footer.signalBlock(signal);
+                footer.signalBlock(footer, signal);
             }
         }
     });
@@ -580,7 +580,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         UITableViewHeaderFooterView *footer = [self.allReuseFooters objectForKey:@(section).stringValue];
         if (footer.signalBlock) {
-            footer.signalBlock(signal);
+            footer.signalBlock(footer, signal);
         }
     });
 }
