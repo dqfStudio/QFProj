@@ -61,6 +61,9 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 @interface HTableView : UITableView <HTableViewDelegate>
 @property (nonatomic, weak, nullable) id <HTableViewDelegate> tableDelegate;
 
+@property (nonatomic, strong) NSMutableArray *tableArr; //load date
+@property (nonatomic, strong) NSMutableDictionary *tableDict; //load date
+
 @property (nonatomic, assign) NSUInteger pageNo;    // page number, default 1
 @property (nonatomic, assign) NSUInteger pageSize;  // page size, default 20
 @property (nonatomic, assign) NSUInteger totalNo;  // total number.

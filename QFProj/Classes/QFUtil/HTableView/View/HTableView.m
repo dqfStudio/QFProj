@@ -123,6 +123,18 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     }
 }
 #pragma --mark other methods
+- (NSMutableArray *)tableArr {
+    if (!_tableArr) {
+        _tableArr = NSMutableArray.array;
+    }
+    return _tableArr;
+}
+- (NSMutableDictionary *)tableDict {
+    if (!_tableDict) {
+        _tableDict = NSMutableDictionary.dictionary;
+    }
+    return _tableDict;
+}
 - (void)setSeparatorInset:(UIEdgeInsets)separatorInset {
     if ([super respondsToSelector:@selector(setSeparatorInset:)]) {
         [super setSeparatorInset:separatorInset];

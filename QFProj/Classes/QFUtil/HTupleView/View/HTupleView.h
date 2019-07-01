@@ -88,6 +88,9 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 @interface HTupleView : UICollectionView <HTupleViewDelegate, ULBCollectionViewDelegateFlowLayout>
 @property (nonatomic, weak, nullable) id <HTupleViewDelegate> tupleDelegate;
 
+@property (nonatomic, strong) NSMutableArray *tupleArr; //load date
+@property (nonatomic, strong) NSMutableDictionary *tupleDict; //load date
+
 @property (nonatomic, assign) NSUInteger pageNo;    // page number, default 1
 @property (nonatomic, assign) NSUInteger pageSize;  // page size, default 20
 @property (nonatomic, assign) NSUInteger totalNo;  // total number.
