@@ -36,6 +36,7 @@ typedef void (^HHeaderTableBlock)(HHeaderTable headerBlock, NSInteger section);
 typedef void (^HFooterTableBlock)(HFooterTable footerBlock, NSInteger section);
 typedef void (^HCellTableBlock)(HCellTable cellBlock, NSIndexPath *indexPath);
 
+typedef void (^HCellWillDisplayBlock)(UITableViewCell *cell, NSIndexPath *indexPath);
 typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 
 @class HTableView;
@@ -53,6 +54,7 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 - (void)tableView:(HTableView *)tableView footerTuple:(HFooterTable)footerBlock inSection:(NSInteger)section;
 - (void)tableView:(HTableView *)tableView cellTuple:(HCellTable)cellBlock atIndexPath:(NSIndexPath *)indexPath;
 
+- (void)tableView:(HTableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)tableView:(HTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
@@ -84,6 +86,7 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 - (void)headerWithHeight:(HeightForHeaderBlock)height tuple:(HHeaderTableBlock)block;
 - (void)footerWithHeight:(HeightForFooterBlock)height tuple:(HFooterTableBlock)block;
 - (void)cellWithHeight:(HeightForCellBlock)height tuple:(HCellTableBlock)block;
+- (void)cellWillDisplayBlock:(HCellWillDisplayBlock)block;
 - (void)didSelectCell:(HDidSelectCellBlock)block;
 - (void)deselectCell:(NSIndexPath *)indexPath;
 @end

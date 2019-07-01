@@ -49,6 +49,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 @property (nonatomic, copy) HFooterTableBlock footerTableBlock;
 @property (nonatomic, copy) HCellTableBlock cellTableBlock;
 
+@property (nonatomic, copy) HCellWillDisplayBlock cellWillDisplayBlock;
 @property (nonatomic, copy) HDidSelectCellBlock didSelectCellBlock;
 @end
 
@@ -361,16 +362,6 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     }
     return cell;
 }
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.separatorStyle != UITableViewCellSeparatorStyleNone) {
-        if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-            [cell setSeparatorInset:self.separatorInset];
-        }
-        if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-            [cell setLayoutMargins:self.separatorInset];
-        }
-    }
-}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     __block UITableViewCell *cell = nil;
     @weakify(self)
@@ -420,12 +411,30 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     }
     return cell;
 }
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.separatorStyle != UITableViewCellSeparatorStyleNone) {
+        if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+            [cell setSeparatorInset:self.separatorInset];
+        }
+        if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+            [cell setLayoutMargins:self.separatorInset];
+        }
+    }
+    NSString *prefix = [self tableWithPrefix:indexPath.section];
+    if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:willSelectRowAtIndexPath:)]) {
+        [self.tableDelegate tableView:self willDisplayCell:cell forRowAtIndexPath:indexPath];
+    }else if (_categoryDesign && [(NSObject *)self.tableDelegate respondsToSelector:_cmd withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tableView, &cell, &indexPath];
+    }else if (self.cellWillDisplayBlock) {
+        self.cellWillDisplayBlock(cell, indexPath);
+    }
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *prefix = [self tableWithPrefix:indexPath.section];
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
         [self.tableDelegate tableView:self didSelectRowAtIndexPath:indexPath];
     }else if (_categoryDesign && [(NSObject *)self.tableDelegate respondsToSelector:_cmd withPre:prefix]) {
-        [(NSObject *)self performSelector:_cmd withPre:prefix withMethodArgments:&tableView, &indexPath];
+        [(NSObject *)self.tableDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tableView, &indexPath];
     }else if (self.didSelectCellBlock) {
         self.didSelectCellBlock(indexPath);
     }
@@ -446,6 +455,9 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 - (void)cellWithHeight:(HeightForCellBlock)height tuple:(HCellTableBlock)block {
     self.heightForCellBlock = height;
     self.cellTableBlock = block;
+}
+- (void)cellWillDisplayBlock:(HCellWillDisplayBlock)block {
+    self.cellWillDisplayBlock = block;
 }
 - (void)didSelectCell:(HDidSelectCellBlock)block {
     self.didSelectCellBlock = block;
