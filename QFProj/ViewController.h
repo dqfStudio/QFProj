@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HViewController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : HViewController
 
 
 @end

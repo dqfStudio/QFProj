@@ -171,6 +171,12 @@
         _statusBarPadding = UIDevice.statusBarHeight;
     }
 }
+- (UIWindow *)window {
+    return UIApplication.sharedApplication.delegate.window;
+}
+- (UIScreen *)screen {
+    return UIScreen.mainScreen;
+}
 + (HVCAppearance *)appearance {
     return [HVCAppearance shared];
 }
