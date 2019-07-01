@@ -98,8 +98,6 @@
 		15C5736D20B3DD7B0070327C /* icon_tuple_arrow_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C5735820B3DD7B0070327C /* icon_tuple_arrow_down@2x.png */; };
 		15C5736E20B3DD7B0070327C /* icon_tuple_arrow_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C5735920B3DD7B0070327C /* icon_tuple_arrow_right@2x.png */; };
 		15C5736F20B3DD7B0070327C /* icon_tuple_arrow_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15C5735A20B3DD7B0070327C /* icon_tuple_arrow_left@2x.png */; };
-		15C5737020B3DD7B0070327C /* HTupleReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5735D20B3DD7B0070327C /* HTupleReusableView.m */; };
-		15C5737120B3DD7B0070327C /* HTupleBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5735E20B3DD7B0070327C /* HTupleBaseView.m */; };
 		15C5737320B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5736520B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.m */; };
 		15C5737420B3DD7B0070327C /* HTupleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C5736720B3DD7B0070327C /* HTupleView.m */; };
 		15E56511212CFA28003A63E5 /* qq.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E56510212CFA28003A63E5 /* qq.png */; };
@@ -140,9 +138,16 @@
 		15F9152920A18CA9000261C4 /* HAspectsCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9152820A18CA9000261C4 /* HAspectsCenter.m */; };
 		15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9152D20A27D1C000261C4 /* HRequestResultView.m */; };
 		171E540C3ECD9B640D790516 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E16C30E2760E6660FC02C1 /* libPods-QFProj.a */; };
+		A206880D22C9FD1B00661634 /* HTupleReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A206880922C9FD1B00661634 /* HTupleReusableView.m */; };
+		A206880E22C9FD1B00661634 /* HTupleBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = A206880A22C9FD1B00661634 /* HTupleBaseView.m */; };
+		A206881E22C9FDBD00661634 /* HTableSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = A206881022C9FDBC00661634 /* HTableSignal.m */; };
+		A206881F22C9FDBD00661634 /* HTableRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = A206881122C9FDBC00661634 /* HTableRefresh.m */; };
+		A206882022C9FDBD00661634 /* HTableReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A206881522C9FDBC00661634 /* HTableReusableView.m */; };
+		A206882122C9FDBD00661634 /* HTableBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = A206881822C9FDBC00661634 /* HTableBaseView.m */; };
+		A206882222C9FDBD00661634 /* HTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A206881B22C9FDBD00661634 /* HTableViewCell.m */; };
+		A206882322C9FDBD00661634 /* HTableBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A206881C22C9FDBD00661634 /* HTableBaseCell.m */; };
 		A208D62E22AD373E009A6FDD /* HAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = A208D62C22AD373E009A6FDD /* HAttributedString.m */; };
 		A208E17822BA305C009A6FDD /* HTupleRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = A208E17722BA305C009A6FDD /* HTupleRefresh.m */; };
-		A208E17B22BA3865009A6FDD /* HTableRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = A208E17A22BA3865009A6FDD /* HTableRefresh.m */; };
 		A208E18022BA40A2009A6FDD /* UIScrollView+HEmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A208E17D22BA40A2009A6FDD /* UIScrollView+HEmptyDataSet.m */; };
 		A208E18122BA40A2009A6FDD /* UIScrollView+HEmptyDataSetExa.m in Sources */ = {isa = PBXBuildFile; fileRef = A208E17F22BA40A2009A6FDD /* UIScrollView+HEmptyDataSetExa.m */; };
 		A208E18422BA429F009A6FDD /* tuple_nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A208E18222BA429E009A6FDD /* tuple_nodata@3x.png */; };
@@ -204,12 +209,7 @@
 		A24B659E22609CE600B257BB /* NSObject+HName.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B659C22609CE600B257BB /* NSObject+HName.m */; };
 		A265FF6F2269F6280093C780 /* HHostUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A265FF6D2269F6280093C780 /* HHostUrlManager.m */; };
 		A265FF732269F70C0093C780 /* HVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A265FF712269F70C0093C780 /* HVersionManager.m */; };
-		A273940722A7FF44009676C1 /* HTableBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = A27393FB22A7FF44009676C1 /* HTableBaseView.m */; };
-		A273940822A7FF44009676C1 /* HTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A27393FD22A7FF44009676C1 /* HTableViewCell.m */; };
-		A273940922A7FF44009676C1 /* HTableReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A27393FE22A7FF44009676C1 /* HTableReusableView.m */; };
-		A273940A22A7FF44009676C1 /* HTableBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A273940022A7FF44009676C1 /* HTableBaseCell.m */; };
 		A273940B22A7FF44009676C1 /* HTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A273940322A7FF44009676C1 /* HTableView.m */; };
-		A273940C22A7FF44009676C1 /* HTableSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = A273940422A7FF44009676C1 /* HTableSignal.m */; };
 		A28EF2E821D86DD8002F92ED /* ULBCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */; };
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
 		A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */; };
@@ -428,10 +428,6 @@
 		15C5735820B3DD7B0070327C /* icon_tuple_arrow_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_arrow_down@2x.png"; sourceTree = "<group>"; };
 		15C5735920B3DD7B0070327C /* icon_tuple_arrow_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_arrow_right@2x.png"; sourceTree = "<group>"; };
 		15C5735A20B3DD7B0070327C /* icon_tuple_arrow_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_arrow_left@2x.png"; sourceTree = "<group>"; };
-		15C5735D20B3DD7B0070327C /* HTupleReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTupleReusableView.m; sourceTree = "<group>"; };
-		15C5735E20B3DD7B0070327C /* HTupleBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTupleBaseView.m; sourceTree = "<group>"; };
-		15C5735F20B3DD7B0070327C /* HTupleBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTupleBaseView.h; sourceTree = "<group>"; };
-		15C5736020B3DD7B0070327C /* HTupleReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTupleReusableView.h; sourceTree = "<group>"; };
 		15C5736220B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLeftAlignedLayout.h; sourceTree = "<group>"; };
 		15C5736320B3DD7B0070327C /* HTupleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTupleView.h; sourceTree = "<group>"; };
 		15C5736520B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftAlignedLayout.m; sourceTree = "<group>"; };
@@ -491,12 +487,26 @@
 		15F9152E20A27D1C000261C4 /* HRequestResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRequestResultView.h; sourceTree = "<group>"; };
 		31E16C30E2760E6660FC02C1 /* libPods-QFProj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QFProj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60580163C2E51E9CB5D59084 /* Pods-QFProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.release.xcconfig"; sourceTree = "<group>"; };
+		A206880922C9FD1B00661634 /* HTupleReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTupleReusableView.m; sourceTree = "<group>"; };
+		A206880A22C9FD1B00661634 /* HTupleBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTupleBaseView.m; sourceTree = "<group>"; };
+		A206880B22C9FD1B00661634 /* HTupleBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTupleBaseView.h; sourceTree = "<group>"; };
+		A206880C22C9FD1B00661634 /* HTupleReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTupleReusableView.h; sourceTree = "<group>"; };
+		A206881022C9FDBC00661634 /* HTableSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableSignal.m; sourceTree = "<group>"; };
+		A206881122C9FDBC00661634 /* HTableRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableRefresh.m; sourceTree = "<group>"; };
+		A206881222C9FDBC00661634 /* HTableSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableSignal.h; sourceTree = "<group>"; };
+		A206881322C9FDBC00661634 /* HTableRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableRefresh.h; sourceTree = "<group>"; };
+		A206881522C9FDBC00661634 /* HTableReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableReusableView.m; sourceTree = "<group>"; };
+		A206881622C9FDBC00661634 /* HTableBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableBaseView.h; sourceTree = "<group>"; };
+		A206881722C9FDBC00661634 /* HTableReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableReusableView.h; sourceTree = "<group>"; };
+		A206881822C9FDBC00661634 /* HTableBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableBaseView.m; sourceTree = "<group>"; };
+		A206881A22C9FDBD00661634 /* HTableBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableBaseCell.h; sourceTree = "<group>"; };
+		A206881B22C9FDBD00661634 /* HTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableViewCell.m; sourceTree = "<group>"; };
+		A206881C22C9FDBD00661634 /* HTableBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableBaseCell.m; sourceTree = "<group>"; };
+		A206881D22C9FDBD00661634 /* HTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableViewCell.h; sourceTree = "<group>"; };
 		A208D62C22AD373E009A6FDD /* HAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAttributedString.m; sourceTree = "<group>"; };
 		A208D62D22AD373E009A6FDD /* HAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAttributedString.h; sourceTree = "<group>"; };
 		A208E17622BA305C009A6FDD /* HTupleRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleRefresh.h; sourceTree = "<group>"; };
 		A208E17722BA305C009A6FDD /* HTupleRefresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleRefresh.m; sourceTree = "<group>"; };
-		A208E17922BA3865009A6FDD /* HTableRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTableRefresh.h; sourceTree = "<group>"; };
-		A208E17A22BA3865009A6FDD /* HTableRefresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTableRefresh.m; sourceTree = "<group>"; };
 		A208E17C22BA40A2009A6FDD /* UIScrollView+HEmptyDataSetExa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+HEmptyDataSetExa.h"; sourceTree = "<group>"; };
 		A208E17D22BA40A2009A6FDD /* UIScrollView+HEmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+HEmptyDataSet.m"; sourceTree = "<group>"; };
 		A208E17E22BA40A2009A6FDD /* UIScrollView+HEmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+HEmptyDataSet.h"; sourceTree = "<group>"; };
@@ -616,18 +626,8 @@
 		A265FF6E2269F6280093C780 /* HHostUrlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHostUrlManager.h; sourceTree = "<group>"; };
 		A265FF712269F70C0093C780 /* HVersionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HVersionManager.m; sourceTree = "<group>"; };
 		A265FF722269F70C0093C780 /* HVersionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HVersionManager.h; sourceTree = "<group>"; };
-		A27393FA22A7FF44009676C1 /* HTableReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableReusableView.h; sourceTree = "<group>"; };
-		A27393FB22A7FF44009676C1 /* HTableBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableBaseView.m; sourceTree = "<group>"; };
-		A27393FC22A7FF44009676C1 /* HTableBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableBaseCell.h; sourceTree = "<group>"; };
-		A27393FD22A7FF44009676C1 /* HTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableViewCell.m; sourceTree = "<group>"; };
-		A27393FE22A7FF44009676C1 /* HTableReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableReusableView.m; sourceTree = "<group>"; };
-		A27393FF22A7FF44009676C1 /* HTableBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableBaseView.h; sourceTree = "<group>"; };
-		A273940022A7FF44009676C1 /* HTableBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableBaseCell.m; sourceTree = "<group>"; };
-		A273940122A7FF44009676C1 /* HTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableViewCell.h; sourceTree = "<group>"; };
 		A273940322A7FF44009676C1 /* HTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableView.m; sourceTree = "<group>"; };
-		A273940422A7FF44009676C1 /* HTableSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableSignal.m; sourceTree = "<group>"; };
 		A273940522A7FF44009676C1 /* HTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableView.h; sourceTree = "<group>"; };
-		A273940622A7FF44009676C1 /* HTableSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableSignal.h; sourceTree = "<group>"; };
 		A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULBCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A28EF2E721D86DD8002F92ED /* ULBCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ULBCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		A28EF2EA21D86E43002F92ED /* UILabel+HAttributeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeText.h"; sourceTree = "<group>"; };
@@ -1244,8 +1244,8 @@
 			isa = PBXGroup;
 			children = (
 				15707EBD20B5674E00493839 /* HTupleCommon */,
+				A206880822C9FD1B00661634 /* HTupleReusableView */,
 				15C5734E20B3DD7B0070327C /* HTupleViewCell */,
-				15C5735C20B3DD7B0070327C /* HeaderFooterView */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1271,17 +1271,6 @@
 				15C5735A20B3DD7B0070327C /* icon_tuple_arrow_left@2x.png */,
 			);
 			path = tuple_arrow_icons;
-			sourceTree = "<group>";
-		};
-		15C5735C20B3DD7B0070327C /* HeaderFooterView */ = {
-			isa = PBXGroup;
-			children = (
-				15C5735F20B3DD7B0070327C /* HTupleBaseView.h */,
-				15C5735E20B3DD7B0070327C /* HTupleBaseView.m */,
-				15C5736020B3DD7B0070327C /* HTupleReusableView.h */,
-				15C5735D20B3DD7B0070327C /* HTupleReusableView.m */,
-			);
-			path = HeaderFooterView;
 			sourceTree = "<group>";
 		};
 		15C5736120B3DD7B0070327C /* View */ = {
@@ -1416,6 +1405,50 @@
 				31E16C30E2760E6660FC02C1 /* libPods-QFProj.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A206880822C9FD1B00661634 /* HTupleReusableView */ = {
+			isa = PBXGroup;
+			children = (
+				A206880B22C9FD1B00661634 /* HTupleBaseView.h */,
+				A206880A22C9FD1B00661634 /* HTupleBaseView.m */,
+				A206880C22C9FD1B00661634 /* HTupleReusableView.h */,
+				A206880922C9FD1B00661634 /* HTupleReusableView.m */,
+			);
+			path = HTupleReusableView;
+			sourceTree = "<group>";
+		};
+		A206880F22C9FDBC00661634 /* HTableCommon */ = {
+			isa = PBXGroup;
+			children = (
+				A206881322C9FDBC00661634 /* HTableRefresh.h */,
+				A206881122C9FDBC00661634 /* HTableRefresh.m */,
+				A206881222C9FDBC00661634 /* HTableSignal.h */,
+				A206881022C9FDBC00661634 /* HTableSignal.m */,
+			);
+			path = HTableCommon;
+			sourceTree = "<group>";
+		};
+		A206881422C9FDBC00661634 /* HTableReusableView */ = {
+			isa = PBXGroup;
+			children = (
+				A206881622C9FDBC00661634 /* HTableBaseView.h */,
+				A206881822C9FDBC00661634 /* HTableBaseView.m */,
+				A206881722C9FDBC00661634 /* HTableReusableView.h */,
+				A206881522C9FDBC00661634 /* HTableReusableView.m */,
+			);
+			path = HTableReusableView;
+			sourceTree = "<group>";
+		};
+		A206881922C9FDBD00661634 /* HTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A206881A22C9FDBD00661634 /* HTableBaseCell.h */,
+				A206881C22C9FDBD00661634 /* HTableBaseCell.m */,
+				A206881D22C9FDBD00661634 /* HTableViewCell.h */,
+				A206881B22C9FDBD00661634 /* HTableViewCell.m */,
+			);
+			path = HTableViewCell;
 			sourceTree = "<group>";
 		};
 		A219F22C222FB46A00241FD7 /* HIFS */ = {
@@ -1668,14 +1701,9 @@
 		A27393F922A7FF44009676C1 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				A27393FF22A7FF44009676C1 /* HTableBaseView.h */,
-				A27393FB22A7FF44009676C1 /* HTableBaseView.m */,
-				A27393FC22A7FF44009676C1 /* HTableBaseCell.h */,
-				A273940022A7FF44009676C1 /* HTableBaseCell.m */,
-				A27393FA22A7FF44009676C1 /* HTableReusableView.h */,
-				A27393FE22A7FF44009676C1 /* HTableReusableView.m */,
-				A273940122A7FF44009676C1 /* HTableViewCell.h */,
-				A27393FD22A7FF44009676C1 /* HTableViewCell.m */,
+				A206880F22C9FDBC00661634 /* HTableCommon */,
+				A206881422C9FDBC00661634 /* HTableReusableView */,
+				A206881922C9FDBD00661634 /* HTableViewCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1683,10 +1711,6 @@
 		A273940222A7FF44009676C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A273940622A7FF44009676C1 /* HTableSignal.h */,
-				A273940422A7FF44009676C1 /* HTableSignal.m */,
-				A208E17922BA3865009A6FDD /* HTableRefresh.h */,
-				A208E17A22BA3865009A6FDD /* HTableRefresh.m */,
 				A273940522A7FF44009676C1 /* HTableView.h */,
 				A273940322A7FF44009676C1 /* HTableView.m */,
 			);
@@ -1988,7 +2012,6 @@
 				A28EF38321D8EC2A002F92ED /* HResultView.m in Sources */,
 				157684D220E2157E00D8DC5B /* NSBlockChain.m in Sources */,
 				A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */,
-				A273940922A7FF44009676C1 /* HTableReusableView.m in Sources */,
 				A21FD5FA224DBC34009F03FB /* HRequestHUD.m in Sources */,
 				15B4DDF82092F96C00773E04 /* UIImage+Util.m in Sources */,
 				1508255520EB1C0F008CAE57 /* HDictionary.m in Sources */,
@@ -2004,10 +2027,11 @@
 				15B4DE2D209311F900773E04 /* NSObject+HMessy.m in Sources */,
 				1528DF4920BF0A7A00D0A004 /* HShowView.m in Sources */,
 				A22851F9228D485700961A86 /* HWebButtonView.m in Sources */,
+				A206882322C9FDBD00661634 /* HTableBaseCell.m in Sources */,
 				15F9151D20A14A33000261C4 /* UIView+HShow.m in Sources */,
 				1528DF4320BEF6BC00D0A004 /* HNaviToastView.m in Sources */,
-				A273940C22A7FF44009676C1 /* HTableSignal.m in Sources */,
 				A222AE5C22818F7D0013098A /* NSAttributedString+HText.m in Sources */,
+				A206881E22C9FDBD00661634 /* HTableSignal.m in Sources */,
 				15E5652D2133A002003A63E5 /* HLoginController.m in Sources */,
 				A2296D59228A62080081A479 /* HGameViewController.m in Sources */,
 				15B4DDF92092F96C00773E04 /* UIScreen+HUtil.m in Sources */,
@@ -2022,8 +2046,8 @@
 				A24B659522607E8400B257BB /* NSStream+SKPSMTPExtensions.m in Sources */,
 				15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */,
 				15B4DDED2092F96C00773E04 /* UIView+HImage.m in Sources */,
+				A206882222C9FDBD00661634 /* HTableViewCell.m in Sources */,
 				15E6BB9E2136E7E300EBE794 /* YPTabItem.m in Sources */,
-				A208E17B22BA3865009A6FDD /* HTableRefresh.m in Sources */,
 				A222AE5322818F7D0013098A /* HTextContainerView.m in Sources */,
 				1547B890210C4E09009E0374 /* UIControl+HTracking.m in Sources */,
 				A222AE4E22818F7D0013098A /* HTextMagnifier.m in Sources */,
@@ -2036,14 +2060,12 @@
 				A28EF3C421DA1DFE002F92ED /* HFormCell.m in Sources */,
 				1547B891210C4E09009E0374 /* UICollectionView+HTracking.m in Sources */,
 				A24B659622607E8400B257BB /* HEmailManager.m in Sources */,
-				A273940A22A7FF44009676C1 /* HTableBaseCell.m in Sources */,
 				A22851FB228D485700961A86 /* HViewController.m in Sources */,
 				15E6BB9C2136E7E300EBE794 /* YPTabBarController.m in Sources */,
 				15B4DDF62092F96C00773E04 /* UIApplication+HUtil.m in Sources */,
 				A222A716227C52430013098A /* UILabel+HUtil.m in Sources */,
 				1538FFA92094065A002E3A29 /* NSFileManager+HUtil.m in Sources */,
 				15B4DE1B209302BF00773E04 /* HGoToApp.m in Sources */,
-				15C5737120B3DD7B0070327C /* HTupleBaseView.m in Sources */,
 				A24B659B22607E8400B257BB /* HSK_CFUtilities.m in Sources */,
 				A22851FA228D485700961A86 /* HWebImageView.m in Sources */,
 				15B4DE282093034700773E04 /* HGCDUtil.m in Sources */,
@@ -2088,7 +2110,6 @@
 				A222AE5922818F7D0013098A /* HTextUtilities.m in Sources */,
 				15F9152320A17E95000261C4 /* TestViewController.m in Sources */,
 				150C7CB4211996E800A05347 /* HPrinterManager.m in Sources */,
-				15C5737020B3DD7B0070327C /* HTupleReusableView.m in Sources */,
 				153F081420E28CA000C74850 /* HEmailValidator.m in Sources */,
 				15C5729320AE51B30070327C /* HSort.m in Sources */,
 				1590609320BE76D600CB4EA6 /* HRequestWaitingView.m in Sources */,
@@ -2100,17 +2121,17 @@
 				A2ED9C1722314CAC00C9D050 /* HKeyChainStore.m in Sources */,
 				A222AE5522818F7D0013098A /* NSParagraphStyle+HText.m in Sources */,
 				15E6BB9A2136E7E300EBE794 /* UIViewController+YPTab.m in Sources */,
-				A273940822A7FF44009676C1 /* HTableViewCell.m in Sources */,
 				15545790212B0C6300DA7898 /* HFileCache.m in Sources */,
 				15B4DE012092F96C00773E04 /* HSpeechUtil.m in Sources */,
 				153F081820E28CA000C74850 /* UITextField+HRegular.m in Sources */,
+				A206880D22C9FD1B00661634 /* HTupleReusableView.m in Sources */,
 				15B4DE112092F96C00773E04 /* NSArray+HSafeUtil.m in Sources */,
 				A222AE5022818F7D0013098A /* HTextInput.m in Sources */,
 				150DE9902126AE50004B9E77 /* HAnalogNetworkManager.m in Sources */,
+				A206882022C9FDBD00661634 /* HTableReusableView.m in Sources */,
 				A208E17822BA305C009A6FDD /* HTupleRefresh.m in Sources */,
 				15F9152920A18CA9000261C4 /* HAspectsCenter.m in Sources */,
 				A222AE5122818F7D0013098A /* HTextLine.m in Sources */,
-				A273940722A7FF44009676C1 /* HTableBaseView.m in Sources */,
 				15B4DE1C209302BF00773E04 /* HGotoRuntimeSupport.m in Sources */,
 				A222AE4A22818F7D0013098A /* HTextView.m in Sources */,
 				15C5727620A982CA0070327C /* NSObject+HAutoFill.m in Sources */,
@@ -2123,6 +2144,8 @@
 				15B4DDEF2092F96C00773E04 /* UIViewController+HUtil.m in Sources */,
 				15E5651D212E5D77003A63E5 /* HHostSegmentCell.m in Sources */,
 				15B4DE0B2092F96C00773E04 /* NSString+HSafeUtil.m in Sources */,
+				A206881F22C9FDBD00661634 /* HTableRefresh.m in Sources */,
+				A206882122C9FDBD00661634 /* HTableBaseView.m in Sources */,
 				A222AE5D22818F7D0013098A /* HTextRubyAnnotation.m in Sources */,
 				15112C772105A19600842FE4 /* HUncaughtExceptionHandler.m in Sources */,
 				A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */,
@@ -2142,6 +2165,7 @@
 				A24B6560225EE08900B257BB /* HUpdate.m in Sources */,
 				A222A6C42279AAAD0013098A /* NSDictionary+Util.m in Sources */,
 				A222AE4C22818F7D0013098A /* HTextDebugOption.m in Sources */,
+				A206880E22C9FD1B00661634 /* HTupleBaseView.m in Sources */,
 				15F9152020A171A8000261C4 /* NSObject+HAspects.m in Sources */,
 				A222AE5B22818F7D0013098A /* HTextWeakProxy.m in Sources */,
 				15B4DD682092F88700773E04 /* AppDelegate.m in Sources */,
