@@ -124,6 +124,6 @@
 @property (nonatomic, readonly) UIWindow *window;
 @property (nonatomic, readonly) UIScreen *screen;
 //load date
-@property (nonatomic, readonly) NSMutableArray *sourceArr;
-@property (nonatomic, readonly) NSMutableDictionary *sourceDict;
+@property (nonatomic) NSMutableArray *sourceArr;
+@property (nonatomic) NSMutableDictionary *sourceDict;
 @end
