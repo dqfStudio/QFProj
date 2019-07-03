@@ -122,6 +122,25 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         [self reloadData];
     }
 }
+#pragma --mark bounce
+- (void)horizontalBounceEnabled {
+    self.bounces = YES;
+    self.alwaysBounceHorizontal = YES;
+    self.alwaysBounceVertical = NO;
+}
+- (void)verticalBounceEnabled {
+    self.bounces = YES;
+    self.alwaysBounceHorizontal = NO;
+    self.alwaysBounceVertical = YES;
+}
+- (void)bounceEnabled {
+    self.bounces = YES;
+    self.alwaysBounceHorizontal = YES;
+    self.alwaysBounceVertical = YES;
+}
+- (void)bounceDisenable {
+    self.bounces = NO;
+}
 #pragma --mark other methods
 - (void)setSeparatorInset:(UIEdgeInsets)separatorInset {
     if ([super respondsToSelector:@selector(setSeparatorInset:)]) {

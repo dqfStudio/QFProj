@@ -131,12 +131,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     }
 }
 - (void)setup {
-    if (self.flowLayout.scrollDirection == UICollectionViewScrollDirectionVertical) {
-        self.alwaysBounceVertical = YES;
-    }else if (self.flowLayout.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
-        self.alwaysBounceHorizontal = YES;
-    }
-    self.backgroundColor = [UIColor clearColor];
+    self.bounces = NO;
+    self.backgroundColor = UIColor.clearColor;
     self.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     self.showsHorizontalScrollIndicator = NO;
     self.showsVerticalScrollIndicator = NO;
@@ -151,6 +147,25 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     _allReuseFooters = [NSMapTable strongToWeakObjectsMapTable];
     self.delegate = self;
     self.dataSource = self;
+}
+#pragma --mark bounce
+- (void)horizontalBounceEnabled {
+    self.bounces = YES;
+    self.alwaysBounceHorizontal = YES;
+    self.alwaysBounceVertical = NO;
+}
+- (void)verticalBounceEnabled {
+    self.bounces = YES;
+    self.alwaysBounceHorizontal = NO;
+    self.alwaysBounceVertical = YES;
+}
+- (void)bounceEnabled {
+    self.bounces = YES;
+    self.alwaysBounceHorizontal = YES;
+    self.alwaysBounceVertical = YES;
+}
+- (void)bounceDisenable {
+    self.bounces = NO;
 }
 #pragma --mark other methods
 - (NSUInteger)pageNo {

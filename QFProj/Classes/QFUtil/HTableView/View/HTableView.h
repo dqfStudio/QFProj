@@ -71,16 +71,21 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 @property (nonatomic, copy, nullable) HRefreshTableBlock  refreshBlock;   // block to refresh data
 @property (nonatomic, copy, nullable) HLoadMoreTableBlock loadMoreBlock;  // block to load more data
 
-- (void)beginRefreshing:(void (^)(void))completion;
-- (void)endRefreshing:(void (^)(void))completion;
-- (void)endLoadMore:(void (^)(void))completion;
-
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)initWithFrame:(CGRect)frame;
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style;
 + (instancetype)sectionDesignWith:(CGRect)frame andSections:(NSInteger)sections;
 + (instancetype)tupleDesignWith:(CGRect)frame;
+//bounce
+- (void)horizontalBounceEnabled;
+- (void)verticalBounceEnabled;
+- (void)bounceEnabled;
+- (void)bounceDisenable;
+//block refresh & loadMore
+- (void)beginRefreshing:(void (^)(void))completion;
+- (void)endRefreshing:(void (^)(void))completion;
+- (void)endLoadMore:(void (^)(void))completion;
 //block methods
 - (void)tableWithSections:(HANumberOfSectionsBlock)sections cells:(HNumberOfCellsBlock)cells;
 - (void)headerWithHeight:(HeightForHeaderBlock)height tuple:(HHeaderTableBlock)block;

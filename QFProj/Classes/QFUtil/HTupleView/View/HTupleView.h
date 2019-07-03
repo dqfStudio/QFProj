@@ -98,10 +98,6 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 @property (nonatomic, copy, nullable) HRefreshTupleBlock  refreshBlock;   // block to refresh data
 @property (nonatomic, copy, nullable) HLoadMoreTupleBlock loadMoreBlock;  // block to load more data
 
-- (void)beginRefreshing:(void (^)(void))completion;
-- (void)endRefreshing:(void (^)(void))completion;
-- (void)endLoadMore:(void (^)(void))completion;
-
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)initWithFrame:(CGRect)frame;
@@ -110,6 +106,15 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout;
 + (instancetype)sectionDesignWith:(CGRect)frame andSections:(NSInteger)sections;
 + (instancetype)tupleDesignWith:(CGRect)frame;
+//bounce
+- (void)horizontalBounceEnabled;
+- (void)verticalBounceEnabled;
+- (void)bounceEnabled;
+- (void)bounceDisenable;
+//block refresh & loadMore
+- (void)beginRefreshing:(void (^)(void))completion;
+- (void)endRefreshing:(void (^)(void))completion;
+- (void)endLoadMore:(void (^)(void))completion;
 //block methods
 - (void)tupleWithSections:(HUNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items color:(HColorForSectionBlock _Nullable )color inset:(HInsetForSectionBlock _Nullable )inset;
 - (void)headerWithSize:(HSizeForHeaderBlock)size edgeInsets:(HEdgeInsetsForHeaderBlock)edge tuple:(HHeaderTupleBlock)block;
