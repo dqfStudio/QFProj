@@ -13,6 +13,7 @@
 
 @interface HWebImageView ()
 @property (nonatomic) NSString *lastURL;
+@property (nonatomic) UITapGestureRecognizer *tapGesture;
 @end
 
 @implementation HWebImageView
@@ -175,4 +176,32 @@
     }
 }
 
+- (UITapGestureRecognizer *)tapGesture {
+    if (!_tapGesture) {
+        _tapGesture = [[UITapGestureRecognizer alloc] init];
+        _tapGesture.numberOfTapsRequired = 1;
+        _tapGesture.numberOfTouchesRequired = 1;
+        [_tapGesture addTarget:self action:@selector(tapGestureAction)];
+    }
+    return _tapGesture;
+}
+
+- (void)tapGestureAction {
+    if (_pressed) _pressed(self, nil);
+}
+
+- (void)setPressed:(callback)pressed {
+    if (_pressed != pressed) {
+        _pressed = nil;
+        _pressed = pressed;
+        if (pressed) {
+            [self.imageView setUserInteractionEnabled:YES];
+            [self.imageView addGestureRecognizer:self.tapGesture];
+        }else {
+            [self.imageView setUserInteractionEnabled:NO];
+        }
+    }
+}
+
 @end
+

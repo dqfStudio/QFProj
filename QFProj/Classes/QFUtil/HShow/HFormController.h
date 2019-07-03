@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "HTupleView.h"
+#import "UIView+HUtil.h"
+#import "UIButton+HUtil.h"
 
 @class HFormController;
 

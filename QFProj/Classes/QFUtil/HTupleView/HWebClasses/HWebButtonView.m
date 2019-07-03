@@ -58,8 +58,8 @@
         _button = [[UIButton alloc] initWithFrame:self.bounds];
         _button.imageView.contentMode = UIViewContentModeScaleAspectFill;
         _button.layer.masksToBounds = YES;
-        [_button addTarget:self action:@selector(buttonPressed)];
-        ALWAYS_FULL(_button);
+        [_button addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
+        _button.autoresizingMask = (UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth);
     }
     return _button;
 }
@@ -70,7 +70,7 @@
         _imageView.contentMode = UIViewContentModeScaleAspectFill;
         _imageView.layer.masksToBounds = YES;
         _imageView.userInteractionEnabled = NO;
-        ALWAYS_FULL(_imageView);
+        _imageView.autoresizingMask = (UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth);
     }
     return _imageView;
 }

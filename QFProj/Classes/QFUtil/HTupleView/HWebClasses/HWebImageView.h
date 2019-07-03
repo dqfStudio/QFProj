@@ -16,6 +16,8 @@
 @property (nonatomic) UIImageView *imageView;
 @property (nonatomic) UIColor *renderColor; //父类那个tintColor有问题
 @property (nonatomic) id userInfo;
+
+@property (nonatomic) callback pressed;
 @property (nonatomic) callback didGetImage;
 @property (nonatomic) callback didGetError;
 /**

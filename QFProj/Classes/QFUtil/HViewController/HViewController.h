@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "UIView+HUtil.h"
 #import "HWebButtonView.h"
 #import "NSObject+HUtil.h"
 #import "UIColor+HUtil.h"

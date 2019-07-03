@@ -44,7 +44,7 @@ UIKIT_STATIC_INLINE long getTotalPages(long totalLines, long pageLines);
 
 - (UIView *)bgView {
     if (!_bgView) {
-        _bgView = [[UIView alloc] initWithFrame:[UIScreen bounds]];
+        _bgView = [[UIView alloc] initWithFrame:UIScreen.mainScreen.bounds];
     }
     return _bgView;
 }

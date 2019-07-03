@@ -10,8 +10,6 @@
 #import "HCommonDefine.h"
 #import "HCommonBlock.h"
 #import "NSError+HUtil.h"
-#import "UIView+HUtil.h"
-#import "UIButton+HUtil.h"
 
 @interface HWebButtonView : UIView
 @property (nonatomic) UIImageView *imageView;
