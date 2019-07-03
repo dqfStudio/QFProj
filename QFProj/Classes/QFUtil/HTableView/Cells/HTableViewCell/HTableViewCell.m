@@ -64,16 +64,16 @@
 @end
 
 @implementation HTableButtonViewCell
-- (HWebButtonView *)buttonView {
-    if (!_buttonView) {
-        _buttonView = [HWebButtonView new];
-        [_buttonView setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:_buttonView];
+- (HWebButtonView *)webButtonView {
+    if (!_webButtonView) {
+        _webButtonView = [HWebButtonView new];
+        [_webButtonView setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_webButtonView];
     }
-    return _buttonView;
+    return _webButtonView;
 }
 - (void)layoutContentView {
-    HLayoutTableView(self.buttonView)
+    HLayoutTableView(self.webButtonView)
 }
 @end
 
