@@ -385,6 +385,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
                 HTupleBaseView *tmpCell = (HTupleBaseView *)cell;
                 tmpCell.collection = self;
                 tmpCell.indexPath = indexPath;
+                tmpCell.isHeader = YES;
                 //init method
                 if (iblk) {
                     HTupleCellInitBlock initHeaderBlock = iblk;
@@ -441,6 +442,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
                 HTupleBaseView *tmpCell = (HTupleBaseView *)cell;
                 tmpCell.collection = self;
                 tmpCell.indexPath = indexPath;
+                tmpCell.isHeader = NO;
                 //init method
                 if (iblk) {
                     HTupleCellInitBlock initFooterBlock = iblk;

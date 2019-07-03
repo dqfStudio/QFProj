@@ -41,4 +41,5 @@ typedef void(^HTupleBaseViewBlock)(NSIndexPath *idxPath);
 
 @interface UICollectionReusableView (HSignal)
 @property (nonatomic, copy) HTupleCellSignalBlock signalBlock;
+@property (nonatomic) BOOL isHeader;
 @end
