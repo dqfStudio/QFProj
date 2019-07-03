@@ -114,124 +114,124 @@
 - (void)layoutContentView {
     
 }
-- (HLabel *)leftLabel {
-    if (!_leftLabel) {
-        _leftLabel = [HLabel new];
-        [_leftLabel setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:_leftLabel];
+- (HLabel *)headerLabel {
+    if (!_headerLabel) {
+        _headerLabel = [HLabel new];
+        [_headerLabel setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_headerLabel];
     }
-    return _leftLabel;
+    return _headerLabel;
 }
-- (HLabel *)middleLabel {
-    if (!_middleLabel) {
-        _middleLabel = [HLabel new];
-        [_middleLabel setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:_middleLabel];
+- (HLabel *)sectionLabel {
+    if (!_sectionLabel) {
+        _sectionLabel = [HLabel new];
+        [_sectionLabel setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_sectionLabel];
     }
-    return _middleLabel;
+    return _sectionLabel;
 }
-- (HLabel *)rightLabel {
-    if (!_rightLabel) {
-        _rightLabel = [HLabel new];
-        [_rightLabel setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:_rightLabel];
+- (HLabel *)footerLabel {
+    if (!_footerLabel) {
+        _footerLabel = [HLabel new];
+        [_footerLabel setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_footerLabel];
     }
-    return _rightLabel;
+    return _footerLabel;
 }
-- (HTextView *)leftTextView {
-    if (!_leftTextView) {
-        _leftTextView = [HTextView new];
-        [_leftTextView setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:_leftTextView];
+- (HTextView *)headerTextView {
+    if (!_headerTextView) {
+        _headerTextView = [HTextView new];
+        [_headerTextView setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_headerTextView];
     }
-    return _leftTextView;
+    return _headerTextView;
 }
-- (HTextView *)middleTextView {
-    if (!_middleTextView) {
-        _middleTextView = [HTextView new];
-        [_middleTextView setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:_middleTextView];
+- (HTextView *)sectionTextView {
+    if (!_sectionTextView) {
+        _sectionTextView = [HTextView new];
+        [_sectionTextView setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_sectionTextView];
     }
-    return _middleTextView;
+    return _sectionTextView;
 }
-- (HTextView *)rightTextView {
-    if (!_rightTextView) {
-        _rightTextView = [HTextView new];
-        [_rightTextView setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:_rightTextView];
+- (HTextView *)footerTextView {
+    if (!_footerTextView) {
+        _footerTextView = [HTextView new];
+        [_footerTextView setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_footerTextView];
     }
-    return _rightTextView;
+    return _footerTextView;
 }
-- (HWebButtonView *)leftButton {
-    if (!_leftButton) {
-        _leftButton = [HWebButtonView new];
-        [_leftButton setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:_leftButton];
+- (HWebButtonView *)headerButton {
+    if (!_headerButton) {
+        _headerButton = [HWebButtonView new];
+        [_headerButton setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_headerButton];
     }
-    return _leftButton;
+    return _headerButton;
 }
-- (HWebButtonView *)middleButton {
-    if (!_middleButton) {
-        _middleButton = [HWebButtonView new];
-        [_middleButton setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:_middleButton];
+- (HWebButtonView *)sectionButton {
+    if (!_sectionButton) {
+        _sectionButton = [HWebButtonView new];
+        [_sectionButton setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_sectionButton];
     }
-    return _middleButton;
+    return _sectionButton;
 }
-- (HWebButtonView *)rightButton {
-    if (!_rightButton) {
-        _rightButton = [HWebButtonView new];
-        [_rightButton setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:_rightButton];
+- (HWebButtonView *)footerButton {
+    if (!_footerButton) {
+        _footerButton = [HWebButtonView new];
+        [_footerButton setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_footerButton];
     }
-    return _rightButton;
+    return _footerButton;
 }
-- (HWebImageView *)leftImageView {
-    if (!_leftImageView) {
-        _leftImageView = HWebImageView.new;
-        [_leftImageView setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:_leftImageView];
+- (HWebImageView *)headerImageView {
+    if (!_headerImageView) {
+        _headerImageView = HWebImageView.new;
+        [_headerImageView setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_headerImageView];
     }
-    return _leftImageView;
+    return _headerImageView;
 }
-- (HWebImageView *)middleImageView {
-    if (!_middleImageView) {
-        _middleImageView = HWebImageView.new;
-        [_middleImageView setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:_middleImageView];
+- (HWebImageView *)sectionImageView {
+    if (!_sectionImageView) {
+        _sectionImageView = HWebImageView.new;
+        [_sectionImageView setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_sectionImageView];
     }
-    return _middleImageView;
+    return _sectionImageView;
 }
-- (HWebImageView *)rightImageView {
-    if (!_rightImageView) {
-        _rightImageView = HWebImageView.new;
-        [_rightImageView setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:_rightImageView];
+- (HWebImageView *)footerImageView {
+    if (!_footerImageView) {
+        _footerImageView = HWebImageView.new;
+        [_footerImageView setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_footerImageView];
     }
-    return _rightImageView;
+    return _footerImageView;
 }
-- (HTextField *)leftTextField {
-    if (!_leftTextField) {
-        _leftTextField = HTextField.new;
-        [_leftTextField setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:_leftTextField];
+- (HTextField *)headerTextField {
+    if (!_headerTextField) {
+        _headerTextField = HTextField.new;
+        [_headerTextField setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_headerTextField];
     }
-    return _leftTextField;
+    return _headerTextField;
 }
-- (HTextField *)middleTextField {
-    if (!_middleTextField) {
-        _middleTextField = HTextField.new;
-        [_middleTextField setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:_middleTextField];
+- (HTextField *)sectionTextField {
+    if (!_sectionTextField) {
+        _sectionTextField = HTextField.new;
+        [_sectionTextField setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_sectionTextField];
     }
-    return _middleTextField;
+    return _sectionTextField;
 }
-- (HTextField *)rightTextField {
-    if (!_rightTextField) {
-        _rightTextField = HTextField.new;
-        [_rightTextField setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:_rightTextField];
+- (HTextField *)footerTextField {
+    if (!_footerTextField) {
+        _footerTextField = HTextField.new;
+        [_footerTextField setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_footerTextField];
     }
-    return _rightTextField;
+    return _footerTextField;
 }
 @end

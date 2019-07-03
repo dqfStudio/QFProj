@@ -45,23 +45,23 @@
 @end
 
 @interface HTupleViewCell : HTupleBaseCell
-@property (nonatomic) HLabel *leftLabel;
-@property (nonatomic) HLabel *middleLabel;
-@property (nonatomic) HLabel *rightLabel;
+@property (nonatomic) HLabel *headerLabel;
+@property (nonatomic) HLabel *sectionLabel;
+@property (nonatomic) HLabel *footerLabel;
 
-@property (nonatomic) HTextView *leftTextView;
-@property (nonatomic) HTextView *middleTextView;
-@property (nonatomic) HTextView *rightTextView;
+@property (nonatomic) HTextView *headerTextView;
+@property (nonatomic) HTextView *sectionTextView;
+@property (nonatomic) HTextView *footerTextView;
 
-@property (nonatomic) HWebButtonView *leftButton;
-@property (nonatomic) HWebButtonView *middleButton;
-@property (nonatomic) HWebButtonView *rightButton;
+@property (nonatomic) HWebButtonView *headerButton;
+@property (nonatomic) HWebButtonView *sectionButton;
+@property (nonatomic) HWebButtonView *footerButton;
 
-@property (nonatomic) HWebImageView *leftImageView;
-@property (nonatomic) HWebImageView *middleImageView;
-@property (nonatomic) HWebImageView *rightImageView;
+@property (nonatomic) HWebImageView *headerImageView;
+@property (nonatomic) HWebImageView *sectionImageView;
+@property (nonatomic) HWebImageView *footerImageView;
 
-@property (nonatomic) HTextField *leftTextField;
-@property (nonatomic) HTextField *middleTextField;
-@property (nonatomic) HTextField *rightTextField;
+@property (nonatomic) HTextField *headerTextField;
+@property (nonatomic) HTextField *sectionTextField;
+@property (nonatomic) HTextField *footerTextField;
 @end
