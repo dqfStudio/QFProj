@@ -64,7 +64,7 @@
 }
 @end
 
-@implementation HTableReusableTextField
+@implementation HTableReusableTextFieldView
 - (HTextField *)textField {
     if (!_textField) {
         _textField = HTextField.new;

@@ -64,7 +64,7 @@
 }
 @end
 
-@implementation HTupleReusableTextField
+@implementation HTupleReusableTextFieldView
 - (HTextField *)textField {
     if (!_textField) {
         _textField = HTextField.new;

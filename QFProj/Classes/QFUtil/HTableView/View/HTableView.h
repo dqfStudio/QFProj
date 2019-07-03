@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MJRefresh.h"
 #import "HTableRefresh.h"
 #import "HTableViewCell.h"
 #import "NSObject+HSelector.h"

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MJRefresh.h"
 #import "HTupleRefresh.h"
 #import "HTupleViewCell.h"
 #import "HTupleReusableView.h"

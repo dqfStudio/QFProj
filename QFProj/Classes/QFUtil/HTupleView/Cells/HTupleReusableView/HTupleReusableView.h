@@ -16,7 +16,7 @@
 
 @class HTupleView;
 
-@interface HTupleReusableLabelView : HTupleBaseCell
+@interface HTupleReusableLabelView : HTupleBaseView
 @property (nonatomic) HLabel *label;
 @end
 
@@ -32,15 +32,15 @@
 @property (nonatomic) HWebImageView *imageView;
 @end
 
-@interface HTupleReusableTextField : HTupleBaseView
+@interface HTupleReusableTextFieldView : HTupleBaseView
 @property (nonatomic) HTextField *textField;
 @end
 
-@interface HTupleReusableVerticalView : HTupleBaseCell
+@interface HTupleReusableVerticalView : HTupleBaseView
 @property (nonatomic) HTupleView *tuple;
 @end
 
-@interface HTupleReusableHorizontalView : HTupleBaseCell
+@interface HTupleReusableHorizontalView : HTupleBaseView
 @property (nonatomic) HTupleView *tuple;
 @end
 

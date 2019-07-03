@@ -26,19 +26,19 @@
 @property (nonatomic) HLabel *label;
 @end
 
-@interface HTableTextViewCell : HTupleBaseCell
+@interface HTableTextViewCell : HTableBaseCell
 @property (nonatomic) HTextView *textView;
 @end
 
-@interface HTableButtonViewCell : HTupleBaseCell
+@interface HTableButtonViewCell : HTableBaseCell
 @property (nonatomic) HWebButtonView *buttonView;
 @end
 
-@interface HTableImageViewCell : HTupleBaseCell
-@property (nonatomic) HWebImageView *imageView;
+@interface HTableImageViewCell : HTableBaseCell
+@property (nonatomic) HWebImageView *webImageView;
 @end
 
-@interface HTableTextFieldCell : HTupleBaseCell
+@interface HTableTextFieldCell : HTableBaseCell
 @property (nonatomic) HTextField *textField;
 @end
 

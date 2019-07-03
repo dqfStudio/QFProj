@@ -78,16 +78,16 @@
 @end
 
 @implementation HTableImageViewCell
-- (HWebImageView *)imageView {
-    if (!_imageView) {
-        _imageView = [HWebImageView new];
-        [_imageView setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:_imageView];
+- (HWebImageView *)webImageView {
+    if (!_webImageView) {
+        _webImageView = [HWebImageView new];
+        [_webImageView setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:_webImageView];
     }
-    return _imageView;
+    return _webImageView;
 }
 - (void)layoutContentView {
-    HLayoutTableView(self.imageView)
+    HLayoutTableView(self.webImageView)
 }
 @end
 

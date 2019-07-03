@@ -14,19 +14,19 @@
 @property (nonatomic) HLabel *label;
 @end
 
-@interface HTableReusableTextView : HTupleBaseCell
+@interface HTableReusableTextView : HTableBaseView
 @property (nonatomic) HTextView *textView;
 @end
 
-@interface HTableReusableButtonView : HTupleBaseCell
+@interface HTableReusableButtonView : HTableBaseView
 @property (nonatomic) HWebButtonView *buttonView;
 @end
 
-@interface HTableReusableImageView : HTupleBaseCell
+@interface HTableReusableImageView : HTableBaseView
 @property (nonatomic) HWebImageView *imageView;
 @end
 
-@interface HTableReusableTextField : HTupleBaseCell
+@interface HTableReusableTextFieldView : HTableBaseView
 @property (nonatomic) HTextField *textField;
 @end
 
