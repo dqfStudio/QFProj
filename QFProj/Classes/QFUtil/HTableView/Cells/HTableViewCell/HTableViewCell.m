@@ -95,6 +95,7 @@
 - (HTextField *)textField {
     if (!_textField) {
         _textField = HTextField.new;
+        [_textField setBackgroundColor:[UIColor clearColor]];
         [self addSubview:_textField];
     }
     return _textField;
