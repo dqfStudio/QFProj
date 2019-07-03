@@ -131,7 +131,11 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     }
 }
 - (void)setup {
-    self.alwaysBounceVertical = YES;
+    if (self.flowLayout.scrollDirection == UICollectionViewScrollDirectionVertical) {
+        self.alwaysBounceVertical = YES;
+    }else if (self.flowLayout.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+        self.alwaysBounceHorizontal = YES;
+    }
     self.backgroundColor = [UIColor clearColor];
     self.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     self.showsHorizontalScrollIndicator = NO;
