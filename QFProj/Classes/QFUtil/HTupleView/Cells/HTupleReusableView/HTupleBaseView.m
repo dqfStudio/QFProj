@@ -10,7 +10,6 @@
 #import <objc/runtime.h>
 
 @interface HTupleBaseView ()
-@property (nonatomic) UITapGestureRecognizer *baseTap;
 @property (nonatomic) UIView *separatorView;
 @end
 
@@ -76,20 +75,6 @@
     }
 }
 
-- (UITapGestureRecognizer *)baseTap {
-    if (!_baseTap) {
-        _baseTap = [[UITapGestureRecognizer alloc] init];
-        _baseTap.numberOfTapsRequired = 1;
-        _baseTap.numberOfTouchesRequired = 1;
-        [_baseTap addTarget:self action:@selector(baseTapAction)];
-    }
-    return _baseTap;
-}
-
-- (void)baseTapAction {
-    [[UIApplication sharedApplication].delegate.window endEditing:YES];
-}
-
 - (void)initUI {}
 
 - (void)layoutContentView {};
@@ -101,9 +86,6 @@
     frame.size.width -= self.edgeInsets.left + self.edgeInsets.right;
     frame.size.height -= self.edgeInsets.top + self.edgeInsets.bottom;
     return frame;
-}
-- (void)addReturnKeyBoard {
-    [self addGestureRecognizer:self.baseTap];
 }
 - (CGFloat)width {
     return CGRectGetWidth(self.frame);

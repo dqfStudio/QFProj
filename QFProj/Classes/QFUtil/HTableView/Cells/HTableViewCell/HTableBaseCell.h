@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HTableSignal.h"
 
-#define HLayoutTableView(v) \
+#define HLayoutTableCell(v) \
 if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 [v setFrame:[self getContentFrame]];\
 }

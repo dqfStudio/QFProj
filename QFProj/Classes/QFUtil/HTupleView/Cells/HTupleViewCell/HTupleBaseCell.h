@@ -15,7 +15,7 @@
 //#import "UIView+HUtil.h"
 #import "UIButton+HUtil.h"
 
-#define HLayoutTupleView(v) \
+#define HLayoutTupleCell(v) \
 if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
     [v setFrame:[self getContentFrame]];\
 }
@@ -32,7 +32,6 @@ typedef void(^HTupleBaseCellBlock)(NSIndexPath *idxPath);
 @property (nonatomic) UIColor *separatorColor;
 @property (nonatomic) BOOL shouldShowSeparator;
 - (CGRect)getContentFrame;
-- (void)addReturnKeyBoard;
 //需要子类重写该方法
 - (void)initUI;
 - (void)layoutContentView;

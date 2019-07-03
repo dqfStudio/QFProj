@@ -10,35 +10,35 @@
 #import "HTupleView.h"
 #import "HLabel.h"
 
-@interface HTableReusableLabelView : HTableBaseView
+@interface HTableLabelView : HTableBaseView
 @property (nonatomic) HLabel *label;
 @end
 
-@interface HTableReusableTextView : HTableBaseView
+@interface HTableTextView : HTableBaseView
 @property (nonatomic) HTextView *textView;
 @end
 
-@interface HTableReusableButtonView : HTableBaseView
+@interface HTableButtonView : HTableBaseView
 @property (nonatomic) HWebButtonView *buttonView;
 @end
 
-@interface HTableReusableImageView : HTableBaseView
+@interface HTableImageView : HTableBaseView
 @property (nonatomic) HWebImageView *imageView;
 @end
 
-@interface HTableReusableTextFieldView : HTableBaseView
+@interface HTableTextFieldView : HTableBaseView
 @property (nonatomic) HTextField *textField;
 @end
 
-@interface HTableReusableVerticalView : HTableBaseView
+@interface HTableVerticalView : HTableBaseView
 @property (nonatomic) HTupleView *tuple;
 @end
 
-@interface HTableReusableHorizontalView : HTableBaseView
+@interface HTableHorizontalView : HTableBaseView
 @property (nonatomic) HTupleView *tuple;
 @end
 
-@interface HTableReusableView : HTableBaseView
+@interface HTableUnionView : HTableBaseView
 @property (nonatomic) HLabel *headerLabel;
 @property (nonatomic) HLabel *sectionLabel;
 @property (nonatomic) HLabel *footerLabel;

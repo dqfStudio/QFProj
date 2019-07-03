@@ -8,7 +8,7 @@
 
 #import "HTupleReusableView.h"
 
-@implementation HTupleReusableLabelView
+@implementation HTupleLabelView
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
@@ -18,11 +18,11 @@
     return _label;
 }
 - (void)layoutContentView {
-    HLayoutReusableTupleView(self.label)
+    HLayoutTupleView(self.label)
 }
 @end
 
-@implementation HTupleReusableTextView
+@implementation HTupleTextView
 - (HTextView *)textView {
     if (!_textView) {
         _textView = [HTextView new];
@@ -32,11 +32,11 @@
     return _textView;
 }
 - (void)layoutContentView {
-    HLayoutReusableTupleView(self.textView)
+    HLayoutTupleView(self.textView)
 }
 @end
 
-@implementation HTupleReusableButtonView
+@implementation HTupleButtonView
 - (HWebButtonView *)buttonView {
     if (!_buttonView) {
         _buttonView = [HWebButtonView new];
@@ -46,11 +46,11 @@
     return _buttonView;
 }
 - (void)layoutContentView {
-    HLayoutReusableTupleView(self.buttonView)
+    HLayoutTupleView(self.buttonView)
 }
 @end
 
-@implementation HTupleReusableImageView
+@implementation HTupleImageView
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = [HWebImageView new];
@@ -60,11 +60,11 @@
     return _imageView;
 }
 - (void)layoutContentView {
-    HLayoutReusableTupleView(self.imageView)
+    HLayoutTupleView(self.imageView)
 }
 @end
 
-@implementation HTupleReusableTextFieldView
+@implementation HTupleTextFieldView
 - (HTextField *)textField {
     if (!_textField) {
         _textField = HTextField.new;
@@ -73,11 +73,11 @@
     return _textField;
 }
 - (void)layoutContentView {
-    HLayoutReusableTupleView(self.textField)
+    HLayoutTupleView(self.textField)
 }
 @end
 
-@implementation HTupleReusableVerticalView
+@implementation HTupleVerticalView
 - (HTupleView *)tuple {
     if (!_tuple) {
         _tuple = [[HTupleView alloc] initWithFrame:self.bounds];
@@ -88,11 +88,11 @@
     return _tuple;
 }
 - (void)layoutContentView {
-    HLayoutReusableTupleView(self.tuple)
+    HLayoutTupleView(self.tuple)
 }
 @end
 
-@implementation HTupleReusableHorizontalView
+@implementation HTupleHorizontalView
 - (HTupleView *)tuple {
     if (!_tuple) {
         _tuple = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleViewScrollDirectionHorizontal];
@@ -103,11 +103,11 @@
     return _tuple;
 }
 - (void)layoutContentView {
-    HLayoutReusableTupleView(self.tuple)
+    HLayoutTupleView(self.tuple)
 }
 @end
 
-@implementation HTupleReusableView
+@implementation HTupleUnionView
 - (HLabel *)headerLabel {
     if (!_headerLabel) {
         _headerLabel = [HLabel new];

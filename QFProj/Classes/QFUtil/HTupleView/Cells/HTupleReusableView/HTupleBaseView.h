@@ -14,7 +14,7 @@
 //#import "UILabel+HUtil.h"
 //#import "UIButton+HUtil.h"
 
-#define HLayoutReusableTupleView(v) \
+#define HLayoutTupleView(v) \
 if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
     [v setFrame:[self getContentFrame]];\
 }
@@ -31,7 +31,6 @@ typedef void(^HTupleBaseViewBlock)(NSIndexPath *idxPath);
 @property (nonatomic) UIColor *separatorColor;
 @property (nonatomic) BOOL shouldShowSeparator;
 - (CGRect)getContentFrame;
-- (void)addReturnKeyBoard;
 //需要子类重写该方法
 - (void)initUI;
 - (void)layoutContentView;

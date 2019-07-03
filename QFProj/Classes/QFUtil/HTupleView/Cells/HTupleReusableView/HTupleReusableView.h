@@ -16,35 +16,35 @@
 
 @class HTupleView;
 
-@interface HTupleReusableLabelView : HTupleBaseView
+@interface HTupleLabelView : HTupleBaseView
 @property (nonatomic) HLabel *label;
 @end
 
-@interface HTupleReusableTextView : HTupleBaseView
+@interface HTupleTextView : HTupleBaseView
 @property (nonatomic) HTextView *textView;
 @end
 
-@interface HTupleReusableButtonView : HTupleBaseView
+@interface HTupleButtonView : HTupleBaseView
 @property (nonatomic) HWebButtonView *buttonView;
 @end
 
-@interface HTupleReusableImageView : HTupleBaseView
+@interface HTupleImageView : HTupleBaseView
 @property (nonatomic) HWebImageView *imageView;
 @end
 
-@interface HTupleReusableTextFieldView : HTupleBaseView
+@interface HTupleTextFieldView : HTupleBaseView
 @property (nonatomic) HTextField *textField;
 @end
 
-@interface HTupleReusableVerticalView : HTupleBaseView
+@interface HTupleVerticalView : HTupleBaseView
 @property (nonatomic) HTupleView *tuple;
 @end
 
-@interface HTupleReusableHorizontalView : HTupleBaseView
+@interface HTupleHorizontalView : HTupleBaseView
 @property (nonatomic) HTupleView *tuple;
 @end
 
-@interface HTupleReusableView : HTupleBaseView
+@interface HTupleUnionView : HTupleBaseView
 @property (nonatomic) HLabel *headerLabel;
 @property (nonatomic) HLabel *sectionLabel;
 @property (nonatomic) HLabel *footerLabel;

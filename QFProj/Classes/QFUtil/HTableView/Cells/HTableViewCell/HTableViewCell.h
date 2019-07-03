@@ -50,7 +50,7 @@
 @property (nonatomic) HTupleView *tuple;
 @end
 
-@interface HTableViewCell : HTableBaseCell
+@interface HTableUnionCell : HTableBaseCell
 @property (nonatomic) HLabel *headerLabel;
 @property (nonatomic) HLabel *sectionLabel;
 @property (nonatomic) HLabel *footerLabel;

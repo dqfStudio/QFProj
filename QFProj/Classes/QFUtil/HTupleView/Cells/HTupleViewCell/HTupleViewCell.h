@@ -44,7 +44,7 @@
 @property (nonatomic) HTupleView *tuple;
 @end
 
-@interface HTupleViewCell : HTupleBaseCell
+@interface HTupleUnionCell : HTupleBaseCell
 @property (nonatomic) HLabel *headerLabel;
 @property (nonatomic) HLabel *sectionLabel;
 @property (nonatomic) HLabel *footerLabel;

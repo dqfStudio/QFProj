@@ -45,7 +45,7 @@
     return _label;
 }
 - (void)layoutContentView {
-    HLayoutTableView(self.label)
+    HLayoutTableCell(self.label)
 }
 @end
 
@@ -59,7 +59,7 @@
     return _textView;
 }
 - (void)layoutContentView {
-    HLayoutTableView(self.textView)
+    HLayoutTableCell(self.textView)
 }
 @end
 
@@ -73,7 +73,7 @@
     return _webButtonView;
 }
 - (void)layoutContentView {
-    HLayoutTableView(self.webButtonView)
+    HLayoutTableCell(self.webButtonView)
 }
 @end
 
@@ -87,7 +87,7 @@
     return _webImageView;
 }
 - (void)layoutContentView {
-    HLayoutTableView(self.webImageView)
+    HLayoutTableCell(self.webImageView)
 }
 @end
 
@@ -100,7 +100,7 @@
     return _textField;
 }
 - (void)layoutContentView {
-    HLayoutTableView(self.textField)
+    HLayoutTableCell(self.textField)
 }
 @end
 
@@ -115,7 +115,7 @@
     return _tuple;
 }
 - (void)layoutContentView {
-    HLayoutTableView(self.tuple)
+    HLayoutTableCell(self.tuple)
 }
 @end
 
@@ -130,11 +130,11 @@
     return _tuple;
 }
 - (void)layoutContentView {
-    HLayoutTableView(self.tuple)
+    HLayoutTableCell(self.tuple)
 }
 @end
 
-@implementation HTableViewCell
+@implementation HTableUnionCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     return [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
 }

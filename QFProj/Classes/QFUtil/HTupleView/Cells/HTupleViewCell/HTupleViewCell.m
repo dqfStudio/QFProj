@@ -18,7 +18,7 @@
     return _label;
 }
 - (void)layoutContentView {
-    HLayoutTupleView(self.label)
+    HLayoutTupleCell(self.label)
 }
 @end
 
@@ -32,7 +32,7 @@
     return _textView;
 }
 - (void)layoutContentView {
-    HLayoutTupleView(self.textView)
+    HLayoutTupleCell(self.textView)
 }
 @end
 
@@ -46,7 +46,7 @@
     return _buttonView;
 }
 - (void)layoutContentView {
-    HLayoutTupleView(self.buttonView)
+    HLayoutTupleCell(self.buttonView)
 }
 @end
 
@@ -60,7 +60,7 @@
     return _imageView;
 }
 - (void)layoutContentView {
-    HLayoutTupleView(self.imageView)
+    HLayoutTupleCell(self.imageView)
 }
 @end
 
@@ -73,7 +73,7 @@
     return _textField;
 }
 - (void)layoutContentView {
-    HLayoutTupleView(self.textField)
+    HLayoutTupleCell(self.textField)
 }
 @end
 
@@ -88,7 +88,7 @@
     return _tuple;
 }
 - (void)layoutContentView {
-    HLayoutTupleView(self.tuple)
+    HLayoutTupleCell(self.tuple)
 }
 @end
 
@@ -103,11 +103,11 @@
     return _tuple;
 }
 - (void)layoutContentView {
-    HLayoutTupleView(self.tuple)
+    HLayoutTupleCell(self.tuple)
 }
 @end
 
-@implementation HTupleViewCell
+@implementation HTupleUnionCell
 - (HLabel *)headerLabel {
     if (!_headerLabel) {
         _headerLabel = [HLabel new];
