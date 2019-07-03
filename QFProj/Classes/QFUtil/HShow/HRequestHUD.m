@@ -176,7 +176,7 @@
     footerBlock(nil, HTupleUnionView.class, self.modePrefix, YES);
 }
 - (void)mode1_tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    itemBlock(nil, HTupleImageViewCell.class, self.modePrefix, YES);
+    itemBlock(nil, HTupleImageCell.class, self.modePrefix, YES);
 }
 - (void)mode1_tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self didSelectedItem];
@@ -253,7 +253,7 @@
     footerBlock(nil, HTupleUnionView.class, self.modePrefix, YES);
 }
 - (void)mode2_tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    itemBlock(nil, HTupleImageViewCell.class, self.modePrefix, YES);
+    itemBlock(nil, HTupleImageCell.class, self.modePrefix, YES);
 }
 - (void)mode2_tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self didSelectedItem];
@@ -334,7 +334,7 @@
     footerBlock(nil, HTupleUnionView.class, self.modePrefix, YES);
 }
 - (void)mode3_tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    itemBlock(nil, HTupleImageViewCell.class, self.modePrefix, YES);
+    itemBlock(nil, HTupleImageCell.class, self.modePrefix, YES);
 }
 - (void)mode3_tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self didSelectedItem];
@@ -395,7 +395,7 @@
     footerBlock(nil, HTupleUnionView.class, self.modePrefix, YES);
 }
 - (void)mode4_tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    itemBlock(nil, HTupleLabelViewCell.class, self.modePrefix, YES);
+    itemBlock(nil, HTupleLabelCell.class, self.modePrefix, YES);
 }
 - (void)mode4_tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self didSelectedItem];
@@ -468,7 +468,7 @@
     footerBlock(nil, HTupleUnionView.class, self.modePrefix, YES);
 }
 - (void)mode5_tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    itemBlock(nil, HTupleLabelViewCell.class, self.modePrefix, YES);
+    itemBlock(nil, HTupleLabelCell.class, self.modePrefix, YES);
 }
 - (void)mode5_tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self didSelectedItem];

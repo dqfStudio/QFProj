@@ -133,7 +133,7 @@
 - (void)tupleView:(HTupleView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:{
-            HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+            HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -154,7 +154,7 @@
             break;
         case 2:
         {
-            HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+            HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -174,7 +174,7 @@
             break;
         case 4:
         {
-            HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+            HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -195,7 +195,7 @@
             break;
         case 6:
         {
-            HTupleButtonViewCell *cell = itemBlock(nil, HTupleButtonViewCell.class, nil, YES);
+            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.buttonView setBackgroundColor:[UIColor colorWithString:@"#CCCCCC"]];
             [cell.buttonView.button setTitle:@"获取验证码"];
@@ -207,13 +207,13 @@
             break;
         case 7:
         {
-            HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+            HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
             [cell setBackgroundColor:[UIColor clearColor]];
         }
             break;
         case 8:
         {
-            HTupleButtonViewCell *cell = itemBlock(nil, HTupleButtonViewCell.class, nil, YES);
+            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.buttonView setBackgroundColor:[UIColor colorWithString:@"#CCCCCC"]];
             [cell.buttonView.button setTitle:@"开始"];
@@ -230,7 +230,7 @@
             break;
         case 9:
         {
-            HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+            HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.label setBackgroundColor:[UIColor clearColor]];
             [cell.label setText:@"点击开始,即表示已阅读并同意"];
@@ -241,7 +241,7 @@
             break;
         case 10:
         {
-            HTupleButtonViewCell *cell = itemBlock(nil, HTupleButtonViewCell.class, nil, YES);
+            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
             [cell setBackgroundColor:[UIColor clearColor]];
             [cell.buttonView setBackgroundColor:[UIColor clearColor]];
             [cell.buttonView.button setBackgroundColor:[UIColor clearColor]];
@@ -257,7 +257,7 @@
             
         default:
         {
-            HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+            HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
             [cell setBackgroundColor:[UIColor clearColor]];
         }
             break;

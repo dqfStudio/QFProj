@@ -323,11 +323,11 @@ UIKIT_STATIC_INLINE long getTotalPages(long totalLines, long pageLines);
 - (void)tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     if (tupleView.tag == KTupleViewTag) {
         if (indexPath.row < self.formController.titles.count) {
-            Class class = HTupleButtonViewCell.class;
+            Class class = HTupleButtonCell.class;
             if (self.formController.tupleCellClass) {
                 class = self.formController.tupleCellClass;
             }
-            HTupleButtonViewCell *cell = itemBlock(nil, HTupleButtonViewCell.class, nil, YES);
+            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
             [cell setBackgroundColor:self.formController.bgColor];
             [cell.buttonView setBackgroundColor:self.formController.itemBgColor];
             [cell.buttonView.button setTitle:self.formController.titles[indexPath.row]];
@@ -342,11 +342,11 @@ UIKIT_STATIC_INLINE long getTotalPages(long totalLines, long pageLines);
         NSInteger tag = tupleView.tag;
         long pageItems = self.formController.lineItems*self.formController.pageLines;
         if (indexPath.row < self.formController.titles.count - pageItems*tag) {
-            Class class = HTupleButtonViewCell.class;
+            Class class = HTupleButtonCell.class;
             if (self.formController.tupleCellClass) {
                 class = self.formController.tupleCellClass;
             }
-            HTupleButtonViewCell *cell = itemBlock(nil, HTupleButtonViewCell.class, nil, YES);
+            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
             [cell setBackgroundColor:self.formController.bgColor];
             [cell.buttonView setBackgroundColor:self.formController.itemBgColor];
             [cell.buttonView.button setTitle:self.formController.titles[indexPath.row+pageItems*tag]];

@@ -99,7 +99,7 @@
         {
             switch (indexPath.row) {
                 case 0:{
-                    HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+                    HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
                     [cell setBackgroundColor:[UIColor clearColor]];
 //                    [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setBackgroundColor:[UIColor greenColor]];
@@ -111,7 +111,7 @@
                     break;
                 case 1:
                 {
-                    HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+                    HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
                     [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -121,7 +121,7 @@
                     break;
                 case 2:
                 {
-                    HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+                    HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
                     [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -132,7 +132,7 @@
                     break;
                 case 3:
                 {
-                    HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+                    HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
                     [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -143,7 +143,7 @@
                     break;
                 case 4:
                 {
-                    HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+                    HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
                     [cell setBackgroundColor:[UIColor lightGrayColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -154,7 +154,7 @@
                     break;
                 case 5:
                 {
-                    HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+                    HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
                     [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -165,7 +165,7 @@
                     break;
                 case 6:
                 {
-                    HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+                    HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
                     [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -176,7 +176,7 @@
                     break;
                 case 7:
                 {
-                    HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+                    HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
                     [cell setBackgroundColor:[UIColor greenColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -187,7 +187,7 @@
                     break;
                 case 8:
                 {
-                    HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+                    HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
                     [cell setBackgroundColor:[UIColor yellowColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -198,7 +198,7 @@
                     break;
                 case 9:
                 {
-                    HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+                    HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
                     [cell setBackgroundColor:[UIColor redColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -209,7 +209,7 @@
                     break;
                 case 10:
                 {
-                    HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+                    HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
                     [cell setBackgroundColor:[UIColor blueColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -220,7 +220,7 @@
                     break;
                 case 11:
                 {
-                    HTupleButtonViewCell *cell = itemBlock(nil, HTupleButtonViewCell.class, nil, YES);
+                    HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
                     [cell setBackgroundColor:[UIColor blackColor]];
                     //            [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     //            [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -232,7 +232,7 @@
                     
                 default:
                 {
-                    HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+                    HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
                     [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor redColor]];
                     NSLog(@"%@",@(indexPath.row));
@@ -249,7 +249,7 @@
         {
             switch (indexPath.row) {
                 case 0:{
-                    HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+                    HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
                     [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -258,7 +258,7 @@
                 }
                     break;
                 case 1:{
-                    HTupleImageViewCell *cell = itemBlock(nil, HTupleImageViewCell.class, nil, YES);
+                    HTupleImageCell *cell = itemBlock(nil, HTupleImageCell.class, nil, YES);
                     [cell setBackgroundColor:[UIColor clearColor]];
                 }
                     break;
@@ -266,14 +266,14 @@
                 {
 //                    HTupleDoubleImageCell *cell = itemBlock(HTupleDoubleImageCell.class);
 //                    [cell setBackgroundColor:[UIColor clearColor]];
-                    HTupleImageViewCell *cell = itemBlock(nil, HTupleImageViewCell.class, nil, YES);
+                    HTupleImageCell *cell = itemBlock(nil, HTupleImageCell.class, nil, YES);
                     [cell setBackgroundColor:[UIColor clearColor]];
                 }
                     break;
                     
                 default:
                 {
-                    HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+                    HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
                     [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor redColor]];
                     NSLog(@"%@",@(indexPath.row));

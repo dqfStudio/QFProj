@@ -116,7 +116,7 @@
         @sss
         switch (indexPath.row) {
             case 0: {
-                HTupleImageViewCell *cell = itemBlock(nil, HTupleImageViewCell.class, nil, YES);
+                HTupleImageCell *cell = itemBlock(nil, HTupleImageCell.class, nil, YES);
                 [cell.imageView.imageView setContentMode:UIViewContentModeScaleAspectFit];
                 [cell.imageView setBackgroundColor:[UIColor clearColor]];
                 
@@ -150,7 +150,7 @@
             }
                 break;
             case 1: {
-                HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+                HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
                 [cell.label setText:@"请稍候..."];
                 [cell.label setFont:[UIFont systemFontOfSize:14]];
                 [cell.label setTextAlignment:NSTextAlignmentCenter];

@@ -102,7 +102,7 @@ H_CheckPropertyRange(rrr, 0, 150)
     } tuple:^(HItemTuple  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
 //        HTupleVerticalCell *cell = itemBlock(nil, HTupleVerticalCell.class, nil, YES);
 //        [cell setBackgroundColor:[UIColor redColor]];
-//        HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+//        HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
 //        [cell setBackgroundColor:[UIColor redColor]];
 //        [cell.label setText:@"fadsfds"];
         
@@ -510,7 +510,7 @@ H_CheckPropertyRange(rrr, 0, 150)
 - (void)tupleView:(HTupleView *)tupleView itemTuple:(id (^)(id iblk, Class cls, id pre, bool idx))itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:{
-            HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+            HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
             [cell.label setBackgroundColor:[UIColor redColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
 //            [cell setInitBlock:^{
@@ -530,7 +530,7 @@ H_CheckPropertyRange(rrr, 0, 150)
             break;
         case 2:
         {
-            HTupleButtonViewCell *cell = itemBlock(nil, HTupleButtonViewCell.class, nil, YES);
+            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
             [cell.buttonView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
             [cell.buttonView setPressed:^(id sender, id data) {
@@ -543,7 +543,7 @@ H_CheckPropertyRange(rrr, 0, 150)
             break;
         case 3:
         {
-            HTupleButtonViewCell *cell = itemBlock(nil, HTupleButtonViewCell.class, nil, YES);
+            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
             [cell.buttonView setBackgroundColor:[UIColor redColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
             [cell.buttonView setPressed:^(id sender, id data) {
@@ -554,7 +554,7 @@ H_CheckPropertyRange(rrr, 0, 150)
             
         default:
         {
-            HTupleImageViewCell *cell = itemBlock(nil, HTupleImageViewCell.class, nil, YES);
+            HTupleImageCell *cell = itemBlock(nil, HTupleImageCell.class, nil, YES);
             [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }

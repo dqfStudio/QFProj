@@ -10,15 +10,15 @@
 #import "HTupleView.h"
 #import "HLabel.h"
 
-@interface HTableViewCellValue1 : HTableBaseCell
+@interface HTableCellValue1 : HTableBaseCell
 
 @end
 
-@interface HTableViewCellValue2 : HTableBaseCell
+@interface HTableCellValue2 : HTableBaseCell
 
 @end
 
-@interface HTableViewCellSubtitle : HTableBaseCell
+@interface HTableCellSubtitle : HTableBaseCell
 
 @end
 
@@ -26,15 +26,15 @@
 @property (nonatomic) HLabel *label;
 @end
 
-@interface HTableTextViewCell : HTableBaseCell
+@interface HTableTextCell : HTableBaseCell
 @property (nonatomic) HTextView *textView;
 @end
 
-@interface HTableButtonViewCell : HTableBaseCell
+@interface HTableButtonCell : HTableBaseCell
 @property (nonatomic) HWebButtonView *webButtonView;
 @end
 
-@interface HTableImageViewCell : HTableBaseCell
+@interface HTableImageCell : HTableBaseCell
 @property (nonatomic) HWebImageView *webImageView;
 @end
 

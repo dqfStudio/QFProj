@@ -8,7 +8,7 @@
 
 #import "HTupleViewCell.h"
 
-@implementation HTupleLabelViewCell
+@implementation HTupleLabelCell
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
@@ -22,7 +22,7 @@
 }
 @end
 
-@implementation HTupleTextViewCell
+@implementation HTupleTextCell
 - (HTextView *)textView {
     if (!_textView) {
         _textView = [HTextView new];
@@ -36,7 +36,7 @@
 }
 @end
 
-@implementation HTupleButtonViewCell
+@implementation HTupleButtonCell
 - (HWebButtonView *)buttonView {
     if (!_buttonView) {
         _buttonView = [HWebButtonView new];
@@ -50,7 +50,7 @@
 }
 @end
 
-@implementation HTupleImageViewCell
+@implementation HTupleImageCell
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = [HWebImageView new];

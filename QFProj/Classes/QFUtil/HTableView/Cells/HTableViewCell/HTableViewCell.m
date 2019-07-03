@@ -8,7 +8,7 @@
 
 #import "HTableViewCell.h"
 
-@implementation HTableViewCellValue1
+@implementation HTableCellValue1
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     return [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseIdentifier];
 }
@@ -17,7 +17,7 @@
 }
 @end
 
-@implementation HTableViewCellValue2
+@implementation HTableCellValue2
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     return [super initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:reuseIdentifier];
 }
@@ -26,7 +26,7 @@
 }
 @end
 
-@implementation HTableViewCellSubtitle
+@implementation HTableCellSubtitle
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     return [super initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
 }
@@ -49,7 +49,7 @@
 }
 @end
 
-@implementation HTableTextViewCell
+@implementation HTableTextCell
 - (HTextView *)textView {
     if (!_textView) {
         _textView = [HTextView new];
@@ -63,7 +63,7 @@
 }
 @end
 
-@implementation HTableButtonViewCell
+@implementation HTableButtonCell
 - (HWebButtonView *)webButtonView {
     if (!_webButtonView) {
         _webButtonView = [HWebButtonView new];
@@ -77,7 +77,7 @@
 }
 @end
 
-@implementation HTableImageViewCell
+@implementation HTableImageCell
 - (HWebImageView *)webImageView {
     if (!_webImageView) {
         _webImageView = [HWebImageView new];

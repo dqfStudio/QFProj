@@ -83,7 +83,7 @@
     
     if (index < self.modelArr.count) {
         
-        HTupleButtonViewCell *cell = itemBlock(nil, HTupleButtonViewCell.class, nil, YES);
+        HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
         [cell.buttonView setBackgroundColor:[UIColor clearColor]];
         [cell.buttonView.button setTitleColor:[UIColor blackColor]];
         

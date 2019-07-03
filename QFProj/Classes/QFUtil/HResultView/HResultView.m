@@ -140,7 +140,7 @@
         switch (indexPath.row) {
             case 0: {
                 if (!_hideImage) {
-                    HTupleImageViewCell *cell = itemBlock(nil, HTupleImageViewCell.class, nil, YES);
+                    HTupleImageCell *cell = itemBlock(nil, HTupleImageCell.class, nil, YES);
                     switch (_resultType) {
                         case HResultTypeNoData:
                             [cell.imageView setImage:[UIImage imageNamed:@"mgf_icon_load_nothing"]];
@@ -161,7 +161,7 @@
             }
                 break;
             case 1: {
-                HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+                HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
                 [cell.label setTextColor:[UIColor blackColor]];
                 [cell.label setFont:[UIFont systemFontOfSize:14]];
                 [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -182,7 +182,7 @@
             }
                 break;
             case 2: {
-                HTupleLabelViewCell *cell = itemBlock(nil, HTupleLabelViewCell.class, nil, YES);
+                HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
                 [cell.label setTextColor:[UIColor blackColor]];
                 [cell.label setFont:[UIFont systemFontOfSize:14]];
                 [cell.label setTextAlignment:NSTextAlignmentCenter];

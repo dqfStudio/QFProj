@@ -16,19 +16,19 @@
 
 @class HTupleView;
 
-@interface HTupleLabelViewCell : HTupleBaseCell
+@interface HTupleLabelCell : HTupleBaseCell
 @property (nonatomic) HLabel *label;
 @end
 
-@interface HTupleTextViewCell : HTupleBaseCell
+@interface HTupleTextCell : HTupleBaseCell
 @property (nonatomic) HTextView *textView;
 @end
 
-@interface HTupleButtonViewCell : HTupleBaseCell
+@interface HTupleButtonCell : HTupleBaseCell
 @property (nonatomic) HWebButtonView *buttonView;
 @end
 
-@interface HTupleImageViewCell : HTupleBaseCell
+@interface HTupleImageCell : HTupleBaseCell
 @property (nonatomic) HWebImageView *imageView;
 @end
 
