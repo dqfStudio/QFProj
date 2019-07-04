@@ -196,7 +196,9 @@
         _pressed = pressed;
         if (pressed) {
             [self.imageView setUserInteractionEnabled:YES];
-            [self.imageView addGestureRecognizer:self.tapGesture];
+            if (!self.tapGesture.view) {
+                [self.imageView addGestureRecognizer:self.tapGesture];
+            }
         }else {
             [self.imageView setUserInteractionEnabled:NO];
         }
