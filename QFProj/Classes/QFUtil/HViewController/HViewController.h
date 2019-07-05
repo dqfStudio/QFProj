@@ -16,12 +16,6 @@
 #import "NSObject+HSwizzleUtil.h"
 #import "UIApplication+HUtil.h"
 
-//@interface AppDelegate (HRotate)
-//@property (nonatomic, class) BOOL shouldAutorotate;
-//@property (nonatomic, class) BOOL extraInterfaceOrientation;
-//@property (nonatomic, class) UIInterfaceOrientationMask interfaceOrientation;
-//@end
-
 @interface HVCAppearance : NSObject
 @property (nonatomic) UIColor *barColor;
 @property (nonatomic) UIColor *bgColor;

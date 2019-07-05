@@ -243,7 +243,7 @@
 		A2DC22BE2242994800E540BE /* NSObject+HForwarding.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */; };
 		A2E8F50822CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50622CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png */; };
 		A2E8F50922CCDCAA00E7C9F2 /* icon_tuple_nodata@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50722CCDCAA00E7C9F2 /* icon_tuple_nodata@2x.png */; };
-		A2E8F51722CF851900E7C9F2 /* AppDelegate+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F51622CF851900E7C9F2 /* AppDelegate+HUtil.m */; };
+		A2E8F51A22CF925700E7C9F2 /* AppDelegate+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F51922CF925700E7C9F2 /* AppDelegate+HUtil.m */; };
 		A2ED9C1222314BA100C9D050 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1022314BA100C9D050 /* SimplePing.m */; };
 		A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1122314BA100C9D050 /* HPingTester.m */; };
 		A2ED9C1722314CAC00C9D050 /* HKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1622314CAC00C9D050 /* HKeyChainStore.m */; };
@@ -673,8 +673,8 @@
 		A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HForwarding.m"; sourceTree = "<group>"; };
 		A2E8F50622CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_nodata@3x.png"; sourceTree = "<group>"; };
 		A2E8F50722CCDCAA00E7C9F2 /* icon_tuple_nodata@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_nodata@2x.png"; sourceTree = "<group>"; };
-		A2E8F51522CF851900E7C9F2 /* AppDelegate+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+HUtil.h"; sourceTree = "<group>"; };
-		A2E8F51622CF851900E7C9F2 /* AppDelegate+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+HUtil.m"; sourceTree = "<group>"; };
+		A2E8F51822CF925700E7C9F2 /* AppDelegate+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+HUtil.h"; sourceTree = "<group>"; };
+		A2E8F51922CF925700E7C9F2 /* AppDelegate+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+HUtil.m"; sourceTree = "<group>"; };
 		A2ED9C0E22314BA100C9D050 /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
 		A2ED9C0F22314BA100C9D050 /* HPingTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPingTester.h; sourceTree = "<group>"; };
 		A2ED9C1022314BA100C9D050 /* SimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePing.m; sourceTree = "<group>"; };
@@ -1040,8 +1040,8 @@
 				15112C69210574DB00842FE4 /* UIAlertController+HError.m */,
 				15B4DD992092F96B00773E04 /* UIApplication+HUtil.h */,
 				15B4DDA72092F96B00773E04 /* UIApplication+HUtil.m */,
-				A2E8F51522CF851900E7C9F2 /* AppDelegate+HUtil.h */,
-				A2E8F51622CF851900E7C9F2 /* AppDelegate+HUtil.m */,
+				A2E8F51822CF925700E7C9F2 /* AppDelegate+HUtil.h */,
+				A2E8F51922CF925700E7C9F2 /* AppDelegate+HUtil.m */,
 				15B4DDAE2092F96B00773E04 /* UIButton+HUtil.h */,
 				15B4DD9F2092F96B00773E04 /* UIButton+HUtil.m */,
 				15B4DD9D2092F96B00773E04 /* UIColor+HUtil.h */,
@@ -2176,7 +2176,7 @@
 				15C572A020AEAC340070327C /* UILabel+HState.m in Sources */,
 				A206882F22CA083700661634 /* HWebButtonView.m in Sources */,
 				15B4DE032092F96C00773E04 /* NSObject+HUtil.m in Sources */,
-				A2E8F51722CF851900E7C9F2 /* AppDelegate+HUtil.m in Sources */,
+				A2E8F51A22CF925700E7C9F2 /* AppDelegate+HUtil.m in Sources */,
 				15E6BB9B2136E7E300EBE794 /* YPTabBar.m in Sources */,
 				A24B659722607E8400B257BB /* SKPSMTPMessage.m in Sources */,
 				A222AE5E22818F7D0013098A /* HTextArchiver.m in Sources */,

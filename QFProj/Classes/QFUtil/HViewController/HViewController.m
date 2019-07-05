@@ -8,94 +8,6 @@
 
 #import "HViewController.h"
 
-@implementation AppDelegate (HRotate)
-//+ (BOOL)shouldAutorotate {
-//    return [objc_getAssociatedObject(self, _cmd) boolValue];
-//}
-//+ (void)setShouldAutorotate:(BOOL)shouldAutorotate {
-//    objc_setAssociatedObject(self, @selector(shouldAutorotate), @(shouldAutorotate), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//}
-//
-//+ (BOOL)hVCInterfaceOrientation {
-//    return [objc_getAssociatedObject(self, _cmd) boolValue];
-//}
-//+ (void)setHVCInterfaceOrientation:(BOOL)hVCInterfaceOrientation {
-//    objc_setAssociatedObject(self, @selector(hVCInterfaceOrientation), @(hVCInterfaceOrientation), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//}
-//
-//+ (BOOL)extraInterfaceOrientation {
-//    return [objc_getAssociatedObject(self, _cmd) boolValue];
-//}
-//+ (void)setExtraInterfaceOrientation:(BOOL)extraInterfaceOrientation {
-//    objc_setAssociatedObject(self, @selector(extraInterfaceOrientation), @(extraInterfaceOrientation), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//}
-//
-//+ (UIInterfaceOrientationMask)defaultInterfaceOrientation {
-//    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
-//}
-//+ (UIInterfaceOrientationMask)interfaceOrientation {
-//    return [objc_getAssociatedObject(self, _cmd) integerValue];
-//}
-//+ (void)setInterfaceOrientation:(UIInterfaceOrientationMask)interfaceOrientation {
-//    objc_setAssociatedObject(self, @selector(interfaceOrientation), @(interfaceOrientation), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//}
-//- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
-//    if (AppDelegate.shouldAutorotate) {
-//        if (AppDelegate.extraInterfaceOrientation) {//判断是否手动干预，优先级最高
-//            return AppDelegate.interfaceOrientation;
-//        }else if (AppDelegate.hVCInterfaceOrientation) {//判断是否基于HViewController的VC
-//            return AppDelegate.defaultInterfaceOrientation;
-//        }else {//没有手动干预并且基于HViewController的VC
-//            return AppDelegate.interfaceOrientation;
-//        }
-//    }
-//    return UIInterfaceOrientationMaskPortrait;
-//}
-@end
-
-@implementation UIViewController (HRotate)
-//+ (void)load {
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        [[self class] methodSwizzleWithOrigSEL:@selector(viewWillAppear:) overrideSEL:@selector(pvc_viewWillAppear:)];
-//    });
-//}
-//- (void)pvc_viewWillAppear:(BOOL)animated {
-//    [self pvc_viewWillAppear:animated];
-//    //判断是否基于HViewController的VC
-//    if ([self isKindOfClass:HViewController.class]) {
-//        [AppDelegate setHVCInterfaceOrientation:NO];
-//    }else {
-//        [AppDelegate setHVCInterfaceOrientation:YES];
-//    }
-//    [AppDelegate setShouldAutorotate:self.shouldAutorotate];
-//    [AppDelegate setInterfaceOrientation:self.supportedInterfaceOrientations];
-//}
-@end
-
-@interface HViewControllerMgr : NSObject <UIGestureRecognizerDelegate>
-
-@end
-
-@implementation HViewControllerMgr :NSObject
-+ (instancetype)shared {
-    static dispatch_once_t pred;
-    static HViewControllerMgr *o = nil;
-    dispatch_once(&pred, ^{ o = [[self alloc] init]; });
-    return o;
-}
-//防止导航控制器只有一个rootViewcontroller时触发手势
-- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer {
-    // 解决右滑和UITableView左滑删除的冲突
-    CGPoint translation = [gestureRecognizer translationInView:gestureRecognizer.view];
-    if (translation.x <= 0) {
-        return NO;
-    }
-    return (UIApplication.navi.viewControllers.count > 1);
-    //return YES;
-}
-@end
-
 #define HNavTitleButtonWidth 70.0f
 #define HNavTitleButtonMargin 10.0f
 
@@ -133,17 +45,6 @@
 @end
 
 @implementation HViewController
-
-//+ (void)load {
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        [[self class] methodSwizzleWithOrigSEL:@selector(viewWillAppear:) overrideSEL:@selector(pvc_viewWillAppear:)];
-//    });
-//}
-//- (void)pvc_viewWillAppear:(BOOL)animated {
-//    [self pvc_viewWillAppear:animated];
-//    [AppDelegate setShouldAutorotate:self.shouldAutorotate];
-//}
 
 //一般情况下调用 init 方法或者调用 initWithNibName 方法实例化 UIViewController, 不管调用哪个方法都为调用 initWithNibName
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -222,8 +123,6 @@
     [self.view bringSubviewToFront:self.topBar];
     //要更新statusbar状态的需要调用下这个方法,最好与viewWillDisappear对应
     [self setNeedsStatusBarAppearanceUpdate];
-    //self.navigationController.interactivePopGestureRecognizer.enabled = [self popGestureEnabled];
-    //self.navigationController.interactivePopGestureRecognizer.delegate = [HViewControllerMgr shared];
 #ifdef __IPHONE_11_0
     if (@available(iOS 11.0, *)) {
         if ([self.view isKindOfClass:[UIScrollView class]]) {
@@ -457,7 +356,7 @@
 
 #pragma mark - 旋转支持
 - (BOOL)shouldAutorotate {
-    return YES;
+    return NO;
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
@@ -478,14 +377,6 @@
 //        }
 //    }
 //    return UIInterfaceOrientationLandscapeRight;
-//}
-
-//#pragma mark - gestureRecognizer delegate
-//
-//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
-//{
-//    [otherGestureRecognizer requireGestureRecognizerToFail:gestureRecognizer];
-//    return NO;
 //}
 
 #pragma mark - 请求控制
