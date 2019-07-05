@@ -9,68 +9,68 @@
 #import "HViewController.h"
 
 @implementation AppDelegate (HRotate)
-+ (BOOL)shouldAutorotate {
-    return [objc_getAssociatedObject(self, _cmd) boolValue];
-}
-+ (void)setShouldAutorotate:(BOOL)shouldAutorotate {
-    objc_setAssociatedObject(self, @selector(shouldAutorotate), @(shouldAutorotate), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-+ (BOOL)hVCInterfaceOrientation {
-    return [objc_getAssociatedObject(self, _cmd) boolValue];
-}
-+ (void)setHVCInterfaceOrientation:(BOOL)hVCInterfaceOrientation {
-    objc_setAssociatedObject(self, @selector(hVCInterfaceOrientation), @(hVCInterfaceOrientation), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-+ (BOOL)extraInterfaceOrientation {
-    return [objc_getAssociatedObject(self, _cmd) boolValue];
-}
-+ (void)setExtraInterfaceOrientation:(BOOL)extraInterfaceOrientation {
-    objc_setAssociatedObject(self, @selector(extraInterfaceOrientation), @(extraInterfaceOrientation), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-+ (UIInterfaceOrientationMask)defaultInterfaceOrientation {
-    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
-}
-+ (UIInterfaceOrientationMask)interfaceOrientation {
-    return [objc_getAssociatedObject(self, _cmd) integerValue];
-}
-+ (void)setInterfaceOrientation:(UIInterfaceOrientationMask)interfaceOrientation {
-    objc_setAssociatedObject(self, @selector(interfaceOrientation), @(interfaceOrientation), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
-    if (AppDelegate.shouldAutorotate) {
-        if (AppDelegate.extraInterfaceOrientation) {//判断是否手动干预，优先级最高
-            return AppDelegate.interfaceOrientation;
-        }else if (AppDelegate.hVCInterfaceOrientation) {//判断是否基于HViewController的VC
-            return AppDelegate.defaultInterfaceOrientation;
-        }else {//没有手动干预并且基于HViewController的VC
-            return AppDelegate.interfaceOrientation;
-        }
-    }
-    return UIInterfaceOrientationMaskPortrait;
-}
+//+ (BOOL)shouldAutorotate {
+//    return [objc_getAssociatedObject(self, _cmd) boolValue];
+//}
+//+ (void)setShouldAutorotate:(BOOL)shouldAutorotate {
+//    objc_setAssociatedObject(self, @selector(shouldAutorotate), @(shouldAutorotate), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//}
+//
+//+ (BOOL)hVCInterfaceOrientation {
+//    return [objc_getAssociatedObject(self, _cmd) boolValue];
+//}
+//+ (void)setHVCInterfaceOrientation:(BOOL)hVCInterfaceOrientation {
+//    objc_setAssociatedObject(self, @selector(hVCInterfaceOrientation), @(hVCInterfaceOrientation), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//}
+//
+//+ (BOOL)extraInterfaceOrientation {
+//    return [objc_getAssociatedObject(self, _cmd) boolValue];
+//}
+//+ (void)setExtraInterfaceOrientation:(BOOL)extraInterfaceOrientation {
+//    objc_setAssociatedObject(self, @selector(extraInterfaceOrientation), @(extraInterfaceOrientation), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//}
+//
+//+ (UIInterfaceOrientationMask)defaultInterfaceOrientation {
+//    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
+//}
+//+ (UIInterfaceOrientationMask)interfaceOrientation {
+//    return [objc_getAssociatedObject(self, _cmd) integerValue];
+//}
+//+ (void)setInterfaceOrientation:(UIInterfaceOrientationMask)interfaceOrientation {
+//    objc_setAssociatedObject(self, @selector(interfaceOrientation), @(interfaceOrientation), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//}
+//- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+//    if (AppDelegate.shouldAutorotate) {
+//        if (AppDelegate.extraInterfaceOrientation) {//判断是否手动干预，优先级最高
+//            return AppDelegate.interfaceOrientation;
+//        }else if (AppDelegate.hVCInterfaceOrientation) {//判断是否基于HViewController的VC
+//            return AppDelegate.defaultInterfaceOrientation;
+//        }else {//没有手动干预并且基于HViewController的VC
+//            return AppDelegate.interfaceOrientation;
+//        }
+//    }
+//    return UIInterfaceOrientationMaskPortrait;
+//}
 @end
 
 @implementation UIViewController (HRotate)
-+ (void)load {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [[self class] methodSwizzleWithOrigSEL:@selector(viewWillAppear:) overrideSEL:@selector(pvc_viewWillAppear:)];
-    });
-}
-- (void)pvc_viewWillAppear:(BOOL)animated {
-    [self pvc_viewWillAppear:animated];
-    //判断是否基于HViewController的VC
-    if ([self isKindOfClass:HViewController.class]) {
-        [AppDelegate setHVCInterfaceOrientation:NO];
-    }else {
-        [AppDelegate setHVCInterfaceOrientation:YES];
-    }
-    [AppDelegate setShouldAutorotate:self.shouldAutorotate];
-    [AppDelegate setInterfaceOrientation:self.supportedInterfaceOrientations];
-}
+//+ (void)load {
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        [[self class] methodSwizzleWithOrigSEL:@selector(viewWillAppear:) overrideSEL:@selector(pvc_viewWillAppear:)];
+//    });
+//}
+//- (void)pvc_viewWillAppear:(BOOL)animated {
+//    [self pvc_viewWillAppear:animated];
+//    //判断是否基于HViewController的VC
+//    if ([self isKindOfClass:HViewController.class]) {
+//        [AppDelegate setHVCInterfaceOrientation:NO];
+//    }else {
+//        [AppDelegate setHVCInterfaceOrientation:YES];
+//    }
+//    [AppDelegate setShouldAutorotate:self.shouldAutorotate];
+//    [AppDelegate setInterfaceOrientation:self.supportedInterfaceOrientations];
+//}
 @end
 
 @interface HViewControllerMgr : NSObject <UIGestureRecognizerDelegate>
@@ -305,7 +305,7 @@
         _leftNaviButton = [[HWebButtonView alloc] init];
         _leftNaviButton.backgroundColor = nil;
         _leftNaviButton.frame = CGRectMake(0, 0, UIDevice.naviBarHeight, UIDevice.naviBarHeight);
-        [_leftNaviButton.button setFont:[UIFont systemFontOfSize:16]];
+        [_leftNaviButton.button.titleLabel setFont:[UIFont systemFontOfSize:16]];
         _leftNaviButton.button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         @weakify(self)
         [_leftNaviButton setPressed:^(id sender, id data) {
@@ -322,7 +322,7 @@
     if (!_rightNaviButton) {
         _rightNaviButton = [[HWebButtonView alloc] init];
         _rightNaviButton.backgroundColor = nil;
-        [_rightNaviButton.button setFont:[UIFont systemFontOfSize:16]];
+        [_rightNaviButton.button.titleLabel setFont:[UIFont systemFontOfSize:16]];
         _rightNaviButton.frame = CGRectMake(self.topBar.h_width - UIDevice.naviBarHeight, 0, UIDevice.naviBarHeight, UIDevice.naviBarHeight);
         _rightNaviButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
         _rightNaviButton.button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;

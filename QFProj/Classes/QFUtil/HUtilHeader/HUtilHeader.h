@@ -12,6 +12,7 @@
 //Ext-Category
 #import "UIAlertController+HError.h"
 #import "UIApplication+HUtil.h"
+#import "AppDelegate+HUtil.h"
 #import "UIButton+HUtil.h"
 #import "UIColor+HUtil.h"
 #import "UIDevice+HUtil.h"
