@@ -113,7 +113,7 @@ static const void *KHimage = @"hEmptyImage";
 
 // 空白页的图片
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
-    return self.hEmptyImage?:[UIImage imageNamed:@"mine"];
+    return self.hEmptyImage?:[UIImage imageNamed:@"icon_tuple_nodata"];
 }
 
 //是否允许滚动，默认NO
