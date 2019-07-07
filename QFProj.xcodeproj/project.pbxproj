@@ -244,6 +244,8 @@
 		A2E8F50822CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50622CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png */; };
 		A2E8F50922CCDCAA00E7C9F2 /* icon_tuple_nodata@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50722CCDCAA00E7C9F2 /* icon_tuple_nodata@2x.png */; };
 		A2E8F51A22CF925700E7C9F2 /* AppDelegate+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F51922CF925700E7C9F2 /* AppDelegate+HUtil.m */; };
+		A2E8F51D22D229A500E7C9F2 /* HTupleController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F51C22D229A500E7C9F2 /* HTupleController.m */; };
+		A2E8F52022D2300D00E7C9F2 /* HTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F51F22D2300D00E7C9F2 /* HTableController.m */; };
 		A2ED9C1222314BA100C9D050 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1022314BA100C9D050 /* SimplePing.m */; };
 		A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1122314BA100C9D050 /* HPingTester.m */; };
 		A2ED9C1722314CAC00C9D050 /* HKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1622314CAC00C9D050 /* HKeyChainStore.m */; };
@@ -675,6 +677,10 @@
 		A2E8F50722CCDCAA00E7C9F2 /* icon_tuple_nodata@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_nodata@2x.png"; sourceTree = "<group>"; };
 		A2E8F51822CF925700E7C9F2 /* AppDelegate+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+HUtil.h"; sourceTree = "<group>"; };
 		A2E8F51922CF925700E7C9F2 /* AppDelegate+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+HUtil.m"; sourceTree = "<group>"; };
+		A2E8F51B22D229A500E7C9F2 /* HTupleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleController.h; sourceTree = "<group>"; };
+		A2E8F51C22D229A500E7C9F2 /* HTupleController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleController.m; sourceTree = "<group>"; };
+		A2E8F51E22D2300D00E7C9F2 /* HTableController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTableController.h; sourceTree = "<group>"; };
+		A2E8F51F22D2300D00E7C9F2 /* HTableController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTableController.m; sourceTree = "<group>"; };
 		A2ED9C0E22314BA100C9D050 /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
 		A2ED9C0F22314BA100C9D050 /* HPingTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPingTester.h; sourceTree = "<group>"; };
 		A2ED9C1022314BA100C9D050 /* SimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePing.m; sourceTree = "<group>"; };
@@ -1463,6 +1469,10 @@
 				A206882722CA081400661634 /* hvc_back_icon@2x.png */,
 				A206882622CA081400661634 /* HViewController.h */,
 				A206882522CA081400661634 /* HViewController.m */,
+				A2E8F51E22D2300D00E7C9F2 /* HTableController.h */,
+				A2E8F51F22D2300D00E7C9F2 /* HTableController.m */,
+				A2E8F51B22D229A500E7C9F2 /* HTupleController.h */,
+				A2E8F51C22D229A500E7C9F2 /* HTupleController.m */,
 			);
 			name = HViewController;
 			path = QFUtil/HViewController;
@@ -2142,6 +2152,7 @@
 				15B4DE0B2092F96C00773E04 /* NSString+HSafeUtil.m in Sources */,
 				A206881F22C9FDBD00661634 /* HTableRefresh.m in Sources */,
 				A206882122C9FDBD00661634 /* HTableBaseView.m in Sources */,
+				A2E8F52022D2300D00E7C9F2 /* HTableController.m in Sources */,
 				A222AE5D22818F7D0013098A /* HTextRubyAnnotation.m in Sources */,
 				15112C772105A19600842FE4 /* HUncaughtExceptionHandler.m in Sources */,
 				A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */,
@@ -2186,6 +2197,7 @@
 				15464B7820A2C26300CDD27E /* HTestVC-DQF.m in Sources */,
 				15B4DE292093034700773E04 /* NSObject+annotation.m in Sources */,
 				15B4DDF32092F96C00773E04 /* UIView+HUtil.m in Sources */,
+				A2E8F51D22D229A500E7C9F2 /* HTupleController.m in Sources */,
 				A222AE4B22818F7D0013098A /* HTextEffectWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
