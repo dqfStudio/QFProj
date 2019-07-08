@@ -2,7 +2,7 @@
 //  HTupleController.m
 //  QFProj
 //
-//  Created by wind on 2019/7/7.
+//  Created by dqf on 2019/7/7.
 //  Copyright © 2019 dqfStudio. All rights reserved.
 //
 
@@ -15,24 +15,25 @@
 @implementation HTupleController
 - (HTupleView *)tupleView {
     if (!_tupleView) {
-        CGRect frame = self.view.bounds;
-        frame.origin.y += UIDevice.topBarHeight;
-        frame.size.height -= UIDevice.topBarHeight;
-        _tupleView = [[HTupleView alloc] initWithFrame:frame style:HTupleViewStyleSectionColorLayout];
+        _tupleView = [[HTupleView alloc] initWithFrame:CGRectZero style:HTupleViewStyleSectionColorLayout];
     }
     return _tupleView;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _topExtendedLayout = YES;
     [self.view addSubview:self.tupleView];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     CGRect frame = self.view.bounds;
-    frame.origin.y += UIDevice.topBarHeight;
-    frame.size.height -= UIDevice.topBarHeight;
-    if (!CGRectEqualToRect(frame, _tupleView.frame)) {
-        [_tupleView setFrame:frame];
+    if (_topExtendedLayout) {//默认为YES
+        frame.origin.y += UIDevice.topBarHeight;
+        frame.size.height -= UIDevice.topBarHeight;
     }
+    if (_bottomExtendedLayout) {//默认为NO
+        frame.size.height -= UIDevice.bottomBarHeight;
+    }
+    [_tupleView setFrame:frame];
 }
 @end

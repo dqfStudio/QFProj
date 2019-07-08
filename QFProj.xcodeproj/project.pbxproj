@@ -211,7 +211,6 @@
 		A28EF2E821D86DD8002F92ED /* ULBCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */; };
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
 		A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */; };
-		A28EF2F321D876A3002F92ED /* HTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2F121D876A3002F92ED /* HTabBarController.m */; };
 		A28EF38321D8EC2A002F92ED /* HResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF36C21D8EC2A002F92ED /* HResultView.m */; };
 		A28EF38A21D8ECBE002F92ED /* icon_load_nothing@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28EF38421D8ECBD002F92ED /* icon_load_nothing@3x.png */; };
 		A28EF38B21D8ECBE002F92ED /* icon_no_network@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28EF38521D8ECBD002F92ED /* icon_no_network@2x.png */; };
@@ -246,11 +245,12 @@
 		A2E8F51A22CF925700E7C9F2 /* AppDelegate+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F51922CF925700E7C9F2 /* AppDelegate+HUtil.m */; };
 		A2E8F51D22D229A500E7C9F2 /* HTupleController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F51C22D229A500E7C9F2 /* HTupleController.m */; };
 		A2E8F52022D2300D00E7C9F2 /* HTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F51F22D2300D00E7C9F2 /* HTableController.m */; };
+		A2E8F52322D2EB5A00E7C9F2 /* HTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F52222D2EB5A00E7C9F2 /* HTabBarController.m */; };
+		A2E8F52622D2EB6E00E7C9F2 /* HNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F52422D2EB6E00E7C9F2 /* HNavigationController.m */; };
 		A2ED9C1222314BA100C9D050 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1022314BA100C9D050 /* SimplePing.m */; };
 		A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1122314BA100C9D050 /* HPingTester.m */; };
 		A2ED9C1722314CAC00C9D050 /* HKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1622314CAC00C9D050 /* HKeyChainStore.m */; };
 		A434870C214809F80030209A /* GViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A434870B214809F80030209A /* GViewController.m */; };
-		A45401E6215E1CE7003355C9 /* HNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45401E5215E1CE7003355C9 /* HNavigationController.m */; };
 		A4759710217EC61D00AAAEA9 /* HUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A475970F217EC61C00AAAEA9 /* HUserDefaults.m */; };
 /* End PBXBuildFile section */
 
@@ -635,8 +635,6 @@
 		A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+HAttributeText.m"; sourceTree = "<group>"; };
 		A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YPTabBar+HSubView.m"; sourceTree = "<group>"; };
 		A28EF2EE21D8763A002F92ED /* YPTabBar+HSubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YPTabBar+HSubView.h"; sourceTree = "<group>"; };
-		A28EF2F121D876A3002F92ED /* HTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTabBarController.m; sourceTree = "<group>"; };
-		A28EF2F221D876A3002F92ED /* HTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTabBarController.h; sourceTree = "<group>"; };
 		A28EF35221D8EC2A002F92ED /* HResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HResultView.h; sourceTree = "<group>"; };
 		A28EF36C21D8EC2A002F92ED /* HResultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HResultView.m; sourceTree = "<group>"; };
 		A28EF38421D8ECBD002F92ED /* icon_load_nothing@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_load_nothing@3x.png"; sourceTree = "<group>"; };
@@ -681,6 +679,10 @@
 		A2E8F51C22D229A500E7C9F2 /* HTupleController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleController.m; sourceTree = "<group>"; };
 		A2E8F51E22D2300D00E7C9F2 /* HTableController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTableController.h; sourceTree = "<group>"; };
 		A2E8F51F22D2300D00E7C9F2 /* HTableController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTableController.m; sourceTree = "<group>"; };
+		A2E8F52122D2EB5A00E7C9F2 /* HTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTabBarController.h; sourceTree = "<group>"; };
+		A2E8F52222D2EB5A00E7C9F2 /* HTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTabBarController.m; sourceTree = "<group>"; };
+		A2E8F52422D2EB6E00E7C9F2 /* HNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNavigationController.m; sourceTree = "<group>"; };
+		A2E8F52522D2EB6E00E7C9F2 /* HNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNavigationController.h; sourceTree = "<group>"; };
 		A2ED9C0E22314BA100C9D050 /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
 		A2ED9C0F22314BA100C9D050 /* HPingTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPingTester.h; sourceTree = "<group>"; };
 		A2ED9C1022314BA100C9D050 /* SimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePing.m; sourceTree = "<group>"; };
@@ -689,8 +691,6 @@
 		A2ED9C1622314CAC00C9D050 /* HKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKeyChainStore.m; sourceTree = "<group>"; };
 		A434870A214809F80030209A /* GViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GViewController.h; sourceTree = "<group>"; };
 		A434870B214809F80030209A /* GViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GViewController.m; sourceTree = "<group>"; };
-		A45401E4215E1CE7003355C9 /* HNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNavigationController.h; sourceTree = "<group>"; };
-		A45401E5215E1CE7003355C9 /* HNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNavigationController.m; sourceTree = "<group>"; };
 		A475970E217EC61C00AAAEA9 /* HUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUserDefaults.h; sourceTree = "<group>"; };
 		A475970F217EC61C00AAAEA9 /* HUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUserDefaults.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -945,9 +945,7 @@
 			children = (
 				A206882422CA081400661634 /* HViewController */,
 				A28EF35121D8EC2A002F92ED /* HResultView */,
-				A28EF2F021D876A3002F92ED /* HTabBarController */,
 				A28EF2E921D86E43002F92ED /* UILabel+HAttributeText */,
-				A45401E3215E1CE7003355C9 /* HNavigationController */,
 				15E5652A2133A002003A63E5 /* HLoginController */,
 				A265FF702269F70C0093C780 /* HVersionManager */,
 				A265FF6C2269F6280093C780 /* HHostUrlManager */,
@@ -1473,6 +1471,10 @@
 				A2E8F51F22D2300D00E7C9F2 /* HTableController.m */,
 				A2E8F51B22D229A500E7C9F2 /* HTupleController.h */,
 				A2E8F51C22D229A500E7C9F2 /* HTupleController.m */,
+				A2E8F52122D2EB5A00E7C9F2 /* HTabBarController.h */,
+				A2E8F52222D2EB5A00E7C9F2 /* HTabBarController.m */,
+				A2E8F52522D2EB6E00E7C9F2 /* HNavigationController.h */,
+				A2E8F52422D2EB6E00E7C9F2 /* HNavigationController.m */,
 			);
 			name = HViewController;
 			path = QFUtil/HViewController;
@@ -1735,16 +1737,6 @@
 			path = "QFUtil/UILabel+HAttributeText";
 			sourceTree = "<group>";
 		};
-		A28EF2F021D876A3002F92ED /* HTabBarController */ = {
-			isa = PBXGroup;
-			children = (
-				A28EF2F221D876A3002F92ED /* HTabBarController.h */,
-				A28EF2F121D876A3002F92ED /* HTabBarController.m */,
-			);
-			name = HTabBarController;
-			path = QFUtil/HTabBarController;
-			sourceTree = "<group>";
-		};
 		A28EF35121D8EC2A002F92ED /* HResultView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1825,16 +1817,6 @@
 				A2ED9C1622314CAC00C9D050 /* HKeyChainStore.m */,
 			);
 			path = HKeyChainStore;
-			sourceTree = "<group>";
-		};
-		A45401E3215E1CE7003355C9 /* HNavigationController */ = {
-			isa = PBXGroup;
-			children = (
-				A45401E4215E1CE7003355C9 /* HNavigationController.h */,
-				A45401E5215E1CE7003355C9 /* HNavigationController.m */,
-			);
-			name = HNavigationController;
-			path = QFUtil/HNavigationController;
 			sourceTree = "<group>";
 		};
 		A475970D217EC61C00AAAEA9 /* HUserDefaults */ = {
@@ -2141,8 +2123,8 @@
 				15B4DE1C209302BF00773E04 /* HGotoRuntimeSupport.m in Sources */,
 				A222AE4A22818F7D0013098A /* HTextView.m in Sources */,
 				15C5727620A982CA0070327C /* NSObject+HAutoFill.m in Sources */,
+				A2E8F52322D2EB5A00E7C9F2 /* HTabBarController.m in Sources */,
 				153F081720E28CA000C74850 /* HPhoneValidator.m in Sources */,
-				A45401E6215E1CE7003355C9 /* HNavigationController.m in Sources */,
 				153F081320E28CA000C74850 /* HAlphaValidator.m in Sources */,
 				A222AE5622818F7D0013098A /* UIView+HText.m in Sources */,
 				A222AE4D22818F7D0013098A /* HTextSelectionView.m in Sources */,
@@ -2178,7 +2160,6 @@
 				15B4DD682092F88700773E04 /* AppDelegate.m in Sources */,
 				A219F22F222FB46A00241FD7 /* HIFS.m in Sources */,
 				A222AE6522828E5C0013098A /* HTextField.m in Sources */,
-				A28EF2F321D876A3002F92ED /* HTabBarController.m in Sources */,
 				A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */,
 				157696EB20A0AB6900E31469 /* hFelix.m in Sources */,
 				A206882822CA081400661634 /* HViewController.m in Sources */,
@@ -2190,6 +2171,7 @@
 				A2E8F51A22CF925700E7C9F2 /* AppDelegate+HUtil.m in Sources */,
 				15E6BB9B2136E7E300EBE794 /* YPTabBar.m in Sources */,
 				A24B659722607E8400B257BB /* SKPSMTPMessage.m in Sources */,
+				A2E8F52622D2EB6E00E7C9F2 /* HNavigationController.m in Sources */,
 				A222AE5E22818F7D0013098A /* HTextArchiver.m in Sources */,
 				A265FF732269F70C0093C780 /* HVersionManager.m in Sources */,
 				15C5737420B3DD7B0070327C /* HTupleView.m in Sources */,

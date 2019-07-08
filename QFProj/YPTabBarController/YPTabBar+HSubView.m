@@ -2,7 +2,7 @@
 //  YPTabBar+HSubView.m
 //  HProjectModel1
 //
-//  Created by wind on 2018/11/20.
+//  Created by dqf on 2018/11/20.
 //  Copyright © 2018年 dqf. All rights reserved.
 //
 
@@ -14,7 +14,7 @@
     if (UIDevice.isIPhoneX) {
         CGRect frame = self.bounds;
         frame.origin.y = frame.size.height;
-        frame.size.height = 34;
+        frame.size.height = UIDevice.bottomBarHeight;
         UIView *bottomView = [[UIView alloc] initWithFrame:frame];
         [bottomView setBackgroundColor:color];
         [self addSubview:bottomView];

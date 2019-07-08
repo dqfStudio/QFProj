@@ -2,7 +2,7 @@
 //  HTableController.h
 //  QFProj
 //
-//  Created by wind on 2019/7/7.
+//  Created by dqf on 2019/7/7.
 //  Copyright © 2019 dqfStudio. All rights reserved.
 //
 
@@ -12,4 +12,6 @@
 
 @interface HTableController : HViewController <HTableViewDelegate>
 @property (nonatomic) HTableView *tableView;
+@property (nonatomic) BOOL topExtendedLayout; //default YEs
+@property (nonatomic) BOOL bottomExtendedLayout;  //default NO
 @end

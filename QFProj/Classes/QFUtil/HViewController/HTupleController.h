@@ -2,7 +2,7 @@
 //  HTupleController.h
 //  QFProj
 //
-//  Created by wind on 2019/7/7.
+//  Created by dqf on 2019/7/7.
 //  Copyright © 2019 dqfStudio. All rights reserved.
 //
 
@@ -12,4 +12,6 @@
 
 @interface HTupleController : HViewController <HTupleViewDelegate>
 @property (nonatomic) HTupleView *tupleView;
+@property (nonatomic) BOOL topExtendedLayout; //default YEs
+@property (nonatomic) BOOL bottomExtendedLayout;  //default NO
 @end
