@@ -21,19 +21,23 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _autoLayout = YES;
     _topExtendedLayout = YES;
+    _bottomExtendedLayout = NO;
     [self.view addSubview:self.tableView];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    CGRect frame = self.view.bounds;
-    if (_topExtendedLayout) {//默认为YES
-        frame.origin.y += UIDevice.topBarHeight;
-        frame.size.height -= UIDevice.topBarHeight;
+    if (_autoLayout) {//默认为YES
+        CGRect frame = self.view.bounds;
+        if (_topExtendedLayout) {//默认为YES
+            frame.origin.y += UIDevice.topBarHeight;
+            frame.size.height -= UIDevice.topBarHeight;
+        }
+        if (_bottomExtendedLayout) {//默认为NO
+            frame.size.height -= UIDevice.bottomBarHeight;
+        }
+        [_tableView setFrame:frame];
     }
-    if (_bottomExtendedLayout) {//默认为NO
-        frame.size.height -= UIDevice.bottomBarHeight;
-    }
-    [_tableView setFrame:frame];
 }
 @end

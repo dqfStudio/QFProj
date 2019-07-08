@@ -12,6 +12,7 @@
 
 @interface HTupleController : HViewController <HTupleViewDelegate>
 @property (nonatomic) HTupleView *tupleView;
+@property (nonatomic) BOOL autoLayout;  //default YEs
 @property (nonatomic) BOOL topExtendedLayout; //default YEs
 @property (nonatomic) BOOL bottomExtendedLayout;  //default NO
 @end

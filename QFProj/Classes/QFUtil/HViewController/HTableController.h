@@ -12,6 +12,7 @@
 
 @interface HTableController : HViewController <HTableViewDelegate>
 @property (nonatomic) HTableView *tableView;
+@property (nonatomic) BOOL autoLayout;  //default YEs
 @property (nonatomic) BOOL topExtendedLayout; //default YEs
 @property (nonatomic) BOOL bottomExtendedLayout;  //default NO
 @end
