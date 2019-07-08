@@ -95,7 +95,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 }
 - (void)setup {
     self.alwaysBounceVertical = YES;
-    self.backgroundColor = [UIColor clearColor];
+    self.backgroundColor = UIColor.clearColor;
     self.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     self.showsHorizontalScrollIndicator = NO;
     self.showsVerticalScrollIndicator = NO;

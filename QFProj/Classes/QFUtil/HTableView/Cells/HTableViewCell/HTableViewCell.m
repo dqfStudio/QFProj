@@ -39,7 +39,7 @@
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
-        [_label setBackgroundColor:[UIColor clearColor]];
+        [_label setBackgroundColor:UIColor.clearColor];
         [self addSubview:_label];
     }
     return _label;
@@ -53,7 +53,7 @@
 - (HTextView *)textView {
     if (!_textView) {
         _textView = [HTextView new];
-        [_textView setBackgroundColor:[UIColor clearColor]];
+        [_textView setBackgroundColor:UIColor.clearColor];
         [self addSubview:_textView];
     }
     return _textView;
@@ -67,7 +67,7 @@
 - (HWebButtonView *)webButtonView {
     if (!_webButtonView) {
         _webButtonView = [HWebButtonView new];
-        [_webButtonView setBackgroundColor:[UIColor clearColor]];
+        [_webButtonView setBackgroundColor:UIColor.clearColor];
         [self addSubview:_webButtonView];
     }
     return _webButtonView;
@@ -81,7 +81,7 @@
 - (HWebImageView *)webImageView {
     if (!_webImageView) {
         _webImageView = [HWebImageView new];
-        [_webImageView setBackgroundColor:[UIColor clearColor]];
+        [_webImageView setBackgroundColor:UIColor.clearColor];
         [self addSubview:_webImageView];
     }
     return _webImageView;
@@ -95,7 +95,7 @@
 - (HTextField *)textField {
     if (!_textField) {
         _textField = HTextField.new;
-        [_textField setBackgroundColor:[UIColor clearColor]];
+        [_textField setBackgroundColor:UIColor.clearColor];
         [self addSubview:_textField];
     }
     return _textField;
@@ -109,7 +109,7 @@
 - (HTupleView *)tuple {
     if (!_tuple) {
         _tuple = [[HTupleView alloc] initWithFrame:self.bounds];
-        [_tuple setBackgroundColor:[UIColor clearColor]];
+        [_tuple setBackgroundColor:UIColor.clearColor];
         [_tuple setScrollEnabled:NO];
         [self addSubview:_tuple];
     }
@@ -124,7 +124,7 @@
 - (HTupleView *)tuple {
     if (!_tuple) {
         _tuple = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleViewScrollDirectionHorizontal];
-        [_tuple setBackgroundColor:[UIColor clearColor]];
+        [_tuple setBackgroundColor:UIColor.clearColor];
         [_tuple setScrollEnabled:NO];
         [self addSubview:_tuple];
     }
@@ -145,7 +145,7 @@
 - (HLabel *)headerLabel {
     if (!_headerLabel) {
         _headerLabel = [HLabel new];
-        [_headerLabel setBackgroundColor:[UIColor clearColor]];
+        [_headerLabel setBackgroundColor:UIColor.clearColor];
         [self addSubview:_headerLabel];
     }
     return _headerLabel;
@@ -153,7 +153,7 @@
 - (HLabel *)sectionLabel {
     if (!_sectionLabel) {
         _sectionLabel = [HLabel new];
-        [_sectionLabel setBackgroundColor:[UIColor clearColor]];
+        [_sectionLabel setBackgroundColor:UIColor.clearColor];
         [self addSubview:_sectionLabel];
     }
     return _sectionLabel;
@@ -161,7 +161,7 @@
 - (HLabel *)footerLabel {
     if (!_footerLabel) {
         _footerLabel = [HLabel new];
-        [_footerLabel setBackgroundColor:[UIColor clearColor]];
+        [_footerLabel setBackgroundColor:UIColor.clearColor];
         [self addSubview:_footerLabel];
     }
     return _footerLabel;
@@ -169,7 +169,7 @@
 - (HTextView *)headerTextView {
     if (!_headerTextView) {
         _headerTextView = [HTextView new];
-        [_headerTextView setBackgroundColor:[UIColor clearColor]];
+        [_headerTextView setBackgroundColor:UIColor.clearColor];
         [self addSubview:_headerTextView];
     }
     return _headerTextView;
@@ -177,7 +177,7 @@
 - (HTextView *)sectionTextView {
     if (!_sectionTextView) {
         _sectionTextView = [HTextView new];
-        [_sectionTextView setBackgroundColor:[UIColor clearColor]];
+        [_sectionTextView setBackgroundColor:UIColor.clearColor];
         [self addSubview:_sectionTextView];
     }
     return _sectionTextView;
@@ -185,7 +185,7 @@
 - (HTextView *)footerTextView {
     if (!_footerTextView) {
         _footerTextView = [HTextView new];
-        [_footerTextView setBackgroundColor:[UIColor clearColor]];
+        [_footerTextView setBackgroundColor:UIColor.clearColor];
         [self addSubview:_footerTextView];
     }
     return _footerTextView;
@@ -193,7 +193,7 @@
 - (HWebButtonView *)headerButton {
     if (!_headerButton) {
         _headerButton = [HWebButtonView new];
-        [_headerButton setBackgroundColor:[UIColor clearColor]];
+        [_headerButton setBackgroundColor:UIColor.clearColor];
         [self addSubview:_headerButton];
     }
     return _headerButton;
@@ -201,7 +201,7 @@
 - (HWebButtonView *)sectionButton {
     if (!_sectionButton) {
         _sectionButton = [HWebButtonView new];
-        [_sectionButton setBackgroundColor:[UIColor clearColor]];
+        [_sectionButton setBackgroundColor:UIColor.clearColor];
         [self addSubview:_sectionButton];
     }
     return _sectionButton;
@@ -209,7 +209,7 @@
 - (HWebButtonView *)footerButton {
     if (!_footerButton) {
         _footerButton = [HWebButtonView new];
-        [_footerButton setBackgroundColor:[UIColor clearColor]];
+        [_footerButton setBackgroundColor:UIColor.clearColor];
         [self addSubview:_footerButton];
     }
     return _footerButton;
@@ -217,7 +217,7 @@
 - (HWebImageView *)headerImageView {
     if (!_headerImageView) {
         _headerImageView = HWebImageView.new;
-        [_headerImageView setBackgroundColor:[UIColor clearColor]];
+        [_headerImageView setBackgroundColor:UIColor.clearColor];
         [self addSubview:_headerImageView];
     }
     return _headerImageView;
@@ -225,7 +225,7 @@
 - (HWebImageView *)sectionImageView {
     if (!_sectionImageView) {
         _sectionImageView = HWebImageView.new;
-        [_sectionImageView setBackgroundColor:[UIColor clearColor]];
+        [_sectionImageView setBackgroundColor:UIColor.clearColor];
         [self addSubview:_sectionImageView];
     }
     return _sectionImageView;
@@ -233,7 +233,7 @@
 - (HWebImageView *)footerImageView {
     if (!_footerImageView) {
         _footerImageView = HWebImageView.new;
-        [_footerImageView setBackgroundColor:[UIColor clearColor]];
+        [_footerImageView setBackgroundColor:UIColor.clearColor];
         [self addSubview:_footerImageView];
     }
     return _footerImageView;
@@ -241,7 +241,7 @@
 - (HTextField *)headerTextField {
     if (!_headerTextField) {
         _headerTextField = HTextField.new;
-        [_headerTextField setBackgroundColor:[UIColor clearColor]];
+        [_headerTextField setBackgroundColor:UIColor.clearColor];
         [self addSubview:_headerTextField];
     }
     return _headerTextField;
@@ -249,7 +249,7 @@
 - (HTextField *)sectionTextField {
     if (!_sectionTextField) {
         _sectionTextField = HTextField.new;
-        [_sectionTextField setBackgroundColor:[UIColor clearColor]];
+        [_sectionTextField setBackgroundColor:UIColor.clearColor];
         [self addSubview:_sectionTextField];
     }
     return _sectionTextField;
@@ -257,7 +257,7 @@
 - (HTextField *)footerTextField {
     if (!_footerTextField) {
         _footerTextField = HTextField.new;
-        [_footerTextField setBackgroundColor:[UIColor clearColor]];
+        [_footerTextField setBackgroundColor:UIColor.clearColor];
         [self addSubview:_footerTextField];
     }
     return _footerTextField;

@@ -258,7 +258,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         UIColor *color = self.colorForSectionBlock(section);
         if (color && [color isKindOfClass:UIColor.class]) return color;
     }
-    return [UIColor clearColor];
+    return UIColor.clearColor;
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 0.f;
