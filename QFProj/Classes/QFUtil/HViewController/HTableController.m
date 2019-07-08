@@ -28,10 +28,10 @@
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    if (!CGRectEqualToRect(self.view.frame, _tableView.frame)) {
-        CGRect frame = self.view.bounds;
-        frame.origin.y += UIDevice.topBarHeight;
-        frame.size.height -= UIDevice.topBarHeight;
+    CGRect frame = self.view.bounds;
+    frame.origin.y += UIDevice.topBarHeight;
+    frame.size.height -= UIDevice.topBarHeight;
+    if (!CGRectEqualToRect(frame, _tableView.frame)) {
         [_tableView setFrame:frame];
     }
 }
