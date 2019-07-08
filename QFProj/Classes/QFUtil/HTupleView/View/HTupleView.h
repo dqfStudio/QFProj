@@ -150,4 +150,14 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 
 @end
 
+@interface NSObject (HTupleState)
+- (NSInteger)selectedTupleStatue;
+- (NSInteger)tupleTotalState;
+- (void)setObject:(id)anObject forKey:(NSString *)aKey tupleStatue:(NSInteger)statue;
+- (nullable id)objectForKey:(NSString *)aKey tupleStatue:(NSInteger)statue;
+- (void)removeObjectForKey:(NSString *)aKey tupleStatue:(NSInteger)statue;
+- (void)removeObjectForTupleStatue:(NSInteger)statue;
+- (void)clearTupleStatue;
+@end
+
 NS_ASSUME_NONNULL_END

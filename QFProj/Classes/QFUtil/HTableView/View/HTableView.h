@@ -122,4 +122,15 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 
 @end
 
+@interface NSObject (HTableState)
+- (NSInteger)selectedTableStatue;
+- (NSInteger)tableTotalState;
+- (void)setObject:(id)anObject forKey:(NSString *)aKey tableStatue:(NSInteger)statue;
+- (nullable id)objectForKey:(NSString *)aKey tableStatue:(NSInteger)statue;
+- (void)removeObjectForKey:(NSString *)aKey tableStatue:(NSInteger)statue;
+- (void)removeObjectForTableStatue:(NSInteger)statue;
+- (void)clearTableStatue;
+@end
+
 NS_ASSUME_NONNULL_END
+

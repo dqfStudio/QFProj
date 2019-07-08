@@ -100,9 +100,7 @@
 @implementation NSObject (HState)
 - (NSInteger)segStatue {
     NSNumber *statue = objc_getAssociatedObject(self, _cmd);
-    if (!statue) {
-        return 0;
-    }
+    if (!statue) return 0;
     return statue.integerValue;
 }
 - (void)setSegStatue:(NSInteger)segStatue {
@@ -110,9 +108,7 @@
 }
 - (NSInteger)segTotalStatue {
     NSNumber *statue = objc_getAssociatedObject(self, _cmd);
-    if (!statue) {
-        return 0;
-    }
+    if (!statue) return 0;
     return statue.integerValue;
 }
 - (void)setSegTotalStatue:(NSInteger)segTotalStatue {
@@ -129,22 +125,22 @@
 - (void)setSegStatueDict:(NSMutableDictionary *)segStatueDict {
     objc_setAssociatedObject(self, @selector(segStatueDict), segStatueDict, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (void)setObject:(id)anObject withKey:(NSString *)aKey forSegStatue:(NSInteger)segStatue {
-    NSString *key = [NSString stringWithFormat:@"%@%ld", aKey, (long)segStatue];
+- (void)setObject:(id)anObject forKey:(NSString *)aKey segStatue:(NSInteger)statue {
+    NSString *key = [NSString stringWithFormat:@"%@%@", aKey, @(statue)];
     [self.segStatueDict setObject:anObject forKey:key];
 }
-- (nullable id)objectForKey:(NSString *)aKey andSegStatue:(NSInteger)segStatue {
-    NSString *key = [NSString stringWithFormat:@"%@%ld", aKey, (long)segStatue];
+- (nullable id)objectForKey:(NSString *)aKey segStatue:(NSInteger)statue {
+    NSString *key = [NSString stringWithFormat:@"%@%@", aKey, @(statue)];
     return [self.segStatueDict objectForKey:key];
 }
-- (void)removeObjectForKey:(NSString *)aKey andSegStatue:(NSInteger)segStatue {
-    NSString *key = [NSString stringWithFormat:@"%@%ld", aKey, (long)segStatue];
+- (void)removeObjectForKey:(NSString *)aKey segStatue:(NSInteger)statue {
+    NSString *key = [NSString stringWithFormat:@"%@%@", aKey, @(statue)];
     if ([self.segStatueDict.allKeys containsObject:key]) {
         [self.segStatueDict removeObjectForKey:key];
     }
 }
-- (void)removeObjectForSegStatue:(NSInteger)segStatue {
-    NSString *key = [NSString stringWithFormat:@"%ld", (long)segStatue];
+- (void)removeObjectForSegStatue:(NSInteger)statue {
+    NSString *key = [NSString stringWithFormat:@"%@", @(statue)];
     for (NSUInteger i=self.segStatueDict.allKeys.count-1; i>=0; i--) {
         NSString *akey = self.segStatueDict.allKeys[i];
         if ([akey containsString:key]) {
