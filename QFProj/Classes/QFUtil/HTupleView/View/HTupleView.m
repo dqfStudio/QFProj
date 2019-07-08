@@ -668,9 +668,11 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 
 - (void)signalToTupleView:(HTupleSignal *)signal {
-    if (self.signalBlock) {
-        self.signalBlock(self, signal);
-    }
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        if (self.signalBlock) {
+            self.signalBlock(self, signal);
+        }
+    });
 }
 - (void)signalToAllItems:(HTupleSignal *)signal {
     dispatch_async(dispatch_queue_create(0, 0), ^{
