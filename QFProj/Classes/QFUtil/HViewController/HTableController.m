@@ -40,7 +40,9 @@
         }
         [_tableView setFrame:frame];
         if (!UIEdgeInsetsEqualToEdgeInsets(UIEdgeInsetsZero, _extendedInset)) {
-            [_tableView setContentInset:_extendedInset];
+            if (!UIEdgeInsetsEqualToEdgeInsets(_tableView.contentInset, _extendedInset)) {
+                [_tableView setContentInset:_extendedInset];
+            }
         }
     }
 }

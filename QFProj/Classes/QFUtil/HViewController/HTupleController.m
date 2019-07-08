@@ -40,7 +40,9 @@
         }
         [_tupleView setFrame:frame];
         if (!UIEdgeInsetsEqualToEdgeInsets(UIEdgeInsetsZero, _extendedInset)) {
-            [_tupleView setContentInset:_extendedInset];
+            if (!UIEdgeInsetsEqualToEdgeInsets(_tupleView.contentInset, _extendedInset)) {
+                [_tupleView setContentInset:_extendedInset];
+            }
         }
     }
 }
