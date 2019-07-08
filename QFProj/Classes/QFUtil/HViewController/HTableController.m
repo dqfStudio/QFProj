@@ -24,6 +24,7 @@
     _autoLayout = YES;
     _topExtendedLayout = YES;
     _bottomExtendedLayout = NO;
+    _extendedInset = UIEdgeInsetsZero;
     [self.view addSubview:self.tableView];
 }
 - (void)viewWillLayoutSubviews {
@@ -38,6 +39,9 @@
             frame.size.height -= UIDevice.bottomBarHeight;
         }
         [_tableView setFrame:frame];
+        if (!UIEdgeInsetsEqualToEdgeInsets(UIEdgeInsetsZero, _extendedInset)) {
+            [_tableView setContentInset:_extendedInset];
+        }
     }
 }
 @end

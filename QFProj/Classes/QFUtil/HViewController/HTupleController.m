@@ -24,6 +24,7 @@
     _autoLayout = YES;
     _topExtendedLayout = YES;
     _bottomExtendedLayout = NO;
+    _extendedInset = UIEdgeInsetsZero;
     [self.view addSubview:self.tupleView];
 }
 - (void)viewWillLayoutSubviews {
@@ -38,6 +39,9 @@
             frame.size.height -= UIDevice.bottomBarHeight;
         }
         [_tupleView setFrame:frame];
+        if (!UIEdgeInsetsEqualToEdgeInsets(UIEdgeInsetsZero, _extendedInset)) {
+            [_tupleView setContentInset:_extendedInset];
+        }
     }
 }
 @end
