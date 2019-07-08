@@ -496,6 +496,19 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     }
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+#if DEBUG
+    UICollectionViewCell *cell = [self cellForItemAtIndexPath:indexPath];
+    if (cell) NSLog(@"cellName-->:%@", NSStringFromClass(cell.class));
+    UIViewController *vc = nil;
+    for (UIView *view = self; view; view = view.superview) {
+        UIResponder *nextResponder = [view nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            vc = (UIViewController *)nextResponder;
+            break;
+        }
+    }
+    if (vc) NSLog(@"vcName-->:%@", NSStringFromClass(vc.class));
+#endif
     if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:didSelectItemAtIndexPath:)]) {
         [self.tupleDelegate tupleView:self didSelectItemAtIndexPath:indexPath];
     }else if (_categoryDesign && [self respondsToSelector:@selector(tupleView:didSelectItemAtIndexPath:)]) {
