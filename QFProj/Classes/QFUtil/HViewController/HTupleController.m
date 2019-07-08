@@ -23,7 +23,7 @@
     [super viewDidLoad];
     _autoLayout = YES;
     _topExtendedLayout = YES;
-    _bottomExtendedLayout = NO;
+    _bottomExtendedHeight = 0.f;
     _extendedInset = UIEdgeInsetsZero;
     [self.view addSubview:self.tupleView];
 }
@@ -35,9 +35,7 @@
             frame.origin.y += UIDevice.topBarHeight;
             frame.size.height -= UIDevice.topBarHeight;
         }
-        if (_bottomExtendedLayout) {//默认为NO
-            frame.size.height -= UIDevice.bottomBarHeight;
-        }
+        frame.size.height -= _bottomExtendedHeight;
         [_tupleView setFrame:frame];
         if (!UIEdgeInsetsEqualToEdgeInsets(UIEdgeInsetsZero, _extendedInset)) {
             if (!UIEdgeInsetsEqualToEdgeInsets(_tupleView.contentInset, _extendedInset)) {
