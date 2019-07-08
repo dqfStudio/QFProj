@@ -449,36 +449,6 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-#if DEBUG
-    //打印方案一
-//    UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
-//    if (cell) NSLog(@"cellName-->:%@", NSStringFromClass(cell.class));
-//    UIViewController *vc = nil;
-//    for (UIView *view = self; view; view = view.superview) {
-//        UIResponder *nextResponder = [view nextResponder];
-//        if ([nextResponder isKindOfClass:[UIViewController class]]) {
-//            vc = (UIViewController *)nextResponder;
-//            break;
-//        }
-//    }
-//    if (vc) NSLog(@"vcName-->:%@", NSStringFromClass(vc.class));
-    //打印方案二
-//    UIViewController *vc = [UIApplication sharedApplication].keyWindow.rootViewController;
-//    if ([vc isKindOfClass:[UINavigationController class]]) {
-//        UINavigationController *navi = (UINavigationController *)vc;
-//        if (navi) NSLog(@"vcName-->:%@", NSStringFromClass(navi.topViewController.class));
-//    }else if ([vc isKindOfClass:[UITabBarController class]]) {
-//        UITabBarController *tabbarVC = (UITabBarController *)vc;
-//        if ([tabbarVC.selectedViewController isKindOfClass:UINavigationController.class]) {
-//            UINavigationController *navi = (UINavigationController *)tabbarVC.selectedViewController;
-//            if (navi) NSLog(@"vcName-->:%@", NSStringFromClass(navi.topViewController.class));
-//        }else {
-//            if (vc) NSLog(@"vcName-->:%@", NSStringFromClass(tabbarVC.selectedViewController.class));
-//        }
-//    }else {
-//        if (vc) NSLog(@"vcName-->:%@", NSStringFromClass(vc.class));
-//    }
-#endif
     NSString *prefix = [self tableWithPrefix:indexPath.section];
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
         [self.tableDelegate tableView:self didSelectRowAtIndexPath:indexPath];
