@@ -14,8 +14,6 @@
 //#import "UILabel+HUtil.h"
 //#import "UIButton+HUtil.h"
 
-#define KTupleViewSkinNotify @"tupleViewSkinNotify"
-
 #define HLayoutTupleView(v) \
 if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
     [v setFrame:[self getContentFrame]];\

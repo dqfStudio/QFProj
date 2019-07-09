@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
+#define KTableSkinNotify @"tableSkinNotify"
+
 @class HTableSignal;
 
 typedef void(^HTableCellInitBlock)(id cell);

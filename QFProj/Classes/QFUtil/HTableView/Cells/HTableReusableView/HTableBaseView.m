@@ -30,7 +30,7 @@
         _skinBlock = nil;
         _skinBlock = skinBlock;
         _skinBlock(self, (HTableView *)self.table);
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellSkinEvent) name:KTableViewSkinNotify object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellSkinEvent) name:KTableSkinNotify object:nil];
     }
 }
 //子类覆盖

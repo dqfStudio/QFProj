@@ -39,7 +39,7 @@
         _skinBlock = nil;
         _skinBlock = skinBlock;
         _skinBlock(self, (HTupleView *)self.tuple);
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellSkinEvent) name:KTupleViewSkinNotify object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellSkinEvent) name:KTupleSkinNotify object:nil];
     }
 }
 

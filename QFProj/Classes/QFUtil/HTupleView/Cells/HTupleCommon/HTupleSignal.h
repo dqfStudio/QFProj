@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
+#define KTupleSkinNotify @"tupleSkinNotify"
+
 @class HTupleSignal;
 
 typedef void(^HTupleCellInitBlock)(id cell);

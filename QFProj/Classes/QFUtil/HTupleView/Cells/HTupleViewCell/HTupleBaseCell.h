@@ -15,8 +15,6 @@
 //#import "UIView+HUtil.h"
 #import "UIButton+HUtil.h"
 
-#define KTupleCellSkinNotify @"tupleCellSkinNotify"
-
 #define HLayoutTupleCell(v) \
 if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
     [v setFrame:[self getContentFrame]];\
