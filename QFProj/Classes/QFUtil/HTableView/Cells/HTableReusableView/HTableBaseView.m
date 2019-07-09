@@ -63,6 +63,6 @@
     return [objc_getAssociatedObject(self, _cmd) boolValue];
 }
 - (void)setIsHeader:(BOOL)isHeader {
-    objc_setAssociatedObject(self, @selector(isHeader), @(isHeader), OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, @selector(isHeader), @(isHeader), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 @end
