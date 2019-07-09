@@ -29,6 +29,7 @@
     if (_skinBlock != skinBlock) {
         _skinBlock = nil;
         _skinBlock = skinBlock;
+        self.skinBlock();
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellSkinEvent) name:KTableViewSkinNotify object:nil];
     }
 }
