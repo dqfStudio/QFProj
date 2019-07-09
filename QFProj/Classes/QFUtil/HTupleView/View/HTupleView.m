@@ -769,21 +769,22 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 #define KTupleStateKey   @"_tuple_"
 
 @interface HTupleView (HStateSource)
-@property (nonatomic) NSMutableDictionary *tupleStatueSource;
+@property (nonatomic) NSMutableDictionary *tupleStateSource;
 @end
 
 @implementation HTupleView (HState)
-- (NSMutableDictionary *)tupleStatueSource {
+- (NSMutableDictionary *)tupleStateSource {
     NSMutableDictionary *dict = objc_getAssociatedObject(self, _cmd);
     if (!dict) {
         dict = NSMutableDictionary.new;
-        [self setTupleStatueSource:dict];
+        [self setTupleStateSource:dict];
     }
     return dict;
 }
-- (void)setTupleStatueSource:(NSMutableDictionary *)tupleStatueSource {
-    objc_setAssociatedObject(self, @selector(tupleStatueSource), tupleStatueSource, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setTupleStateSource:(NSMutableDictionary *)tupleStateSource {
+    objc_setAssociatedObject(self, @selector(tupleStateSource), tupleStateSource, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+
 - (HTupleState)tupleState {
     return [objc_getAssociatedObject(self, _cmd) integerValue];
 }
@@ -793,32 +794,49 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         [self reloadData];
     }
 }
-- (void)setObject:(id)anObject forKey:(NSString *)aKey tupleStatue:(NSInteger)statue {
-    NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KTupleStateKey, @(statue)];
-    [self.tupleStatueSource setObject:anObject forKey:key];
+
+- (void)setObject:(id)anObject forKey:(NSString *)aKey {
+    [self setObject:anObject forKey:aKey state:self.tupleState];
 }
-- (nullable id)objectForKey:(NSString *)aKey tupleStatue:(NSInteger)statue {
-    NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KTupleStateKey, @(statue)];
-    return [self.tupleStatueSource objectForKey:key];
+- (void)setObject:(id)anObject forKey:(NSString *)aKey state:(HTupleState)tupleState {
+    NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KTupleStateKey, @(tupleState)];
+    [self.tupleStateSource setObject:anObject forKey:key];
 }
-- (void)removeObjectForKey:(NSString *)aKey tupleStatue:(NSInteger)statue {
-    NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KTupleStateKey, @(statue)];
-    if ([self.tupleStatueSource.allKeys containsObject:key]) {
-        [self.tupleStatueSource removeObjectForKey:key];
+
+- (nullable id)objectForKey:(NSString *)aKey {
+    return [self objectForKey:aKey state:self.tupleState];
+}
+- (nullable id)objectForKey:(NSString *)aKey state:(HTupleState)tupleState {
+    NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KTupleStateKey, @(tupleState)];
+    return [self.tupleStateSource objectForKey:key];
+}
+
+- (void)removeObjectForKey:(NSString *)aKey {
+    [self removeObjectForKey:aKey state:self.tupleState];
+}
+- (void)removeObjectForKey:(NSString *)aKey state:(HTupleState)tupleState {
+    NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KTupleStateKey, @(tupleState)];
+    if ([self.tupleStateSource.allKeys containsObject:key]) {
+        [self.tupleStateSource removeObjectForKey:key];
     }
 }
-- (void)removeObjectForTupleStatue:(NSInteger)statue {
-    NSString *key = [NSString stringWithFormat:@"%@%@", KTupleStateKey, @(statue)];
-    for (NSUInteger i=self.tupleStatueSource.allKeys.count-1; i>=0; i--) {
-        NSString *akey = self.tupleStatueSource.allKeys[i];
+
+- (void)removeStateObject {
+    [self removeObjectForState:self.tupleState];
+}
+- (void)removeObjectForState:(HTupleState)tupleState {
+    NSString *key = [NSString stringWithFormat:@"%@%@", KTupleStateKey, @(tupleState)];
+    for (NSUInteger i=self.tupleStateSource.allKeys.count-1; i>=0; i--) {
+        NSString *akey = self.tupleStateSource.allKeys[i];
         if ([akey containsString:key]) {
-            [self.tupleStatueSource removeObjectForKey:akey];
+            [self.tupleStateSource removeObjectForKey:akey];
         }
     }
 }
-- (void)clearTupleStatue {
-    if (self.tupleStatueSource.count > 0) {
-        [self.tupleStatueSource removeAllObjects];
+
+- (void)clearTupleState {
+    if (self.tupleStateSource.count > 0) {
+        [self.tupleStateSource removeAllObjects];
     }
 }
 @end

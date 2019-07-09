@@ -623,21 +623,22 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 #define KTableStateKey   @"_table_"
 
 @interface HTableView (HStateSource)
-@property (nonatomic) NSMutableDictionary *tableStatueSource;
+@property (nonatomic) NSMutableDictionary *tableStateSource;
 @end
 
 @implementation HTableView (HState)
-- (NSMutableDictionary *)tableStatueSource {
+- (NSMutableDictionary *)tableStateSource {
     NSMutableDictionary *dict = objc_getAssociatedObject(self, _cmd);
     if (!dict) {
         dict = NSMutableDictionary.new;
-        [self setTableStatueSource:dict];
+        [self setTableStateSource:dict];
     }
     return dict;
 }
-- (void)setTableStatueSource:(NSMutableDictionary *)tableStatueSource {
-    objc_setAssociatedObject(self, @selector(tableStatueSource), tableStatueSource, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setTableStateSource:(NSMutableDictionary *)tableStateSource {
+    objc_setAssociatedObject(self, @selector(tableStateSource), tableStateSource, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+
 - (HTableState)tableState {
     return [objc_getAssociatedObject(self, _cmd) integerValue];
 }
@@ -647,32 +648,49 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         [self reloadData];
     }
 }
-- (void)setObject:(id)anObject forKey:(NSString *)aKey tableStatue:(NSInteger)statue {
-    NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KTableStateKey, @(statue)];
-    [self.tableStatueSource setObject:anObject forKey:key];
+
+- (void)setObject:(id)anObject forKey:(NSString *)aKey {
+    [self setObject:anObject forKey:aKey state:self.tableState];
 }
-- (nullable id)objectForKey:(NSString *)aKey tableStatue:(NSInteger)statue {
-    NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KTableStateKey, @(statue)];
-    return [self.tableStatueSource objectForKey:key];
+- (void)setObject:(id)anObject forKey:(NSString *)aKey state:(HTableState)tableState {
+    NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KTableStateKey, @(tableState)];
+    [self.tableStateSource setObject:anObject forKey:key];
 }
-- (void)removeObjectForKey:(NSString *)aKey tableStatue:(NSInteger)statue {
-    NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KTableStateKey, @(statue)];
-    if ([self.tableStatueSource.allKeys containsObject:key]) {
-        [self.tableStatueSource removeObjectForKey:key];
+
+- (nullable id)objectForKey:(NSString *)aKey {
+    return [self objectForKey:aKey state:self.tableState];
+}
+- (nullable id)objectForKey:(NSString *)aKey state:(HTableState)tableState {
+    NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KTableStateKey, @(tableState)];
+    return [self.tableStateSource objectForKey:key];
+}
+
+- (void)removeObjectForKey:(NSString *)aKey {
+    [self removeObjectForKey:aKey state:self.tableState];
+}
+- (void)removeObjectForKey:(NSString *)aKey state:(HTableState)tableState {
+    NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KTableStateKey, @(tableState)];
+    if ([self.tableStateSource.allKeys containsObject:key]) {
+        [self.tableStateSource removeObjectForKey:key];
     }
 }
-- (void)removeObjectForTableStatue:(NSInteger)statue {
-    NSString *key = [NSString stringWithFormat:@"%@%@", KTableStateKey, @(statue)];
-    for (NSUInteger i=self.tableStatueSource.allKeys.count-1; i>=0; i--) {
-        NSString *akey = self.tableStatueSource.allKeys[i];
+
+- (void)removeStateObject {
+    [self removeObjectForState:self.tableState];
+}
+- (void)removeObjectForState:(HTableState)tableState {
+    NSString *key = [NSString stringWithFormat:@"%@%@", KTableStateKey, @(tableState)];
+    for (NSUInteger i=self.tableStateSource.allKeys.count-1; i>=0; i--) {
+        NSString *akey = self.tableStateSource.allKeys[i];
         if ([akey containsString:key]) {
-            [self.tableStatueSource removeObjectForKey:akey];
+            [self.tableStateSource removeObjectForKey:akey];
         }
     }
 }
-- (void)clearTableStatue {
-    if (self.tableStatueSource.count > 0) {
-        [self.tableStatueSource removeAllObjects];
+
+- (void)clearTableState {
+    if (self.tableStateSource.count > 0) {
+        [self.tableStateSource removeAllObjects];
     }
 }
 @end

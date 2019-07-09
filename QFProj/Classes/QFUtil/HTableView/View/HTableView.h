@@ -122,12 +122,22 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 @end
 
 @interface HTableView (HState)
+
 @property (nonatomic, assign) HTableState tableState; //set table view different state
-- (void)setObject:(id)anObject forKey:(NSString *)aKey tableStatue:(NSInteger)statue;
-- (nullable id)objectForKey:(NSString *)aKey tableStatue:(NSInteger)statue;
-- (void)removeObjectForKey:(NSString *)aKey tableStatue:(NSInteger)statue;
-- (void)removeObjectForTableStatue:(NSInteger)statue;
-- (void)clearTableStatue;
+
+- (void)setObject:(id)anObject forKey:(NSString *)aKey;
+- (void)setObject:(id)anObject forKey:(NSString *)aKey state:(HTableState)tableState;
+
+- (nullable id)objectForKey:(NSString *)aKey;
+- (nullable id)objectForKey:(NSString *)aKey state:(HTableState)tableState;
+
+- (void)removeObjectForKey:(NSString *)aKey;
+- (void)removeObjectForKey:(NSString *)aKey state:(HTableState)tableState;
+
+- (void)removeStateObject;
+- (void)removeObjectForState:(HTableState)tableState;
+
+- (void)clearTableState;
 @end
 
 NS_ASSUME_NONNULL_END
