@@ -642,7 +642,10 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     return [objc_getAssociatedObject(self, _cmd) integerValue];
 }
 - (void)setTableState:(HTableState)tableState {
-    objc_setAssociatedObject(self, @selector(tableState), @(tableState), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    if (self.tableState != tableState) {
+        objc_setAssociatedObject(self, @selector(tableState), @(tableState), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self reloadData];
+    }
 }
 - (void)setObject:(id)anObject forKey:(NSString *)aKey tableStatue:(NSInteger)statue {
     NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KTableStateKey, @(statue)];
@@ -668,7 +671,6 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     }
 }
 - (void)clearTableStatue {
-    [self setTableState:0];
     if (self.tableStatueSource.count > 0) {
         [self.tableStatueSource removeAllObjects];
     }

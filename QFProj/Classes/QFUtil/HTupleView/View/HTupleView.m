@@ -788,7 +788,10 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     return [objc_getAssociatedObject(self, _cmd) integerValue];
 }
 - (void)setTupleState:(HTupleState)tupleState {
-    objc_setAssociatedObject(self, @selector(tupleState), @(tupleState), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    if (self.tupleState != tupleState) {
+        objc_setAssociatedObject(self, @selector(tupleState), @(tupleState), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self reloadData];
+    }
 }
 - (void)setObject:(id)anObject forKey:(NSString *)aKey tupleStatue:(NSInteger)statue {
     NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KTupleStateKey, @(statue)];
@@ -814,7 +817,6 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     }
 }
 - (void)clearTupleStatue {
-    [self setTupleState:0];
     if (self.tupleStatueSource.count > 0) {
         [self.tupleStatueSource removeAllObjects];
     }
