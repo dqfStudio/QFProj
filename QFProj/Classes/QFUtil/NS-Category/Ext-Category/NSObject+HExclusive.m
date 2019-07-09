@@ -92,6 +92,7 @@
 }
 @end
 
+#define KSegStateKey   @"_seg_"
 
 @interface NSObject ()
 @property (nonatomic) NSMutableDictionary *segStatueDict;
@@ -126,21 +127,21 @@
     objc_setAssociatedObject(self, @selector(segStatueDict), segStatueDict, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 - (void)setObject:(id)anObject forKey:(NSString *)aKey segStatue:(NSInteger)statue {
-    NSString *key = [NSString stringWithFormat:@"%@%@", aKey, @(statue)];
+    NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KSegStateKey, @(statue)];
     [self.segStatueDict setObject:anObject forKey:key];
 }
 - (nullable id)objectForKey:(NSString *)aKey segStatue:(NSInteger)statue {
-    NSString *key = [NSString stringWithFormat:@"%@%@", aKey, @(statue)];
+    NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KSegStateKey, @(statue)];
     return [self.segStatueDict objectForKey:key];
 }
 - (void)removeObjectForKey:(NSString *)aKey segStatue:(NSInteger)statue {
-    NSString *key = [NSString stringWithFormat:@"%@%@", aKey, @(statue)];
+    NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KSegStateKey, @(statue)];
     if ([self.segStatueDict.allKeys containsObject:key]) {
         [self.segStatueDict removeObjectForKey:key];
     }
 }
 - (void)removeObjectForSegStatue:(NSInteger)statue {
-    NSString *key = [NSString stringWithFormat:@"%@", @(statue)];
+    NSString *key = [NSString stringWithFormat:@"%@%@", KSegStateKey, @(statue)];
     for (NSUInteger i=self.segStatueDict.allKeys.count-1; i>=0; i--) {
         NSString *akey = self.segStatueDict.allKeys[i];
         if ([akey containsString:key]) {

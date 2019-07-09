@@ -630,6 +630,8 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 }
 @end
 
+#define KTableStateKey   @"_table_"
+
 @interface NSObject ()
 @property (nonatomic) NSMutableDictionary *tableStatueDict;
 @end
@@ -663,21 +665,21 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     objc_setAssociatedObject(self, @selector(tableTotalState), @(tableTotalState), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 - (void)setObject:(id)anObject forKey:(NSString *)aKey tableStatue:(NSInteger)statue {
-    NSString *key = [NSString stringWithFormat:@"%@%@", aKey, @(statue)];
+    NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KTableStateKey, @(statue)];
     [self.tableStatueDict setObject:anObject forKey:key];
 }
 - (nullable id)objectForKey:(NSString *)aKey tableStatue:(NSInteger)statue {
-    NSString *key = [NSString stringWithFormat:@"%@%@", aKey, @(statue)];
+    NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KTableStateKey, @(statue)];
     return [self.tableStatueDict objectForKey:key];
 }
 - (void)removeObjectForKey:(NSString *)aKey tableStatue:(NSInteger)statue {
-    NSString *key = [NSString stringWithFormat:@"%@%@", aKey, @(statue)];
+    NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KTableStateKey, @(statue)];
     if ([self.tableStatueDict.allKeys containsObject:key]) {
         [self.tableStatueDict removeObjectForKey:key];
     }
 }
 - (void)removeObjectForTableStatue:(NSInteger)statue {
-    NSString *key = [NSString stringWithFormat:@"%@", @(statue)];
+    NSString *key = [NSString stringWithFormat:@"%@%@", KTableStateKey, @(statue)];
     for (NSUInteger i=self.tableStatueDict.allKeys.count-1; i>=0; i--) {
         NSString *akey = self.tableStatueDict.allKeys[i];
         if ([akey containsString:key]) {
