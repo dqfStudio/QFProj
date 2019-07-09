@@ -151,7 +151,6 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 @end
 
 @interface HTupleView (HState)
-- (NSInteger)selectedTupleStatue;
 - (NSInteger)tupleTotalState;
 - (void)setObject:(id)anObject forKey:(NSString *)aKey tupleStatue:(NSInteger)statue;
 - (nullable id)objectForKey:(NSString *)aKey tupleStatue:(NSInteger)statue;

@@ -794,14 +794,6 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 - (void)setTupleStatueDict:(NSMutableDictionary *)tupleStatueDict {
     objc_setAssociatedObject(self, @selector(tupleStatueDict), tupleStatueDict, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (NSInteger)selectedTupleStatue {
-    NSNumber *statue = objc_getAssociatedObject(self, _cmd);
-    if (!statue) return 0;
-    return statue.integerValue;
-}
-- (void)setSelectedTupleStatue:(NSInteger)selectedTupleStatue {
-    objc_setAssociatedObject(self, @selector(selectedTupleStatue), @(selectedTupleStatue), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
 - (NSInteger)tupleTotalState {
     NSNumber *statue = objc_getAssociatedObject(self, _cmd);
     if (!statue) return 0;
@@ -834,7 +826,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     }
 }
 - (void)clearTupleStatue {
-    [self setSelectedTupleStatue:0];
+    [self setTupleState:0];
     [self setTupleTotalState:0];
     if (self.tupleStatueDict.count > 0) {
         [self.tupleStatueDict removeAllObjects];

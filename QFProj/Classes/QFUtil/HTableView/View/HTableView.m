@@ -648,14 +648,6 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 - (void)setTableStatueDict:(NSMutableDictionary *)tableStatueDict {
     objc_setAssociatedObject(self, @selector(tableStatueDict), tableStatueDict, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (NSInteger)selectedTableStatue {
-    NSNumber *statue = objc_getAssociatedObject(self, _cmd);
-    if (!statue) return 0;
-    return statue.integerValue;
-}
-- (void)setSelectedTableStatue:(NSInteger)selectedTableStatue {
-    objc_setAssociatedObject(self, @selector(selectedTableStatue), @(selectedTableStatue), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
 - (NSInteger)tableTotalState {
     NSNumber *statue = objc_getAssociatedObject(self, _cmd);
     if (!statue) return 0;
@@ -688,7 +680,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     }
 }
 - (void)clearTableStatue {
-    [self setSelectedTableStatue:0];
+    [self setTableState:0];
     [self setTableTotalState:0];
     if (self.tableStatueDict.count > 0) {
         [self.tableStatueDict removeAllObjects];
