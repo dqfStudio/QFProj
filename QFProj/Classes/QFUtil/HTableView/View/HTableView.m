@@ -508,16 +508,6 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 @end
 
 @implementation HTableView (HSignal)
-- (HTableState)tableState {
-    return [objc_getAssociatedObject(self, _cmd) integerValue];
-}
-- (void)setTableState:(HTableState)tableState {
-    if (self.tableState != tableState) {
-        objc_setAssociatedObject(self, @selector(tableState), @(tableState), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        [self reloadData];
-    }
-}
-
 - (HTableCellSignalBlock)signalBlock {
     return objc_getAssociatedObject(self, _cmd);
 }
@@ -648,12 +638,16 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 - (void)setTableStatueDict:(NSMutableDictionary *)tableStatueDict {
     objc_setAssociatedObject(self, @selector(tableStatueDict), tableStatueDict, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (NSInteger)tableTotalState {
-    NSNumber *statue = objc_getAssociatedObject(self, _cmd);
-    if (!statue) return 0;
-    return statue.integerValue;
+- (HTableState)tableState {
+    return [objc_getAssociatedObject(self, _cmd) integerValue];
 }
-- (void)setTableTotalState:(NSInteger)tableTotalState {
+- (void)setTableState:(HTableState)tableState {
+    objc_setAssociatedObject(self, @selector(tableState), @(tableState), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (HTableState)tableTotalState {
+    return [objc_getAssociatedObject(self, _cmd) integerValue];
+}
+- (void)setTableTotalState:(HTableState)tableTotalState {
     objc_setAssociatedObject(self, @selector(tableTotalState), @(tableTotalState), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 - (void)setObject:(id)anObject forKey:(NSString *)aKey tableStatue:(NSInteger)statue {

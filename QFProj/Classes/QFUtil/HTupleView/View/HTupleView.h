@@ -125,7 +125,6 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 
 @interface HTupleView (HSignal)
 
-@property (nonatomic, assign) HTupleState tupleState; //set tuple view different state
 @property (nonatomic, copy, nullable) HTupleCellSignalBlock signalBlock;
 
 - (void)signalToTupleView:(HTupleSignal *_Nullable)signal;
@@ -151,7 +150,8 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 @end
 
 @interface HTupleView (HState)
-- (NSInteger)tupleTotalState;
+@property (nonatomic, assign) HTupleState tupleState; //set tuple view different state
+@property (nonatomic, assign) HTupleState tupleTotalState;
 - (void)setObject:(id)anObject forKey:(NSString *)aKey tupleStatue:(NSInteger)statue;
 - (nullable id)objectForKey:(NSString *)aKey tupleStatue:(NSInteger)statue;
 - (void)removeObjectForKey:(NSString *)aKey tupleStatue:(NSInteger)statue;

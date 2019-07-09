@@ -97,7 +97,6 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 
 @interface HTableView (HSignal)
 
-@property (nonatomic, assign) HTableState tableState; //set table view different state
 @property (nonatomic, copy, nullable) HTableCellSignalBlock signalBlock;
 
 - (void)signalToTable:(HTableSignal *_Nullable)signal;
@@ -123,7 +122,8 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 @end
 
 @interface HTableView (HState)
-- (NSInteger)tableTotalState;
+@property (nonatomic, assign) HTableState tableState; //set table view different state
+@property (nonatomic, assign) HTableState tableTotalState;
 - (void)setObject:(id)anObject forKey:(NSString *)aKey tableStatue:(NSInteger)statue;
 - (nullable id)objectForKey:(NSString *)aKey tableStatue:(NSInteger)statue;
 - (void)removeObjectForKey:(NSString *)aKey tableStatue:(NSInteger)statue;

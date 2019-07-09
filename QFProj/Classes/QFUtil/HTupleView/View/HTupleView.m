@@ -650,16 +650,6 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 @end
 
 @implementation HTupleView (HSignal)
-- (HTupleState)tupleState {
-    return [objc_getAssociatedObject(self, _cmd) integerValue];
-}
-- (void)setTupleState:(HTupleState)tupleState {
-    if (self.tupleState != tupleState) {
-        objc_setAssociatedObject(self, @selector(tupleState), @(tupleState), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        [self reloadData];
-    }
-}
-
 - (HTupleCellSignalBlock)signalBlock {
     return objc_getAssociatedObject(self, _cmd);
 }
@@ -794,12 +784,16 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 - (void)setTupleStatueDict:(NSMutableDictionary *)tupleStatueDict {
     objc_setAssociatedObject(self, @selector(tupleStatueDict), tupleStatueDict, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (NSInteger)tupleTotalState {
-    NSNumber *statue = objc_getAssociatedObject(self, _cmd);
-    if (!statue) return 0;
-    return statue.integerValue;
+- (HTupleState)tupleState {
+    return [objc_getAssociatedObject(self, _cmd) integerValue];
 }
-- (void)setTupleTotalState:(NSInteger)tupleTotalState {
+- (void)setTupleState:(HTupleState)tupleState {
+    objc_setAssociatedObject(self, @selector(tupleState), @(tupleState), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (HTupleState)tupleTotalState {
+    return [objc_getAssociatedObject(self, _cmd) integerValue];
+}
+- (void)setTupleTotalState:(HTupleState)tupleTotalState {
     objc_setAssociatedObject(self, @selector(tupleTotalState), @(tupleTotalState), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 - (void)setObject:(id)anObject forKey:(NSString *)aKey tupleStatue:(NSInteger)statue {
