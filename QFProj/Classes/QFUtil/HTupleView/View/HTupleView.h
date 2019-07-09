@@ -151,7 +151,6 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 
 @interface HTupleView (HState)
 @property (nonatomic, assign) HTupleState tupleState; //set tuple view different state
-@property (nonatomic, assign) HTupleState tupleTotalState;
 - (void)setObject:(id)anObject forKey:(NSString *)aKey tupleStatue:(NSInteger)statue;
 - (nullable id)objectForKey:(NSString *)aKey tupleStatue:(NSInteger)statue;
 - (void)removeObjectForKey:(NSString *)aKey tupleStatue:(NSInteger)statue;

@@ -769,20 +769,20 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 #define KTupleStateKey   @"_tuple_"
 
 @interface HTupleView (HStateSource)
-@property (nonatomic) NSMutableDictionary *tupleStatueDict;
+@property (nonatomic) NSMutableDictionary *tupleStatueSource;
 @end
 
 @implementation HTupleView (HState)
-- (NSMutableDictionary *)tupleStatueDict {
+- (NSMutableDictionary *)tupleStatueSource {
     NSMutableDictionary *dict = objc_getAssociatedObject(self, _cmd);
     if (!dict) {
         dict = NSMutableDictionary.new;
-        [self setTupleStatueDict:dict];
+        [self setTupleStatueSource:dict];
     }
     return dict;
 }
-- (void)setTupleStatueDict:(NSMutableDictionary *)tupleStatueDict {
-    objc_setAssociatedObject(self, @selector(tupleStatueDict), tupleStatueDict, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setTupleStatueSource:(NSMutableDictionary *)tupleStatueSource {
+    objc_setAssociatedObject(self, @selector(tupleStatueSource), tupleStatueSource, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 - (HTupleState)tupleState {
     return [objc_getAssociatedObject(self, _cmd) integerValue];
@@ -790,40 +790,33 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 - (void)setTupleState:(HTupleState)tupleState {
     objc_setAssociatedObject(self, @selector(tupleState), @(tupleState), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (HTupleState)tupleTotalState {
-    return [objc_getAssociatedObject(self, _cmd) integerValue];
-}
-- (void)setTupleTotalState:(HTupleState)tupleTotalState {
-    objc_setAssociatedObject(self, @selector(tupleTotalState), @(tupleTotalState), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
 - (void)setObject:(id)anObject forKey:(NSString *)aKey tupleStatue:(NSInteger)statue {
     NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KTupleStateKey, @(statue)];
-    [self.tupleStatueDict setObject:anObject forKey:key];
+    [self.tupleStatueSource setObject:anObject forKey:key];
 }
 - (nullable id)objectForKey:(NSString *)aKey tupleStatue:(NSInteger)statue {
     NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KTupleStateKey, @(statue)];
-    return [self.tupleStatueDict objectForKey:key];
+    return [self.tupleStatueSource objectForKey:key];
 }
 - (void)removeObjectForKey:(NSString *)aKey tupleStatue:(NSInteger)statue {
     NSString *key = [NSString stringWithFormat:@"%@%@%@", aKey, KTupleStateKey, @(statue)];
-    if ([self.tupleStatueDict.allKeys containsObject:key]) {
-        [self.tupleStatueDict removeObjectForKey:key];
+    if ([self.tupleStatueSource.allKeys containsObject:key]) {
+        [self.tupleStatueSource removeObjectForKey:key];
     }
 }
 - (void)removeObjectForTupleStatue:(NSInteger)statue {
     NSString *key = [NSString stringWithFormat:@"%@%@", KTupleStateKey, @(statue)];
-    for (NSUInteger i=self.tupleStatueDict.allKeys.count-1; i>=0; i--) {
-        NSString *akey = self.tupleStatueDict.allKeys[i];
+    for (NSUInteger i=self.tupleStatueSource.allKeys.count-1; i>=0; i--) {
+        NSString *akey = self.tupleStatueSource.allKeys[i];
         if ([akey containsString:key]) {
-            [self.tupleStatueDict removeObjectForKey:akey];
+            [self.tupleStatueSource removeObjectForKey:akey];
         }
     }
 }
 - (void)clearTupleStatue {
     [self setTupleState:0];
-    [self setTupleTotalState:0];
-    if (self.tupleStatueDict.count > 0) {
-        [self.tupleStatueDict removeAllObjects];
+    if (self.tupleStatueSource.count > 0) {
+        [self.tupleStatueSource removeAllObjects];
     }
 }
 @end
