@@ -27,7 +27,7 @@ typedef void(^HTupleViewBlock)(NSIndexPath *idxPath);
 typedef void(^HTupleViewSkinBlock)(HTupleBaseView *cell, HTupleView *tuple);
 
 @interface HTupleBaseView : UICollectionReusableView
-@property (nonatomic, weak) UICollectionView *collection;
+@property (nonatomic, weak) UICollectionView *tuple;
 @property (nonatomic, copy) HTupleViewBlock cellBlock;
 @property (nonatomic, copy) HTupleViewSkinBlock skinBlock;
 @property (nonatomic) NSIndexPath *indexPath;

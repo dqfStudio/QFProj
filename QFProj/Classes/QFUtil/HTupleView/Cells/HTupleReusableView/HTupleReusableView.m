@@ -79,32 +79,32 @@
 @end
 
 @implementation HTupleVerticalView
-- (HTupleView *)tuple {
-    if (!_tuple) {
-        _tuple = [[HTupleView alloc] initWithFrame:self.bounds];
-        [_tuple setBackgroundColor:UIColor.clearColor];
-        [_tuple setScrollEnabled:NO];
-        [self addSubview:_tuple];
+- (HTupleView *)tupleView {
+    if (!_tupleView) {
+        _tupleView = [[HTupleView alloc] initWithFrame:self.bounds];
+        [_tupleView setBackgroundColor:UIColor.clearColor];
+        [_tupleView setScrollEnabled:NO];
+        [self addSubview:_tupleView];
     }
-    return _tuple;
+    return _tupleView;
 }
 - (void)layoutContentView {
-    HLayoutTupleView(self.tuple)
+    HLayoutTupleView(self.tupleView)
 }
 @end
 
 @implementation HTupleHorizontalView
-- (HTupleView *)tuple {
-    if (!_tuple) {
-        _tuple = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleViewScrollDirectionHorizontal];
-        [_tuple setBackgroundColor:UIColor.clearColor];
-        [_tuple setScrollEnabled:NO];
-        [self addSubview:_tuple];
+- (HTupleView *)tupleView {
+    if (!_tupleView) {
+        _tupleView = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleViewScrollDirectionHorizontal];
+        [_tupleView setBackgroundColor:UIColor.clearColor];
+        [_tupleView setScrollEnabled:NO];
+        [self addSubview:_tupleView];
     }
-    return _tuple;
+    return _tupleView;
 }
 - (void)layoutContentView {
-    HLayoutTupleView(self.tuple)
+    HLayoutTupleView(self.tupleView)
 }
 @end
 

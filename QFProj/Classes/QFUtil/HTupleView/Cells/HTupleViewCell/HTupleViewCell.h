@@ -37,11 +37,11 @@
 @end
 
 @interface HTupleVerticalCell : HTupleBaseCell
-@property (nonatomic) HTupleView *tuple;
+@property (nonatomic) HTupleView *tupleView;
 @end
 
 @interface HTupleHorizontalCell : HTupleBaseCell
-@property (nonatomic) HTupleView *tuple;
+@property (nonatomic) HTupleView *tupleView;
 @end
 
 @interface HTupleUnionCell : HTupleBaseCell

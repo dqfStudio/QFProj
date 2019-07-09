@@ -322,7 +322,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
             [self registerClass:cls forCellWithReuseIdentifier:identifier];
             cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
             HTupleBaseCell *tmpCell = (HTupleBaseCell *)cell;
-            tmpCell.collection = self;
+            tmpCell.tuple = self;
             tmpCell.indexPath = indexPath;
             //init method
             if (iblk) {
@@ -383,7 +383,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
                 [self registerClass:cls forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier];
                 cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
                 HTupleBaseView *tmpCell = (HTupleBaseView *)cell;
-                tmpCell.collection = self;
+                tmpCell.tuple = self;
                 tmpCell.indexPath = indexPath;
                 tmpCell.isHeader = YES;
                 //init method
@@ -440,7 +440,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
                 [self registerClass:cls forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier];
                 cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
                 HTupleBaseView *tmpCell = (HTupleBaseView *)cell;
-                tmpCell.collection = self;
+                tmpCell.tuple = self;
                 tmpCell.indexPath = indexPath;
                 tmpCell.isHeader = NO;
                 //init method
