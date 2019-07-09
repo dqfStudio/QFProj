@@ -21,7 +21,7 @@
 - (void)cellSkinEvent {
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.skinBlock) {
-            self.skinBlock();
+            self.skinBlock(self, (HTableView *)self.table);
         }
     });
 }
@@ -29,7 +29,7 @@
     if (_skinBlock != skinBlock) {
         _skinBlock = nil;
         _skinBlock = skinBlock;
-        self.skinBlock();
+        _skinBlock(self, (HTableView *)self.table);
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellSkinEvent) name:KTableViewSkinNotify object:nil];
     }
 }

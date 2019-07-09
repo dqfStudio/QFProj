@@ -29,7 +29,7 @@
 - (void)cellSkinEvent {
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.skinBlock) {
-            self.skinBlock();
+            self.skinBlock(self, (HTupleView *)self.collection);
         }
     });
 }
@@ -38,7 +38,7 @@
     if (_skinBlock != skinBlock) {
         _skinBlock = nil;
         _skinBlock = skinBlock;
-        self.skinBlock();
+        _skinBlock(self, (HTupleView *)self.collection);
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellSkinEvent) name:KTupleCellSkinNotify object:nil];
     }
 }

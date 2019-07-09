@@ -22,8 +22,10 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
     [v setFrame:[self getContentFrame]];\
 }
 
+@class HTupleView, HTupleBaseCell;
+
 typedef void(^HTupleCellBlock)(NSIndexPath *idxPath);
-typedef void(^HTupleCellSkinBlock)(void);
+typedef void(^HTupleCellSkinBlock)(HTupleBaseCell *cell, HTupleView *tuple);
 
 @interface HTupleBaseCell : UICollectionViewCell
 @property (nonatomic, weak) UICollectionView *collection;

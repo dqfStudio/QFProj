@@ -16,7 +16,9 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 [v setFrame:[self getContentFrame]];\
 }
 
-typedef void(^HTableCellSkinBlock)(void);
+@class HTableView, HTableBaseCell;
+
+typedef void(^HTableCellSkinBlock)(HTableBaseCell *cell, HTableView *table);
 
 @interface HTableBaseCell : UITableViewCell
 @property (nonatomic, weak) UITableView *table;
