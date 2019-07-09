@@ -19,11 +19,11 @@
     return self;
 }
 - (void)cellSkinEvent {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.skinBlock) {
+    if (self.skinBlock) {
+        dispatch_async(dispatch_get_main_queue(), ^{
             self.skinBlock(self, (HTableView *)self.table);
-        }
-    });
+        });
+    }
 }
 - (void)setSkinBlock:(HTableViewSkinBlock)skinBlock {
     if (_skinBlock != skinBlock) {
