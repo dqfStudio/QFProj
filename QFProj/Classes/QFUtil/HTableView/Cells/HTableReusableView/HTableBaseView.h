@@ -9,14 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "HTableSignal.h"
 
+#define KTableViewSkinNotify @"tableViewSkinNotify"
+
 #define HLayoutTableView(v) \
 if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 [v setFrame:[self getContentFrame]];\
 }
 
+typedef void(^HTableViewSkinBlock)(void);
+
 @interface HTableBaseView : UITableViewHeaderFooterView
 @property (nonatomic, weak) UITableView *table;
 @property (nonatomic) NSInteger section;
+@property (nonatomic, copy) HTableViewSkinBlock skinBlock;
 //需要子类重写该方法
 - (void)initUI;
 - (CGRect)getContentFrame;

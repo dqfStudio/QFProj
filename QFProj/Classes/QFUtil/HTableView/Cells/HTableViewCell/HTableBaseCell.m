@@ -27,6 +27,20 @@
     [super setSelected:selected animated:animated];
     // Configure the view for the selected state
 }
+- (void)cellSkinEvent {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.skinBlock) {
+            self.skinBlock();
+        }
+    });
+}
+- (void)setSkinBlock:(HTableCellSkinBlock)skinBlock {
+    if (_skinBlock != skinBlock) {
+        _skinBlock = nil;
+        _skinBlock = skinBlock;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellSkinEvent) name:KTableCellSkinNotify object:nil];
+    }
+}
 //子类覆盖
 - (void)initUI {}
 

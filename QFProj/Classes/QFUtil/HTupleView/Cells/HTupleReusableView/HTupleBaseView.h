@@ -14,16 +14,20 @@
 //#import "UILabel+HUtil.h"
 //#import "UIButton+HUtil.h"
 
+#define KTupleViewSkinNotify @"tupleViewSkinNotify"
+
 #define HLayoutTupleView(v) \
 if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
     [v setFrame:[self getContentFrame]];\
 }
 
-typedef void(^HTupleBaseViewBlock)(NSIndexPath *idxPath);
+typedef void(^HTupleViewBlock)(NSIndexPath *idxPath);
+typedef void(^HTupleViewSkinBlock)(void);
 
 @interface HTupleBaseView : UICollectionReusableView
 @property (nonatomic, weak) UICollectionView *collection;
-@property (nonatomic, copy) HTupleBaseViewBlock cellBlock;
+@property (nonatomic, copy) HTupleViewBlock cellBlock;
+@property (nonatomic, copy) HTupleViewSkinBlock skinBlock;
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UIEdgeInsets edgeInsets;
 //间隔线

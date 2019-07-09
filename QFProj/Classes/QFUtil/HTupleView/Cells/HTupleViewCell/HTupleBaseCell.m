@@ -26,6 +26,22 @@
     return self;
 }
 
+- (void)cellSkinEvent {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.skinBlock) {
+            self.skinBlock();
+        }
+    });
+}
+
+- (void)setSkinBlock:(HTupleCellSkinBlock)skinBlock {
+    if (_skinBlock != skinBlock) {
+        _skinBlock = nil;
+        _skinBlock = skinBlock;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellSkinEvent) name:KTupleCellSkinNotify object:nil];
+    }
+}
+
 - (UIView *)separatorView {
     if (!_separatorView) {
         _separatorView = UIView.new;

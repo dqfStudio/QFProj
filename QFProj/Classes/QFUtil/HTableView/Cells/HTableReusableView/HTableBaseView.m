@@ -18,7 +18,20 @@
     }
     return self;
 }
-
+- (void)cellSkinEvent {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.skinBlock) {
+            self.skinBlock();
+        }
+    });
+}
+- (void)setSkinBlock:(HTableViewSkinBlock)skinBlock {
+    if (_skinBlock != skinBlock) {
+        _skinBlock = nil;
+        _skinBlock = skinBlock;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellSkinEvent) name:KTableViewSkinNotify object:nil];
+    }
+}
 //子类覆盖
 - (void)initUI {}
 

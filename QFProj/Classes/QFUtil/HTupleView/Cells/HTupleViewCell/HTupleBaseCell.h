@@ -15,16 +15,20 @@
 //#import "UIView+HUtil.h"
 #import "UIButton+HUtil.h"
 
+#define KTupleCellSkinNotify @"tupleCellSkinNotify"
+
 #define HLayoutTupleCell(v) \
 if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
     [v setFrame:[self getContentFrame]];\
 }
 
-typedef void(^HTupleBaseCellBlock)(NSIndexPath *idxPath);
+typedef void(^HTupleCellBlock)(NSIndexPath *idxPath);
+typedef void(^HTupleCellSkinBlock)(void);
 
 @interface HTupleBaseCell : UICollectionViewCell
 @property (nonatomic, weak) UICollectionView *collection;
-@property (nonatomic, copy) HTupleBaseCellBlock cellBlock;
+@property (nonatomic, copy) HTupleCellBlock cellBlock;
+@property (nonatomic, copy) HTupleCellSkinBlock skinBlock;
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UIEdgeInsets edgeInsets;
 //间隔线
