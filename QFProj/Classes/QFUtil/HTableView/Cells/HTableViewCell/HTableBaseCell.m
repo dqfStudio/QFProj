@@ -28,11 +28,11 @@
     // Configure the view for the selected state
 }
 - (void)cellSkinEvent {
-    if (self.skinBlock) {
-        dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.skinBlock) {
             self.skinBlock(self, (HTableView *)self.table);
-        });
-    }
+        }
+    });
 }
 - (void)setSkinBlock:(HTableCellSkinBlock)skinBlock {
     if (_skinBlock != skinBlock) {

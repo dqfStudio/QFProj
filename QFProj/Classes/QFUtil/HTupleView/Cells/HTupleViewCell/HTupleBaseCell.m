@@ -27,11 +27,11 @@
 }
 
 - (void)cellSkinEvent {
-    if (self.skinBlock) {
-        dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.skinBlock) {
             self.skinBlock(self, (HTupleView *)self.tuple);
-        });
-    }
+        }
+    });
 }
 
 - (void)setSkinBlock:(HTupleCellSkinBlock)skinBlock {
