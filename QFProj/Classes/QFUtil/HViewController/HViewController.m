@@ -456,6 +456,21 @@
 - (UIScreen *)screen {
     return UIScreen.mainScreen;
 }
+- (CGFloat)width {
+    return CGRectGetWidth(self.view.frame);
+}
+- (CGFloat)height {
+    return CGRectGetHeight(self.view.frame);
+}
+- (CGSize)size {
+    return self.view.frame.size;
+}
+- (CGRect)frame {
+    return self.view.frame;
+}
+- (CGRect)bounds {
+    return self.view.bounds;
+}
 - (NSMutableArray *)sourceArr {
     NSMutableArray *array = objc_getAssociatedObject(self, _cmd);
     if (!array) {

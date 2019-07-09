@@ -115,9 +115,14 @@
 @end
 
 @interface HViewController (HMessy)
-//获取window和screen
-@property (nonatomic, readonly) UIWindow *window;
-@property (nonatomic, readonly) UIScreen *screen;
+//获取window & screen & rect
+- (UIWindow *)window;
+- (UIScreen *)screen;
+- (CGFloat)width;
+- (CGFloat)height;
+- (CGSize)size;
+- (CGRect)frame;
+- (CGRect)bounds;
 //load date
 @property (nonatomic) NSMutableArray *sourceArr;
 @property (nonatomic) NSMutableDictionary *sourceDict;
