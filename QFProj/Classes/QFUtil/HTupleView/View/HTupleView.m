@@ -835,6 +835,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 - (void)clearTupleStatue {
     [self setSelectedTupleStatue:0];
+    [self setTupleTotalState:0];
     if (self.tupleStatueDict.count > 0) {
         [self.tupleStatueDict removeAllObjects];
     }

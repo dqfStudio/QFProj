@@ -689,6 +689,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 }
 - (void)clearTableStatue {
     [self setSelectedTableStatue:0];
+    [self setTableTotalState:0];
     if (self.tableStatueDict.count > 0) {
         [self.tableStatueDict removeAllObjects];
     }
