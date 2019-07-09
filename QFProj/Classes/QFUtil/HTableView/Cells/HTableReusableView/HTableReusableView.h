@@ -31,11 +31,11 @@
 @end
 
 @interface HTableVerticalView : HTableBaseView
-@property (nonatomic) HTupleView *tuple;
+@property (nonatomic) HTupleView *tupleView;
 @end
 
 @interface HTableHorizontalView : HTableBaseView
-@property (nonatomic) HTupleView *tuple;
+@property (nonatomic) HTupleView *tupleView;
 @end
 
 @interface HTableUnionView : HTableBaseView
