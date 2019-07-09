@@ -632,11 +632,11 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 
 #define KTableStateKey   @"_table_"
 
-@interface NSObject ()
+@interface HTableView (HStateSource)
 @property (nonatomic) NSMutableDictionary *tableStatueDict;
 @end
 
-@implementation NSObject (HTableState)
+@implementation HTableView (HState)
 - (NSMutableDictionary *)tableStatueDict {
     NSMutableDictionary *dict = objc_getAssociatedObject(self, _cmd);
     if (!dict) {

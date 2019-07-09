@@ -122,7 +122,7 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 
 @end
 
-@interface NSObject (HTableState)
+@interface HTableView (HState)
 - (NSInteger)selectedTableStatue;
 - (NSInteger)tableTotalState;
 - (void)setObject:(id)anObject forKey:(NSString *)aKey tableStatue:(NSInteger)statue;

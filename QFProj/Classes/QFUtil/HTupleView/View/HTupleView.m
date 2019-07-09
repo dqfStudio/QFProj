@@ -778,11 +778,11 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 
 #define KTupleStateKey   @"_tuple_"
 
-@interface NSObject ()
+@interface HTupleView (HStateSource)
 @property (nonatomic) NSMutableDictionary *tupleStatueDict;
 @end
 
-@implementation NSObject (HTupleState)
+@implementation HTupleView (HState)
 - (NSMutableDictionary *)tupleStatueDict {
     NSMutableDictionary *dict = objc_getAssociatedObject(self, _cmd);
     if (!dict) {
