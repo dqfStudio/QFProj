@@ -247,6 +247,16 @@
 		A2E8F52022D2300D00E7C9F2 /* HTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F51F22D2300D00E7C9F2 /* HTableController.m */; };
 		A2E8F52322D2EB5A00E7C9F2 /* HTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F52222D2EB5A00E7C9F2 /* HTabBarController.m */; };
 		A2E8F52622D2EB6E00E7C9F2 /* HNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F52422D2EB6E00E7C9F2 /* HNavigationController.m */; };
+		A2E8F53C22D72A9800E7C9F2 /* YTKNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F52922D72A9800E7C9F2 /* YTKNetworkConfig.m */; };
+		A2E8F53D22D72A9800E7C9F2 /* YTKChainRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F52B22D72A9800E7C9F2 /* YTKChainRequest.m */; };
+		A2E8F53E22D72A9800E7C9F2 /* YTKNetworkPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F52F22D72A9800E7C9F2 /* YTKNetworkPrivate.m */; };
+		A2E8F53F22D72A9800E7C9F2 /* YTKBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F53322D72A9800E7C9F2 /* YTKBaseRequest.m */; };
+		A2E8F54022D72A9800E7C9F2 /* YTKBatchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F53622D72A9800E7C9F2 /* YTKBatchRequest.m */; };
+		A2E8F54122D72A9800E7C9F2 /* YTKNetworkAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F53722D72A9800E7C9F2 /* YTKNetworkAgent.m */; };
+		A2E8F54222D72A9800E7C9F2 /* YTKChainRequestAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F53822D72A9800E7C9F2 /* YTKChainRequestAgent.m */; };
+		A2E8F54322D72A9800E7C9F2 /* YTKBatchRequestAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F53922D72A9800E7C9F2 /* YTKBatchRequestAgent.m */; };
+		A2E8F54422D72A9800E7C9F2 /* YTKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F53B22D72A9800E7C9F2 /* YTKRequest.m */; };
+		A2E8F54722D72AB700E7C9F2 /* HRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F54622D72AB700E7C9F2 /* HRequest.m */; };
 		A2ED9C1222314BA100C9D050 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1022314BA100C9D050 /* SimplePing.m */; };
 		A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1122314BA100C9D050 /* HPingTester.m */; };
 		A2ED9C1722314CAC00C9D050 /* HKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1622314CAC00C9D050 /* HKeyChainStore.m */; };
@@ -683,6 +693,27 @@
 		A2E8F52222D2EB5A00E7C9F2 /* HTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTabBarController.m; sourceTree = "<group>"; };
 		A2E8F52422D2EB6E00E7C9F2 /* HNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNavigationController.m; sourceTree = "<group>"; };
 		A2E8F52522D2EB6E00E7C9F2 /* HNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNavigationController.h; sourceTree = "<group>"; };
+		A2E8F52922D72A9800E7C9F2 /* YTKNetworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKNetworkConfig.m; sourceTree = "<group>"; };
+		A2E8F52A22D72A9800E7C9F2 /* YTKBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKBaseRequest.h; sourceTree = "<group>"; };
+		A2E8F52B22D72A9800E7C9F2 /* YTKChainRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKChainRequest.m; sourceTree = "<group>"; };
+		A2E8F52C22D72A9800E7C9F2 /* YTKNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetwork.h; sourceTree = "<group>"; };
+		A2E8F52D22D72A9800E7C9F2 /* YTKBatchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKBatchRequest.h; sourceTree = "<group>"; };
+		A2E8F52E22D72A9800E7C9F2 /* YTKNetworkAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetworkAgent.h; sourceTree = "<group>"; };
+		A2E8F52F22D72A9800E7C9F2 /* YTKNetworkPrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKNetworkPrivate.m; sourceTree = "<group>"; };
+		A2E8F53022D72A9800E7C9F2 /* YTKRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKRequest.h; sourceTree = "<group>"; };
+		A2E8F53122D72A9800E7C9F2 /* YTKBatchRequestAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKBatchRequestAgent.h; sourceTree = "<group>"; };
+		A2E8F53222D72A9800E7C9F2 /* YTKChainRequestAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKChainRequestAgent.h; sourceTree = "<group>"; };
+		A2E8F53322D72A9800E7C9F2 /* YTKBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKBaseRequest.m; sourceTree = "<group>"; };
+		A2E8F53422D72A9800E7C9F2 /* YTKNetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetworkConfig.h; sourceTree = "<group>"; };
+		A2E8F53522D72A9800E7C9F2 /* YTKChainRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKChainRequest.h; sourceTree = "<group>"; };
+		A2E8F53622D72A9800E7C9F2 /* YTKBatchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKBatchRequest.m; sourceTree = "<group>"; };
+		A2E8F53722D72A9800E7C9F2 /* YTKNetworkAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKNetworkAgent.m; sourceTree = "<group>"; };
+		A2E8F53822D72A9800E7C9F2 /* YTKChainRequestAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKChainRequestAgent.m; sourceTree = "<group>"; };
+		A2E8F53922D72A9800E7C9F2 /* YTKBatchRequestAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKBatchRequestAgent.m; sourceTree = "<group>"; };
+		A2E8F53A22D72A9800E7C9F2 /* YTKNetworkPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetworkPrivate.h; sourceTree = "<group>"; };
+		A2E8F53B22D72A9800E7C9F2 /* YTKRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKRequest.m; sourceTree = "<group>"; };
+		A2E8F54522D72AB700E7C9F2 /* HRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRequest.h; sourceTree = "<group>"; };
+		A2E8F54622D72AB700E7C9F2 /* HRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRequest.m; sourceTree = "<group>"; };
 		A2ED9C0E22314BA100C9D050 /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
 		A2ED9C0F22314BA100C9D050 /* HPingTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPingTester.h; sourceTree = "<group>"; };
 		A2ED9C1022314BA100C9D050 /* SimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePing.m; sourceTree = "<group>"; };
@@ -943,6 +974,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A2E8F52722D72A9800E7C9F2 /* HNetwork */,
 				A206882422CA081400661634 /* HViewController */,
 				A28EF35121D8EC2A002F92ED /* HResultView */,
 				A28EF2E921D86E43002F92ED /* UILabel+HAttributeText */,
@@ -1799,6 +1831,43 @@
 			path = HLoading;
 			sourceTree = "<group>";
 		};
+		A2E8F52722D72A9800E7C9F2 /* HNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				A2E8F54522D72AB700E7C9F2 /* HRequest.h */,
+				A2E8F54622D72AB700E7C9F2 /* HRequest.m */,
+				A2E8F52822D72A9800E7C9F2 /* YTKNetwork */,
+			);
+			name = HNetwork;
+			path = QFUtil/HNetwork;
+			sourceTree = "<group>";
+		};
+		A2E8F52822D72A9800E7C9F2 /* YTKNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				A2E8F52922D72A9800E7C9F2 /* YTKNetworkConfig.m */,
+				A2E8F52A22D72A9800E7C9F2 /* YTKBaseRequest.h */,
+				A2E8F52B22D72A9800E7C9F2 /* YTKChainRequest.m */,
+				A2E8F52C22D72A9800E7C9F2 /* YTKNetwork.h */,
+				A2E8F52D22D72A9800E7C9F2 /* YTKBatchRequest.h */,
+				A2E8F52E22D72A9800E7C9F2 /* YTKNetworkAgent.h */,
+				A2E8F52F22D72A9800E7C9F2 /* YTKNetworkPrivate.m */,
+				A2E8F53022D72A9800E7C9F2 /* YTKRequest.h */,
+				A2E8F53122D72A9800E7C9F2 /* YTKBatchRequestAgent.h */,
+				A2E8F53222D72A9800E7C9F2 /* YTKChainRequestAgent.h */,
+				A2E8F53322D72A9800E7C9F2 /* YTKBaseRequest.m */,
+				A2E8F53422D72A9800E7C9F2 /* YTKNetworkConfig.h */,
+				A2E8F53522D72A9800E7C9F2 /* YTKChainRequest.h */,
+				A2E8F53622D72A9800E7C9F2 /* YTKBatchRequest.m */,
+				A2E8F53722D72A9800E7C9F2 /* YTKNetworkAgent.m */,
+				A2E8F53822D72A9800E7C9F2 /* YTKChainRequestAgent.m */,
+				A2E8F53922D72A9800E7C9F2 /* YTKBatchRequestAgent.m */,
+				A2E8F53A22D72A9800E7C9F2 /* YTKNetworkPrivate.h */,
+				A2E8F53B22D72A9800E7C9F2 /* YTKRequest.m */,
+			);
+			path = YTKNetwork;
+			sourceTree = "<group>";
+		};
 		A2ED9C0D22314BA100C9D050 /* HPingTool */ = {
 			isa = PBXGroup;
 			children = (
@@ -2000,12 +2069,14 @@
 				15C5736B20B3DD7B0070327C /* HTupleViewCell.m in Sources */,
 				15B4DE042092F96C00773E04 /* NSError+HUtil.m in Sources */,
 				A28EF38321D8EC2A002F92ED /* HResultView.m in Sources */,
+				A2E8F54722D72AB700E7C9F2 /* HRequest.m in Sources */,
 				157684D220E2157E00D8DC5B /* NSBlockChain.m in Sources */,
 				A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */,
 				A21FD5FA224DBC34009F03FB /* HRequestHUD.m in Sources */,
 				15B4DDF82092F96C00773E04 /* UIImage+Util.m in Sources */,
 				1508255520EB1C0F008CAE57 /* HDictionary.m in Sources */,
 				A2DC22BE2242994800E540BE /* NSObject+HForwarding.m in Sources */,
+				A2E8F54122D72A9800E7C9F2 /* YTKNetworkAgent.m in Sources */,
 				153F081620E28CA000C74850 /* HNumericValidator.m in Sources */,
 				A222AE5422818F7D0013098A /* HLabel.m in Sources */,
 				15B4DDE92092F96C00773E04 /* HDebugUtil.m in Sources */,
@@ -2031,6 +2102,8 @@
 				150C7CB721199D9000A05347 /* UIView+HPrinter.m in Sources */,
 				A24B656D225EE14800B257BB /* HValidate.m in Sources */,
 				15464B7720A2C26300CDD27E /* HTestManager.m in Sources */,
+				A2E8F54322D72A9800E7C9F2 /* YTKBatchRequestAgent.m in Sources */,
+				A2E8F53D22D72A9800E7C9F2 /* YTKChainRequest.m in Sources */,
 				15038EA820CC0C6A00A16FC9 /* HSwitchLanguage.m in Sources */,
 				A24B659522607E8400B257BB /* NSStream+SKPSMTPExtensions.m in Sources */,
 				15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */,
@@ -2047,6 +2120,7 @@
 				A2ED9C1222314BA100C9D050 /* SimplePing.m in Sources */,
 				1528DF4C20BF0FE200D0A004 /* UIAlertController+HUtil.m in Sources */,
 				A4759710217EC61D00AAAEA9 /* HUserDefaults.m in Sources */,
+				A2E8F53F22D72A9800E7C9F2 /* YTKBaseRequest.m in Sources */,
 				A28EF3C421DA1DFE002F92ED /* HFormCell.m in Sources */,
 				1547B891210C4E09009E0374 /* UICollectionView+HTracking.m in Sources */,
 				A24B659622607E8400B257BB /* HEmailManager.m in Sources */,
@@ -2088,9 +2162,11 @@
 				15F9152620A1817F000261C4 /* QFButton.m in Sources */,
 				15C572B020B016CA0070327C /* UIView+HAccessoryView.m in Sources */,
 				A222AE5F22818F7D0013098A /* HTextParser.m in Sources */,
+				A2E8F53E22D72A9800E7C9F2 /* YTKNetworkPrivate.m in Sources */,
 				15C5731E20B3B1900070327C /* HSimilarity.m in Sources */,
 				15B4DE052092F96C00773E04 /* HHexUtil.m in Sources */,
 				A2296D5C228A626B0081A479 /* HSFSafariViewController.m in Sources */,
+				A2E8F54022D72A9800E7C9F2 /* YTKBatchRequest.m in Sources */,
 				15B4DE0E2092F96C00773E04 /* NSDictionary+HSafeUtil.m in Sources */,
 				15B4DE2A2093034700773E04 /* HClassManager.m in Sources */,
 				15B4DE1D209302BF00773E04 /* HGoTo.m in Sources */,
@@ -2117,6 +2193,7 @@
 				A222AE5022818F7D0013098A /* HTextInput.m in Sources */,
 				150DE9902126AE50004B9E77 /* HAnalogNetworkManager.m in Sources */,
 				A206882022C9FDBD00661634 /* HTableReusableView.m in Sources */,
+				A2E8F53C22D72A9800E7C9F2 /* YTKNetworkConfig.m in Sources */,
 				A208E17822BA305C009A6FDD /* HTupleRefresh.m in Sources */,
 				15F9152920A18CA9000261C4 /* HAspectsCenter.m in Sources */,
 				A222AE5122818F7D0013098A /* HTextLine.m in Sources */,
@@ -2126,6 +2203,7 @@
 				A2E8F52322D2EB5A00E7C9F2 /* HTabBarController.m in Sources */,
 				153F081720E28CA000C74850 /* HPhoneValidator.m in Sources */,
 				153F081320E28CA000C74850 /* HAlphaValidator.m in Sources */,
+				A2E8F54222D72A9800E7C9F2 /* YTKChainRequestAgent.m in Sources */,
 				A222AE5622818F7D0013098A /* UIView+HText.m in Sources */,
 				A222AE4D22818F7D0013098A /* HTextSelectionView.m in Sources */,
 				A24B659E22609CE600B257BB /* NSObject+HName.m in Sources */,
@@ -2178,6 +2256,7 @@
 				15E6BB9D2136E7E300EBE794 /* YPTabContentView.m in Sources */,
 				15464B7820A2C26300CDD27E /* HTestVC-DQF.m in Sources */,
 				15B4DE292093034700773E04 /* NSObject+annotation.m in Sources */,
+				A2E8F54422D72A9800E7C9F2 /* YTKRequest.m in Sources */,
 				15B4DDF32092F96C00773E04 /* UIView+HUtil.m in Sources */,
 				A2E8F51D22D229A500E7C9F2 /* HTupleController.m in Sources */,
 				A222AE4B22818F7D0013098A /* HTextEffectWindow.m in Sources */,
