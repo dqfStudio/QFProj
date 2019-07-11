@@ -11,6 +11,7 @@
 #import "HNumericValidator.h"
 #import "HPhoneValidator.h"
 #import "HViewController.h"
+#import "UIButton+HUtil.h"
 
 @interface HLoginController : HViewController
 
