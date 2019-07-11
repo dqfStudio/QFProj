@@ -18,12 +18,12 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 #define KSectionDesignKey @"section"
 #define KTableDesignKey   @"table"
 
-@interface NSIndexPath (HTableView)
-- (NSString *)string;
+@interface NSIndexPath (HTableMessy)
+- (NSString *)stringValue;
 @end
 
-@implementation NSIndexPath (HTableView)
-- (NSString *)string {
+@implementation NSIndexPath (HTableMessy)
+- (NSString *)stringValue {
     return [NSString stringWithFormat:@"%@%@",@(self.section),@(self.row)];
 }
 @end
@@ -208,6 +208,9 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         self.mj_footer = nil;
     }
 }
+- (NSString *)addressValue {
+    return [NSString stringWithFormat:@"%p", self];
+}
 #pragma mark - UITableViewDatasource & delegate
 - (NSString *)tableWithPrefix:(NSInteger)section {
     NSString *prefix = nil;
@@ -287,7 +290,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     id (^HCellForHeaderBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
         @strongify(self)
         NSString *identifier = NSStringFromClass(cls);
-        identifier = [identifier stringByAppendingString:[self string]];
+        identifier = [identifier stringByAppendingString:self.addressValue];
         identifier = [identifier stringByAppendingString:@"HeaderCell"];
         identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
         if (pre) identifier = [identifier stringByAppendingString:pre];
@@ -337,7 +340,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     id (^HCellForFooterBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
         @strongify(self)
         NSString *identifier = NSStringFromClass(cls);
-        identifier = [identifier stringByAppendingString:[self string]];
+        identifier = [identifier stringByAppendingString:self.addressValue];
         identifier = [identifier stringByAppendingString:@"FooterCell"];
         identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
         if (pre) identifier = [identifier stringByAppendingString:pre];
@@ -387,11 +390,11 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     id (^HCellForItemBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
         @strongify(self)
         NSString *identifier = NSStringFromClass(cls);
-        identifier = [identifier stringByAppendingString:[self string]];
+        identifier = [identifier stringByAppendingString:self.addressValue];
         identifier = [identifier stringByAppendingString:@"ItemCell"];
         identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
         if (pre) identifier = [identifier stringByAppendingString:pre];
-        if (idx) identifier = [identifier stringByAppendingString:[indexPath string]];
+        if (idx) identifier = [identifier stringByAppendingString:indexPath.stringValue];
         if (![self.allReuseIdentifiers containsObject:identifier]) {
             [self.allReuseIdentifiers addObject:identifier];
             [self registerClass:cls forCellReuseIdentifier:identifier];
@@ -409,7 +412,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         }else {
             cell = [self dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
         }
-        [self.allReuseCells setObject:cell forKey:indexPath.string];
+        [self.allReuseCells setObject:cell forKey:indexPath.stringValue];
         if ([cell respondsToSelector:@selector(layoutContentView)]) {
             [(HTableBaseCell *)cell layoutContentView];
         }
@@ -529,7 +532,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
             NSInteger cells = [self numberOfRowsInSection:i];
             for (int j=0; j<cells; j++) {
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:j inSection:i];
-                UITableViewCell *cell = [self.allReuseCells objectForKey:indexPath.string];
+                UITableViewCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
                 if (cell.signalBlock) {
                     cell.signalBlock(cell, signal);
                 }
@@ -542,7 +545,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         NSInteger cells = [self numberOfRowsInSection:section];
         for (int i=0; i<cells; i++) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:section];
-            UITableViewCell *cell = [self.allReuseCells objectForKey:indexPath.string];
+            UITableViewCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
             if (cell.signalBlock) {
                 cell.signalBlock(cell, signal);
             }
@@ -551,7 +554,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 }
 - (void)signal:(HTableSignal *)signal indexPath:(NSIndexPath *)indexPath  {
     dispatch_async(dispatch_queue_create(0, 0), ^{
-        UITableViewCell *cell = [self.allReuseCells objectForKey:indexPath.string];
+        UITableViewCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
         if (cell.signalBlock) {
             cell.signalBlock(cell, signal);
         }
@@ -598,7 +601,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 - (id (^)(NSInteger row, NSInteger section))cell {
     return ^id (NSInteger row, NSInteger section) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
-        return [self.allReuseCells objectForKey:indexPath.string];
+        return [self.allReuseCells objectForKey:indexPath.stringValue];
     };
 }
 - (id (^)(NSInteger row, NSInteger section))indexPath {
@@ -615,9 +618,9 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 - (CGSize)size {
     return self.frame.size;
 }
-- (NSString *)string {
-    return [NSString stringWithFormat:@"%p", self];
-}
+//- (NSString *)addressValue {
+//    return [NSString stringWithFormat:@"%p", self];
+//}
 @end
 
 #define KTableStateKey   @"_table_"
