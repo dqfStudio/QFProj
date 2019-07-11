@@ -35,6 +35,7 @@ typedef void(^HTupleCellSkinBlock)(HTupleBaseCell *cell, HTupleView *tuple);
 @property (nonatomic) UIEdgeInsets separatorInset;
 @property (nonatomic) UIColor *separatorColor;
 @property (nonatomic) BOOL shouldShowSeparator;
+- (void)reloadData;
 - (CGRect)getContentFrame;
 //需要子类重写该方法
 - (void)initUI;

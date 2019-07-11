@@ -47,6 +47,12 @@
 
 - (void)layoutContentView {};
 
+- (void)reloadData {
+    if ([self.indexPath isKindOfClass:NSIndexPath.class]) {
+        [self.table reloadRowsAtIndexPaths:@[self.indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
 - (CGRect)getContentFrame {
     return self.bounds;
 }

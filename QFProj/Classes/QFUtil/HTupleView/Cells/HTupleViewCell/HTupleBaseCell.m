@@ -96,6 +96,12 @@
 
 - (void)layoutContentView {};
 
+- (void)reloadData {
+    if ([self.indexPath isKindOfClass:NSIndexPath.class]) {
+        [self.tuple reloadItemsAtIndexPaths:@[self.indexPath]];
+    }
+}
+
 - (CGRect)getContentFrame {
     CGRect frame = self.bounds;
     frame.origin.x += self.edgeInsets.left;

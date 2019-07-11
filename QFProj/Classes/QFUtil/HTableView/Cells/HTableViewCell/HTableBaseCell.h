@@ -23,9 +23,10 @@ typedef void(^HTableCellSkinBlock)(HTableBaseCell *cell, HTableView *table);
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UITableViewCellStyle style;
 @property (nonatomic, copy) HTableCellSkinBlock skinBlock;
+- (void)reloadData;
+- (CGRect)getContentFrame;
 //需要子类重写该方法
 - (void)initUI;
-- (CGRect)getContentFrame;
 - (void)layoutContentView;
 - (CGFloat)width;
 - (CGFloat)height;
