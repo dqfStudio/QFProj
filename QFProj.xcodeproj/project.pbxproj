@@ -256,7 +256,10 @@
 		A2E8F54222D72A9800E7C9F2 /* YTKChainRequestAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F53822D72A9800E7C9F2 /* YTKChainRequestAgent.m */; };
 		A2E8F54322D72A9800E7C9F2 /* YTKBatchRequestAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F53922D72A9800E7C9F2 /* YTKBatchRequestAgent.m */; };
 		A2E8F54422D72A9800E7C9F2 /* YTKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F53B22D72A9800E7C9F2 /* YTKRequest.m */; };
-		A2E8F54722D72AB700E7C9F2 /* HRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F54622D72AB700E7C9F2 /* HRequest.m */; };
+		A2E8F54722D72AB700E7C9F2 /* HRequestDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F54622D72AB700E7C9F2 /* HRequestDAO.m */; };
+		A2E8F54A22D73AE600E7C9F2 /* HRequestDAOFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F54922D73AE600E7C9F2 /* HRequestDAOFactory.m */; };
+		A2E8F54D22D73AF500E7C9F2 /* HRequestDAOStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F54C22D73AF500E7C9F2 /* HRequestDAOStrategy.m */; };
+		A2E8F55322D73E4B00E7C9F2 /* HRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F55222D73E4B00E7C9F2 /* HRequest.m */; };
 		A2ED9C1222314BA100C9D050 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1022314BA100C9D050 /* SimplePing.m */; };
 		A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1122314BA100C9D050 /* HPingTester.m */; };
 		A2ED9C1722314CAC00C9D050 /* HKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1622314CAC00C9D050 /* HKeyChainStore.m */; };
@@ -712,8 +715,14 @@
 		A2E8F53922D72A9800E7C9F2 /* YTKBatchRequestAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKBatchRequestAgent.m; sourceTree = "<group>"; };
 		A2E8F53A22D72A9800E7C9F2 /* YTKNetworkPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetworkPrivate.h; sourceTree = "<group>"; };
 		A2E8F53B22D72A9800E7C9F2 /* YTKRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKRequest.m; sourceTree = "<group>"; };
-		A2E8F54522D72AB700E7C9F2 /* HRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRequest.h; sourceTree = "<group>"; };
-		A2E8F54622D72AB700E7C9F2 /* HRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRequest.m; sourceTree = "<group>"; };
+		A2E8F54522D72AB700E7C9F2 /* HRequestDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRequestDAO.h; sourceTree = "<group>"; };
+		A2E8F54622D72AB700E7C9F2 /* HRequestDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRequestDAO.m; sourceTree = "<group>"; };
+		A2E8F54822D73AE600E7C9F2 /* HRequestDAOFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRequestDAOFactory.h; sourceTree = "<group>"; };
+		A2E8F54922D73AE600E7C9F2 /* HRequestDAOFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRequestDAOFactory.m; sourceTree = "<group>"; };
+		A2E8F54B22D73AF500E7C9F2 /* HRequestDAOStrategy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRequestDAOStrategy.h; sourceTree = "<group>"; };
+		A2E8F54C22D73AF500E7C9F2 /* HRequestDAOStrategy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRequestDAOStrategy.m; sourceTree = "<group>"; };
+		A2E8F55122D73E4B00E7C9F2 /* HRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRequest.h; sourceTree = "<group>"; };
+		A2E8F55222D73E4B00E7C9F2 /* HRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRequest.m; sourceTree = "<group>"; };
 		A2ED9C0E22314BA100C9D050 /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
 		A2ED9C0F22314BA100C9D050 /* HPingTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPingTester.h; sourceTree = "<group>"; };
 		A2ED9C1022314BA100C9D050 /* SimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePing.m; sourceTree = "<group>"; };
@@ -1834,8 +1843,14 @@
 		A2E8F52722D72A9800E7C9F2 /* HNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				A2E8F54522D72AB700E7C9F2 /* HRequest.h */,
-				A2E8F54622D72AB700E7C9F2 /* HRequest.m */,
+				A2E8F55122D73E4B00E7C9F2 /* HRequest.h */,
+				A2E8F55222D73E4B00E7C9F2 /* HRequest.m */,
+				A2E8F54522D72AB700E7C9F2 /* HRequestDAO.h */,
+				A2E8F54622D72AB700E7C9F2 /* HRequestDAO.m */,
+				A2E8F54822D73AE600E7C9F2 /* HRequestDAOFactory.h */,
+				A2E8F54922D73AE600E7C9F2 /* HRequestDAOFactory.m */,
+				A2E8F54B22D73AF500E7C9F2 /* HRequestDAOStrategy.h */,
+				A2E8F54C22D73AF500E7C9F2 /* HRequestDAOStrategy.m */,
 				A2E8F52822D72A9800E7C9F2 /* YTKNetwork */,
 			);
 			name = HNetwork;
@@ -1845,24 +1860,24 @@
 		A2E8F52822D72A9800E7C9F2 /* YTKNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				A2E8F52922D72A9800E7C9F2 /* YTKNetworkConfig.m */,
 				A2E8F52A22D72A9800E7C9F2 /* YTKBaseRequest.h */,
-				A2E8F52B22D72A9800E7C9F2 /* YTKChainRequest.m */,
-				A2E8F52C22D72A9800E7C9F2 /* YTKNetwork.h */,
+				A2E8F53322D72A9800E7C9F2 /* YTKBaseRequest.m */,
 				A2E8F52D22D72A9800E7C9F2 /* YTKBatchRequest.h */,
+				A2E8F53622D72A9800E7C9F2 /* YTKBatchRequest.m */,
+				A2E8F53122D72A9800E7C9F2 /* YTKBatchRequestAgent.h */,
+				A2E8F53922D72A9800E7C9F2 /* YTKBatchRequestAgent.m */,
+				A2E8F53522D72A9800E7C9F2 /* YTKChainRequest.h */,
+				A2E8F52B22D72A9800E7C9F2 /* YTKChainRequest.m */,
+				A2E8F53222D72A9800E7C9F2 /* YTKChainRequestAgent.h */,
+				A2E8F53822D72A9800E7C9F2 /* YTKChainRequestAgent.m */,
+				A2E8F52C22D72A9800E7C9F2 /* YTKNetwork.h */,
 				A2E8F52E22D72A9800E7C9F2 /* YTKNetworkAgent.h */,
+				A2E8F53722D72A9800E7C9F2 /* YTKNetworkAgent.m */,
+				A2E8F53422D72A9800E7C9F2 /* YTKNetworkConfig.h */,
+				A2E8F52922D72A9800E7C9F2 /* YTKNetworkConfig.m */,
+				A2E8F53A22D72A9800E7C9F2 /* YTKNetworkPrivate.h */,
 				A2E8F52F22D72A9800E7C9F2 /* YTKNetworkPrivate.m */,
 				A2E8F53022D72A9800E7C9F2 /* YTKRequest.h */,
-				A2E8F53122D72A9800E7C9F2 /* YTKBatchRequestAgent.h */,
-				A2E8F53222D72A9800E7C9F2 /* YTKChainRequestAgent.h */,
-				A2E8F53322D72A9800E7C9F2 /* YTKBaseRequest.m */,
-				A2E8F53422D72A9800E7C9F2 /* YTKNetworkConfig.h */,
-				A2E8F53522D72A9800E7C9F2 /* YTKChainRequest.h */,
-				A2E8F53622D72A9800E7C9F2 /* YTKBatchRequest.m */,
-				A2E8F53722D72A9800E7C9F2 /* YTKNetworkAgent.m */,
-				A2E8F53822D72A9800E7C9F2 /* YTKChainRequestAgent.m */,
-				A2E8F53922D72A9800E7C9F2 /* YTKBatchRequestAgent.m */,
-				A2E8F53A22D72A9800E7C9F2 /* YTKNetworkPrivate.h */,
 				A2E8F53B22D72A9800E7C9F2 /* YTKRequest.m */,
 			);
 			path = YTKNetwork;
@@ -2067,9 +2082,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				15C5736B20B3DD7B0070327C /* HTupleViewCell.m in Sources */,
+				A2E8F54D22D73AF500E7C9F2 /* HRequestDAOStrategy.m in Sources */,
 				15B4DE042092F96C00773E04 /* NSError+HUtil.m in Sources */,
 				A28EF38321D8EC2A002F92ED /* HResultView.m in Sources */,
-				A2E8F54722D72AB700E7C9F2 /* HRequest.m in Sources */,
+				A2E8F54722D72AB700E7C9F2 /* HRequestDAO.m in Sources */,
 				157684D220E2157E00D8DC5B /* NSBlockChain.m in Sources */,
 				A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */,
 				A21FD5FA224DBC34009F03FB /* HRequestHUD.m in Sources */,
@@ -2148,6 +2164,7 @@
 				A24B6577225EE88600B257BB /* HWebviewVC.m in Sources */,
 				15B4DD6B2092F88700773E04 /* ViewController.m in Sources */,
 				A28EF2E821D86DD8002F92ED /* ULBCollectionViewFlowLayout.m in Sources */,
+				A2E8F55322D73E4B00E7C9F2 /* HRequest.m in Sources */,
 				A24B657E225F768000B257BB /* HGameVC.m in Sources */,
 				15B4DDFB2092F96C00773E04 /* UIColor+HUtil.m in Sources */,
 				15B4DDE82092F96C00773E04 /* AppDelegate+HDebug.m in Sources */,
@@ -2249,6 +2266,7 @@
 				A2E8F51A22CF925700E7C9F2 /* AppDelegate+HUtil.m in Sources */,
 				15E6BB9B2136E7E300EBE794 /* YPTabBar.m in Sources */,
 				A24B659722607E8400B257BB /* SKPSMTPMessage.m in Sources */,
+				A2E8F54A22D73AE600E7C9F2 /* HRequestDAOFactory.m in Sources */,
 				A2E8F52622D2EB6E00E7C9F2 /* HNavigationController.m in Sources */,
 				A222AE5E22818F7D0013098A /* HTextArchiver.m in Sources */,
 				A265FF732269F70C0093C780 /* HVersionManager.m in Sources */,
