@@ -43,6 +43,7 @@
 #import "NSMutableAttributedString+HUtil.h"
 #import "NSUserDefaults+HUtil.h"
 #import "HAttributedString.h"
+#import "NSObject+HSafeMessy.h"
 
 //Block-Category
 #import "NSObject+BlockSEL.h"
@@ -58,6 +59,7 @@
 #import "NSString+HSafeUtil.h"
 #import "NSTimer+HSafeUtil.h"
 #import "UIControl+HSafeUtil.h"
+#import "UIView+HSafeMessy.h"
 
 //HTable
 #import "HTableView.h"

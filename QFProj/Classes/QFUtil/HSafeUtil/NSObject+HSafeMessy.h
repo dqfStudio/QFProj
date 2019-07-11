@@ -6,17 +6,23 @@
 //  Copyright © 2019年 dqfStudio. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-/**
- 支持UILabel、UIButton、UITextView设置text时进行类型检查
- */
-
-@interface UILabel (HSafeMessy)
-
+@interface NSNull (HMessy)
++ (NSString *)stringValue;
+- (NSString *)stringValue;
++ (NSUInteger)length;
+- (NSUInteger)length;
++ (BOOL)isEmpty;
+- (BOOL)isEmpty;
 @end
 
-@interface UITextView (HSafeMessy)
+@interface NSNumber (HMessy)
+- (NSUInteger)length;
+- (BOOL)isEmpty;
+@end
 
+@interface NSString (HMessy)
+- (NSString *)stringValue;
+- (BOOL)isEmpty;
 @end

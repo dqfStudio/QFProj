@@ -41,26 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 //将json data转化成字典
 - (NSDictionary *)dictionary;
 //将data转化成字符串
-- (NSString *)string;
-@end
-
-@interface NSNull (HMessy)
-+ (NSString *)stringValue;
 - (NSString *)stringValue;
-+ (NSUInteger)length;
-- (NSUInteger)length;
-+ (BOOL)isEmpty;
-- (BOOL)isEmpty;
-@end
-
-@interface NSNumber (HMessy)
-- (NSUInteger)length;
-- (BOOL)isEmpty;
-@end
-
-@interface NSString (HMessy)
-- (NSString *)stringValue;
-- (BOOL)isEmpty;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -260,6 +260,7 @@
 		A2E8F54A22D73AE600E7C9F2 /* HRequestDAOFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F54922D73AE600E7C9F2 /* HRequestDAOFactory.m */; };
 		A2E8F54D22D73AF500E7C9F2 /* HRequestDAOStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F54C22D73AF500E7C9F2 /* HRequestDAOStrategy.m */; };
 		A2E8F55322D73E4B00E7C9F2 /* HRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F55222D73E4B00E7C9F2 /* HRequest.m */; };
+		A2E8F55622D775A200E7C9F2 /* UIView+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F55522D775A200E7C9F2 /* UIView+HSafeMessy.m */; };
 		A2ED9C1222314BA100C9D050 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1022314BA100C9D050 /* SimplePing.m */; };
 		A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1122314BA100C9D050 /* HPingTester.m */; };
 		A2ED9C1722314CAC00C9D050 /* HKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1622314CAC00C9D050 /* HKeyChainStore.m */; };
@@ -723,6 +724,8 @@
 		A2E8F54C22D73AF500E7C9F2 /* HRequestDAOStrategy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRequestDAOStrategy.m; sourceTree = "<group>"; };
 		A2E8F55122D73E4B00E7C9F2 /* HRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRequest.h; sourceTree = "<group>"; };
 		A2E8F55222D73E4B00E7C9F2 /* HRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRequest.m; sourceTree = "<group>"; };
+		A2E8F55422D775A200E7C9F2 /* UIView+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HSafeMessy.h"; sourceTree = "<group>"; };
+		A2E8F55522D775A200E7C9F2 /* UIView+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2ED9C0E22314BA100C9D050 /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
 		A2ED9C0F22314BA100C9D050 /* HPingTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPingTester.h; sourceTree = "<group>"; };
 		A2ED9C1022314BA100C9D050 /* SimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePing.m; sourceTree = "<group>"; };
@@ -1191,6 +1194,8 @@
 				15B4DDDD2092F96B00773E04 /* NSObject+HSafeNotify.m */,
 				A2DC22B622424F2F00E540BE /* NSObject+HSafeMessy.h */,
 				A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */,
+				A2E8F55422D775A200E7C9F2 /* UIView+HSafeMessy.h */,
+				A2E8F55522D775A200E7C9F2 /* UIView+HSafeMessy.m */,
 				15B4DDD92092F96B00773E04 /* NSObject+HSwizzleUtil.h */,
 				15B4DDE42092F96B00773E04 /* NSObject+HSwizzleUtil.m */,
 				15B4DDE22092F96B00773E04 /* NSString+HSafeUtil.h */,
@@ -2273,6 +2278,7 @@
 				15C5737420B3DD7B0070327C /* HTupleView.m in Sources */,
 				15E6BB9D2136E7E300EBE794 /* YPTabContentView.m in Sources */,
 				15464B7820A2C26300CDD27E /* HTestVC-DQF.m in Sources */,
+				A2E8F55622D775A200E7C9F2 /* UIView+HSafeMessy.m in Sources */,
 				15B4DE292093034700773E04 /* NSObject+annotation.m in Sources */,
 				A2E8F54422D72A9800E7C9F2 /* YTKRequest.m in Sources */,
 				15B4DDF32092F96C00773E04 /* UIView+HUtil.m in Sources */,

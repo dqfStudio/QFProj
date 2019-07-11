@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NSObject+HMessy.h"
+#import "NSObject+HSafeMessy.h"
 
 @interface HTool : NSObject
 

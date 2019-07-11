@@ -7,61 +7,50 @@
 //
 
 #import "NSObject+HSafeMessy.h"
-#import <objc/runtime.h>
 
-@interface NSObject (HSafeMessy)
-
+@implementation NSNull (HMessy)
++ (NSString *)stringValue {
+    return @"";
+}
+- (NSString *)stringValue {
+    return @"";
+}
++ (NSUInteger)length {
+    return 0;
+}
+- (NSUInteger)length {
+    return 0;
+}
++ (BOOL)isEmpty {
+    return YES;
+}
+- (BOOL)isEmpty {
+    return YES;
+}
 @end
 
-@implementation NSObject (HSafeMessy)
-+ (void)methodSwizzleWithOrigSEL:(SEL)origSEL overrideSEL:(SEL)overrideSEL {
-    Method origMethod = class_getInstanceMethod([self class], origSEL);
-    Method overrideMethod= class_getInstanceMethod([self class], overrideSEL);
-    if(class_addMethod([self class], origSEL,
-                       method_getImplementation(overrideMethod),
-                       method_getTypeEncoding(overrideMethod))) {
-        class_replaceMethod([self class],overrideSEL, method_getImplementation(origMethod), method_getTypeEncoding(origMethod));
-    }else {
-        method_exchangeImplementations(origMethod,overrideMethod);
+@implementation NSNumber (HMessy)
+- (NSUInteger)length {
+    return self.stringValue.length;
+}
+- (BOOL)isEmpty {
+    NSString *string = [self.stringValue stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if (string.length == 0) {
+        return YES;
     }
+    return NO;
 }
 @end
 
-@implementation UILabel (HSafeMessy)
-+ (void)load {
-    [super load];
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self methodSwizzleWithOrigSEL:@selector(setText:) overrideSEL:@selector(safeMessy_setText:)];
-    });
+@implementation NSString (HMessy)
+- (NSString *)stringValue {
+    return self;
 }
-- (void)safeMessy_setText:(NSString *)text {
-    NSString *content = nil;
-    if ([text isKindOfClass:NSNumber.class]) {
-        content = [NSString stringWithFormat:@"%@", text];
-    }else if ([text isKindOfClass:NSString.class]) {
-        content = text;
+- (BOOL)isEmpty {
+    NSString *string = [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if (string.length == 0) {
+        return YES;
     }
-    [self safeMessy_setText:content];
+    return NO;
 }
 @end
-
-@implementation UITextView (HSafeMessy)
-+ (void)load {
-    [super load];
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self methodSwizzleWithOrigSEL:@selector(setText:) overrideSEL:@selector(safeMessy_setText:)];
-    });
-}
-- (void)safeMessy_setText:(NSString *)text {
-    NSString *content = nil;
-    if ([text isKindOfClass:NSNumber.class]) {
-        content = [NSString stringWithFormat:@"%@", text];
-    }else if ([text isKindOfClass:NSString.class]) {
-        content = text;
-    }
-    [self safeMessy_setText:content];
-}
-@end
-
