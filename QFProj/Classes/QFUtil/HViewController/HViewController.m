@@ -184,7 +184,7 @@
     }
     return _topBar;
 }
-- (float)topBarHeight {
+- (CGFloat)topBarHeight {
     return ([self prefersStatusBarHidden]?0:UIDevice.statusBarHeight) + ([self prefersNavigationBarHidden]?0:UIDevice.naviBarHeight);
 }
 - (UILabel *)titleLabel {

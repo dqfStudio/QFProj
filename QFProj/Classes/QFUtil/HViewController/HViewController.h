@@ -31,7 +31,7 @@
 @property (nonatomic) HWebButtonView *rightNaviButton;
 @property (nonatomic) UIView *topBarLine;
 
-- (float)topBarHeight;
+- (CGFloat)topBarHeight;
 
 + (HVCAppearance *)appearance;
 
