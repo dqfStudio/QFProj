@@ -15,12 +15,14 @@
 
 // 重试的HTTP请求类实例
 #ifndef kRetryHTTPReq
-#define kRetryHTTPReq   ([HRequestDAOFactory createRetryRequest])
+#define kRetryHTTPReq(count)   ([HRequestDAOFactory createRetryRequest:count])
+#define kRetryDefaultHTTPReq   ([HRequestDAOFactory createRetryRequest:2])
 #endif
 
 // 轮询的HTTP请求类实例
 #ifndef kPollingHTTPReq
-#define kPollingHTTPReq ([HRequestDAOFactory createPollingRequest])
+#define kPollingHTTPReq(array) ([HRequestDAOFactory createPollingRequest:array])
+#define kPollingDefaultHTTPReq ([HRequestDAOFactory createPollingRequest:nil])
 #endif
 
 @interface HRequestDAOFactory : NSObject
@@ -29,9 +31,9 @@
 + (HRequestDAO *)createSimpleRequest;
 
 // 包含打印、上传错误日志、失败重试等功能
-+ (HRequestDAO *)createRetryRequest;
++ (HRequestDAO *)createRetryRequest:(NSInteger)count;
 
 // 包含打印、上传错误日志、失败重试等功能
-+ (HRequestDAO *)createPollingRequest;
++ (HRequestDAO *)createPollingRequest:(NSArray *)pollingArr;
 
 @end

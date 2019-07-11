@@ -12,7 +12,7 @@
 + (HRequestDAO *)createSimpleRequest {
     return HRequestDAO.new;
 }
-+ (HRequestDAO *)createRetryRequest {
++ (HRequestDAO *)createRetryRequest:(NSInteger)count {
     HRequestDAO *httpRequest = HRequestDAO.new;
     
 //#if DEBUG
@@ -26,12 +26,13 @@
     [httpRequest addStrategy:logStrgy];
     
     HRetryStrategy *retryStrgy = HRetryStrategy.new;
+    retryStrgy.tryMax = count;
     [httpRequest addAccessory:retryStrgy];
     [httpRequest addStrategy:retryStrgy];
     
     return httpRequest;
 }
-+ (HRequestDAO *)createPollingRequest {
++ (HRequestDAO *)createPollingRequest:(NSArray *)pollingArr {
     HRequestDAO *httpRequest = HRequestDAO.new;
     
 //#if DEBUG
@@ -45,6 +46,7 @@
     [httpRequest addStrategy:logStrgy];
     
     HPollingStrategy *pollingStrgy = HPollingStrategy.new;
+    pollingStrgy.pollingArr = pollingArr;
     [httpRequest addAccessory:pollingStrgy];
     [httpRequest addStrategy:pollingStrgy];
     

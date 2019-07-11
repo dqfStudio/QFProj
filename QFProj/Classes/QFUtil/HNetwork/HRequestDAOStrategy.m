@@ -88,7 +88,6 @@
 - (instancetype)init {
     if (self = [super init]) {
         pollingCount = 0;
-        _pollingArr = NSMutableArray.array;
     }
     return self;
 }

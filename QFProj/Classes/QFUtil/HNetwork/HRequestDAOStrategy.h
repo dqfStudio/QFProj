@@ -40,5 +40,5 @@
 @end
 // 轮询机制，用于出错时轮询访问
 @interface HPollingStrategy : NSObject <HRequestStrategy>
-@property (nonatomic) NSMutableArray *pollingArr;//请求次数，默认为3（出错时重试2次）
+@property (nonatomic, copy) NSArray *pollingArr;//需要轮询的URL数组
 @end
