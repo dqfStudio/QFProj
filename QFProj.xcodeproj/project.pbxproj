@@ -36,7 +36,6 @@
 		1547B88F210C4E09009E0374 /* UITableView+HTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1547B888210C4E09009E0374 /* UITableView+HTracking.m */; };
 		1547B890210C4E09009E0374 /* UIControl+HTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1547B889210C4E09009E0374 /* UIControl+HTracking.m */; };
 		1547B891210C4E09009E0374 /* UICollectionView+HTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1547B88C210C4E09009E0374 /* UICollectionView+HTracking.m */; };
-		15545790212B0C6300DA7898 /* HFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1554578F212B0C6300DA7898 /* HFileCache.m */; };
 		15707EC020B5675A00493839 /* HTupleSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 15707EBF20B5675A00493839 /* HTupleSignal.m */; };
 		157684D220E2157E00D8DC5B /* NSBlockChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 157684D020E2157E00D8DC5B /* NSBlockChain.m */; };
 		157696EB20A0AB6900E31469 /* hFelix.m in Sources */ = {isa = PBXBuildFile; fileRef = 157696E420A0AB6900E31469 /* hFelix.m */; };
@@ -261,6 +260,16 @@
 		A2E8F54D22D73AF500E7C9F2 /* HRequestDAOStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F54C22D73AF500E7C9F2 /* HRequestDAOStrategy.m */; };
 		A2E8F55322D73E4B00E7C9F2 /* HRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F55222D73E4B00E7C9F2 /* HRequest.m */; };
 		A2E8F55622D775A200E7C9F2 /* UIView+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F55522D775A200E7C9F2 /* UIView+HSafeMessy.m */; };
+		A2E8F55A22D8354400E7C9F2 /* HFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F55822D8354400E7C9F2 /* HFileCache.m */; };
+		A2E8F57322D8356300E7C9F2 /* HFileStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F55D22D8356300E7C9F2 /* HFileStorage.m */; };
+		A2E8F57422D8356300E7C9F2 /* NSURL+HExtendedFileAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F56022D8356300E7C9F2 /* NSURL+HExtendedFileAttributes.m */; };
+		A2E8F57522D8356300E7C9F2 /* HCacheImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F56522D8356300E7C9F2 /* HCacheImageDecoder.m */; };
+		A2E8F57622D8356300E7C9F2 /* HValueTransformerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F56A22D8356300E7C9F2 /* HValueTransformerFactory.m */; };
+		A2E8F57722D8356300E7C9F2 /* HValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F56B22D8356300E7C9F2 /* HValueTransformer.m */; };
+		A2E8F57822D8356300E7C9F2 /* HCachePrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F56F22D8356300E7C9F2 /* HCachePrivate.m */; };
+		A2E8F57922D8356300E7C9F2 /* HCacheTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F57022D8356300E7C9F2 /* HCacheTimer.m */; };
+		A2E8F57A22D8356300E7C9F2 /* HDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F57122D8356300E7C9F2 /* HDiskCache.m */; };
+		A2E8F57B22D8356300E7C9F2 /* HCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F57222D8356300E7C9F2 /* HCache.m */; };
 		A2ED9C1222314BA100C9D050 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1022314BA100C9D050 /* SimplePing.m */; };
 		A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1122314BA100C9D050 /* HPingTester.m */; };
 		A2ED9C1722314CAC00C9D050 /* HKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1622314CAC00C9D050 /* HKeyChainStore.m */; };
@@ -328,8 +337,6 @@
 		1547B88B210C4E09009E0374 /* UITableView+HTracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+HTracking.h"; sourceTree = "<group>"; };
 		1547B88C210C4E09009E0374 /* UICollectionView+HTracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+HTracking.m"; sourceTree = "<group>"; };
 		1547B88D210C4E09009E0374 /* UIControl+HTracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+HTracking.h"; sourceTree = "<group>"; };
-		1554578E212B0C6300DA7898 /* HFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFileCache.h; sourceTree = "<group>"; };
-		1554578F212B0C6300DA7898 /* HFileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFileCache.m; sourceTree = "<group>"; };
 		15707EBE20B5675A00493839 /* HTupleSignal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleSignal.h; sourceTree = "<group>"; };
 		15707EBF20B5675A00493839 /* HTupleSignal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleSignal.m; sourceTree = "<group>"; };
 		157684D020E2157E00D8DC5B /* NSBlockChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSBlockChain.m; sourceTree = "<group>"; };
@@ -726,6 +733,26 @@
 		A2E8F55222D73E4B00E7C9F2 /* HRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRequest.m; sourceTree = "<group>"; };
 		A2E8F55422D775A200E7C9F2 /* UIView+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HSafeMessy.h"; sourceTree = "<group>"; };
 		A2E8F55522D775A200E7C9F2 /* UIView+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+HSafeMessy.m"; sourceTree = "<group>"; };
+		A2E8F55822D8354400E7C9F2 /* HFileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFileCache.m; sourceTree = "<group>"; };
+		A2E8F55922D8354400E7C9F2 /* HFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFileCache.h; sourceTree = "<group>"; };
+		A2E8F55D22D8356300E7C9F2 /* HFileStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFileStorage.m; sourceTree = "<group>"; };
+		A2E8F55E22D8356300E7C9F2 /* HFileStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFileStorage.h; sourceTree = "<group>"; };
+		A2E8F56022D8356300E7C9F2 /* NSURL+HExtendedFileAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+HExtendedFileAttributes.m"; sourceTree = "<group>"; };
+		A2E8F56122D8356300E7C9F2 /* NSURL+HExtendedFileAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+HExtendedFileAttributes.h"; sourceTree = "<group>"; };
+		A2E8F56222D8356300E7C9F2 /* HCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCache.h; sourceTree = "<group>"; };
+		A2E8F56322D8356300E7C9F2 /* HDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDiskCache.h; sourceTree = "<group>"; };
+		A2E8F56522D8356300E7C9F2 /* HCacheImageDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCacheImageDecoder.m; sourceTree = "<group>"; };
+		A2E8F56622D8356300E7C9F2 /* HCacheImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCacheImageDecoder.h; sourceTree = "<group>"; };
+		A2E8F56822D8356300E7C9F2 /* HValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HValueTransformer.h; sourceTree = "<group>"; };
+		A2E8F56922D8356300E7C9F2 /* HValueTransformerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HValueTransformerFactory.h; sourceTree = "<group>"; };
+		A2E8F56A22D8356300E7C9F2 /* HValueTransformerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HValueTransformerFactory.m; sourceTree = "<group>"; };
+		A2E8F56B22D8356300E7C9F2 /* HValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HValueTransformer.m; sourceTree = "<group>"; };
+		A2E8F56D22D8356300E7C9F2 /* HCachePrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCachePrivate.h; sourceTree = "<group>"; };
+		A2E8F56E22D8356300E7C9F2 /* HCacheTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCacheTimer.h; sourceTree = "<group>"; };
+		A2E8F56F22D8356300E7C9F2 /* HCachePrivate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCachePrivate.m; sourceTree = "<group>"; };
+		A2E8F57022D8356300E7C9F2 /* HCacheTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCacheTimer.m; sourceTree = "<group>"; };
+		A2E8F57122D8356300E7C9F2 /* HDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDiskCache.m; sourceTree = "<group>"; };
+		A2E8F57222D8356300E7C9F2 /* HCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCache.m; sourceTree = "<group>"; };
 		A2ED9C0E22314BA100C9D050 /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
 		A2ED9C0F22314BA100C9D050 /* HPingTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPingTester.h; sourceTree = "<group>"; };
 		A2ED9C1022314BA100C9D050 /* SimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePing.m; sourceTree = "<group>"; };
@@ -807,16 +834,6 @@
 				15112C752105A19600842FE4 /* HUncaughtExceptionHandler.m */,
 			);
 			path = HUncaughtExceptionHandler;
-			sourceTree = "<group>";
-		};
-		1538FFA2209405CC002E3A29 /* HCache */ = {
-			isa = PBXGroup;
-			children = (
-				1554578E212B0C6300DA7898 /* HFileCache.h */,
-				1554578F212B0C6300DA7898 /* HFileCache.m */,
-			);
-			name = HCache;
-			path = QFUtil/HCache;
 			sourceTree = "<group>";
 		};
 		1538FFA62094065A002E3A29 /* NSFileManager+HUtil */ = {
@@ -986,6 +1003,8 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A2E8F55B22D8356300E7C9F2 /* HCache */,
+				A2E8F55722D8354400E7C9F2 /* HFileCache */,
 				A2E8F52722D72A9800E7C9F2 /* HNetwork */,
 				A206882422CA081400661634 /* HViewController */,
 				A28EF35121D8EC2A002F92ED /* HResultView */,
@@ -1004,7 +1023,6 @@
 				15464B7220A2C26300CDD27E /* HTestUtil */,
 				15F9151920A14A33000261C4 /* HShow */,
 				1538FFA62094065A002E3A29 /* NSFileManager+HUtil */,
-				1538FFA2209405CC002E3A29 /* HCache */,
 				15B4DE1E2093034700773E04 /* Features */,
 				15B4DD7E2092F96B00773E04 /* QFUtil */,
 			);
@@ -1888,6 +1906,82 @@
 			path = YTKNetwork;
 			sourceTree = "<group>";
 		};
+		A2E8F55722D8354400E7C9F2 /* HFileCache */ = {
+			isa = PBXGroup;
+			children = (
+				A2E8F55922D8354400E7C9F2 /* HFileCache.h */,
+				A2E8F55822D8354400E7C9F2 /* HFileCache.m */,
+			);
+			name = HFileCache;
+			path = QFUtil/HFileCache;
+			sourceTree = "<group>";
+		};
+		A2E8F55B22D8356300E7C9F2 /* HCache */ = {
+			isa = PBXGroup;
+			children = (
+				A2E8F55F22D8356300E7C9F2 /* Extended File Attributes */,
+				A2E8F56222D8356300E7C9F2 /* HCache.h */,
+				A2E8F57222D8356300E7C9F2 /* HCache.m */,
+				A2E8F56322D8356300E7C9F2 /* HDiskCache.h */,
+				A2E8F57122D8356300E7C9F2 /* HDiskCache.m */,
+				A2E8F56422D8356300E7C9F2 /* Image Decoder */,
+				A2E8F55C22D8356300E7C9F2 /* Key-Value File Storage */,
+				A2E8F56C22D8356300E7C9F2 /* Private */,
+				A2E8F56722D8356300E7C9F2 /* Value Transforming */,
+			);
+			name = HCache;
+			path = QFUtil/HCache;
+			sourceTree = "<group>";
+		};
+		A2E8F55C22D8356300E7C9F2 /* Key-Value File Storage */ = {
+			isa = PBXGroup;
+			children = (
+				A2E8F55D22D8356300E7C9F2 /* HFileStorage.m */,
+				A2E8F55E22D8356300E7C9F2 /* HFileStorage.h */,
+			);
+			path = "Key-Value File Storage";
+			sourceTree = "<group>";
+		};
+		A2E8F55F22D8356300E7C9F2 /* Extended File Attributes */ = {
+			isa = PBXGroup;
+			children = (
+				A2E8F56022D8356300E7C9F2 /* NSURL+HExtendedFileAttributes.m */,
+				A2E8F56122D8356300E7C9F2 /* NSURL+HExtendedFileAttributes.h */,
+			);
+			path = "Extended File Attributes";
+			sourceTree = "<group>";
+		};
+		A2E8F56422D8356300E7C9F2 /* Image Decoder */ = {
+			isa = PBXGroup;
+			children = (
+				A2E8F56522D8356300E7C9F2 /* HCacheImageDecoder.m */,
+				A2E8F56622D8356300E7C9F2 /* HCacheImageDecoder.h */,
+			);
+			path = "Image Decoder";
+			sourceTree = "<group>";
+		};
+		A2E8F56722D8356300E7C9F2 /* Value Transforming */ = {
+			isa = PBXGroup;
+			children = (
+				A2E8F56822D8356300E7C9F2 /* HValueTransformer.h */,
+				A2E8F56922D8356300E7C9F2 /* HValueTransformerFactory.h */,
+				A2E8F56A22D8356300E7C9F2 /* HValueTransformerFactory.m */,
+				A2E8F56B22D8356300E7C9F2 /* HValueTransformer.m */,
+			);
+			path = "Value Transforming";
+			sourceTree = "<group>";
+		};
+		A2E8F56C22D8356300E7C9F2 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				A2E8F56D22D8356300E7C9F2 /* HCachePrivate.h */,
+				A2E8F56E22D8356300E7C9F2 /* HCacheTimer.h */,
+				A2E8F56F22D8356300E7C9F2 /* HCachePrivate.m */,
+				A2E8F57022D8356300E7C9F2 /* HCacheTimer.m */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
 		A2ED9C0D22314BA100C9D050 /* HPingTool */ = {
 			isa = PBXGroup;
 			children = (
@@ -2112,6 +2206,7 @@
 				15F9151D20A14A33000261C4 /* UIView+HShow.m in Sources */,
 				1528DF4320BEF6BC00D0A004 /* HNaviToastView.m in Sources */,
 				A222AE5C22818F7D0013098A /* NSAttributedString+HText.m in Sources */,
+				A2E8F57922D8356300E7C9F2 /* HCacheTimer.m in Sources */,
 				A206881E22C9FDBD00661634 /* HTableSignal.m in Sources */,
 				15E5652D2133A002003A63E5 /* HLoginController.m in Sources */,
 				A2296D59228A62080081A479 /* HGameViewController.m in Sources */,
@@ -2127,12 +2222,16 @@
 				A2E8F53D22D72A9800E7C9F2 /* YTKChainRequest.m in Sources */,
 				15038EA820CC0C6A00A16FC9 /* HSwitchLanguage.m in Sources */,
 				A24B659522607E8400B257BB /* NSStream+SKPSMTPExtensions.m in Sources */,
+				A2E8F57322D8356300E7C9F2 /* HFileStorage.m in Sources */,
 				15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */,
 				15B4DDED2092F96C00773E04 /* UIView+HImage.m in Sources */,
 				A206882222C9FDBD00661634 /* HTableViewCell.m in Sources */,
 				15E6BB9E2136E7E300EBE794 /* YPTabItem.m in Sources */,
 				A222AE5322818F7D0013098A /* HTextContainerView.m in Sources */,
 				1547B890210C4E09009E0374 /* UIControl+HTracking.m in Sources */,
+				A2E8F55A22D8354400E7C9F2 /* HFileCache.m in Sources */,
+				A2E8F57622D8356300E7C9F2 /* HValueTransformerFactory.m in Sources */,
+				A2E8F57422D8356300E7C9F2 /* NSURL+HExtendedFileAttributes.m in Sources */,
 				A222AE4E22818F7D0013098A /* HTextMagnifier.m in Sources */,
 				A265FF6F2269F6280093C780 /* HHostUrlManager.m in Sources */,
 				A222AE6022818F7D0013098A /* HTextRunDelegate.m in Sources */,
@@ -2178,6 +2277,7 @@
 				15B4DE122092F96C00773E04 /* NSObject+HSwizzleUtil.m in Sources */,
 				A208E18022BA40A2009A6FDD /* UIScrollView+HEmptyDataSet.m in Sources */,
 				A434870C214809F80030209A /* GViewController.m in Sources */,
+				A2E8F57522D8356300E7C9F2 /* HCacheImageDecoder.m in Sources */,
 				1547B88E210C4E09009E0374 /* UIViewController+HTracking.m in Sources */,
 				15B4DE062092F96C00773E04 /* NSObject+BlockSEL.m in Sources */,
 				A208E18122BA40A2009A6FDD /* UIScrollView+HEmptyDataSetExa.m in Sources */,
@@ -2202,12 +2302,12 @@
 				15B4DDEE2092F96C00773E04 /* UIViewController+HBackHandler.m in Sources */,
 				A222AE5222818F7D0013098A /* HTextKeyboardManager.m in Sources */,
 				15B4DE022092F96C00773E04 /* NSUserDefaults+HUtil.m in Sources */,
+				A2E8F57B22D8356300E7C9F2 /* HCache.m in Sources */,
 				15B4DE072092F96C00773E04 /* NSString+HChain.m in Sources */,
 				1510793F20F98E4800860D1C /* NSTimer+HUtil.m in Sources */,
 				A2ED9C1722314CAC00C9D050 /* HKeyChainStore.m in Sources */,
 				A222AE5522818F7D0013098A /* NSParagraphStyle+HText.m in Sources */,
 				15E6BB9A2136E7E300EBE794 /* UIViewController+YPTab.m in Sources */,
-				15545790212B0C6300DA7898 /* HFileCache.m in Sources */,
 				15B4DE012092F96C00773E04 /* HSpeechUtil.m in Sources */,
 				153F081820E28CA000C74850 /* UITextField+HRegular.m in Sources */,
 				A206880D22C9FD1B00661634 /* HTupleReusableView.m in Sources */,
@@ -2227,6 +2327,7 @@
 				153F081320E28CA000C74850 /* HAlphaValidator.m in Sources */,
 				A2E8F54222D72A9800E7C9F2 /* YTKChainRequestAgent.m in Sources */,
 				A222AE5622818F7D0013098A /* UIView+HText.m in Sources */,
+				A2E8F57822D8356300E7C9F2 /* HCachePrivate.m in Sources */,
 				A222AE4D22818F7D0013098A /* HTextSelectionView.m in Sources */,
 				A24B659E22609CE600B257BB /* NSObject+HName.m in Sources */,
 				15B4DDEF2092F96C00773E04 /* UIViewController+HUtil.m in Sources */,
@@ -2256,6 +2357,7 @@
 				A222AE4C22818F7D0013098A /* HTextDebugOption.m in Sources */,
 				A206880E22C9FD1B00661634 /* HTupleBaseView.m in Sources */,
 				15F9152020A171A8000261C4 /* NSObject+HAspects.m in Sources */,
+				A2E8F57A22D8356300E7C9F2 /* HDiskCache.m in Sources */,
 				A222AE5B22818F7D0013098A /* HTextWeakProxy.m in Sources */,
 				15B4DD682092F88700773E04 /* AppDelegate.m in Sources */,
 				A219F22F222FB46A00241FD7 /* HIFS.m in Sources */,
@@ -2278,6 +2380,7 @@
 				15C5737420B3DD7B0070327C /* HTupleView.m in Sources */,
 				15E6BB9D2136E7E300EBE794 /* YPTabContentView.m in Sources */,
 				15464B7820A2C26300CDD27E /* HTestVC-DQF.m in Sources */,
+				A2E8F57722D8356300E7C9F2 /* HValueTransformer.m in Sources */,
 				A2E8F55622D775A200E7C9F2 /* UIView+HSafeMessy.m in Sources */,
 				15B4DE292093034700773E04 /* NSObject+annotation.m in Sources */,
 				A2E8F54422D72A9800E7C9F2 /* YTKRequest.m in Sources */,
