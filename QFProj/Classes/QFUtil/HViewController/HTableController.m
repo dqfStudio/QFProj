@@ -27,6 +27,11 @@
     _extendedInset = UIEdgeInsetsZero;
     [self.view addSubview:self.tableView];
 }
+- (void)vcWillDisappear:(HVCDisappearType)type {
+    if (type == HVCDisappearTypePop || type == HVCDisappearTypeDismiss) {
+        [self.tableView releaseTableBlock];
+    }
+}
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     if (_autoLayout) {//默认为YES

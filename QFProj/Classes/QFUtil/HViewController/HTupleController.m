@@ -27,7 +27,7 @@
     _extendedInset = UIEdgeInsetsZero;
     [self.view addSubview:self.tupleView];
 }
-- (void)viewWillDisappearWithType:(HVCDisappearType)type {
+- (void)vcWillDisappear:(HVCDisappearType)type {
     if (type == HVCDisappearTypePop || type == HVCDisappearTypeDismiss) {
         [self.tupleView releaseTupleBlock];
     }

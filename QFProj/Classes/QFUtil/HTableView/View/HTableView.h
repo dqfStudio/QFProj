@@ -93,6 +93,7 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 - (void)cellWillDisplayBlock:(HCellWillDisplayBlock)block;
 - (void)didSelectCell:(HDidSelectCellBlock)block;
 - (void)deselectCell:(NSIndexPath *)indexPath;
+- (void)releaseTableBlock;
 @end
 
 @interface HTableView (HSignal)
@@ -110,6 +111,8 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 
 - (void)signalToAllFooter:(HTableSignal *_Nullable)signal;
 - (void)signal:(HTableSignal *_Nullable)signal footerSection:(NSInteger)section;
+
+- (void)releaseAllSignal;
 
 - (id (^)(NSInteger row, NSInteger section))cell;
 - (id (^)(NSInteger row, NSInteger section))indexPath;

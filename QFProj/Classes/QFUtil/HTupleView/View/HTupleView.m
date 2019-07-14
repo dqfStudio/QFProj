@@ -773,6 +773,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 - (void)releaseAllSignal {
     dispatch_async(dispatch_queue_create(0, 0), ^{
+        if (self.signalBlock) self.signalBlock = nil;
         NSInteger sections = [self numberOfSections];
         //release all cell
         if (self.allReuseCells.count > 0) {

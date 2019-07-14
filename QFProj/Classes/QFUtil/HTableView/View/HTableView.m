@@ -483,6 +483,33 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         [self deselectRowAtIndexPath:indexPath animated:YES];
     }
 }
+- (void)releaseTableBlock {
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        
+        [self releaseAllSignal];
+        [self clearTableState];
+        
+        if (self.tableDelegate) self.tableDelegate = nil;
+        if (self.refreshBlock) self.refreshBlock = nil;
+        if (self.loadMoreBlock) self.loadMoreBlock = nil;
+        
+        if (self.numberOfSectionsBlock) self.numberOfSectionsBlock = nil;
+        if (self.numberOfCellsBlock) self.numberOfCellsBlock = nil;
+        
+        if (self.heightForHeaderBlock) self.heightForHeaderBlock = nil;
+        if (self.headerTableBlock) self.headerTableBlock = nil;
+        
+        if (self.heightForFooterBlock) self.heightForFooterBlock = nil;
+        if (self.footerTableBlock) self.footerTableBlock = nil;
+        
+        if (self.heightForCellBlock) self.heightForCellBlock = nil;
+        if (self.cellTableBlock) self.cellTableBlock = nil;
+        
+        if (self.cellWillDisplayBlock) self.cellWillDisplayBlock = nil;
+        
+        if (self.didSelectCellBlock) self.didSelectCellBlock = nil;
+    });
+}
 #pragma mark - Category & Design
 - (void)tableView:(UITableView *)tableView headerTuple:(HHeaderTable)headerBlock inSection:(NSInteger)section {
     NSString *prefix = [self tableWithPrefix:section];
@@ -589,6 +616,43 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         UITableViewHeaderFooterView *footer = [self.allReuseFooters objectForKey:@(section).stringValue];
         if (footer.signalBlock) {
             footer.signalBlock(footer, signal);
+        }
+    });
+}
+- (void)releaseAllSignal {
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        if (self.signalBlock) self.signalBlock = nil;
+        NSInteger sections = [self numberOfSections];
+        //release all cell
+        if (self.allReuseCells.count > 0) {
+            for (int i=0; i<sections; i++) {
+                NSInteger cells = [self numberOfRowsInSection:i];
+                for (int j=0; j<cells; j++) {
+                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:j inSection:i];
+                    UITableViewCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
+                    if (cell.signalBlock) {
+                        cell.signalBlock = nil;
+                    }
+                }
+            }
+        }
+        //release all header
+        if (self.allReuseHeaders.count > 0) {
+            for (int i=0; i<sections; i++) {
+                UITableViewHeaderFooterView *header = [self.allReuseHeaders objectForKey:@(i).stringValue];
+                if (header.signalBlock) {
+                    header.signalBlock = nil;
+                }
+            }
+        }
+        //release all footer
+        if (self.allReuseFooters.count > 0) {
+            for (int i=0; i<sections; i++) {
+                UITableViewHeaderFooterView *footer = [self.allReuseFooters objectForKey:@(i).stringValue];
+                if (footer.signalBlock) {
+                    footer.signalBlock = nil;
+                }
+            }
         }
     });
 }
