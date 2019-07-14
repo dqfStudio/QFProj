@@ -237,6 +237,7 @@
 		A28EF3C321DA1DFE002F92ED /* HFormController2.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF3C021DA1DFE002F92ED /* HFormController2.m */; };
 		A28EF3C421DA1DFE002F92ED /* HFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF3C221DA1DFE002F92ED /* HFormCell.m */; };
 		A2A17DA62276DB1E003FED58 /* NSMutableAttributedString+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A17DA52276DB1E003FED58 /* NSMutableAttributedString+HUtil.m */; };
+		A2A8EACD22DB59FD0049C51B /* HMarquee.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EACC22DB59FD0049C51B /* HMarquee.m */; };
 		A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */; };
 		A2DC22BE2242994800E540BE /* NSObject+HForwarding.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */; };
 		A2E8F50822CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50622CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png */; };
@@ -689,6 +690,8 @@
 		A28EF3C221DA1DFE002F92ED /* HFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFormCell.m; sourceTree = "<group>"; };
 		A2A17DA42276DB1E003FED58 /* NSMutableAttributedString+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+HUtil.h"; sourceTree = "<group>"; };
 		A2A17DA52276DB1E003FED58 /* NSMutableAttributedString+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+HUtil.m"; sourceTree = "<group>"; };
+		A2A8EACB22DB59FD0049C51B /* HMarquee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMarquee.h; sourceTree = "<group>"; };
+		A2A8EACC22DB59FD0049C51B /* HMarquee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMarquee.m; sourceTree = "<group>"; };
 		A2DC22B622424F2F00E540BE /* NSObject+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeMessy.h"; sourceTree = "<group>"; };
 		A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HForwarding.h"; sourceTree = "<group>"; };
@@ -1008,6 +1011,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A2A8EACA22DB59FD0049C51B /* HMarquee */,
 				A2E8F55B22D8356300E7C9F2 /* HCache */,
 				A2E8F55722D8354400E7C9F2 /* HFileCache */,
 				A2E8F52722D72A9800E7C9F2 /* HNetwork */,
@@ -1868,6 +1872,16 @@
 			path = HLoading;
 			sourceTree = "<group>";
 		};
+		A2A8EACA22DB59FD0049C51B /* HMarquee */ = {
+			isa = PBXGroup;
+			children = (
+				A2A8EACB22DB59FD0049C51B /* HMarquee.h */,
+				A2A8EACC22DB59FD0049C51B /* HMarquee.m */,
+			);
+			name = HMarquee;
+			path = QFUtil/HMarquee;
+			sourceTree = "<group>";
+		};
 		A2E8F52722D72A9800E7C9F2 /* HNetwork */ = {
 			isa = PBXGroup;
 			children = (
@@ -2240,6 +2254,7 @@
 				A222AE4E22818F7D0013098A /* HTextMagnifier.m in Sources */,
 				A265FF6F2269F6280093C780 /* HHostUrlManager.m in Sources */,
 				A222AE6022818F7D0013098A /* HTextRunDelegate.m in Sources */,
+				A2A8EACD22DB59FD0049C51B /* HMarquee.m in Sources */,
 				A206883022CA083700661634 /* HWebImageView.m in Sources */,
 				A24B6574225EE5C700B257BB /* HTool.m in Sources */,
 				A2ED9C1222314BA100C9D050 /* SimplePing.m in Sources */,
