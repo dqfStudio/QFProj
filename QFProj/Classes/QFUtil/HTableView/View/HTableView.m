@@ -208,6 +208,17 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         self.mj_footer = nil;
     }
 }
+- (void)setReleaseTableKey:(NSString *)releaseTableKey {
+    if (_releaseTableKey != releaseTableKey) {
+        if (_releaseTableKey && releaseTableKey) {
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:_releaseTableKey object:nil];
+        }
+        _releaseTableKey = releaseTableKey;
+        if (releaseTableKey) {
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(releaseTableBlock) name:releaseTableKey object:nil];
+        }
+    }
+}
 - (NSString *)addressValue {
     return [NSString stringWithFormat:@"%p", self];
 }

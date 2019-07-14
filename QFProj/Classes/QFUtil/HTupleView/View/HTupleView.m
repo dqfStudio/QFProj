@@ -226,6 +226,17 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         self.mj_footer = nil;
     }
 }
+- (void)setReleaseTupleKey:(NSString *)releaseTupleKey {
+    if (_releaseTupleKey != releaseTupleKey) {
+        if (_releaseTupleKey && releaseTupleKey) {
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:_releaseTupleKey object:nil];
+        }
+        _releaseTupleKey = releaseTupleKey;
+        if (releaseTupleKey) {
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(releaseTupleBlock) name:releaseTupleKey object:nil];
+        }
+    }
+}
 - (NSString *)addressValue {
     return [NSString stringWithFormat:@"%p", self];
 }

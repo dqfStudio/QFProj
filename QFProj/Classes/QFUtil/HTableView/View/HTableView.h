@@ -70,6 +70,8 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 @property (nonatomic, copy, nullable) HRefreshTableBlock  refreshBlock;   // block to refresh data
 @property (nonatomic, copy, nullable) HLoadMoreTableBlock loadMoreBlock;  // block to load more data
 
+@property (nonatomic, copy, nullable) NSString *releaseTableKey; //设置释放的key值
+
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)initWithFrame:(CGRect)frame;
