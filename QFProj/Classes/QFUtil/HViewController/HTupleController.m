@@ -27,6 +27,11 @@
     _extendedInset = UIEdgeInsetsZero;
     [self.view addSubview:self.tupleView];
 }
+- (void)disappearType:(HVCDisappearType)type {
+    if (type == HVCDisappearTypePop || type == HVCDisappearTypeDismiss) {
+        [self.tupleView releaseTupleBlock];
+    }
+}
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     if (_autoLayout) {//默认为YES

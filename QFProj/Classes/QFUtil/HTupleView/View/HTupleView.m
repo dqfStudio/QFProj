@@ -311,9 +311,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     __block UICollectionViewCell *cell = nil;
-    @weakify(self)
     id (^HCellForItemBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
-        @strongify(self)
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:self.addressValue];
         identifier = [identifier stringByAppendingString:@"ItemCell"];
@@ -371,10 +369,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     __block UICollectionReusableView *cell = nil;
-    @weakify(self)
     if (kind == UICollectionElementKindSectionHeader) {
         id (^HCellForHeaderBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
-            @strongify(self)
             NSString *identifier = NSStringFromClass(cls);
             identifier = [identifier stringByAppendingString:self.addressValue];
             identifier = [identifier stringByAppendingString:@"HeaderCell"];
@@ -431,7 +427,6 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         }
     }else if (kind == UICollectionElementKindSectionFooter) {
         id (^HCellForFooterBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
-            @strongify(self)
             NSString *identifier = NSStringFromClass(cls);
             identifier = [identifier stringByAppendingString:self.addressValue];
             identifier = [identifier stringByAppendingString:@"FooterCell"];
@@ -534,6 +529,38 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 - (void)didSelectItem:(HDidSelectItemBlock)block {
     self.didSelectItemBlock = block;
+}
+- (void)releaseTupleBlock {
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        
+        [self releaseAllSignal];
+        [self clearTupleState];
+        
+        if (self.tupleDelegate) self.tupleDelegate = nil;
+        if (self.refreshBlock) self.refreshBlock = nil;
+        if (self.loadMoreBlock) self.loadMoreBlock = nil;
+        
+        if (self.numberOfSectionsBlock) self.numberOfSectionsBlock = nil;
+        if (self.numberOfItemsBlock) self.numberOfItemsBlock = nil;
+        if (self.colorForSectionBlock) self.colorForSectionBlock = nil;
+        if (self.insetForSectionBlock) self.insetForSectionBlock = nil;
+        
+        if (self.sizeForHeaderBlock) self.sizeForHeaderBlock = nil;
+        if (self.edgeInsetsForHeaderBlock) self.edgeInsetsForHeaderBlock = nil;
+        if (self.headerTupleBlock) self.headerTupleBlock = nil;
+        
+        if (self.sizeForFooterBlock) self.sizeForFooterBlock = nil;
+        if (self.edgeInsetsForFooterBlock) self.edgeInsetsForFooterBlock = nil;
+        if (self.footerTupleBlock) self.footerTupleBlock = nil;
+        
+        if (self.sizeForItemBlock) self.sizeForItemBlock = nil;
+        if (self.edgeInsetsForItemBlock) self.edgeInsetsForItemBlock = nil;
+        if (self.itemTupleBlock) self.itemTupleBlock = nil;
+        
+        if (self.itemWillDisplayBlock) self.itemWillDisplayBlock = nil;
+        
+        if (self.didSelectItemBlock) self.didSelectItemBlock = nil;
+    });
 }
 #pragma mark - Category & Design
 - (NSString *)tupleWithPrefix:(NSInteger)section {
@@ -741,6 +768,44 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         HTupleBaseView *cell = [self.allReuseFooters objectForKey:indexPath.stringValue];
         if (cell.signalBlock) {
             cell.signalBlock(cell, signal);
+        }
+    });
+}
+- (void)releaseAllSignal {
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        NSInteger sections = [self numberOfSections];
+        //release all cell
+        if (self.allReuseCells.count > 0) {
+            for (int i=0; i<sections; i++) {
+                NSInteger items = [self numberOfItemsInSection:i];
+                for (int j=0; j<items; j++) {
+                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:j inSection:i];
+                    UICollectionViewCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
+                    if (cell.signalBlock) {
+                        cell.signalBlock = nil;
+                    }
+                }
+            }
+        }
+        //release all header
+        if (self.allReuseHeaders.count > 0) {
+            for (int i=0; i<sections; i++) {
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:i];
+                HTupleBaseView *cell = [self.allReuseHeaders objectForKey:indexPath.stringValue];
+                if (cell.signalBlock) {
+                    cell.signalBlock = nil;
+                }
+            }
+        }
+        //release all footer
+        if (self.allReuseFooters.count > 0) {
+            for (int i=0; i<sections; i++) {
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:i];
+                HTupleBaseView *cell = [self.allReuseFooters objectForKey:indexPath.stringValue];
+                if (cell.signalBlock) {
+                    cell.signalBlock = nil;
+                }
+            }
         }
     });
 }

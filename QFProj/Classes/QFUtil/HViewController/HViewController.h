@@ -16,6 +16,12 @@
 #import "NSObject+HSwizzleUtil.h"
 #import "UIApplication+HUtil.h"
 
+typedef NS_OPTIONS(NSUInteger, HVCDisappearType) {
+    HVCDisappearTypePush = 0,
+    HVCDisappearTypePop,
+    HVCDisappearTypeDismiss
+};
+
 @interface HVCAppearance : NSObject
 @property (nonatomic) UIColor *barColor;
 @property (nonatomic) UIColor *bgColor;
@@ -81,6 +87,13 @@
  *  rightButton 右按钮
  */
 - (void)rightNaviButtonPressed;
+
+/**
+ *  vc消失的类型,需自己重写
+ *
+ *  type 类型枚举
+ */
+- (void)disappearType:(HVCDisappearType)type;
 
 #pragma mark - 状态栏样式订制
 //统一iOS6及以上系统控制状态栏隐藏的方式，匀采用代理方式

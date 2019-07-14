@@ -121,6 +121,7 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 - (void)itemWithSize:(HSizeForItemBlock)size edgeInsets:(HEdgeInsetsForItemBlock)edge tuple:(HItemTupleBlock)block;
 - (void)itemWillDisplayBlock:(HItemWillDisplayBlock)block;
 - (void)didSelectItem:(HDidSelectItemBlock)block;
+- (void)releaseTupleBlock;
 @end
 
 @interface HTupleView (HSignal)
@@ -138,6 +139,8 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 
 - (void)signalToAllFooter:(HTupleSignal *_Nullable)signal;
 - (void)signal:(HTupleSignal *_Nullable)signal footerSection:(NSInteger)section;
+
+- (void)releaseAllSignal;
 
 - (id (^)(NSInteger row, NSInteger section))cell;
 - (id (^)(NSInteger row, NSInteger section))indexPath;

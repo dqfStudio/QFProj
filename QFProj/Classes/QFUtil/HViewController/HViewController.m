@@ -146,6 +146,25 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self setNeedsStatusBarAppearanceUpdate];
+    [self disappearTypeJudge];
+}
+
+- (void)disappearTypeJudge {
+    NSArray *viewControllers = self.navigationController.viewControllers;
+    NSUInteger disappearType = -1;
+    if (!viewControllers || (viewControllers.count == 1 && viewControllers.lastObject == self)) {
+        // View is disappearing because it will dismissed
+        disappearType = HVCDisappearTypeDismiss;
+    }else if (viewControllers.count > 1 && [viewControllers objectAtIndex:viewControllers.count-2] == self) {
+        // View is disappearing because a new view controller was pushed onto the stack
+        disappearType = HVCDisappearTypePush;
+    } else if ([viewControllers indexOfObject:self] == NSNotFound) {
+        // View is disappearing because it was popped from the stack
+        disappearType = HVCDisappearTypePop;
+    }
+    if (disappearType != -1) {
+        [self disappearType:disappearType];
+    }
 }
 
 #pragma mark - 事件处理
@@ -162,6 +181,10 @@
 }
 
 - (void)rightNaviButtonPressed {
+    
+}
+
+- (void)disappearType:(HVCDisappearType)type {
     
 }
 
