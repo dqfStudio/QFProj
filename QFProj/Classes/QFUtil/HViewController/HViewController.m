@@ -163,7 +163,7 @@
         disappearType = HVCDisappearTypePop;
     }
     if (disappearType != -1) {
-        [self disappearType:disappearType];
+        [self viewWillDisappearWithType:disappearType];
     }
 }
 
@@ -184,7 +184,7 @@
     
 }
 
-- (void)disappearType:(HVCDisappearType)type {
+- (void)viewWillDisappearWithType:(HVCDisappearType)type {
     
 }
 

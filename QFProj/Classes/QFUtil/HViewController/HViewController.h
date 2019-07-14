@@ -93,7 +93,7 @@ typedef NS_OPTIONS(NSUInteger, HVCDisappearType) {
  *
  *  type 类型枚举
  */
-- (void)disappearType:(HVCDisappearType)type;
+- (void)viewWillDisappearWithType:(HVCDisappearType)type;
 
 #pragma mark - 状态栏样式订制
 //统一iOS6及以上系统控制状态栏隐藏的方式，匀采用代理方式
