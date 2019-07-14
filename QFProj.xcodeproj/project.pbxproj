@@ -270,6 +270,7 @@
 		A2E8F57922D8356300E7C9F2 /* HCacheTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F57022D8356300E7C9F2 /* HCacheTimer.m */; };
 		A2E8F57A22D8356300E7C9F2 /* HDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F57122D8356300E7C9F2 /* HDiskCache.m */; };
 		A2E8F57B22D8356300E7C9F2 /* HCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F57222D8356300E7C9F2 /* HCache.m */; };
+		A2E8F63E22DB51F500E7C9F2 /* NSIndexPath+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F63D22DB51F500E7C9F2 /* NSIndexPath+HUtil.m */; };
 		A2ED9C1222314BA100C9D050 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1022314BA100C9D050 /* SimplePing.m */; };
 		A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1122314BA100C9D050 /* HPingTester.m */; };
 		A2ED9C1722314CAC00C9D050 /* HKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1622314CAC00C9D050 /* HKeyChainStore.m */; };
@@ -753,6 +754,8 @@
 		A2E8F57022D8356300E7C9F2 /* HCacheTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCacheTimer.m; sourceTree = "<group>"; };
 		A2E8F57122D8356300E7C9F2 /* HDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDiskCache.m; sourceTree = "<group>"; };
 		A2E8F57222D8356300E7C9F2 /* HCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCache.m; sourceTree = "<group>"; };
+		A2E8F63C22DB51F500E7C9F2 /* NSIndexPath+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+HUtil.h"; sourceTree = "<group>"; };
+		A2E8F63D22DB51F500E7C9F2 /* NSIndexPath+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+HUtil.m"; sourceTree = "<group>"; };
 		A2ED9C0E22314BA100C9D050 /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
 		A2ED9C0F22314BA100C9D050 /* HPingTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPingTester.h; sourceTree = "<group>"; };
 		A2ED9C1022314BA100C9D050 /* SimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePing.m; sourceTree = "<group>"; };
@@ -913,6 +916,8 @@
 				15707EBF20B5675A00493839 /* HTupleSignal.m */,
 				A208E17622BA305C009A6FDD /* HTupleRefresh.h */,
 				A208E17722BA305C009A6FDD /* HTupleRefresh.m */,
+				A2E8F63C22DB51F500E7C9F2 /* NSIndexPath+HUtil.h */,
+				A2E8F63D22DB51F500E7C9F2 /* NSIndexPath+HUtil.m */,
 				A208E17E22BA40A2009A6FDD /* UIScrollView+HEmptyDataSet.h */,
 				A208E17D22BA40A2009A6FDD /* UIScrollView+HEmptyDataSet.m */,
 				A208E17C22BA40A2009A6FDD /* UIScrollView+HEmptyDataSetExa.h */,
@@ -2297,6 +2302,7 @@
 				15F9152320A17E95000261C4 /* TestViewController.m in Sources */,
 				150C7CB4211996E800A05347 /* HPrinterManager.m in Sources */,
 				153F081420E28CA000C74850 /* HEmailValidator.m in Sources */,
+				A2E8F63E22DB51F500E7C9F2 /* NSIndexPath+HUtil.m in Sources */,
 				15C5729320AE51B30070327C /* HSort.m in Sources */,
 				1590609320BE76D600CB4EA6 /* HRequestWaitingView.m in Sources */,
 				15B4DDEE2092F96C00773E04 /* UIViewController+HBackHandler.m in Sources */,

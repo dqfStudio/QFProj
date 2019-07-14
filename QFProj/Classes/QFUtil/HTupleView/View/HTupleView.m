@@ -18,16 +18,6 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 #define KSectionDesignKey @"section"
 #define KTupleDesignKey   @"tuple"
 
-@interface NSIndexPath (HTupleMessy)
-- (NSString *)stringValue;
-@end
-
-@implementation NSIndexPath (HTupleMessy)
-- (NSString *)stringValue {
-    return [NSString stringWithFormat:@"%@%@",@(self.section),@(self.row)];
-}
-@end
-
 @interface HTupleView () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic) UICollectionViewFlowLayout *flowLayout;

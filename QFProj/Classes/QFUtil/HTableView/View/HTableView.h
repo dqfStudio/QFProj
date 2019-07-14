@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HTableRefresh.h"
 #import "HTableViewCell.h"
+#import "NSIndexPath+HUtil.h"
 #import "NSObject+HSelector.h"
 #import "HTableReusableView.h"
 #import "UIScrollView+HEmptyDataSet.h"

@@ -18,16 +18,6 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 #define KSectionDesignKey @"section"
 #define KTableDesignKey   @"table"
 
-@interface NSIndexPath (HTableMessy)
-- (NSString *)stringValue;
-@end
-
-@implementation NSIndexPath (HTableMessy)
-- (NSString *)stringValue {
-    return [NSString stringWithFormat:@"%@%@",@(self.section),@(self.row)];
-}
-@end
-
 @interface HTableView () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) BOOL categoryDesign;
 @property (nonatomic) NSInteger designSections;
