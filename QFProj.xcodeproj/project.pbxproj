@@ -245,6 +245,7 @@
 		A2A8EB2F22DB62680049C51B /* HAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB2422DB62670049C51B /* HAnimatedDotView.m */; };
 		A2A8EB3022DB62680049C51B /* HCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB2722DB62670049C51B /* HCycleScrollView.m */; };
 		A2A8EB3122DB62680049C51B /* UIView+HExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB2822DB62670049C51B /* UIView+HExtension.m */; };
+		A2A8EB3922DB65A90049C51B /* HDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB3722DB65A90049C51B /* HDrawerViewController.m */; };
 		A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */; };
 		A2DC22BE2242994800E540BE /* NSObject+HForwarding.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */; };
 		A2E8F50822CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50622CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png */; };
@@ -713,6 +714,8 @@
 		A2A8EB2822DB62670049C51B /* UIView+HExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HExtension.m"; sourceTree = "<group>"; };
 		A2A8EB2922DB62670049C51B /* HCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCollectionViewCell.h; sourceTree = "<group>"; };
 		A2A8EB2A22DB62670049C51B /* HCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCycleScrollView.h; sourceTree = "<group>"; };
+		A2A8EB3722DB65A90049C51B /* HDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDrawerViewController.m; sourceTree = "<group>"; };
+		A2A8EB3822DB65A90049C51B /* HDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDrawerViewController.h; sourceTree = "<group>"; };
 		A2DC22B622424F2F00E540BE /* NSObject+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeMessy.h"; sourceTree = "<group>"; };
 		A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HForwarding.h"; sourceTree = "<group>"; };
@@ -1032,6 +1035,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A2A8EB3622DB65A90049C51B /* HDrawerViewController */,
 				A2A8EB1B22DB62670049C51B /* HCycleScrollView */,
 				A2A8EACA22DB59FD0049C51B /* HMarquee */,
 				A2E8F55B22D8356300E7C9F2 /* HCache */,
@@ -1934,6 +1938,16 @@
 			path = HPageControl;
 			sourceTree = "<group>";
 		};
+		A2A8EB3622DB65A90049C51B /* HDrawerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A2A8EB3722DB65A90049C51B /* HDrawerViewController.m */,
+				A2A8EB3822DB65A90049C51B /* HDrawerViewController.h */,
+			);
+			name = HDrawerViewController;
+			path = QFUtil/HDrawerViewController;
+			sourceTree = "<group>";
+		};
 		A2E8F52722D72A9800E7C9F2 /* HNetwork */ = {
 			isa = PBXGroup;
 			children = (
@@ -2371,6 +2385,7 @@
 				15F9152320A17E95000261C4 /* TestViewController.m in Sources */,
 				150C7CB4211996E800A05347 /* HPrinterManager.m in Sources */,
 				153F081420E28CA000C74850 /* HEmailValidator.m in Sources */,
+				A2A8EB3922DB65A90049C51B /* HDrawerViewController.m in Sources */,
 				A2E8F63E22DB51F500E7C9F2 /* NSIndexPath+HUtil.m in Sources */,
 				15C5729320AE51B30070327C /* HSort.m in Sources */,
 				1590609320BE76D600CB4EA6 /* HRequestWaitingView.m in Sources */,
