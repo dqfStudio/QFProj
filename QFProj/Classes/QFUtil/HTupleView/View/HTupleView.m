@@ -240,6 +240,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 - (NSString *)addressValue {
     return [NSString stringWithFormat:@"%p", self];
 }
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 #pragma mark - UICollectionViewDatasource  & delegate
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(numberOfSectionsInTupleView:)]) {

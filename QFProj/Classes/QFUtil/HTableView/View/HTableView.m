@@ -222,6 +222,9 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 - (NSString *)addressValue {
     return [NSString stringWithFormat:@"%p", self];
 }
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 #pragma mark - UITableViewDatasource & delegate
 - (NSString *)tableWithPrefix:(NSInteger)section {
     NSString *prefix = nil;
