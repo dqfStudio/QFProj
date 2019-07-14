@@ -169,7 +169,12 @@
 
 #pragma mark - 事件处理
 - (void)back {
-    if (self.presentedViewController || self.presentingViewController) {
+//    if (self.presentedViewController || self.presentingViewController) {
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    }else {
+//        [self.navigationController popViewControllerAnimated:YES];
+//    }
+    if (self.navigationController.topViewController != self) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }else {
         [self.navigationController popViewControllerAnimated:YES];
