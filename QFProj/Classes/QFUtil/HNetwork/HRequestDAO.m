@@ -21,8 +21,9 @@
         [self.requestStrategies addObject:strategy];
     }
 }
-//覆盖父类重试方法
+//继承父类重试方法
 - (void)retry {
+    [super retry];
     [self startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
         [self requestFinished:request];
     } failure:^(YTKBaseRequest *request) {
@@ -81,6 +82,13 @@
             }
         }
     }
+    /*
+    NSString *description = @"服务器离家出走中，请稍后再试!";
+    NSString *domain = @"HURLErrorDomain";
+    NSInteger code = -1000;
+    NSError *error = [NSError errorWithDomain:domain code:code userInfo:@{NSLocalizedDescriptionKey : description}];
+    failure(error);
+    */
     if (self.failureBlock) {
         self.failureBlock(request);
     }

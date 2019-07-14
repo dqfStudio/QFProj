@@ -6,7 +6,9 @@
 //  Copyright © 2019 dqfStudio. All rights reserved.
 //
 
+#import <AFNetworking/AFNetworking.h>
 #import "YTKRequest.h"
+#import "YTKNetworkPrivate.h"
 
 @interface HRequest : YTKRequest <YTKRequestDelegate>
 @property (nonatomic, copy) NSString *url;
@@ -14,7 +16,7 @@
 @property (nonatomic, assign) YTKRequestMethod method;
 @property (nonatomic, copy) YTKRequestCompletionBlock successBlock;
 @property (nonatomic, copy) YTKRequestCompletionBlock failureBlock;
-//重试方法，需要子类覆盖
+//重试方法，需要子类继承
 - (void)retry;
 // 执行HTTP请求
 - (void)performHTTPRequest:(NSString *)url
