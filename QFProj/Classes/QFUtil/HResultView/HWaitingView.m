@@ -173,6 +173,14 @@
     }];
 }
 
+- (void)removeFromSuperview {
+    HTupleImageCell *cell = self.tupleView.cell(0, 0);
+    if (cell.imageView.imageView.isAnimating) {
+        [cell.imageView.imageView stopAnimating];
+    }
+    [super removeFromSuperview];
+}
+
 + (void)showInView:(UIView *)view withType:(HWaitingType)type {
     if (view) {
         HWaitingView *waitingView = [[HWaitingView alloc] initWithFrame:view.frame];
