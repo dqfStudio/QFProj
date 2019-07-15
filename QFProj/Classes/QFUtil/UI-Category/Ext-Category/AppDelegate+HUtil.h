@@ -9,5 +9,5 @@
 #import "AppDelegate.h"
 
 @interface AppDelegate (HUtil)
-
+@property (nonatomic, class) BOOL shouldAutorotate;
 @end
