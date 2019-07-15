@@ -6,11 +6,11 @@
 //  Copyright © 2018年 dqf. All rights reserved.
 //
 
-#import "HTupleView.h"
 #import "HFormCell.h"
-#import "UIDevice+HUtil.h"
-#import "UIButton+HUtil.h"
 
 @interface HFormController2 : NSObject
-+ (HFormController2 *)formInstance;
++ (instancetype)formControllerWithModel:(NSArray<HFormModel *> *)models
+                           numberOfRows:(NSInteger)rows
+                               rowItems:(NSInteger)items
+                            buttonBlock:(HFormCellBlock)buttonBlock;
 @end

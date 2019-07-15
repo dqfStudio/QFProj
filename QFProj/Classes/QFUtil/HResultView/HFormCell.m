@@ -7,6 +7,12 @@
 //
 
 #import "HFormCell.h"
+#import "HTupleView.h"
+#import "UIButton+HUtil.h"
+
+@interface HFormCell ()
+@property (nonatomic) HTupleView *tupleView;
+@end
 
 @implementation HFormModel
 + (HFormModel *)modelWithTitle:(NSString *)title icon:(NSString *)icon {
@@ -23,9 +29,7 @@
     if (!_tupleView) {
         _tupleView = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleViewScrollDirectionHorizontal];
         [_tupleView setBackgroundColor:[UIColor whiteColor]];
-        _tupleView.bounces = NO;
         [_tupleView setPagingEnabled:YES];
-        [_tupleView setTupleDelegate:self];
         // 设置默认参数
         [self setup];
         [self addSubview:_tupleView];
@@ -40,6 +44,57 @@
 - (void)setup {
     self.rows = 1;
     self.rowItems = 4;
+    @www
+    [self.tupleView tupleWithSections:^CGFloat{
+        @sss
+        NSInteger pages = 1;
+        if (self.modelArr) {
+            
+            NSInteger items = self.modelArr.count;
+            NSInteger tmpItems = self.rows*self.rowItems;
+            
+            pages = items/tmpItems;
+            tmpItems = pages*tmpItems;
+            
+            if (tmpItems != items) {
+                pages += 1;
+            }
+        }
+        return pages;
+    } items:^CGFloat(NSInteger section) {
+        return self.rows*self.rowItems;
+    } color:^UIColor * _Nullable(NSInteger section) {
+        return nil;
+    } inset:^UIEdgeInsets(NSInteger section) {
+        return UIEdgeInsetsZero;
+    }];
+    
+    [self.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+        return CGSizeMake(self.tupleView.width/self.rowItems-1, self.tupleView.height/self.rows-1);
+    } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
+        return UIEdgeInsetsZero;
+    } tuple:^(HItemTuple  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+        @sss
+        NSInteger index = indexPath.section*self.rows*self.rowItems + indexPath.row;
+        if (index < self.modelArr.count) {
+            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
+            [cell.buttonView setBackgroundColor:[UIColor clearColor]];
+            [cell.buttonView.button setTitleColor:[UIColor blackColor]];
+            
+            HFormModel *model = [self.modelArr objectAtIndex:index];
+            
+            [cell.buttonView.button setImage:[UIImage imageNamed:model.icon]];
+            [cell.buttonView.button setTitle:model.title];
+            
+            [cell.buttonView setPressed:^(id sender, id data) {
+                if (self.formCellBlock) {
+                    self.formCellBlock(indexPath, model);
+                }
+            }];
+        }else {
+            itemBlock(nil, HTupleBaseCell.class, nil, YES);
+        }
+    }];
 }
 
 - (void)setModelArr:(NSArray<HFormModel *> *)modelArr {
@@ -48,60 +103,6 @@
         _modelArr = modelArr;
         [self.tupleView reloadData];
     }
-}
-
-- (NSInteger)numberOfSectionsInTupleView:(HTupleView *)tupleView {
-    NSInteger pages = 1;
-    if (self.modelArr) {
-
-        NSInteger items = self.modelArr.count;
-        NSInteger tmpItems = self.rows*self.rowItems;
-        
-        pages = items/tmpItems;
-        tmpItems = pages*tmpItems;
-        
-        if (tmpItems != items) {
-            pages += 1;
-        }
-    }
-    return pages;
-}
-
-- (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
-    return self.rows*self.rowItems;
-}
-
-- (CGSize)tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(tupleView.width/self.rowItems-1, tupleView.height/self.rows-1);
-}
-- (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return UIEdgeInsetsZero;
-}
-- (void)tupleView:(HTupleView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    
-    NSInteger index = indexPath.section*self.rows*self.rowItems + indexPath.row;
-    
-    if (index < self.modelArr.count) {
-        
-        HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
-        [cell.buttonView setBackgroundColor:[UIColor clearColor]];
-        [cell.buttonView.button setTitleColor:[UIColor blackColor]];
-        
-        HFormModel *model = [self.modelArr objectAtIndex:index];
-        
-        [cell.buttonView.button setImage:[UIImage imageNamed:model.icon]];
-        [cell.buttonView.button setTitle:model.title];
-        
-        [cell.buttonView setPressed:^(id sender, id data) {
-            if (self.formCellBlock) {
-                self.formCellBlock(indexPath, model);
-            }
-        }];
-        
-    }else {
-        itemBlock(nil, HTupleBaseCell.class, nil, YES);
-    }
-    
 }
 
 @end
