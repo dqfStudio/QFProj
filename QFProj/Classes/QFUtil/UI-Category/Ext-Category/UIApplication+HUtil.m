@@ -22,8 +22,7 @@
 }
 - (UIWindow *)getKeyWindow {
     //UIWindow *window = self.windows[0];
-    UIWindow *window = self.keyWindow;
-    return window;
+    return self.keyWindow;
 }
 
 + (UIViewController *)getKeyWindowRootController {
