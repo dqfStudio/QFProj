@@ -39,7 +39,7 @@
             case 3:return CGSizeMake(self.tupleView.width, 40);
             case 4:return CGSizeMake(self.tupleView.width, 45);
             case 5:return CGSizeMake(self.tupleView.width, 20);
-            default:return CGSizeMake(0, 0);
+            default:return CGSizeZero;
         }
     } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
         switch (indexPath.row) {
@@ -49,7 +49,7 @@
             case 3:return UIEdgeInsetsMake(0, 15, 0, 15);
             case 4:return UIEdgeInsetsMake(0, 15, 0, 15);
             case 5:return UIEdgeInsetsMake(5, 15, 0, 0);
-            default:return UIEdgeInsetsMake(10, 0, 10, 0);
+            default:return UIEdgeInsetsZero;
         }
     } tuple:^(HItemTuple  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
         switch (indexPath.row) {
