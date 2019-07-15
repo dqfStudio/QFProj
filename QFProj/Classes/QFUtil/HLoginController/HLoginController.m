@@ -64,7 +64,7 @@
                 [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];
                 
                 [cell.textField setPlaceholder:@"请输入手机号"];
-                [cell.textField setTintColor:[UIColor colorWithString:@"#BABABF"]];
+                [cell.textField setTextColor:[UIColor colorWithString:@"#BABABF"]];
                 [cell.textField setFont:[UIFont systemFontOfSize:14]];
                 //cell.textField.inputValidator = HPhoneValidator.new;
                 
@@ -83,7 +83,7 @@
                 [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];
                 
                 [cell.textField setPlaceholder:@"请输入昵称"];
-                [cell.textField setTintColor:[UIColor colorWithString:@"#BABABF"]];
+                [cell.textField setTextColor:[UIColor colorWithString:@"#BABABF"]];
                 [cell.textField setFont:[UIFont systemFontOfSize:14]];
                 
                 [cell setSignalBlock:^(HTupleTextFieldCell *cell, HTupleSignal *signal) {
@@ -101,7 +101,7 @@
                 [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];
                 
                 [cell.textField setPlaceholder:@"请输入验证码"];
-                [cell.textField setTintColor:[UIColor colorWithString:@"#BABABF"]];
+                [cell.textField setTextColor:[UIColor colorWithString:@"#BABABF"]];
                 [cell.textField setFont:[UIFont systemFontOfSize:14]];
                 //cell.textField.inputValidator = HNumericValidator.new;
                 
@@ -124,7 +124,7 @@
             case 4: {
                 HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
                 [cell.buttonView setBackgroundColor:[UIColor colorWithString:@"#CCCCCC"]];
-                [cell.buttonView.button setTitle:@"开始"];
+                [cell.buttonView.button setTitle:@"登录"];
                 [cell.buttonView setPressed:^(id sender, id data) {
                     /*
                     HTupleTextFieldCell *tfCell1 = self.tupleView.cell(1, 0);
