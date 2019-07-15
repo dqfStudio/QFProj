@@ -28,6 +28,8 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 @property (nonatomic) NSMapTable   *allReuseHeaders;
 @property (nonatomic) NSMapTable   *allReuseFooters;
 
+@property (nonatomic, copy) NSArray <NSString *> *exclusiveIndexPaths;
+
 @property (nonatomic, copy) HANumberOfSectionsBlock numberOfSectionsBlock;
 @property (nonatomic, copy) HNumberOfCellsBlock numberOfCellsBlock;
 
@@ -68,17 +70,18 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     return self;
 }
 + (instancetype)sectionDesignWith:(CGRect)frame andSections:(NSInteger)sections {
-    return [[HTableView alloc] initWithFrame:frame designStyle:HTableDesignStyleSection designSection:sections];
+    return [[HTableView alloc] initWithFrame:frame designStyle:HTableDesignStyleSection designSection:sections exclusive:nil];
 }
-+ (instancetype)tupleDesignWith:(CGRect)frame {
-    return [[HTableView alloc] initWithFrame:frame designStyle:HTableDesignStyleTable designSection:0];
++ (instancetype)tableDesignWith:(CGRect)frame exclusive:(NSArray <NSString *> *)indexPaths {
+    return [[HTableView alloc] initWithFrame:frame designStyle:HTableDesignStyleTable designSection:0 exclusive:indexPaths];
 }
-- (instancetype)initWithFrame:(CGRect)frame designStyle:(HTableDesignStyle)style designSection:(NSInteger)sections {
+- (instancetype)initWithFrame:(CGRect)frame designStyle:(HTableDesignStyle)style designSection:(NSInteger)sections exclusive:(NSArray <NSString *> *)indexPaths {
     self = [super initWithFrame:frame];
     if (self) {
         _designStyle = style;
         _categoryDesign = YES;
         _designSections = sections;
+        self.exclusiveIndexPaths = indexPaths;
         [self setup];
     }
     return self;

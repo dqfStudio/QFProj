@@ -107,7 +107,7 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 - (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction;
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout;
 + (instancetype)sectionDesignWith:(CGRect)frame andSections:(NSInteger)sections;
-+ (instancetype)tupleDesignWith:(CGRect)frame;
++ (instancetype)tupleDesignWith:(CGRect)frame exclusive:(NSArray <NSString *> *)indexPaths;
 //bounce
 - (void)horizontalBounceEnabled;
 - (void)verticalBounceEnabled;

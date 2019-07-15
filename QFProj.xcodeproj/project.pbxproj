@@ -246,6 +246,9 @@
 		A2A8EB3122DB62680049C51B /* UIView+HExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB2822DB62670049C51B /* UIView+HExtension.m */; };
 		A2A8EB3922DB65A90049C51B /* HDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB3722DB65A90049C51B /* HDrawerViewController.m */; };
 		A2A8EB3C22DC38020049C51B /* HLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB3B22DC38020049C51B /* HLoginController.m */; };
+		A2A8EB3F22DC6F300049C51B /* HRegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB3E22DC6F300049C51B /* HRegisterController.m */; };
+		A2A8EB4222DC6F820049C51B /* HRegisterController+KS.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB4122DC6F820049C51B /* HRegisterController+KS.m */; };
+		A2A8EB4522DC6F920049C51B /* HRegisterController+SJ.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB4422DC6F920049C51B /* HRegisterController+SJ.m */; };
 		A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */; };
 		A2DC22BE2242994800E540BE /* NSObject+HForwarding.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */; };
 		A2E8F50822CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50622CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png */; };
@@ -716,6 +719,12 @@
 		A2A8EB3822DB65A90049C51B /* HDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDrawerViewController.h; sourceTree = "<group>"; };
 		A2A8EB3A22DC38020049C51B /* HLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLoginController.h; sourceTree = "<group>"; };
 		A2A8EB3B22DC38020049C51B /* HLoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLoginController.m; sourceTree = "<group>"; };
+		A2A8EB3D22DC6F300049C51B /* HRegisterController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRegisterController.h; sourceTree = "<group>"; };
+		A2A8EB3E22DC6F300049C51B /* HRegisterController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRegisterController.m; sourceTree = "<group>"; };
+		A2A8EB4022DC6F820049C51B /* HRegisterController+KS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HRegisterController+KS.h"; sourceTree = "<group>"; };
+		A2A8EB4122DC6F820049C51B /* HRegisterController+KS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HRegisterController+KS.m"; sourceTree = "<group>"; };
+		A2A8EB4322DC6F920049C51B /* HRegisterController+SJ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HRegisterController+SJ.h"; sourceTree = "<group>"; };
+		A2A8EB4422DC6F920049C51B /* HRegisterController+SJ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HRegisterController+SJ.m"; sourceTree = "<group>"; };
 		A2DC22B622424F2F00E540BE /* NSObject+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeMessy.h"; sourceTree = "<group>"; };
 		A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HForwarding.h"; sourceTree = "<group>"; };
@@ -1400,6 +1409,12 @@
 			children = (
 				A2A8EB3A22DC38020049C51B /* HLoginController.h */,
 				A2A8EB3B22DC38020049C51B /* HLoginController.m */,
+				A2A8EB3D22DC6F300049C51B /* HRegisterController.h */,
+				A2A8EB3E22DC6F300049C51B /* HRegisterController.m */,
+				A2A8EB4022DC6F820049C51B /* HRegisterController+KS.h */,
+				A2A8EB4122DC6F820049C51B /* HRegisterController+KS.m */,
+				A2A8EB4322DC6F920049C51B /* HRegisterController+SJ.h */,
+				A2A8EB4422DC6F920049C51B /* HRegisterController+SJ.m */,
 			);
 			name = HLoginController;
 			path = QFUtil/HLoginController;
@@ -2376,6 +2391,7 @@
 				15B4DE052092F96C00773E04 /* HHexUtil.m in Sources */,
 				A2296D5C228A626B0081A479 /* HSFSafariViewController.m in Sources */,
 				A2E8F54022D72A9800E7C9F2 /* YTKBatchRequest.m in Sources */,
+				A2A8EB4222DC6F820049C51B /* HRegisterController+KS.m in Sources */,
 				15B4DE0E2092F96C00773E04 /* NSDictionary+HSafeUtil.m in Sources */,
 				15B4DE2A2093034700773E04 /* HClassManager.m in Sources */,
 				15B4DE1D209302BF00773E04 /* HGoTo.m in Sources */,
@@ -2464,6 +2480,8 @@
 				A208D62E22AD373E009A6FDD /* HAttributedString.m in Sources */,
 				15C572A020AEAC340070327C /* UILabel+HState.m in Sources */,
 				A206882F22CA083700661634 /* HWebButtonView.m in Sources */,
+				A2A8EB4522DC6F920049C51B /* HRegisterController+SJ.m in Sources */,
+				A2A8EB3F22DC6F300049C51B /* HRegisterController.m in Sources */,
 				15B4DE032092F96C00773E04 /* NSObject+HUtil.m in Sources */,
 				A2E8F51A22CF925700E7C9F2 /* AppDelegate+HUtil.m in Sources */,
 				15E6BB9B2136E7E300EBE794 /* YPTabBar.m in Sources */,

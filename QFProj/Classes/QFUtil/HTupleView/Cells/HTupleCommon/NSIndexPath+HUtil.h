@@ -10,5 +10,6 @@
 
 @interface NSIndexPath (HUtil)
 - (NSString *)stringValue;
++ (NSString *(^)(NSInteger row, NSInteger section))stringValue;
 + (NSIndexPath *(^)(NSInteger row, NSInteger section))returnValue;
 @end

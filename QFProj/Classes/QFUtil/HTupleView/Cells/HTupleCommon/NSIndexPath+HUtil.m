@@ -10,7 +10,12 @@
 
 @implementation NSIndexPath (HUtil)
 - (NSString *)stringValue {
-    return [NSString stringWithFormat:@"%@%@",@(self.section),@(self.row)];
+    return [NSString stringWithFormat:@"%@%@",@(self.row), @(self.section)];
+}
++ (NSString *(^)(NSInteger row, NSInteger section))stringValue {
+    return ^NSString *(NSInteger row, NSInteger section) {
+        return [NSString stringWithFormat:@"%@%@",@(row), @(section)];
+    };
 }
 + (NSIndexPath *(^)(NSInteger row, NSInteger section))returnValue {
     return ^NSIndexPath *(NSInteger row, NSInteger section) {

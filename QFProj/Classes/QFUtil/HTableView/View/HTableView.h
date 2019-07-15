@@ -78,7 +78,7 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 - (instancetype)initWithFrame:(CGRect)frame;
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style;
 + (instancetype)sectionDesignWith:(CGRect)frame andSections:(NSInteger)sections;
-+ (instancetype)tupleDesignWith:(CGRect)frame;
++ (instancetype)tableDesignWith:(CGRect)frame exclusive:(NSArray <NSString *> *)indexPaths;
 //bounce
 - (void)horizontalBounceEnabled;
 - (void)verticalBounceEnabled;
