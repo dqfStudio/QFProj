@@ -2,17 +2,15 @@
 //  HLoginController.h
 //  QFProj
 //
-//  Created by dqf on 2018/8/25.
-//  Copyright © 2018年 dqfStudio. All rights reserved.
+//  Created by wind on 2019/7/15.
+//  Copyright © 2019 dqfStudio. All rights reserved.
 //
 
-#import "HTupleView.h"
-#import "UITextField+HRegular.h"
-#import "HNumericValidator.h"
-#import "HPhoneValidator.h"
-#import "HViewController.h"
+#import "HTupleController.h"
 #import "UIButton+HUtil.h"
+#import "NSAttributedString+HText.h"
+#import "HTextAttribute.h"
 
-@interface HLoginController : HViewController
+@interface HLoginController : HTupleController
 
 @end

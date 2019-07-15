@@ -2,266 +2,190 @@
 //  HLoginController.m
 //  QFProj
 //
-//  Created by dqf on 2018/8/25.
-//  Copyright © 2018年 dqfStudio. All rights reserved.
+//  Created by wind on 2019/7/15.
+//  Copyright © 2019 dqfStudio. All rights reserved.
 //
 
 #import "HLoginController.h"
 
-@interface HLoginController () <HTupleViewDelegate>
-@property (nonatomic) HTupleView *tupleView;
+@interface HLoginController ()
+
 @end
 
 @implementation HLoginController
 
-- (HTupleView *)tupleView {
-    if (!_tupleView) {
-        CGRect frame = self.view.frame;
-        frame.origin.y += UIDevice.topBarHeight;
-        frame.size.height -= UIDevice.topBarHeight;
-        _tupleView = [[HTupleView alloc] initWithFrame:frame scrollDirection:HTupleViewScrollDirectionVertical];
-        [_tupleView setTupleDelegate:self];
-    }
-    return _tupleView;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.view setBackgroundColor:[UIColor whiteColor]];
     [self setTitle:@"登录"];
 }
 
-
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
-    [self.view addSubview:self.tupleView];
-}
-
-- (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
-    return 11;
-}
-
-- (CGSize)tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case 0:
-            return CGSizeMake(80, 60);
-            break;
-        case 1:
-            return CGSizeMake(CGRectGetWidth(tupleView.frame)-80, 60);
-            break;
-        case 2:
-            return CGSizeMake(80, 60);
-            break;
-        case 3:
-            return CGSizeMake(CGRectGetWidth(tupleView.frame)-80, 60);
-            break;
-        case 4:
-            return CGSizeMake(80, 60);
-            break;
-        case 5:
-            return CGSizeMake(CGRectGetWidth(tupleView.frame)-80-120, 60);
-            break;
-        case 6:
-            return CGSizeMake(120, 60);
-            break;
-        case 7:
-            return CGSizeMake(CGRectGetWidth(tupleView.frame), 40);
-            break;
-        case 8:
-            return CGSizeMake(CGRectGetWidth(tupleView.frame), 45);
-            break;
-        case 9:
-            return CGSizeMake(CGRectGetWidth(tupleView.frame)/2+45, 20);
-            break;
-        case 10:
-            return CGSizeMake(CGRectGetWidth(tupleView.frame)/2-45, 20);
-            break;
-
-        default:
-            break;
-    }
-    return CGSizeMake(0, 0);
-}
-- (CGSize)tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(0, 0);
-}
-- (CGSize)tupleView:(HTupleView *)tupleView sizeForFooterInSection:(NSInteger)section {
-    return CGSizeMake(0, 0);
-}
-- (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case 0:
-            return UIEdgeInsetsMake(15, 15, 0, 0);
-            break;
-        case 1:
-            return UIEdgeInsetsMake(15, 0, 0, 15);
-            break;
-        case 2:
-            return UIEdgeInsetsMake(15, 15, 0, 0);
-            break;
-        case 3:
-            return UIEdgeInsetsMake(15, 0, 0, 15);
-            break;
-        case 4:
-            return UIEdgeInsetsMake(15, 15, 0, 0);
-            break;
-        case 5:
-            return UIEdgeInsetsMake(15, 0, 0, 10);
-            break;
-        case 6:
-            return UIEdgeInsetsMake(15, 0, 0, 15);
-            break;
-        case 7:
-            return UIEdgeInsetsMake(0, 15, 0, 15);
-            break;
-        case 8:
-            return UIEdgeInsetsMake(0, 15, 0, 15);
-            break;
-        case 9:
-            return UIEdgeInsetsMake(5, 15, 0, 0);
-            break;
-        case 10:
-            return UIEdgeInsetsMake(5, 0, 0, 15);
-            break;
-            
-        default:
-            break;
-    }
-    return UIEdgeInsetsMake(10, 0, 10, 0);
-}
-- (void)tupleView:(HTupleView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case 0:{
-            HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
-            [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
-            [cell.label setTextAlignment:NSTextAlignmentCenter];
-            [cell.label setText:@"+86"];
-            [cell.label setFont:[UIFont systemFontOfSize:14]];
+- (void)loadData {
+    [self.tupleView tupleWithSections:^CGFloat{
+        return 1;
+    } items:^CGFloat(NSInteger section) {
+        return 6;
+    } color:^UIColor * _Nullable(NSInteger section) {
+        return nil;
+    } inset:^UIEdgeInsets(NSInteger section) {
+        return UIEdgeInsetsZero;
+    }];
+    
+    [self.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+        switch (indexPath.row) {
+            case 0:return CGSizeMake(self.tupleView.width, 60);
+            case 1:return CGSizeMake(self.tupleView.width, 60);
+            case 2:return CGSizeMake(self.tupleView.width, 60);
+            case 3:return CGSizeMake(self.tupleView.width, 40);
+            case 4:return CGSizeMake(self.tupleView.width, 45);
+            case 5:return CGSizeMake(self.tupleView.width, 20);
+            default:return CGSizeMake(0, 0);
         }
-            break;
-        case 1:
-        {
-            HTupleTextFieldCell *cell = itemBlock(nil,HTupleTextFieldCell.class, nil, YES);
-            [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
-            [cell.textField setPlaceholder:@"请输入手机号"];
-            [cell.textField setTintColor:[UIColor colorWithString:@"#BABABF"]];
-            [cell.textField setFont:[UIFont systemFontOfSize:14]];
-            cell.textField.inputValidator = HPhoneValidator.new;
+    } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
+        switch (indexPath.row) {
+            case 0:return UIEdgeInsetsMake(15, 0, 0, 0);
+            case 1:return UIEdgeInsetsMake(15, 0, 0, 0);
+            case 2:return UIEdgeInsetsMake(15, 0, 0, 0);
+            case 3:return UIEdgeInsetsMake(0, 15, 0, 15);
+            case 4:return UIEdgeInsetsMake(0, 15, 0, 15);
+            case 5:return UIEdgeInsetsMake(5, 15, 0, 0);
+            default:return UIEdgeInsetsMake(10, 0, 10, 0);
         }
-            break;
-        case 2:
-        {
-            HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
-            [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
-            [cell.label setTextAlignment:NSTextAlignmentCenter];
-            [cell.label setText:@"昵称"];
-            [cell.label setFont:[UIFont systemFontOfSize:14]];
-        }
-            break;
-        case 3:
-        {
-            HTupleTextFieldCell *cell = itemBlock(nil, HTupleTextFieldCell.class, nil, YES);
-            [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
-            [cell.textField setPlaceholder:@"请输入昵称"];
-            [cell.textField setTintColor:[UIColor colorWithString:@"#BABABF"]];
-            [cell.textField setFont:[UIFont systemFontOfSize:14]];
-        }
-            break;
-        case 4:
-        {
-            HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
-            [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
-            [cell.label setTextAlignment:NSTextAlignmentCenter];
-            [cell.label setText:@"验证码"];
-            [cell.label setFont:[UIFont systemFontOfSize:14]];
-        }
-            break;
-        case 5:
-        {
-            HTupleTextFieldCell *cell = itemBlock(nil, HTupleTextFieldCell.class, nil, YES);
-            [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
-            [cell.textField setPlaceholder:@"请输入验证码"];
-            [cell.textField setTintColor:[UIColor colorWithString:@"#BABABF"]];
-            [cell.textField setFont:[UIFont systemFontOfSize:14]];
-            cell.textField.inputValidator = HNumericValidator.new;
-        }
-            break;
-        case 6:
-        {
-            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
-            [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.buttonView setBackgroundColor:[UIColor colorWithString:@"#CCCCCC"]];
-            [cell.buttonView.button setTitle:@"获取验证码"];
-            [cell.buttonView.button setFont:[UIFont systemFontOfSize:14]];
-            [cell.buttonView setPressed:^(id sender, id data) {
+    } tuple:^(HItemTuple  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+        switch (indexPath.row) {
+            case 0: {
+                HTupleTextFieldCell *cell = itemBlock(nil,HTupleTextFieldCell.class, nil, YES);
+                [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                 
-            }];
-        }
-            break;
-        case 7:
-        {
-            HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
-            [cell setBackgroundColor:[UIColor clearColor]];
-        }
-            break;
-        case 8:
-        {
-            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
-            [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.buttonView setBackgroundColor:[UIColor colorWithString:@"#CCCCCC"]];
-            [cell.buttonView.button setTitle:@"开始"];
-            [cell.buttonView setPressed:^(id sender, id data) {
-                HTupleTextFieldCell *tfCell1 = tupleView.cell(1, 0);
-                HTupleTextFieldCell *tfCell2 = tupleView.cell(3, 0);
-                HTupleTextFieldCell *tfCell3 = tupleView.cell(5, 0);
+                [cell.textField.leftLabel setFrame:CGRectMake(0, 0, 80, 60)];
+                [cell.textField.leftLabel setTextAlignment:NSTextAlignmentCenter];
+                [cell.textField.leftLabel setText:@"+86"];
+                [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];
                 
-                if ([tfCell1.textField validate] && tfCell2.textField.text > 0 && tfCell3.textField.text > 0) {
+                [cell.textField setPlaceholder:@"请输入手机号"];
+                [cell.textField setTintColor:[UIColor colorWithString:@"#BABABF"]];
+                [cell.textField setFont:[UIFont systemFontOfSize:14]];
+                //cell.textField.inputValidator = HPhoneValidator.new;
+                
+                [cell setSignalBlock:^(HTupleTextFieldCell *cell, HTupleSignal *signal) {
                     
-                }
-            }];
-        }
-            break;
-        case 9:
-        {
-            HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
-            [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.label setBackgroundColor:[UIColor clearColor]];
-            [cell.label setText:@"点击开始,即表示已阅读并同意"];
-            [cell.label setTextColor:[UIColor colorWithString:@"#BABABF"]];
-            [cell.label setFont:[UIFont systemFontOfSize:12]];
-            [cell.label setTextAlignment:NSTextAlignmentRight];
-        }
-            break;
-        case 10:
-        {
-            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
-            [cell setBackgroundColor:[UIColor clearColor]];
-            [cell.buttonView setBackgroundColor:[UIColor clearColor]];
-            [cell.buttonView.button setBackgroundColor:[UIColor clearColor]];
-            [cell.buttonView.button setTitle:@"《服务协议》"];
-            [cell.buttonView.button setFont:[UIFont systemFontOfSize:12]];
-            [cell.buttonView.button setTitleColor:[UIColor colorWithString:@"#34BDD7"]];
-            [cell.buttonView.button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-            [cell.buttonView setPressed:^(id sender, id data) {
+                }];
+            }
+                break;
+            case 1: {
+                HTupleTextFieldCell *cell = itemBlock(nil, HTupleTextFieldCell.class, nil, YES);
+                [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
+                
+                [cell.textField.leftLabel setFrame:CGRectMake(0, 0, 80, 60)];
+                [cell.textField.leftLabel setTextAlignment:NSTextAlignmentCenter];
+                [cell.textField.leftLabel setText:@"昵称"];
+                [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];
+                
+                [cell.textField setPlaceholder:@"请输入昵称"];
+                [cell.textField setTintColor:[UIColor colorWithString:@"#BABABF"]];
+                [cell.textField setFont:[UIFont systemFontOfSize:14]];
+                
+                [cell setSignalBlock:^(HTupleTextFieldCell *cell, HTupleSignal *signal) {
+                    
+                }];
+            }
+                break;
+            case 2: {
+                HTupleTextFieldCell *cell = itemBlock(nil, HTupleTextFieldCell.class, nil, YES);
+                [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
+                
+                [cell.textField.leftLabel setFrame:CGRectMake(0, 0, 80, 60)];
+                [cell.textField.leftLabel setTextAlignment:NSTextAlignmentCenter];
+                [cell.textField.leftLabel setText:@"验证码"];
+                [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];
+                
+                [cell.textField setPlaceholder:@"请输入验证码"];
+                [cell.textField setTintColor:[UIColor colorWithString:@"#BABABF"]];
+                [cell.textField setFont:[UIFont systemFontOfSize:14]];
+                //cell.textField.inputValidator = HNumericValidator.new;
+                
+                [cell.textField.rightButton setFrame:CGRectMake(0, 0, 120, 60)];
+                [cell.textField.rightButton.button setTitle:@"获取验证码"];
+                [cell.textField.rightButton.button setFont:[UIFont systemFontOfSize:14]];
+                [cell.textField.rightButton setPressed:^(id sender, id data) {
+                    
+                }];
+                
+                [cell setSignalBlock:^(HTupleTextFieldCell *cell, HTupleSignal *signal) {
+                    
+                }];
+            }
+                break;
+            case 3: {
+                itemBlock(nil, HTupleBaseCell.class, nil, YES);
+            }
+                break;
+            case 4: {
+                HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
+                [cell.buttonView setBackgroundColor:[UIColor colorWithString:@"#CCCCCC"]];
+                [cell.buttonView.button setTitle:@"开始"];
+                [cell.buttonView setPressed:^(id sender, id data) {
+                    /*
+                    HTupleTextFieldCell *tfCell1 = self.tupleView.cell(1, 0);
+                    HTupleTextFieldCell *tfCell2 = self.tupleView.cell(3, 0);
+                    HTupleTextFieldCell *tfCell3 = self.tupleView.cell(5, 0);
 
-            }];
+                    if ([tfCell1.textField validate] && tfCell2.textField.text > 0 && tfCell3.textField.text > 0) {
+
+                    }
+                    */
+                }];
+                
+                [cell setSignalBlock:^(HTupleButtonCell *cell, HTupleSignal *signal) {
+                    
+                }];
+            }
+                break;
+            case 5: {
+                
+                HWebButtonView *buttonView = [[HWebButtonView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+                [buttonView.button setImage:[UIImage imageNamed:@"dribbble"] forState:UIControlStateNormal];
+                [buttonView.button setImage:[UIImage imageNamed:@"dribbble"] forState:UIControlStateSelected];
+                [buttonView.button setSelected:!buttonView.button.isSelected];
+                [buttonView setPressed:^(HWebButtonView *buttonView, id data) {
+                    [buttonView.button setSelected:!buttonView.button.isSelected];
+                }];
+                
+                NSMutableAttributedString *attributedString = [NSMutableAttributedString h_attachmentStringWithContent:buttonView contentMode:UIViewContentModeScaleAspectFit attachmentSize:buttonView.frame.size  alignToFont:[UIFont systemFontOfSize:14] alignment:HTextVerticalAlignmentCenter];
+                
+                NSString *string1 = @"点击开始,即表示已阅读并同意";
+                NSString *string2 = @"《服务协议》";
+
+                [attributedString h_appendString:string1];
+                [attributedString h_appendString:string2];
+                
+                [attributedString h_setColor:[UIColor colorWithString:@"#BABABF"] range:NSMakeRange(0, string1.length)];
+                [attributedString h_setColor:[UIColor colorWithString:@"#34BDD7"] range:NSMakeRange(string1.length, string2.length)];
+                //设置点击
+                HTextHighlight *highlight = [HTextHighlight new];
+                highlight.tapAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
+
+                };
+                [attributedString h_setTextHighlight:highlight range:NSMakeRange(string1.length, string2.length)];
+
+                HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
+                [cell.label setFont:[UIFont systemFontOfSize:12]];
+                [cell.label setTextAlignment:NSTextAlignmentCenter];
+                cell.label.attributedText = attributedString;
+                
+                
+                [cell setSignalBlock:^(HTupleLabelCell *cell, HTupleSignal *signal) {
+                    
+                }];
+                
+            }
+                break;
+            default: {
+                itemBlock(nil, HTupleBaseCell.class, nil, YES);
+            }
+                break;
         }
-            break;
-            
-        default:
-        {
-            HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
-            [cell setBackgroundColor:[UIColor clearColor]];
-        }
-            break;
-    }
+    }];
 }
 
 @end
