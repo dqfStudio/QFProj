@@ -38,8 +38,8 @@
         HTextHighlight *highlight = HTextHighlight.new;
         highlight.tapAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (self.authorizeBlock) {
-                    self.authorizeBlock();
+                if (self.serviceAgreementBlock) {
+                    self.serviceAgreementBlock();
                 }
             });
         };

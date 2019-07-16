@@ -146,7 +146,7 @@
                 
                 HServiceAuthorizationCell *cell = itemBlock(nil, HServiceAuthorizationCell.class, nil, YES);
                 
-                [cell setAuthorizeBlock:^{
+                [cell setServiceAgreementBlock:^{
                     
                 }];
 

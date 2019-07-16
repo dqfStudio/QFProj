@@ -10,9 +10,9 @@
 #import "UIColor+HUtil.h"
 #import "NSAttributedString+HText.h"
 
-typedef void(^HAuthorizeBlock)(void);
+typedef void(^HServiceAgreementBlock)(void);
 
 @interface HServiceAuthorizationCell : HTupleLabelCell
 @property(nonatomic, getter=isAuthorized) BOOL authorized; //default is YES
-@property(nonatomic, copy) HAuthorizeBlock authorizeBlock;
+@property(nonatomic, copy) HServiceAgreementBlock serviceAgreementBlock;
 @end
