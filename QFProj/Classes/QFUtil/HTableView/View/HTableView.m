@@ -28,7 +28,9 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 @property (nonatomic) NSMapTable   *allReuseHeaders;
 @property (nonatomic) NSMapTable   *allReuseFooters;
 
-@property (nonatomic, copy) NSArray <NSString *> *exclusiveIndexPaths;
+@property (nonatomic, copy) NSArray <NSString *> *headerIndexPaths;
+@property (nonatomic, copy) NSArray <NSString *> *footerIndexPaths;
+@property (nonatomic, copy) NSArray <NSString *> *itemIndexPaths;
 
 @property (nonatomic, copy) HANumberOfSectionsBlock numberOfSectionsBlock;
 @property (nonatomic, copy) HNumberOfCellsBlock numberOfCellsBlock;
@@ -70,18 +72,20 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     return self;
 }
 + (instancetype)sectionDesignWith:(CGRect)frame andSections:(NSInteger)sections {
-    return [[HTableView alloc] initWithFrame:frame designStyle:HTableDesignStyleSection designSection:sections exclusive:nil];
+    return [[HTableView alloc] initWithFrame:frame designStyle:HTableDesignStyleSection designSection:sections headers:nil footers:nil items:nil];
 }
-+ (instancetype)tableDesignWith:(CGRect)frame exclusive:(NSArray <NSString *> *)indexPaths {
-    return [[HTableView alloc] initWithFrame:frame designStyle:HTableDesignStyleTable designSection:0 exclusive:indexPaths];
++ (instancetype)tableDesignWith:(CGRect (^)(void))frame exclusiveHeaders:(HTableExclusiveForHeaderBlock)headers exclusiveFooters:(HTableExclusiveForFooterBlock)footers exclusiveItems:(HTableExclusiveForItemBlock)items {
+    return [[HTableView alloc] initWithFrame:frame() designStyle:HTableDesignStyleTable designSection:0 headers:headers() footers:footers() items:items()];
 }
-- (instancetype)initWithFrame:(CGRect)frame designStyle:(HTableDesignStyle)style designSection:(NSInteger)sections exclusive:(NSArray <NSString *> *)indexPaths {
+- (instancetype)initWithFrame:(CGRect)frame designStyle:(HTableDesignStyle)style designSection:(NSInteger)sections headers:(NSArray <NSString *> *)headerIndexPaths footers:(NSArray <NSString *> *)footerIndexPaths items:(NSArray <NSString *> *)itemIndexPaths {
     self = [super initWithFrame:frame];
     if (self) {
         _designStyle = style;
         _categoryDesign = YES;
         _designSections = sections;
-        self.exclusiveIndexPaths = indexPaths;
+        self.headerIndexPaths = headerIndexPaths;
+        self.footerIndexPaths = footerIndexPaths;
+        self.itemIndexPaths = itemIndexPaths;
         [self setup];
     }
     return self;
@@ -297,7 +301,9 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:self.addressValue];
         identifier = [identifier stringByAppendingString:@"HeaderCell"];
-        identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
+        if (![self.headerIndexPaths containsObject:@(section).stringValue]) {
+            identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
+        }
         if (pre) identifier = [identifier stringByAppendingString:pre];
         if (idx) identifier = [identifier stringByAppendingString:@(section).stringValue];
         if (![self.allReuseIdentifiers containsObject:identifier]) {
@@ -345,7 +351,9 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:self.addressValue];
         identifier = [identifier stringByAppendingString:@"FooterCell"];
-        identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
+        if (![self.footerIndexPaths containsObject:@(section).stringValue]) {
+            identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
+        }
         if (pre) identifier = [identifier stringByAppendingString:pre];
         if (idx) identifier = [identifier stringByAppendingString:@(section).stringValue];
         if (![self.allReuseIdentifiers containsObject:identifier]) {
@@ -393,7 +401,9 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:self.addressValue];
         identifier = [identifier stringByAppendingString:@"ItemCell"];
-        identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
+        if (![self.itemIndexPaths containsObject:indexPath.stringValue]) {
+            identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
+        }
         if (pre) identifier = [identifier stringByAppendingString:pre];
         if (idx) identifier = [identifier stringByAppendingString:indexPath.stringValue];
         if (![self.allReuseIdentifiers containsObject:identifier]) {

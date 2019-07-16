@@ -21,7 +21,15 @@
         frame.origin.y += UIDevice.topBarHeight;
         frame.size.height -= UIDevice.topBarHeight;
         NSArray *exclusiveArr = [NSArray arrayWithObject:NSIndexPath.stringValue(0, 0)];
-        _tupleView = [HTupleView tupleDesignWith:frame exclusive:exclusiveArr];
+        _tupleView = [HTupleView tupleDesignWith:^CGRect{
+            return frame;
+        } exclusiveHeaders:^NSArray * _Nullable{
+            return nil;
+        } exclusiveFooters:^NSArray * _Nullable{
+            return nil;
+        } exclusiveItems:^NSArray * _Nullable{
+            return exclusiveArr;
+        }];
     }
     return _tupleView;
 }

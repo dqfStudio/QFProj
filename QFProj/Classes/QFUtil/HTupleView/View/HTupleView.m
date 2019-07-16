@@ -31,7 +31,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 @property (nonatomic) NSMapTable   *allReuseHeaders;
 @property (nonatomic) NSMapTable   *allReuseFooters;
 
-@property (nonatomic, copy) NSArray <NSString *> *exclusiveIndexPaths;
+@property (nonatomic, copy) NSArray <NSString *> *headerIndexPaths;
+@property (nonatomic, copy) NSArray <NSString *> *footerIndexPaths;
+@property (nonatomic, copy) NSArray <NSString *> *itemIndexPaths;
 
 @property (nonatomic, copy) HUNumberOfSectionsBlock numberOfSectionsBlock;
 @property (nonatomic, copy) HNumberOfItemsBlock numberOfItemsBlock;
@@ -99,12 +101,12 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     return self;
 }
 + (instancetype)sectionDesignWith:(CGRect)frame andSections:(NSInteger)sections {
-    return [[HTupleView alloc] initWithFrame:frame designStyle:HTupleDesignStyleSection designSection:sections exclusive:nil];
+    return [[HTupleView alloc] initWithFrame:frame designStyle:HTupleDesignStyleSection designSection:sections headers:nil footers:nil items:nil];
 }
-+ (instancetype)tupleDesignWith:(CGRect)frame exclusive:(NSArray <NSString *> *)indexPaths {
-    return [[HTupleView alloc] initWithFrame:frame designStyle:HTupleDesignStyleTuple designSection:0 exclusive:indexPaths];
++ (instancetype)tupleDesignWith:(CGRect (^)(void))frame exclusiveHeaders:(HTupleExclusiveForHeaderBlock)headers exclusiveFooters:(HTupleExclusiveForFooterBlock)footers exclusiveItems:(HTupleExclusiveForItemBlock)items {
+    return [[HTupleView alloc] initWithFrame:frame() designStyle:HTupleDesignStyleTuple designSection:0 headers:headers() footers:footers() items:items()];
 }
-- (instancetype)initWithFrame:(CGRect)frame designStyle:(HTupleDesignStyle)style designSection:(NSInteger)sections exclusive:(NSArray <NSString *> *)indexPaths {
+- (instancetype)initWithFrame:(CGRect)frame designStyle:(HTupleDesignStyle)style designSection:(NSInteger)sections headers:(NSArray <NSString *> *)headerIndexPaths footers:(NSArray <NSString *> *)footerIndexPaths items:(NSArray <NSString *> *)itemIndexPaths {
     _flowLayout = UICollectionViewLeftAlignedLayout.new;
     _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     self = [super initWithFrame:frame collectionViewLayout:_flowLayout];
@@ -112,7 +114,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         _designStyle = style;
         _categoryDesign = YES;
         _designSections = sections;
-        self.exclusiveIndexPaths = indexPaths;
+        self.headerIndexPaths = headerIndexPaths;
+        self.footerIndexPaths = footerIndexPaths;
+        self.itemIndexPaths = itemIndexPaths;
         [self setup];
     }
     return self;
@@ -322,7 +326,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:self.addressValue];
         identifier = [identifier stringByAppendingString:@"ItemCell"];
-        if (![self.exclusiveIndexPaths containsObject:indexPath.stringValue]) {
+        if (![self.itemIndexPaths containsObject:indexPath.stringValue]) {
             identifier = [identifier stringByAppendingFormat:@"%@", @(self.tupleState)];
         }
         if (pre) identifier = [identifier stringByAppendingString:pre];
@@ -383,7 +387,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
             NSString *identifier = NSStringFromClass(cls);
             identifier = [identifier stringByAppendingString:self.addressValue];
             identifier = [identifier stringByAppendingString:@"HeaderCell"];
-            if (![self.exclusiveIndexPaths containsObject:indexPath.stringValue]) {
+            if (![self.headerIndexPaths containsObject:indexPath.stringValue]) {
                 identifier = [identifier stringByAppendingFormat:@"%@", @(self.tupleState)];
             }
             if (pre) identifier = [identifier stringByAppendingString:pre];
@@ -441,7 +445,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
             NSString *identifier = NSStringFromClass(cls);
             identifier = [identifier stringByAppendingString:self.addressValue];
             identifier = [identifier stringByAppendingString:@"FooterCell"];
-            if (![self.exclusiveIndexPaths containsObject:indexPath.stringValue]) {
+            if (![self.footerIndexPaths containsObject:indexPath.stringValue]) {
                 identifier = [identifier stringByAppendingFormat:@"%@", @(self.tupleState)];
             }
             if (pre) identifier = [identifier stringByAppendingString:pre];
