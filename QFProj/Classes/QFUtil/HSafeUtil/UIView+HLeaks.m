@@ -12,6 +12,7 @@
 #import "NSObject+HSwizzleUtil.h"
 
 @implementation UIView (HLeaks)
+#if DEBUG
 //+ (void)load {
 //    static dispatch_once_t onceToken;
 //    dispatch_once(&onceToken, ^{
@@ -47,4 +48,5 @@
         return NO; //系统类
     }
 }
+#endif
 @end
