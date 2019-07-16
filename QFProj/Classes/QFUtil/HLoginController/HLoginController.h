@@ -8,8 +8,7 @@
 
 #import "HTupleController.h"
 #import "UIButton+HUtil.h"
-#import "NSAttributedString+HText.h"
-#import "HTextAttribute.h"
+#import "HServiceAuthorizationCell.h"
 
 @interface HLoginController : HTupleController
 

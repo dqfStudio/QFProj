@@ -144,39 +144,16 @@
                 break;
             case 5: {
                 
-                HWebButtonView *buttonView = [[HWebButtonView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
-                [buttonView.button setImage:[UIImage imageNamed:@"dribbble"] forState:UIControlStateNormal];
-                [buttonView.button setImage:[UIImage imageNamed:@"dribbble"] forState:UIControlStateSelected];
-                [buttonView.button setSelected:!buttonView.button.isSelected];
-                [buttonView setPressed:^(HWebButtonView *buttonView, id data) {
-                    [buttonView.button setSelected:!buttonView.button.isSelected];
-                }];
+                HServiceAuthorizationCell *cell = itemBlock(nil, HServiceAuthorizationCell.class, nil, YES);
                 
-                NSMutableAttributedString *attributedString = [NSMutableAttributedString h_attachmentStringWithContent:buttonView contentMode:UIViewContentModeScaleAspectFit attachmentSize:buttonView.frame.size  alignToFont:[UIFont systemFontOfSize:14] alignment:HTextVerticalAlignmentCenter];
-                
-                NSString *string1 = @"点击开始,即表示已阅读并同意";
-                NSString *string2 = @"《服务协议》";
-
-                [attributedString h_appendString:string1];
-                [attributedString h_appendString:string2];
-                
-                [attributedString h_setColor:[UIColor colorWithString:@"#BABABF"] range:NSMakeRange(0, string1.length)];
-                [attributedString h_setColor:[UIColor colorWithString:@"#34BDD7"] range:NSMakeRange(string1.length, string2.length)];
-                //设置点击
-                HTextHighlight *highlight = [HTextHighlight new];
-                highlight.tapAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
-
-                };
-                [attributedString h_setTextHighlight:highlight range:NSMakeRange(string1.length, string2.length)];
-
-                HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
-                [cell.label setFont:[UIFont systemFontOfSize:12]];
-                [cell.label setTextAlignment:NSTextAlignmentCenter];
-                cell.label.attributedText = attributedString;
-                
-                
-                [cell setSignalBlock:^(HTupleLabelCell *cell, HTupleSignal *signal) {
+                [cell setAuthorizeBlock:^{
                     
+                }];
+
+                [cell setSignalBlock:^(HServiceAuthorizationCell *cell, HTupleSignal *signal) {
+                    if (cell.isAuthorized) {
+                        
+                    }
                 }];
                 
             }
