@@ -26,6 +26,14 @@
         }
     }
 }
+- (BOOL)isCustomClass {
+    NSBundle *mainB = [NSBundle bundleForClass:[self class]];
+    if (mainB == [NSBundle mainBundle]) {
+        return YES; //自定义类
+    }else {
+        return NO; //系统类
+    }
+}
 //即将调用dealloc
 - (void)willDealloc {
     __weak typeof(self) weakSelf = self;
@@ -39,14 +47,6 @@
 //打印没有释放的view
 - (void)isNotDealloc {
     NSLog(@"🍎🍎🍎🍎🍎🍎🍎%@ is not dealloc🍎🍎🍎🍎🍎🍎🍎",NSStringFromClass([self class]));
-}
-- (BOOL)isCustomClass {
-    NSBundle *mainB = [NSBundle bundleForClass:[self class]];
-    if (mainB == [NSBundle mainBundle]) {
-        return YES; //自定义类
-    }else {
-        return NO; //系统类
-    }
 }
 #endif
 @end
