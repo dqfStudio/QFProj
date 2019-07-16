@@ -11,14 +11,14 @@
 #import <objc/message.h>
 #import "NSObject+HSwizzleUtil.h"
 
-@implementation UIView (HLeaks)
 #if DEBUG
-//+ (void)load {
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        [[self class] methodSwizzleWithOrigSEL:@selector(willMoveToSuperview:) overrideSEL:@selector(leaks_willMoveToSuperview:)];
-//    });
-//}
+@implementation UIView (HLeaks)
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [[self class] methodSwizzleWithOrigSEL:@selector(willMoveToSuperview:) overrideSEL:@selector(leaks_willMoveToSuperview:)];
+    });
+}
 - (void)leaks_willMoveToSuperview:(UIView *)newView {
     if ([self isCustomClass]) {
         if (!newView) {
@@ -46,7 +46,7 @@
 }
 //打印没有释放的view
 - (void)isNotDealloc {
-    NSLog(@"🍎🍎🍎🍎🍎🍎🍎%@ is not dealloc🍎🍎🍎🍎🍎🍎🍎",NSStringFromClass([self class]));
+    NSLog(@"🍎🍎🍎🍎🍎🍎🍎%@ is not dealloc🍎🍎🍎🍎🍎🍎🍎", NSStringFromClass([self class]));
 }
-#endif
 @end
+#endif

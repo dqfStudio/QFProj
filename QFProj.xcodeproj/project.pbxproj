@@ -250,7 +250,9 @@
 		A2A8EB4222DC6F820049C51B /* HRegisterController+KS.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB4122DC6F820049C51B /* HRegisterController+KS.m */; };
 		A2A8EB4522DC6F920049C51B /* HRegisterController+SJ.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB4422DC6F920049C51B /* HRegisterController+SJ.m */; };
 		A2A8EB4822DD7F950049C51B /* HServiceAuthorizationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB4722DD7F950049C51B /* HServiceAuthorizationCell.m */; };
-		A2A8EB4B22DDC9D00049C51B /* UIView+HLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB4A22DDC9D00049C51B /* UIView+HLeaks.m */; };
+		A2A8EB4F22DDD9690049C51B /* UIView+HLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB4D22DDD9690049C51B /* UIView+HLeaks.m */; };
+		A2A8EB5222DDD99D0049C51B /* UIViewController+HLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB5122DDD99D0049C51B /* UIViewController+HLeaks.m */; };
+		A2A8EB5522DDD9B90049C51B /* UINavigationController+HLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB5422DDD9B90049C51B /* UINavigationController+HLeaks.m */; };
 		A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */; };
 		A2DC22BE2242994800E540BE /* NSObject+HForwarding.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */; };
 		A2E8F50822CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50622CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png */; };
@@ -729,8 +731,12 @@
 		A2A8EB4422DC6F920049C51B /* HRegisterController+SJ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HRegisterController+SJ.m"; sourceTree = "<group>"; };
 		A2A8EB4622DD7F950049C51B /* HServiceAuthorizationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HServiceAuthorizationCell.h; sourceTree = "<group>"; };
 		A2A8EB4722DD7F950049C51B /* HServiceAuthorizationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HServiceAuthorizationCell.m; sourceTree = "<group>"; };
-		A2A8EB4922DDC9D00049C51B /* UIView+HLeaks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HLeaks.h"; sourceTree = "<group>"; };
-		A2A8EB4A22DDC9D00049C51B /* UIView+HLeaks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+HLeaks.m"; sourceTree = "<group>"; };
+		A2A8EB4D22DDD9690049C51B /* UIView+HLeaks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HLeaks.m"; sourceTree = "<group>"; };
+		A2A8EB4E22DDD9690049C51B /* UIView+HLeaks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HLeaks.h"; sourceTree = "<group>"; };
+		A2A8EB5022DDD99D0049C51B /* UIViewController+HLeaks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HLeaks.h"; sourceTree = "<group>"; };
+		A2A8EB5122DDD99D0049C51B /* UIViewController+HLeaks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HLeaks.m"; sourceTree = "<group>"; };
+		A2A8EB5322DDD9B90049C51B /* UINavigationController+HLeaks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+HLeaks.h"; sourceTree = "<group>"; };
+		A2A8EB5422DDD9B90049C51B /* UINavigationController+HLeaks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+HLeaks.m"; sourceTree = "<group>"; };
 		A2DC22B622424F2F00E540BE /* NSObject+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeMessy.h"; sourceTree = "<group>"; };
 		A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HForwarding.h"; sourceTree = "<group>"; };
@@ -1050,6 +1056,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A2A8EB4C22DDD9690049C51B /* HLeaks */,
 				A2A8EB3622DB65A90049C51B /* HDrawerViewController */,
 				A2A8EB1B22DB62670049C51B /* HCycleScrollView */,
 				A2A8EACA22DB59FD0049C51B /* HMarquee */,
@@ -1274,8 +1281,6 @@
 				15B4DDE52092F96B00773E04 /* UIControl+HSafeUtil.m */,
 				A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */,
 				A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */,
-				A2A8EB4922DDC9D00049C51B /* UIView+HLeaks.h */,
-				A2A8EB4A22DDC9D00049C51B /* UIView+HLeaks.m */,
 			);
 			path = HSafeUtil;
 			sourceTree = "<group>";
@@ -1973,6 +1978,20 @@
 			path = QFUtil/HDrawerViewController;
 			sourceTree = "<group>";
 		};
+		A2A8EB4C22DDD9690049C51B /* HLeaks */ = {
+			isa = PBXGroup;
+			children = (
+				A2A8EB4E22DDD9690049C51B /* UIView+HLeaks.h */,
+				A2A8EB4D22DDD9690049C51B /* UIView+HLeaks.m */,
+				A2A8EB5022DDD99D0049C51B /* UIViewController+HLeaks.h */,
+				A2A8EB5122DDD99D0049C51B /* UIViewController+HLeaks.m */,
+				A2A8EB5322DDD9B90049C51B /* UINavigationController+HLeaks.h */,
+				A2A8EB5422DDD9B90049C51B /* UINavigationController+HLeaks.m */,
+			);
+			name = HLeaks;
+			path = QFUtil/HLeaks;
+			sourceTree = "<group>";
+		};
 		A2E8F52722D72A9800E7C9F2 /* HNetwork */ = {
 			isa = PBXGroup;
 			children = (
@@ -2314,7 +2333,7 @@
 				15B4DE2D209311F900773E04 /* NSObject+HMessy.m in Sources */,
 				1528DF4920BF0A7A00D0A004 /* HShowView.m in Sources */,
 				A206882322C9FDBD00661634 /* HTableBaseCell.m in Sources */,
-				A2A8EB4B22DDC9D00049C51B /* UIView+HLeaks.m in Sources */,
+				A2A8EB4F22DDD9690049C51B /* UIView+HLeaks.m in Sources */,
 				15F9151D20A14A33000261C4 /* UIView+HShow.m in Sources */,
 				1528DF4320BEF6BC00D0A004 /* HNaviToastView.m in Sources */,
 				A222AE5C22818F7D0013098A /* NSAttributedString+HText.m in Sources */,
@@ -2477,6 +2496,7 @@
 				A24B659922607E8400B257BB /* Base64Transcoder.m in Sources */,
 				A24B6560225EE08900B257BB /* HUpdate.m in Sources */,
 				A222A6C42279AAAD0013098A /* NSDictionary+Util.m in Sources */,
+				A2A8EB5222DDD99D0049C51B /* UIViewController+HLeaks.m in Sources */,
 				A222AE4C22818F7D0013098A /* HTextDebugOption.m in Sources */,
 				A206880E22C9FD1B00661634 /* HTupleBaseView.m in Sources */,
 				15F9152020A171A8000261C4 /* NSObject+HAspects.m in Sources */,
@@ -2496,6 +2516,7 @@
 				A2A8EB3F22DC6F300049C51B /* HRegisterController.m in Sources */,
 				15B4DE032092F96C00773E04 /* NSObject+HUtil.m in Sources */,
 				A2E8F51A22CF925700E7C9F2 /* AppDelegate+HUtil.m in Sources */,
+				A2A8EB5522DDD9B90049C51B /* UINavigationController+HLeaks.m in Sources */,
 				15E6BB9B2136E7E300EBE794 /* YPTabBar.m in Sources */,
 				A24B659722607E8400B257BB /* SKPSMTPMessage.m in Sources */,
 				A2E8F54A22D73AE600E7C9F2 /* HRequestDAOFactory.m in Sources */,

@@ -1,5 +1,5 @@
 //
-//  UIView+HLeaks.h
+//  UINavigationController+HLeaks.h
 //  QFProj
 //
 //  Created by wind on 2019/7/16.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (HLeaks)
+#if DEBUG
+@interface UINavigationController (HLeaks)
 
 @end
+#endif
