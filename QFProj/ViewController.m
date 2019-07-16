@@ -106,25 +106,32 @@ H_CheckPropertyRange(rrr, 0, 150)
 //        [cell setBackgroundColor:[UIColor redColor]];
 //        [cell.label setText:@"fadsfds"];
         
-        HTupleTextFieldCell *cell = itemBlock(nil, HTupleTextFieldCell.class, nil, YES);
-        [cell setBackgroundColor:[UIColor redColor]];
-//        [cell.label setText:@"fadsfds"];
-        [cell.textField.leftLabel setFrame:CGRectMake(0, 0, 60, 40)];
-//        [cell.leftLabel setText:@"fsadfds"];
-//        [cell.leftLabel sizeToFit];
-        [cell.textField.leftLabel setBackgroundColor:[UIColor blueColor]];
-        [cell.textField setBackgroundColor:[UIColor yellowColor]];
-        cell.textField.leftInsets = UIEdgeInsetsMake(0, 10, 0, 20);
-        
-        
-        [cell.textField.rightLabel setFrame:CGRectMake(0, 0, 60, 40)];
-        //        [cell.leftLabel setText:@"fsadfds"];
-        //        [cell.leftLabel sizeToFit];
-        [cell.textField.rightLabel setBackgroundColor:[UIColor redColor]];
-        [cell.textField setBackgroundColor:[UIColor yellowColor]];
-        cell.textField.rightInsets = UIEdgeInsetsMake(0, 10, 0, 20);
+        itemBlock(nil, HTupleLabelCell.class, nil, YES);
+//        HTupleTextFieldCell *cell = itemBlock(nil, HTupleTextFieldCell.class, nil, YES);
+//        [cell setBackgroundColor:[UIColor redColor]];
+////        [cell.label setText:@"fadsfds"];
+//        [cell.textField.leftLabel setFrame:CGRectMake(0, 0, 60, 40)];
+////        [cell.leftLabel setText:@"fsadfds"];
+////        [cell.leftLabel sizeToFit];
+//        [cell.textField.leftLabel setBackgroundColor:[UIColor blueColor]];
+//        [cell.textField setBackgroundColor:[UIColor yellowColor]];
+//        cell.textField.leftInsets = UIEdgeInsetsMake(0, 10, 0, 20);
+//
+//
+//        [cell.textField.rightLabel setFrame:CGRectMake(0, 0, 60, 40)];
+//        //        [cell.leftLabel setText:@"fsadfds"];
+//        //        [cell.leftLabel sizeToFit];
+//        [cell.textField.rightLabel setBackgroundColor:[UIColor redColor]];
+//        [cell.textField setBackgroundColor:[UIColor yellowColor]];
+//        cell.textField.rightInsets = UIEdgeInsetsMake(0, 10, 0, 20);
 //        [cell setPlaceholder:@"fdsafdsa"];
     }];
+    
+    [tuple didSelectItem:^(NSIndexPath * _Nonnull indexPath) {
+        [self.navigationController pushViewController:GViewController.new animated:YES];
+    }];
+    
+    
     
     
     return;

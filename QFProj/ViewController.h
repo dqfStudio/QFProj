@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HViewController.h"
+#import "GViewController.h"
 
 @interface ViewController : HViewController
 
