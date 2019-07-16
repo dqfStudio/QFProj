@@ -250,6 +250,7 @@
 		A2A8EB4222DC6F820049C51B /* HRegisterController+KS.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB4122DC6F820049C51B /* HRegisterController+KS.m */; };
 		A2A8EB4522DC6F920049C51B /* HRegisterController+SJ.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB4422DC6F920049C51B /* HRegisterController+SJ.m */; };
 		A2A8EB4822DD7F950049C51B /* HServiceAuthorizationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB4722DD7F950049C51B /* HServiceAuthorizationCell.m */; };
+		A2A8EB4B22DDC9D00049C51B /* UIView+HLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB4A22DDC9D00049C51B /* UIView+HLeaks.m */; };
 		A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */; };
 		A2DC22BE2242994800E540BE /* NSObject+HForwarding.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */; };
 		A2E8F50822CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50622CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png */; };
@@ -728,6 +729,8 @@
 		A2A8EB4422DC6F920049C51B /* HRegisterController+SJ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HRegisterController+SJ.m"; sourceTree = "<group>"; };
 		A2A8EB4622DD7F950049C51B /* HServiceAuthorizationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HServiceAuthorizationCell.h; sourceTree = "<group>"; };
 		A2A8EB4722DD7F950049C51B /* HServiceAuthorizationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HServiceAuthorizationCell.m; sourceTree = "<group>"; };
+		A2A8EB4922DDC9D00049C51B /* UIView+HLeaks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HLeaks.h"; sourceTree = "<group>"; };
+		A2A8EB4A22DDC9D00049C51B /* UIView+HLeaks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+HLeaks.m"; sourceTree = "<group>"; };
 		A2DC22B622424F2F00E540BE /* NSObject+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeMessy.h"; sourceTree = "<group>"; };
 		A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HForwarding.h"; sourceTree = "<group>"; };
@@ -1271,6 +1274,8 @@
 				15B4DDE52092F96B00773E04 /* UIControl+HSafeUtil.m */,
 				A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */,
 				A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */,
+				A2A8EB4922DDC9D00049C51B /* UIView+HLeaks.h */,
+				A2A8EB4A22DDC9D00049C51B /* UIView+HLeaks.m */,
 			);
 			path = HSafeUtil;
 			sourceTree = "<group>";
@@ -2309,6 +2314,7 @@
 				15B4DE2D209311F900773E04 /* NSObject+HMessy.m in Sources */,
 				1528DF4920BF0A7A00D0A004 /* HShowView.m in Sources */,
 				A206882322C9FDBD00661634 /* HTableBaseCell.m in Sources */,
+				A2A8EB4B22DDC9D00049C51B /* UIView+HLeaks.m in Sources */,
 				15F9151D20A14A33000261C4 /* UIView+HShow.m in Sources */,
 				1528DF4320BEF6BC00D0A004 /* HNaviToastView.m in Sources */,
 				A222AE5C22818F7D0013098A /* NSAttributedString+HText.m in Sources */,
