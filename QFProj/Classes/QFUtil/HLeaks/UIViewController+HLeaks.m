@@ -39,8 +39,8 @@ const char* leaksKey;
 //即将调用dealloc
 - (void)willDealloc {
     __weak typeof(self) weakSelf = self;
-    //延时3s，留足释放内存时间
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    //延时2s，留足释放内存时间
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         __strong typeof(self) strongSelf = weakSelf;
         //这个的原理就是通过给nil发送方法，如何不为空就执行，为nil不执行
         [strongSelf isNotDealloc];
