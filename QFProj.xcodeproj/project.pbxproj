@@ -253,6 +253,7 @@
 		A2A8EB4F22DDD9690049C51B /* UIView+HLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB4D22DDD9690049C51B /* UIView+HLeaks.m */; };
 		A2A8EB5222DDD99D0049C51B /* UIViewController+HLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB5122DDD99D0049C51B /* UIViewController+HLeaks.m */; };
 		A2A8EB5522DDD9B90049C51B /* UINavigationController+HLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB5422DDD9B90049C51B /* UINavigationController+HLeaks.m */; };
+		A2A8EB6522DF01390049C51B /* UIViewController+HDisappear.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB6322DF01380049C51B /* UIViewController+HDisappear.m */; };
 		A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */; };
 		A2DC22BE2242994800E540BE /* NSObject+HForwarding.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */; };
 		A2E8F50822CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50622CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png */; };
@@ -737,6 +738,8 @@
 		A2A8EB5122DDD99D0049C51B /* UIViewController+HLeaks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HLeaks.m"; sourceTree = "<group>"; };
 		A2A8EB5322DDD9B90049C51B /* UINavigationController+HLeaks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+HLeaks.h"; sourceTree = "<group>"; };
 		A2A8EB5422DDD9B90049C51B /* UINavigationController+HLeaks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+HLeaks.m"; sourceTree = "<group>"; };
+		A2A8EB6322DF01380049C51B /* UIViewController+HDisappear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HDisappear.m"; sourceTree = "<group>"; };
+		A2A8EB6422DF01380049C51B /* UIViewController+HDisappear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HDisappear.h"; sourceTree = "<group>"; };
 		A2DC22B622424F2F00E540BE /* NSObject+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeMessy.h"; sourceTree = "<group>"; };
 		A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HForwarding.h"; sourceTree = "<group>"; };
@@ -1596,6 +1599,8 @@
 				A206882722CA081400661634 /* hvc_back_icon@2x.png */,
 				A206882622CA081400661634 /* HViewController.h */,
 				A206882522CA081400661634 /* HViewController.m */,
+				A2A8EB6422DF01380049C51B /* UIViewController+HDisappear.h */,
+				A2A8EB6322DF01380049C51B /* UIViewController+HDisappear.m */,
 				A2E8F51E22D2300D00E7C9F2 /* HTableController.h */,
 				A2E8F51F22D2300D00E7C9F2 /* HTableController.m */,
 				A2E8F51B22D229A500E7C9F2 /* HTupleController.h */,
@@ -2374,6 +2379,7 @@
 				A4759710217EC61D00AAAEA9 /* HUserDefaults.m in Sources */,
 				A2E8F53F22D72A9800E7C9F2 /* YTKBaseRequest.m in Sources */,
 				A28EF3C421DA1DFE002F92ED /* HFormCell.m in Sources */,
+				A2A8EB6522DF01390049C51B /* UIViewController+HDisappear.m in Sources */,
 				1547B891210C4E09009E0374 /* UICollectionView+HTracking.m in Sources */,
 				A24B659622607E8400B257BB /* HEmailManager.m in Sources */,
 				15E6BB9C2136E7E300EBE794 /* YPTabBarController.m in Sources */,
