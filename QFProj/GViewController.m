@@ -10,6 +10,7 @@
 
 @interface GViewController () <HTupleViewDelegate>
 @property (nonatomic) HTupleView *tupleView;
+@property (nonatomic) NSArray *tupleSource;
 @end
 
 @implementation GViewController
@@ -30,8 +31,20 @@
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self setTitle:@"首页"];
+    _tupleSource = NSArray.array;
+    
+//    @www
+    [self.tupleView setLoadMoreBlock:^{
+//        @sss
+//        NSLog(@"%@", self.tupleSource);
+    }];
 }
 
+- (void)vcWillDisappear:(HVCDisappearType)type {
+    if (type == HVCDisappearTypePop || type == HVCDisappearTypeDismiss) {
+//        [self.tupleView releaseTupleBlock];
+    }
+}
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
@@ -223,6 +236,12 @@
                 {
                     HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
                     [cell setBackgroundColor:[UIColor blackColor]];
+//                    [cell.buttonView setPressed:^(id sender, id data) {
+//                        NSLog(@"%@", self.tupleSource);
+////                        NSLog(@"%@", );
+//
+////                        [tupleView reloadItemsAtIndexPaths:@[indexPath]];
+//                    }];
                     //            [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     //            [cell.label setTextAlignment:NSTextAlignmentCenter];
                     //            [cell.label setText:@"昵称"];

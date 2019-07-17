@@ -181,7 +181,9 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 - (void)setRefreshBlock:(HRefreshTableBlock)refreshBlock {
     _refreshBlock = refreshBlock;
     if (_refreshBlock) {
+        @www
         self.mj_header = [HTableRefresh refreshHeaderWithStyle:_refreshHeaderStyle andBlock:^{
+            @sss
             [self setPageNo:1];
             self->_refreshBlock();
         }];
@@ -193,7 +195,9 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     _loadMoreBlock = loadMoreBlock;
     if (_loadMoreBlock) {
         [self setPageNo:1];
+        @www
         self.mj_footer = [HTableRefresh refreshFooterWithStyle:_refreshFooterStyle andBlock:^{
+            @sss
             self.pageNo += 1;
             if (self.pageSize*self.pageNo < self.totalNo) {
                 self->_loadMoreBlock();

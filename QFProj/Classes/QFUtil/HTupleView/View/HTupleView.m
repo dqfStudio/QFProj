@@ -199,7 +199,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 - (void)setRefreshBlock:(HRefreshTupleBlock)refreshBlock {
     _refreshBlock = refreshBlock;
     if (_refreshBlock) {
+        @www
         self.mj_header = [HTupleRefresh refreshHeaderWithStyle:_refreshHeaderStyle andBlock:^{
+            @sss
             [self setPageNo:1];
             self->_refreshBlock();
         }];
@@ -211,7 +213,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     _loadMoreBlock = loadMoreBlock;
     if (_loadMoreBlock) {
         [self setPageNo:1];
+        @www
         self.mj_footer = [HTupleRefresh refreshFooterWithStyle:_refreshFooterStyle andBlock:^{
+            @sss
             self.pageNo += 1;
             if (self.pageSize*self.pageNo < self.totalNo) {
                 self->_loadMoreBlock();
