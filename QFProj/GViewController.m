@@ -36,13 +36,13 @@
 //    @www
     [self.tupleView setLoadMoreBlock:^{
 //        @sss
-//        NSLog(@"%@", self.tupleSource);
+        NSLog(@"%@", self.tupleSource);
     }];
 }
 
 - (void)vcWillDisappear:(HVCDisappearType)type {
     if (type == HVCDisappearTypePop || type == HVCDisappearTypeDismiss) {
-//        [self.tupleView releaseTupleBlock];
+        [self.tupleView releaseTupleBlock];
     }
 }
 
@@ -121,6 +121,11 @@
                     [cell.label setText:@"+86655655555555553"];
                     [cell.label setFont:[UIFont systemFontOfSize:24]];
                     [cell.label setTextColor:[UIColor redColor]];
+                    
+                    [self.tupleView setLoadMoreBlock:^{
+                        //        @sss
+                        NSLog(@"%@", self.tupleSource);
+                    }];
                 }
                     break;
                 case 1:
