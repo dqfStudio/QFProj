@@ -75,7 +75,7 @@
     else if(!strcmp(returnType, @encode(id)) ){
         [invocation getReturnValue:&returnValue];
     }
-    else{
+    else {
         //如果返回值为普通类型NSInteger/BOOL等
         
         //返回值长度
@@ -156,7 +156,7 @@
     else if(!strcmp(returnType, @encode(id)) ){
         [invocation getReturnValue:&returnValue];
     }
-    else{
+    else {
         //如果返回值为普通类型NSInteger/BOOL等
         
         //返回值长度
@@ -244,7 +244,7 @@
     else if(!strcmp(returnType, @encode(id)) ){
         [invocation getReturnValue:&returnValue];
     }
-    else{
+    else {
         //如果返回值为普通类型NSInteger/BOOL等
         
         //返回值长度
@@ -341,7 +341,7 @@
     else if(!strcmp(returnType, @encode(id)) ){
         [invocation getReturnValue:&returnValue];
     }
-    else{
+    else {
         //如果返回值为普通类型NSInteger/BOOL等
         
         //返回值长度
@@ -429,7 +429,7 @@
     else if(!strcmp(returnType, @encode(id)) ){
         [invocation getReturnValue:&returnValue];
     }
-    else{
+    else {
         //如果返回值为普通类型NSInteger/BOOL等
         
         //返回值长度
