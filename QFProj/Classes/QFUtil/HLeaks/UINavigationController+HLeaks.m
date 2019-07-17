@@ -22,7 +22,7 @@ extern const char* leaksKey;
 }
 - (UIViewController *)leaks_popViewControllerAnimated:(BOOL)animated {
     UIViewController *popVC = [self leaks_popViewControllerAnimated:animated];
-    objc_setAssociatedObject(popVC, &leaksKey, @(YES), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    if (popVC) objc_setAssociatedObject(popVC, &leaksKey, @(YES), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     return popVC;
 }
 @end
