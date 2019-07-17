@@ -25,9 +25,6 @@ typedef NS_OPTIONS(NSUInteger, HVCDisappearType) {
 - (void)vcWillDisappear:(HVCDisappearType)type;
 @end
 
-//@interface HVCDisappear : UINavigationController
-//
-//@end
 
 @interface UINavigationController (HDisappear)
 
