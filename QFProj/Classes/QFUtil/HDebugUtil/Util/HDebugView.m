@@ -51,7 +51,7 @@
         }];
         
         [self.table cellWithHeight:^CGFloat(NSIndexPath * _Nonnull indexPath) {
-            return 60;
+            return 50;
         } tuple:^(HCellTable  _Nonnull cellBlock, NSIndexPath * _Nonnull indexPath) {
             HTableCellInitBlock initBlokc = ^(id cell) {
                 NSInteger index = [[NSUserDefaults standardUserDefaults] integerForKey:KHostURLModelKey];

@@ -18,7 +18,6 @@
     if (!_segment) {
         NSArray *array = [NSArray arrayWithObjects:@"debug",@"release", nil];
         _segment = [[UISegmentedControl alloc] initWithItems:array];
-//        _segment.frame = CGRectMake(15, 5, CGRectGetWidth(UIScreen.mainScreen.bounds)-30, CGRectGetHeight(self.frame)-10);
         _segment.tintColor = [UIColor whiteColor];
         [_segment addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
     }
