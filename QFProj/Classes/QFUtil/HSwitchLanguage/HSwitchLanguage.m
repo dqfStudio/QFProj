@@ -101,8 +101,8 @@ _Pragma("clang diagnostic pop") \
 }
 - (void)skin_setText:(NSString *)text {
     NSString *aKey = text;
-    NSString *table = KSKinTable;
     if (aKey) {
+        NSString *table = KSKinTable;
         NSString *content = HLocalizedStringFromTable(aKey, table);
         if (content) {
             //保存文字颜色
@@ -131,8 +131,8 @@ _Pragma("clang diagnostic pop") \
 }
 - (void)skin_setText:(NSString *)text {
     NSString *aKey = text;
-    NSString *table = KSKinTable;
     if (aKey) {
+        NSString *table = KSKinTable;
         NSString *content = HLocalizedStringFromTable(aKey, table);
         if (content) {
             //保存文字颜色
