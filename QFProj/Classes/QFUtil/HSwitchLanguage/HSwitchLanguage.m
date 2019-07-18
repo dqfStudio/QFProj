@@ -105,17 +105,17 @@ _Pragma("clang diagnostic pop") \
     NSString *content = nil;
     if (aKey) {
         content = HLocalizedStringFromTable(aKey, table);
-    }
-    //保存文字颜色
-    UIColor *color = self.textColor;
-    [self setTextKey:aKey];
-    //此处文字颜色会被更改掉
-    [self skin_setText:content];
-    //重新设置保存的文字颜色
-    [self setTextColor:color];
-    
-    if (aKey) {
-        [[_HSkin share] addObject:self];
+        if (content) {
+            //保存文字颜色
+            UIColor *color = self.textColor;
+            [self setTextKey:aKey];
+            //此处文字颜色会被更改掉
+            [self skin_setText:content];
+            //重新设置保存的文字颜色
+            [self setTextColor:color];
+            
+            [[_HSkin share] addObject:self];
+        }
     }else {
         [[_HSkin share] removeObject:self];
     }
@@ -136,17 +136,17 @@ _Pragma("clang diagnostic pop") \
     NSString *content = nil;
     if (aKey) {
         content = HLocalizedStringFromTable(aKey, table);
-    }
-    //保存文字颜色
-    UIColor *color = self.textColor;
-    [self setTextKey:aKey];
-    //此处文字颜色会被更改掉
-    [self skin_setText:content];
-    //重新设置保存的文字颜色
-    [self setTextColor:color];
-    
-    if (aKey) {
-        [[_HSkin share] addObject:self];
+        if (content) {
+            //保存文字颜色
+            UIColor *color = self.textColor;
+            [self setTextKey:aKey];
+            //此处文字颜色会被更改掉
+            [self skin_setText:content];
+            //重新设置保存的文字颜色
+            [self setTextColor:color];
+            
+            [[_HSkin share] addObject:self];
+        }
     }else {
         [[_HSkin share] removeObject:self];
     }
