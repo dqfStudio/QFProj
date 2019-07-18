@@ -19,6 +19,8 @@
     if (!_table) {
         _table = [[HTableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame)-40)];
         [_table setBackgroundColor:[UIColor clearColor]];
+        [_table setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+        [_table setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
     }
     return _table;
 }
@@ -40,13 +42,16 @@
         }];
         
         [self.table headerWithHeight:^CGFloat(NSInteger section) {
-            return UIDevice.statusBarHeight;
+            return UIDevice.topBarHeight;
         } tuple:^(HHeaderTable  _Nonnull headerBlock, NSInteger section) {
-            headerBlock(nil, HTableBaseView.class, nil, YES);
+            HTableLabelView *cell = headerBlock(nil, HTableLabelView.class, nil, YES);
+            [cell.label setText:@"debug tool"];
+            [cell.label setTextColor:UIColor.blackColor];
+            [cell.label setFont:[UIFont systemFontOfSize:17]];
         }];
         
         [self.table cellWithHeight:^CGFloat(NSIndexPath * _Nonnull indexPath) {
-            return 50;
+            return 60;
         } tuple:^(HCellTable  _Nonnull cellBlock, NSIndexPath * _Nonnull indexPath) {
             HTableCellInitBlock initBlokc = ^(id cell) {
                 NSInteger index = [[NSUserDefaults standardUserDefaults] integerForKey:KHostURLModelKey];
