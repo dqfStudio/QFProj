@@ -57,6 +57,7 @@
     //添加view
     [self addSubview:self.tupleView];
     
+    @www
     //section
     [self.tupleView tupleWithSections:^CGFloat{
         return 1;
@@ -71,9 +72,10 @@
     
     //header
     [self.tupleView headerWithSize:^CGSize(NSInteger section) {
+        @sss
         NSInteger height = 0;
         //第一个CELL
-        if (!_hideImage) height += KImageHeight;
+        if (!self.hideImage) height += KImageHeight;
         else height += 1;
         //第二三个CELL
         height += 2*KTextHeight;
@@ -89,9 +91,10 @@
     
     //footer
     [self.tupleView footerWithSize:^CGSize(NSInteger section) {
+        @sss
         NSInteger height = 0;
         //第一个CELL
-        if (!_hideImage) height += KImageHeight;
+        if (!self.hideImage) height += KImageHeight;
         else height += 1;
         //第二三个CELL
         height += 2*KTextHeight;
@@ -107,9 +110,10 @@
     
     //item
     [self.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+        @sss
         switch (indexPath.row) {
             case 0: {
-                if (!_hideImage) return CGSizeMake(self.tupleView.width, KImageHeight);
+                if (!self.hideImage) return CGSizeMake(self.tupleView.width, KImageHeight);
                 else return CGSizeMake(self.tupleView.width, 1);
             }
                 break;
@@ -118,9 +122,10 @@
             default: return CGSizeZero;
         }
     } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
+        @sss
         switch (indexPath.row) {
             case 0: {
-                if (!_hideImage) {
+                if (!self.hideImage) {
                     return UIEdgeInsetsMake(0, self.tupleView.width/2-KImageWidth/2, 10, self.tupleView.width/2-KImageWidth/2);
                 }else {
                     return UIEdgeInsetsMake(0, self.tupleView.width/2-KImageWidth/2, 0, self.tupleView.width/2-KImageWidth/2);
@@ -132,9 +137,10 @@
             default: return UIEdgeInsetsZero;
         }
     } tuple:^(HItemTuple  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+        @sss
         switch (indexPath.row) {
             case 0: {
-                if (!_hideImage) {
+                if (!self.hideImage) {
                     HTupleImageCell *cell = itemBlock(nil, HTupleImageCell.class, nil, YES);
                     switch (_resultType) {
                         case HResultTypeNoData:

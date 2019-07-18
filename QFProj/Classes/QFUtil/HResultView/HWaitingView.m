@@ -48,6 +48,7 @@
     //添加view
     [self addSubview:self.tupleView];
     
+    @www
     //section
     [self.tupleView tupleWithSections:^CGFloat{
         return 1;
@@ -62,6 +63,7 @@
     
     //header
     [self.tupleView headerWithSize:^CGSize(NSInteger section) {
+        @sss
         NSInteger height = 0;
         //第一个CELL
         height += KImageHeight;
@@ -79,6 +81,7 @@
     
     //footer
     [self.tupleView footerWithSize:^CGSize(NSInteger section) {
+        @sss
         NSInteger height = 0;
         //第一个CELL
         height += KImageHeight;
@@ -96,18 +99,21 @@
     
     //item
     [self.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+        @sss
         switch (indexPath.row) {
             case 0: return CGSizeMake(self.tupleView.width, KImageHeight);
             case 1: return CGSizeMake(self.tupleView.width, KTextHeight);
             default: return CGSizeZero;
         }
     } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
+        @sss
         switch (indexPath.row) {
             case 0: return UIEdgeInsetsMake(0, self.tupleView.width/2-KImageWidth/2, 0, self.tupleView.width/2-KImageWidth/2);
             case 1: return UIEdgeInsetsMake(0, self.tupleView.width/2-KTextWidth/2, 0, self.tupleView.width/2-KTextWidth/2);
             default: return UIEdgeInsetsZero;
         }
     } tuple:^(HItemTuple  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+        @sss
         switch (indexPath.row) {
             case 0: {
                 HTupleImageCell *cell = itemBlock(nil, HTupleImageCell.class, nil, YES);

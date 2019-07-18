@@ -49,6 +49,7 @@
     //添加view
     [[UIApplication sharedApplication].delegate.window addSubview:self.tupleView];
     
+    @www
     [self.tupleView tupleWithSections:^CGFloat{
         return 1;
     } items:^CGFloat(NSInteger section) {
@@ -60,6 +61,7 @@
     }];
     
     [self.tupleView headerWithSize:^CGSize(NSInteger section) {
+        @sss
         NSInteger height = KFooterHeight;
         if (UIDevice.isIPhoneX) height += UIDevice.bottomBarHeight;
         return CGSizeMake(self.tupleView.width, self.tupleView.height-KItemHeight*self.numberOfRows-height);
@@ -75,6 +77,7 @@
     }];
     
     [self.tupleView footerWithSize:^CGSize(NSInteger section) {
+        @sss
         NSInteger height = KFooterHeight;
         if (UIDevice.isIPhoneX) height += UIDevice.bottomBarHeight;
         return CGSizeMake(self.tupleView.width, height);
@@ -83,6 +86,7 @@
         if (UIDevice.isIPhoneX) height += UIDevice.bottomBarHeight;
         return UIEdgeInsetsMake(10, 0, height, 0);
     } tuple:^(HFooterTuple  _Nonnull footerBlock, NSInteger section) {
+        @sss
         HTupleButtonView *cell = footerBlock(nil, HTupleButtonView.class, nil, YES);
         [cell.buttonView setBackgroundColor:[UIColor whiteColor]];
         [cell.buttonView.button setTitleColor:[UIColor blackColor]];
@@ -93,8 +97,8 @@
         }];
     }];
     
-    @www
     [self.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+        @sss
         return CGSizeMake(self.tupleView.width, KItemHeight*self.numberOfRows);
     } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
         return UIEdgeInsetsZero;

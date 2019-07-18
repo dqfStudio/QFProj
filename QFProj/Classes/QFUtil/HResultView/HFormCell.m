@@ -62,6 +62,7 @@
         }
         return pages;
     } items:^CGFloat(NSInteger section) {
+        @sss
         return self.rows*self.rowItems;
     } color:^UIColor * _Nullable(NSInteger section) {
         return nil;
@@ -70,6 +71,7 @@
     }];
     
     [self.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+        @sss
         return CGSizeMake(self.tupleView.width/self.rowItems-1, self.tupleView.height/self.rows-1);
     } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
         return UIEdgeInsetsZero;
