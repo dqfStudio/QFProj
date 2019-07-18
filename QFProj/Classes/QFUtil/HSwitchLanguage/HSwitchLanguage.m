@@ -2,7 +2,7 @@
 //  HSwitchLanguage.m
 //  TestProject
 //
-//  Created by 邓清峰 on 2018/6/5.
+//  Created by wind on 2018/6/5.
 //  Copyright © 2018年 dqf. All rights reserved.
 //
 
@@ -17,21 +17,13 @@ Stuff; \
 _Pragma("clang diagnostic pop") \
 } while (0)
 
-@interface HSwitchLanguage ()
-
-@end
-
-@interface _HSkinUtil : NSObject
-@property (nonatomic) NSHashTable *hashTable;
-+ (_HSkinUtil *)share;
-- (void)addObject:(id)anObject operation:(SEL)selector;
-- (void)removeObject:(id)anObject;
-- (void)enumerateOperation;
-@end
+#define HLocalizedString(key) \
+[[HSwitchLanguage currentBundle] localizedStringForKey:(key) value:@"" table:nil]
+#define HLocalizedStringFromTable(key, tbl) \
+[[HSwitchLanguage currentBundle] localizedStringForKey:(key) value:@"" table:(tbl)]
 
 @interface UIView (UISkin)
 @property (nonatomic) NSString *textKey;
-@property (nonatomic) NSString *textSelector;
 @end
 
 @implementation UIView (UISkin)
@@ -41,34 +33,34 @@ _Pragma("clang diagnostic pop") \
 - (void)setTextKey:(NSString *)textKey {
     objc_setAssociatedObject(self, @selector(textKey), textKey, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (NSString *)textSelector {
-    return objc_getAssociatedObject(self, _cmd);
-}
-- (void)setTextSelector:(NSString *)textSelector {
-    objc_setAssociatedObject(self, @selector(textSelector), textSelector, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
 @end
 
-@implementation _HSkinUtil
+@interface _HSkin : NSObject
+@property (nonatomic) NSHashTable *hashTable;
++ (_HSkin *)share;
+- (void)addObject:(id)anObject;
+- (void)removeObject:(id)anObject;
+- (void)enumerateOperation;
+@end
+
+@implementation _HSkin
 - (NSHashTable *)hashTable {
     if (!_hashTable) {
         _hashTable = [NSHashTable weakObjectsHashTable];
     }
     return _hashTable;
 }
-+ (_HSkinUtil *)share {
-    static _HSkinUtil *shareInstance = nil;
++ (_HSkin *)share {
+    static _HSkin *shareInstance = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         shareInstance = [[self alloc] init];
     });
     return shareInstance;
 }
-- (void)addObject:(id)anObject operation:(SEL)selector {
+- (void)addObject:(id)anObject {
     if ([anObject isKindOfClass:UIView.class]) {
-        UIView *v = anObject;
-        [v setTextSelector:NSStringFromSelector(selector)];
-        [self.hashTable addObject:v];
+        [self.hashTable addObject:anObject];
     }
 }
 - (void)removeObject:(id)anObject {
@@ -79,123 +71,86 @@ _Pragma("clang diagnostic pop") \
 - (void)enumerateOperation {
     NSArray *allObjects = [[self.hashTable objectEnumerator] allObjects];
     //倒序执行
-    for (NSUInteger i=allObjects.count; i>0; i--) {
-        id anObject = allObjects[i-1];
+    for (NSUInteger i=allObjects.count-1; i>=0; i--) {
+        id anObject = allObjects[i];
         if ([anObject isKindOfClass:UILabel.class] || [anObject isKindOfClass:UITextView.class]) {
-            UIView *v = anObject;
-            if (v.textSelector) {
-                SEL selector = NSSelectorFromString(v.textSelector);
-                if ([v respondsToSelector:selector]) {
-                    NSString *key = v.textKey;
-                    NSString *tbl = KSKinTbl;
-                    NSString *content = HLocalizedStringFromTable(key, tbl);
-                    SuppressPerformSelectorLeakWarning([v performSelector:selector withObject:content];);
-                }
+            UIView *view = anObject;
+            SEL selector = NSSelectorFromString(@"skin_setText:");
+            if ([view respondsToSelector:selector]) {
+                NSString *key = view.textKey;
+                NSString *tbl = KSKinTable;
+                NSString *content = HLocalizedStringFromTable(key, tbl);
+                SuppressPerformSelectorLeakWarning([view performSelector:selector withObject:content];);
             }
         }
     }
 }
 @end
 
-@interface NSObject (UISkin)
-
-@end
-
-@implementation NSObject (UISkin)
-+ (void)methodSwizzleWithOrigSEL:(SEL)origSEL overrideSEL:(SEL)overrideSEL {
-    Method origMethod = class_getInstanceMethod([self class], origSEL);
-    Method overrideMethod= class_getInstanceMethod([self class], overrideSEL);
-    if(class_addMethod([self class], origSEL,
-                       method_getImplementation(overrideMethod),
-                       method_getTypeEncoding(overrideMethod))) {
-        class_replaceMethod([self class],overrideSEL, method_getImplementation(origMethod), method_getTypeEncoding(origMethod));
-    }else {
-        method_exchangeImplementations(origMethod,overrideMethod);
-    }
-}
-@end
-
-@interface UILabel (UISkin)
-
-@end
-
-@implementation UILabel (UISkin)
+@implementation UILabel (HSkin)
 + (void)load {
     [super load];
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [self methodSwizzleWithOrigSEL:@selector(setText:) overrideSEL:@selector(skin_setText:)];
-        [self methodSwizzleWithOrigSEL:NSSelectorFromString(@"dealloc") overrideSEL:@selector(skin_dealloc)];
     });
 }
 - (void)skin_setText:(NSString *)text {
-    NSString *key = [text mutableCopy];
-    NSString *tbl = KSKinTbl;
+    NSString *aKey = text;
+    NSString *table = KSKinTable;
     NSString *content = nil;
-    if(key){
-        content = HLocalizedStringFromTable(key, tbl);
+    if (aKey) {
+        content = HLocalizedStringFromTable(aKey, table);
     }
     //保存文字颜色
     UIColor *color = self.textColor;
-    [self setTextKey:key];
+    [self setTextKey:aKey];
     //此处文字颜色会被更改掉
     [self skin_setText:content];
     //重新设置保存的文字颜色
     [self setTextColor:color];
-    if(key){
-        [[_HSkinUtil share] addObject:self operation:@selector(skin_setText:)];
+    
+    if (aKey) {
+        [[_HSkin share] addObject:self];
     }else {
-        [[_HSkinUtil share] removeObject:self];
+        [[_HSkin share] removeObject:self];
     }
-}
-
-- (void)skin_dealloc {
-    if (self && [NSStringFromClass([self class]) characterAtIndex:0] != '_') {
-        [[_HSkinUtil share] removeObject:self];
-    }
-    [self skin_dealloc];
 }
 @end
 
-@interface UITextView (UISkin)
-
-@end
-
-@implementation UITextView (UISkin)
+@implementation UITextView (HSkin)
 + (void)load {
     [super load];
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [self methodSwizzleWithOrigSEL:@selector(setText:) overrideSEL:@selector(skin_setText:)];
-        [self methodSwizzleWithOrigSEL:NSSelectorFromString(@"dealloc") overrideSEL:@selector(skin_dealloc)];
     });
 }
 - (void)skin_setText:(NSString *)text {
-    NSString *key = [text mutableCopy];
-    NSString *tbl = KSKinTbl;
+    NSString *aKey = text;
+    NSString *table = KSKinTable;
     NSString *content = nil;
-    if (key) {
-        content = HLocalizedStringFromTable(key, tbl);
+    if (aKey) {
+        content = HLocalizedStringFromTable(aKey, table);
     }
     //保存文字颜色
     UIColor *color = self.textColor;
-    [self setTextKey:key];
+    [self setTextKey:aKey];
     //此处文字颜色会被更改掉
     [self skin_setText:content];
     //重新设置保存的文字颜色
     [self setTextColor:color];
-    if(key){
-        [[_HSkinUtil share] addObject:self operation:@selector(skin_setText:)];
+    
+    if (aKey) {
+        [[_HSkin share] addObject:self];
     }else {
-        [[_HSkinUtil share] removeObject:self];
+        [[_HSkin share] removeObject:self];
     }
 }
-- (void)skin_dealloc {
-    if (self && [NSStringFromClass([self class]) characterAtIndex:0] != '_') {
-        [[_HSkinUtil share] removeObject:self];
-    }
-    [self skin_dealloc];
-}
+@end
+
+@interface HSwitchLanguage ()
+@property (nonatomic) NSBundle *currentBundle;
 @end
 
 @implementation HSwitchLanguage
@@ -207,41 +162,43 @@ _Pragma("clang diagnostic pop") \
     });
     return shareInstance;
 }
-- (id)init {
-    self = [super init];
-    if (self) {
-        NSString *key = NSStringFromClass(self.class);
+- (NSBundle *)currentBundle {
+    if (!_currentBundle) {
+        NSString *aKey = NSStringFromClass(self.class);
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        NSString *currLanguage = [userDefaults valueForKey:key];
-        if(!currLanguage){
-            [userDefaults setValue:KLanguageBase forKey:key];
+        NSString *currentLanguage = [userDefaults valueForKey:aKey];
+        if(!currentLanguage){
+            currentLanguage = KLanguageBase;
+            [userDefaults setValue:currentLanguage forKey:aKey];
             [userDefaults synchronize];
-            currLanguage = [userDefaults valueForKey:key];
         }
         //获取文件路径
-        NSString *path = [[NSBundle mainBundle] pathForResource:currLanguage ofType:@"lproj"];
-        self.currentBundle = [NSBundle bundleWithPath:path];
+        NSString *path = [[NSBundle mainBundle] pathForResource:currentLanguage ofType:@"lproj"];
+        _currentBundle = [NSBundle bundleWithPath:path];
     }
-    return self;
+    return _currentBundle;
+}
++ (NSBundle *)currentBundle {
+    return [HSwitchLanguage share].currentBundle;
 }
 //获取当前语言
 + (NSString *)userLanguage {
-    NSString *key = NSStringFromClass(self.class);
-    return [[NSUserDefaults standardUserDefaults] valueForKey:key];
+    NSString *aKey = NSStringFromClass(self.class);
+    return [[NSUserDefaults standardUserDefaults] valueForKey:aKey];
 }
 //设置语言
 + (void)setUserlanguage:(NSString *)language {
-    NSString *key = NSStringFromClass(self.class);
+    NSString *aKey = NSStringFromClass(self.class);
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *currLanguage = [userDefaults valueForKey:key];
-    if (![currLanguage isEqualToString:language]) {
+    NSString *currentLanguage = [userDefaults valueForKey:aKey];
+    if (![currentLanguage isEqualToString:language]) {
         
-        [userDefaults setValue:language forKey:key];
+        [userDefaults setValue:language forKey:aKey];
         [userDefaults synchronize];
         
         NSString *path = [[NSBundle mainBundle] pathForResource:language ofType:@"lproj" ];
         [HSwitchLanguage share].currentBundle = [NSBundle bundleWithPath:path];
+        [[_HSkin share] enumerateOperation];
     }
-    [[_HSkinUtil share] enumerateOperation];
 }
 @end

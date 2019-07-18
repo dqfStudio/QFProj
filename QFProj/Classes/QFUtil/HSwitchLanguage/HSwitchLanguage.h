@@ -2,21 +2,16 @@
 //  HSwitchLanguage.h
 //  TestProject
 //
-//  Created by 邓清峰 on 2018/6/5.
+//  Created by wind on 2018/6/5.
 //  Copyright © 2018年 dqf. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import <Foundation/Foundation.h>
+#import "NSObject+HSwizzleUtil.h"
 
 #define KLanguageBase  @"zh-Hans"   //默认语言，这里默认为汉语
 #define KLanguageEN    @"en"        //英语
-#define KSKinTbl       @"Localizable" //语言文件名
-
-#define HLocalizedString(key) \
-[[HSwitchLanguage share].currentBundle localizedStringForKey:(key) value:@"" table:nil]
-#define HLocalizedStringFromTable(key, tbl) \
-[[HSwitchLanguage share].currentBundle localizedStringForKey:(key) value:@"" table:(tbl)]
+#define KSKinTable     @"Localizable" //语言文件名
 
 /**
  支持UILabel、UIButton、UITextView文字替换
@@ -24,8 +19,7 @@
  */
 
 @interface HSwitchLanguage : NSObject
-@property (nonatomic) NSBundle *currentBundle;
-+ (HSwitchLanguage *)share;
++ (NSBundle *)currentBundle;//当前语言资源文件
 + (NSString *)userLanguage;//获取当前语言
 + (void)setUserlanguage:(NSString *)language;//设置当前语言
 @end
