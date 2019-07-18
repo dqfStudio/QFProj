@@ -116,6 +116,7 @@ _Pragma("clang diagnostic pop") \
             [[_HSkin share] addObject:self];
         }
     }else {
+        [self skin_setText:aKey];
         [[_HSkin share] removeObject:self];
     }
 }
@@ -146,6 +147,7 @@ _Pragma("clang diagnostic pop") \
             [[_HSkin share] addObject:self];
         }
     }else {
+        [self skin_setText:aKey];
         [[_HSkin share] removeObject:self];
     }
 }
