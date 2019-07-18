@@ -69,21 +69,25 @@ _Pragma("clang diagnostic pop") \
     }
 }
 - (void)enumerateOperation {
-    NSArray *allObjects = [[self.hashTable objectEnumerator] allObjects];
-    //倒序执行
-    for (NSUInteger i=allObjects.count-1; i>=0; i--) {
-        id anObject = allObjects[i];
-        if ([anObject isKindOfClass:UILabel.class] || [anObject isKindOfClass:UITextView.class]) {
-            UIView *view = anObject;
-            SEL selector = NSSelectorFromString(@"skin_setText:");
-            if ([view respondsToSelector:selector]) {
-                NSString *key = view.textKey;
-                NSString *tbl = KSKinTable;
-                NSString *content = HLocalizedStringFromTable(key, tbl);
-                SuppressPerformSelectorLeakWarning([view performSelector:selector withObject:content];);
+    dispatch_async(dispatch_queue_create(0, 0), ^{
+        NSArray *allObjects = [[self.hashTable objectEnumerator] allObjects];
+        //倒序执行
+        for (NSUInteger i=allObjects.count-1; i>=0; i--) {
+            id anObject = allObjects[i];
+            if ([anObject isKindOfClass:UILabel.class] || [anObject isKindOfClass:UITextView.class]) {
+                UIView *view = anObject;
+                SEL selector = NSSelectorFromString(@"skin_setText:");
+                if ([view respondsToSelector:selector]) {
+                    NSString *key = view.textKey;
+                    NSString *tbl = KSKinTable;
+                    NSString *content = HLocalizedStringFromTable(key, tbl);
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        SuppressPerformSelectorLeakWarning([view performSelector:selector withObject:content];);
+                    });
+                }
             }
         }
-    }
+    });
 }
 @end
 
