@@ -22,6 +22,7 @@
 }
 
 - (void)loadData {
+    @www
     [self.tupleView tupleWithSections:^CGFloat{
         return 1;
     } items:^CGFloat(NSInteger section) {
@@ -33,6 +34,7 @@
     }];
     
     [self.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+        @sss
         switch (indexPath.row) {
             case 0:return CGSizeMake(self.tupleView.width, 60);
             case 1:return CGSizeMake(self.tupleView.width, 60);

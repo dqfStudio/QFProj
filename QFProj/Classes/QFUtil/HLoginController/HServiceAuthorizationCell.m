@@ -36,8 +36,10 @@
         [_attributedString h_setColor:[UIColor colorWithString:@"#34BDD7"] range:NSMakeRange(string1.length, string2.length)];
         //设置点击
         HTextHighlight *highlight = HTextHighlight.new;
+        @www
         highlight.tapAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
             dispatch_async(dispatch_get_main_queue(), ^{
+                @sss
                 if (self.serviceAgreementBlock) {
                     self.serviceAgreementBlock();
                 }

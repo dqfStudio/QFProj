@@ -65,8 +65,10 @@
     item2.title = @"手机注册";
     item2.backgroundColor = [UIColor whiteColor];
     
+    @www
     [tabBar setTabbardSelectedBlock:^(NSInteger idx) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            @sss
             switch (idx) {
                 case 0: {
                     item1.backgroundColor = [UIColor yellowColor];
