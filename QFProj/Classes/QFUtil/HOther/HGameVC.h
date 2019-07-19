@@ -7,8 +7,11 @@
 //
 
 #import "HViewController.h"
+#import "WKWebViewJavascriptBridge.h"
 
 @interface HGameVC : HViewController
 @property (nonatomic, copy) NSString *gameType;
 @property (nonatomic, copy) NSString *urlString;
+@property (nonatomic) BOOL isTXQP;
+
 @end
