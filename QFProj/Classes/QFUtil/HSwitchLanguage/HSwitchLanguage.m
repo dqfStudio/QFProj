@@ -39,7 +39,6 @@ _Pragma("clang diagnostic pop") \
 @property (nonatomic) NSHashTable *hashTable;
 + (_HSkin *)share;
 - (void)addObject:(id)anObject;
-- (void)removeObject:(id)anObject;
 - (void)enumerateOperation;
 @end
 
@@ -63,31 +62,22 @@ _Pragma("clang diagnostic pop") \
         [self.hashTable addObject:anObject];
     }
 }
-- (void)removeObject:(id)anObject {
-    if ([self.hashTable containsObject:anObject]) {
-        [self.hashTable removeObject:anObject];
-    }
-}
 - (void)enumerateOperation {
-    dispatch_async(dispatch_queue_create(0, 0), ^{
-        NSArray *allObjects = [[self.hashTable objectEnumerator] allObjects];
-        //倒序执行
-        for (NSUInteger i=allObjects.count-1; i>=0; i--) {
-            id anObject = allObjects[i];
-            if ([anObject isKindOfClass:UILabel.class] || [anObject isKindOfClass:UITextView.class]) {
-                UIView *view = anObject;
-                SEL selector = NSSelectorFromString(@"skin_setText:");
-                if ([view respondsToSelector:selector]) {
-                    NSString *key = view.textKey;
-                    NSString *tbl = KSKinTable;
-                    NSString *content = HLocalizedStringFromTable(key, tbl);
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        SuppressPerformSelectorLeakWarning([view performSelector:selector withObject:content];);
-                    });
-                }
+    NSArray *allObjects = [[self.hashTable objectEnumerator] allObjects];
+    //倒序执行
+    for (NSUInteger i=allObjects.count-1; i>=0; i--) {
+        id anObject = allObjects[i];
+        if ([anObject isKindOfClass:UILabel.class] || [anObject isKindOfClass:UITextView.class]) {
+            UIView *view = anObject;
+            SEL selector = NSSelectorFromString(@"skin_setText:");
+            if ([view respondsToSelector:selector]) {
+                NSString *key = view.textKey;
+                NSString *tbl = KSKinTable;
+                NSString *content = HLocalizedStringFromTable(key, tbl);
+                SuppressPerformSelectorLeakWarning([view performSelector:selector withObject:content];);
             }
         }
-    });
+    }
 }
 @end
 
@@ -100,7 +90,12 @@ _Pragma("clang diagnostic pop") \
     });
 }
 - (void)skin_setText:(NSString *)text {
-    NSString *aKey = text;
+    NSString *aKey = nil;
+    if ([text isKindOfClass:NSString.class]) {
+        aKey = text;
+    }else if ([text isKindOfClass:NSNumber.class]) {
+        aKey = [NSString stringWithFormat:@"%@", text];
+    }
     if (aKey) {
         NSString *table = KSKinTable;
         NSString *content = HLocalizedStringFromTable(aKey, table);
@@ -114,10 +109,11 @@ _Pragma("clang diagnostic pop") \
             [self setTextColor:color];
             
             [[_HSkin share] addObject:self];
+        }else {
+            [self skin_setText:aKey];
         }
     }else {
         [self skin_setText:aKey];
-        [[_HSkin share] removeObject:self];
     }
 }
 @end
@@ -145,10 +141,11 @@ _Pragma("clang diagnostic pop") \
             [self setTextColor:color];
             
             [[_HSkin share] addObject:self];
+        }else {
+            [self skin_setText:aKey];
         }
     }else {
         [self skin_setText:aKey];
-        [[_HSkin share] removeObject:self];
     }
 }
 @end

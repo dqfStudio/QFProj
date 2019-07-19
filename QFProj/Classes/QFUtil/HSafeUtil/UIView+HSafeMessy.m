@@ -37,10 +37,10 @@
 }
 - (void)safeMessy_setText:(NSString *)text {
     NSString *content = nil;
-    if ([text isKindOfClass:NSNumber.class]) {
-        content = [NSString stringWithFormat:@"%@", text];
-    }else if ([text isKindOfClass:NSString.class]) {
+    if ([text isKindOfClass:NSString.class]) {
         content = text;
+    }else if ([text isKindOfClass:NSNumber.class]) {
+        content = [NSString stringWithFormat:@"%@", text];
     }
     [self safeMessy_setText:content];
 }
@@ -56,10 +56,10 @@
 }
 - (void)safeMessy_setText:(NSString *)text {
     NSString *content = nil;
-    if ([text isKindOfClass:NSNumber.class]) {
-        content = [NSString stringWithFormat:@"%@", text];
-    }else if ([text isKindOfClass:NSString.class]) {
+    if ([text isKindOfClass:NSString.class]) {
         content = text;
+    }else if ([text isKindOfClass:NSNumber.class]) {
+        content = [NSString stringWithFormat:@"%@", text];
     }
     [self safeMessy_setText:content];
 }
