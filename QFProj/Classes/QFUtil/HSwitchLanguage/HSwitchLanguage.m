@@ -58,9 +58,7 @@ _Pragma("clang diagnostic pop") \
     return shareInstance;
 }
 - (void)addObject:(id)anObject {
-    if ([anObject isKindOfClass:UIView.class]) {
-        [self.hashTable addObject:anObject];
-    }
+    [self.hashTable addObject:anObject];
 }
 - (void)enumerateOperation {
     NSArray *allObjects = [[self.hashTable objectEnumerator] allObjects];
