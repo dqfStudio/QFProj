@@ -18,5 +18,6 @@ target 'QFProj' do
   pod 'Aspects'
   #pod 'HAccess'
   pod 'ReactiveCocoa',	'~> 2.1.8'
+  pod 'FLEX'
 
 end

@@ -9,6 +9,10 @@
 #import "HDebugView.h"
 #import "HHostSegmentCell.h"
 #import "HHostUrlManager.h"
+#ifdef DEBUG
+#import <FLEX/FLEX.h>
+#import <FLEXManager.h>
+#endif
 
 @interface HDebugView ()
 @property (nonatomic) HTableView *table;
@@ -53,14 +57,15 @@
         [self.table cellWithHeight:^CGFloat(NSIndexPath * _Nonnull indexPath) {
             return 50;
         } tuple:^(HCellTable  _Nonnull cellBlock, NSIndexPath * _Nonnull indexPath) {
-            HTableCellInitBlock initBlokc = ^(id cell) {
-                NSInteger index = [[NSUserDefaults standardUserDefaults] integerForKey:KHostURLModelKey];
-                if (index >= 0) [cell setSelectedIndex:index];
-            };
-            HHostSegmentCell *cell = cellBlock(initBlokc, HHostSegmentCell.class, nil, YES);
-            [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
+            
             switch (indexPath.row) {
                 case 0: {
+                    HTableCellInitBlock initBlokc = ^(id cell) {
+                        NSInteger index = [[NSUserDefaults standardUserDefaults] integerForKey:KHostURLModelKey];
+                        if (index >= 0) [cell setSelectedIndex:index];
+                    };
+                    HHostSegmentCell *cell = cellBlock(initBlokc, HHostSegmentCell.class, nil, YES);
+                    [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
                     [cell setSegmentBlock:^(NSInteger index) {
                         switch (index) {
                             case 0:
@@ -70,6 +75,34 @@
                             case 1:
                                 [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:KHostURLModelKey];
                                 [[NSUserDefaults standardUserDefaults] synchronize];
+                                break;
+                                
+                            default:
+                                break;
+                        }
+                    }];
+                }
+                    break;
+                case 1: {
+                    HTableCellInitBlock initBlokc = ^(id cell) {
+                        NSInteger index = [[NSUserDefaults standardUserDefaults] integerForKey:KHostURLModelKey];
+                        if (index >= 0) [cell setSelectedIndex:index];
+                    };
+                    HHostSegmentCell *cell = cellBlock(initBlokc, HHostSegmentCell.class, nil, YES);
+                    [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
+                    [cell setSegmentBlock:^(NSInteger index) {
+                        switch (index) {
+                            case 0: {
+#ifdef DEBUG
+                                [[FLEXManager sharedManager] showExplorer];
+#endif
+                            }
+                                break;
+                            case 1: {
+#ifdef DEBUG
+                                [[FLEXManager sharedManager] hideExplorer];
+#endif
+                            }
                                 break;
                                 
                             default:
