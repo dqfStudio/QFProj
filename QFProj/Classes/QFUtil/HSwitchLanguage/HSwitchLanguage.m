@@ -69,9 +69,9 @@ _Pragma("clang diagnostic pop") \
             UIView *view = anObject;
             SEL selector = NSSelectorFromString(@"skin_setText:");
             if ([view respondsToSelector:selector]) {
-                NSString *key = view.textKey;
+                NSString *aKey = view.textKey;
                 NSString *tbl = KSKinTable;
-                NSString *content = HLocalizedStringFromTable(key, tbl);
+                NSString *content = HLocalizedStringFromTable(aKey, tbl);
                 SuppressPerformSelectorLeakWarning([view performSelector:selector withObject:content];);
             }
         }
