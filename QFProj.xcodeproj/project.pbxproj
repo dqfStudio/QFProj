@@ -262,6 +262,7 @@
 		A2A8EBA522E1F80D0049C51B /* HKBArrowLeft@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2A8EB9A22E1F80D0049C51B /* HKBArrowLeft@3x.png */; };
 		A2A8EBA622E1F80D0049C51B /* UIViewController+HEndEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB9B22E1F80D0049C51B /* UIViewController+HEndEdit.m */; };
 		A2A8EBA722E1F80D0049C51B /* UIView+HResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB9C22E1F80D0049C51B /* UIView+HResponder.m */; };
+		A2A8EBAA22E1F9F60049C51B /* HNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EBA922E1F9F60049C51B /* HNetworkConfig.m */; };
 		A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */; };
 		A2DC22BE2242994800E540BE /* NSObject+HForwarding.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */; };
 		A2E8F50822CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50622CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png */; };
@@ -762,6 +763,8 @@
 		A2A8EB9D22E1F80D0049C51B /* UIView+HKBToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HKBToolBar.h"; sourceTree = "<group>"; };
 		A2A8EB9E22E1F80D0049C51B /* HKeyboardManager+HToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HKeyboardManager+HToolBar.h"; sourceTree = "<group>"; };
 		A2A8EB9F22E1F80D0049C51B /* HKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKeyboardManager.h; sourceTree = "<group>"; };
+		A2A8EBA822E1F9F60049C51B /* HNetworkConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNetworkConfig.h; sourceTree = "<group>"; };
+		A2A8EBA922E1F9F60049C51B /* HNetworkConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNetworkConfig.m; sourceTree = "<group>"; };
 		A2DC22B622424F2F00E540BE /* NSObject+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeMessy.h"; sourceTree = "<group>"; };
 		A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HForwarding.h"; sourceTree = "<group>"; };
@@ -2057,6 +2060,8 @@
 				A2E8F55222D73E4B00E7C9F2 /* HRequest.m */,
 				A2E8F54522D72AB700E7C9F2 /* HRequestDAO.h */,
 				A2E8F54622D72AB700E7C9F2 /* HRequestDAO.m */,
+				A2A8EBA822E1F9F60049C51B /* HNetworkConfig.h */,
+				A2A8EBA922E1F9F60049C51B /* HNetworkConfig.m */,
 				A2E8F54822D73AE600E7C9F2 /* HRequestDAOFactory.h */,
 				A2E8F54922D73AE600E7C9F2 /* HRequestDAOFactory.m */,
 				A2E8F54B22D73AF500E7C9F2 /* HRequestDAOStrategy.h */,
@@ -2588,6 +2593,7 @@
 				A24B659722607E8400B257BB /* SKPSMTPMessage.m in Sources */,
 				A2E8F54A22D73AE600E7C9F2 /* HRequestDAOFactory.m in Sources */,
 				A2E8F52622D2EB6E00E7C9F2 /* HNavigationController.m in Sources */,
+				A2A8EBAA22E1F9F60049C51B /* HNetworkConfig.m in Sources */,
 				A222AE5E22818F7D0013098A /* HTextArchiver.m in Sources */,
 				A265FF732269F70C0093C780 /* HVersionManager.m in Sources */,
 				15C5737420B3DD7B0070327C /* HTupleView.m in Sources */,
