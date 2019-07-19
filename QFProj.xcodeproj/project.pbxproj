@@ -193,8 +193,8 @@
 		A24B656D225EE14800B257BB /* HValidate.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B656B225EE14800B257BB /* HValidate.m */; };
 		A24B6571225EE23500B257BB /* HOther.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6570225EE23500B257BB /* HOther.m */; };
 		A24B6574225EE5C700B257BB /* HTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6573225EE5C700B257BB /* HTool.m */; };
-		A24B6577225EE88600B257BB /* HWebviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6576225EE88600B257BB /* HWebviewVC.m */; };
-		A24B657E225F768000B257BB /* HGameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B657D225F768000B257BB /* HGameVC.m */; };
+		A24B6577225EE88600B257BB /* HWebviewVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6576225EE88600B257BB /* HWebviewVC2.m */; };
+		A24B657E225F768000B257BB /* HWebviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B657D225F768000B257BB /* HWebviewVC.m */; };
 		A24B6581225F7A7500B257BB /* HPayWebviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B657F225F7A7500B257BB /* HPayWebviewVC.m */; };
 		A24B659522607E8400B257BB /* NSStream+SKPSMTPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B658822607E8400B257BB /* NSStream+SKPSMTPExtensions.m */; };
 		A24B659622607E8400B257BB /* HEmailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B658D22607E8400B257BB /* HEmailManager.m */; };
@@ -650,10 +650,9 @@
 		A24B6570225EE23500B257BB /* HOther.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HOther.m; sourceTree = "<group>"; };
 		A24B6572225EE5C700B257BB /* HTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTool.h; sourceTree = "<group>"; };
 		A24B6573225EE5C700B257BB /* HTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTool.m; sourceTree = "<group>"; };
-		A24B6575225EE88600B257BB /* HWebviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebviewVC.h; sourceTree = "<group>"; };
-		A24B6576225EE88600B257BB /* HWebviewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebviewVC.m; sourceTree = "<group>"; };
-		A24B657C225F768000B257BB /* HGameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGameVC.h; sourceTree = "<group>"; };
-		A24B657D225F768000B257BB /* HGameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGameVC.m; sourceTree = "<group>"; };
+		A24B6575225EE88600B257BB /* HWebviewVC2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebviewVC2.h; sourceTree = "<group>"; };
+		A24B6576225EE88600B257BB /* HWebviewVC2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebviewVC2.m; sourceTree = "<group>"; };
+		A24B657D225F768000B257BB /* HWebviewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebviewVC.m; sourceTree = "<group>"; };
 		A24B657F225F7A7500B257BB /* HPayWebviewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPayWebviewVC.m; sourceTree = "<group>"; };
 		A24B6580225F7A7500B257BB /* HPayWebviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPayWebviewVC.h; sourceTree = "<group>"; };
 		A24B658722607E8400B257BB /* NSData+Base64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64Additions.h"; sourceTree = "<group>"; };
@@ -777,6 +776,7 @@
 		A2A8EBB422E1FDEE0049C51B /* WebViewJavascriptBridge_JS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge_JS.m; sourceTree = "<group>"; };
 		A2A8EBB522E1FDEE0049C51B /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge.h; sourceTree = "<group>"; };
 		A2A8EBB622E1FDEE0049C51B /* WKWebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewJavascriptBridge.h; sourceTree = "<group>"; };
+		A2A8EBBB22E1FF210049C51B /* HWebviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebviewVC.h; sourceTree = "<group>"; };
 		A2DC22B622424F2F00E540BE /* NSObject+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeMessy.h"; sourceTree = "<group>"; };
 		A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HForwarding.h"; sourceTree = "<group>"; };
@@ -1807,10 +1807,10 @@
 				A24B6570225EE23500B257BB /* HOther.m */,
 				A24B6572225EE5C700B257BB /* HTool.h */,
 				A24B6573225EE5C700B257BB /* HTool.m */,
-				A24B6575225EE88600B257BB /* HWebviewVC.h */,
-				A24B6576225EE88600B257BB /* HWebviewVC.m */,
-				A24B657C225F768000B257BB /* HGameVC.h */,
-				A24B657D225F768000B257BB /* HGameVC.m */,
+				A24B6575225EE88600B257BB /* HWebviewVC2.h */,
+				A24B6576225EE88600B257BB /* HWebviewVC2.m */,
+				A2A8EBBB22E1FF210049C51B /* HWebviewVC.h */,
+				A24B657D225F768000B257BB /* HWebviewVC.m */,
 				A2296D57228A62080081A479 /* HGameViewController.h */,
 				A2296D58228A62080081A479 /* HGameViewController.m */,
 				A2296D5A228A626A0081A479 /* HSFSafariViewController.h */,
@@ -2495,12 +2495,12 @@
 				15B4DDF72092F96C00773E04 /* UIDevice+HUtil.m in Sources */,
 				A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */,
 				A219F228222F72BC00241FD7 /* HFormController.m in Sources */,
-				A24B6577225EE88600B257BB /* HWebviewVC.m in Sources */,
+				A24B6577225EE88600B257BB /* HWebviewVC2.m in Sources */,
 				15B4DD6B2092F88700773E04 /* ViewController.m in Sources */,
 				A28EF2E821D86DD8002F92ED /* ULBCollectionViewFlowLayout.m in Sources */,
 				A2E8F55322D73E4B00E7C9F2 /* HRequest.m in Sources */,
 				A2A8EBB822E1FDEE0049C51B /* WKWebViewJavascriptBridge.m in Sources */,
-				A24B657E225F768000B257BB /* HGameVC.m in Sources */,
+				A24B657E225F768000B257BB /* HWebviewVC.m in Sources */,
 				15B4DDFB2092F96C00773E04 /* UIColor+HUtil.m in Sources */,
 				15B4DDE82092F96C00773E04 /* AppDelegate+HDebug.m in Sources */,
 				15112C6A210574DB00842FE4 /* UIAlertController+HError.m in Sources */,
