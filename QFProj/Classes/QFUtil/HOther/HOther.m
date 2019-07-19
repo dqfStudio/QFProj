@@ -20,7 +20,7 @@
 }
 
 - (void)loadConfigAction {
-    
+//
 //    dispatch_semaphore_t sema = dispatch_semaphore_create(0);
 //
 //    dispatch_async(dispatch_queue_create(0, 0), ^{
@@ -68,12 +68,12 @@
 //                    [HUpdate share].isUpdate = [resultDict objectForKey:@"update"];
 //                    [HUpdate share].downUrl  = [resultDict objectForKey:@"ios_download"];
 //                    [HUpdate share].content  = [resultDict objectForKey:@"content"];
-//                    [[HUpdate share] update];
+//                    //                    [[HUpdate share] update];
 //                }
 //            }
 //#if DEBUG
 //            BOOL jsonSucccess = NO;
-//            NSString *baselink = @"https://m.6js6666.com/AMH/";
+//            NSString *baselink = @"https://m.xht111.com/XHD/";
 //            if (resultDict && [resultDict isKindOfClass:NSDictionary.class] && resultDict.count > 0) {
 //                jsonSucccess = YES;
 //            }
@@ -84,38 +84,7 @@
 //            }
 //#endif
 //            //此处为硬编码，发包的时候可适当关注对比一下与服务端的配置是否一致
-//            if (![HUserDefaults defaults].baseLink) {
-//                NSString *bundleIdentifier = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
-//                if (bundleIdentifier) {
-//                    HKeyChainStore *keyChainStore = [HKeyChainStore keyChainStoreWithService:bundleIdentifier];
-//                    NSData *cachedData = [keyChainStore dataForKey:bundleIdentifier];
-//                    if (cachedData) {
-//                        resultDict = [cachedData dictionary];
-//                        //缓存Json配置
-//                        HJsonConfigBlock();
-//                    }
-//
-//                    if ([HUserDefaults defaults].baseLink.length < 3 ) {
-//                        [[HUserDefaults defaults] setBaseLink:@"https://m.6js6666.com/AMH/"];
-//                    }
-//                    if ([HUserDefaults defaults].h5Link.length < 3 ) {
-//                        [[HUserDefaults defaults] setH5Link:@"https://m.6js6666.com/"];
-//                    }
-//                    if ([HUserDefaults defaults].platCodeLink.length < 3 ) {
-//                        [[HUserDefaults defaults] setPlatCodeLink:@"AMH"];
-//                    }
-//                    if ([HUserDefaults defaults].src1Link.length < 3 ) {
-//                        [[HUserDefaults defaults] setSrc1Link:@"AMH"];
-//                    }
-//                }
-//            }
-//            if ([HUserDefaults defaults].contacts.count <= 0) {
-//                [[HUserDefaults defaults] setDefaultCustomInfo];
-//            }
-//            //set base url
-//            if ([HUserDefaults defaults].baseLink.length > 0) {
-//                [[YTKNetworkConfig sharedConfig] setBaseUrl:[HUserDefaults defaults].baseLink];
-//            }
+//            [self loadLocalData];
 //
 //            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //                [self checkLuckyDrawStatus];
@@ -126,10 +95,55 @@
 //            dispatch_semaphore_signal(sema);
 //
 //        }] resume];
-//
+//        //此处为硬编码，发包的时候可适当关注对比一下与服务端的配置是否一致
+//        [self loadLocalData];
 //    });
 //
 //    dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+}
+
+- (void)loadLocalData {
+//    if (![HUserDefaults defaults].baseLink) {
+//        NSString *bundleIdentifier = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
+//        if (bundleIdentifier) {
+//            HKeyChainStore *keyChainStore = [HKeyChainStore keyChainStoreWithService:bundleIdentifier];
+//            NSData *cachedData = [keyChainStore dataForKey:bundleIdentifier];
+//            if (cachedData) {
+//                NSDictionary *resultDict = [cachedData dictionary];
+//                if (resultDict && [resultDict isKindOfClass:NSDictionary.class] && resultDict.count > 0) {
+//                    [[HUserDefaults defaults] setBaseLink:[[resultDict objectForKey:@"navture_url"] stringValue]];
+//                    NSString *h5_url = [[resultDict objectForKey:@"app_url"] stringValue];
+//                    NSString *urlStr = [h5_url stringByReplacingOccurrencesOfString:@"?app=true" withString:@""];
+//                    [[HUserDefaults defaults] setH5Link:urlStr];
+//                    [[HUserDefaults defaults] setPlatCodeLink:[[resultDict objectForKey:@"plat_code"] stringValue]];
+//                    [[HUserDefaults defaults] setSrc1Link:[[resultDict objectForKey:@"src1"] stringValue]];
+//                    // 保存客服联系方式
+//                    [[HUserDefaults defaults] setContacts:[resultDict objectForKey:@"contacts"]];
+//                }
+//            }
+//
+//            if ([HUserDefaults defaults].baseLink.length < 3 ) {
+//                [[HUserDefaults defaults] setBaseLink:@"https://m.xht111.com/XHD/"];
+//            }
+//            if ([HUserDefaults defaults].h5Link.length < 3 ) {
+//                [[HUserDefaults defaults] setH5Link:@"https://m.xht111.com/"];
+//            }
+//            if ([HUserDefaults defaults].platCodeLink.length < 3 ) {
+//                [[HUserDefaults defaults] setPlatCodeLink:@"XHD"];
+//            }
+//            if ([HUserDefaults defaults].src1Link.length < 3 ) {
+//                [[HUserDefaults defaults] setSrc1Link:@"XHD"];
+//            }
+//        }
+//    }
+    
+//    if ([HUserDefaults defaults].contacts.count <= 0) {
+//        [[HUserDefaults defaults] setDefaultCustomInfo];
+//    }
+//    //set base url
+//    if (HEADBASEINURL.length > 0) {
+//        [[YTKNetworkConfig sharedConfig] setBaseUrl:HEADBASEINURL];
+//    }
 }
 
 
