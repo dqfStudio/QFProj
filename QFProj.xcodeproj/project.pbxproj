@@ -254,6 +254,14 @@
 		A2A8EB5222DDD99D0049C51B /* UIViewController+HLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB5122DDD99D0049C51B /* UIViewController+HLeaks.m */; };
 		A2A8EB5522DDD9B90049C51B /* UINavigationController+HLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB5422DDD9B90049C51B /* UINavigationController+HLeaks.m */; };
 		A2A8EB6522DF01390049C51B /* UIViewController+HDisappear.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB6322DF01380049C51B /* UIViewController+HDisappear.m */; };
+		A2A8EBA022E1F80D0049C51B /* HKeyboardManager+HToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB9322E1F80C0049C51B /* HKeyboardManager+HToolBar.m */; };
+		A2A8EBA122E1F80D0049C51B /* UIView+HKBToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB9422E1F80C0049C51B /* UIView+HKBToolBar.m */; };
+		A2A8EBA222E1F80D0049C51B /* HKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB9622E1F80D0049C51B /* HKeyboardManager.m */; };
+		A2A8EBA322E1F80D0049C51B /* NSArray+HSort.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB9722E1F80D0049C51B /* NSArray+HSort.m */; };
+		A2A8EBA422E1F80D0049C51B /* HKBArrowRight@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2A8EB9922E1F80D0049C51B /* HKBArrowRight@3x.png */; };
+		A2A8EBA522E1F80D0049C51B /* HKBArrowLeft@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2A8EB9A22E1F80D0049C51B /* HKBArrowLeft@3x.png */; };
+		A2A8EBA622E1F80D0049C51B /* UIViewController+HEndEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB9B22E1F80D0049C51B /* UIViewController+HEndEdit.m */; };
+		A2A8EBA722E1F80D0049C51B /* UIView+HResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB9C22E1F80D0049C51B /* UIView+HResponder.m */; };
 		A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */; };
 		A2DC22BE2242994800E540BE /* NSObject+HForwarding.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */; };
 		A2E8F50822CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50622CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png */; };
@@ -740,6 +748,20 @@
 		A2A8EB5422DDD9B90049C51B /* UINavigationController+HLeaks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+HLeaks.m"; sourceTree = "<group>"; };
 		A2A8EB6322DF01380049C51B /* UIViewController+HDisappear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HDisappear.m"; sourceTree = "<group>"; };
 		A2A8EB6422DF01380049C51B /* UIViewController+HDisappear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HDisappear.h"; sourceTree = "<group>"; };
+		A2A8EB9122E1F80C0049C51B /* NSArray+HSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+HSort.h"; sourceTree = "<group>"; };
+		A2A8EB9222E1F80C0049C51B /* UIViewController+HEndEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HEndEdit.h"; sourceTree = "<group>"; };
+		A2A8EB9322E1F80C0049C51B /* HKeyboardManager+HToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HKeyboardManager+HToolBar.m"; sourceTree = "<group>"; };
+		A2A8EB9422E1F80C0049C51B /* UIView+HKBToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HKBToolBar.m"; sourceTree = "<group>"; };
+		A2A8EB9522E1F80D0049C51B /* UIView+HResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HResponder.h"; sourceTree = "<group>"; };
+		A2A8EB9622E1F80D0049C51B /* HKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKeyboardManager.m; sourceTree = "<group>"; };
+		A2A8EB9722E1F80D0049C51B /* NSArray+HSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+HSort.m"; sourceTree = "<group>"; };
+		A2A8EB9922E1F80D0049C51B /* HKBArrowRight@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HKBArrowRight@3x.png"; sourceTree = "<group>"; };
+		A2A8EB9A22E1F80D0049C51B /* HKBArrowLeft@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HKBArrowLeft@3x.png"; sourceTree = "<group>"; };
+		A2A8EB9B22E1F80D0049C51B /* UIViewController+HEndEdit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HEndEdit.m"; sourceTree = "<group>"; };
+		A2A8EB9C22E1F80D0049C51B /* UIView+HResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HResponder.m"; sourceTree = "<group>"; };
+		A2A8EB9D22E1F80D0049C51B /* UIView+HKBToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HKBToolBar.h"; sourceTree = "<group>"; };
+		A2A8EB9E22E1F80D0049C51B /* HKeyboardManager+HToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HKeyboardManager+HToolBar.h"; sourceTree = "<group>"; };
+		A2A8EB9F22E1F80D0049C51B /* HKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKeyboardManager.h; sourceTree = "<group>"; };
 		A2DC22B622424F2F00E540BE /* NSObject+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeMessy.h"; sourceTree = "<group>"; };
 		A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HForwarding.h"; sourceTree = "<group>"; };
@@ -1059,6 +1081,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A2A8EB9022E1F80C0049C51B /* HKeyboardManager */,
 				A2A8EB4C22DDD9690049C51B /* HLeaks */,
 				A2A8EB3622DB65A90049C51B /* HDrawerViewController */,
 				A2A8EB1B22DB62670049C51B /* HCycleScrollView */,
@@ -1997,6 +2020,36 @@
 			path = QFUtil/HLeaks;
 			sourceTree = "<group>";
 		};
+		A2A8EB9022E1F80C0049C51B /* HKeyboardManager */ = {
+			isa = PBXGroup;
+			children = (
+				A2A8EB9822E1F80D0049C51B /* HKBResource */,
+				A2A8EB9F22E1F80D0049C51B /* HKeyboardManager.h */,
+				A2A8EB9622E1F80D0049C51B /* HKeyboardManager.m */,
+				A2A8EB9E22E1F80D0049C51B /* HKeyboardManager+HToolBar.h */,
+				A2A8EB9322E1F80C0049C51B /* HKeyboardManager+HToolBar.m */,
+				A2A8EB9122E1F80C0049C51B /* NSArray+HSort.h */,
+				A2A8EB9722E1F80D0049C51B /* NSArray+HSort.m */,
+				A2A8EB9D22E1F80D0049C51B /* UIView+HKBToolBar.h */,
+				A2A8EB9422E1F80C0049C51B /* UIView+HKBToolBar.m */,
+				A2A8EB9522E1F80D0049C51B /* UIView+HResponder.h */,
+				A2A8EB9C22E1F80D0049C51B /* UIView+HResponder.m */,
+				A2A8EB9222E1F80C0049C51B /* UIViewController+HEndEdit.h */,
+				A2A8EB9B22E1F80D0049C51B /* UIViewController+HEndEdit.m */,
+			);
+			name = HKeyboardManager;
+			path = QFUtil/HKeyboardManager;
+			sourceTree = "<group>";
+		};
+		A2A8EB9822E1F80D0049C51B /* HKBResource */ = {
+			isa = PBXGroup;
+			children = (
+				A2A8EB9922E1F80D0049C51B /* HKBArrowRight@3x.png */,
+				A2A8EB9A22E1F80D0049C51B /* HKBArrowLeft@3x.png */,
+			);
+			path = HKBResource;
+			sourceTree = "<group>";
+		};
 		A2E8F52722D72A9800E7C9F2 /* HNetwork */ = {
 			isa = PBXGroup;
 			children = (
@@ -2214,12 +2267,14 @@
 				15F0296E20BE8D79003287AA /* mgf_loading_new_11@2x.png in Resources */,
 				15F0296820BE8D79003287AA /* mgf_loading_new_4@2x.png in Resources */,
 				15F0296D20BE8D79003287AA /* mgf_loading_new_13@2x.png in Resources */,
+				A2A8EBA422E1F80D0049C51B /* HKBArrowRight@3x.png in Resources */,
 				15F0296620BE8D79003287AA /* mgf_loading_new_10@2x.png in Resources */,
 				A24B6566225EE0EE00B257BB /* HAutoPackage_Release.sh in Resources */,
 				A28EF3A921D8ECC9002F92ED /* loading_new_7@2x.png in Resources */,
 				A28EF3AC21D8ECC9002F92ED /* loading_new_3@2x.png in Resources */,
 				15F0296A20BE8D79003287AA /* mgf_loading_new_6@2x.png in Resources */,
 				A24B6568225EE0EE00B257BB /* README.H.md in Resources */,
+				A2A8EBA522E1F80D0049C51B /* HKBArrowLeft@3x.png in Resources */,
 				A28EF3A821D8ECC9002F92ED /* loading_new_2@2x.png in Resources */,
 				A28EF38A21D8ECBE002F92ED /* icon_load_nothing@3x.png in Resources */,
 				15B4DD732092F88700773E04 /* LaunchScreen.storyboard in Resources */,
@@ -2343,6 +2398,7 @@
 				1528DF4320BEF6BC00D0A004 /* HNaviToastView.m in Sources */,
 				A222AE5C22818F7D0013098A /* NSAttributedString+HText.m in Sources */,
 				A2E8F57922D8356300E7C9F2 /* HCacheTimer.m in Sources */,
+				A2A8EBA222E1F80D0049C51B /* HKeyboardManager.m in Sources */,
 				A206881E22C9FDBD00661634 /* HTableSignal.m in Sources */,
 				A2296D59228A62080081A479 /* HGameViewController.m in Sources */,
 				15B4DDF92092F96C00773E04 /* UIScreen+HUtil.m in Sources */,
@@ -2358,6 +2414,7 @@
 				15038EA820CC0C6A00A16FC9 /* HSwitchLanguage.m in Sources */,
 				A24B659522607E8400B257BB /* NSStream+SKPSMTPExtensions.m in Sources */,
 				A2E8F57322D8356300E7C9F2 /* HFileStorage.m in Sources */,
+				A2A8EBA022E1F80D0049C51B /* HKeyboardManager+HToolBar.m in Sources */,
 				15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */,
 				15B4DDED2092F96C00773E04 /* UIView+HImage.m in Sources */,
 				A2A8EB3022DB62680049C51B /* HCycleScrollView.m in Sources */,
@@ -2443,6 +2500,7 @@
 				A2A8EB2B22DB62680049C51B /* HCollectionViewCell.m in Sources */,
 				15B4DDEE2092F96C00773E04 /* UIViewController+HBackHandler.m in Sources */,
 				A222AE5222818F7D0013098A /* HTextKeyboardManager.m in Sources */,
+				A2A8EBA622E1F80D0049C51B /* UIViewController+HEndEdit.m in Sources */,
 				15B4DE022092F96C00773E04 /* NSUserDefaults+HUtil.m in Sources */,
 				A2A8EB3122DB62680049C51B /* UIView+HExtension.m in Sources */,
 				A2E8F57B22D8356300E7C9F2 /* HCache.m in Sources */,
@@ -2472,6 +2530,7 @@
 				153F081720E28CA000C74850 /* HPhoneValidator.m in Sources */,
 				153F081320E28CA000C74850 /* HAlphaValidator.m in Sources */,
 				A2E8F54222D72A9800E7C9F2 /* YTKChainRequestAgent.m in Sources */,
+				A2A8EBA722E1F80D0049C51B /* UIView+HResponder.m in Sources */,
 				A222AE5622818F7D0013098A /* UIView+HText.m in Sources */,
 				A2E8F57822D8356300E7C9F2 /* HCachePrivate.m in Sources */,
 				A222AE4D22818F7D0013098A /* HTextSelectionView.m in Sources */,
@@ -2514,7 +2573,9 @@
 				A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */,
 				157696EB20A0AB6900E31469 /* hFelix.m in Sources */,
 				A206882822CA081400661634 /* HViewController.m in Sources */,
+				A2A8EBA322E1F80D0049C51B /* NSArray+HSort.m in Sources */,
 				A24B659822607E8400B257BB /* NSData+Base64Additions.m in Sources */,
+				A2A8EBA122E1F80D0049C51B /* UIView+HKBToolBar.m in Sources */,
 				A208D62E22AD373E009A6FDD /* HAttributedString.m in Sources */,
 				15C572A020AEAC340070327C /* UILabel+HState.m in Sources */,
 				A206882F22CA083700661634 /* HWebButtonView.m in Sources */,
