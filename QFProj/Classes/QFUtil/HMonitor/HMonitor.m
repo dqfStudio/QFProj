@@ -98,5 +98,3 @@ static void runloopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActi
 @end
 
 #endif
-
-
