@@ -15,7 +15,7 @@ typedef NSString *(^HCountDownFinished)(HCountDownButton *countDownButton, NSUIn
 typedef void (^HTouchedCountDownButtonHandler)(HCountDownButton *countDownButton, NSInteger tag);
 
 @interface HCountDownButton : UIButton
-@property(nonatomic,strong) id userInfo;
+@property(nonatomic) id userInfo;
 ///倒计时按钮点击回调
 - (void)countDownButtonHandler:(HTouchedCountDownButtonHandler)touchedCountDownButtonHandler;
 //倒计时时间改变回调
