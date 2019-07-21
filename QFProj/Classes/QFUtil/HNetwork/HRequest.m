@@ -81,6 +81,14 @@
          return nil;
          
      }];*/
+    
+    /*
+    //https 允许无效证书访问
+    AFSecurityPolicy *security = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+    [security setValidatesDomainName:NO];
+    security.allowInvalidCertificates = YES;
+    [YTKNetworkConfig sharedConfig].securityPolicy = security;
+    */
 }
 //执行HTTP请求
 - (void)performHTTPRequest:(NSString *)url
