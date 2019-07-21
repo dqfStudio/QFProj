@@ -74,7 +74,7 @@ static void runloopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActi
                     if (++self->_countTime < 5)
                         continue;
                     [self logStack];
-                    NSLog(@"something lag");
+                    NSLog(@"⚠️⚠️⚠️⚠️⚠️⚠️⚠️something lag⚠️⚠️⚠️⚠️⚠️⚠️⚠️");
                 }
             }
             self->_countTime = 0;
