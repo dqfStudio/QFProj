@@ -33,13 +33,13 @@ _Pragma("clang diagnostic pop")
     }];
 }
 - (void)logAction {
-    /*
+    
     if (![self isSystemClass:self.class]) {
         printf("\nHPrinting-->className:%s\n", NSStringFromClass(self.class).UTF8String);
-        return;
+        /*
+         return;
+         */
     }
-    */
-    printf("\nHPrinting-->className:%s\n", NSStringFromClass(self.class).UTF8String);
     
     NSString *loginfo = [self logInfo];
     if (loginfo) {
