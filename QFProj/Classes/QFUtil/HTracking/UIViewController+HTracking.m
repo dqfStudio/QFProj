@@ -27,7 +27,7 @@
 
 - (void)tracking_viewWillDisappear:(BOOL)animated {
     [self tracking_viewWillDisappear:animated];
-    NSLog(@"你现在退出%@",NSStringFromClass([self class]));
+    printf("\n你现在退出-->%s\n", NSStringFromClass(self.class).UTF8String);
 }
 
 @end
