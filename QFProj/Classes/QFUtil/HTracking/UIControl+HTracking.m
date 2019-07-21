@@ -17,6 +17,6 @@
 }
 - (void)tracking_sendAction:(SEL)action to:(id)target forEvent:(UIEvent *)event {
     [self tracking_sendAction:action to:target forEvent:event];
-    printf("\nHPrinting-->你现在点击的是%s",[NSString stringWithFormat:@"%@_%@_%ld", NSStringFromClass([target class]), NSStringFromSelector(action), self.tag].UTF8String);
+    printf("HPrinting-->你现在点击的是%s\n",[NSString stringWithFormat:@"%@_%@_%ld", NSStringFromClass([target class]), NSStringFromSelector(action), self.tag].UTF8String);
 }
 @end

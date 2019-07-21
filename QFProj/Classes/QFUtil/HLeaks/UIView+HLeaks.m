@@ -46,7 +46,7 @@
 }
 //打印没有释放的view
 - (void)isNotDealloc {
-    printf("\nHPrinting-->⚠️⚠️⚠️⚠️⚠️⚠️⚠️%s is not dealloc⚠️⚠️⚠️⚠️⚠️⚠️⚠️", NSStringFromClass([self class]).UTF8String);
+    printf("HPrinting-->⚠️⚠️⚠️⚠️⚠️⚠️⚠️%s is not dealloc⚠️⚠️⚠️⚠️⚠️⚠️⚠️\n", NSStringFromClass([self class]).UTF8String);
 }
 @end
 #endif

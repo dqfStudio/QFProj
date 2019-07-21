@@ -28,6 +28,6 @@
 void tracking_didSelectItemAtIndexPath(id self, SEL _cmd, id collectionView, id indexpath) {
     SEL selector = NSSelectorFromString(@"tracking_didSelectItemAtIndexPath");
     ((void(*)(id, SEL,id, id))objc_msgSend)(self, selector, collectionView, indexpath);
-    printf("\nHPrinting-->你现在正在点击的是%s页面的第%ld栏第%ld行", NSStringFromClass([self class]).UTF8String, ((NSIndexPath *)indexpath).section, ((NSIndexPath *)indexpath).row);
+    printf("HPrinting-->你现在正在点击的是%s页面的第%ld栏第%ld行\n", NSStringFromClass([self class]).UTF8String, ((NSIndexPath *)indexpath).section, ((NSIndexPath *)indexpath).row);
 }
 @end

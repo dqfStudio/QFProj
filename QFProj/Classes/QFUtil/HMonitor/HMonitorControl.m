@@ -169,7 +169,7 @@ void myRunLoopObserver(CFRunLoopObserverRef observer, CFRunLoopActivity activity
     double timeDiff = currentTime - _waitStartTime;
     if (timeDiff > 2.0) {
         if (_lastRecordTime - _waitStartTime < 0.001 && _lastRecordTime != 0) {
-            printf("\nHPrinting-->last time no :%f %f",timeDiff, _waitStartTime);
+            printf("HPrinting-->last time no :%f %f\n",timeDiff, _waitStartTime);
             return;
         }
         [self logStack];
