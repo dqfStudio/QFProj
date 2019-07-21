@@ -443,24 +443,4 @@
 //    return _lobbyBtn;
 //}
 
-- (UIProgressView *)progress
-{
-    if (!_progress) {
-        _progress = [[UIProgressView alloc] initWithFrame:CGRectZero];
-//        _progress.backgroundColor = [HSkinManager naviBarColor];
-        _progress.progressTintColor = [UIColor blueColor];
-//        _progress.trackTintColor = [HSkinManager naviBarColor];
-    }
-    return _progress;
-}
-
-//- (NSArray *)progressGameTypeArr
-//{
-//    if (!_progressGameTypeArr) {
-//        _progressGameTypeArr = @[@"CQJ", @"IM", @"BBIN", @"AGIN", @"MG", @"SB", @"SW"
-//                                 , @"PS", @"JDB", @"HABA", @"AGBY", @"GGBY"];
-//    }
-//    return _progressGameTypeArr;
-//}
-
 @end
