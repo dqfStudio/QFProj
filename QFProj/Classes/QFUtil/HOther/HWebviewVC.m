@@ -226,26 +226,19 @@
 
 // 根据WebView对于即将跳转的HTTP请求头信息和相关信息来决定是否跳转
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
-    
-    NSString * urlStr = navigationAction.request.URL.absoluteString;
-    NSLog(@"发送跳转请求：%@",urlStr);
-    
+    NSString *urlStr = navigationAction.request.URL.absoluteString;
     //如果是跳转一个新页面
     if (navigationAction.targetFrame == nil) {
         [webView loadRequest:navigationAction.request];
     }
-    // 1)点击“AG捕鱼”右上角的’离开‘ 此时的请求url是http://no_return/
-    // 2)MG电子的大厅按钮 会出现404错误
-    // 请求的链接是 https://initiate.qfconnect.com/MobileWebGames/game/mgs/www.88898.com
-    // 3)天下棋牌的‘退出’，返回的请求链接是 https://__bridge_loaded__/
-    if ([urlStr containsString:@"no_return"] || [urlStr isEqualToString:@"https://initiate.qfconnect.com/MobileWebGames/game/mgs/www.88898.com"] || [urlStr isEqualToString:@"https://__bridge_loaded__/"]) {
-        [self setNewOrientation:NO];
-        [self back];
-    }
-    if ([urlStr isEqualToString:@"about:blank"]) {
+    NSArray *decisionArr = @[@"about:blank",
+                             @"no_return",
+                             @"https://__bridge_loaded__/"];
+    if ([decisionArr containsObject:urlStr]) {
         decisionHandler(WKNavigationActionPolicyCancel);
-    }  else
+    }else {
         decisionHandler(WKNavigationActionPolicyAllow);
+    }
 }
 
 // 根据客户端受到的服务器响应头以及response相关信息来决定是否可以跳转
@@ -253,47 +246,36 @@
 //    self.urlStr = navigationResponse.response.URL.absoluteString;
 //    NSLog(@"当前跳转地址：%@", _urlStr);
 //    if ([self.urlStr isEqualToString:HEADH5BASEINURL]) {
-        [self setNewOrientation:NO];
-        
-        [self back];
+//        [self setNewOrientation:NO];
+//
+//        [self back];
         // PS电子中子游戏的大厅按钮 会直接调用h5的域名 所以做一个拦截处理
-        decisionHandler(WKNavigationResponsePolicyCancel);
+//        decisionHandler(WKNavigationResponsePolicyCancel);
 //    } else
 //        //允许跳转
-//        decisionHandler(WKNavigationResponsePolicyAllow);
+        decisionHandler(WKNavigationResponsePolicyAllow);
 }
 
 //需要响应身份验证时调用 同样在block中需要传入用户身份凭证
-- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * _Nullable credential))completionHandler{
-    
-    NSLog(@"== didReceiveAuthenticationChallenge ==");
-    
-    NSURLCredential*newCredential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
-    
-    if ([[[challenge protectionSpace]authenticationMethod] isEqualToString: @"NSURLAuthenticationMethodServerTrust"]) {
+- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * _Nullable credential))completionHandler {
+    NSURLCredential* newCredential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+    if ([[[challenge protectionSpace]authenticationMethod] isEqualToString:@"NSURLAuthenticationMethodServerTrust"]) {
         SecTrustRef serverTrust = challenge.protectionSpace.serverTrust;
         CFDataRef exceptions = SecTrustCopyExceptions(serverTrust);
         SecTrustSetExceptions(serverTrust, exceptions);
         CFRelease(exceptions);
         newCredential = [NSURLCredential credentialForTrust:serverTrust];
         completionHandler(NSURLSessionAuthChallengeUseCredential, newCredential);
-    } else {
+    }else {
         completionHandler(NSURLSessionAuthChallengePerformDefaultHandling, newCredential);
     }
 }
 
 //防止点击H5中的按钮没有反应
--(WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures
-{
-    NSLog(@"===== createWebViewWithConfiguration ====");
-    
+- (WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures {
     if (!navigationAction.targetFrame.isMainFrame) {
         [webView loadRequest:navigationAction.request];
     }
-    if (navigationAction.targetFrame == nil) {
-        [webView loadRequest:navigationAction.request];
-    }
-    
     return nil;
 }
 
@@ -302,24 +284,26 @@
     UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
     switch (deviceOrientation) {
         case UIDeviceOrientationLandscapeLeft:
-        case UIDeviceOrientationLandscapeRight:
-        {
-            self.topBar.hidden = YES;
-            self.topHeight = 0;
-            [self.wkWebview setFrame:self.view.frame];
+        case UIDeviceOrientationLandscapeRight: {
+            if (!_hideNaviBar) {
+                [UIView animateWithDuration:0.25 animations:^{
+                    self.topBar.hidden = YES;
+                    [self.wkWebview setFrame:self.view.frame];
+                }];
+            }
         }
             break;
-        case UIDeviceOrientationPortrait:
-        {
+        case UIDeviceOrientationPortrait: {
             [UIApplication sharedApplication].statusBarHidden = NO;
-            
-//            self.topHeight = kTopBarHeight;
-            self.topBar.hidden = NO;
-            
-            CGRect frame = self.view.frame;
-            frame.origin.y += self.topHeight;
-            frame.size.height -= self.topHeight;
-            [self.wkWebview setFrame:frame];
+            if (!_hideNaviBar) {
+                [UIView animateWithDuration:0.25 animations:^{
+                    self.topBar.hidden = NO;
+                    CGRect frame = self.view.frame;
+                    frame.origin.y += UIDevice.topBarHeight;
+                    frame.size.height -= UIDevice.topBarHeight;
+                    [self.wkWebview setFrame:frame];
+                }];
+            }
         }
             break;
         default:

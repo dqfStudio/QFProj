@@ -267,6 +267,7 @@
 		A2A8EBB822E1FDEE0049C51B /* WKWebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EBB022E1FDEE0049C51B /* WKWebViewJavascriptBridge.m */; };
 		A2A8EBB922E1FDEE0049C51B /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EBB122E1FDEE0049C51B /* WebViewJavascriptBridge.m */; };
 		A2A8EBBA22E1FDEE0049C51B /* WebViewJavascriptBridge_JS.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EBB422E1FDEE0049C51B /* WebViewJavascriptBridge_JS.m */; };
+		A2A8EBBE22E3FDB40049C51B /* HWebview.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EBBD22E3FDB40049C51B /* HWebview.m */; };
 		A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */; };
 		A2DC22BE2242994800E540BE /* NSObject+HForwarding.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */; };
 		A2E8F50822CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50622CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png */; };
@@ -777,6 +778,8 @@
 		A2A8EBB522E1FDEE0049C51B /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge.h; sourceTree = "<group>"; };
 		A2A8EBB622E1FDEE0049C51B /* WKWebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewJavascriptBridge.h; sourceTree = "<group>"; };
 		A2A8EBBB22E1FF210049C51B /* HWebviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebviewVC.h; sourceTree = "<group>"; };
+		A2A8EBBC22E3FDB40049C51B /* HWebview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HWebview.h; sourceTree = "<group>"; };
+		A2A8EBBD22E3FDB40049C51B /* HWebview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HWebview.m; sourceTree = "<group>"; };
 		A2DC22B622424F2F00E540BE /* NSObject+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeMessy.h"; sourceTree = "<group>"; };
 		A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HForwarding.h"; sourceTree = "<group>"; };
@@ -1811,6 +1814,8 @@
 				A24B6576225EE88600B257BB /* HWebviewVC2.m */,
 				A2A8EBBB22E1FF210049C51B /* HWebviewVC.h */,
 				A24B657D225F768000B257BB /* HWebviewVC.m */,
+				A2A8EBBC22E3FDB40049C51B /* HWebview.h */,
+				A2A8EBBD22E3FDB40049C51B /* HWebview.m */,
 				A2296D57228A62080081A479 /* HGameViewController.h */,
 				A2296D58228A62080081A479 /* HGameViewController.m */,
 				A2296D5A228A626A0081A479 /* HSFSafariViewController.h */,
@@ -2522,6 +2527,7 @@
 				A2E8F54022D72A9800E7C9F2 /* YTKBatchRequest.m in Sources */,
 				A2A8EB4222DC6F820049C51B /* HRegisterController+KS.m in Sources */,
 				15B4DE0E2092F96C00773E04 /* NSDictionary+HSafeUtil.m in Sources */,
+				A2A8EBBE22E3FDB40049C51B /* HWebview.m in Sources */,
 				15B4DE2A2093034700773E04 /* HClassManager.m in Sources */,
 				15B4DE1D209302BF00773E04 /* HGoTo.m in Sources */,
 				1510794520F99ABB00860D1C /* NSObject+HExclusive.m in Sources */,
