@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#if DEBUG
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HMonitorControl : NSObject
@@ -18,3 +20,5 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif

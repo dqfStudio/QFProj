@@ -10,6 +10,8 @@
 #import <libkern/OSAtomic.h>
 #import <execinfo.h>
 
+#if DEBUG
+
 @interface  HMonitorControl() {
     CFRunLoopObserverRef _observer;
     double _lastRecordTime;
@@ -188,3 +190,5 @@ void myRunLoopObserver(CFRunLoopObserverRef observer, CFRunLoopActivity activity
 }
 
 @end
+
+#endif

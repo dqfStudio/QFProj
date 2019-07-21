@@ -10,6 +10,8 @@
 #import <libkern/OSAtomic.h>
 #import <execinfo.h>
 
+#if DEBUG
+
 @interface HMonitor () {
     CFRunLoopObserverRef _observer;
     dispatch_semaphore_t _semaphore;
@@ -95,6 +97,6 @@ static void runloopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActi
 
 @end
 
-
+#endif
 
 
