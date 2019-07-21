@@ -2,8 +2,8 @@
 //  HPooCodeView.m
 //  Code
 //
-//  Created by 韩俊强 7/2/2016.
-//  Copyright (c) 韩俊强 7/2/2016. All rights reserved.
+//  Created by wind on 2019/7/16.
+//  Copyright © 2019 dqfStudio. All rights reserved.
 //
 
 #import "HPooCodeView.h"
