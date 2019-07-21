@@ -9,7 +9,6 @@
 #import "UIViewController+HTracking.h"
 
 @implementation UIViewController (HTracking)
-
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -17,17 +16,12 @@
         [[self class] methodSwizzleWithOrigSEL:@selector(viewWillDisappear:) overrideSEL:@selector(tracking_viewWillDisappear:)];
     });
 }
-
-#pragma mark - Method Swizzling
-
 - (void)tracking_viewWillAppear:(BOOL)animated {
     [self tracking_viewWillAppear:animated];
-    NSLog(@"你现在进入%@",NSStringFromClass([self class]));
+    printf("\nHPrinting-->你现已进入%s", NSStringFromClass(self.class).UTF8String);
 }
-
 - (void)tracking_viewWillDisappear:(BOOL)animated {
     [self tracking_viewWillDisappear:animated];
-    printf("\n你现在退出-->%s\n", NSStringFromClass(self.class).UTF8String);
+    printf("\nHPrinting-->你现已退出%s", NSStringFromClass(self.class).UTF8String);
 }
-
 @end

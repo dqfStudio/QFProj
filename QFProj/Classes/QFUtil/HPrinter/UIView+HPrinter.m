@@ -54,7 +54,7 @@ _Pragma("clang diagnostic pop")
             printf("\nHPrinting-->textView.text:%s", textView.text.UTF8String);
         }
     }
-    else if ([self isKindOfClass:UIButton.class] || [self isKindOfClass:UIControl.class]) {
+    else if ([self isKindOfClass:UIControl.class]) {
         if ([self isKindOfClass:UIButton.class]) {
             UIButton *btn = (UIButton *)self;
             if (btn.titleLabel.text.length > 0 && ![btn.titleLabel.text isEqualToString:@""]) {

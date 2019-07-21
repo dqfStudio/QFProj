@@ -48,7 +48,7 @@ const char* leaksKey;
 }
 //打印没有释放的vc
 - (void)isNotDealloc {
-    NSLog(@"⚠️⚠️⚠️⚠️⚠️⚠️⚠️%@ is not dealloc⚠️⚠️⚠️⚠️⚠️⚠️⚠️", NSStringFromClass([self class]));
+    printf("\nHPrinting-->⚠️⚠️⚠️⚠️⚠️⚠️⚠️%s is not dealloc⚠️⚠️⚠️⚠️⚠️⚠️⚠️", NSStringFromClass([self class]).UTF8String);
 }
 @end
 #endif

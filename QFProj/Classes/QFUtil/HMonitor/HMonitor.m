@@ -75,7 +75,7 @@ static void runloopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActi
                 if (self->_activity == kCFRunLoopBeforeSources || self->_activity == kCFRunLoopAfterWaiting) {
                     if (++self->_countTime < 5) continue;
                     [self logStack];
-                    NSLog(@"⚠️⚠️⚠️⚠️⚠️⚠️⚠️something lag⚠️⚠️⚠️⚠️⚠️⚠️⚠️");
+                    printf("\nHPrinting-->⚠️⚠️⚠️⚠️⚠️⚠️⚠️something lag⚠️⚠️⚠️⚠️⚠️⚠️⚠️");
                 }
             }
             self->_countTime = 0;
