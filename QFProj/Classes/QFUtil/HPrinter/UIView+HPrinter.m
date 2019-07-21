@@ -35,15 +35,15 @@ _Pragma("clang diagnostic pop")
 - (void)logAction {
     /*
     if (![self isSystemClass:self.class]) {
-        printf("\nHDesignPrinting-->className:%s\n", NSStringFromClass(self.class).UTF8String);
+        printf("\nHPrinting-->className:%s\n", NSStringFromClass(self.class).UTF8String);
         return;
     }
     */
-    printf("\nHDesignPrinting-->className:%s\n", NSStringFromClass(self.class).UTF8String);
+    printf("\nHPrinting-->className:%s\n", NSStringFromClass(self.class).UTF8String);
     
     NSString *loginfo = [self logInfo];
     if (loginfo) {
-        printf("\nHDesignPrinting-->loginfo:%s\n", loginfo.UTF8String);
+        printf("\nHPrinting-->loginfo:%s\n", loginfo.UTF8String);
         /*
         return;
         */
@@ -51,51 +51,51 @@ _Pragma("clang diagnostic pop")
     if ([self isKindOfClass:UILabel.class]) {
         UILabel *label = (UILabel *)self;
         if (label.text.length > 0 && ![label.text isEqualToString:@""]) {
-            printf("\nHDesignPrinting-->label.text:%s\n", label.text.UTF8String);
+            printf("\nHPrinting-->label.text:%s\n", label.text.UTF8String);
         }
     }
     else if ([self isKindOfClass:UITextView.class]) {
         UITextView *textView = (UITextView *)self;
         if (textView.text.length > 0 && ![textView.text isEqualToString:@""]) {
-            printf("\nHDesignPrinting-->textView.text:%s\n", textView.text.UTF8String);
+            printf("\nHPrinting-->textView.text:%s\n", textView.text.UTF8String);
         }
     }
     else if ([self isKindOfClass:UIButton.class] || [self isKindOfClass:UIControl.class]) {
         if ([self isKindOfClass:UIButton.class]) {
             UIButton *btn = (UIButton *)self;
             if (btn.titleLabel.text.length > 0 && ![btn.titleLabel.text isEqualToString:@""]) {
-                printf("\nHDesignPrinting-->button.text:%s\n", btn.titleLabel.text.UTF8String);
+                printf("\nHPrinting-->button.text:%s\n", btn.titleLabel.text.UTF8String);
             }
             if (btn.allTargets.count > 0) {
                 NSObject *objc = [[btn.allTargets allObjects] firstObject];
-                printf("\nHDesignPrinting-->button.targets:%s\n", NSStringFromClass(objc.class).UTF8String);
+                printf("\nHPrinting-->button.targets:%s\n", NSStringFromClass(objc.class).UTF8String);
             }
             if (btn.imageView.image.accessibilityIdentifier) {
-                printf("\nHDesignPrinting-->button.image.name:%s\n", btn.imageView.image.accessibilityIdentifier.UTF8String);
+                printf("\nHPrinting-->button.image.name:%s\n", btn.imageView.image.accessibilityIdentifier.UTF8String);
                 return;
             }
         }else if ([self isKindOfClass:UIControl.class]) {
             UIControl *control = (UIControl *)self;
             if (control.allTargets.count > 0) {
                 NSObject *objc = [[control.allTargets allObjects] firstObject];
-                printf("\nHDesignPrinting-->control.targets:%s\n", NSStringFromClass(objc.class).UTF8String);
+                printf("\nHPrinting-->control.targets:%s\n", NSStringFromClass(objc.class).UTF8String);
             }
         }
     }
     else if ([self isKindOfClass:UIImageView.class]) {
         UIImageView *imageView = (UIImageView *)self;
         if (imageView.image.accessibilityIdentifier) {
-            printf("\nHDesignPrinting-->imageView.image.name:%s\n", imageView.image.accessibilityIdentifier.UTF8String);
+            printf("\nHPrinting-->imageView.image.name:%s\n", imageView.image.accessibilityIdentifier.UTF8String);
         }
         return;
     }
     
     if (self.superview && ![self isSystemClass:self.superview.class]){
-        printf("\nHDesignPrinting-->super[1]ClassName:%s\n", NSStringFromClass(self.superview.class).UTF8String);
+        printf("\nHPrinting-->super[1]ClassName:%s\n", NSStringFromClass(self.superview.class).UTF8String);
     }else if (self.superview.superview && ![self isSystemClass:self.superview.superview.class]){
-        printf("\nHDesignPrinting-->super[2]ClassName:%s\n", NSStringFromClass(self.superview.superview.class).UTF8String);
+        printf("\nHPrinting-->super[2]ClassName:%s\n", NSStringFromClass(self.superview.superview.class).UTF8String);
     }else if (self.superview.superview.superview && ![self isSystemClass:self.superview.superview.superview.class]){
-        printf("\nHDesignPrinting-->super[3]ClassName:%s\n", NSStringFromClass(self.superview.superview.superview.class).UTF8String);
+        printf("\nHPrinting-->super[3]ClassName:%s\n", NSStringFromClass(self.superview.superview.superview.class).UTF8String);
     }
     [self logVC];
 }
@@ -108,7 +108,7 @@ _Pragma("clang diagnostic pop")
     }
     if ([next isKindOfClass:[UIViewController class]]) {
         controller = (UIViewController *)next;
-        printf("\nHDesignPrinting-->viewController:%s\n", NSStringFromClass([controller class]).UTF8String);
+        printf("\nHPrinting-->viewController:%s\n", NSStringFromClass([controller class]).UTF8String);
     }
 }
 - (NSString *)logInfo {
