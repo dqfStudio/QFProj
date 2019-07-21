@@ -113,6 +113,9 @@
 - (CGSize)size {
     return self.frame.size;
 }
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end
 
 @implementation UICollectionReusableView (HSignal)
