@@ -33,14 +33,20 @@ _Pragma("clang diagnostic pop")
     }];
 }
 - (void)logAction {
+    /*
     if (![self isSystemClass:self.class]) {
         printf("\nHDesignPrinting-->className:%s\n", NSStringFromClass(self.class).UTF8String);
         return;
     }
+    */
+    printf("\nHDesignPrinting-->className:%s\n", NSStringFromClass(self.class).UTF8String);
+    
     NSString *loginfo = [self logInfo];
     if (loginfo) {
         printf("\nHDesignPrinting-->loginfo:%s\n", loginfo.UTF8String);
+        /*
         return;
+        */
     }
     if ([self isKindOfClass:UILabel.class]) {
         UILabel *label = (UILabel *)self;
