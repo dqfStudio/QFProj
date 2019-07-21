@@ -73,8 +73,7 @@ static void runloopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActi
             long st = dispatch_semaphore_wait(self->_semaphore, dispatch_time(DISPATCH_TIME_NOW, 50 * NSEC_PER_MSEC));
             if (st != 0) {
                 if (self->_activity == kCFRunLoopBeforeSources || self->_activity == kCFRunLoopAfterWaiting) {
-                    if (++self->_countTime < 5)
-                        continue;
+                    if (++self->_countTime < 5) continue;
                     [self logStack];
                     NSLog(@"⚠️⚠️⚠️⚠️⚠️⚠️⚠️something lag⚠️⚠️⚠️⚠️⚠️⚠️⚠️");
                 }
