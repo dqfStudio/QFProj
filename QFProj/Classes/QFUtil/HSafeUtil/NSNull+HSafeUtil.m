@@ -11,7 +11,7 @@
 
 #pragma clang diagnostic ignored "-Wgnu-conditional-omitted-operand"
 
-@implementation NSNull (HSafe)
+@implementation NSNull (HSafeUtil)
 
 #if HNullSafe_ENABLED
 
