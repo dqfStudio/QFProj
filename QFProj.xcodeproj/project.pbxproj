@@ -205,6 +205,7 @@
 		A24B659E22609CE600B257BB /* NSObject+HName.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B659C22609CE600B257BB /* NSObject+HName.m */; };
 		A265FF6F2269F6280093C780 /* HHostUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A265FF6D2269F6280093C780 /* HHostUrlManager.m */; };
 		A265FF732269F70C0093C780 /* HVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A265FF712269F70C0093C780 /* HVersionManager.m */; };
+		A26CF7BF2302747C00D73ECD /* NSNull+HSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = A26CF7BE2302747B00D73ECD /* NSNull+HSafe.m */; };
 		A273940B22A7FF44009676C1 /* HTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A273940322A7FF44009676C1 /* HTableView.m */; };
 		A28EF2E821D86DD8002F92ED /* ULBCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */; };
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
@@ -682,6 +683,7 @@
 		A265FF6E2269F6280093C780 /* HHostUrlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHostUrlManager.h; sourceTree = "<group>"; };
 		A265FF712269F70C0093C780 /* HVersionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HVersionManager.m; sourceTree = "<group>"; };
 		A265FF722269F70C0093C780 /* HVersionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HVersionManager.h; sourceTree = "<group>"; };
+		A26CF7BE2302747B00D73ECD /* NSNull+HSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+HSafe.m"; sourceTree = "<group>"; };
 		A273940322A7FF44009676C1 /* HTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableView.m; sourceTree = "<group>"; };
 		A273940522A7FF44009676C1 /* HTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableView.h; sourceTree = "<group>"; };
 		A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULBCollectionViewFlowLayout.m; sourceTree = "<group>"; };
@@ -1345,6 +1347,7 @@
 				15B4DDE52092F96B00773E04 /* UIControl+HSafeUtil.m */,
 				A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */,
 				A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */,
+				A26CF7BE2302747B00D73ECD /* NSNull+HSafe.m */,
 			);
 			path = HSafeUtil;
 			sourceTree = "<group>";
@@ -2698,6 +2701,7 @@
 				A24B659722607E8400B257BB /* SKPSMTPMessage.m in Sources */,
 				A2E8F54A22D73AE600E7C9F2 /* HRequestDAOFactory.m in Sources */,
 				A2E8F52622D2EB6E00E7C9F2 /* HNavigationController.m in Sources */,
+				A26CF7BF2302747C00D73ECD /* NSNull+HSafe.m in Sources */,
 				A2A8EBAA22E1F9F60049C51B /* HNetworkConfig.m in Sources */,
 				A222AE5E22818F7D0013098A /* HTextArchiver.m in Sources */,
 				A265FF732269F70C0093C780 /* HVersionManager.m in Sources */,
