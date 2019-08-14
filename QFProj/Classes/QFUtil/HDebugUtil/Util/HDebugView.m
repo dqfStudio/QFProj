@@ -60,11 +60,11 @@
             
             switch (indexPath.row) {
                 case 0: {
-                    HTableCellInitBlock initBlokc = ^(id cell) {
+                    HTableCellInitBlock initBlock = ^(id cell) {
                         NSInteger index = [[NSUserDefaults standardUserDefaults] integerForKey:KHostURLModelKey];
                         if (index >= 0) [cell setSelectedIndex:index];
                     };
-                    HHostSegmentCell *cell = cellBlock(initBlokc, HHostSegmentCell.class, nil, YES);
+                    HHostSegmentCell *cell = cellBlock(initBlock, HHostSegmentCell.class, nil, YES);
                     [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
                     [cell setSegmentBlock:^(NSInteger index) {
                         switch (index) {
@@ -84,11 +84,11 @@
                 }
                     break;
                 case 1: {
-                    HTableCellInitBlock initBlokc = ^(id cell) {
+                    HTableCellInitBlock initBlock = ^(id cell) {
                         NSInteger index = [[NSUserDefaults standardUserDefaults] integerForKey:KHostURLModelKey];
                         if (index >= 0) [cell setSelectedIndex:index];
                     };
-                    HHostSegmentCell *cell = cellBlock(initBlokc, HHostSegmentCell.class, nil, YES);
+                    HHostSegmentCell *cell = cellBlock(initBlock, HHostSegmentCell.class, nil, YES);
                     [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
                     [cell setSegmentBlock:^(NSInteger index) {
                         switch (index) {

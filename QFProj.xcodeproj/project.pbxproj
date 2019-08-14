@@ -960,13 +960,13 @@
 		153F080220E28CA000C74850 /* HInputValidator */ = {
 			isa = PBXGroup;
 			children = (
-				15CC6E9120E28D77005F1792 /* HInputHeader.h */,
 				153F080320E28CA000C74850 /* HAlphaNumericValidator.h */,
 				153F080420E28CA000C74850 /* HAlphaNumericValidator.m */,
 				153F080520E28CA000C74850 /* HAlphaValidator.h */,
 				153F080620E28CA000C74850 /* HAlphaValidator.m */,
 				153F080720E28CA000C74850 /* HEmailValidator.h */,
 				153F080820E28CA000C74850 /* HEmailValidator.m */,
+				15CC6E9120E28D77005F1792 /* HInputHeader.h */,
 				153F080A20E28CA000C74850 /* HInputValidator.h */,
 				153F080B20E28CA000C74850 /* HInputValidator.m */,
 				153F080C20E28CA000C74850 /* HNumericValidator.h */,
