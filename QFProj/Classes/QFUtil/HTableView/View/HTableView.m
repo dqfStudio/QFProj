@@ -697,9 +697,6 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 - (CGSize)size {
     return self.frame.size;
 }
-//- (NSString *)addressValue {
-//    return [NSString stringWithFormat:@"%p", self];
-//}
 @end
 
 #define KTableStateKey   @"_table_"
