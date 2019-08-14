@@ -10,7 +10,6 @@
 #import <objc/runtime.h>
 
 @implementation NSObject (BlockSEL)
-
 - (SEL)selectorBlock:(void (^)(id, id))block {
     if (!block) {
         [NSException raise:@"block can not be nil" format:@"%@ selectorBlock error", self];
@@ -21,7 +20,6 @@
     objc_setAssociatedObject(self, sel, block, OBJC_ASSOCIATION_COPY_NONATOMIC);
     return sel;
 }
-
 static void selectorImp(id self, SEL _cmd, id arg) {
     callback block = objc_getAssociatedObject(self, _cmd);
     __weak typeof(self) weakSelf = self;
@@ -29,5 +27,4 @@ static void selectorImp(id self, SEL _cmd, id arg) {
         block(weakSelf, arg);
     }
 }
-
 @end

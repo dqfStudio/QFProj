@@ -70,7 +70,7 @@
                                              error:nil];
 }
 //将字符串转化data
-- (NSData *)data {
+- (NSData *)dataValue {
     return [self dataUsingEncoding:NSUTF8StringEncoding];
 }
 @end

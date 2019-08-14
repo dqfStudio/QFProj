@@ -155,7 +155,7 @@
 		A219F228222F72BC00241FD7 /* HFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F227222F72BC00241FD7 /* HFormController.m */; };
 		A219F22F222FB46A00241FD7 /* HIFS.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F22D222FB46A00241FD7 /* HIFS.m */; };
 		A21FD5FA224DBC34009F03FB /* HRequestHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A21FD5F9224DBC34009F03FB /* HRequestHUD.m */; };
-		A222A6C42279AAAD0013098A /* NSDictionary+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A6C32279AAAD0013098A /* NSDictionary+Util.m */; };
+		A222A6C42279AAAD0013098A /* NSDictionary+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A6C32279AAAD0013098A /* NSDictionary+HUtil.m */; };
 		A222A716227C52430013098A /* UILabel+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A715227C52430013098A /* UILabel+HUtil.m */; };
 		A222AE4A22818F7D0013098A /* HTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A222AE1822818F7D0013098A /* HTextView.m */; };
 		A222AE4B22818F7D0013098A /* HTextEffectWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A222AE1C22818F7D0013098A /* HTextEffectWindow.m */; };
@@ -584,8 +584,8 @@
 		A219F22E222FB46A00241FD7 /* HIFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIFS.h; sourceTree = "<group>"; };
 		A21FD5F8224DBC34009F03FB /* HRequestHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRequestHUD.h; sourceTree = "<group>"; };
 		A21FD5F9224DBC34009F03FB /* HRequestHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRequestHUD.m; sourceTree = "<group>"; };
-		A222A6C22279AAAD0013098A /* NSDictionary+Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Util.h"; sourceTree = "<group>"; };
-		A222A6C32279AAAD0013098A /* NSDictionary+Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Util.m"; sourceTree = "<group>"; };
+		A222A6C22279AAAD0013098A /* NSDictionary+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HUtil.h"; sourceTree = "<group>"; };
+		A222A6C32279AAAD0013098A /* NSDictionary+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+HUtil.m"; sourceTree = "<group>"; };
 		A222A714227C52430013098A /* UILabel+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HUtil.h"; sourceTree = "<group>"; };
 		A222A715227C52430013098A /* UILabel+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+HUtil.m"; sourceTree = "<group>"; };
 		A222AE1622818F7D0013098A /* HText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HText.h; sourceTree = "<group>"; };
@@ -1298,8 +1298,8 @@
 				A208D62C22AD373E009A6FDD /* HAttributedString.m */,
 				1510793D20F98E4800860D1C /* NSTimer+HUtil.h */,
 				1510793E20F98E4800860D1C /* NSTimer+HUtil.m */,
-				A222A6C22279AAAD0013098A /* NSDictionary+Util.h */,
-				A222A6C32279AAAD0013098A /* NSDictionary+Util.m */,
+				A222A6C22279AAAD0013098A /* NSDictionary+HUtil.h */,
+				A222A6C32279AAAD0013098A /* NSDictionary+HUtil.m */,
 				A2A17DA42276DB1E003FED58 /* NSMutableAttributedString+HUtil.h */,
 				A2A17DA52276DB1E003FED58 /* NSMutableAttributedString+HUtil.m */,
 			);
@@ -2673,7 +2673,7 @@
 				A222AE5A22818F7D0013098A /* UIPasteboard+HText.m in Sources */,
 				A24B659922607E8400B257BB /* Base64Transcoder.m in Sources */,
 				A24B6560225EE08900B257BB /* HUpdate.m in Sources */,
-				A222A6C42279AAAD0013098A /* NSDictionary+Util.m in Sources */,
+				A222A6C42279AAAD0013098A /* NSDictionary+HUtil.m in Sources */,
 				A2A8EB5222DDD99D0049C51B /* UIViewController+HLeaks.m in Sources */,
 				A222AE4C22818F7D0013098A /* HTextDebugOption.m in Sources */,
 				A206880E22C9FD1B00661634 /* HTupleBaseView.m in Sources */,

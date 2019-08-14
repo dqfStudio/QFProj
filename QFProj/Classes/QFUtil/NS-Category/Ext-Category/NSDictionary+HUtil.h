@@ -1,5 +1,5 @@
 //
-//  NSDictionary+Util.h
+//  NSDictionary+HUtil.h
 //  QFProj
 //
 //  Created by wind on 2019/5/1.
@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDictionary (Util)
+@interface NSDictionary (HUtil)
 - (BOOL)containsObject:(NSString *)anObject;
 @end
