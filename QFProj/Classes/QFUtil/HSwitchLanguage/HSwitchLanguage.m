@@ -39,7 +39,7 @@ _Pragma("clang diagnostic pop") \
 @property (nonatomic) NSHashTable *hashTable;
 + (_HSkin *)share;
 - (void)addObject:(id)anObject;
-- (void)enumerateOperation;
+- (void)enumerateOperation:(void (^)(void))completion;
 @end
 
 @implementation _HSkin
@@ -60,22 +60,27 @@ _Pragma("clang diagnostic pop") \
 - (void)addObject:(id)anObject {
     [self.hashTable addObject:anObject];
 }
-- (void)enumerateOperation {
-    NSArray *allObjects = [[self.hashTable objectEnumerator] allObjects];
-    //倒序执行
-    for (NSUInteger i=allObjects.count-1; i>=0; i--) {
-        id anObject = allObjects[i];
-        if ([anObject isKindOfClass:UILabel.class] || [anObject isKindOfClass:UITextView.class]) {
-            UIView *view = anObject;
-            SEL selector = NSSelectorFromString(@"skin_setText:");
-            if ([view respondsToSelector:selector]) {
-                NSString *aKey = view.textKey;
-                NSString *tbl = KSKinTable;
-                NSString *content = HLocalizedStringFromTable(aKey, tbl);
-                SuppressPerformSelectorLeakWarning([view performSelector:selector withObject:content];);
+- (void)enumerateOperation:(void (^)(void))completion {
+    syncAtMain(^{
+        NSArray *allObjects = [[self.hashTable objectEnumerator] allObjects];
+        //倒序执行
+        for (NSUInteger i=allObjects.count-1; i>=0; i--) {
+            id anObject = allObjects[i];
+            if ([anObject isKindOfClass:UILabel.class] || [anObject isKindOfClass:UITextView.class]) {
+                UIView *view = anObject;
+                SEL selector = NSSelectorFromString(@"skin_setText:");
+                if ([view respondsToSelector:selector]) {
+                    NSString *aKey = view.textKey;
+                    NSString *tbl = KSKinTable;
+                    NSString *content = HLocalizedStringFromTable(aKey, tbl);
+                    SuppressPerformSelectorLeakWarning([view performSelector:selector withObject:content];);
+                }
             }
         }
-    }
+        if (completion) {
+            completion();
+        }
+    });
 }
 @end
 
@@ -186,7 +191,7 @@ _Pragma("clang diagnostic pop") \
     return [[NSUserDefaults standardUserDefaults] valueForKey:aKey];
 }
 //设置语言
-+ (void)setUserlanguage:(NSString *)language {
++ (void)setUserlanguage:(NSString *)language completion:(void (^)(void))completion {
     NSString *aKey = NSStringFromClass(self.class);
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *currentLanguage = [userDefaults valueForKey:aKey];
@@ -197,7 +202,7 @@ _Pragma("clang diagnostic pop") \
         
         NSString *path = [[NSBundle mainBundle] pathForResource:language ofType:@"lproj" ];
         [HSwitchLanguage share].currentBundle = [NSBundle bundleWithPath:path];
-        [[_HSkin share] enumerateOperation];
+        [[_HSkin share] enumerateOperation:completion];
     }
 }
 @end

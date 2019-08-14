@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NSObject+HSwizzleUtil.h"
+#import "HGCDUtil.h"
 
 #define KLanguageBase  @"zh-Hans"   //默认语言，这里默认为汉语
 #define KLanguageEN    @"en"        //英语
@@ -21,5 +22,5 @@
 @interface HSwitchLanguage : NSObject
 + (NSBundle *)currentBundle;//当前语言资源文件
 + (NSString *)userLanguage;//获取当前语言
-+ (void)setUserlanguage:(NSString *)language;//设置当前语言
++ (void)setUserlanguage:(NSString *)language completion:(void (^)(void))completion;//设置当前语言
 @end
