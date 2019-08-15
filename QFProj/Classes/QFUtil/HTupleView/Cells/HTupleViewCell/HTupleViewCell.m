@@ -208,3 +208,48 @@
     return _footerTextField;
 }
 @end
+
+@implementation HTupleViewCell
+- (HWebImageView *)imageView {
+    if (!_imageView) {
+        _imageView = HWebImageView.new;
+        [self addSubview:_imageView];
+    }
+    return _imageView;
+}
+- (HLabel *)textLabel {
+    if (!_textLabel) {
+        _textLabel = [HLabel new];
+        [self addSubview:_textLabel];
+    }
+    return _textLabel;
+}
+- (HLabel *)detailTextLabel {
+    if (!_detailTextLabel) {
+        _detailTextLabel = [HLabel new];
+        [self addSubview:_detailTextLabel];
+    }
+    return _detailTextLabel;
+}
+- (HLabel *)accessoryLabel {
+    if (!_accessoryLabel) {
+        _accessoryLabel = [HLabel new];
+        [self addSubview:_accessoryLabel];
+    }
+    return _accessoryLabel;
+}
+- (HWebButtonView *)detailView {
+    if (!_detailView) {
+        _detailView = [HWebButtonView new];
+        [self addSubview:_detailView];
+    }
+    return _detailView;
+}
+- (HWebButtonView *)accessoryView {
+    if (!_accessoryView) {
+        _accessoryView = [HWebButtonView new];
+        [self addSubview:_accessoryView];
+    }
+    return _accessoryView;
+}
+@end

@@ -65,3 +65,12 @@
 @property (nonatomic) HTextField *sectionTextField;
 @property (nonatomic) HTextField *footerTextField;
 @end
+
+@interface HTupleViewCell : HTupleBaseCell
+@property (nonatomic) HWebImageView *imageView;
+@property (nonatomic) HLabel *textLabel;
+@property (nonatomic) HLabel *detailTextLabel;
+@property (nonatomic) HLabel *accessoryLabel;
+@property (nonatomic) HWebButtonView *detailView;
+@property (nonatomic) HWebButtonView *accessoryView;
+@end
