@@ -71,6 +71,6 @@
 @property (nonatomic) HLabel *textLabel;
 @property (nonatomic) HLabel *detailTextLabel;
 @property (nonatomic) HLabel *accessoryLabel;
-@property (nonatomic) HWebButtonView *detailView;
-@property (nonatomic) HWebButtonView *accessoryView;
+@property (nonatomic) HWebImageView *detailView;
+@property (nonatomic) HWebImageView *accessoryView;
 @end

@@ -238,16 +238,16 @@
     }
     return _accessoryLabel;
 }
-- (HWebButtonView *)detailView {
+- (HWebImageView *)detailView {
     if (!_detailView) {
-        _detailView = [HWebButtonView new];
+        _detailView = [HWebImageView new];
         [self addSubview:_detailView];
     }
     return _detailView;
 }
-- (HWebButtonView *)accessoryView {
+- (HWebImageView *)accessoryView {
     if (!_accessoryView) {
-        _accessoryView = [HWebButtonView new];
+        _accessoryView = [HWebImageView new];
         [self addSubview:_accessoryView];
     }
     return _accessoryView;
