@@ -51,23 +51,32 @@
 @end
 
 @interface HTableUnionCell : HTableBaseCell
-@property (nonatomic) HLabel *headerLabel;
-@property (nonatomic) HLabel *sectionLabel;
-@property (nonatomic) HLabel *footerLabel;
+@property (nonatomic) HLabel *label;
+@property (nonatomic) HLabel *detailLabel;
+@property (nonatomic) HLabel *accessoryLabel;
 
-@property (nonatomic) HTextView *headerTextView;
-@property (nonatomic) HTextView *sectionTextView;
-@property (nonatomic) HTextView *footerTextView;
+@property (nonatomic) HTextView *textView;
+@property (nonatomic) HTextView *detailTextView;
+@property (nonatomic) HTextView *accessoryTextView;
 
-@property (nonatomic) HWebButtonView *headerButton;
-@property (nonatomic) HWebButtonView *sectionButton;
-@property (nonatomic) HWebButtonView *footerButton;
+@property (nonatomic) HWebButtonView *button;
+@property (nonatomic) HWebButtonView *detailButton;
+@property (nonatomic) HWebButtonView *accessoryButton;
 
-@property (nonatomic) HWebImageView *headerImageView;
-@property (nonatomic) HWebImageView *sectionImageView;
-@property (nonatomic) HWebImageView *footerImageView;
+@property (nonatomic) HWebImageView *imageView;
+@property (nonatomic) HWebImageView *detailImageView;
+@property (nonatomic) HWebImageView *accessoryImageView;
 
-@property (nonatomic) HTextField *headerTextField;
-@property (nonatomic) HTextField *sectionTextField;
-@property (nonatomic) HTextField *footerTextField;
+@property (nonatomic) HTextField *textField;
+@property (nonatomic) HTextField *detailTextField;
+@property (nonatomic) HTextField *accessoryTextField;
+@end
+
+@interface HTableViewCell : HTupleBaseCell
+@property (nonatomic) HWebImageView *imageView;
+@property (nonatomic) HLabel *textLabel;
+@property (nonatomic) HLabel *detailTextLabel;
+@property (nonatomic) HLabel *accessoryLabel;
+@property (nonatomic) HWebImageView *detailView;
+@property (nonatomic) HWebImageView *accessoryView;
 @end

@@ -130,115 +130,162 @@
 @end
 
 @implementation HTableUnionCell
+@synthesize imageView = _imageView;
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     return [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
 }
 - (void)initUI {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
-- (HLabel *)headerLabel {
-    if (!_headerLabel) {
-        _headerLabel = [HLabel new];
-        [self addSubview:_headerLabel];
+- (HLabel *)label {
+    if (!_label) {
+        _label = [HLabel new];
+        [self addSubview:_label];
     }
-    return _headerLabel;
+    return _label;
 }
-- (HLabel *)sectionLabel {
-    if (!_sectionLabel) {
-        _sectionLabel = [HLabel new];
-        [self addSubview:_sectionLabel];
+- (HLabel *)detailLabel {
+    if (!_detailLabel) {
+        _detailLabel = [HLabel new];
+        [self addSubview:_detailLabel];
     }
-    return _sectionLabel;
+    return _detailLabel;
 }
-- (HLabel *)footerLabel {
-    if (!_footerLabel) {
-        _footerLabel = [HLabel new];
-        [self addSubview:_footerLabel];
+- (HLabel *)accessoryLabel {
+    if (!_accessoryLabel) {
+        _accessoryLabel = [HLabel new];
+        [self addSubview:_accessoryLabel];
     }
-    return _footerLabel;
+    return _accessoryLabel;
 }
-- (HTextView *)headerTextView {
-    if (!_headerTextView) {
-        _headerTextView = [HTextView new];
-        [self addSubview:_headerTextView];
+- (HTextView *)textView {
+    if (!_textView) {
+        _textView = [HTextView new];
+        [self addSubview:_textView];
     }
-    return _headerTextView;
+    return _textView;
 }
-- (HTextView *)sectionTextView {
-    if (!_sectionTextView) {
-        _sectionTextView = [HTextView new];
-        [self addSubview:_sectionTextView];
+- (HTextView *)detailTextView {
+    if (!_detailTextView) {
+        _detailTextView = [HTextView new];
+        [self addSubview:_detailTextView];
     }
-    return _sectionTextView;
+    return _detailTextView;
 }
-- (HTextView *)footerTextView {
-    if (!_footerTextView) {
-        _footerTextView = [HTextView new];
-        [self addSubview:_footerTextView];
+- (HTextView *)accessoryTextView {
+    if (!_accessoryTextView) {
+        _accessoryTextView = [HTextView new];
+        [self addSubview:_accessoryTextView];
     }
-    return _footerTextView;
+    return _accessoryTextView;
 }
-- (HWebButtonView *)headerButton {
-    if (!_headerButton) {
-        _headerButton = [HWebButtonView new];
-        [self addSubview:_headerButton];
+- (HWebButtonView *)button {
+    if (!_button) {
+        _button = [HWebButtonView new];
+        [self addSubview:_button];
     }
-    return _headerButton;
+    return _button;
 }
-- (HWebButtonView *)sectionButton {
-    if (!_sectionButton) {
-        _sectionButton = [HWebButtonView new];
-        [self addSubview:_sectionButton];
+- (HWebButtonView *)detailButton {
+    if (!_detailButton) {
+        _detailButton = [HWebButtonView new];
+        [self addSubview:_detailButton];
     }
-    return _sectionButton;
+    return _detailButton;
 }
-- (HWebButtonView *)footerButton {
-    if (!_footerButton) {
-        _footerButton = [HWebButtonView new];
-        [self addSubview:_footerButton];
+- (HWebButtonView *)accessoryButton {
+    if (!_accessoryButton) {
+        _accessoryButton = [HWebButtonView new];
+        [self addSubview:_accessoryButton];
     }
-    return _footerButton;
+    return _accessoryButton;
 }
-- (HWebImageView *)headerImageView {
-    if (!_headerImageView) {
-        _headerImageView = HWebImageView.new;
-        [self addSubview:_headerImageView];
+- (HWebImageView *)imageView {
+    if (!_imageView) {
+        _imageView = HWebImageView.new;
+        [self addSubview:_imageView];
     }
-    return _headerImageView;
+    return _imageView;
 }
-- (HWebImageView *)sectionImageView {
-    if (!_sectionImageView) {
-        _sectionImageView = HWebImageView.new;
-        [self addSubview:_sectionImageView];
+- (HWebImageView *)detailImageView {
+    if (!_detailImageView) {
+        _detailImageView = HWebImageView.new;
+        [self addSubview:_detailImageView];
     }
-    return _sectionImageView;
+    return _detailImageView;
 }
-- (HWebImageView *)footerImageView {
-    if (!_footerImageView) {
-        _footerImageView = HWebImageView.new;
-        [self addSubview:_footerImageView];
+- (HWebImageView *)accessoryImageView {
+    if (!_accessoryImageView) {
+        _accessoryImageView = HWebImageView.new;
+        [self addSubview:_accessoryImageView];
     }
-    return _footerImageView;
+    return _accessoryImageView;
 }
-- (HTextField *)headerTextField {
-    if (!_headerTextField) {
-        _headerTextField = HTextField.new;
-        [self addSubview:_headerTextField];
+- (HTextField *)textField {
+    if (!_textField) {
+        _textField = HTextField.new;
+        [self addSubview:_textField];
     }
-    return _headerTextField;
+    return _textField;
 }
-- (HTextField *)sectionTextField {
-    if (!_sectionTextField) {
-        _sectionTextField = HTextField.new;
-        [self addSubview:_sectionTextField];
+- (HTextField *)detailTextField {
+    if (!_detailTextField) {
+        _detailTextField = HTextField.new;
+        [self addSubview:_detailTextField];
     }
-    return _sectionTextField;
+    return _detailTextField;
 }
-- (HTextField *)footerTextField {
-    if (!_footerTextField) {
-        _footerTextField = HTextField.new;
-        [self addSubview:_footerTextField];
+- (HTextField *)accessoryTextField {
+    if (!_accessoryTextField) {
+        _accessoryTextField = HTextField.new;
+        [self addSubview:_accessoryTextField];
     }
-    return _footerTextField;
+    return _accessoryTextField;
+}
+@end
+
+@implementation HTableViewCell
+@synthesize imageView = _imageView;
+- (HWebImageView *)imageView {
+    if (!_imageView) {
+        _imageView = HWebImageView.new;
+        [self addSubview:_imageView];
+    }
+    return _imageView;
+}
+- (HLabel *)textLabel {
+    if (!_textLabel) {
+        _textLabel = [HLabel new];
+        [self addSubview:_textLabel];
+    }
+    return _textLabel;
+}
+- (HLabel *)detailTextLabel {
+    if (!_detailTextLabel) {
+        _detailTextLabel = [HLabel new];
+        [self addSubview:_detailTextLabel];
+    }
+    return _detailTextLabel;
+}
+- (HLabel *)accessoryLabel {
+    if (!_accessoryLabel) {
+        _accessoryLabel = [HLabel new];
+        [self addSubview:_accessoryLabel];
+    }
+    return _accessoryLabel;
+}
+- (HWebImageView *)detailView {
+    if (!_detailView) {
+        _detailView = [HWebImageView new];
+        [self addSubview:_detailView];
+    }
+    return _detailView;
+}
+- (HWebImageView *)accessoryView {
+    if (!_accessoryView) {
+        _accessoryView = [HWebImageView new];
+        [self addSubview:_accessoryView];
+    }
+    return _accessoryView;
 }
 @end
