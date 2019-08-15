@@ -17,11 +17,11 @@
 - (NSMutableAttributedString *)attributedString {
     if (!_attributedString) {
         _buttonView = [[HWebButtonView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
-        [_buttonView.button setImage:[UIImage imageNamed:@"dribbble"] forState:UIControlStateNormal];
-        [_buttonView.button setImage:[UIImage imageNamed:@"dribbble"] forState:UIControlStateSelected];
-        [_buttonView.button setSelected:!_buttonView.button.isSelected];
+        [_buttonView setImage:[UIImage imageNamed:@"dribbble"] forState:UIControlStateNormal];
+        [_buttonView setImage:[UIImage imageNamed:@"dribbble"] forState:UIControlStateSelected];
+        [_buttonView setSelected:!_buttonView.isSelected];
         [_buttonView setPressed:^(HWebButtonView *buttonView, id data) {
-            [buttonView.button setSelected:!buttonView.button.isSelected];
+            [buttonView setSelected:!buttonView.isSelected];
         }];
         
         _attributedString = [NSMutableAttributedString h_attachmentStringWithContent:_buttonView contentMode:UIViewContentModeScaleAspectFit attachmentSize:_buttonView.frame.size  alignToFont:[UIFont systemFontOfSize:14] alignment:HTextVerticalAlignmentCenter];
@@ -50,7 +50,7 @@
     return _attributedString;
 }
 - (BOOL)isAuthorized {
-    return _buttonView.button.isSelected;
+    return _buttonView.isSelected;
 }
 - (void)initUI {
     self.label.attributedText = self.attributedString;

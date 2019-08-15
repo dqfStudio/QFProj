@@ -11,9 +11,8 @@
 #import "HCommonBlock.h"
 #import "NSError+HUtil.h"
 
-@interface HWebImageView : UIView
+@interface HWebImageView : UIImageView
 @property (nonatomic) UIImage *placeHoderImage;
-@property (nonatomic) UIImageView *imageView;
 @property (nonatomic) UIColor *renderColor; //父类那个tintColor有问题
 @property (nonatomic) id userInfo;
 

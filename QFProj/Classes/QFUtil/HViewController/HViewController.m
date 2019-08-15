@@ -209,8 +209,8 @@
         _leftNaviButton = [[HWebButtonView alloc] init];
         _leftNaviButton.backgroundColor = nil;
         _leftNaviButton.frame = CGRectMake(0, 0, UIDevice.naviBarHeight, UIDevice.naviBarHeight);
-        [_leftNaviButton.button.titleLabel setFont:[UIFont systemFontOfSize:16]];
-        _leftNaviButton.button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        [_leftNaviButton.titleLabel setFont:[UIFont systemFontOfSize:16]];
+        _leftNaviButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         @weakify(self)
         [_leftNaviButton setPressed:^(id sender, id data) {
             @strongify(self)
@@ -226,10 +226,10 @@
     if (!_rightNaviButton) {
         _rightNaviButton = [[HWebButtonView alloc] init];
         _rightNaviButton.backgroundColor = nil;
-        [_rightNaviButton.button.titleLabel setFont:[UIFont systemFontOfSize:16]];
+        [_rightNaviButton.titleLabel setFont:[UIFont systemFontOfSize:16]];
         _rightNaviButton.frame = CGRectMake(self.topBar.h_width - UIDevice.naviBarHeight, 0, UIDevice.naviBarHeight, UIDevice.naviBarHeight);
         _rightNaviButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
-        _rightNaviButton.button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        _rightNaviButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         @weakify(self)
         [_rightNaviButton setPressed:^(id sender, id data) {
             @strongify(self)
@@ -251,74 +251,74 @@
 
 
 - (void)setLeftNaviImage:(UIImage *)image {
-    [self.leftNaviButton.button setTitle:@"" forState:UIControlStateNormal];
-    [self.leftNaviButton.button setTitle:@"" forState:UIControlStateHighlighted];
-    [self.leftNaviButton.button setImage:image forState:UIControlStateNormal];
-    [self.leftNaviButton.button setImage:image forState:UIControlStateHighlighted];
+    [self.leftNaviButton setTitle:@"" forState:UIControlStateNormal];
+    [self.leftNaviButton setTitle:@"" forState:UIControlStateHighlighted];
+    [self.leftNaviButton setImage:image forState:UIControlStateNormal];
+    [self.leftNaviButton setImage:image forState:UIControlStateHighlighted];
 }
 - (void)setLeftNaviImageURL:(NSString *)imageURL {
-    [self.leftNaviButton.button setTitle:@"" forState:UIControlStateNormal];
-    [self.leftNaviButton.button setTitle:@"" forState:UIControlStateHighlighted];
-    [self.leftNaviButton.button setImage:nil forState:UIControlStateNormal];
-    [self.leftNaviButton.button setImage:nil forState:UIControlStateHighlighted];
+    [self.leftNaviButton setTitle:@"" forState:UIControlStateNormal];
+    [self.leftNaviButton setTitle:@"" forState:UIControlStateHighlighted];
+    [self.leftNaviButton setImage:nil forState:UIControlStateNormal];
+    [self.leftNaviButton setImage:nil forState:UIControlStateHighlighted];
     [self.leftNaviButton setImageUrlString:imageURL];
 }
 - (void)setNaviLeftImage:(UIImage *)normal highlight:(UIImage *)highlight {
-    [self.leftNaviButton.button setTitle:@"" forState:UIControlStateNormal];
-    [self.leftNaviButton.button setTitle:@"" forState:UIControlStateHighlighted];
-    [self.leftNaviButton.button setImage:normal forState:UIControlStateNormal];
-    [self.leftNaviButton.button setImage:highlight forState:UIControlStateHighlighted];
+    [self.leftNaviButton setTitle:@"" forState:UIControlStateNormal];
+    [self.leftNaviButton setTitle:@"" forState:UIControlStateHighlighted];
+    [self.leftNaviButton setImage:normal forState:UIControlStateNormal];
+    [self.leftNaviButton setImage:highlight forState:UIControlStateHighlighted];
 }
 
 - (void)setRightNaviImage:(UIImage *)image {
-    [self.rightNaviButton.button setTitle:@"" forState:UIControlStateNormal];
-    [self.rightNaviButton.button setTitle:@"" forState:UIControlStateHighlighted];
-    [self.rightNaviButton.button setImage:image forState:UIControlStateNormal];
-    [self.rightNaviButton.button setImage:image forState:UIControlStateHighlighted];
+    [self.rightNaviButton setTitle:@"" forState:UIControlStateNormal];
+    [self.rightNaviButton setTitle:@"" forState:UIControlStateHighlighted];
+    [self.rightNaviButton setImage:image forState:UIControlStateNormal];
+    [self.rightNaviButton setImage:image forState:UIControlStateHighlighted];
 }
 - (void)setRightNaviImageURL:(NSString *)imageURL {
-    [self.rightNaviButton.button setTitle:@"" forState:UIControlStateNormal];
-    [self.rightNaviButton.button setTitle:@"" forState:UIControlStateHighlighted];
-    [self.rightNaviButton.button setImage:nil forState:UIControlStateNormal];
-    [self.rightNaviButton.button setImage:nil forState:UIControlStateHighlighted];
+    [self.rightNaviButton setTitle:@"" forState:UIControlStateNormal];
+    [self.rightNaviButton setTitle:@"" forState:UIControlStateHighlighted];
+    [self.rightNaviButton setImage:nil forState:UIControlStateNormal];
+    [self.rightNaviButton setImage:nil forState:UIControlStateHighlighted];
     [self.rightNaviButton setImageUrlString:imageURL];
 }
 - (void)setNaviRightImage:(UIImage *)normal highlight:(UIImage *)highlight {
-    [self.rightNaviButton.button setTitle:@"" forState:UIControlStateNormal];
-    [self.rightNaviButton.button setTitle:@"" forState:UIControlStateHighlighted];
-    [self.rightNaviButton.button setImage:normal forState:UIControlStateNormal];
-    [self.rightNaviButton.button setImage:highlight forState:UIControlStateHighlighted];
+    [self.rightNaviButton setTitle:@"" forState:UIControlStateNormal];
+    [self.rightNaviButton setTitle:@"" forState:UIControlStateHighlighted];
+    [self.rightNaviButton setImage:normal forState:UIControlStateNormal];
+    [self.rightNaviButton setImage:highlight forState:UIControlStateHighlighted];
 }
 - (void)setLeftNaviTitle:(NSString *)title {
-    [self.leftNaviButton.button setImage:nil forState:UIControlStateNormal];
-    [self.leftNaviButton.button setImage:nil forState:UIControlStateHighlighted];
-    [self.leftNaviButton.button setTitle:title forState:UIControlStateNormal];
-    [self.leftNaviButton.button setTitle:title forState:UIControlStateHighlighted];
+    [self.leftNaviButton setImage:nil forState:UIControlStateNormal];
+    [self.leftNaviButton setImage:nil forState:UIControlStateHighlighted];
+    [self.leftNaviButton setTitle:title forState:UIControlStateNormal];
+    [self.leftNaviButton setTitle:title forState:UIControlStateHighlighted];
 }
 - (void)setLeftNaviTitle:(NSString *)title titleColor:(UIColor *)color highlightColor:(UIColor *)highlightcolor {
-    [self.leftNaviButton.button setImage:nil forState:UIControlStateNormal];
-    [self.leftNaviButton.button setImage:nil forState:UIControlStateHighlighted];
-    [self.leftNaviButton.button setTitle:title forState:UIControlStateNormal];
-    [self.leftNaviButton.button setTitle:title forState:UIControlStateHighlighted];
-    [self.leftNaviButton.button setTitleColor:color forState:UIControlStateNormal];
-    [self.leftNaviButton.button setTitleColor:highlightcolor forState:UIControlStateHighlighted];
-    self.leftNaviButton.button.titleLabel.font = [UIFont systemFontOfSize:15];
+    [self.leftNaviButton setImage:nil forState:UIControlStateNormal];
+    [self.leftNaviButton setImage:nil forState:UIControlStateHighlighted];
+    [self.leftNaviButton setTitle:title forState:UIControlStateNormal];
+    [self.leftNaviButton setTitle:title forState:UIControlStateHighlighted];
+    [self.leftNaviButton setTitleColor:color forState:UIControlStateNormal];
+    [self.leftNaviButton setTitleColor:highlightcolor forState:UIControlStateHighlighted];
+    self.leftNaviButton.titleLabel.font = [UIFont systemFontOfSize:15];
     self.leftNaviButton.frame = CGRectMake(HNavTitleButtonMargin, self.rightNaviButton.h_y, HNavTitleButtonWidth, self.rightNaviButton.h_height);
 }
 - (void)setRightNaviTitle:(NSString *)title {
-    [self.rightNaviButton.button setImage:nil forState:UIControlStateNormal];
-    [self.rightNaviButton.button setImage:nil forState:UIControlStateHighlighted];
-    [self.rightNaviButton.button setTitle:title forState:UIControlStateNormal];
-    [self.rightNaviButton.button setTitle:title forState:UIControlStateHighlighted];
+    [self.rightNaviButton setImage:nil forState:UIControlStateNormal];
+    [self.rightNaviButton setImage:nil forState:UIControlStateHighlighted];
+    [self.rightNaviButton setTitle:title forState:UIControlStateNormal];
+    [self.rightNaviButton setTitle:title forState:UIControlStateHighlighted];
 }
 - (void)setRightNaviTitle:(NSString *)title titleColor:(UIColor *)color highlightColor:(UIColor *)highlightcolor {
-    [self.rightNaviButton.button setImage:nil forState:UIControlStateNormal];
-    [self.rightNaviButton.button setImage:nil forState:UIControlStateHighlighted];
-    [self.rightNaviButton.button setTitle:title forState:UIControlStateNormal];
-    [self.rightNaviButton.button setTitle:title forState:UIControlStateHighlighted];
-    [self.rightNaviButton.button setTitleColor:color forState:UIControlStateNormal];
-    [self.rightNaviButton.button setTitleColor:highlightcolor forState:UIControlStateHighlighted];
-    self.rightNaviButton.button.titleLabel.font = [UIFont systemFontOfSize:15];
+    [self.rightNaviButton setImage:nil forState:UIControlStateNormal];
+    [self.rightNaviButton setImage:nil forState:UIControlStateHighlighted];
+    [self.rightNaviButton setTitle:title forState:UIControlStateNormal];
+    [self.rightNaviButton setTitle:title forState:UIControlStateHighlighted];
+    [self.rightNaviButton setTitleColor:color forState:UIControlStateNormal];
+    [self.rightNaviButton setTitleColor:highlightcolor forState:UIControlStateHighlighted];
+    self.rightNaviButton.titleLabel.font = [UIFont systemFontOfSize:15];
     self.rightNaviButton.frame = CGRectMake(self.topBar.h_width - HNavTitleButtonWidth - HNavTitleButtonMargin, self.rightNaviButton.h_y, HNavTitleButtonWidth, self.rightNaviButton.h_height);
 }
 

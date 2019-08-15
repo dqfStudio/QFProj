@@ -13,6 +13,7 @@
 #import <UIView+WebCache.h>
 
 @interface HWebButtonView()
+@property (nonatomic) UIImageView *_imageView;
 @property (nonatomic) NSString *lastURL;
 
 @end
@@ -40,77 +41,51 @@
     return self;
 }
 - (void)setup {
-    [self addSubview:self.button];
-    [self addSubview:self.imageView];
+    [self addSubview:self._imageView];
     //self.backgroundColor = [UIColor colorWithHex:0xe8e8e8];
     self.backgroundColor = [UIColor clearColor];
+    [self initialize];
 }
-- (void)setFrame:(CGRect)frame {
-    [super setFrame:frame];
-    _button.frame = self.bounds;
+- (void)initialize {
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.layer.masksToBounds = YES;
+    [self addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
 }
-- (void)setBounds:(CGRect)bounds {
-    [super setBounds:bounds];
-    _button.frame = self.bounds;
-}
-- (UIButton *)button {
-    if (!_button) {
-        _button = [[UIButton alloc] initWithFrame:self.bounds];
-        _button.imageView.contentMode = UIViewContentModeScaleAspectFill;
-        _button.layer.masksToBounds = YES;
-        [_button addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
-        _button.autoresizingMask = (UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth);
+- (UIImageView *)_imageView {
+    if (!__imageView) {
+        __imageView = [[UIImageView alloc] initWithFrame:self.bounds];
+        __imageView.contentMode = UIViewContentModeScaleAspectFill;
+        __imageView.layer.masksToBounds = YES;
+        __imageView.userInteractionEnabled = NO;
+        __imageView.autoresizingMask = (UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth);
     }
-    return _button;
-}
-
-- (UIImageView *)imageView {
-    if (!_imageView) {
-        _imageView = [[UIImageView alloc] initWithFrame:self.bounds];
-        _imageView.contentMode = UIViewContentModeScaleAspectFill;
-        _imageView.layer.masksToBounds = YES;
-        _imageView.userInteractionEnabled = NO;
-        _imageView.autoresizingMask = (UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth);
-    }
-    return _imageView;
+    return __imageView;
 }
 - (void)_setImage:(UIImage *)image {
-    [self.imageView sd_cancelCurrentImageLoad];
+    [self._imageView sd_cancelCurrentImageLoad];
     if (image != nil) {
         if (self.renderColor) {
-            self.imageView.tintColor = self.renderColor;
-            self.imageView.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+            self._imageView.tintColor = self.renderColor;
+            self._imageView.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         }else {
-            self.imageView.image = image;
+            self._imageView.image = image;
         }
     }else {
-        self.imageView.image = nil;
+        self._imageView.image = nil;
     }
 }
 - (void)setRenderColor:(UIColor *)renderColor {
     _renderColor = renderColor;
     if (self.renderColor) {
-        self.imageView.tintColor = self.renderColor;
-        self.imageView.image = [self.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        self._imageView.tintColor = self.renderColor;
+        self._imageView.image = [self._imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         
-        self.button.tintColor = self.renderColor;
-        [self.button setImage:[[self.button imageForState:UIControlStateNormal] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+        self.tintColor = self.renderColor;
+        [self setImage:[[self imageForState:UIControlStateNormal] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     }else {
-        self.imageView.image = [self.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        self._imageView.image = [self._imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         
-        [self.button setImage:[[self.button imageForState:UIControlStateNormal] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
-    }
-}
-- (void)setImageWithFile:(NSString *)fileName {
-    if (fileName.length > 0) {
-        NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
-        NSString *filePath = [resourcePath stringByAppendingPathComponent:fileName];
-        UIImage *image = [UIImage imageWithContentsOfFile:filePath];
-        [self setImage:image];
-    }else {
-        [self _setImage:nil];
-        self.lastURL = nil;
-        if (self.didGetError) self.didGetError(self, herr(kDataFormatErrorCode, ([NSString stringWithFormat:@"url = %@", fileName])));
+        [self setImage:[[self imageForState:UIControlStateNormal] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
     }
 }
 - (void)setImage:(UIImage *)image {
@@ -125,15 +100,12 @@
 - (void)setImageUrl:(NSURL *)url {
     [self setImageUrl:url syncLoadCache:NO];
 }
-
 - (void)setImageUrl:(NSURL *)url syncLoadCache:(BOOL)syncLoadCache {
     [self setImageUrlString:url.absoluteString syncLoadCache:syncLoadCache];
 }
-
 - (void)setImageUrlString:(NSString *)urlString {
     [self setImageUrlString:urlString syncLoadCache:NO];
 }
-
 - (void)setImageUrlString:(NSString *)urlString syncLoadCache:(BOOL)syncLoadCache {
     if (urlString.length == 0) {
         [self _setImage:nil];
@@ -141,40 +113,42 @@
         if (self.didGetError) self.didGetError(self, herr(kDataFormatErrorCode, ([NSString stringWithFormat:@"url = %@", urlString])));
         return;
     }
-    NSURL *url = [NSURL URLWithString:urlString];
-    NSString *schema = url.scheme.lowercaseString;
-    if (![schema hasPrefix:@"http"]) {
+
+    if (![urlString hasPrefix:@"http"]) {
         UIImage *image = [UIImage imageNamed:urlString];
         [self _setImage:image];
-        self.imageView.alpha = 1;
-        if (self.didGetImage) self.didGetImage(self, self.imageView.image);
+        self._imageView.alpha = 1;
+        if (self.didGetImage) self.didGetImage(self, self._imageView.image);
         return;
     }
-    if (self.imageView.image && [_lastURL isEqual:urlString]) {
-        self.imageView.alpha = 1;
-        if (self.didGetImage) self.didGetImage(self, self.imageView.image);
+    if (self._imageView.image && [_lastURL isEqual:urlString]) {
+        self._imageView.alpha = 1;
+        if (self.didGetImage) self.didGetImage(self, self._imageView.image);
         return;
     }
     
-    if(!self.placeHoderImage && !self.imageView.image) self.imageView.alpha = 0;
+    if(!self.placeHoderImage && !self._imageView.image) self._imageView.alpha = 0;
     
     __block UIImage *placeholder = self.placeHoderImage;
     
     @weakify(self);
+    
     [self _setImage:nil];
     self.lastURL = nil;
+    NSURL *url = [NSURL URLWithString:urlString];
+    
     if (syncLoadCache) {
         NSString *key = [[SDWebImageManager sharedManager] cacheKeyForURL:url];
         UIImage *image = [[SDWebImageManager sharedManager].imageCache imageFromCacheForKey:key];
         if (image) {
             [self _setImage:image];
-            self.imageView.alpha = 1;
+            self._imageView.alpha = 1;
             self.lastURL = url.absoluteString;
             if (self.didGetImage) self.didGetImage(self, image);
         }
     }
-    if (!self.imageView.image) {
-        [_imageView sd_setImageWithURL:url placeholderImage:placeholder options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    if (!self._imageView.image) {
+        [__imageView sd_setImageWithURL:url placeholderImage:placeholder options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             @strongify(self);
             if (error) {
                 if (self.didGetError) self.didGetError(self, error);
@@ -183,17 +157,28 @@
                 self.lastURL = url.absoluteString;
                 if (SDImageCacheTypeNone == cacheType) {
                     [UIView animateWithDuration:0.5 animations:^{
-                        self.imageView.alpha = 1;
+                        self._imageView.alpha = 1;
                     }];
                 }else {
-                    self.imageView.alpha = 1;
+                    self._imageView.alpha = 1;
                 }
                 if (self.didGetImage) self.didGetImage(self, image);
             }
         }];
     }
 }
-
+- (void)setImageWithFile:(NSString *)fileName {
+    if (fileName.length > 0) {
+        NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
+        NSString *filePath = [resourcePath stringByAppendingPathComponent:fileName];
+        UIImage *image = [UIImage imageWithContentsOfFile:filePath];
+        [self setImage:image];
+    }else {
+        [self _setImage:nil];
+        self.lastURL = nil;
+        if (self.didGetError) self.didGetError(self, herr(kDataFormatErrorCode, ([NSString stringWithFormat:@"url = %@", fileName])));
+    }
+}
 - (void)buttonPressed {
     if (_pressed) _pressed(self, nil);
 }

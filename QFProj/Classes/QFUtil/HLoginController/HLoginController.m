@@ -108,8 +108,8 @@
                 //cell.textField.inputValidator = HNumericValidator.new;
                 
                 [cell.textField.rightButton setFrame:CGRectMake(0, 0, 120, 60)];
-                [cell.textField.rightButton.button setTitle:@"获取验证码"];
-                [cell.textField.rightButton.button setFont:[UIFont systemFontOfSize:14]];
+                [cell.textField.rightButton setTitle:@"获取验证码"];
+                [cell.textField.rightButton setFont:[UIFont systemFontOfSize:14]];
                 [cell.textField.rightButton setPressed:^(id sender, id data) {
                     
                 }];
@@ -126,7 +126,7 @@
             case 4: {
                 HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
                 [cell.webButtonView setBackgroundColor:[UIColor colorWithString:@"#CCCCCC"]];
-                [cell.webButtonView.button setTitle:@"登录"];
+                [cell.webButtonView setTitle:@"登录"];
                 [cell.webButtonView setPressed:^(id sender, id data) {
                     /*
                     HTupleTextFieldCell *tfCell1 = self.tupleView.cell(1, 0);

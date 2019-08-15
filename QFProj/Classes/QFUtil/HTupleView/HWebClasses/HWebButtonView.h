@@ -11,11 +11,9 @@
 #import "HCommonBlock.h"
 #import "NSError+HUtil.h"
 
-@interface HWebButtonView : UIView
-@property (nonatomic) UIImageView *imageView;
+@interface HWebButtonView : UIButton
 @property (nonatomic) UIColor *renderColor; //父类那个tintColor有问题
 @property (nonatomic) UIImage *placeHoderImage;
-@property (nonatomic) UIButton *button;
 @property (nonatomic) id userInfo;
 
 @property (nonatomic) callback pressed;
@@ -68,5 +66,4 @@
  *  @param image 图片
  */
 - (void)setImage:(UIImage *)image;
-
 @end

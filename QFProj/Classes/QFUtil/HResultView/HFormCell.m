@@ -81,12 +81,12 @@
         if (index < self.modelArr.count) {
             HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
             [cell.webButtonView setBackgroundColor:[UIColor clearColor]];
-            [cell.webButtonView.button setTitleColor:[UIColor blackColor]];
+            [cell.webButtonView setTitleColor:[UIColor blackColor]];
             
             HFormModel *model = [self.modelArr objectAtIndex:index];
             
-            [cell.webButtonView.button setImage:[UIImage imageNamed:model.icon]];
-            [cell.webButtonView.button setTitle:model.title];
+            [cell.webButtonView setImage:[UIImage imageNamed:model.icon]];
+            [cell.webButtonView setTitle:model.title];
             
             [cell.webButtonView setPressed:^(id sender, id data) {
                 if (self.formCellBlock) {
