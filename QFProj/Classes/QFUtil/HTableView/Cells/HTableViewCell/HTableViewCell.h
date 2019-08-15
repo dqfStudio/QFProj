@@ -31,11 +31,11 @@
 @end
 
 @interface HTableButtonCell : HTableBaseCell
-@property (nonatomic) HWebButtonView *webButtonView;
+@property (nonatomic) HWebButtonView *buttonView;
 @end
 
 @interface HTableImageCell : HTableBaseCell
-@property (nonatomic) HWebImageView *webImageView;
+@property (nonatomic) HWebImageView *imageView;
 @end
 
 @interface HTableTextFieldCell : HTableBaseCell

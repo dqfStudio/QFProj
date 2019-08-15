@@ -125,9 +125,9 @@
                 break;
             case 4: {
                 HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
-                [cell.webButtonView setBackgroundColor:[UIColor colorWithString:@"#CCCCCC"]];
-                [cell.webButtonView setTitle:@"登录"];
-                [cell.webButtonView setPressed:^(id sender, id data) {
+                [cell.buttonView setBackgroundColor:[UIColor colorWithString:@"#CCCCCC"]];
+                [cell.buttonView setTitle:@"登录"];
+                [cell.buttonView setPressed:^(id sender, id data) {
                     /*
                     HTupleTextFieldCell *tfCell1 = self.tupleView.cell(1, 0);
                     HTupleTextFieldCell *tfCell2 = self.tupleView.cell(3, 0);

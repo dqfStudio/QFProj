@@ -538,9 +538,9 @@ H_CheckPropertyRange(rrr, 0, 150)
         case 2:
         {
             HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
-            [cell.webButtonView setBackgroundColor:[UIColor greenColor]];
+            [cell.buttonView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
-            [cell.webButtonView setPressed:^(id sender, id data) {
+            [cell.buttonView setPressed:^(id sender, id data) {
                 HTupleSignal *signal = [HTupleSignal new];
                 NSIndexPath *tmpIndexPath = [NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section];
                 signal.signal = @"hello";
@@ -551,9 +551,9 @@ H_CheckPropertyRange(rrr, 0, 150)
         case 3:
         {
             HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
-            [cell.webButtonView setBackgroundColor:[UIColor redColor]];
+            [cell.buttonView setBackgroundColor:[UIColor redColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
-            [cell.webButtonView setPressed:^(id sender, id data) {
+            [cell.buttonView setPressed:^(id sender, id data) {
                 
             }];
         }
@@ -562,7 +562,7 @@ H_CheckPropertyRange(rrr, 0, 150)
         default:
         {
             HTupleImageCell *cell = itemBlock(nil, HTupleImageCell.class, nil, YES);
-            [cell.webImageView setBackgroundColor:[UIColor greenColor]];
+            [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
             break;
@@ -580,14 +580,14 @@ H_CheckPropertyRange(rrr, 0, 150)
         case 1:
         {
             HTupleButtonView *cell = headerBlock(nil, HTupleButtonView.class, nil, YES);
-            [cell.webButtonView setBackgroundColor:[UIColor blueColor]];
+            [cell.buttonView setBackgroundColor:[UIColor blueColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
             break;
         case 2:
         {
             HTupleImageView *cell = headerBlock(nil, HTupleImageView.class, nil, YES);
-            [cell.webImageView setBackgroundColor:[UIColor greenColor]];
+            [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
             break;
@@ -595,7 +595,7 @@ H_CheckPropertyRange(rrr, 0, 150)
         default:
         {
             HTupleImageView *cell = headerBlock(nil, HTupleImageView.class, nil, YES);
-            [cell.webImageView setBackgroundColor:[UIColor greenColor]];
+            [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
             break;
@@ -613,14 +613,14 @@ H_CheckPropertyRange(rrr, 0, 150)
         case 1:
         {
             HTupleButtonView *cell = footerBlock(nil, HTupleButtonView.class, nil, YES);
-            [cell.webButtonView setBackgroundColor:[UIColor blueColor]];
+            [cell.buttonView setBackgroundColor:[UIColor blueColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
             break;
         case 2:
         {
             HTupleImageView *cell = footerBlock(nil, HTupleImageView.class, nil, YES);
-            [cell.webImageView setBackgroundColor:[UIColor greenColor]];
+            [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
             break;
@@ -628,7 +628,7 @@ H_CheckPropertyRange(rrr, 0, 150)
         default:
         {
             HTupleImageView *cell = footerBlock(nil, HTupleImageView.class, nil, YES);
-            [cell.webImageView setBackgroundColor:[UIColor greenColor]];
+            [cell.imageView setBackgroundColor:[UIColor greenColor]];
             [cell setBackgroundColor:[UIColor grayColor]];
         }
             break;

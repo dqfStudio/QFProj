@@ -80,15 +80,15 @@
         NSInteger index = indexPath.section*self.rows*self.rowItems + indexPath.row;
         if (index < self.modelArr.count) {
             HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
-            [cell.webButtonView setBackgroundColor:[UIColor clearColor]];
-            [cell.webButtonView setTitleColor:[UIColor blackColor]];
+            [cell.buttonView setBackgroundColor:[UIColor clearColor]];
+            [cell.buttonView setTitleColor:[UIColor blackColor]];
             
             HFormModel *model = [self.modelArr objectAtIndex:index];
             
-            [cell.webButtonView setImage:[UIImage imageNamed:model.icon]];
-            [cell.webButtonView setTitle:model.title];
+            [cell.buttonView setImage:[UIImage imageNamed:model.icon]];
+            [cell.buttonView setTitle:model.title];
             
-            [cell.webButtonView setPressed:^(id sender, id data) {
+            [cell.buttonView setPressed:^(id sender, id data) {
                 if (self.formCellBlock) {
                     self.formCellBlock(indexPath, model);
                 }

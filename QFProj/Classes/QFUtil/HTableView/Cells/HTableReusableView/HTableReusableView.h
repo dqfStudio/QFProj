@@ -19,11 +19,11 @@
 @end
 
 @interface HTableButtonView : HTableBaseView
-@property (nonatomic) HWebButtonView *webButtonView;
+@property (nonatomic) HWebButtonView *buttonView;
 @end
 
 @interface HTableImageView : HTableBaseView
-@property (nonatomic) HWebImageView *webImageView;
+@property (nonatomic) HWebImageView *imageView;
 @end
 
 @interface HTableTextFieldView : HTableBaseView

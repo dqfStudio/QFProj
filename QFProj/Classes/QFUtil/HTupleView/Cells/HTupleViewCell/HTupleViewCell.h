@@ -25,11 +25,11 @@
 @end
 
 @interface HTupleButtonCell : HTupleBaseCell
-@property (nonatomic) HWebButtonView *webButtonView;
+@property (nonatomic) HWebButtonView *buttonView;
 @end
 
 @interface HTupleImageCell : HTupleBaseCell
-@property (nonatomic) HWebImageView *webImageView;
+@property (nonatomic) HWebImageView *imageView;
 @end
 
 @interface HTupleTextFieldCell : HTupleBaseCell
