@@ -37,30 +37,30 @@
 @end
 
 @implementation HTupleButtonView
-- (HWebButtonView *)buttonView {
-    if (!_buttonView) {
-        _buttonView = [HWebButtonView new];
-        [_buttonView setBackgroundColor:UIColor.clearColor];
-        [self addSubview:_buttonView];
+- (HWebButtonView *)webButtonView {
+    if (!_webButtonView) {
+        _webButtonView = [HWebButtonView new];
+        [_webButtonView setBackgroundColor:UIColor.clearColor];
+        [self addSubview:_webButtonView];
     }
-    return _buttonView;
+    return _webButtonView;
 }
 - (void)layoutContentView {
-    HLayoutTupleView(self.buttonView)
+    HLayoutTupleView(self.webButtonView)
 }
 @end
 
 @implementation HTupleImageView
-- (HWebImageView *)imageView {
-    if (!_imageView) {
-        _imageView = [HWebImageView new];
-        [_imageView setBackgroundColor:UIColor.clearColor];
-        [self addSubview:_imageView];
+- (HWebImageView *)webImageView {
+    if (!_webImageView) {
+        _webImageView = [HWebImageView new];
+        [_webImageView setBackgroundColor:UIColor.clearColor];
+        [self addSubview:_webImageView];
     }
-    return _imageView;
+    return _webImageView;
 }
 - (void)layoutContentView {
-    HLayoutTupleView(self.imageView)
+    HLayoutTupleView(self.webImageView)
 }
 @end
 

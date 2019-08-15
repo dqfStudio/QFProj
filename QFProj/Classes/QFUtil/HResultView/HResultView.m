@@ -144,13 +144,13 @@
                     HTupleImageCell *cell = itemBlock(nil, HTupleImageCell.class, nil, YES);
                     switch (_resultType) {
                         case HResultTypeNoData:
-                            [cell.imageView setImage:[UIImage imageNamed:@"mgf_icon_load_nothing"]];
+                            [cell.webImageView setImage:[UIImage imageNamed:@"mgf_icon_load_nothing"]];
                             break;
                         case HResultTypeLoadError:
-                            [cell.imageView setImage:[UIImage imageNamed:@"mgf_icon_no_server"]];
+                            [cell.webImageView setImage:[UIImage imageNamed:@"mgf_icon_no_server"]];
                             break;
                         case KNoNetwork:
-                            [cell.imageView setImage:[UIImage imageNamed:@"mgf_icon_no_network"]];
+                            [cell.webImageView setImage:[UIImage imageNamed:@"mgf_icon_no_network"]];
                             break;
                         default:
                             break;

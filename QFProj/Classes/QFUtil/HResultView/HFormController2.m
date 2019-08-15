@@ -69,7 +69,7 @@
         return UIEdgeInsetsZero;
     } tuple:^(HHeaderTuple  _Nonnull headerBlock, NSInteger section) {
         HTupleButtonView *cell = headerBlock(nil, HTupleButtonView.class, nil, YES);
-        [cell.buttonView setBackgroundColor:[UIColor clearColor]];
+        [cell.webButtonView setBackgroundColor:[UIColor clearColor]];
 //        [cell.buttonView setPressed:^(id sender, id data) {
 //            //销毁对象
 //            [self destroy];
@@ -88,10 +88,10 @@
     } tuple:^(HFooterTuple  _Nonnull footerBlock, NSInteger section) {
         @sss
         HTupleButtonView *cell = footerBlock(nil, HTupleButtonView.class, nil, YES);
-        [cell.buttonView setBackgroundColor:[UIColor whiteColor]];
-        [cell.buttonView.button setTitleColor:[UIColor blackColor]];
-        [cell.buttonView.button setTitle:@"取消"];
-        [cell.buttonView setPressed:^(id sender, id data) {
+        [cell.webButtonView setBackgroundColor:[UIColor whiteColor]];
+        [cell.webButtonView.button setTitleColor:[UIColor blackColor]];
+        [cell.webButtonView.button setTitle:@"取消"];
+        [cell.webButtonView setPressed:^(id sender, id data) {
             //销毁对象
             [self destroy];
         }];

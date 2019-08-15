@@ -329,9 +329,9 @@ UIKIT_STATIC_INLINE long getTotalPages(long totalLines, long pageLines);
             }
             HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
             [cell setBackgroundColor:self.formController.bgColor];
-            [cell.buttonView setBackgroundColor:self.formController.itemBgColor];
-            [cell.buttonView.button setTitle:self.formController.titles[indexPath.row]];
-            [cell.buttonView setPressed:^(id sender, id data) {
+            [cell.webButtonView setBackgroundColor:self.formController.itemBgColor];
+            [cell.webButtonView.button setTitle:self.formController.titles[indexPath.row]];
+            [cell.webButtonView setPressed:^(id sender, id data) {
                 if (self.formController.buttonBlock) self.formController.buttonBlock(indexPath.row);
             }];
         }else {
@@ -348,9 +348,9 @@ UIKIT_STATIC_INLINE long getTotalPages(long totalLines, long pageLines);
             }
             HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
             [cell setBackgroundColor:self.formController.bgColor];
-            [cell.buttonView setBackgroundColor:self.formController.itemBgColor];
-            [cell.buttonView.button setTitle:self.formController.titles[indexPath.row+pageItems*tag]];
-            [cell.buttonView setPressed:^(id sender, id data) {
+            [cell.webButtonView setBackgroundColor:self.formController.itemBgColor];
+            [cell.webButtonView.button setTitle:self.formController.titles[indexPath.row+pageItems*tag]];
+            [cell.webButtonView setPressed:^(id sender, id data) {
                 if (self.formController.buttonBlock) self.formController.buttonBlock(indexPath.row+pageItems*tag);
             }];
         }else {

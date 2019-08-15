@@ -37,30 +37,30 @@
 @end
 
 @implementation HTableButtonView
-- (HWebButtonView *)buttonView {
-    if (!_buttonView) {
-        _buttonView = [HWebButtonView new];
-        [_buttonView setBackgroundColor:UIColor.clearColor];
-        [self addSubview:_buttonView];
+- (HWebButtonView *)webButtonView {
+    if (!_webButtonView) {
+        _webButtonView = [HWebButtonView new];
+        [_webButtonView setBackgroundColor:UIColor.clearColor];
+        [self addSubview:_webButtonView];
     }
-    return _buttonView;
+    return _webButtonView;
 }
 - (void)layoutContentView {
-    HLayoutTableView(self.buttonView)
+    HLayoutTableView(self.webButtonView)
 }
 @end
 
 @implementation HTableImageView
-- (HWebImageView *)imageView {
-    if (!_imageView) {
-        _imageView = [HWebImageView new];
-        [_imageView setBackgroundColor:UIColor.clearColor];
-        [self addSubview:_imageView];
+- (HWebImageView *)webImageView {
+    if (!_webImageView) {
+        _webImageView = [HWebImageView new];
+        [_webImageView setBackgroundColor:UIColor.clearColor];
+        [self addSubview:_webImageView];
     }
-    return _imageView;
+    return _webImageView;
 }
 - (void)layoutContentView {
-    HLayoutTableView(self.imageView)
+    HLayoutTableView(self.webImageView)
 }
 @end
 

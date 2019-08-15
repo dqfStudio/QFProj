@@ -117,8 +117,8 @@
         switch (indexPath.row) {
             case 0: {
                 HTupleImageCell *cell = itemBlock(nil, HTupleImageCell.class, nil, YES);
-                [cell.imageView.imageView setContentMode:UIViewContentModeScaleAspectFit];
-                [cell.imageView setBackgroundColor:[UIColor clearColor]];
+                [cell.webImageView.imageView setContentMode:UIViewContentModeScaleAspectFit];
+                [cell.webImageView setBackgroundColor:[UIColor clearColor]];
                 
                 NSMutableArray *images = [NSMutableArray array];
                 for (int i = 1; i <= 16; i++) {
@@ -144,9 +144,9 @@
                         [images addObject:image];
                     }
                 }
-                cell.imageView.imageView.animationImages = images;
-                cell.imageView.imageView.animationDuration = 1.0f;
-                [cell.imageView.imageView startAnimating];
+                cell.webImageView.imageView.animationImages = images;
+                cell.webImageView.imageView.animationDuration = 1.0f;
+                [cell.webImageView.imageView startAnimating];
             }
                 break;
             case 1: {
@@ -181,8 +181,8 @@
 
 - (void)removeFromSuperview {
     HTupleImageCell *cell = self.tupleView.cell(0, 0);
-    if (cell.imageView.imageView.isAnimating) {
-        [cell.imageView.imageView stopAnimating];
+    if (cell.webImageView.imageView.isAnimating) {
+        [cell.webImageView.imageView stopAnimating];
     }
     [super removeFromSuperview];
 }

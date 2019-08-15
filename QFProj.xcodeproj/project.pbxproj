@@ -2042,8 +2042,8 @@
 		A2A8EB3622DB65A90049C51B /* HDrawerViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A2A8EB3722DB65A90049C51B /* HDrawerViewController.m */,
 				A2A8EB3822DB65A90049C51B /* HDrawerViewController.h */,
+				A2A8EB3722DB65A90049C51B /* HDrawerViewController.m */,
 			);
 			name = HDrawerViewController;
 			path = QFUtil/HDrawerViewController;
