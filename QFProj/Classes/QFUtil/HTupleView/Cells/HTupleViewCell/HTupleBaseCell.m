@@ -47,7 +47,9 @@
     if (!_separatorView) {
         _separatorView = UIView.new;
         [_separatorView setHidden:YES];
-        [_separatorView setBackgroundColor:UIColor.lightGrayColor];
+        //#E2E2E2
+        UIColor *color = [UIColor colorWithRed:226/255.0 green:226/255.0 blue:226/255.0 alpha:1.0];
+        [_separatorView setBackgroundColor:color];
     }
     return _separatorView;
 }
@@ -78,10 +80,8 @@
                 [self addSubview:self.separatorView];
             }
             [self bringSubviewToFront:self.separatorView];
-            [self.separatorView setHidden:NO];
-        }else {
-            [self.separatorView setHidden:YES];
         }
+        [self.separatorView setHidden:!_shouldShowSeparator];
     }
     //重设frame
     if (_shouldShowSeparator) {
