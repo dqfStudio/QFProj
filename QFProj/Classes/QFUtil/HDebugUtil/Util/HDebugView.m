@@ -47,7 +47,7 @@
         
         [self.table headerWithHeight:^CGFloat(NSInteger section) {
             return UIDevice.topBarHeight;
-        } tuple:^(HHeaderTable  _Nonnull headerBlock, NSInteger section) {
+        } tableHeader:^(HTableHeader  _Nonnull headerBlock, NSInteger section) {
             HTableLabelView *cell = headerBlock(nil, HTableLabelView.class, nil, YES);
             [cell.label setText:@"debug tool"];
             [cell.label setTextColor:UIColor.blackColor];
@@ -56,7 +56,7 @@
         
         [self.table cellWithHeight:^CGFloat(NSIndexPath * _Nonnull indexPath) {
             return 50;
-        } tuple:^(HCellTable  _Nonnull cellBlock, NSIndexPath * _Nonnull indexPath) {
+        } tableCell:^(HTableCell  _Nonnull cellBlock, NSIndexPath * _Nonnull indexPath) {
             
             switch (indexPath.row) {
                 case 0: {

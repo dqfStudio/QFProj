@@ -84,7 +84,7 @@
         return CGSizeMake(self.tupleView.width, height);
     } edgeInsets:^UIEdgeInsets(NSInteger section) {
         return UIEdgeInsetsZero;
-    } tuple:^(HHeaderTuple  _Nonnull headerBlock, NSInteger section) {
+    } tupleHeader:^(HTupleHeader  _Nonnull headerBlock, NSInteger section) {
         headerBlock(nil, HTupleBaseCell.class, nil, YES);
     }];
     
@@ -103,7 +103,7 @@
         return CGSizeMake(self.tupleView.width, height);
     } edgeInsets:^UIEdgeInsets(NSInteger section) {
         return UIEdgeInsetsZero;
-    } tuple:^(HFooterTuple  _Nonnull footerBlock, NSInteger section) {
+    } tupleFooter:^(HTupleFooter  _Nonnull footerBlock, NSInteger section) {
         footerBlock(nil, HTupleBaseCell.class, nil, YES);
     }];
     
@@ -136,7 +136,7 @@
             case 2: return UIEdgeInsetsMake(0, self.tupleView.width/2-KTextWidth/2, 0, self.tupleView.width/2-KTextWidth/2);
             default: return UIEdgeInsetsZero;
         }
-    } tuple:^(HItemTuple  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+    } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
         @sss
         switch (indexPath.row) {
             case 0: {

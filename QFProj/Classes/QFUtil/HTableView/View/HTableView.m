@@ -30,7 +30,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 
 @property (nonatomic, copy) NSArray <NSString *> *headerIndexPaths;
 @property (nonatomic, copy) NSArray <NSString *> *footerIndexPaths;
-@property (nonatomic, copy) NSArray <NSString *> *itemIndexPaths;
+@property (nonatomic, copy) NSArray <NSString *> *cellIndexPaths;
 
 @property (nonatomic, copy) HANumberOfSectionsBlock numberOfSectionsBlock;
 @property (nonatomic, copy) HNumberOfCellsBlock numberOfCellsBlock;
@@ -39,9 +39,9 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 @property (nonatomic, copy) HeightForFooterBlock heightForFooterBlock;
 @property (nonatomic, copy) HeightForCellBlock heightForCellBlock;
 
-@property (nonatomic, copy) HHeaderTableBlock headerTableBlock;
-@property (nonatomic, copy) HFooterTableBlock footerTableBlock;
-@property (nonatomic, copy) HCellTableBlock cellTableBlock;
+@property (nonatomic, copy) HTableHeaderBlock headerTableBlock;
+@property (nonatomic, copy) HTableFooterBlock footerTableBlock;
+@property (nonatomic, copy) HTableCellBlock cellTableBlock;
 
 @property (nonatomic, copy) HCellWillDisplayBlock cellWillDisplayBlock;
 @property (nonatomic, copy) HDidSelectCellBlock didSelectCellBlock;
@@ -72,12 +72,12 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     return self;
 }
 + (instancetype)sectionDesignWith:(CGRect)frame andSections:(NSInteger)sections {
-    return [[HTableView alloc] initWithFrame:frame designStyle:HTableDesignStyleSection designSection:sections headers:nil footers:nil items:nil];
+    return [[HTableView alloc] initWithFrame:frame designStyle:HTableDesignStyleSection designSection:sections headers:nil footers:nil cells:nil];
 }
-+ (instancetype)tableDesignWith:(CGRect (^)(void))frame exclusiveHeaders:(HTableExclusiveForHeaderBlock)headers exclusiveFooters:(HTableExclusiveForFooterBlock)footers exclusiveItems:(HTableExclusiveForItemBlock)items {
-    return [[HTableView alloc] initWithFrame:frame() designStyle:HTableDesignStyleTable designSection:0 headers:headers() footers:footers() items:items()];
++ (instancetype)tableDesignWith:(CGRect (^)(void))frame exclusiveHeaders:(HTableExclusiveForHeaderBlock)headers exclusiveFooters:(HTableExclusiveForFooterBlock)footers exclusiveCells:(HTableExclusiveForCellBlock)cells {
+    return [[HTableView alloc] initWithFrame:frame() designStyle:HTableDesignStyleTable designSection:0 headers:headers() footers:footers() cells:cells()];
 }
-- (instancetype)initWithFrame:(CGRect)frame designStyle:(HTableDesignStyle)style designSection:(NSInteger)sections headers:(NSArray <NSString *> *)headerIndexPaths footers:(NSArray <NSString *> *)footerIndexPaths items:(NSArray <NSString *> *)itemIndexPaths {
+- (instancetype)initWithFrame:(CGRect)frame designStyle:(HTableDesignStyle)style designSection:(NSInteger)sections headers:(NSArray <NSString *> *)headerIndexPaths footers:(NSArray <NSString *> *)footerIndexPaths cells:(NSArray <NSString *> *)cellIndexPaths {
     self = [super initWithFrame:frame];
     if (self) {
         _designStyle = style;
@@ -85,7 +85,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         _designSections = sections;
         self.headerIndexPaths = headerIndexPaths;
         self.footerIndexPaths = footerIndexPaths;
-        self.itemIndexPaths = itemIndexPaths;
+        self.cellIndexPaths = cellIndexPaths;
         [self setup];
     }
     return self;
@@ -178,7 +178,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 - (void)endLoadMore:(void (^)(void))completion {
     [self.mj_footer endRefreshingWithCompletionBlock:completion];
 }
-- (void)setRefreshBlock:(HRefreshTableBlock)refreshBlock {
+- (void)setRefreshBlock:(HTableRefreshBlock)refreshBlock {
     _refreshBlock = refreshBlock;
     if (_refreshBlock) {
         @www
@@ -191,7 +191,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         self.mj_header = nil;
     }
 }
-- (void)setLoadMoreBlock:(HLoadMoreTableBlock)loadMoreBlock {
+- (void)setLoadMoreBlock:(HTableLoadMoreBlock)loadMoreBlock {
     _loadMoreBlock = loadMoreBlock;
     if (_loadMoreBlock) {
         [self setPageNo:1];
@@ -334,12 +334,12 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         }
         return cell;
     };
-    if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:headerTuple:inSection:)]) {
-        [self.tableDelegate tableView:self headerTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+    if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:tableHeader:inSection:)]) {
+        [self.tableDelegate tableView:self tableHeader:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
             return HCellForHeaderBlock(iblk, cls, pre, idx);
         } inSection:section];
-    }else if (_categoryDesign && [self respondsToSelector:@selector(tableView:headerTuple:inSection:)]) {
-        [self tableView:self headerTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+    }else if (_categoryDesign && [self respondsToSelector:@selector(tableView:tableHeader:inSection:)]) {
+        [self tableView:self tableHeader:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
             return HCellForHeaderBlock(iblk, cls, pre, idx);
         } inSection:section];
     }else if (self.headerTableBlock) {
@@ -384,12 +384,12 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         }
         return cell;
     };
-    if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:footerTuple:inSection:)]) {
-        [self.tableDelegate tableView:self footerTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+    if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:tableFooter:inSection:)]) {
+        [self.tableDelegate tableView:self tableFooter:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
             return HCellForFooterBlock(iblk, cls, pre, idx);
         } inSection:section];
-    }else if (_categoryDesign && [self respondsToSelector:@selector(tableView:footerTuple:inSection:)]) {
-        [self tableView:self footerTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+    }else if (_categoryDesign && [self respondsToSelector:@selector(tableView:tableFooter:inSection:)]) {
+        [self tableView:self tableFooter:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
             return HCellForFooterBlock(iblk, cls, pre, idx);
         } inSection:section];
     }else if (self.footerTableBlock) {
@@ -405,7 +405,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:self.addressValue];
         identifier = [identifier stringByAppendingString:@"ItemCell"];
-        if (![self.itemIndexPaths containsObject:indexPath.stringValue]) {
+        if (![self.cellIndexPaths containsObject:indexPath.stringValue]) {
             identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
         }
         if (pre) identifier = [identifier stringByAppendingString:pre];
@@ -433,12 +433,12 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         }
         return cell;
     };
-    if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:cellTuple:atIndexPath:)]) {
-        [self.tableDelegate tableView:self cellTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+    if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:tableCell:atIndexPath:)]) {
+        [self.tableDelegate tableView:self tableCell:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
             return HCellForItemBlock(iblk, cls, pre, idx);
         } atIndexPath:indexPath];
-    }else if (_categoryDesign && [self respondsToSelector:@selector(tableView:cellTuple:atIndexPath:)]) {
-        [self tableView:self cellTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+    }else if (_categoryDesign && [self respondsToSelector:@selector(tableView:tableCell:atIndexPath:)]) {
+        [self tableView:self tableCell:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
             return HCellForItemBlock(iblk, cls, pre, idx);
         } atIndexPath:indexPath];
     }else if (self.cellTableBlock) {
@@ -481,15 +481,15 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     self.numberOfSectionsBlock = sections;
     self.numberOfCellsBlock = cells;
 }
-- (void)headerWithHeight:(HeightForHeaderBlock)height tuple:(HHeaderTableBlock)block {
+- (void)headerWithHeight:(HeightForHeaderBlock)height tableHeader:(HTableHeaderBlock)block {
     self.heightForHeaderBlock = height;
     self.headerTableBlock = block;
 }
-- (void)footerWithHeight:(HeightForFooterBlock)height tuple:(HFooterTableBlock)block {
+- (void)footerWithHeight:(HeightForFooterBlock)height tableFooter:(HTableFooterBlock)block {
     self.heightForFooterBlock = height;
     self.footerTableBlock = block;
 }
-- (void)cellWithHeight:(HeightForCellBlock)height tuple:(HCellTableBlock)block {
+- (void)cellWithHeight:(HeightForCellBlock)height tableCell:(HTableCellBlock)block {
     self.heightForCellBlock = height;
     self.cellTableBlock = block;
 }
@@ -532,19 +532,19 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     });
 }
 #pragma mark - Category & Design
-- (void)tableView:(UITableView *)tableView headerTuple:(HHeaderTable)headerBlock inSection:(NSInteger)section {
+- (void)tableView:(UITableView *)tableView tableHeader:(HTableHeader)headerBlock inSection:(NSInteger)section {
     NSString *prefix = [self tableWithPrefix:section];
     if ([(NSObject *)self.tableDelegate respondsToSelector:_cmd withPre:prefix]) {
         [(NSObject *)self.tableDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tableView, &headerBlock, &section];
     }
 }
-- (void)tableView:(UITableView *)tableView footerTuple:(HFooterTable)footerBlock inSection:(NSInteger)section {
+- (void)tableView:(UITableView *)tableView tableFooter:(HTableFooter)footerBlock inSection:(NSInteger)section {
     NSString *prefix = [self tableWithPrefix:section];
     if ([(NSObject *)self.tableDelegate respondsToSelector:_cmd withPre:prefix]) {
         [(NSObject *)self.tableDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tableView, &footerBlock, &section];
     }
 }
-- (void)tableView:(UITableView *)tableView cellTuple:(HCellTable)cellBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView tableCell:(HTableCell)cellBlock atIndexPath:(NSIndexPath *)indexPath {
     NSString *prefix = [self tableWithPrefix:indexPath.section];
     if ([(NSObject *)self.tableDelegate respondsToSelector:_cmd withPre:prefix]) {
         [(NSObject *)self.tableDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tableView, &cellBlock, &indexPath];

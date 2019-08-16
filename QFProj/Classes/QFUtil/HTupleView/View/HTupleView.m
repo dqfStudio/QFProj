@@ -49,9 +49,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 
 @property (nonatomic, copy) HInsetForSectionBlock insetForSectionBlock;
 
-@property (nonatomic, copy) HHeaderTupleBlock headerTupleBlock;
-@property (nonatomic, copy) HFooterTupleBlock footerTupleBlock;
-@property (nonatomic, copy) HItemTupleBlock itemTupleBlock;
+@property (nonatomic, copy) HTupleHeaderBlock headerTupleBlock;
+@property (nonatomic, copy) HTupleFooterBlock footerTupleBlock;
+@property (nonatomic, copy) HTupleItemBlock itemTupleBlock;
 
 @property (nonatomic, copy) HItemWillDisplayBlock itemWillDisplayBlock;
 @property (nonatomic, copy) HDidSelectItemBlock didSelectItemBlock;
@@ -196,7 +196,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 - (void)endLoadMore:(void (^)(void))completion {
     [self.mj_footer endRefreshingWithCompletionBlock:completion];
 }
-- (void)setRefreshBlock:(HRefreshTupleBlock)refreshBlock {
+- (void)setRefreshBlock:(HTupleRefreshBlock)refreshBlock {
     _refreshBlock = refreshBlock;
     if (_refreshBlock) {
         @www
@@ -209,7 +209,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         self.mj_header = nil;
     }
 }
-- (void)setLoadMoreBlock:(HLoadMoreTupleBlock)loadMoreBlock {
+- (void)setLoadMoreBlock:(HTupleLoadMoreBlock)loadMoreBlock {
     _loadMoreBlock = loadMoreBlock;
     if (_loadMoreBlock) {
         [self setPageNo:1];
@@ -369,12 +369,12 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         }
         return cell;
     };
-    if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:itemTuple:atIndexPath:)]) {
-        [self.tupleDelegate tupleView:self itemTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+    if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:tupleItem:atIndexPath:)]) {
+        [self.tupleDelegate tupleView:self tupleItem:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
             return HCellForItemBlock(iblk, cls, pre, idx);
         } atIndexPath:indexPath];
-    }else if (_categoryDesign && [self respondsToSelector:@selector(tupleView:itemTuple:atIndexPath:)]) {
-        [self tupleView:self itemTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+    }else if (_categoryDesign && [self respondsToSelector:@selector(tupleView:tupleItem:atIndexPath:)]) {
+        [self tupleView:self tupleItem:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
             return HCellForItemBlock(iblk, cls, pre, idx);
         } atIndexPath:indexPath];
     }else if (self.itemTupleBlock) {
@@ -431,12 +431,12 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
             }
             return cell;
         };
-        if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:headerTuple:inSection:)]) {
-            [self.tupleDelegate tupleView:self headerTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+        if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:tupleHeader:inSection:)]) {
+            [self.tupleDelegate tupleView:self tupleHeader:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
                 return HCellForHeaderBlock(iblk, cls, pre, idx);
             } inSection:indexPath.section];
-        }else if (_categoryDesign && [self respondsToSelector:@selector(tupleView:headerTuple:inSection:)]) {
-            [self tupleView:self headerTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+        }else if (_categoryDesign && [self respondsToSelector:@selector(tupleView:tupleHeader:inSection:)]) {
+            [self tupleView:self tupleHeader:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
                 return HCellForHeaderBlock(iblk, cls, pre, idx);
             } inSection:indexPath.section];
         }else if (self.headerTupleBlock) {
@@ -489,12 +489,12 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
             }
             return cell;
         };
-        if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:footerTuple:inSection:)]) {
-            [self.tupleDelegate tupleView:self footerTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+        if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:tupleFooter:inSection:)]) {
+            [self.tupleDelegate tupleView:self tupleFooter:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
                 return HCellForFooterBlock(iblk, cls, pre, idx);
             } inSection:indexPath.section];
-        }else if (_categoryDesign && [self respondsToSelector:@selector(tupleView:footerTuple:inSection:)]) {
-            [self tupleView:self footerTuple:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+        }else if (_categoryDesign && [self respondsToSelector:@selector(tupleView:tupleFooter:inSection:)]) {
+            [self tupleView:self tupleFooter:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
                 return HCellForFooterBlock(iblk, cls, pre, idx);
             } inSection:indexPath.section];
         }else if (self.footerTupleBlock) {
@@ -530,17 +530,17 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     self.colorForSectionBlock = color;
     self.insetForSectionBlock = inset;
 }
-- (void)headerWithSize:(HSizeForHeaderBlock)size edgeInsets:(HEdgeInsetsForHeaderBlock)edge tuple:(HHeaderTupleBlock)block {
+- (void)headerWithSize:(HSizeForHeaderBlock)size edgeInsets:(HEdgeInsetsForHeaderBlock)edge tupleHeader:(HTupleHeaderBlock)block {
     self.sizeForHeaderBlock = size;
     self.edgeInsetsForHeaderBlock = edge;
     self.headerTupleBlock = block;
 }
-- (void)footerWithSize:(HSizeForFooterBlock)size edgeInsets:(HEdgeInsetsForFooterBlock)edge tuple:(HFooterTupleBlock)block {
+- (void)footerWithSize:(HSizeForFooterBlock)size edgeInsets:(HEdgeInsetsForFooterBlock)edge tupleFooter:(HTupleFooterBlock)block {
     self.sizeForFooterBlock = size;
     self.edgeInsetsForFooterBlock = edge;
     self.footerTupleBlock = block;
 }
-- (void)itemWithSize:(HSizeForItemBlock)size edgeInsets:(HEdgeInsetsForItemBlock)edge tuple:(HItemTupleBlock)block {
+- (void)itemWithSize:(HSizeForItemBlock)size edgeInsets:(HEdgeInsetsForItemBlock)edge tupleItem:(HTupleItemBlock)block {
     self.sizeForItemBlock = size;
     self.edgeInsetsForItemBlock = edge;
     self.itemTupleBlock = block;
@@ -668,19 +668,19 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     }
     return UIEdgeInsetsZero;
 }
-- (void)tupleView:(UICollectionView *)tupleView headerTuple:(HHeaderTuple)headerBlock inSection:(NSInteger)section {
+- (void)tupleView:(UICollectionView *)tupleView tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
     NSString *prefix = [self tupleWithPrefix:section];
     if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
         [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &headerBlock, &section];
     }
 }
-- (void)tupleView:(UICollectionView *)tupleView footerTuple:(HFooterTuple)footerBlock inSection:(NSInteger)section {
+- (void)tupleView:(UICollectionView *)tupleView tupleFooter:(HTupleFooter)footerBlock inSection:(NSInteger)section {
     NSString *prefix = [self tupleWithPrefix:section];
     if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
         [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &footerBlock, &section];
     }
 }
-- (void)tupleView:(UICollectionView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(UICollectionView *)tupleView tupleCell:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     NSString *prefix = [self tupleWithPrefix:indexPath.section];
     if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
         [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &itemBlock, &indexPath];

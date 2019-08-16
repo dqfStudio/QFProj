@@ -67,7 +67,7 @@
         return CGSizeMake(self.tupleView.width, self.tupleView.height-KItemHeight*self.numberOfRows-height);
     } edgeInsets:^UIEdgeInsets(NSInteger section) {
         return UIEdgeInsetsZero;
-    } tuple:^(HHeaderTuple  _Nonnull headerBlock, NSInteger section) {
+    } tupleHeader:^(HTupleHeader  _Nonnull headerBlock, NSInteger section) {
         HTupleButtonView *cell = headerBlock(nil, HTupleButtonView.class, nil, YES);
         [cell.buttonView setBackgroundColor:[UIColor clearColor]];
 //        [cell.buttonView setPressed:^(id sender, id data) {
@@ -85,7 +85,7 @@
         NSInteger height = 0;
         if (UIDevice.isIPhoneX) height += UIDevice.bottomBarHeight;
         return UIEdgeInsetsMake(10, 0, height, 0);
-    } tuple:^(HFooterTuple  _Nonnull footerBlock, NSInteger section) {
+    } tupleFooter:^(HTupleFooter  _Nonnull footerBlock, NSInteger section) {
         @sss
         HTupleButtonView *cell = footerBlock(nil, HTupleButtonView.class, nil, YES);
         [cell.buttonView setBackgroundColor:[UIColor whiteColor]];
@@ -102,7 +102,7 @@
         return CGSizeMake(self.tupleView.width, KItemHeight*self.numberOfRows);
     } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
         return UIEdgeInsetsZero;
-    } tuple:^(HItemTuple  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+    } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
         @sss
         HFormCell *cell = itemBlock(nil, HFormCell.class, nil, YES);
         [cell setModelArr:self.sourceArr];

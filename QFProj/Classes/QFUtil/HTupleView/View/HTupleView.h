@@ -30,12 +30,12 @@ typedef NSUInteger HTupleState;
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void (^HRefreshTupleBlock)(void);
-typedef void (^HLoadMoreTupleBlock)(void);
+typedef void (^HTupleRefreshBlock)(void);
+typedef void (^HTupleLoadMoreBlock)(void);
 
-typedef id _Nonnull (^HHeaderTuple)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
-typedef id _Nonnull (^HFooterTuple)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
-typedef id _Nonnull (^HItemTuple)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
+typedef id _Nonnull (^HTupleHeader)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
+typedef id _Nonnull (^HTupleFooter)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
+typedef id _Nonnull (^HTupleItem)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
 
 typedef CGFloat (^HUNumberOfSectionsBlock)(void);
 typedef CGFloat (^HNumberOfItemsBlock)(NSInteger section);
@@ -55,9 +55,9 @@ typedef UIEdgeInsets (^HEdgeInsetsForItemBlock)(NSIndexPath *indexPath);
 
 typedef UIEdgeInsets (^HInsetForSectionBlock)(NSInteger section);
 
-typedef void (^HHeaderTupleBlock)(HHeaderTuple headerBlock, NSInteger section);
-typedef void (^HFooterTupleBlock)(HFooterTuple footerBlock, NSInteger section);
-typedef void (^HItemTupleBlock)(HItemTuple itemBlock, NSIndexPath *indexPath);
+typedef void (^HTupleHeaderBlock)(HTupleHeader headerBlock, NSInteger section);
+typedef void (^HTupleFooterBlock)(HTupleFooter footerBlock, NSInteger section);
+typedef void (^HTupleItemBlock)(HTupleItem itemBlock, NSIndexPath *indexPath);
 
 typedef void (^HItemWillDisplayBlock)(UICollectionViewCell *cell, NSIndexPath *indexPath);
 typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
@@ -81,9 +81,9 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 
 - (UIEdgeInsets)tupleView:(HTupleView *)tupleView insetForSectionAtIndex:(NSInteger)section;
 
-- (void)tupleView:(HTupleView *)tupleView headerTuple:(HHeaderTuple)headerBlock inSection:(NSInteger)section;
-- (void)tupleView:(HTupleView *)tupleView footerTuple:(HFooterTuple)footerBlock inSection:(NSInteger)section;
-- (void)tupleView:(HTupleView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath;
+- (void)tupleView:(HTupleView *)tupleView tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section;
+- (void)tupleView:(HTupleView *)tupleView tupleFooter:(HTupleFooter)footerBlock inSection:(NSInteger)section;
+- (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath;
 
 - (void)tupleView:(HTupleView *)tupleView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath;
 - (void)tupleView:(HTupleView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
@@ -99,8 +99,8 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 @property (nonatomic, assign) HTupleRefreshHeaderStyle refreshHeaderStyle; //refresh header style
 @property (nonatomic, assign) HTupleRefreshFooterStyle refreshFooterStyle; //load more footer style
 
-@property (nonatomic, copy, nullable) HRefreshTupleBlock  refreshBlock;   // block to refresh data
-@property (nonatomic, copy, nullable) HLoadMoreTupleBlock loadMoreBlock;  // block to load more data
+@property (nonatomic, copy, nullable) HTupleRefreshBlock  refreshBlock;   // block to refresh data
+@property (nonatomic, copy, nullable) HTupleLoadMoreBlock loadMoreBlock;  // block to load more data
 
 @property (nonatomic, copy, nullable) NSString *releaseTupleKey; //设置释放的key值
 
@@ -123,9 +123,9 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 - (void)endLoadMore:(void (^)(void))completion;
 //block methods
 - (void)tupleWithSections:(HUNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items color:(HColorForSectionBlock _Nullable )color inset:(HInsetForSectionBlock _Nullable )inset;
-- (void)headerWithSize:(HSizeForHeaderBlock)size edgeInsets:(HEdgeInsetsForHeaderBlock)edge tuple:(HHeaderTupleBlock)block;
-- (void)footerWithSize:(HSizeForFooterBlock)size edgeInsets:(HEdgeInsetsForFooterBlock)edge tuple:(HFooterTupleBlock)block;
-- (void)itemWithSize:(HSizeForItemBlock)size edgeInsets:(HEdgeInsetsForItemBlock)edge tuple:(HItemTupleBlock)block;
+- (void)headerWithSize:(HSizeForHeaderBlock)size edgeInsets:(HEdgeInsetsForHeaderBlock)edge tupleHeader:(HTupleHeaderBlock)block;
+- (void)footerWithSize:(HSizeForFooterBlock)size edgeInsets:(HEdgeInsetsForFooterBlock)edge tupleFooter:(HTupleFooterBlock)block;
+- (void)itemWithSize:(HSizeForItemBlock)size edgeInsets:(HEdgeInsetsForItemBlock)edge tupleItem:(HTupleItemBlock)block;
 - (void)itemWillDisplayBlock:(HItemWillDisplayBlock)block;
 - (void)didSelectItem:(HDidSelectItemBlock)block;
 - (void)releaseTupleBlock;

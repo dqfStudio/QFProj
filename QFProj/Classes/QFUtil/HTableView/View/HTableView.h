@@ -18,12 +18,12 @@ typedef NSUInteger HTableState;
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void (^HRefreshTableBlock)(void);
-typedef void (^HLoadMoreTableBlock)(void);
+typedef void (^HTableRefreshBlock)(void);
+typedef void (^HTableLoadMoreBlock)(void);
 
-typedef id _Nonnull (^HHeaderTable)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
-typedef id _Nonnull (^HFooterTable)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
-typedef id _Nonnull (^HCellTable)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
+typedef id _Nonnull (^HTableHeader)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
+typedef id _Nonnull (^HTableFooter)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
+typedef id _Nonnull (^HTableCell)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
 
 typedef CGFloat (^HANumberOfSectionsBlock)(void);
 typedef CGFloat (^HNumberOfCellsBlock)(NSInteger section);
@@ -34,11 +34,11 @@ typedef CGFloat (^HeightForCellBlock)(NSIndexPath *indexPath);
 
 typedef NSArray *_Nullable(^HTableExclusiveForHeaderBlock)(void);
 typedef NSArray *_Nullable(^HTableExclusiveForFooterBlock)(void);
-typedef NSArray *_Nullable(^HTableExclusiveForItemBlock)(void);
+typedef NSArray *_Nullable(^HTableExclusiveForCellBlock)(void);
 
-typedef void (^HHeaderTableBlock)(HHeaderTable headerBlock, NSInteger section);
-typedef void (^HFooterTableBlock)(HFooterTable footerBlock, NSInteger section);
-typedef void (^HCellTableBlock)(HCellTable cellBlock, NSIndexPath *indexPath);
+typedef void (^HTableHeaderBlock)(HTableHeader headerBlock, NSInteger section);
+typedef void (^HTableFooterBlock)(HTableFooter footerBlock, NSInteger section);
+typedef void (^HTableCellBlock)(HTableCell cellBlock, NSIndexPath *indexPath);
 
 typedef void (^HCellWillDisplayBlock)(UITableViewCell *cell, NSIndexPath *indexPath);
 typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
@@ -54,9 +54,9 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 - (CGFloat)tableView:(HTableView *)tableView heightForFooterInSection:(NSInteger)section;
 - (CGFloat)tableView:(HTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 
-- (void)tableView:(HTableView *)tableView headerTuple:(HHeaderTable)headerBlock inSection:(NSInteger)section;
-- (void)tableView:(HTableView *)tableView footerTuple:(HFooterTable)footerBlock inSection:(NSInteger)section;
-- (void)tableView:(HTableView *)tableView cellTuple:(HCellTable)cellBlock atIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(HTableView *)tableView tableHeader:(HTableHeader)headerBlock inSection:(NSInteger)section;
+- (void)tableView:(HTableView *)tableView tableFooter:(HTableFooter)footerBlock inSection:(NSInteger)section;
+- (void)tableView:(HTableView *)tableView tableCell:(HTableCell)cellBlock atIndexPath:(NSIndexPath *)indexPath;
 
 - (void)tableView:(HTableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)tableView:(HTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -72,8 +72,8 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 @property (nonatomic, assign) HTableRefreshHeaderStyle refreshHeaderStyle; //refresh header style
 @property (nonatomic, assign) HTableRefreshFooterStyle refreshFooterStyle; //load more footer style
 
-@property (nonatomic, copy, nullable) HRefreshTableBlock  refreshBlock;   // block to refresh data
-@property (nonatomic, copy, nullable) HLoadMoreTableBlock loadMoreBlock;  // block to load more data
+@property (nonatomic, copy, nullable) HTableRefreshBlock  refreshBlock;   // block to refresh data
+@property (nonatomic, copy, nullable) HTableLoadMoreBlock loadMoreBlock;  // block to load more data
 
 @property (nonatomic, copy, nullable) NSString *releaseTableKey; //设置释放的key值
 
@@ -82,7 +82,7 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 - (instancetype)initWithFrame:(CGRect)frame;
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style;
 + (instancetype)sectionDesignWith:(CGRect)frame andSections:(NSInteger)sections;
-+ (instancetype)tableDesignWith:(CGRect (^)(void))frame exclusiveHeaders:(HTableExclusiveForHeaderBlock)headers exclusiveFooters:(HTableExclusiveForFooterBlock)footers exclusiveItems:(HTableExclusiveForItemBlock)items;
++ (instancetype)tableDesignWith:(CGRect (^)(void))frame exclusiveHeaders:(HTableExclusiveForHeaderBlock)headers exclusiveFooters:(HTableExclusiveForFooterBlock)footers exclusiveCells:(HTableExclusiveForCellBlock)cells;
 //bounce
 - (void)horizontalBounceEnabled;
 - (void)verticalBounceEnabled;
@@ -94,9 +94,9 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 - (void)endLoadMore:(void (^)(void))completion;
 //block methods
 - (void)tableWithSections:(HANumberOfSectionsBlock)sections cells:(HNumberOfCellsBlock)cells;
-- (void)headerWithHeight:(HeightForHeaderBlock)height tuple:(HHeaderTableBlock)block;
-- (void)footerWithHeight:(HeightForFooterBlock)height tuple:(HFooterTableBlock)block;
-- (void)cellWithHeight:(HeightForCellBlock)height tuple:(HCellTableBlock)block;
+- (void)headerWithHeight:(HeightForHeaderBlock)height tableHeader:(HTableHeaderBlock)block;
+- (void)footerWithHeight:(HeightForFooterBlock)height tableFooter:(HTableFooterBlock)block;
+- (void)cellWithHeight:(HeightForCellBlock)height tableCell:(HTableCellBlock)block;
 - (void)cellWillDisplayBlock:(HCellWillDisplayBlock)block;
 - (void)didSelectCell:(HDidSelectCellBlock)block;
 - (void)deselectCell:(NSIndexPath *)indexPath;

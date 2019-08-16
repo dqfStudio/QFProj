@@ -99,7 +99,7 @@ H_CheckPropertyRange(rrr, 0, 150)
         return CGSizeMake(tuple.width, 100);
     } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
         return UIEdgeInsetsZero;
-    } tuple:^(HItemTuple  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+    } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
 //        HTupleVerticalCell *cell = itemBlock(nil, HTupleVerticalCell.class, nil, YES);
 //        [cell setBackgroundColor:[UIColor redColor]];
 //        HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
@@ -514,7 +514,7 @@ H_CheckPropertyRange(rrr, 0, 150)
 //- (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
 //    return UIEdgeInsetsMake(10, 0, 10, 0);
 //}
-- (void)tupleView:(HTupleView *)tupleView itemTuple:(id (^)(id iblk, Class cls, id pre, bool idx))itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(HTupleView *)tupleView tupleCell:(id (^)(id iblk, Class cls, id pre, bool idx))itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:{
             HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
@@ -569,7 +569,7 @@ H_CheckPropertyRange(rrr, 0, 150)
     }
 }
 
-- (void)tupleView:(HTupleView *)tupleView headerTuple:(id (^)(id iblk, Class cls, id pre, bool idx))headerBlock inSection:(NSInteger)section {
+- (void)tupleView:(HTupleView *)tupleView tupleHeader:(id (^)(id iblk, Class cls, id pre, bool idx))headerBlock inSection:(NSInteger)section {
     switch (section) {
         case 0:{
             HTupleLabelView *cell = headerBlock(nil, HTupleLabelView.class, nil, YES);
@@ -602,7 +602,7 @@ H_CheckPropertyRange(rrr, 0, 150)
     }
 }
 
-- (void)tupleView:(HTupleView *)tupleView footerTuple:(id (^)(id iblk, Class cls, id pre, bool idx))footerBlock inSection:(NSInteger)section {
+- (void)tupleView:(HTupleView *)tupleView tupleFooter:(id (^)(id iblk, Class cls, id pre, bool idx))footerBlock inSection:(NSInteger)section {
     switch (section) {
         case 0:{
             HTupleLabelView *cell = footerBlock(nil, HTupleLabelView.class, nil, YES);

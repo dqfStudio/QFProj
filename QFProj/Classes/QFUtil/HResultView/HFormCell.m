@@ -75,7 +75,7 @@
         return CGSizeMake(self.tupleView.width/self.rowItems-1, self.tupleView.height/self.rows-1);
     } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
         return UIEdgeInsetsZero;
-    } tuple:^(HItemTuple  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+    } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
         @sss
         NSInteger index = indexPath.section*self.rows*self.rowItems + indexPath.row;
         if (index < self.modelArr.count) {

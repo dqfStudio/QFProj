@@ -68,13 +68,13 @@
     return UIEdgeInsetsZero;
 }
 
-- (void)tuple0_tupleView:(HTupleView *)tupleView headerTuple:(HHeaderTuple)headerBlock inSection:(NSInteger)section {
+- (void)tuple0_tupleView:(HTupleView *)tupleView headerTuple:(HTupleHeader)headerBlock inSection:(NSInteger)section {
     headerBlock(nil, HTupleBaseApex.class, nil, NO);
 }
-- (void)tuple0_tupleView:(HTupleView *)tupleView footerTuple:(HFooterTuple)footerBlock inSection:(NSInteger)section {
+- (void)tuple0_tupleView:(HTupleView *)tupleView footerTuple:(HTupleFooter)footerBlock inSection:(NSInteger)section {
     footerBlock(nil, HTupleBaseApex.class, nil, NO);
 }
-- (void)tuple0_tupleView:(HTupleView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tuple0_tupleView:(HTupleView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row == 0) {
         [self tuple_tupleView:tupleView itemTuple:itemBlock atIndexPath:indexPath];
     }else {

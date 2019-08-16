@@ -54,7 +54,7 @@
             case 5:return UIEdgeInsetsMake(5, 15, 0, 0);
             default:return UIEdgeInsetsZero;
         }
-    } tuple:^(HItemTuple  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+    } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
         switch (indexPath.row) {
             case 0: {
                 HTupleTextFieldCell *cell = itemBlock(nil,HTupleTextFieldCell.class, nil, YES);
