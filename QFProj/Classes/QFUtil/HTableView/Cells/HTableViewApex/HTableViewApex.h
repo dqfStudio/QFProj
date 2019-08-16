@@ -47,9 +47,9 @@
 @property (nonatomic) HTextView *detailTextView;
 @property (nonatomic) HTextView *accessoryTextView;
 
-@property (nonatomic) HWebButtonView *button;
-@property (nonatomic) HWebButtonView *detailButton;
-@property (nonatomic) HWebButtonView *accessoryButton;
+@property (nonatomic) HWebButtonView *buttonView;
+@property (nonatomic) HWebButtonView *detailButtonView;
+@property (nonatomic) HWebButtonView *accessoryButtonView;
 
 @property (nonatomic) HWebImageView *imageView;
 @property (nonatomic) HWebImageView *detailImageView;
@@ -63,7 +63,7 @@
 @interface HTableViewApex : HTupleBaseApex
 @property (nonatomic) HWebImageView *imageView;
 @property (nonatomic) HLabel *textLabel;
-@property (nonatomic) HLabel *detailTextLabel;
+@property (nonatomic) HLabel *detailLabel;
 @property (nonatomic) HLabel *accessoryLabel;
 @property (nonatomic) HWebImageView *detailView;
 @property (nonatomic) HWebImageView *accessoryView;

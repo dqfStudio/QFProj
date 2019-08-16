@@ -150,26 +150,26 @@
     }
     return _accessoryTextView;
 }
-- (HWebButtonView *)button {
-    if (!_button) {
-        _button = [HWebButtonView new];
-        [self addSubview:_button];
+- (HWebButtonView *)buttonView {
+    if (!_buttonView) {
+        _buttonView = [HWebButtonView new];
+        [self addSubview:_buttonView];
     }
-    return _button;
+    return _buttonView;
 }
-- (HWebButtonView *)detailButton {
-    if (!_detailButton) {
-        _detailButton = [HWebButtonView new];
-        [self addSubview:_detailButton];
+- (HWebButtonView *)detailButtonView {
+    if (!_detailButtonView) {
+        _detailButtonView = [HWebButtonView new];
+        [self addSubview:_detailButtonView];
     }
-    return _detailButton;
+    return _detailButtonView;
 }
-- (HWebButtonView *)accessoryButton {
-    if (!_accessoryButton) {
-        _accessoryButton = [HWebButtonView new];
-        [self addSubview:_accessoryButton];
+- (HWebButtonView *)accessoryButtonView {
+    if (!_accessoryButtonView) {
+        _accessoryButtonView = [HWebButtonView new];
+        [self addSubview:_accessoryButtonView];
     }
-    return _accessoryButton;
+    return _accessoryButtonView;
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
@@ -230,12 +230,12 @@
     }
     return _textLabel;
 }
-- (HLabel *)detailTextLabel {
-    if (!_detailTextLabel) {
-        _detailTextLabel = [HLabel new];
-        [self addSubview:_detailTextLabel];
+- (HLabel *)detailLabel {
+    if (!_detailLabel) {
+        _detailLabel = [HLabel new];
+        [self addSubview:_detailLabel];
     }
-    return _detailTextLabel;
+    return _detailLabel;
 }
 - (HLabel *)accessoryLabel {
     if (!_accessoryLabel) {
