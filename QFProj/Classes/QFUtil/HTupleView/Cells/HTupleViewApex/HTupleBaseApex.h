@@ -14,7 +14,7 @@
 //#import "UILabel+HUtil.h"
 //#import "UIButton+HUtil.h"
 
-#define HLayoutTupleView(v) \
+#define HLayoutTupleApex(v) \
 if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
     [v setFrame:[self getContentFrame]];\
 }

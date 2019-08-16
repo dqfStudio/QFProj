@@ -17,7 +17,7 @@
     return _label;
 }
 - (void)layoutContentView {
-    HLayoutTableView(self.label)
+    HLayoutTableApex(self.label)
 }
 @end
 
@@ -30,7 +30,7 @@
     return _textView;
 }
 - (void)layoutContentView {
-    HLayoutTableView(self.textView)
+    HLayoutTableApex(self.textView)
 }
 @end
 
@@ -43,7 +43,7 @@
     return _buttonView;
 }
 - (void)layoutContentView {
-    HLayoutTableView(self.buttonView)
+    HLayoutTableApex(self.buttonView)
 }
 @end
 
@@ -56,7 +56,7 @@
     return _imageView;
 }
 - (void)layoutContentView {
-    HLayoutTableView(self.imageView)
+    HLayoutTableApex(self.imageView)
 }
 @end
 
@@ -69,7 +69,7 @@
     return _textField;
 }
 - (void)layoutContentView {
-    HLayoutTableView(self.textField)
+    HLayoutTableApex(self.textField)
 }
 @end
 
@@ -83,7 +83,7 @@
     return _tupleView;
 }
 - (void)layoutContentView {
-    HLayoutTableView(self.tupleView)
+    HLayoutTableApex(self.tupleView)
 }
 @end
 
@@ -97,7 +97,7 @@
     return _tupleView;
 }
 - (void)layoutContentView {
-    HLayoutTableView(self.tupleView)
+    HLayoutTableApex(self.tupleView)
 }
 @end
 
