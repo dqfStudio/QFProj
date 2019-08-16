@@ -314,7 +314,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
             [self.allReuseIdentifiers addObject:identifier];
             [self registerClass:cls forHeaderFooterViewReuseIdentifier:identifier];
             cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
-            HTableBaseView *tmpCell = (HTableBaseView *)cell;
+            HTableBaseApex *tmpCell = (HTableBaseApex *)cell;
             tmpCell.table = self;
             tmpCell.section = section;
             tmpCell.isHeader = YES;
@@ -330,7 +330,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         }
         [self.allReuseHeaders setObject:cell forKey:@(section).stringValue];
         if ([cell respondsToSelector:@selector(layoutContentView)]) {
-            [(HTableBaseView *)cell layoutContentView];
+            [(HTableBaseApex *)cell layoutContentView];
         }
         return cell;
     };
@@ -364,7 +364,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
             [self.allReuseIdentifiers addObject:identifier];
             [self registerClass:cls forHeaderFooterViewReuseIdentifier:identifier];
             cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
-            HTableBaseView *tmpCell = (HTableBaseView *)cell;
+            HTableBaseApex *tmpCell = (HTableBaseApex *)cell;
             tmpCell.table = self;
             tmpCell.section = section;
             tmpCell.isHeader = NO;
@@ -380,7 +380,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         }
         [self.allReuseFooters setObject:cell forKey:@(section).stringValue];
         if ([cell respondsToSelector:@selector(layoutContentView)]) {
-            [(HTableBaseView *)cell layoutContentView];
+            [(HTableBaseApex *)cell layoutContentView];
         }
         return cell;
     };

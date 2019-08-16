@@ -10,7 +10,7 @@
 #import "HTupleRefresh.h"
 #import "HTupleViewCell.h"
 #import "NSIndexPath+HUtil.h"
-#import "HTupleReusableView.h"
+#import "HTupleViewApex.h"
 #import "NSObject+HSelector.h"
 #import "UIScrollView+HEmptyDataSet.h"
 #import "ULBCollectionViewFlowLayout.h"

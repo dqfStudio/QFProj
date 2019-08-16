@@ -136,12 +136,12 @@
 		15F9152920A18CA9000261C4 /* HAspectsCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9152820A18CA9000261C4 /* HAspectsCenter.m */; };
 		15F9152F20A27D1C000261C4 /* HRequestResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F9152D20A27D1C000261C4 /* HRequestResultView.m */; };
 		171E540C3ECD9B640D790516 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E16C30E2760E6660FC02C1 /* libPods-QFProj.a */; };
-		A206880D22C9FD1B00661634 /* HTupleReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A206880922C9FD1B00661634 /* HTupleReusableView.m */; };
-		A206880E22C9FD1B00661634 /* HTupleBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = A206880A22C9FD1B00661634 /* HTupleBaseView.m */; };
+		A206880D22C9FD1B00661634 /* HTupleViewApex.m in Sources */ = {isa = PBXBuildFile; fileRef = A206880922C9FD1B00661634 /* HTupleViewApex.m */; };
+		A206880E22C9FD1B00661634 /* HTupleBaseApex.m in Sources */ = {isa = PBXBuildFile; fileRef = A206880A22C9FD1B00661634 /* HTupleBaseApex.m */; };
 		A206881E22C9FDBD00661634 /* HTableSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = A206881022C9FDBC00661634 /* HTableSignal.m */; };
 		A206881F22C9FDBD00661634 /* HTableRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = A206881122C9FDBC00661634 /* HTableRefresh.m */; };
-		A206882022C9FDBD00661634 /* HTableReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A206881522C9FDBC00661634 /* HTableReusableView.m */; };
-		A206882122C9FDBD00661634 /* HTableBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = A206881822C9FDBC00661634 /* HTableBaseView.m */; };
+		A206882022C9FDBD00661634 /* HTableViewApex.m in Sources */ = {isa = PBXBuildFile; fileRef = A206881522C9FDBC00661634 /* HTableViewApex.m */; };
+		A206882122C9FDBD00661634 /* HTableBaseApex.m in Sources */ = {isa = PBXBuildFile; fileRef = A206881822C9FDBC00661634 /* HTableBaseApex.m */; };
 		A206882222C9FDBD00661634 /* HTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A206881B22C9FDBD00661634 /* HTableViewCell.m */; };
 		A206882322C9FDBD00661634 /* HTableBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A206881C22C9FDBD00661634 /* HTableBaseCell.m */; };
 		A206882822CA081400661634 /* HViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A206882522CA081400661634 /* HViewController.m */; };
@@ -547,18 +547,18 @@
 		15F9152E20A27D1C000261C4 /* HRequestResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRequestResultView.h; sourceTree = "<group>"; };
 		31E16C30E2760E6660FC02C1 /* libPods-QFProj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QFProj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60580163C2E51E9CB5D59084 /* Pods-QFProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-QFProj/Pods-QFProj.release.xcconfig"; sourceTree = "<group>"; };
-		A206880922C9FD1B00661634 /* HTupleReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTupleReusableView.m; sourceTree = "<group>"; };
-		A206880A22C9FD1B00661634 /* HTupleBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTupleBaseView.m; sourceTree = "<group>"; };
-		A206880B22C9FD1B00661634 /* HTupleBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTupleBaseView.h; sourceTree = "<group>"; };
-		A206880C22C9FD1B00661634 /* HTupleReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTupleReusableView.h; sourceTree = "<group>"; };
+		A206880922C9FD1B00661634 /* HTupleViewApex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTupleViewApex.m; sourceTree = "<group>"; };
+		A206880A22C9FD1B00661634 /* HTupleBaseApex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTupleBaseApex.m; sourceTree = "<group>"; };
+		A206880B22C9FD1B00661634 /* HTupleBaseApex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTupleBaseApex.h; sourceTree = "<group>"; };
+		A206880C22C9FD1B00661634 /* HTupleViewApex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTupleViewApex.h; sourceTree = "<group>"; };
 		A206881022C9FDBC00661634 /* HTableSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableSignal.m; sourceTree = "<group>"; };
 		A206881122C9FDBC00661634 /* HTableRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableRefresh.m; sourceTree = "<group>"; };
 		A206881222C9FDBC00661634 /* HTableSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableSignal.h; sourceTree = "<group>"; };
 		A206881322C9FDBC00661634 /* HTableRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableRefresh.h; sourceTree = "<group>"; };
-		A206881522C9FDBC00661634 /* HTableReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableReusableView.m; sourceTree = "<group>"; };
-		A206881622C9FDBC00661634 /* HTableBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableBaseView.h; sourceTree = "<group>"; };
-		A206881722C9FDBC00661634 /* HTableReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableReusableView.h; sourceTree = "<group>"; };
-		A206881822C9FDBC00661634 /* HTableBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableBaseView.m; sourceTree = "<group>"; };
+		A206881522C9FDBC00661634 /* HTableViewApex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableViewApex.m; sourceTree = "<group>"; };
+		A206881622C9FDBC00661634 /* HTableBaseApex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableBaseApex.h; sourceTree = "<group>"; };
+		A206881722C9FDBC00661634 /* HTableViewApex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableViewApex.h; sourceTree = "<group>"; };
+		A206881822C9FDBC00661634 /* HTableBaseApex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableBaseApex.m; sourceTree = "<group>"; };
 		A206881A22C9FDBD00661634 /* HTableBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableBaseCell.h; sourceTree = "<group>"; };
 		A206881B22C9FDBD00661634 /* HTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableViewCell.m; sourceTree = "<group>"; };
 		A206881C22C9FDBD00661634 /* HTableBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableBaseCell.m; sourceTree = "<group>"; };
@@ -1442,7 +1442,7 @@
 			isa = PBXGroup;
 			children = (
 				15707EBD20B5674E00493839 /* HTupleCommon */,
-				A206880822C9FD1B00661634 /* HTupleReusableView */,
+				A206880822C9FD1B00661634 /* HTupleViewApex */,
 				15C5734E20B3DD7B0070327C /* HTupleViewCell */,
 			);
 			path = Cells;
@@ -1613,15 +1613,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A206880822C9FD1B00661634 /* HTupleReusableView */ = {
+		A206880822C9FD1B00661634 /* HTupleViewApex */ = {
 			isa = PBXGroup;
 			children = (
-				A206880B22C9FD1B00661634 /* HTupleBaseView.h */,
-				A206880A22C9FD1B00661634 /* HTupleBaseView.m */,
-				A206880C22C9FD1B00661634 /* HTupleReusableView.h */,
-				A206880922C9FD1B00661634 /* HTupleReusableView.m */,
+				A206880B22C9FD1B00661634 /* HTupleBaseApex.h */,
+				A206880A22C9FD1B00661634 /* HTupleBaseApex.m */,
+				A206880C22C9FD1B00661634 /* HTupleViewApex.h */,
+				A206880922C9FD1B00661634 /* HTupleViewApex.m */,
 			);
-			path = HTupleReusableView;
+			path = HTupleViewApex;
 			sourceTree = "<group>";
 		};
 		A206880F22C9FDBC00661634 /* HTableCommon */ = {
@@ -1635,15 +1635,15 @@
 			path = HTableCommon;
 			sourceTree = "<group>";
 		};
-		A206881422C9FDBC00661634 /* HTableReusableView */ = {
+		A206881422C9FDBC00661634 /* HTableViewApex */ = {
 			isa = PBXGroup;
 			children = (
-				A206881622C9FDBC00661634 /* HTableBaseView.h */,
-				A206881822C9FDBC00661634 /* HTableBaseView.m */,
-				A206881722C9FDBC00661634 /* HTableReusableView.h */,
-				A206881522C9FDBC00661634 /* HTableReusableView.m */,
+				A206881622C9FDBC00661634 /* HTableBaseApex.h */,
+				A206881822C9FDBC00661634 /* HTableBaseApex.m */,
+				A206881722C9FDBC00661634 /* HTableViewApex.h */,
+				A206881522C9FDBC00661634 /* HTableViewApex.m */,
 			);
-			path = HTableReusableView;
+			path = HTableViewApex;
 			sourceTree = "<group>";
 		};
 		A206881922C9FDBD00661634 /* HTableViewCell */ = {
@@ -1912,7 +1912,7 @@
 			isa = PBXGroup;
 			children = (
 				A206880F22C9FDBC00661634 /* HTableCommon */,
-				A206881422C9FDBC00661634 /* HTableReusableView */,
+				A206881422C9FDBC00661634 /* HTableViewApex */,
 				A206881922C9FDBD00661634 /* HTableViewCell */,
 			);
 			path = Cells;
@@ -2622,13 +2622,13 @@
 				15E6BB9A2136E7E300EBE794 /* UIViewController+YPTab.m in Sources */,
 				15B4DE012092F96C00773E04 /* HSpeechUtil.m in Sources */,
 				153F081820E28CA000C74850 /* UITextField+HRegular.m in Sources */,
-				A206880D22C9FD1B00661634 /* HTupleReusableView.m in Sources */,
+				A206880D22C9FD1B00661634 /* HTupleViewApex.m in Sources */,
 				A2A8EB2E22DB62680049C51B /* HPageControl.m in Sources */,
 				15B4DE112092F96C00773E04 /* NSArray+HSafeUtil.m in Sources */,
 				A222AE5022818F7D0013098A /* HTextInput.m in Sources */,
 				150DE9902126AE50004B9E77 /* HAnalogNetworkManager.m in Sources */,
 				A2A8EBB922E1FDEE0049C51B /* WebViewJavascriptBridge.m in Sources */,
-				A206882022C9FDBD00661634 /* HTableReusableView.m in Sources */,
+				A206882022C9FDBD00661634 /* HTableViewApex.m in Sources */,
 				A2E8F53C22D72A9800E7C9F2 /* YTKNetworkConfig.m in Sources */,
 				A208E17822BA305C009A6FDD /* HTupleRefresh.m in Sources */,
 				15F9152920A18CA9000261C4 /* HAspectsCenter.m in Sources */,
@@ -2652,7 +2652,7 @@
 				15E5651D212E5D77003A63E5 /* HHostSegmentCell.m in Sources */,
 				15B4DE0B2092F96C00773E04 /* NSString+HSafeUtil.m in Sources */,
 				A206881F22C9FDBD00661634 /* HTableRefresh.m in Sources */,
-				A206882122C9FDBD00661634 /* HTableBaseView.m in Sources */,
+				A206882122C9FDBD00661634 /* HTableBaseApex.m in Sources */,
 				A2E8F52022D2300D00E7C9F2 /* HTableController.m in Sources */,
 				A222AE5D22818F7D0013098A /* HTextRubyAnnotation.m in Sources */,
 				15112C772105A19600842FE4 /* HUncaughtExceptionHandler.m in Sources */,
@@ -2676,7 +2676,7 @@
 				A222A6C42279AAAD0013098A /* NSDictionary+HUtil.m in Sources */,
 				A2A8EB5222DDD99D0049C51B /* UIViewController+HLeaks.m in Sources */,
 				A222AE4C22818F7D0013098A /* HTextDebugOption.m in Sources */,
-				A206880E22C9FD1B00661634 /* HTupleBaseView.m in Sources */,
+				A206880E22C9FD1B00661634 /* HTupleBaseApex.m in Sources */,
 				15F9152020A171A8000261C4 /* NSObject+HAspects.m in Sources */,
 				A2E8F57A22D8356300E7C9F2 /* HDiskCache.m in Sources */,
 				A222AE5B22818F7D0013098A /* HTextWeakProxy.m in Sources */,

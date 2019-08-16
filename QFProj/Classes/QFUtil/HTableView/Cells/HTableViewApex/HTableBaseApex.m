@@ -1,15 +1,15 @@
 //
-//  HTableBaseView.m
+//  HTableBaseApex.m
 //  QFTableProject
 //
 //  Created by dqf on 2018/6/2.
 //  Copyright © 2018年 dqfStudio. All rights reserved.
 //
 
-#import "HTableBaseView.h"
+#import "HTableBaseApex.h"
 #import <objc/runtime.h>
 
-@implementation HTableBaseView
+@implementation HTableBaseApex
 
 - (instancetype)initWithReuseIdentifier:(nullable NSString *)reuseIdentifier {
     self = [super initWithReuseIdentifier:reuseIdentifier];

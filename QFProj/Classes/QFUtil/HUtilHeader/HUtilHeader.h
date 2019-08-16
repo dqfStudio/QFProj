@@ -69,7 +69,7 @@
 //HTuple
 #import "HTupleView.h"
 #import "HTupleViewCell.h"
-#import "HTupleReusableView.h"
+#import "HTupleViewApex.h"
 
 //ohter
 #import "HUserDefaults.h"

@@ -1,44 +1,50 @@
 //
-//  HTableReusableView.h
+//  HTupleViewApex.h
 //  QFProj
 //
-//  Created by wind on 2019/4/12.
-//  Copyright © 2019 dqfStudio. All rights reserved.
+//  Created by dqf on 2018/5/20.
+//  Copyright © 2018年 dqfStudio. All rights reserved.
 //
 
-#import "HTableBaseView.h"
+#import "HTupleBaseApex.h"
+#import "HWebImageView.h"
+#import "HWebButtonView.h"
 #import "HTupleView.h"
+#import "HTextField.h"
+#import "HTextView.h"
 #import "HLabel.h"
 
-@interface HTableLabelView : HTableBaseView
+@class HTupleView;
+
+@interface HTupleLabelView : HTupleBaseApex
 @property (nonatomic) HLabel *label;
 @end
 
-@interface HTableTextView : HTableBaseView
+@interface HTupleTextView : HTupleBaseApex
 @property (nonatomic) HTextView *textView;
 @end
 
-@interface HTableButtonView : HTableBaseView
+@interface HTupleButtonView : HTupleBaseApex
 @property (nonatomic) HWebButtonView *buttonView;
 @end
 
-@interface HTableImageView : HTableBaseView
+@interface HTupleImageView : HTupleBaseApex
 @property (nonatomic) HWebImageView *imageView;
 @end
 
-@interface HTableTextFieldView : HTableBaseView
+@interface HTupleTextFieldView : HTupleBaseApex
 @property (nonatomic) HTextField *textField;
 @end
 
-@interface HTableVerticalView : HTableBaseView
+@interface HTupleVerticalView : HTupleBaseApex
 @property (nonatomic) HTupleView *tupleView;
 @end
 
-@interface HTableHorizontalView : HTableBaseView
+@interface HTupleHorizontalView : HTupleBaseApex
 @property (nonatomic) HTupleView *tupleView;
 @end
 
-@interface HTableUnionView : HTableBaseView
+@interface HTupleUnionView : HTupleBaseApex
 @property (nonatomic) HLabel *label;
 @property (nonatomic) HLabel *detailLabel;
 @property (nonatomic) HLabel *accessoryLabel;
@@ -58,4 +64,13 @@
 @property (nonatomic) HTextField *textField;
 @property (nonatomic) HTextField *detailTextField;
 @property (nonatomic) HTextField *accessoryTextField;
+@end
+
+@interface HTupleViewApex : HTupleBaseApex
+@property (nonatomic) HWebImageView *imageView;
+@property (nonatomic) HLabel *textLabel;
+@property (nonatomic) HLabel *detailTextLabel;
+@property (nonatomic) HLabel *accessoryLabel;
+@property (nonatomic) HWebImageView *detailView;
+@property (nonatomic) HWebImageView *accessoryView;
 @end

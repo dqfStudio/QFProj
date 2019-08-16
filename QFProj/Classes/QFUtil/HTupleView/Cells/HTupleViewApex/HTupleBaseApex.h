@@ -1,5 +1,5 @@
 //
-//  HTupleBaseView.h
+//  HTupleBaseApex.h
 //  QFProj
 //
 //  Created by dqf on 2018/5/20.
@@ -19,12 +19,12 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
     [v setFrame:[self getContentFrame]];\
 }
 
-@class HTupleView, HTupleBaseView;
+@class HTupleView, HTupleBaseApex;
 
 typedef void(^HTupleViewBlock)(NSIndexPath *idxPath);
-typedef void(^HTupleViewSkinBlock)(HTupleBaseView *cell, HTupleView *tuple);
+typedef void(^HTupleViewSkinBlock)(HTupleBaseApex *cell, HTupleView *tuple);
 
-@interface HTupleBaseView : UICollectionReusableView
+@interface HTupleBaseApex : UICollectionReusableView
 @property (nonatomic, weak) UICollectionView *tuple;
 @property (nonatomic, copy) HTupleViewBlock cellBlock;
 @property (nonatomic, copy) HTupleViewSkinBlock skinBlock;

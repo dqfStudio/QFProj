@@ -69,10 +69,10 @@
 }
 
 - (void)tuple0_tupleView:(HTupleView *)tupleView headerTuple:(HHeaderTuple)headerBlock inSection:(NSInteger)section {
-    headerBlock(nil, HTupleBaseView.class, nil, NO);
+    headerBlock(nil, HTupleBaseApex.class, nil, NO);
 }
 - (void)tuple0_tupleView:(HTupleView *)tupleView footerTuple:(HFooterTuple)footerBlock inSection:(NSInteger)section {
-    footerBlock(nil, HTupleBaseView.class, nil, NO);
+    footerBlock(nil, HTupleBaseApex.class, nil, NO);
 }
 - (void)tuple0_tupleView:(HTupleView *)tupleView itemTuple:(HItemTuple)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row == 0) {

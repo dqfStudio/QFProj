@@ -1,5 +1,5 @@
 //
-//  HTableBaseView.h
+//  HTableBaseApex.h
 //  QFTableProject
 //
 //  Created by dqf on 2018/6/2.
@@ -14,11 +14,11 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 [v setFrame:[self getContentFrame]];\
 }
 
-@class HTableView, HTableBaseView;
+@class HTableView, HTableBaseApex;
 
-typedef void(^HTableViewSkinBlock)(HTableBaseView *cell, HTableView *table);
+typedef void(^HTableViewSkinBlock)(HTableBaseApex *cell, HTableView *table);
 
-@interface HTableBaseView : UITableViewHeaderFooterView
+@interface HTableBaseApex : UITableViewHeaderFooterView
 @property (nonatomic, weak) UITableView *table;
 @property (nonatomic) NSInteger section;
 @property (nonatomic, copy) HTableViewSkinBlock skinBlock;

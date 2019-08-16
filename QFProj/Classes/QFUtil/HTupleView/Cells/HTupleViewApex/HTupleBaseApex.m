@@ -1,19 +1,19 @@
 //
-//  HTupleBaseView.m
+//  HTupleBaseApex.m
 //  QFProj
 //
 //  Created by dqf on 2018/5/20.
 //  Copyright © 2018年 dqfStudio. All rights reserved.
 //
 
-#import "HTupleBaseView.h"
+#import "HTupleBaseApex.h"
 #import <objc/runtime.h>
 
-@interface HTupleBaseView ()
+@interface HTupleBaseApex ()
 @property (nonatomic) UIView *separatorView;
 @end
 
-@implementation HTupleBaseView
+@implementation HTupleBaseApex
 
 @synthesize separatorColor=_separatorColor;
 

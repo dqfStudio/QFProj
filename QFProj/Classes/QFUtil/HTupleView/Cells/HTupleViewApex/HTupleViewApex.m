@@ -1,12 +1,12 @@
 //
-//  HTupleReusableView.m
+//  HTupleViewApex.m
 //  QFProj
 //
 //  Created by dqf on 2018/5/20.
 //  Copyright © 2018年 dqfStudio. All rights reserved.
 //
 
-#import "HTupleReusableView.h"
+#import "HTupleViewApex.h"
 
 @implementation HTupleLabelView
 - (HLabel *)label {
@@ -206,5 +206,50 @@
         [self addSubview:_accessoryTextField];
     }
     return _accessoryTextField;
+}
+@end
+
+@implementation HTupleViewApex
+- (HWebImageView *)imageView {
+    if (!_imageView) {
+        _imageView = HWebImageView.new;
+        [self addSubview:_imageView];
+    }
+    return _imageView;
+}
+- (HLabel *)textLabel {
+    if (!_textLabel) {
+        _textLabel = [HLabel new];
+        [self addSubview:_textLabel];
+    }
+    return _textLabel;
+}
+- (HLabel *)detailTextLabel {
+    if (!_detailTextLabel) {
+        _detailTextLabel = [HLabel new];
+        [self addSubview:_detailTextLabel];
+    }
+    return _detailTextLabel;
+}
+- (HLabel *)accessoryLabel {
+    if (!_accessoryLabel) {
+        _accessoryLabel = [HLabel new];
+        [self addSubview:_accessoryLabel];
+    }
+    return _accessoryLabel;
+}
+- (HWebImageView *)detailView {
+    if (!_detailView) {
+        _detailView = [HWebImageView new];
+        [self addSubview:_detailView];
+    }
+    return _detailView;
+}
+- (HWebImageView *)accessoryView {
+    if (!_accessoryView) {
+        _accessoryView = [HWebImageView new];
+        [self addSubview:_accessoryView];
+    }
+    return _accessoryView;
 }
 @end

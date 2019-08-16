@@ -11,7 +11,7 @@
 #import "HTableViewCell.h"
 #import "NSIndexPath+HUtil.h"
 #import "NSObject+HSelector.h"
-#import "HTableReusableView.h"
+#import "HTableViewApex.h"
 #import "UIScrollView+HEmptyDataSet.h"
 
 typedef NSUInteger HTableState;
