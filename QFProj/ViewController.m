@@ -137,16 +137,16 @@ H_CheckPropertyRange(rrr, 0, 150)
     return;
     
     
-    HRequestHUD *requestHUD = [[HRequestHUD alloc] initWithFrame:CGRectMake(10, 100, 300, 300)];
-    [requestHUD setBackgroundColor:[UIColor redColor]];
-    [self.view addSubview:requestHUD];
+//    HRequestHUD *requestHUD = [[HRequestHUD alloc] initWithFrame:CGRectMake(10, 100, 300, 300)];
+//    [requestHUD setBackgroundColor:[UIColor redColor]];
+//    [self.view addSubview:requestHUD];
     
 //    NSString *str = @"hhh";
-    NSMutableString *str = [[NSMutableString alloc] initWithString:@"ggg"];
+//    NSMutableString *str = [[NSMutableString alloc] initWithString:@"ggg"];
 //    [str hasPrefix:nil];
 //    str = [str stringByAppendingString:nil];
     
-    NSArray *arr = @[@"ww"];
+//    NSArray *arr = @[@"ww"];
     
     //[arr objectAtIndex:0];
     
@@ -156,59 +156,59 @@ H_CheckPropertyRange(rrr, 0, 150)
     
 //    str = [str substringToIndex:15];
     
-    [self performSelector:@selector(sffas:)];
+//    [self performSelector:@selector(sffas:)];
     
-    UIImageView *imageView = UIImageView.new;
-    UIImage *image = [UIImage imageNamed:@"qq"];
-    NSLog(@"%@",image.accessibilityIdentifier);
-    [imageView setImage:image];
-    NSLog(@"%@",imageView.image.accessibilityIdentifier);
-    
-    UIView *view = UIView.new;
-    [view setFrame:self.view.frame];
-    [self.view addSubview:view];
-    
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    [dict setObject:@"test" forKey:@"TestString"];
-    [dict setObject:@"1" forKey:@"yn"];
-    [dict setObject:@"22" forKey:@"ff"];
-    [dict setObject:@"333" forKey:@"www"];
-    [dict setObject:@"11111111" forKey:@"date"];
-//    NSString *sf = dict[@"TestString"];
-    
-    [NSTimer scheduledTimerImmediatelyWithTimeInterval:2 times:2 block:^(NSTimer *timer) {
-        NSLog(@"1111111111");
-    } completion:^{
-        NSLog(@"22222222222");
-    }];
-    
-    [NSTimer scheduledTimerWithTimeInterval:2 times:2 block:^(NSTimer *timer) {
-        NSLog(@"1111111111");
-    } completion:^{
-        NSLog(@"22222222222");
-    }];
-    
-
-    
-//    [self.navigationController pushViewController:HLoginController.new animated:YES];
-    
-    
-//    [self performSelector:@selector(testAction) withObjects:nil];
-//    NSLog(@"hello222");
-//    NSString *ss = [NSString stringWithFormat:@"dqf_%@:",NSStringFromSelector(_cmd)];
-    NSString *ss = @"dqf_viewDidLoad:ff:";
-    
-//    [self performSelector:NSSelectorFromString(ss) withObjects:@[@(3), @(4), @(5)]];
-    
-    NSInteger nu = 3;
-    NSInteger rr = 5;
-//    &nu;
-    
-//    [self performSelector:NSSelectorFromString(ss) withObjects:@[@(3)]];
-    [self performSelector:NSSelectorFromString(ss) withMethodArgments:&nu, &rr];
-    
-//    [self performSelector:_cmd withPre:@"dqf" withMethodArgments:&nu, &rr];
-    NSLog(@"hello");
+//    UIImageView *imageView = UIImageView.new;
+//    UIImage *image = [UIImage imageNamed:@"qq"];
+//    NSLog(@"%@",image.accessibilityIdentifier);
+//    [imageView setImage:image];
+//    NSLog(@"%@",imageView.image.accessibilityIdentifier);
+//    
+//    UIView *view = UIView.new;
+//    [view setFrame:self.view.frame];
+//    [self.view addSubview:view];
+//    
+//    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+//    [dict setObject:@"test" forKey:@"TestString"];
+//    [dict setObject:@"1" forKey:@"yn"];
+//    [dict setObject:@"22" forKey:@"ff"];
+//    [dict setObject:@"333" forKey:@"www"];
+//    [dict setObject:@"11111111" forKey:@"date"];
+////    NSString *sf = dict[@"TestString"];
+//    
+//    [NSTimer scheduledTimerImmediatelyWithTimeInterval:2 times:2 block:^(NSTimer *timer) {
+//        NSLog(@"1111111111");
+//    } completion:^{
+//        NSLog(@"22222222222");
+//    }];
+//    
+//    [NSTimer scheduledTimerWithTimeInterval:2 times:2 block:^(NSTimer *timer) {
+//        NSLog(@"1111111111");
+//    } completion:^{
+//        NSLog(@"22222222222");
+//    }];
+//    
+//
+//    
+////    [self.navigationController pushViewController:HLoginController.new animated:YES];
+//    
+//    
+////    [self performSelector:@selector(testAction) withObjects:nil];
+////    NSLog(@"hello222");
+////    NSString *ss = [NSString stringWithFormat:@"dqf_%@:",NSStringFromSelector(_cmd)];
+//    NSString *ss = @"dqf_viewDidLoad:ff:";
+//    
+////    [self performSelector:NSSelectorFromString(ss) withObjects:@[@(3), @(4), @(5)]];
+//    
+//    NSInteger nu = 3;
+//    NSInteger rr = 5;
+////    &nu;
+//    
+////    [self performSelector:NSSelectorFromString(ss) withObjects:@[@(3)]];
+//    [self performSelector:NSSelectorFromString(ss) withMethodArgments:&nu, &rr];
+//    
+////    [self performSelector:_cmd withPre:@"dqf" withMethodArgments:&nu, &rr];
+//    NSLog(@"hello");
 }
 
 - (void)dqf_viewDidLoad:(NSInteger)num ff:(NSInteger)rr {

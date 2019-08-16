@@ -36,7 +36,7 @@
 //    @www
     [self.tupleView setLoadMoreBlock:^{
 //        @sss
-        NSLog(@"%@", self.tupleSource);
+//        NSLog(@"%@", self.tupleSource);
     }];
 }
 
@@ -124,7 +124,7 @@
                     
                     [self.tupleView setLoadMoreBlock:^{
                         //        @sss
-                        NSLog(@"%@", self.tupleSource);
+//                        NSLog(@"%@", self.tupleSource);
                     }];
                 }
                     break;

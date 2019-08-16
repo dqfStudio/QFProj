@@ -274,6 +274,8 @@
 		A2A8EBF122E4A0AC0049C51B /* HPooCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EBEF22E4A0AC0049C51B /* HPooCodeView.m */; };
 		A2A8EBF522E4A17D0049C51B /* HFPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EBF322E4A17D0049C51B /* HFPickerView.m */; };
 		A2A8EC0122E4A4730049C51B /* HCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EBFF22E4A4730049C51B /* HCountDownButton.m */; };
+		A2B929AD2306978D0091A57D /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B929A82306978D0091A57D /* SRWebSocket.m */; };
+		A2B929AE2306978D0091A57D /* HMultiWebSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B929AA2306978D0091A57D /* HMultiWebSocketManager.m */; };
 		A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */; };
 		A2DC22BE2242994800E540BE /* NSObject+HForwarding.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */; };
 		A2E8F50822CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50622CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png */; };
@@ -797,6 +799,11 @@
 		A2A8EBF422E4A17D0049C51B /* HFPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFPickerView.h; sourceTree = "<group>"; };
 		A2A8EBFF22E4A4730049C51B /* HCountDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCountDownButton.m; sourceTree = "<group>"; };
 		A2A8EC0022E4A4730049C51B /* HCountDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCountDownButton.h; sourceTree = "<group>"; };
+		A2B929A82306978D0091A57D /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
+		A2B929A92306978D0091A57D /* SocketRocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketRocket.h; sourceTree = "<group>"; };
+		A2B929AA2306978D0091A57D /* HMultiWebSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMultiWebSocketManager.m; sourceTree = "<group>"; };
+		A2B929AB2306978D0091A57D /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		A2B929AC2306978D0091A57D /* HMultiWebSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMultiWebSocketManager.h; sourceTree = "<group>"; };
 		A2DC22B622424F2F00E540BE /* NSObject+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeMessy.h"; sourceTree = "<group>"; };
 		A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HForwarding.h"; sourceTree = "<group>"; };
@@ -1116,6 +1123,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A2B929A72306978D0091A57D /* SocketRocket */,
 				A2A8EBFE22E4A4730049C51B /* HCountDownButton */,
 				A2A8EBF222E4A17D0049C51B /* HFPickerView */,
 				A2A8EBEE22E4A0AC0049C51B /* HPooCodeView */,
@@ -2151,6 +2159,19 @@
 			path = QFUtil/HCountDownButton;
 			sourceTree = "<group>";
 		};
+		A2B929A72306978D0091A57D /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				A2B929AC2306978D0091A57D /* HMultiWebSocketManager.h */,
+				A2B929AA2306978D0091A57D /* HMultiWebSocketManager.m */,
+				A2B929A92306978D0091A57D /* SocketRocket.h */,
+				A2B929AB2306978D0091A57D /* SRWebSocket.h */,
+				A2B929A82306978D0091A57D /* SRWebSocket.m */,
+			);
+			name = SocketRocket;
+			path = QFUtil/SocketRocket;
+			sourceTree = "<group>";
+		};
 		A2E8F52722D72A9800E7C9F2 /* HNetwork */ = {
 			isa = PBXGroup;
 			children = (
@@ -2537,6 +2558,7 @@
 				A2A8EACD22DB59FD0049C51B /* HMarquee.m in Sources */,
 				A206883022CA083700661634 /* HWebImageView.m in Sources */,
 				A24B6574225EE5C700B257BB /* HTool.m in Sources */,
+				A2B929AE2306978D0091A57D /* HMultiWebSocketManager.m in Sources */,
 				A2ED9C1222314BA100C9D050 /* SimplePing.m in Sources */,
 				1528DF4C20BF0FE200D0A004 /* UIAlertController+HUtil.m in Sources */,
 				A4759710217EC61D00AAAEA9 /* HUserDefaults.m in Sources */,
@@ -2712,6 +2734,7 @@
 				A2E8F55622D775A200E7C9F2 /* UIView+HSafeMessy.m in Sources */,
 				15B4DE292093034700773E04 /* NSObject+annotation.m in Sources */,
 				A2E8F54422D72A9800E7C9F2 /* YTKRequest.m in Sources */,
+				A2B929AD2306978D0091A57D /* SRWebSocket.m in Sources */,
 				15B4DDF32092F96C00773E04 /* UIView+HUtil.m in Sources */,
 				A2E8F51D22D229A500E7C9F2 /* HTupleController.m in Sources */,
 				A222AE4B22818F7D0013098A /* HTextEffectWindow.m in Sources */,
@@ -2852,10 +2875,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2TEVVN5W68;
 				INFOPLIST_FILE = QFProj/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dqfStudio.QFProj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2867,10 +2891,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2TEVVN5W68;
 				INFOPLIST_FILE = QFProj/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dqfStudio.QFProj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
