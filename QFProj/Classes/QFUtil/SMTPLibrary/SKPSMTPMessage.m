@@ -293,19 +293,35 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
 {
     switch(eventCode) 
     {
+        case NSStreamEventNone: {
+            
+            break;
+        }
+        case NSStreamEventOpenCompleted: {
+            
+            break;
+        }
         case NSStreamEventHasBytesAvailable:
         {
             uint8_t buf[1024];
             memset(buf, 0, sizeof(uint8_t) * 1024);
-            unsigned int len = 0;
+            unsigned long len = 0;
             len = [(NSInputStream *)stream read:buf maxLength:1024];
-            if(len) 
+            if(len)
             {
                 NSString *tmpStr = [[NSString alloc] initWithBytes:buf length:len encoding:NSUTF8StringEncoding];
                 [inputString appendString:tmpStr];
                 
                 [self parseBuffer];
             }
+            break;
+        }
+        case NSStreamEventHasSpaceAvailable: {
+            
+            break;
+        }
+        case NSStreamEventErrorOccurred: {
+            
             break;
         }
         case NSStreamEventEndEncountered:
@@ -542,11 +558,13 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
                         {
                             // Don't validate SSL certs. This is terrible, please complain loudly to your BOFH.
                             NSLog(@"WARNING: Will not validate SSL chain!!!");
-                            
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
                             CFDictionarySetValue(sslOptions, kCFStreamSSLValidatesCertificateChain, kCFBooleanFalse);
                             CFDictionarySetValue(sslOptions, kCFStreamSSLAllowsExpiredCertificates, kCFBooleanTrue);
                             CFDictionarySetValue(sslOptions, kCFStreamSSLAllowsExpiredRoots, kCFBooleanTrue);
                             CFDictionarySetValue(sslOptions, kCFStreamSSLAllowsAnyRoot, kCFBooleanTrue);
+#pragma clang diagnostic pop
                         }
                         
                         NSLog(@"Beginning TLSv1...");

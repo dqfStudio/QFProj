@@ -14,8 +14,8 @@
 @class HFormController;
 
 typedef void (^HFormButtonBlock)(NSInteger index);
-typedef UIView *_Nullable(^HFormHeaderBlock)(HFormController *formController);
-typedef UIView *_Nullable(^HFormFooterBlock)(HFormController *formController);
+typedef UIView *_Nullable(^HFormHeaderBlock)(HFormController * _Nullable formController);
+typedef UIView *_Nullable(^HFormFooterBlock)(HFormController * _Nullable formController);
 
 @interface HFormController : NSObject
 

@@ -157,7 +157,7 @@ static char const * const kHEmptyDataSetView =       "emptyDataSetView";
 #pragma mark - Data Source Getters
 
 - (NSAttributedString *)h_titleLabelString {
-    if (self.hEmptyDataSetSource && [self.hEmptyDataSetSource respondsToSelector:@selector(hTitleForEmptyDataSethTitleForEmptyDataSet:)]) {
+    if (self.hEmptyDataSetSource && [self.hEmptyDataSetSource respondsToSelector:@selector(titleForEmptyDataSet:)]) {
         NSAttributedString *string = [self.hEmptyDataSetSource titleForEmptyDataSet:self];
         if (string) NSAssert([string isKindOfClass:[NSAttributedString class]], @"You must return a valid NSAttributedString object for -titleForEmptyDataSet:");
         return string;
@@ -175,7 +175,7 @@ static char const * const kHEmptyDataSetView =       "emptyDataSetView";
 }
 
 - (UIImage *)h_image {
-    if (self.hEmptyDataSetSource && [self.hEmptyDataSetSource respondsToSelector:@selector(hImageForEmptyDataSethImageForEmptyDataSet:)]) {
+    if (self.hEmptyDataSetSource && [self.hEmptyDataSetSource respondsToSelector:@selector(imageForEmptyDataSet:)]) {
         UIImage *image = [self.hEmptyDataSetSource imageForEmptyDataSet:self];
         if (image) NSAssert([image isKindOfClass:[UIImage class]], @"You must return a valid UIImage object for -imageForEmptyDataSet:");
         return image;
@@ -294,7 +294,7 @@ static char const * const kHEmptyDataSetView =       "emptyDataSetView";
 }
 
 - (BOOL)h_isScrollAllowed {
-    if (self.hEmptyDataSetDelegate && [self.hEmptyDataSetDelegate respondsToSelector:@selector(hEmptyDataSetShouldAllowScrollhEmptyDataSetShouldAllowScroll:)]) {
+    if (self.hEmptyDataSetDelegate && [self.hEmptyDataSetDelegate respondsToSelector:@selector(emptyDataSetShouldAllowScroll:)]) {
         return [self.hEmptyDataSetDelegate emptyDataSetShouldAllowScroll:self];
     }
     return NO;

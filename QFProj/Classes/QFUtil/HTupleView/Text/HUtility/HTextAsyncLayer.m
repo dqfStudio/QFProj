@@ -34,7 +34,10 @@ static dispatch_queue_t HTextAsyncLayerGetDisplayQueue() {
             }
         }
     });
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     uint32_t cur = (uint32_t)OSAtomicIncrement32(&counter);
+#pragma clang diagnostic pop
     return queues[(cur) % queueCount];
 #undef MAX_QUEUE_COUNT
 }
@@ -63,7 +66,10 @@ static dispatch_queue_t HTextAsyncLayerGetReleaseQueue() {
     return _value;
 }
 - (int32_t)increase {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     return OSAtomicIncrement32(&_value);
+#pragma clang diagnostic pop
 }
 @end
 

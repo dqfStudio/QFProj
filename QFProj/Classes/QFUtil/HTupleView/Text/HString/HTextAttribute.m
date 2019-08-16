@@ -74,7 +74,10 @@ HTextAttributeType HTextAttributeGetType(NSString *name){
         dic[(id)kCTSuperscriptAttributeName] = UIKit; //it's a CoreText attrubite, but only supported by UIKit...
         dic[NSVerticalGlyphFormAttributeName] = All;
         dic[(id)kCTGlyphInfoAttributeName] = CoreText_HText;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         dic[(id)kCTCharacterShapeAttributeName] = CoreText_HText;
+#pragma clang diagnostic pop
         dic[(id)kCTRunDelegateAttributeName] = CoreText_HText;
         dic[(id)kCTBaselineClassAttributeName] = CoreText_HText;
         dic[(id)kCTBaselineInfoAttributeName] = CoreText_HText;

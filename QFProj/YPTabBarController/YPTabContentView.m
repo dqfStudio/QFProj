@@ -317,7 +317,10 @@ typedef void (^_YPViewControllerWillAppearInjectBlock)(UIViewController *viewCon
     }
     
     UIViewController *vc = [self contarinerViewController];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     vc.automaticallyAdjustsScrollViewInsets = NO;
+#pragma clang diagnostic pop
     __weak UIViewController *weakVC = vc;
     vc.yp_willAppearInjectBlock = ^(UIViewController *viewController, BOOL animated) {
         __strong UIViewController *strongVC = weakVC;

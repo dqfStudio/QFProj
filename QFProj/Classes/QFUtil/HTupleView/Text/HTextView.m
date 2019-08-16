@@ -3207,6 +3207,8 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
 
 #pragma mark - @protocol UIALertViewDelegate
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     if (title.length == 0) return;
@@ -3218,6 +3220,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     }
     [self _restoreFirstResponderAfterUndoAlert];
 }
+#pragma clang diagnostic pop
 
 #pragma mark - @protocol UIKeyInput
 
