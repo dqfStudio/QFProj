@@ -147,14 +147,17 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 #pragma --mark bounce
 - (void)horizontalBounceEnabled {
+    self.bounces = YES;
     self.alwaysBounceHorizontal = YES;
     self.alwaysBounceVertical = NO;
 }
 - (void)verticalBounceEnabled {
+    self.bounces = YES;
     self.alwaysBounceHorizontal = NO;
     self.alwaysBounceVertical = YES;
 }
 - (void)bounceEnabled {
+    self.bounces = YES;
     self.alwaysBounceHorizontal = YES;
     self.alwaysBounceVertical = YES;
 }
