@@ -102,7 +102,7 @@
         if(self.placeholderColor) {//颜色
             [placeholderString addAttribute:NSForegroundColorAttributeName value:self.placeholderColor range:range];
         }
-        self.attributedPlaceholder  = placeholderString;
+        self.attributedPlaceholder = placeholderString;
     }
 }
 #pragma mark - 字体大小
@@ -114,7 +114,7 @@
         NSMutableAttributedString *placeholderString = [[NSMutableAttributedString alloc] initWithAttributedString:self.attributedPlaceholder];
         NSRange range = NSMakeRange(0, placeholderString.length);
         [placeholderString addAttribute:NSFontAttributeName value:placeholderFont range:range];
-        self.attributedPlaceholder  = placeholderString;
+        self.attributedPlaceholder = placeholderString;
     }
     objc_setAssociatedObject(self, @selector(placeholderFont), placeholderFont, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
@@ -127,7 +127,7 @@
         NSMutableAttributedString *placeholderString = [[NSMutableAttributedString alloc] initWithAttributedString:self.attributedPlaceholder];
         NSRange range = NSMakeRange(0, placeholderString.length);
         [placeholderString addAttribute:NSForegroundColorAttributeName value:placeholderColor range:range];
-        self.attributedPlaceholder  = placeholderString;
+        self.attributedPlaceholder = placeholderString;
     }
     objc_setAssociatedObject(self, @selector(placeholderColor), placeholderColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
