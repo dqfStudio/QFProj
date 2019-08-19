@@ -21,5 +21,6 @@
 + (UIColor *)colorWithHex:(int)hex;
 
 + (UIColor *)random;
++ (BOOL)isLighterColorWithColor:(UIColor *)color;
 @end
 

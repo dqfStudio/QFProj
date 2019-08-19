@@ -96,5 +96,23 @@
 + (UIColor *)random {
     return [UIColor colorWithRed:(arc4random()%256)*1.0/256 green:(arc4random()%256)*1.0/256 blue:(arc4random()%256)*1.0/256 alpha:1];
 }
+
++ (BOOL)isLighterColorWithColor:(UIColor *)color {
+    CGFloat r=0, g=0, b=0, a=0;
+    if ([self respondsToSelector:@selector(getRed:green:blue:alpha:)]) {
+        [color getRed:&r green:&g blue:&b alpha:&a];
+    }else {
+        const CGFloat *components = CGColorGetComponents(color.CGColor);
+        r = components[0];
+        g = components[1];
+        b = components[2];
+        a = components[3];//透明度
+    }
+    BOOL isLighter = NO;
+    if(r*0.299 + g*0.578 + b*0.114 >= 0.75) {
+        isLighter = YES;//浅色
+    }
+    return isLighter;
+}
 @end
 
