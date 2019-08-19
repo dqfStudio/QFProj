@@ -34,7 +34,6 @@
 
 @end
 
-
 @interface HViewController ()
 
 @property (nonatomic) NSMutableArray *controllableRequests;
@@ -45,13 +44,6 @@
 @end
 
 @implementation HViewController
-
-+ (void)load {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [[self class] methodSwizzleWithOrigSEL:@selector(presentViewController:animated:completion:) overrideSEL:@selector(pvc_presentViewController:animated:completion:)];
-    });
-}
 
 //一般情况下调用 init 方法或者调用 initWithNibName 方法实例化 UIViewController, 不管调用哪个方法都为调用 initWithNibName
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -73,7 +65,8 @@
 
 - (void)pvc_initialize {
     _statusBarPadding = 0;
-    
+    //modalPresentationStyle 设置默认样式为 UIModalPresentationFullScreen
+    self.modalPresentationStyle = UIModalPresentationFullScreen;
     //只有statusBar没有系统导航栏的情况下,statusBar背景色是透明的需要自定义的导航栏多增加一点高度来伪造statusBar的背景
     if (![self prefersStatusBarHidden] && ![self prefersNavigationBarHidden]) {
         _statusBarPadding = UIDevice.statusBarHeight;
@@ -161,15 +154,6 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self setNeedsStatusBarAppearanceUpdate];
-}
-
-- (void)pvc_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^ __nullable)(void))completion {
-    if (![viewControllerToPresent isKindOfClass:UINavigationController.class]) {
-        HNavigationController *navi = [[HNavigationController alloc] initWithRootViewController:viewControllerToPresent];
-        [self pvc_presentViewController:navi animated:flag completion:completion];
-    }else {
-        [self pvc_presentViewController:viewControllerToPresent animated:flag completion:completion];
-    }
 }
 
 #pragma mark - 事件处理
