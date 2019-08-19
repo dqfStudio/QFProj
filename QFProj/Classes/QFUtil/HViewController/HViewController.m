@@ -46,6 +46,13 @@
 
 @implementation HViewController
 
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [[self class] methodSwizzleWithOrigSEL:@selector(presentViewController:animated:completion:) overrideSEL:@selector(pvc_presentViewController:animated:completion:)];
+    });
+}
+
 //一般情况下调用 init 方法或者调用 initWithNibName 方法实例化 UIViewController, 不管调用哪个方法都为调用 initWithNibName
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -114,6 +121,12 @@
     self.view.backgroundColor = [HViewController appearance].bgColor;
     [self.view addSubview:self.topBar];
     self.view.exclusiveTouch = YES;
+    //modalPresentationStyle 设置默认样式为 UIModalPresentationFullScreen
+    self.modalPresentationStyle = UIModalPresentationFullScreen;
+    //关闭暗黑模式
+    if (@available(iOS 13.0, *)) {
+        self.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -146,6 +159,15 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self setNeedsStatusBarAppearanceUpdate];
+}
+
+- (void)pvc_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^ __nullable)(void))completion {
+    if (![viewControllerToPresent isKindOfClass:UINavigationController.class]) {
+        HNavigationController *navi = [[HNavigationController alloc] initWithRootViewController:viewControllerToPresent];
+        [self pvc_presentViewController:navi animated:flag completion:completion];
+    }else {
+        [self pvc_presentViewController:viewControllerToPresent animated:flag completion:completion];
+    }
 }
 
 #pragma mark - 事件处理

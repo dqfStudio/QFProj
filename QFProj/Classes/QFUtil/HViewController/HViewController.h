@@ -16,6 +16,7 @@
 #import "UIApplication+HUtil.h"
 #import "NSObject+HSwizzleUtil.h"
 #import "UIViewController+HDisappear.h"
+#import "HNavigationController.h"
 
 @interface HVCAppearance : NSObject
 @property (nonatomic) UIColor *barColor;

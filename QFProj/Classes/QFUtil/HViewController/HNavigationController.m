@@ -55,6 +55,13 @@
     
     // 关闭边缘触发手势 防止和原有边缘手势冲突
     [self.interactivePopGestureRecognizer setEnabled:NO];
+    
+    //modalPresentationStyle 设置默认样式为 UIModalPresentationFullScreen
+    self.modalPresentationStyle = UIModalPresentationFullScreen;
+    //关闭暗黑模式
+    if (@available(iOS 13.0, *)) {
+        self.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
+    }
 }
 
 #pragma mark - UIGestureRecognizerDelegate

@@ -24,7 +24,9 @@
 @property (nonatomic) UIEdgeInsets leftInsets;
 @property (nonatomic) UIEdgeInsets rightInsets;
 
+@property (nonatomic) UIFont  *placeholderFont;
 @property (nonatomic) UIColor *placeholderColor;
+
 @property (nonatomic) NSInteger maxInput;//最大输入限制，小于等于0表示不限制，默认为0
 @property (nonatomic) BOOL forbidPaste;//禁止粘贴，默认为NO
 @property (nonatomic) BOOL forbidWhitespaceAndNewline;//禁止输入空格和换行符，默认为YES

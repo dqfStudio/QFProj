@@ -7,6 +7,7 @@
 //
 
 #import "HTextField.h"
+#import <objc/runtime.h>
 
 @implementation HTextField
 - (instancetype)init {
@@ -72,9 +73,6 @@
     }
     return _rightButton;
 }
-- (void)placeholderColor:(UIColor *)color {
-    [self setValue:color forKeyPath:@"_placeholderLabel.textColor"];
-}
 - (NSString *)trimmingWhitespaceAndNewline {
     NSString *content = [self.text mutableCopy];
     if (content.length > 0) {
@@ -90,6 +88,50 @@
     }
     return content;
 }
+#pragma mark - 字体
+- (NSString *)placeholder {
+    return self.attributedPlaceholder.string;
+}
+- (void)setPlaceholder:(NSString *)placeholder {
+    if (placeholder.length > 0) {
+        NSMutableAttributedString *placeholderString = [[NSMutableAttributedString alloc] initWithString:placeholder];
+        NSRange range = NSMakeRange(0, placeholder.length);
+        if(self.placeholderFont) {//字体
+            [placeholderString addAttribute:NSFontAttributeName value:self.placeholderFont range:range];
+        }
+        if(self.placeholderColor) {//颜色
+            [placeholderString addAttribute:NSForegroundColorAttributeName value:self.placeholderColor range:range];
+        }
+        self.attributedPlaceholder  = placeholderString;
+    }
+}
+#pragma mark - 字体大小
+- (UIFont *)placeholderFont {
+    return objc_getAssociatedObject(self, _cmd);
+}
+- (void)setPlaceholderFont:(UIFont *)placeholderFont {
+    if (placeholderFont && placeholderFont != self.placeholderFont && self.attributedPlaceholder.length > 0) {
+        NSMutableAttributedString *placeholderString = [[NSMutableAttributedString alloc] initWithAttributedString:self.attributedPlaceholder];
+        NSRange range = NSMakeRange(0, placeholderString.length);
+        [placeholderString addAttribute:NSFontAttributeName value:placeholderFont range:range];
+        self.attributedPlaceholder  = placeholderString;
+    }
+    objc_setAssociatedObject(self, @selector(placeholderFont), placeholderFont, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark - 字体颜色
+- (UIColor *)placeholderColor {
+    return objc_getAssociatedObject(self, _cmd);
+}
+- (void)setPlaceholderColor:(UIColor *)placeholderColor {
+    if (placeholderColor && placeholderColor != self.placeholderColor && self.attributedPlaceholder.length > 0) {
+        NSMutableAttributedString *placeholderString = [[NSMutableAttributedString alloc] initWithAttributedString:self.attributedPlaceholder];
+        NSRange range = NSMakeRange(0, placeholderString.length);
+        [placeholderString addAttribute:NSForegroundColorAttributeName value:placeholderColor range:range];
+        self.attributedPlaceholder  = placeholderString;
+    }
+    objc_setAssociatedObject(self, @selector(placeholderColor), placeholderColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark - delegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if (self.forbidWhitespaceAndNewline && string.length == 1) {//输入字符串
         if ([string containsString:@" "] || [string containsString:@"\n"]) {
