@@ -181,4 +181,25 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[URLString encode]]];
 #pragma clang diagnostic pop
 }
+
+#pragma mark 根据颜色动态设置状态栏样式
++ (void)setStatusBarStyleWithColor:(UIColor *)color {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    if([color isLighterColor]) {
+        #ifdef __IPHONE_13_0
+            if (@available(iOS 13.0, *)) {
+                [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDarkContent];
+            }else {
+                // Fallback on earlier versions
+                [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+            }
+        #else
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+        #endif
+    }else {
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    }
+#pragma clang diagnostic pop
+}
 @end

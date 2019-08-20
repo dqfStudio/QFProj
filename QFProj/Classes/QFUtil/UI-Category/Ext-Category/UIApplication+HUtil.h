@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NSString+HUtil.h"
 #import "AppDelegate.h"
+#import "UIColor+HUtil.h"
 
 typedef NS_ENUM(NSInteger, YPNetworkStatus) {
     YPNetworkStatusUnknown          = -1,
@@ -102,4 +103,6 @@ typedef NS_ENUM(NSInteger, YPNetworkStatus) {
 
 + (void)openURLString:(NSString *_Nullable)URLString;
 
+//根据颜色动态设置状态栏样式
++ (void)setStatusBarStyleWithColor:(UIColor *_Nonnull)color;
 @end
