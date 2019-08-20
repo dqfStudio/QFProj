@@ -109,14 +109,4 @@
 #define degreeToRadians(x) (M_PI *(x)/180.0)
 #define radianToDegrees(radian) (radian*180.0)/(M_PI)
 
-#define isIphoneX ({\
-BOOL isPhoneX = NO;\
-if (@available(iOS 11.0, *)) {\
-    if (!UIEdgeInsetsEqualToEdgeInsets([UIApplication sharedApplication].delegate.window.safeAreaInsets, UIEdgeInsetsZero)) {\
-        isPhoneX = YES;\
-    }\
-}\
-isPhoneX;\
-})
-
 #endif /* HCommonDefine_h */
