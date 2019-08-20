@@ -114,8 +114,6 @@
     self.view.backgroundColor = [HViewController appearance].bgColor;
     [self.view addSubview:self.topBar];
     self.view.exclusiveTouch = YES;
-    //modalPresentationStyle 设置默认样式为 UIModalPresentationFullScreen
-    self.modalPresentationStyle = UIModalPresentationFullScreen;
     //关闭暗黑模式
 #ifdef __IPHONE_13_0
     if (@available(iOS 13.0, *)) {
