@@ -652,6 +652,10 @@ static __strong NSData *CRLFCRLF;
             break;
         case NSURLNetworkServiceTypeResponsiveData:
             break;
+        case NSURLNetworkServiceTypeAVStreaming:
+            break;
+        case NSURLNetworkServiceTypeResponsiveAV:
+            break;
         case NSURLNetworkServiceTypeCallSignaling:
             break;
     }
