@@ -19,15 +19,18 @@
 @implementation UIDevice (HUtil)
 
 + (BOOL)isIPhoneX {
-    BOOL iPhoneXSeries = NO;
-    if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
-        if (@available(iOS 11.0, *)) {
-            UIWindow *mainWindow = UIApplication.sharedApplication.delegate.window;
-            if (mainWindow.safeAreaInsets.bottom > 0.0) {
-                iPhoneXSeries = YES;
+    static dispatch_once_t onceToken;
+    static BOOL iPhoneXSeries = NO;
+    dispatch_once(&onceToken, ^{
+        if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+            if (@available(iOS 11.0, *)) {
+                UIWindow *mainWindow = UIApplication.sharedApplication.delegate.window;
+                if (mainWindow.safeAreaInsets.bottom > 0.0) {
+                    iPhoneXSeries = YES;
+                }
             }
         }
-    }
+    });
     return iPhoneXSeries;
 }
 + (CGFloat)statusBarHeight {
