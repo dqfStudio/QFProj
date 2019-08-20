@@ -34,5 +34,4 @@
 - (void)closeSocket;
 // Send a UTF8 String or Data.
 - (void)sendData:(id)data;
-
 @end

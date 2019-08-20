@@ -110,7 +110,7 @@
 }
 
 - (void)reconnect {
-    NSLog(@"Message  webSocket reconnect _repeatMissCount:%ld", (long)_repeatMissCount);
+    //NSLog(@"Message  webSocket reconnect _repeatMissCount:%ld", (long)_repeatMissCount);
     [self destoryWebSocket];
     if (self.closeWithUser) {
         return;
@@ -127,7 +127,7 @@
 
 #pragma mark net work change
 - (void)networkChangeState:(NSNotification *)notification {
-    NSLog(@"Message webSocket receive network state change: %d", _needMonitorNetWorking);
+    //NSLog(@"Message webSocket receive network state change: %d", _needMonitorNetWorking);
     if (_needMonitorNetWorking) {
         NSNumber *status = notification.object;
         if (AFNetworkReachabilityStatusReachableViaWWAN == [status integerValue] ||
@@ -164,12 +164,12 @@
 - (void)beating {
     ++_beatMissCount;
     if (_beatMissCount > MaxBeatMissCout) {
-        NSLog(@"multi websocket heart beat till max limit, and prepare reconnect.");
+        //NSLog(@"multi websocket heart beat till max limit, and prepare reconnect.");
         [self reconnect];
     }
     else {
         if (_webSocket && SR_OPEN  == _webSocket.readyState) {
-            NSLog(@"multi websocket sendPing");
+            //NSLog(@"multi websocket sendPing");
             [_webSocket sendPing:nil];
         }
     }
@@ -194,9 +194,9 @@
 #pragma mark webSocket delegate
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
     if (_webSocket == webSocket) {
-        NSLog(@"\n-------------websocket multi------------");
-        NSLog(@"%@", message);
-        NSLog(@"\n-------------websocket multi------------");
+        //NSLog(@"\n-------------websocket multi------------");
+        //NSLog(@"%@", message);
+        //NSLog(@"\n-------------websocket multi------------");
         [self disposeReceiveInformation:message];
         if (self.delegate && [self.delegate respondsToSelector:@selector(webSocket:didReceiveMessage:)]) {
             [self.delegate webSocket:webSocket didReceiveMessage:message];
@@ -206,7 +206,7 @@
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket {
     if (_webSocket == webSocket) {
-        NSLog(@"multi webSocket did open: uuid:%@", self.uuid);
+        //NSLog(@"multi webSocket did open: uuid:%@", self.uuid);
         _repeatMissCount = 0;
         if (self.delegate && [self.delegate respondsToSelector:@selector(webSocketDidOpen:)]) {
             [self.delegate webSocketDidOpen:webSocket];
@@ -217,7 +217,7 @@
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {
     if (_webSocket == webSocket) {
-        NSLog(@"multi websocket didFailWithError: %@", error.userInfo);
+        //NSLog(@"multi websocket didFailWithError: %@", error.userInfo);
         _repeatMissCount++;
         _needMonitorNetWorking = YES;
         if (self.delegate && [self.delegate respondsToSelector:@selector(webSocket:didFailWithError:)]) {
@@ -229,7 +229,7 @@
 
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
     if (_webSocket == webSocket) {
-        NSLog(@"multi websocket didCloseWithCode:%ld reason:%@", (long)code, reason);
+        //NSLog(@"multi websocket didCloseWithCode:%ld reason:%@", (long)code, reason);
         _needMonitorNetWorking = YES;
         _repeatMissCount = 0;
         if (self.delegate && [self.delegate respondsToSelector:@selector(webSocket:didCloseWithCode:reason:wasClean:)]) {
@@ -242,7 +242,7 @@
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceivePong:(NSData *)pongPayload {
     if (_webSocket == webSocket) {
-        NSLog(@"multi websocket didReceivePong");
+        //NSLog(@"multi websocket didReceivePong");
         _beatMissCount = 0;
         if (self.delegate && [self.delegate respondsToSelector:@selector(webSocket:didReceivePong:)]) {
             [self.delegate webSocket:webSocket didReceivePong:pongPayload];
@@ -252,8 +252,7 @@
 
 #pragma mark dispose receive message
 - (void)disposeReceiveInformation:(id)receive {
-    if ([receive isKindOfClass:[NSString class]])
-    {
+    if ([receive isKindOfClass:[NSString class]]) {
         NSDictionary *dic = [self dictionaryWithJsonString:receive];
         if (dic) {
             NSString *type = dic[@"eventType"];
@@ -279,11 +278,10 @@
                                                                options:NSJSONReadingMutableContainers
                                                                  error:&error];
     if(error) {
-        NSLog(@"JSON解析失败：%@", error);
+        //NSLog(@"JSON解析失败：%@", error);
         return nil;
     }
     return dictionary;
 }
-
 
 @end
