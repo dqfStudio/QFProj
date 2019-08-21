@@ -92,7 +92,7 @@
         case UIDeviceOrientationLandscapeRight: {
             [UIApplication sharedApplication].statusBarHidden = YES;
             [UIView animateWithDuration:0.25 animations:^{
-                [self setFrame:_oldFrame];
+                [self setFrame:self->_oldFrame];
             }];
         }
             break;
@@ -100,10 +100,10 @@
             [UIApplication sharedApplication].statusBarHidden = NO;
             [UIView animateWithDuration:0.25 animations:^{
                 CGRect frame = [UIScreen mainScreen].bounds;
-                frame.origin.y += _rotateEdgeInsets.top;
-                frame.origin.x += _rotateEdgeInsets.left;
-                frame.size.height -= _rotateEdgeInsets.top+_rotateEdgeInsets.bottom;
-                frame.size.width -= _rotateEdgeInsets.left+_rotateEdgeInsets.right;
+                frame.origin.y += self->_rotateEdgeInsets.top;
+                frame.origin.x += self->_rotateEdgeInsets.left;
+                frame.size.height -= self->_rotateEdgeInsets.top+self->_rotateEdgeInsets.bottom;
+                frame.size.width -= self->_rotateEdgeInsets.left+self->_rotateEdgeInsets.right;
                 [self setFrame:frame];
             }];
         }

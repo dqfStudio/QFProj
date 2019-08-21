@@ -126,7 +126,7 @@
     NSArray * editViews = nil;
     if (isDeep) {
         UIScrollView * scrollView = (UIScrollView *)[self.textEditView h_findFatherViewByClass:[UIScrollView class] isMember:NO];
-        UIViewController * vc = [self.textEditView h_viewController];
+        UIViewController * vc = [self.textEditView hh_viewController];
         if (scrollView && [scrollView isKindOfClass:[UIScrollView class]]) {
             editViews = [scrollView h_responderChildViews];
         } else if (vc && [vc isKindOfClass:[UIViewController class]]) {

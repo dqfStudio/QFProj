@@ -142,7 +142,7 @@
             case 0: {
                 if (!self.hideImage) {
                     HTupleImageCell *cell = itemBlock(nil, HTupleImageCell.class, nil, YES);
-                    switch (_resultType) {
+                    switch (self->_resultType) {
                         case HResultTypeNoData:
                             [cell.imageView setImage:[UIImage imageNamed:@"mgf_icon_load_nothing"]];
                             break;
@@ -167,7 +167,7 @@
                 [cell.label setFont:[UIFont systemFontOfSize:14]];
                 [cell.label setTextAlignment:NSTextAlignmentCenter];
                 
-                switch (_resultType) {
+                switch (self->_resultType) {
                     case HResultTypeNoData:
                         [cell.label setText:@"这里好像什么都没有呢⋯"];
                         break;
@@ -188,7 +188,7 @@
                 [cell.label setFont:[UIFont systemFontOfSize:14]];
                 [cell.label setTextAlignment:NSTextAlignmentCenter];
                 
-                switch (_resultType) {
+                switch (self->_resultType) {
                     case HResultTypeNoData:
                         [cell.label setText:nil];
                         break;

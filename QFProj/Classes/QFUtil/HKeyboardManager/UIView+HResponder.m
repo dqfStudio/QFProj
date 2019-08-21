@@ -71,7 +71,7 @@
     return textFields;
 }
 
-- (UIViewController *)h_viewController {
+- (UIViewController *)hh_viewController {
     UIResponder *nextResponder =  self;
     
     do
@@ -99,7 +99,7 @@
         topController = [topController presentedViewController];
         [controllersHierarchy addObject:topController];
     }
-    UIResponder *matchController = [self h_viewController];
+    UIResponder *matchController = [self hh_viewController];
     while (matchController != nil && [controllersHierarchy containsObject:matchController] == NO)
     {
         do
@@ -220,7 +220,7 @@
 @end
 
 
-@implementation UIWindow (HResponder)
+@implementation UIWindow (HResponder2)
 
 + (UIWindow *)h_getWindow{
     UIWindow * window = [[UIApplication sharedApplication] keyWindow];

@@ -185,9 +185,10 @@
 		A22851FF228D48C100961A86 /* NSObject+HSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = A22851FD228D48C100961A86 /* NSObject+HSelector.m */; };
 		A2296D59228A62080081A479 /* HGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2296D58228A62080081A479 /* HGameViewController.m */; };
 		A2296D5C228A626B0081A479 /* HSFSafariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2296D5B228A626B0081A479 /* HSFSafariViewController.m */; };
+		A22F7864230D595A00AAB902 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22F7863230D595900AAB902 /* UIKit.framework */; };
+		A22F7866230D599C00AAB902 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22F7865230D599C00AAB902 /* Foundation.framework */; };
 		A24B6560225EE08900B257BB /* HUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B655F225EE08900B257BB /* HUpdate.m */; };
 		A24B6566225EE0EE00B257BB /* HAutoPackage_Release.sh in Resources */ = {isa = PBXBuildFile; fileRef = A24B6562225EE0EE00B257BB /* HAutoPackage_Release.sh */; };
-		A24B6567225EE0EE00B257BB /* HProjectDRConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A24B6563225EE0EE00B257BB /* HProjectDRConfig.xcconfig */; };
 		A24B6568225EE0EE00B257BB /* README.H.md in Resources */ = {isa = PBXBuildFile; fileRef = A24B6564225EE0EE00B257BB /* README.H.md */; };
 		A24B6569225EE0EE00B257BB /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = A24B6565225EE0EE00B257BB /* exportOptions.plist */; };
 		A24B656D225EE14800B257BB /* HValidate.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B656B225EE14800B257BB /* HValidate.m */; };
@@ -647,6 +648,8 @@
 		A2296D58228A62080081A479 /* HGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGameViewController.m; sourceTree = "<group>"; };
 		A2296D5A228A626A0081A479 /* HSFSafariViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSFSafariViewController.h; sourceTree = "<group>"; };
 		A2296D5B228A626B0081A479 /* HSFSafariViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFSafariViewController.m; sourceTree = "<group>"; };
+		A22F7863230D595900AAB902 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A22F7865230D599C00AAB902 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A24B655E225EE08900B257BB /* HUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUpdate.h; sourceTree = "<group>"; };
 		A24B655F225EE08900B257BB /* HUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUpdate.m; sourceTree = "<group>"; };
 		A24B6562225EE0EE00B257BB /* HAutoPackage_Release.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = HAutoPackage_Release.sh; sourceTree = "<group>"; };
@@ -889,6 +892,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				171E540C3ECD9B640D790516 /* libPods-QFProj.a in Frameworks */,
+				A22F7866230D599C00AAB902 /* Foundation.framework in Frameworks */,
+				A22F7864230D595A00AAB902 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1616,6 +1621,8 @@
 		71D536B54BD2FDE51AFA107C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A22F7865230D599C00AAB902 /* Foundation.framework */,
+				A22F7863230D595900AAB902 /* UIKit.framework */,
 				31E16C30E2760E6660FC02C1 /* libPods-QFProj.a */,
 			);
 			name = Frameworks;
@@ -2350,7 +2357,7 @@
 		15B4DD5B2092F88700773E04 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = dqfStudio;
 				TargetAttributes = {
 					15B4DD622092F88700773E04 = {
@@ -2387,7 +2394,6 @@
 				A28EF3A321D8ECC9002F92ED /* loading_new_4@2x.png in Resources */,
 				15F0297020BE8D79003287AA /* mgf_loading_new_15@2x.png in Resources */,
 				15F0297220BE8D79003287AA /* mgf_loading_new_9@2x.png in Resources */,
-				A24B6567225EE0EE00B257BB /* HProjectDRConfig.xcconfig in Resources */,
 				15F0296E20BE8D79003287AA /* mgf_loading_new_11@2x.png in Resources */,
 				15F0296820BE8D79003287AA /* mgf_loading_new_4@2x.png in Resources */,
 				15F0296D20BE8D79003287AA /* mgf_loading_new_13@2x.png in Resources */,
@@ -2777,6 +2783,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -2784,6 +2791,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -2811,7 +2819,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2832,6 +2840,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -2839,6 +2848,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -2860,7 +2870,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

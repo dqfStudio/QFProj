@@ -27,37 +27,37 @@
 
 - (NSString *(^)(NSString *))contentServerBaseUrl {
     return ^NSString *(NSString *org) {
-        return _kContentServerHost.appendVersion(org);
+        return self->_kContentServerHost.appendVersion(org);
     };
 }
 
 - (NSString *(^)(NSString *))productServerBaseUrl {
     return ^NSString *(NSString *org) {
-        return _kProductServerHost.appendVersion(org);
+        return self->_kProductServerHost.appendVersion(org);
     };
 }
 
 - (NSString *(^)(NSString *))userServerBaseUrl {
     return ^NSString *(NSString *org) {
-        return _kUserServerHost.appendVersion(org);;
+        return self->_kUserServerHost.appendVersion(org);;
     };
 }
 
 - (NSString *(^)(NSString *))barrageServerBaseUrl {
     return ^NSString *(NSString *org) {
-        return _kBarrageServerHost.appendVersion(org);;
+        return self->_kBarrageServerHost.appendVersion(org);;
     };
 }
 
 - (NSString *(^)(NSString *))resourceServerBaseUrl {
     return ^NSString *(NSString *org) {
-        return _kResourceServerHost.appendVersion(org);;
+        return self->_kResourceServerHost.appendVersion(org);;
     };
 }
 
 - (NSString *(^)(void))h5ServerBaseUrl {
     return ^NSString *(void) {
-        return _kH5ServerHost;
+        return self->_kH5ServerHost;
     };
 }
 

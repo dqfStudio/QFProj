@@ -325,7 +325,7 @@ typedef void (^_YPViewControllerWillAppearInjectBlock)(UIViewController *viewCon
     vc.yp_willAppearInjectBlock = ^(UIViewController *viewController, BOOL animated) {
         __strong UIViewController *strongVC = weakVC;
         self.selectedTabIndex = self.defaultSelectedTabIndex;
-        _isDefaultSelectedTabIndexSetuped = YES;
+        self->_isDefaultSelectedTabIndexSetuped = YES;
         strongVC.yp_willAppearInjectBlock = nil;
     };
 }

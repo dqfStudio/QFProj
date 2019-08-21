@@ -19,7 +19,7 @@
 - (NSArray*)h_responderChildViews;
 
 
-- (UIViewController*)h_viewController;
+- (UIViewController*)hh_viewController;
 
 - (UIViewController *)h_topMostController;
 
@@ -34,7 +34,7 @@
 
 @end
 
-@interface UIWindow (HResponder)
+@interface UIWindow (HResponder2)
 + (UIWindow *)h_getWindow;
 
 + (UIViewController *)h_getWindowRootVC;

@@ -9,6 +9,9 @@
 #ifndef HUtilHeader_h
 #define HUtilHeader_h
 
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
 //Ext-Category
 #import "UIAlertController+HError.h"
 #import "UIApplication+HUtil.h"

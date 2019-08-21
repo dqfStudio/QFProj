@@ -22,37 +22,37 @@
 
 @implementation UIView (HShow)
 
-- (HRequestWaitingView *)mgWaitingView {
-    @synchronized(self) {
-        HRequestWaitingView *waitingView = [self getAssociatedValueForKey:_cmd];
-        if (!waitingView) {
-            waitingView = [HRequestWaitingView awakeView];
-            self.mgWaitingView = waitingView;
-            [waitingView setHidden:YES];
-            [self addSubview:waitingView];
-        }
-        return [self getAssociatedValueForKey:_cmd];
-    }
-}
-- (void)setMgWaitingView:(HRequestWaitingView *)mgWaitingView {
-    [self setAssociateValue:mgWaitingView withKey:@selector(mgWaitingView)];
-}
+//- (HRequestWaitingView *)mgWaitingView {
+//    @synchronized(self) {
+//        HRequestWaitingView *waitingView = [self getAssociatedValueForKey:_cmd];
+//        if (!waitingView) {
+//            waitingView = [HRequestWaitingView awakeView];
+//            self.mgWaitingView = waitingView;
+//            [waitingView setHidden:YES];
+//            [self addSubview:waitingView];
+//        }
+//        return [self getAssociatedValueForKey:_cmd];
+//    }
+//}
+//- (void)setMgWaitingView:(HRequestWaitingView *)mgWaitingView {
+//    [self setAssociateValue:mgWaitingView withKey:@selector(mgWaitingView)];
+//}
 
-- (HRequestResultView *)mgResultView {
-    @synchronized(self) {
-        HRequestResultView *mgResultView = [self getAssociatedValueForKey:_cmd];
-        if (!mgResultView) {
-            mgResultView = [HRequestResultView awakeView];
-            self.mgResultView = mgResultView;
-            [mgResultView setHidden:YES];
-            [self addSubview:mgResultView];
-        }
-        return [self getAssociatedValueForKey:_cmd];
-    }
-}
-- (void)setMgResultView:(HRequestResultView *)mgResultView {
-    [self setAssociateValue:mgResultView withKey:@selector(mgResultView)];
-}
+//- (HRequestResultView *)mgResultView {
+//    @synchronized(self) {
+//        HRequestResultView *mgResultView = [self getAssociatedValueForKey:_cmd];
+//        if (!mgResultView) {
+//            mgResultView = [HRequestResultView awakeView];
+//            self.mgResultView = mgResultView;
+//            [mgResultView setHidden:YES];
+//            [self addSubview:mgResultView];
+//        }
+//        return [self getAssociatedValueForKey:_cmd];
+//    }
+//}
+//- (void)setMgResultView:(HRequestResultView *)mgResultView {
+//    [self setAssociateValue:mgResultView withKey:@selector(mgResultView)];
+//}
 
 - (HNaviToast *)mgNaviToast {
     @synchronized(self) {

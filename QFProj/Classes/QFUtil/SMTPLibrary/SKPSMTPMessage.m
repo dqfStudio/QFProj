@@ -228,7 +228,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
     if (![relayPorts count])
     {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [delegate messageFailed:self 
+            [self->delegate messageFailed:self 
                               error:[NSError errorWithDomain:@"SKPSMTPMessageError" 
                                                         code:kSKPSMTPErrorConnectionFailed 
                                                     userInfo:[NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"Unable to connect to the server.", @"server connection fail error description"),NSLocalizedDescriptionKey,

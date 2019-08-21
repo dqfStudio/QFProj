@@ -124,7 +124,7 @@
                 for (int i = 1; i <= 16; i++) {
                     NSString *imageName = [NSString stringWithFormat:@"loading_new_%d", i];
                     UIImage *image = [UIImage imageNamed:imageName];
-                    switch (_waitingType) {
+                    switch (self->_waitingType) {
                         case HWaitingTypeWhite: {
                             image = [self reDrawImage:image withColor:[UIColor whiteColor]];
                         }
@@ -155,7 +155,7 @@
                 [cell.label setFont:[UIFont systemFontOfSize:14]];
                 [cell.label setTextAlignment:NSTextAlignmentCenter];
                 
-                switch (_waitingType) {
+                switch (self->_waitingType) {
                     case HWaitingTypeWhite: {
                         [cell.label setTextColor:[UIColor whiteColor]];
                     }
