@@ -20,6 +20,7 @@
     });
 }
 - (void)leaks_willMoveToSuperview:(UIView *)newView {
+    [self leaks_willMoveToSuperview:newView];
     if ([self isCustomClass]) {
         if (!newView) {
             [self willDealloc];
