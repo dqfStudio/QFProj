@@ -9,18 +9,6 @@
 #import "UIView+HImage.h"
 #import <objc/runtime.h>
 
-@interface NSString (HImage)
-- (NSString *(^)(id))append;
-@end
-
-@implementation NSString (HImage)
-- (NSString *(^)(id))append {
-    return ^NSString *(id obj) {
-        return [NSString stringWithFormat:@"%@%@", self,obj];
-    };
-}
-@end
-
 @interface UIImage (HImage)
 - (void)toPath:(NSString *)path;
 @end
@@ -67,15 +55,16 @@
 }
 - (void)allImagesToFolder:(NSString *)folderPath {
     NSString *subString = [folderPath substringFromIndex:folderPath.length-1];
-    if (![subString isEqualToString:@"/"]) folderPath.append(@"/");
-
+    if (![subString isEqualToString:@"/"]) {
+        folderPath = [folderPath stringByAppendingString:@"/"];
+    }
     [self allSubViews:folderPath];
 }
 - (void)allSubViews:(NSString *)folderPath {
     for (int i=0; i<self.subviews.count; i++) {
         UIView *view = self.subviews[i];
         NSString *string = [NSString stringWithFormat:@"%p.png", view];
-        string = folderPath.append(string);
+        string = [folderPath stringByAppendingString:string];
         UIImage *image = [view createOneImage];
         [image toPath:string];
         [view allSubViews:folderPath];

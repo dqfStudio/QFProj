@@ -628,10 +628,12 @@ static __strong NSData *CRLFCRLF;
             break;
         case NSURLNetworkServiceTypeResponsiveData:
             break;
+#ifdef __IPHONE_13_0
         case NSURLNetworkServiceTypeAVStreaming:
             break;
         case NSURLNetworkServiceTypeResponsiveAV:
             break;
+#endif
         case NSURLNetworkServiceTypeCallSignaling:
             break;
     }
