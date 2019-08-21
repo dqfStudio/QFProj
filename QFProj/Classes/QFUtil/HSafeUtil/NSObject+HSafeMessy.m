@@ -8,7 +8,7 @@
 
 #import "NSObject+HSafeMessy.h"
 
-@implementation NSNull (HMessy)
+@implementation NSNull (HSafeMessy)
 + (NSString *)stringValue {
     return @"";
 }
@@ -29,7 +29,7 @@
 }
 @end
 
-@implementation NSNumber (HMessy)
+@implementation NSNumber (HSafeMessy)
 - (NSUInteger)length {
     return self.stringValue.length;
 }
@@ -42,7 +42,7 @@
 }
 @end
 
-@implementation NSString (HMessy)
+@implementation NSString (HSafeMessy)
 - (NSString *)stringValue {
     return self;
 }

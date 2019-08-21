@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSObject (HMessy)
+@interface NSObject (HAssociatedObject)
 #pragma mark - Associate value
 - (void)setAssociateValue:(nullable id)value withKey:(void *)key;
 - (void)setAssociateWeakValue:(nullable id)value withKey:(void *)key;

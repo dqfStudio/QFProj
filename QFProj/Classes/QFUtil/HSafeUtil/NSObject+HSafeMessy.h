@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSNull (HMessy)
+@interface NSNull (HSafeMessy)
 + (NSString *)stringValue;
 - (NSString *)stringValue;
 + (NSUInteger)length;
@@ -17,12 +17,12 @@
 - (BOOL)isEmpty;
 @end
 
-@interface NSNumber (HMessy)
+@interface NSNumber (HSafeMessy)
 - (NSUInteger)length;
 - (BOOL)isEmpty;
 @end
 
-@interface NSString (HMessy)
+@interface NSString (HSafeMessy)
 - (NSString *)stringValue;
 - (BOOL)isEmpty;
 @end

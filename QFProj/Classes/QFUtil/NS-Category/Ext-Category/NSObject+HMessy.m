@@ -9,7 +9,7 @@
 #import "NSObject+HMessy.h"
 #import <objc/runtime.h>
 
-@implementation NSObject (HMessy)
+@implementation NSObject (HAssociatedObject)
 - (void)setAssociateValue:(id)value withKey:(void *)key {
     objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
