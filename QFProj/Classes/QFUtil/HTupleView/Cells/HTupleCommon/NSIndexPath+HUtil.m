@@ -17,7 +17,7 @@
         return [NSString stringWithFormat:@"%@%@",@(row), @(section)];
     };
 }
-+ (NSIndexPath *(^)(NSInteger row, NSInteger section))returnValue {
++ (NSIndexPath *(^)(NSInteger row, NSInteger section))getValue {
     return ^NSIndexPath *(NSInteger row, NSInteger section) {
         return [NSIndexPath indexPathForRow:row inSection:section];
     };

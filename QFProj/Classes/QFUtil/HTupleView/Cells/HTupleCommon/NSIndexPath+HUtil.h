@@ -11,5 +11,5 @@
 @interface NSIndexPath (HUtil)
 - (NSString *)stringValue;
 + (NSString *(^)(NSInteger row, NSInteger section))stringValue;
-+ (NSIndexPath *(^)(NSInteger row, NSInteger section))returnValue;
++ (NSIndexPath *(^)(NSInteger row, NSInteger section))getValue;
 @end
