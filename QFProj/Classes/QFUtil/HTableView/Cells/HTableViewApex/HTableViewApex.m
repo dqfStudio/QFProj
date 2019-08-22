@@ -223,12 +223,12 @@
     }
     return _imageView;
 }
-- (HLabel *)textLabel {
-    if (!_textLabel) {
-        _textLabel = [HLabel new];
-        [self addSubview:_textLabel];
+- (HLabel *)label {
+    if (!_label) {
+        _label = [HLabel new];
+        [self addSubview:_label];
     }
-    return _textLabel;
+    return _label;
 }
 - (HLabel *)detailLabel {
     if (!_detailLabel) {

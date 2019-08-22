@@ -68,7 +68,7 @@
 
 @interface HTupleViewCell : HTupleBaseCell
 @property (nonatomic) HWebImageView *imageView;
-@property (nonatomic) HLabel *textLabel;
+@property (nonatomic) HLabel *label;
 @property (nonatomic) HLabel *detailLabel;
 @property (nonatomic) HLabel *accessoryLabel;
 @property (nonatomic) HWebImageView *detailView;

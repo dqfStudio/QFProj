@@ -609,7 +609,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         NSInteger sections = [self numberOfSections];
         for (int i=0; i<sections; i++) {
-            UITableViewHeaderFooterView *header = [self.allReuseHeaders objectForKey:@(i).stringValue];
+            HTableBaseApex *header = [self.allReuseHeaders objectForKey:@(i).stringValue];
             if (header.signalBlock) {
                 header.signalBlock(header, signal);
             }
@@ -618,7 +618,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 }
 - (void)signal:(HTableSignal *)signal headerSection:(NSInteger)section {
     dispatch_async(dispatch_queue_create(0, 0), ^{
-        UITableViewHeaderFooterView *header = [self.allReuseHeaders objectForKey:@(section).stringValue];
+        HTableBaseApex *header = [self.allReuseHeaders objectForKey:@(section).stringValue];
         if (header.signalBlock) {
             header.signalBlock(header, signal);
         }
@@ -628,7 +628,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         NSInteger sections = [self numberOfSections];
         for (int i=0; i<sections; i++) {
-            UITableViewHeaderFooterView *footer = [self.allReuseFooters objectForKey:@(i).stringValue];
+            HTableBaseApex *footer = [self.allReuseFooters objectForKey:@(i).stringValue];
             if (footer.signalBlock) {
                 footer.signalBlock(footer, signal);
             }
@@ -637,7 +637,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 }
 - (void)signal:(HTableSignal *)signal footerSection:(NSInteger)section {
     dispatch_async(dispatch_queue_create(0, 0), ^{
-        UITableViewHeaderFooterView *footer = [self.allReuseFooters objectForKey:@(section).stringValue];
+        HTableBaseApex *footer = [self.allReuseFooters objectForKey:@(section).stringValue];
         if (footer.signalBlock) {
             footer.signalBlock(footer, signal);
         }
@@ -653,13 +653,13 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
             }
         }
         //release all header
-        for (HTableViewApex *header in self.allReuseHeaders) {
+        for (HTableBaseApex *header in self.allReuseHeaders) {
             if (header.signalBlock) {
                 header.signalBlock = nil;
             }
         }
         //release all footer
-        for (HTableViewApex *footer in self.allReuseFooters) {
+        for (HTableBaseApex *footer in self.allReuseFooters) {
             if (footer.signalBlock) {
                 footer.signalBlock = nil;
             }
