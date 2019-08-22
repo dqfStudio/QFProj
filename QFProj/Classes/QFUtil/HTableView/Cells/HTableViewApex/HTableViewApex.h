@@ -38,6 +38,15 @@
 @property (nonatomic) HTupleView *tupleView;
 @end
 
+@interface HTableViewApex : HTableBaseApex
+@property (nonatomic) HWebImageView *imageView;
+@property (nonatomic) HLabel *label;
+@property (nonatomic) HLabel *detailLabel;
+@property (nonatomic) HLabel *accessoryLabel;
+@property (nonatomic) HWebImageView *detailView;
+@property (nonatomic) HWebImageView *accessoryView;
+@end
+
 @interface HTableUnionView : HTableBaseApex
 @property (nonatomic) HLabel *label;
 @property (nonatomic) HLabel *detailLabel;
@@ -58,13 +67,4 @@
 @property (nonatomic) HTextField *textField;
 @property (nonatomic) HTextField *detailTextField;
 @property (nonatomic) HTextField *accessoryTextField;
-@end
-
-@interface HTableViewApex : HTableBaseApex
-@property (nonatomic) HWebImageView *imageView;
-@property (nonatomic) HLabel *label;
-@property (nonatomic) HLabel *detailLabel;
-@property (nonatomic) HLabel *accessoryLabel;
-@property (nonatomic) HWebImageView *detailView;
-@property (nonatomic) HWebImageView *accessoryView;
 @end

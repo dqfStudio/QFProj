@@ -44,6 +44,15 @@
 @property (nonatomic) HTupleView *tupleView;
 @end
 
+@interface HTupleViewCell : HTupleBaseCell
+@property (nonatomic) HWebImageView *imageView;
+@property (nonatomic) HLabel *label;
+@property (nonatomic) HLabel *detailLabel;
+@property (nonatomic) HLabel *accessoryLabel;
+@property (nonatomic) HWebImageView *detailView;
+@property (nonatomic) HWebImageView *accessoryView;
+@end
+
 @interface HTupleUnionCell : HTupleBaseCell
 @property (nonatomic) HLabel *label;
 @property (nonatomic) HLabel *detailLabel;
@@ -64,13 +73,4 @@
 @property (nonatomic) HTextField *textField;
 @property (nonatomic) HTextField *detailTextField;
 @property (nonatomic) HTextField *accessoryTextField;
-@end
-
-@interface HTupleViewCell : HTupleBaseCell
-@property (nonatomic) HWebImageView *imageView;
-@property (nonatomic) HLabel *label;
-@property (nonatomic) HLabel *detailLabel;
-@property (nonatomic) HLabel *accessoryLabel;
-@property (nonatomic) HWebImageView *detailView;
-@property (nonatomic) HWebImageView *accessoryView;
 @end

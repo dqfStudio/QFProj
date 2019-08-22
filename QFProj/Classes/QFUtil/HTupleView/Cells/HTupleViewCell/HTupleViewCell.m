@@ -101,6 +101,51 @@
 }
 @end
 
+@implementation HTupleViewCell
+- (HWebImageView *)imageView {
+    if (!_imageView) {
+        _imageView = HWebImageView.new;
+        [self addSubview:_imageView];
+    }
+    return _imageView;
+}
+- (HLabel *)label {
+    if (!_label) {
+        _label = [HLabel new];
+        [self addSubview:_label];
+    }
+    return _label;
+}
+- (HLabel *)detailLabel {
+    if (!_detailLabel) {
+        _detailLabel = [HLabel new];
+        [self addSubview:_detailLabel];
+    }
+    return _detailLabel;
+}
+- (HLabel *)accessoryLabel {
+    if (!_accessoryLabel) {
+        _accessoryLabel = [HLabel new];
+        [self addSubview:_accessoryLabel];
+    }
+    return _accessoryLabel;
+}
+- (HWebImageView *)detailView {
+    if (!_detailView) {
+        _detailView = [HWebImageView new];
+        [self addSubview:_detailView];
+    }
+    return _detailView;
+}
+- (HWebImageView *)accessoryView {
+    if (!_accessoryView) {
+        _accessoryView = [HWebImageView new];
+        [self addSubview:_accessoryView];
+    }
+    return _accessoryView;
+}
+@end
+
 @implementation HTupleUnionCell
 - (HLabel *)label {
     if (!_label) {
@@ -206,50 +251,5 @@
         [self addSubview:_accessoryTextField];
     }
     return _accessoryTextField;
-}
-@end
-
-@implementation HTupleViewCell
-- (HWebImageView *)imageView {
-    if (!_imageView) {
-        _imageView = HWebImageView.new;
-        [self addSubview:_imageView];
-    }
-    return _imageView;
-}
-- (HLabel *)label {
-    if (!_label) {
-        _label = [HLabel new];
-        [self addSubview:_label];
-    }
-    return _label;
-}
-- (HLabel *)detailLabel {
-    if (!_detailLabel) {
-        _detailLabel = [HLabel new];
-        [self addSubview:_detailLabel];
-    }
-    return _detailLabel;
-}
-- (HLabel *)accessoryLabel {
-    if (!_accessoryLabel) {
-        _accessoryLabel = [HLabel new];
-        [self addSubview:_accessoryLabel];
-    }
-    return _accessoryLabel;
-}
-- (HWebImageView *)detailView {
-    if (!_detailView) {
-        _detailView = [HWebImageView new];
-        [self addSubview:_detailView];
-    }
-    return _detailView;
-}
-- (HWebImageView *)accessoryView {
-    if (!_accessoryView) {
-        _accessoryView = [HWebImageView new];
-        [self addSubview:_accessoryView];
-    }
-    return _accessoryView;
 }
 @end
