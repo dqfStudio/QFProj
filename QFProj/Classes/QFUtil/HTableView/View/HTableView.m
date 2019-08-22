@@ -226,6 +226,117 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+#pragma mark - register class
+- (id)dequeueReusableHeaderWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx section:(NSInteger)section {
+    __block UITableViewHeaderFooterView *cell = nil;
+    id (^HCellForHeaderBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
+        NSString *identifier = NSStringFromClass(cls);
+        identifier = [identifier stringByAppendingString:self.addressValue];
+        identifier = [identifier stringByAppendingString:@"HeaderCell"];
+        if (![self.headerIndexPaths containsObject:@(section).stringValue]) {
+            identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
+        }
+        if (pre) identifier = [identifier stringByAppendingString:pre];
+        if (idx) identifier = [identifier stringByAppendingString:@(section).stringValue];
+        if (![self.allReuseIdentifiers containsObject:identifier]) {
+            [self.allReuseIdentifiers addObject:identifier];
+            [self registerClass:cls forHeaderFooterViewReuseIdentifier:identifier];
+            cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+            HTableBaseApex *tmpCell = (HTableBaseApex *)cell;
+            tmpCell.table = self;
+            tmpCell.section = section;
+            tmpCell.isHeader = YES;
+            //init method
+            if (iblk) {
+                HTableCellInitBlock initHeaderBlock = iblk;
+                if (initHeaderBlock) {
+                    initHeaderBlock(cell);
+                }
+            }
+        }else {
+            cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+        }
+        [self.allReuseHeaders setObject:cell forKey:@(section).stringValue];
+        if ([cell respondsToSelector:@selector(layoutContentView)]) {
+            [(HTableBaseApex *)cell layoutContentView];
+        }
+        return cell;
+    };
+    return HCellForHeaderBlock(iblk, cls, pre, idx);
+}
+- (id)dequeueReusableFooterWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx section:(NSInteger)section {
+    __block UITableViewHeaderFooterView *cell = nil;
+    id (^HCellForFooterBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
+        NSString *identifier = NSStringFromClass(cls);
+        identifier = [identifier stringByAppendingString:self.addressValue];
+        identifier = [identifier stringByAppendingString:@"FooterCell"];
+        if (![self.footerIndexPaths containsObject:@(section).stringValue]) {
+            identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
+        }
+        if (pre) identifier = [identifier stringByAppendingString:pre];
+        if (idx) identifier = [identifier stringByAppendingString:@(section).stringValue];
+        if (![self.allReuseIdentifiers containsObject:identifier]) {
+            [self.allReuseIdentifiers addObject:identifier];
+            [self registerClass:cls forHeaderFooterViewReuseIdentifier:identifier];
+            cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+            HTableBaseApex *tmpCell = (HTableBaseApex *)cell;
+            tmpCell.table = self;
+            tmpCell.section = section;
+            tmpCell.isHeader = NO;
+            //init method
+            if (iblk) {
+                HTableCellInitBlock initFooterBlock = iblk;
+                if (initFooterBlock) {
+                    initFooterBlock(cell);
+                }
+            }
+        }else {
+            cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+        }
+        [self.allReuseFooters setObject:cell forKey:@(section).stringValue];
+        if ([cell respondsToSelector:@selector(layoutContentView)]) {
+            [(HTableBaseApex *)cell layoutContentView];
+        }
+        return cell;
+    };
+    return HCellForFooterBlock(iblk, cls, pre, idx);
+}
+- (id)dequeueReusableCellWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx idxPath:(NSIndexPath *)idxPath {
+    __block UITableViewCell *cell = nil;
+    id (^HCellForItemBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
+        NSString *identifier = NSStringFromClass(cls);
+        identifier = [identifier stringByAppendingString:self.addressValue];
+        identifier = [identifier stringByAppendingString:@"ItemCell"];
+        if (![self.cellIndexPaths containsObject:idxPath.stringValue]) {
+            identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
+        }
+        if (pre) identifier = [identifier stringByAppendingString:pre];
+        if (idx) identifier = [identifier stringByAppendingString:idxPath.stringValue];
+        if (![self.allReuseIdentifiers containsObject:identifier]) {
+            [self.allReuseIdentifiers addObject:identifier];
+            [self registerClass:cls forCellReuseIdentifier:identifier];
+            cell = [self dequeueReusableCellWithIdentifier:identifier forIndexPath:idxPath];
+            HTableBaseCell *tmpCell = (HTableBaseCell *)cell;
+            tmpCell.table = self;
+            tmpCell.indexPath = idxPath;
+            //init method
+            if (iblk) {
+                HTableCellInitBlock initCellBlock = iblk;
+                if (initCellBlock) {
+                    initCellBlock(cell);
+                }
+            }
+        }else {
+            cell = [self dequeueReusableCellWithIdentifier:identifier forIndexPath:idxPath];
+        }
+        [self.allReuseCells setObject:cell forKey:idxPath.stringValue];
+        if ([cell respondsToSelector:@selector(layoutContentView)]) {
+            [(HTableBaseCell *)cell layoutContentView];
+        }
+        return cell;
+    };
+    return HCellForItemBlock(iblk, cls, pre, idx);
+}
 #pragma mark - UITableViewDatasource & delegate
 - (NSString *)tableWithPrefix:(NSInteger)section {
     NSString *prefix = nil;
@@ -300,153 +411,52 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     return 0.f;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    __block UITableViewHeaderFooterView *cell = nil;
-    id (^HCellForHeaderBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
-        NSString *identifier = NSStringFromClass(cls);
-        identifier = [identifier stringByAppendingString:self.addressValue];
-        identifier = [identifier stringByAppendingString:@"HeaderCell"];
-        if (![self.headerIndexPaths containsObject:@(section).stringValue]) {
-            identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
-        }
-        if (pre) identifier = [identifier stringByAppendingString:pre];
-        if (idx) identifier = [identifier stringByAppendingString:@(section).stringValue];
-        if (![self.allReuseIdentifiers containsObject:identifier]) {
-            [self.allReuseIdentifiers addObject:identifier];
-            [self registerClass:cls forHeaderFooterViewReuseIdentifier:identifier];
-            cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
-            HTableBaseApex *tmpCell = (HTableBaseApex *)cell;
-            tmpCell.table = self;
-            tmpCell.section = section;
-            tmpCell.isHeader = YES;
-            //init method
-            if (iblk) {
-                HTableCellInitBlock initHeaderBlock = iblk;
-                if (initHeaderBlock) {
-                    initHeaderBlock(cell);
-                }
-            }
-        }else {
-            cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
-        }
-        [self.allReuseHeaders setObject:cell forKey:@(section).stringValue];
-        if ([cell respondsToSelector:@selector(layoutContentView)]) {
-            [(HTableBaseApex *)cell layoutContentView];
-        }
-        return cell;
-    };
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:tableHeader:inSection:)]) {
         [self.tableDelegate tableView:self tableHeader:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            return HCellForHeaderBlock(iblk, cls, pre, idx);
+            return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
         } inSection:section];
     }else if (_categoryDesign && [self respondsToSelector:@selector(tableView:tableHeader:inSection:)]) {
         [self tableView:self tableHeader:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            return HCellForHeaderBlock(iblk, cls, pre, idx);
+            return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
         } inSection:section];
     }else if (self.headerTableBlock) {
         self.headerTableBlock(^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            return HCellForHeaderBlock(iblk, cls, pre, idx);
+            return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
         }, section);
     }
-    return cell;
+    return UITableViewHeaderFooterView.new;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    __block UITableViewHeaderFooterView *cell = nil;
-    id (^HCellForFooterBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
-        NSString *identifier = NSStringFromClass(cls);
-        identifier = [identifier stringByAppendingString:self.addressValue];
-        identifier = [identifier stringByAppendingString:@"FooterCell"];
-        if (![self.footerIndexPaths containsObject:@(section).stringValue]) {
-            identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
-        }
-        if (pre) identifier = [identifier stringByAppendingString:pre];
-        if (idx) identifier = [identifier stringByAppendingString:@(section).stringValue];
-        if (![self.allReuseIdentifiers containsObject:identifier]) {
-            [self.allReuseIdentifiers addObject:identifier];
-            [self registerClass:cls forHeaderFooterViewReuseIdentifier:identifier];
-            cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
-            HTableBaseApex *tmpCell = (HTableBaseApex *)cell;
-            tmpCell.table = self;
-            tmpCell.section = section;
-            tmpCell.isHeader = NO;
-            //init method
-            if (iblk) {
-                HTableCellInitBlock initFooterBlock = iblk;
-                if (initFooterBlock) {
-                    initFooterBlock(cell);
-                }
-            }
-        }else {
-            cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
-        }
-        [self.allReuseFooters setObject:cell forKey:@(section).stringValue];
-        if ([cell respondsToSelector:@selector(layoutContentView)]) {
-            [(HTableBaseApex *)cell layoutContentView];
-        }
-        return cell;
-    };
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:tableFooter:inSection:)]) {
         [self.tableDelegate tableView:self tableFooter:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            return HCellForFooterBlock(iblk, cls, pre, idx);
+            return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
         } inSection:section];
     }else if (_categoryDesign && [self respondsToSelector:@selector(tableView:tableFooter:inSection:)]) {
         [self tableView:self tableFooter:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            return HCellForFooterBlock(iblk, cls, pre, idx);
+            return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
         } inSection:section];
     }else if (self.footerTableBlock) {
         self.footerTableBlock(^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            return HCellForFooterBlock(iblk, cls, pre, idx);
+            return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
         }, section);
     }
-    return cell;
+    return UITableViewHeaderFooterView.new;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    __block UITableViewCell *cell = nil;
-    id (^HCellForItemBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
-        NSString *identifier = NSStringFromClass(cls);
-        identifier = [identifier stringByAppendingString:self.addressValue];
-        identifier = [identifier stringByAppendingString:@"ItemCell"];
-        if (![self.cellIndexPaths containsObject:indexPath.stringValue]) {
-            identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
-        }
-        if (pre) identifier = [identifier stringByAppendingString:pre];
-        if (idx) identifier = [identifier stringByAppendingString:indexPath.stringValue];
-        if (![self.allReuseIdentifiers containsObject:identifier]) {
-            [self.allReuseIdentifiers addObject:identifier];
-            [self registerClass:cls forCellReuseIdentifier:identifier];
-            cell = [self dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-            HTableBaseCell *tmpCell = (HTableBaseCell *)cell;
-            tmpCell.table = self;
-            tmpCell.indexPath = indexPath;
-            //init method
-            if (iblk) {
-                HTableCellInitBlock initCellBlock = iblk;
-                if (initCellBlock) {
-                    initCellBlock(cell);
-                }
-            }
-        }else {
-            cell = [self dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-        }
-        [self.allReuseCells setObject:cell forKey:indexPath.stringValue];
-        if ([cell respondsToSelector:@selector(layoutContentView)]) {
-            [(HTableBaseCell *)cell layoutContentView];
-        }
-        return cell;
-    };
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:tableCell:atIndexPath:)]) {
         [self.tableDelegate tableView:self tableCell:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            return HCellForItemBlock(iblk, cls, pre, idx);
+            return [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
         } atIndexPath:indexPath];
     }else if (_categoryDesign && [self respondsToSelector:@selector(tableView:tableCell:atIndexPath:)]) {
         [self tableView:self tableCell:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            return HCellForItemBlock(iblk, cls, pre, idx);
+            return [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
         } atIndexPath:indexPath];
     }else if (self.cellTableBlock) {
         self.cellTableBlock(^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            return HCellForItemBlock(iblk, cls, pre, idx);
+            return [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
         }, indexPath);
     }
-    return cell;
+    return UITableViewCell.new;
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.separatorStyle != UITableViewCellSeparatorStyleNone) {

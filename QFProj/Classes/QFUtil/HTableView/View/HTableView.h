@@ -92,6 +92,10 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 - (void)beginRefreshing:(void (^)(void))completion;
 - (void)endRefreshing:(void (^)(void))completion;
 - (void)endLoadMore:(void (^)(void))completion;
+//register class
+- (id)dequeueReusableHeaderWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx section:(NSInteger)section;
+- (id)dequeueReusableFooterWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx section:(NSInteger)section;
+- (id)dequeueReusableCellWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx idxPath:(NSIndexPath *)idxPath;
 //block methods
 - (void)tableWithSections:(HANumberOfSectionsBlock)sections cells:(HNumberOfCellsBlock)cells;
 - (void)headerWithHeight:(HeightForHeaderBlock)height tableHeader:(HTableHeaderBlock)block;

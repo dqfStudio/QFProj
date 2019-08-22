@@ -341,7 +341,6 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     };
     return HCellForFooterBlock(iblk, cls, pre, idx);
 }
-//HTupleItem
 - (id)dequeueReusableCellWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx idxPath:(NSIndexPath *)idxPath {
     __block UICollectionViewCell *cell = nil;
     id (^HCellForItemBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
@@ -483,7 +482,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
             return [self dequeueReusableCellWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
         }, indexPath);
     }
-    return nil;
+    return UICollectionViewCell.new;
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if (kind == UICollectionElementKindSectionHeader) {
@@ -515,7 +514,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
             }, indexPath.section);
         }
     }
-    return nil;
+    return UICollectionReusableView.new;
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:willDisplayCell:forItemAtIndexPath:)]) {
