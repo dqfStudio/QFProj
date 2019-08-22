@@ -400,7 +400,6 @@ H_CheckPropertyRange(rrr, 0, 150)
 //
 //
 //    _table = [[HTableView alloc] initWithFrame:frame];
-//    [_table setBackgroundColor:[UIColor clearColor]];
 ////    [self.view addSubview:_table];
 //
 //    @www

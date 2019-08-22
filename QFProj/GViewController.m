@@ -114,7 +114,6 @@
             switch (indexPath.row) {
                 case 0:{
                     HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
-                    [cell setBackgroundColor:[UIColor clearColor]];
 //                    [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setBackgroundColor:[UIColor greenColor]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
@@ -131,7 +130,6 @@
                 case 1:
                 {
                     HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
-                    [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
 //                    [cell.label setText:@"+86"];
@@ -141,7 +139,6 @@
                 case 2:
                 {
                     HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
-                    [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
 //                    [cell.label setText:@"昵称"];
@@ -152,7 +149,6 @@
                 case 3:
                 {
                     HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
-                    [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
 //                    [cell.label setText:@"昵称"];
@@ -174,7 +170,6 @@
                 case 5:
                 {
                     HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
-                    [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
 //                    [cell.label setText:@"昵称"];
@@ -185,7 +180,6 @@
                 case 6:
                 {
                     HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
-                    [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
 //                    [cell.label setText:@"昵称"];
@@ -258,7 +252,6 @@
                 default:
                 {
                     HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
-                    [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor redColor]];
                     NSLog(@"%@",@(indexPath.row));
                     //NSString *str = [NSString stringWithFormat:@"%@",@(indexPath.row)];
@@ -275,7 +268,6 @@
             switch (indexPath.row) {
                 case 0:{
                     HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
-                    [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                     [cell.label setTextAlignment:NSTextAlignmentCenter];
 //                    [cell.label setText:@"+86"];
@@ -283,23 +275,19 @@
                 }
                     break;
                 case 1:{
-                    HTupleImageCell *cell = itemBlock(nil, HTupleImageCell.class, nil, YES);
-                    [cell setBackgroundColor:[UIColor clearColor]];
+                    itemBlock(nil, HTupleImageCell.class, nil, YES);
                 }
                     break;
                 case 2:
                 {
 //                    HTupleDoubleImageCell *cell = itemBlock(HTupleDoubleImageCell.class);
-//                    [cell setBackgroundColor:[UIColor clearColor]];
-                    HTupleImageCell *cell = itemBlock(nil, HTupleImageCell.class, nil, YES);
-                    [cell setBackgroundColor:[UIColor clearColor]];
+                    itemBlock(nil, HTupleImageCell.class, nil, YES);
                 }
                     break;
                     
                 default:
                 {
                     HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
-                    [cell setBackgroundColor:[UIColor clearColor]];
                     [cell.label setBackgroundColor:[UIColor redColor]];
                     NSLog(@"%@",@(indexPath.row));
                     //NSString *str = [NSString stringWithFormat:@"%@",@(indexPath.row)];

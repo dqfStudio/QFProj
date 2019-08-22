@@ -26,7 +26,6 @@
 - (HLabel *)leftLabel {
     if (!_leftLabel) {
         _leftLabel = [HLabel new];
-        [_leftLabel setBackgroundColor:[UIColor clearColor]];
         [self setLeftViewMode:UITextFieldViewModeAlways];
         [self setLeftView:_leftLabel];
     }
@@ -35,7 +34,6 @@
 - (HLabel *)rightLabel {
     if (!_rightLabel) {
         _rightLabel = [HLabel new];
-        [_rightLabel setBackgroundColor:[UIColor clearColor]];
         [self setRightViewMode:UITextFieldViewModeAlways];
         [self setRightView:_rightLabel];
     }
@@ -44,7 +42,6 @@
 - (HWebImageView *)leftImageView {
     if (!_leftImageView) {
         _leftImageView = HWebImageView.new;
-        [_leftImageView setBackgroundColor:[UIColor clearColor]];
         [self setLeftViewMode:UITextFieldViewModeAlways];
         [self setLeftView:_leftImageView];
     }
@@ -53,7 +50,6 @@
 - (HWebImageView *)rightImageView {
     if (!_rightImageView) {
         _rightImageView = HWebImageView.new;
-        [_rightImageView setBackgroundColor:[UIColor clearColor]];
         [self setRightViewMode:UITextFieldViewModeAlways];
         [self setRightView:_rightImageView];
     }
@@ -62,7 +58,6 @@
 - (HWebButtonView *)leftButton {
     if (!_leftButton) {
         _leftButton = [HWebButtonView new];
-        [_leftButton setBackgroundColor:[UIColor clearColor]];
         [self setLeftViewMode:UITextFieldViewModeAlways];
         [self setLeftView:_leftButton];
     }
@@ -71,7 +66,6 @@
 - (HWebButtonView *)rightButton {
     if (!_rightButton) {
         _rightButton = [HWebButtonView new];
-        [_rightButton setBackgroundColor:[UIColor clearColor]];
         [self setRightViewMode:UITextFieldViewModeAlways];
         [self setRightView:_rightButton];
     }

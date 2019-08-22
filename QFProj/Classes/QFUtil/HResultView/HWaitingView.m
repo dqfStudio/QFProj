@@ -118,7 +118,6 @@
             case 0: {
                 HTupleImageCell *cell = itemBlock(nil, HTupleImageCell.class, nil, YES);
                 [cell.imageView setContentMode:UIViewContentModeScaleAspectFit];
-                [cell.imageView setBackgroundColor:[UIColor clearColor]];
                 
                 NSMutableArray *images = [NSMutableArray array];
                 for (int i = 1; i <= 16; i++) {

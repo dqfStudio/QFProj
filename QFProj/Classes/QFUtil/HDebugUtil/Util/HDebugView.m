@@ -22,7 +22,6 @@
 - (HTableView *)table {
     if (!_table) {
         _table = [[HTableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame)-40)];
-        [_table setBackgroundColor:[UIColor clearColor]];
         [_table setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
         [_table setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
     }

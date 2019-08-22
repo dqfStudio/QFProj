@@ -250,8 +250,6 @@
 //                break;
 //            case 2: {
 //                HButtonViewCell *cell = itemBlock(HButtonViewCell.class, @"KS");
-//                [cell setBackgroundColor:[UIColor clearColor]];
-//                [cell.button setBackgroundColor:[HSkinManager specialColor]];
 //                [cell.button.button setTitle:@"下一步"];
 //                [cell.button setCornerRadius:5];
 //                [cell.button.layer setMasksToBounds:YES];

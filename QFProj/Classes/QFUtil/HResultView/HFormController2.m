@@ -68,8 +68,8 @@
     } edgeInsets:^UIEdgeInsets(NSInteger section) {
         return UIEdgeInsetsZero;
     } tupleHeader:^(HTupleHeader  _Nonnull headerBlock, NSInteger section) {
-        HTupleButtonView *cell = headerBlock(nil, HTupleButtonView.class, nil, YES);
-        [cell.buttonView setBackgroundColor:[UIColor clearColor]];
+        headerBlock(nil, HTupleButtonView.class, nil, YES);
+//        HTupleButtonView *cell = headerBlock(nil, HTupleButtonView.class, nil, YES);
 //        [cell.buttonView setPressed:^(id sender, id data) {
 //            //销毁对象
 //            [self destroy];

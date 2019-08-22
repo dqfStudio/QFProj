@@ -103,7 +103,6 @@
 //                case 0: {
 //                    HTextViewCell5 *cell = itemBlock(HTextViewCell5.class, @"SJ");
 //                    [cell setBackgroundColor:[UIColor colorWithString:@"#FDF2DC"]];
-//                    [cell.label setBackgroundColor:[UIColor clearColor]];
 //                    [cell.label setText:@"手机注册每日随机产生最高999元现金大奖"];
 //                    [cell.label setTextColor:[UIColor blackColor]];
 //                    [cell.label setTextAlignment:NSTextAlignmentLeft];
@@ -183,7 +182,6 @@
 //                    break;
 //                case 4: {
 //                    HViewCell *cell = itemBlock(HViewCell.class, @"SJ");
-//                    [cell setBackgroundColor:[UIColor clearColor]];
 //                    [cell setBottomFillLineWithColor:[HSkinManager lineColor]];
 //
 //                    JKCountDownButton *btn = [cell.view viewWithTag:1111];
@@ -266,7 +264,6 @@
 //            break;
 //        case 2: {
 //            HButtonViewCell *cell = itemBlock(HButtonViewCell.class, @"SJ");
-//            [cell setBackgroundColor:[UIColor clearColor]];
 //            [cell.button setBackgroundColor:[HSkinManager specialColor]];
 //            [cell.button.button setTitle:@"下一步"];
 //            [cell.button setCornerRadius:5];

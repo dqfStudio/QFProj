@@ -80,7 +80,6 @@
         NSInteger index = indexPath.section*self.rows*self.rowItems + indexPath.row;
         if (index < self.modelArr.count) {
             HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
-            [cell.buttonView setBackgroundColor:[UIColor clearColor]];
             [cell.buttonView setTitleColor:[UIColor blackColor]];
             
             HFormModel *model = [self.modelArr objectAtIndex:index];
