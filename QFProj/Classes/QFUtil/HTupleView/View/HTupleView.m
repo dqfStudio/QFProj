@@ -720,7 +720,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 
 - (void)signalToTupleView:(HTupleSignal *)signal {
-    dispatch_async(dispatch_queue_create(0, 0), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
         if (self.signalBlock) {
             self.signalBlock(self, signal);
         }
@@ -730,7 +730,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         for (UICollectionViewCell *cell in self.allReuseCells) {
             if (cell.signalBlock) {
-                cell.signalBlock = nil;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    cell.signalBlock(cell, signal);
+                });
             }
         }
     });
@@ -741,56 +743,62 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         for (int i=0; i<items; i++) {
             UICollectionViewCell *cell = [self.allReuseCells objectForKey:NSIndexPath.stringValue(i, section)];
             if (cell.signalBlock) {
-                cell.signalBlock(cell, signal);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    cell.signalBlock(cell, signal);
+                });
             }
         }
     });
 }
 - (void)signal:(HTupleSignal *)signal indexPath:(NSIndexPath *)indexPath  {
-    dispatch_async(dispatch_queue_create(0, 0), ^{
-        UICollectionViewCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
-        if (cell.signalBlock) {
+    UICollectionViewCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
+    if (cell.signalBlock) {
+        dispatch_async(dispatch_get_main_queue(), ^{
             cell.signalBlock(cell, signal);
-        }
-    });
+        });
+    }
 }
 - (void)signalToAllHeader:(HTupleSignal *)signal {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         NSInteger sections = [self numberOfSections];
         for (int i=0; i<sections; i++) {
-            HTupleBaseApex *cell = [self.allReuseHeaders objectForKey:NSIndexPath.stringValue(0, i)];
-            if (cell.signalBlock) {
-                cell.signalBlock(cell, signal);
+            HTupleBaseApex *header = [self.allReuseHeaders objectForKey:NSIndexPath.stringValue(0, i)];
+            if (header.signalBlock) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    header.signalBlock(header, signal);
+                });
             }
         }
     });
 }
 - (void)signal:(HTupleSignal *)signal headerSection:(NSInteger)section {
-    dispatch_async(dispatch_queue_create(0, 0), ^{
-        HTupleBaseApex *cell = [self.allReuseHeaders objectForKey:NSIndexPath.stringValue(0, section)];
-        if (cell.signalBlock) {
-            cell.signalBlock(cell, signal);
-        }
-    });
+    HTupleBaseApex *header = [self.allReuseHeaders objectForKey:NSIndexPath.stringValue(0, section)];
+    if (header.signalBlock) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            header.signalBlock(header, signal);
+        });
+    }
 }
 - (void)signalToAllFooter:(HTupleSignal *)signal {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         NSInteger sections = [self numberOfSections];
         for (int i=0; i<sections; i++) {
-            HTupleBaseApex *cell = [self.allReuseFooters objectForKey:NSIndexPath.stringValue(0, i)];
-            if (cell.signalBlock) {
-                cell.signalBlock(cell, signal);
+            HTupleBaseApex *footer = [self.allReuseFooters objectForKey:NSIndexPath.stringValue(0, i)];
+            if (footer.signalBlock) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    footer.signalBlock(footer, signal);
+                });
             }
         }
     });
 }
 - (void)signal:(HTupleSignal *)signal footerSection:(NSInteger)section {
-    dispatch_async(dispatch_queue_create(0, 0), ^{
-        HTupleBaseApex *cell = [self.allReuseFooters objectForKey:NSIndexPath.stringValue(0, section)];
-        if (cell.signalBlock) {
-            cell.signalBlock(cell, signal);
-        }
-    });
+    HTupleBaseApex *footer = [self.allReuseFooters objectForKey:NSIndexPath.stringValue(0, section)];
+    if (footer.signalBlock) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            footer.signalBlock(footer, signal);
+        });
+    }
 }
 - (void)releaseAllSignal {
     dispatch_async(dispatch_queue_create(0, 0), ^{

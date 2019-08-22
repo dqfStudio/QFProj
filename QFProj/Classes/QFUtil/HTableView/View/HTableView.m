@@ -581,7 +581,9 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         for (UITableViewCell *cell in self.allReuseCells) {
             if (cell.signalBlock) {
-                cell.signalBlock = nil;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    cell.signalBlock(cell, signal);
+                });
             }
         }
     });
@@ -592,18 +594,20 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         for (int i=0; i<cells; i++) {
             UITableViewCell *cell = [self.allReuseCells objectForKey:NSIndexPath.stringValue(i, section)];
             if (cell.signalBlock) {
-                cell.signalBlock(cell, signal);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    cell.signalBlock(cell, signal);
+                });
             }
         }
     });
 }
 - (void)signal:(HTableSignal *)signal indexPath:(NSIndexPath *)indexPath  {
-    dispatch_async(dispatch_queue_create(0, 0), ^{
-        UITableViewCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
-        if (cell.signalBlock) {
+    UITableViewCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
+    if (cell.signalBlock) {
+        dispatch_async(dispatch_get_main_queue(), ^{
             cell.signalBlock(cell, signal);
-        }
-    });
+        });
+    }
 }
 - (void)signalToAllHeader:(HTableSignal *)signal {
     dispatch_async(dispatch_queue_create(0, 0), ^{
@@ -611,18 +615,20 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         for (int i=0; i<sections; i++) {
             HTableBaseApex *header = [self.allReuseHeaders objectForKey:@(i).stringValue];
             if (header.signalBlock) {
-                header.signalBlock(header, signal);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    header.signalBlock(header, signal);
+                });
             }
         }
     });
 }
 - (void)signal:(HTableSignal *)signal headerSection:(NSInteger)section {
-    dispatch_async(dispatch_queue_create(0, 0), ^{
-        HTableBaseApex *header = [self.allReuseHeaders objectForKey:@(section).stringValue];
-        if (header.signalBlock) {
+    HTableBaseApex *header = [self.allReuseHeaders objectForKey:@(section).stringValue];
+    if (header.signalBlock) {
+        dispatch_async(dispatch_get_main_queue(), ^{
             header.signalBlock(header, signal);
-        }
-    });
+        });
+    }
 }
 - (void)signalToAllFooter:(HTableSignal *)signal {
     dispatch_async(dispatch_queue_create(0, 0), ^{
@@ -630,18 +636,20 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         for (int i=0; i<sections; i++) {
             HTableBaseApex *footer = [self.allReuseFooters objectForKey:@(i).stringValue];
             if (footer.signalBlock) {
-                footer.signalBlock(footer, signal);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    footer.signalBlock(footer, signal);
+                });
             }
         }
     });
 }
 - (void)signal:(HTableSignal *)signal footerSection:(NSInteger)section {
-    dispatch_async(dispatch_queue_create(0, 0), ^{
-        HTableBaseApex *footer = [self.allReuseFooters objectForKey:@(section).stringValue];
-        if (footer.signalBlock) {
+    HTableBaseApex *footer = [self.allReuseFooters objectForKey:@(section).stringValue];
+    if (footer.signalBlock) {
+        dispatch_async(dispatch_get_main_queue(), ^{
             footer.signalBlock(footer, signal);
-        }
-    });
+        });
+    }
 }
 - (void)releaseAllSignal {
     dispatch_async(dispatch_queue_create(0, 0), ^{
