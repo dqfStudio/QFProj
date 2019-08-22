@@ -21,13 +21,13 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 
 @class HTupleView, HTupleBaseApex;
 
-typedef void(^HTupleViewBlock)(NSIndexPath *idxPath);
-typedef void(^HTupleViewSkinBlock)(HTupleBaseApex *cell, HTupleView *tuple);
+typedef void(^HTupleApexBlock)(NSIndexPath *idxPath);
+typedef void(^HTupleApexSkinBlock)(HTupleBaseApex *cell, HTupleView *tuple);
 
 @interface HTupleBaseApex : UICollectionReusableView
 @property (nonatomic, weak) UICollectionView *tuple;
-@property (nonatomic, copy) HTupleViewBlock cellBlock;
-@property (nonatomic, copy) HTupleViewSkinBlock skinBlock;
+@property (nonatomic, copy) HTupleApexBlock cellBlock;
+@property (nonatomic, copy) HTupleApexSkinBlock skinBlock;
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UIEdgeInsets edgeInsets;
 //间隔线

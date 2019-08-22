@@ -34,7 +34,7 @@
     });
 }
 
-- (void)setSkinBlock:(HTupleViewSkinBlock)skinBlock {
+- (void)setSkinBlock:(HTupleApexSkinBlock)skinBlock {
     if (_skinBlock != skinBlock) {
         _skinBlock = nil;
         _skinBlock = skinBlock;

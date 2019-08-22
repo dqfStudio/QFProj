@@ -25,7 +25,7 @@
         }
     });
 }
-- (void)setSkinBlock:(HTableViewSkinBlock)skinBlock {
+- (void)setSkinBlock:(HTableApexSkinBlock)skinBlock {
     if (_skinBlock != skinBlock) {
         _skinBlock = nil;
         _skinBlock = skinBlock;
