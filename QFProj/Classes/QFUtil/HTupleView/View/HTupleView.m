@@ -728,15 +728,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 - (void)signalToAllItems:(HTupleSignal *)signal {
     dispatch_async(dispatch_queue_create(0, 0), ^{
-        NSInteger sections = [self numberOfSections];
-        for (int i=0; i<sections; i++) {
-            NSInteger items = [self numberOfItemsInSection:i];
-            for (int j=0; j<items; j++) {
-                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:j inSection:i];
-                UICollectionViewCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
-                if (cell.signalBlock) {
-                    cell.signalBlock(cell, signal);
-                }
+        for (UICollectionViewCell *cell in self.allReuseCells) {
+            if (cell.signalBlock) {
+                cell.signalBlock = nil;
             }
         }
     });
@@ -745,8 +739,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         NSInteger items = [self numberOfItemsInSection:section];
         for (int i=0; i<items; i++) {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:section];
-            UICollectionViewCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
+            UICollectionViewCell *cell = [self.allReuseCells objectForKey:NSIndexPath.getValue(i, section)];
             if (cell.signalBlock) {
                 cell.signalBlock(cell, signal);
             }
@@ -765,8 +758,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         NSInteger sections = [self numberOfSections];
         for (int i=0; i<sections; i++) {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:i];
-            HTupleBaseApex *cell = [self.allReuseHeaders objectForKey:indexPath.stringValue];
+            HTupleBaseApex *cell = [self.allReuseHeaders objectForKey:NSIndexPath.getValue(0, i)];
             if (cell.signalBlock) {
                 cell.signalBlock(cell, signal);
             }
@@ -775,8 +767,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 - (void)signal:(HTupleSignal *)signal headerSection:(NSInteger)section {
     dispatch_async(dispatch_queue_create(0, 0), ^{
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
-        HTupleBaseApex *cell = [self.allReuseHeaders objectForKey:indexPath.stringValue];
+        HTupleBaseApex *cell = [self.allReuseHeaders objectForKey:NSIndexPath.getValue(0, section)];
         if (cell.signalBlock) {
             cell.signalBlock(cell, signal);
         }
@@ -786,8 +777,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         NSInteger sections = [self numberOfSections];
         for (int i=0; i<sections; i++) {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:i];
-            HTupleBaseApex *cell = [self.allReuseFooters objectForKey:indexPath.stringValue];
+            HTupleBaseApex *cell = [self.allReuseFooters objectForKey:NSIndexPath.getValue(0, i)];
             if (cell.signalBlock) {
                 cell.signalBlock(cell, signal);
             }
@@ -796,8 +786,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 - (void)signal:(HTupleSignal *)signal footerSection:(NSInteger)section {
     dispatch_async(dispatch_queue_create(0, 0), ^{
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
-        HTupleBaseApex *cell = [self.allReuseFooters objectForKey:indexPath.stringValue];
+        HTupleBaseApex *cell = [self.allReuseFooters objectForKey:NSIndexPath.getValue(0, section)];
         if (cell.signalBlock) {
             cell.signalBlock(cell, signal);
         }
@@ -806,46 +795,29 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 - (void)releaseAllSignal {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         if (self.signalBlock) self.signalBlock = nil;
-        NSInteger sections = [self numberOfSections];
         //release all cell
-        if (self.allReuseCells.count > 0) {
-            for (int i=0; i<sections; i++) {
-                NSInteger items = [self numberOfItemsInSection:i];
-                for (int j=0; j<items; j++) {
-                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:j inSection:i];
-                    UICollectionViewCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
-                    if (cell.signalBlock) {
-                        cell.signalBlock = nil;
-                    }
-                }
+        for (UICollectionViewCell *cell in self.allReuseCells) {
+            if (cell.signalBlock) {
+                cell.signalBlock = nil;
             }
         }
         //release all header
-        if (self.allReuseHeaders.count > 0) {
-            for (int i=0; i<sections; i++) {
-                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:i];
-                HTupleBaseApex *cell = [self.allReuseHeaders objectForKey:indexPath.stringValue];
-                if (cell.signalBlock) {
-                    cell.signalBlock = nil;
-                }
+        for (HTupleBaseApex *header in self.allReuseHeaders) {
+            if (header.signalBlock) {
+                header.signalBlock = nil;
             }
         }
         //release all footer
-        if (self.allReuseFooters.count > 0) {
-            for (int i=0; i<sections; i++) {
-                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:i];
-                HTupleBaseApex *cell = [self.allReuseFooters objectForKey:indexPath.stringValue];
-                if (cell.signalBlock) {
-                    cell.signalBlock = nil;
-                }
+        for (HTupleBaseApex *footer in self.allReuseFooters) {
+            if (footer.signalBlock) {
+                footer.signalBlock = nil;
             }
         }
     });
 }
 - (id (^)(NSInteger row, NSInteger section))cell {
     return ^id (NSInteger row, NSInteger section) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
-        return [self.allReuseCells objectForKey:indexPath.stringValue];
+        return [self.allReuseCells objectForKey:NSIndexPath.getValue(row, section)];
     };
 }
 - (id (^)(NSInteger row, NSInteger section))indexPath {

@@ -579,15 +579,9 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 }
 - (void)signalToAllCells:(HTableSignal *)signal {
     dispatch_async(dispatch_queue_create(0, 0), ^{
-        NSInteger sections = [self numberOfSections];
-        for (int i=0; i<sections; i++) {
-            NSInteger cells = [self numberOfRowsInSection:i];
-            for (int j=0; j<cells; j++) {
-                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:j inSection:i];
-                UITableViewCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
-                if (cell.signalBlock) {
-                    cell.signalBlock(cell, signal);
-                }
+        for (UITableViewCell *cell in self.allReuseCells) {
+            if (cell.signalBlock) {
+                cell.signalBlock = nil;
             }
         }
     });
@@ -596,8 +590,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         NSInteger cells = [self numberOfRowsInSection:section];
         for (int i=0; i<cells; i++) {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:section];
-            UITableViewCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
+            UITableViewCell *cell = [self.allReuseCells objectForKey:NSIndexPath.getValue(i, section)];
             if (cell.signalBlock) {
                 cell.signalBlock(cell, signal);
             }
@@ -653,44 +646,29 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 - (void)releaseAllSignal {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         if (self.signalBlock) self.signalBlock = nil;
-        NSInteger sections = [self numberOfSections];
         //release all cell
-        if (self.allReuseCells.count > 0) {
-            for (int i=0; i<sections; i++) {
-                NSInteger cells = [self numberOfRowsInSection:i];
-                for (int j=0; j<cells; j++) {
-                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:j inSection:i];
-                    UITableViewCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
-                    if (cell.signalBlock) {
-                        cell.signalBlock = nil;
-                    }
-                }
+        for (UITableViewCell *cell in self.allReuseCells) {
+            if (cell.signalBlock) {
+                cell.signalBlock = nil;
             }
         }
         //release all header
-        if (self.allReuseHeaders.count > 0) {
-            for (int i=0; i<sections; i++) {
-                UITableViewHeaderFooterView *header = [self.allReuseHeaders objectForKey:@(i).stringValue];
-                if (header.signalBlock) {
-                    header.signalBlock = nil;
-                }
+        for (HTableViewApex *header in self.allReuseHeaders) {
+            if (header.signalBlock) {
+                header.signalBlock = nil;
             }
         }
         //release all footer
-        if (self.allReuseFooters.count > 0) {
-            for (int i=0; i<sections; i++) {
-                UITableViewHeaderFooterView *footer = [self.allReuseFooters objectForKey:@(i).stringValue];
-                if (footer.signalBlock) {
-                    footer.signalBlock = nil;
-                }
+        for (HTableViewApex *footer in self.allReuseFooters) {
+            if (footer.signalBlock) {
+                footer.signalBlock = nil;
             }
         }
     });
 }
 - (id (^)(NSInteger row, NSInteger section))cell {
     return ^id (NSInteger row, NSInteger section) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
-        return [self.allReuseCells objectForKey:indexPath.stringValue];
+        return [self.allReuseCells objectForKey:NSIndexPath.getValue(row, section)];
     };
 }
 - (id (^)(NSInteger row, NSInteger section))indexPath {
