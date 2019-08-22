@@ -16,12 +16,14 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 
 @class HTableView, HTableBaseCell;
 
+typedef void(^HTableItemBlock)(NSIndexPath *idxPath);
 typedef void(^HTableCellSkinBlock)(HTableBaseCell *cell, HTableView *table);
 
 @interface HTableBaseCell : UITableViewCell
 @property (nonatomic, weak) UITableView *table;
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UITableViewCellStyle style;
+@property (nonatomic, copy) HTableItemBlock cellBlock;
 @property (nonatomic, copy) HTableCellSkinBlock skinBlock;
 - (void)reloadData;
 - (CGRect)getContentFrame;

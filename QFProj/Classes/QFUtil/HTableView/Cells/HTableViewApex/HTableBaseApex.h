@@ -16,11 +16,13 @@ if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
 
 @class HTableView, HTableBaseApex;
 
+typedef void(^HTableApexBlock)(NSIndexPath *idxPath);
 typedef void(^HTableApexSkinBlock)(HTableBaseApex *cell, HTableView *table);
 
 @interface HTableBaseApex : UITableViewHeaderFooterView
 @property (nonatomic, weak) UITableView *table;
 @property (nonatomic) NSInteger section;
+@property (nonatomic, copy) HTableApexBlock cellBlock;
 @property (nonatomic, copy) HTableApexSkinBlock skinBlock;
 //需要子类重写该方法
 - (void)initUI;
