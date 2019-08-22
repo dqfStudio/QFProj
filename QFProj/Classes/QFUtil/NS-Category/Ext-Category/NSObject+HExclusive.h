@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)synchronized:(void (^)(void))sync;
 @end
 
-@interface UIView (HExclusive)
+@interface UIView (HExclusiveTouch)
 - (void)exclusiveOtherTouch;
 + (void)exclusiveOtherTouch;
 @end
@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removeId:(NSString *)anId;
 @end
 
-@interface NSObject (HState)
+@interface NSObject (HSegState)
 - (NSInteger)segStatue;
 - (NSInteger)segTotalStatue;
 - (void)setObject:(id)anObject forKey:(NSString *)aKey segStatue:(NSInteger)statue;

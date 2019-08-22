@@ -51,7 +51,7 @@
 @end
 
 
-@implementation UIView (HExclusive)
+@implementation UIView (HExclusiveTouch)
 - (void)exclusiveOtherTouch {
     [self setExclusiveTouch:YES];
 }
@@ -60,7 +60,7 @@
 }
 @end
 
-@interface UIView ()
+@interface UIView (HMark2)
 @property (nonatomic) NSMutableSet *idSet;
 @end
 
@@ -94,11 +94,11 @@
 
 #define KSegStateKey   @"_seg_"
 
-@interface NSObject ()
+@interface NSObject (HSegState2)
 @property (nonatomic) NSMutableDictionary *segStatueDict;
 @end
 
-@implementation NSObject (HState)
+@implementation NSObject (HSegState)
 - (NSInteger)segStatue {
     NSNumber *statue = objc_getAssociatedObject(self, _cmd);
     if (!statue) return 0;
