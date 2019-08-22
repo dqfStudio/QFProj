@@ -590,7 +590,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         NSInteger cells = [self numberOfRowsInSection:section];
         for (int i=0; i<cells; i++) {
-            UITableViewCell *cell = [self.allReuseCells objectForKey:NSIndexPath.getValue(i, section)];
+            UITableViewCell *cell = [self.allReuseCells objectForKey:NSIndexPath.stringValue(i, section)];
             if (cell.signalBlock) {
                 cell.signalBlock(cell, signal);
             }
@@ -668,7 +668,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 }
 - (id (^)(NSInteger row, NSInteger section))cell {
     return ^id (NSInteger row, NSInteger section) {
-        return [self.allReuseCells objectForKey:NSIndexPath.getValue(row, section)];
+        return [self.allReuseCells objectForKey:NSIndexPath.stringValue(row, section)];
     };
 }
 - (id (^)(NSInteger row, NSInteger section))indexPath {

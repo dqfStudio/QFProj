@@ -739,7 +739,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         NSInteger items = [self numberOfItemsInSection:section];
         for (int i=0; i<items; i++) {
-            UICollectionViewCell *cell = [self.allReuseCells objectForKey:NSIndexPath.getValue(i, section)];
+            UICollectionViewCell *cell = [self.allReuseCells objectForKey:NSIndexPath.stringValue(i, section)];
             if (cell.signalBlock) {
                 cell.signalBlock(cell, signal);
             }
@@ -758,7 +758,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         NSInteger sections = [self numberOfSections];
         for (int i=0; i<sections; i++) {
-            HTupleBaseApex *cell = [self.allReuseHeaders objectForKey:NSIndexPath.getValue(0, i)];
+            HTupleBaseApex *cell = [self.allReuseHeaders objectForKey:NSIndexPath.stringValue(0, i)];
             if (cell.signalBlock) {
                 cell.signalBlock(cell, signal);
             }
@@ -767,7 +767,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 - (void)signal:(HTupleSignal *)signal headerSection:(NSInteger)section {
     dispatch_async(dispatch_queue_create(0, 0), ^{
-        HTupleBaseApex *cell = [self.allReuseHeaders objectForKey:NSIndexPath.getValue(0, section)];
+        HTupleBaseApex *cell = [self.allReuseHeaders objectForKey:NSIndexPath.stringValue(0, section)];
         if (cell.signalBlock) {
             cell.signalBlock(cell, signal);
         }
@@ -777,7 +777,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         NSInteger sections = [self numberOfSections];
         for (int i=0; i<sections; i++) {
-            HTupleBaseApex *cell = [self.allReuseFooters objectForKey:NSIndexPath.getValue(0, i)];
+            HTupleBaseApex *cell = [self.allReuseFooters objectForKey:NSIndexPath.stringValue(0, i)];
             if (cell.signalBlock) {
                 cell.signalBlock(cell, signal);
             }
@@ -786,7 +786,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 - (void)signal:(HTupleSignal *)signal footerSection:(NSInteger)section {
     dispatch_async(dispatch_queue_create(0, 0), ^{
-        HTupleBaseApex *cell = [self.allReuseFooters objectForKey:NSIndexPath.getValue(0, section)];
+        HTupleBaseApex *cell = [self.allReuseFooters objectForKey:NSIndexPath.stringValue(0, section)];
         if (cell.signalBlock) {
             cell.signalBlock(cell, signal);
         }
@@ -817,7 +817,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 - (id (^)(NSInteger row, NSInteger section))cell {
     return ^id (NSInteger row, NSInteger section) {
-        return [self.allReuseCells objectForKey:NSIndexPath.getValue(row, section)];
+        return [self.allReuseCells objectForKey:NSIndexPath.stringValue(row, section)];
     };
 }
 - (id (^)(NSInteger row, NSInteger section))indexPath {
