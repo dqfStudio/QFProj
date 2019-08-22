@@ -20,8 +20,6 @@
 - (void)setup {
     [self setDelegate:self];
     [self setBackgroundColor:[UIColor clearColor]];
-    [self setLeftViewMode:UITextFieldViewModeAlways];
-    [self setRightViewMode:UITextFieldViewModeAlways];
     _forbidWhitespaceAndNewline = YES;
     _editEnabled = YES;
 }
@@ -29,6 +27,7 @@
     if (!_leftLabel) {
         _leftLabel = [HLabel new];
         [_leftLabel setBackgroundColor:[UIColor clearColor]];
+        [self setLeftViewMode:UITextFieldViewModeAlways];
         [self setLeftView:_leftLabel];
     }
     return _leftLabel;
@@ -37,6 +36,7 @@
     if (!_rightLabel) {
         _rightLabel = [HLabel new];
         [_rightLabel setBackgroundColor:[UIColor clearColor]];
+        [self setRightViewMode:UITextFieldViewModeAlways];
         [self setRightView:_rightLabel];
     }
     return _rightLabel;
@@ -45,6 +45,7 @@
     if (!_leftImageView) {
         _leftImageView = HWebImageView.new;
         [_leftImageView setBackgroundColor:[UIColor clearColor]];
+        [self setLeftViewMode:UITextFieldViewModeAlways];
         [self setLeftView:_leftImageView];
     }
     return _leftImageView;
@@ -53,6 +54,7 @@
     if (!_rightImageView) {
         _rightImageView = HWebImageView.new;
         [_rightImageView setBackgroundColor:[UIColor clearColor]];
+        [self setRightViewMode:UITextFieldViewModeAlways];
         [self setRightView:_rightImageView];
     }
     return _rightImageView;
@@ -61,6 +63,7 @@
     if (!_leftButton) {
         _leftButton = [HWebButtonView new];
         [_leftButton setBackgroundColor:[UIColor clearColor]];
+        [self setLeftViewMode:UITextFieldViewModeAlways];
         [self setLeftView:_leftButton];
     }
     return _leftButton;
@@ -69,6 +72,7 @@
     if (!_rightButton) {
         _rightButton = [HWebButtonView new];
         [_rightButton setBackgroundColor:[UIColor clearColor]];
+        [self setRightViewMode:UITextFieldViewModeAlways];
         [self setRightView:_rightButton];
     }
     return _rightButton;
