@@ -19,7 +19,6 @@ static const int alert_action_key;
        cancelButtonTitle:(NSString *)cancelButtonTitle
        otherButtonTitles:(NSArray *)otherButtonTitles
               completion:(void (^)(NSInteger buttonIndex))completion {
-    
     if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:style];
         
@@ -49,7 +48,9 @@ static const int alert_action_key;
             }
         }
         UIViewController *rootController = [UIApplication sharedApplication].delegate.window.rootViewController;
-        [rootController presentViewController:alertController animated:YES completion:nil];
+        dispatch_async(dispatch_get_main_queue(), ^{
+           [rootController presentViewController:alertController animated:YES completion:nil];
+        });
         return alertController;
     } else {
         /*
