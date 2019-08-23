@@ -29,7 +29,7 @@
 void tracking_didSelectRowAtIndexPath(id self, SEL _cmd, id tableView, id indexpath) {
     SEL selector = NSSelectorFromString(@"tracking_didSelectRowAtIndexPath");
     ((void(*)(id, SEL,id, id))objc_msgSend)(self, selector, tableView, indexpath);
-    printf("HPrinting-->你现在正在点击的是%s页面的第%ld栏第%ld行\n", NSStringFromClass([self class]).UTF8String, ((NSIndexPath *)indexpath).section, ((NSIndexPath *)indexpath).row);
+    printf("HPrinting-->你现在正在点击的是%s页面的第%ld栏第%ld行\n", NSStringFromClass([self class]).UTF8String, (long)((NSIndexPath *)indexpath).section, (long)((NSIndexPath *)indexpath).row);
 }
 @end
 

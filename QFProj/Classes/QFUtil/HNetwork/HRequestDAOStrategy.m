@@ -36,7 +36,7 @@
         return [req.userInfo objectForKey:@"name"];
     }
     if (req.tag > 0) {
-        return [NSString stringWithFormat:@"Request-%ld", req.tag];
+        return [NSString stringWithFormat:@"Request-%ld", (long)req.tag];
     }
     NSString *url = [req requestUrl];
     if (url.length > 0) {

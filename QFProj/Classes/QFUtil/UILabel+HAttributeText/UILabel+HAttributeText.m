@@ -450,7 +450,7 @@
     
     [ranges enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSRange range = NSRangeFromString(obj);
-        NSAssert(totalStr.length >= range.location + range.length, @"NSRange(%ld,%ld) is out of bounds",range.location,range.length);
+        NSAssert(totalStr.length >= range.location + range.length, @"NSRange(%lu,%lu) is out of bounds",(unsigned long)range.location,(unsigned long)range.length);
         NSString *string = [totalStr substringWithRange:range];
         
         HAttributeModel *model = [HAttributeModel new];
