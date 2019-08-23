@@ -42,8 +42,8 @@
         }
         frame.size.height -= _bottomExtendedHeight;
         [_tableView setFrame:frame];
-        if (!UIEdgeInsetsEqualToEdgeInsets(UIEdgeInsetsZero, _extendedInset)) {
-            if (!UIEdgeInsetsEqualToEdgeInsets(_tableView.contentInset, _extendedInset)) {
+        if (!UIEdgeInsetsEqualToEdgeInsets(UIEdgeInsetsZero, _extendedInset)) {//设置过值
+            if (!UIEdgeInsetsEqualToEdgeInsets(_tableView.contentInset, _extendedInset)) {//设置的值与现有的值不相等
                 [_tableView setContentInset:_extendedInset];
             }
         }

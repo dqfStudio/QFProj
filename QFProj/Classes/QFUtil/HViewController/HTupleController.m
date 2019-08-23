@@ -43,8 +43,8 @@
         }
         frame.size.height -= _bottomExtendedHeight;
         [_tupleView setFrame:frame];
-        if (!UIEdgeInsetsEqualToEdgeInsets(UIEdgeInsetsZero, _extendedInset)) {
-            if (!UIEdgeInsetsEqualToEdgeInsets(_tupleView.contentInset, _extendedInset)) {
+        if (!UIEdgeInsetsEqualToEdgeInsets(UIEdgeInsetsZero, _extendedInset)) {//设置过值
+            if (!UIEdgeInsetsEqualToEdgeInsets(_tupleView.contentInset, _extendedInset)) {//设置的值与现有的值不相等
                 [_tupleView setContentInset:_extendedInset];
             }
         }
