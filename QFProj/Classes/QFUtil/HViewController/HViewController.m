@@ -503,7 +503,8 @@
 - (NSMutableArray *)sourceArr {
     NSMutableArray *array = objc_getAssociatedObject(self, _cmd);
     if (!array) {
-        self.sourceArr = NSMutableArray.array;
+        array = NSMutableArray.array;
+        self.sourceArr = array;
     }
     return array;
 }
@@ -513,7 +514,8 @@
 - (NSMutableDictionary *)sourceDict {
     NSMutableDictionary *dictionary = objc_getAssociatedObject(self, _cmd);
     if (!dictionary) {
-        self.sourceDict = NSMutableDictionary.dictionary;
+        dictionary= NSMutableDictionary.dictionary;
+        self.sourceDict = dictionary;
     }
     return dictionary;
 }
