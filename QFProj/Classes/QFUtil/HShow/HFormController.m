@@ -297,7 +297,7 @@ UIKIT_STATIC_INLINE long getTotalPages(long totalLines, long pageLines);
     return self;
 }
 
-- (NSInteger)tupleView:(UICollectionView *)tupleView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
     if (tupleView.tag == KTupleViewTag) {
         return self.formController.titles.count;
     }else {
@@ -311,16 +311,16 @@ UIKIT_STATIC_INLINE long getTotalPages(long totalLines, long pageLines);
     }
 }
 
-- (CGSize)tupleView:(UICollectionView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat tupleWidth = CGRectGetWidth(tupleView.frame);
     CGFloat width  = tupleWidth/self.formController.lineItems;
     CGFloat height = width;
     return CGSizeMake(width, height);
 }
-- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     return self.formController.edgeInsets;
 }
-- (void)tupleView:(UICollectionView *)tupleView tupleCell:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(HTupleView *)tupleView tupleCell:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     if (tupleView.tag == KTupleViewTag) {
         if (indexPath.row < self.formController.titles.count) {
             Class class = HTupleButtonCell.class;

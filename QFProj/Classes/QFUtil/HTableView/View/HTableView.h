@@ -47,19 +47,19 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 
 @protocol HTableViewDelegate <NSObject>
 @optional
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+- (NSInteger)numberOfSectionsInTableView:(HTableView *)tableView;
+- (NSInteger)tableView:(HTableView *)tableView numberOfRowsInSection:(NSInteger)section;
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section;
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section;
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (CGFloat)tableView:(HTableView *)tableView heightForHeaderInSection:(NSInteger)section;
+- (CGFloat)tableView:(HTableView *)tableView heightForFooterInSection:(NSInteger)section;
+- (CGFloat)tableView:(HTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 
-- (void)tableView:(UITableView *)tableView tableHeader:(HTableHeader)headerBlock inSection:(NSInteger)section;
-- (void)tableView:(UITableView *)tableView tableFooter:(HTableFooter)footerBlock inSection:(NSInteger)section;
-- (void)tableView:(UITableView *)tableView tableCell:(HTableCell)cellBlock atIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(HTableView *)tableView tableHeader:(HTableHeader)headerBlock inSection:(NSInteger)section;
+- (void)tableView:(HTableView *)tableView tableFooter:(HTableFooter)footerBlock inSection:(NSInteger)section;
+- (void)tableView:(HTableView *)tableView tableCell:(HTableCell)cellBlock atIndexPath:(NSIndexPath *)indexPath;
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(HTableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(HTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @interface HTableView : UITableView <HTableViewDelegate>

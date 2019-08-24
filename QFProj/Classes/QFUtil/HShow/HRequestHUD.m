@@ -85,40 +85,40 @@
 - (void)didSelectedItem {
     
 }
-- (NSInteger)numberOfSectionsInTupleView:(UICollectionView *)tupleView {
+- (NSInteger)numberOfSectionsIntupleView:(HTupleView *)tupleView {
     return [[self performSelector:_cmd withPre:self.modePrefix withMethodArgments:&tupleView] integerValue];
 }
-- (NSInteger)tupleView:(UICollectionView *)tupleView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
     return [[self performSelector:_cmd withPre:self.modePrefix withMethodArgments:&tupleView, &section] integerValue];
 }
-- (CGSize)tupleView:(UICollectionView *)tupleView sizeForHeaderInSection:(NSInteger)section {
+- (CGSize)tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section {
     return [[self performSelector:_cmd withPre:self.modePrefix withMethodArgments:&tupleView, &section] CGSizeValue];
 }
-- (CGSize)tupleView:(UICollectionView *)tupleView sizeForFooterInSection:(NSInteger)section {
+- (CGSize)tupleView:(HTupleView *)tupleView sizeForFooterInSection:(NSInteger)section {
     return [[self performSelector:_cmd withPre:self.modePrefix withMethodArgments:&tupleView, &section] CGSizeValue];
 }
-- (CGSize)tupleView:(UICollectionView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return [[self performSelector:_cmd withPre:self.modePrefix withMethodArgments:&tupleView, &indexPath] CGSizeValue];
 }
-- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
+- (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
     return [[self performSelector:_cmd withPre:self.modePrefix withMethodArgments:&tupleView, &section] UIEdgeInsetsValue];
 }
-- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
+- (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
     return [[self performSelector:_cmd withPre:self.modePrefix withMethodArgments:&tupleView, &section] UIEdgeInsetsValue];
 }
-- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     return [[self performSelector:_cmd withPre:self.modePrefix withMethodArgments:&tupleView, &indexPath] UIEdgeInsetsValue];
 }
-- (void)tupleView:(UICollectionView *)tupleView headerTuple:(HTupleHeader)headerBlock inSection:(NSInteger)section {
+- (void)tupleView:(HTupleView *)tupleView headerTuple:(HTupleHeader)headerBlock inSection:(NSInteger)section {
     [self performSelector:_cmd withPre:self.modePrefix withMethodArgments:&tupleView, &headerBlock, &section];
 }
-- (void)tupleView:(UICollectionView *)tupleView footerTuple:(HTupleFooter)footerBlock inSection:(NSInteger)section {
+- (void)tupleView:(HTupleView *)tupleView footerTuple:(HTupleFooter)footerBlock inSection:(NSInteger)section {
     [self performSelector:_cmd withPre:self.modePrefix withMethodArgments:&tupleView, &footerBlock, &section];
 }
-- (void)tupleView:(UICollectionView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(HTupleView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     [self performSelector:_cmd withPre:self.modePrefix withMethodArgments:&tupleView, &itemBlock, &indexPath];
 }
-- (void)tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(HTupleView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self performSelector:_cmd withPre:self.modePrefix withMethodArgments:&tupleView, &indexPath];
 }
 @end
@@ -143,42 +143,42 @@
     _subTitleHeaderSize = CGSizeZero;
     _subTitleSize = CGSizeZero;
 }
-- (NSInteger)mode1_numberOfSectionsInTupleView:(UICollectionView *)tupleView {
+- (NSInteger)mode1_numberOfSectionsIntupleView:(HTupleView *)tupleView {
     return 1;
 }
-- (NSInteger)mode1_tupleView:(UICollectionView *)tupleView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)mode1_tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
     return 1;
 }
-- (CGSize)mode1_tupleView:(UICollectionView *)tupleView sizeForHeaderInSection:(NSInteger)section {
+- (CGSize)mode1_tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section {
     return _tupleHeaderSize;
 }
-- (CGSize)mode1_tupleView:(UICollectionView *)tupleView sizeForFooterInSection:(NSInteger)section {
+- (CGSize)mode1_tupleView:(HTupleView *)tupleView sizeForFooterInSection:(NSInteger)section {
     return _tupleFooterSize;
 }
-- (CGSize)mode1_tupleView:(UICollectionView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)mode1_tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return _imageSize;
 }
 
-- (UIEdgeInsets)mode1_tupleView:(UICollectionView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
+- (UIEdgeInsets)mode1_tupleView:(HTupleView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
     return UIEdgeInsetsZero;
 }
-- (UIEdgeInsets)mode1_tupleView:(UICollectionView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
+- (UIEdgeInsets)mode1_tupleView:(HTupleView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
     return UIEdgeInsetsZero;
 }
-- (UIEdgeInsets)mode1_tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UIEdgeInsets)mode1_tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     return _imageEdgeInsets;
 }
 
-- (void)mode1_tupleView:(UICollectionView *)tupleView headerTuple:(HTupleHeader)headerBlock inSection:(NSInteger)section {
+- (void)mode1_tupleView:(HTupleView *)tupleView headerTuple:(HTupleHeader)headerBlock inSection:(NSInteger)section {
     headerBlock(nil, HTupleUnionView.class, self.modePrefix, YES);
 }
-- (void)mode1_tupleView:(UICollectionView *)tupleView footerTuple:(HTupleFooter)footerBlock inSection:(NSInteger)section {
+- (void)mode1_tupleView:(HTupleView *)tupleView footerTuple:(HTupleFooter)footerBlock inSection:(NSInteger)section {
     footerBlock(nil, HTupleUnionView.class, self.modePrefix, YES);
 }
-- (void)mode1_tupleView:(UICollectionView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)mode1_tupleView:(HTupleView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     itemBlock(nil, HTupleImageCell.class, self.modePrefix, YES);
 }
-- (void)mode1_tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)mode1_tupleView:(HTupleView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self didSelectedItem];
 }
 @end
@@ -203,28 +203,28 @@
     _subTitleHeaderSize = CGSizeZero;
     _subTitleSize = CGSizeZero;
 }
-- (NSInteger)mode2_numberOfSectionsInTupleView:(UICollectionView *)tupleView {
+- (NSInteger)mode2_numberOfSectionsIntupleView:(HTupleView *)tupleView {
     return 2;
 }
-- (NSInteger)mode2_tupleView:(UICollectionView *)tupleView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)mode2_tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
     return 1;
 }
 
-- (CGSize)mode2_tupleView:(UICollectionView *)tupleView sizeForHeaderInSection:(NSInteger)section {
+- (CGSize)mode2_tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section {
     switch (section) {
         case 0: return _tupleHeaderSize;
         case 1: return _titleHeaderSize;
         default: return CGSizeZero;
     }
 }
-- (CGSize)mode2_tupleView:(UICollectionView *)tupleView sizeForFooterInSection:(NSInteger)section {
+- (CGSize)mode2_tupleView:(HTupleView *)tupleView sizeForFooterInSection:(NSInteger)section {
     switch (section) {
         case 0: return CGSizeZero;
         case 1: return _tupleFooterSize;
         default: return CGSizeZero;
     }
 }
-- (CGSize)mode2_tupleView:(UICollectionView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)mode2_tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0: return _imageSize;
         case 1: return _titleSize;
@@ -232,13 +232,13 @@
     }
 }
 
-- (UIEdgeInsets)mode2_tupleView:(UICollectionView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
+- (UIEdgeInsets)mode2_tupleView:(HTupleView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
     return UIEdgeInsetsZero;
 }
-- (UIEdgeInsets)mode2_tupleView:(UICollectionView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
+- (UIEdgeInsets)mode2_tupleView:(HTupleView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
     return UIEdgeInsetsZero;
 }
-- (UIEdgeInsets)mode2_tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UIEdgeInsets)mode2_tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0: return _imageEdgeInsets;
         case 1: return UIEdgeInsetsZero;
@@ -246,16 +246,16 @@
     }
 }
 
-- (void)mode2_tupleView:(UICollectionView *)tupleView headerTuple:(HTupleHeader)headerBlock inSection:(NSInteger)section {
+- (void)mode2_tupleView:(HTupleView *)tupleView headerTuple:(HTupleHeader)headerBlock inSection:(NSInteger)section {
     headerBlock(nil, HTupleUnionView.class, self.modePrefix, YES);
 }
-- (void)mode2_tupleView:(UICollectionView *)tupleView footerTuple:(HTupleFooter)footerBlock inSection:(NSInteger)section {
+- (void)mode2_tupleView:(HTupleView *)tupleView footerTuple:(HTupleFooter)footerBlock inSection:(NSInteger)section {
     footerBlock(nil, HTupleUnionView.class, self.modePrefix, YES);
 }
-- (void)mode2_tupleView:(UICollectionView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)mode2_tupleView:(HTupleView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     itemBlock(nil, HTupleImageCell.class, self.modePrefix, YES);
 }
-- (void)mode2_tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)mode2_tupleView:(HTupleView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self didSelectedItem];
 }
 @end
@@ -280,14 +280,14 @@
     _subTitleHeaderSize = CGSizeMake(_requestTuple.width, 5);
     _subTitleSize = CGSizeMake(_requestTuple.width, 20);
 }
-- (NSInteger)mode3_numberOfSectionsInTupleView:(UICollectionView *)tupleView {
+- (NSInteger)mode3_numberOfSectionsIntupleView:(HTupleView *)tupleView {
     return 3;
 }
-- (NSInteger)mode3_tupleView:(UICollectionView *)tupleView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)mode3_tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
     return 1;
 }
 
-- (CGSize)mode3_tupleView:(UICollectionView *)tupleView sizeForHeaderInSection:(NSInteger)section {
+- (CGSize)mode3_tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section {
     switch (section) {
         case 0: return _tupleHeaderSize;
         case 1: return _titleHeaderSize;
@@ -295,7 +295,7 @@
         default: return CGSizeZero;
     }
 }
-- (CGSize)mode3_tupleView:(UICollectionView *)tupleView sizeForFooterInSection:(NSInteger)section {
+- (CGSize)mode3_tupleView:(HTupleView *)tupleView sizeForFooterInSection:(NSInteger)section {
     switch (section) {
         case 0: return CGSizeZero;
         case 1: return CGSizeZero;
@@ -303,7 +303,7 @@
         default: return CGSizeZero;
     }
 }
-- (CGSize)mode3_tupleView:(UICollectionView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)mode3_tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0: return _imageSize;
         case 1: return _titleSize;
@@ -312,13 +312,13 @@
     }
 }
 
-- (UIEdgeInsets)mode3_tupleView:(UICollectionView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
+- (UIEdgeInsets)mode3_tupleView:(HTupleView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
     return UIEdgeInsetsZero;
 }
-- (UIEdgeInsets)mode3_tupleView:(UICollectionView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
+- (UIEdgeInsets)mode3_tupleView:(HTupleView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
     return UIEdgeInsetsZero;
 }
-- (UIEdgeInsets)mode3_tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UIEdgeInsets)mode3_tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0: return _imageEdgeInsets;
         case 1: return UIEdgeInsetsZero;
@@ -327,16 +327,16 @@
     }
 }
 
-- (void)mode3_tupleView:(UICollectionView *)tupleView headerTuple:(HTupleHeader)headerBlock inSection:(NSInteger)section {
+- (void)mode3_tupleView:(HTupleView *)tupleView headerTuple:(HTupleHeader)headerBlock inSection:(NSInteger)section {
     headerBlock(nil, HTupleUnionView.class, self.modePrefix, YES);
 }
-- (void)mode3_tupleView:(UICollectionView *)tupleView footerTuple:(HTupleFooter)footerBlock inSection:(NSInteger)section {
+- (void)mode3_tupleView:(HTupleView *)tupleView footerTuple:(HTupleFooter)footerBlock inSection:(NSInteger)section {
     footerBlock(nil, HTupleUnionView.class, self.modePrefix, YES);
 }
-- (void)mode3_tupleView:(UICollectionView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)mode3_tupleView:(HTupleView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     itemBlock(nil, HTupleImageCell.class, self.modePrefix, YES);
 }
-- (void)mode3_tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)mode3_tupleView:(HTupleView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self didSelectedItem];
 }
 @end
@@ -361,43 +361,43 @@
     _subTitleHeaderSize = CGSizeZero;
     _subTitleSize = CGSizeZero;
 }
-- (NSInteger)mode4_numberOfSectionsInTupleView:(UICollectionView *)tupleView {
+- (NSInteger)mode4_numberOfSectionsIntupleView:(HTupleView *)tupleView {
     return 1;
 }
-- (NSInteger)mode4_tupleView:(UICollectionView *)tupleView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)mode4_tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
     return 1;
 }
 
-- (CGSize)mode4_tupleView:(UICollectionView *)tupleView sizeForHeaderInSection:(NSInteger)section {
+- (CGSize)mode4_tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section {
     return _tupleHeaderSize;
 }
-- (CGSize)mode4_tupleView:(UICollectionView *)tupleView sizeForFooterInSection:(NSInteger)section {
+- (CGSize)mode4_tupleView:(HTupleView *)tupleView sizeForFooterInSection:(NSInteger)section {
     return _tupleFooterSize;
 }
-- (CGSize)mode4_tupleView:(UICollectionView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)mode4_tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return _titleSize;
 }
 
-- (UIEdgeInsets)mode4_tupleView:(UICollectionView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
+- (UIEdgeInsets)mode4_tupleView:(HTupleView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
     return UIEdgeInsetsZero;
 }
-- (UIEdgeInsets)mode4_tupleView:(UICollectionView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
+- (UIEdgeInsets)mode4_tupleView:(HTupleView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
     return UIEdgeInsetsZero;
 }
-- (UIEdgeInsets)mode4_tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UIEdgeInsets)mode4_tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     return UIEdgeInsetsZero;
 }
 
-- (void)mode4_tupleView:(UICollectionView *)tupleView headerTuple:(HTupleHeader)headerBlock inSection:(NSInteger)section {
+- (void)mode4_tupleView:(HTupleView *)tupleView headerTuple:(HTupleHeader)headerBlock inSection:(NSInteger)section {
     headerBlock(nil, HTupleUnionView.class, self.modePrefix, YES);
 }
-- (void)mode4_tupleView:(UICollectionView *)tupleView footerTuple:(HTupleFooter)footerBlock inSection:(NSInteger)section {
+- (void)mode4_tupleView:(HTupleView *)tupleView footerTuple:(HTupleFooter)footerBlock inSection:(NSInteger)section {
     footerBlock(nil, HTupleUnionView.class, self.modePrefix, YES);
 }
-- (void)mode4_tupleView:(UICollectionView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)mode4_tupleView:(HTupleView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     itemBlock(nil, HTupleLabelCell.class, self.modePrefix, YES);
 }
-- (void)mode4_tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)mode4_tupleView:(HTupleView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self didSelectedItem];
 }
 @end
@@ -422,28 +422,28 @@
     _subTitleHeaderSize = CGSizeMake(_requestTuple.width, 5);
     _subTitleSize = CGSizeMake(_requestTuple.width, 20);
 }
-- (NSInteger)mode5_numberOfSectionsInTupleView:(UICollectionView *)tupleView {
+- (NSInteger)mode5_numberOfSectionsIntupleView:(HTupleView *)tupleView {
     return 2;
 }
-- (NSInteger)mode5_tupleView:(UICollectionView *)tupleView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)mode5_tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
     return 1;
 }
 
-- (CGSize)mode5_tupleView:(UICollectionView *)tupleView sizeForHeaderInSection:(NSInteger)section {
+- (CGSize)mode5_tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section {
     switch (section) {
         case 0: return _tupleHeaderSize;
         case 1: return _subTitleHeaderSize;
         default: return CGSizeZero;
     }
 }
-- (CGSize)mode5_tupleView:(UICollectionView *)tupleView sizeForFooterInSection:(NSInteger)section {
+- (CGSize)mode5_tupleView:(HTupleView *)tupleView sizeForFooterInSection:(NSInteger)section {
     switch (section) {
         case 0: return CGSizeZero;
         case 1: return _tupleFooterSize;
         default: return CGSizeZero;
     }
 }
-- (CGSize)mode5_tupleView:(UICollectionView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)mode5_tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0: return _titleSize;
         case 1: return _subTitleSize;
@@ -451,26 +451,26 @@
     }
 }
 
-- (UIEdgeInsets)mode5_tupleView:(UICollectionView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
+- (UIEdgeInsets)mode5_tupleView:(HTupleView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
     return UIEdgeInsetsZero;
 }
-- (UIEdgeInsets)mode5_tupleView:(UICollectionView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
+- (UIEdgeInsets)mode5_tupleView:(HTupleView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
     return UIEdgeInsetsZero;
 }
-- (UIEdgeInsets)mode5_tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UIEdgeInsets)mode5_tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     return UIEdgeInsetsZero;
 }
 
-- (void)mode5_tupleView:(UICollectionView *)tupleView headerTuple:(HTupleHeader)headerBlock inSection:(NSInteger)section {
+- (void)mode5_tupleView:(HTupleView *)tupleView headerTuple:(HTupleHeader)headerBlock inSection:(NSInteger)section {
     headerBlock(nil, HTupleUnionView.class, self.modePrefix, YES);
 }
-- (void)mode5_tupleView:(UICollectionView *)tupleView footerTuple:(HTupleFooter)footerBlock inSection:(NSInteger)section {
+- (void)mode5_tupleView:(HTupleView *)tupleView footerTuple:(HTupleFooter)footerBlock inSection:(NSInteger)section {
     footerBlock(nil, HTupleUnionView.class, self.modePrefix, YES);
 }
-- (void)mode5_tupleView:(UICollectionView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)mode5_tupleView:(HTupleView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     itemBlock(nil, HTupleLabelCell.class, self.modePrefix, YES);
 }
-- (void)mode5_tupleView:(UICollectionView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)mode5_tupleView:(HTupleView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self didSelectedItem];
 }
 @end

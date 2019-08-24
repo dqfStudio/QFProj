@@ -13,10 +13,10 @@
 @end
 
 @implementation HRegisterController (SJ)
-- (NSInteger)tuple1_numberOfSectionsIntupleView:(UICollectionView *)tupleView {
+- (NSInteger)tuple1_numberOfSectionsIntupleView:(HTupleView *)tupleView {
     return 3;
 }
-- (NSInteger)tuple1_tupleView:(UICollectionView *)tupleView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)tuple1_tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
     switch (section) {
         case 0: return 1;
         case 1: return 5;
@@ -25,7 +25,7 @@
     }
 }
 
-- (CGSize)tuple1_tupleView:(UICollectionView *)tupleView sizeForHeaderInSection:(NSInteger)section {
+- (CGSize)tuple1_tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section {
     switch (section) {
         case 0: return CGSizeMake(self.tupleView.width, 10);
         case 1: return CGSizeMake(self.tupleView.width, 5);
@@ -33,7 +33,7 @@
         default: return CGSizeZero;
     }
 }
-- (CGSize)tuple1_tupleView:(UICollectionView *)tupleView sizeForFooterInSection:(NSInteger)section {
+- (CGSize)tuple1_tupleView:(HTupleView *)tupleView sizeForFooterInSection:(NSInteger)section {
     switch (section) {
         case 0: return CGSizeZero;
         case 1: return CGSizeMake(self.tupleView.width, 15);
@@ -41,7 +41,7 @@
         default: return CGSizeZero;
     }
 }
-- (CGSize)tuple1_tupleView:(UICollectionView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)tuple1_tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0: return CGSizeMake(self.tupleView.width, 55);
         case 1: {
@@ -60,13 +60,13 @@
     }
 }
 
-- (UIEdgeInsets)tuple1_tupleView:(UICollectionView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
+- (UIEdgeInsets)tuple1_tupleView:(HTupleView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
     return UIEdgeInsetsZero;
 }
-- (UIEdgeInsets)tuple1_tupleView:(UICollectionView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
+- (UIEdgeInsets)tuple1_tupleView:(HTupleView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
     return UIEdgeInsetsZero;
 }
-- (UIEdgeInsets)tuple1_tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UIEdgeInsets)tuple1_tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 2: {
             if (indexPath.row == 0) {
@@ -81,17 +81,17 @@
     return UIEdgeInsetsZero;
 }
 
-- (UIEdgeInsets)tuple1_tupleView:(UICollectionView *)tupleView insetForSectionAtIndex:(NSInteger)section {
+- (UIEdgeInsets)tuple1_tupleView:(HTupleView *)tupleView insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsZero;
 }
 
-- (void)tuple1_tupleView:(UICollectionView *)tupleView headerTuple:(HTupleHeader)headerBlock inSection:(NSInteger)section {
+- (void)tuple1_tupleView:(HTupleView *)tupleView headerTuple:(HTupleHeader)headerBlock inSection:(NSInteger)section {
     headerBlock(nil, HTupleBaseApex.class, nil, NO);
 }
-- (void)tuple1_tupleView:(UICollectionView *)tupleView footerTuple:(HTupleFooter)footerBlock inSection:(NSInteger)section {
+- (void)tuple1_tupleView:(HTupleView *)tupleView footerTuple:(HTupleFooter)footerBlock inSection:(NSInteger)section {
     footerBlock(nil, HTupleBaseApex.class, nil, NO);
 }
-- (void)tuple1_tupleView:(UICollectionView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tuple1_tupleView:(HTupleView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row == 0) {
         [self tuple_tupleView:tupleView itemTuple:itemBlock atIndexPath:indexPath];
     }else {

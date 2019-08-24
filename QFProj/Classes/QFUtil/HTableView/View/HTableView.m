@@ -349,7 +349,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     }
     return prefix;
 }
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsIntableView:(HTableView *)tableView {
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
         return [self.tableDelegate numberOfSectionsInTableView:self];
     }else if (_categoryDesign) {
@@ -366,7 +366,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     }
     return 1;
 }
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(HTableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSString *prefix = [self tableWithPrefix:section];
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:numberOfRowsInSection:)]) {
         return [self.tableDelegate tableView:self numberOfRowsInSection:section];
@@ -377,7 +377,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     }
     return 0;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+- (CGFloat)tableView:(HTableView *)tableView heightForHeaderInSection:(NSInteger)section {
     NSString *prefix = [self tableWithPrefix:section];
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:heightForHeaderInSection:)]) {
         return [self.tableDelegate tableView:self heightForHeaderInSection:section];
@@ -388,7 +388,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     }
     return 0.f;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+- (CGFloat)tableView:(HTableView *)tableView heightForFooterInSection:(NSInteger)section {
     NSString *prefix = [self tableWithPrefix:section];
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:heightForFooterInSection:)]) {
         return [self.tableDelegate tableView:self heightForFooterInSection:section];
@@ -399,7 +399,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     }
     return 0.f;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(HTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *prefix = [self tableWithPrefix:indexPath.section];
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
         return [self.tableDelegate tableView:self heightForRowAtIndexPath:indexPath];
@@ -410,7 +410,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     }
     return 0.f;
 }
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+- (UIView *)tableView:(HTableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:tableHeader:inSection:)]) {
         [self.tableDelegate tableView:self tableHeader:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
             return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
@@ -426,7 +426,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     }
     return UITableViewHeaderFooterView.new;
 }
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+- (UIView *)tableView:(HTableView *)tableView viewForFooterInSection:(NSInteger)section {
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:tableFooter:inSection:)]) {
         [self.tableDelegate tableView:self tableFooter:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
             return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
@@ -442,7 +442,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     }
     return UITableViewHeaderFooterView.new;
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(HTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:tableCell:atIndexPath:)]) {
         [self.tableDelegate tableView:self tableCell:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
             return [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
@@ -458,7 +458,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     }
     return UITableViewCell.new;
 }
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(HTableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.separatorStyle != UITableViewCellSeparatorStyleNone) {
         if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
             [cell setSeparatorInset:self.separatorInset];
@@ -476,7 +476,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         self.cellWillDisplayBlock(cell, indexPath);
     }
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(HTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *prefix = [self tableWithPrefix:indexPath.section];
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
         [self.tableDelegate tableView:self didSelectRowAtIndexPath:indexPath];
@@ -542,19 +542,19 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     });
 }
 #pragma mark - Category & Design
-- (void)tableView:(UITableView *)tableView tableHeader:(HTableHeader)headerBlock inSection:(NSInteger)section {
+- (void)tableView:(HTableView *)tableView tableHeader:(HTableHeader)headerBlock inSection:(NSInteger)section {
     NSString *prefix = [self tableWithPrefix:section];
     if ([(NSObject *)self.tableDelegate respondsToSelector:_cmd withPre:prefix]) {
         [(NSObject *)self.tableDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tableView, &headerBlock, &section];
     }
 }
-- (void)tableView:(UITableView *)tableView tableFooter:(HTableFooter)footerBlock inSection:(NSInteger)section {
+- (void)tableView:(HTableView *)tableView tableFooter:(HTableFooter)footerBlock inSection:(NSInteger)section {
     NSString *prefix = [self tableWithPrefix:section];
     if ([(NSObject *)self.tableDelegate respondsToSelector:_cmd withPre:prefix]) {
         [(NSObject *)self.tableDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tableView, &footerBlock, &section];
     }
 }
-- (void)tableView:(UITableView *)tableView tableCell:(HTableCell)cellBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(HTableView *)tableView tableCell:(HTableCell)cellBlock atIndexPath:(NSIndexPath *)indexPath {
     NSString *prefix = [self tableWithPrefix:indexPath.section];
     if ([(NSObject *)self.tableDelegate respondsToSelector:_cmd withPre:prefix]) {
         [(NSObject *)self.tableDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tableView, &cellBlock, &indexPath];

@@ -51,12 +51,12 @@
     [self.view addSubview:self.tupleView];
 }
 
-- (NSInteger)numberOfSectionsInTupleView:(UICollectionView *)tupleView {
+- (NSInteger)numberOfSectionsIntupleView:(HTupleView *)tupleView {
 //    return 2;
     return 1;
 }
 
-- (NSInteger)tupleView:(UICollectionView *)tupleView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
     switch (section) {
         case 0:
 //            return 10;
@@ -72,7 +72,7 @@
     return 0;
 }
 
-- (CGSize)tupleView:(UICollectionView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0:
             if (indexPath.row == 0) {
@@ -94,19 +94,19 @@
     }
     return CGSizeZero;
 }
-- (CGSize)tupleView:(UICollectionView *)tupleView sizeForHeaderInSection:(NSInteger)section {
+- (CGSize)tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section {
     return CGSizeMake(0, 0);
 }
-- (CGSize)tupleView:(UICollectionView *)tupleView sizeForFooterInSection:(NSInteger)section {
+- (CGSize)tupleView:(HTupleView *)tupleView sizeForFooterInSection:(NSInteger)section {
     return CGSizeMake(0, 0);
 }
-- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView insetForSectionAtIndex:(NSInteger)section {
+- (UIEdgeInsets)tupleView:(HTupleView *)tupleView insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(0, 10, 0, 10);
 }
-- (UIEdgeInsets)tupleView:(UICollectionView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     return UIEdgeInsetsMake(5, 5, 5, 5);
 }
-- (void)tupleView:(UICollectionView *)tupleView tupleCell:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleView:(HTupleView *)tupleView tupleCell:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
             /********************************section == 0*************************************/
         case 0:
