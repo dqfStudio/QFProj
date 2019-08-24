@@ -26,6 +26,7 @@ typedef void(^HTupleApexSkinBlock)(HTupleBaseApex *cell, HTupleView *tuple);
 
 @interface HTupleBaseApex : UICollectionReusableView
 @property (nonatomic, weak) UICollectionView *tuple;
+@property (nonatomic) BOOL isHeader;
 @property (nonatomic, copy) HTupleApexBlock cellBlock;
 @property (nonatomic, copy) HTupleApexSkinBlock skinBlock;
 @property (nonatomic) NSIndexPath *indexPath;
@@ -45,5 +46,4 @@ typedef void(^HTupleApexSkinBlock)(HTupleBaseApex *cell, HTupleView *tuple);
 
 @interface HTupleBaseApex (HSignal)
 @property (nonatomic, copy) HTupleCellSignalBlock signalBlock;
-@property (nonatomic) BOOL isHeader;
 @end

@@ -21,6 +21,7 @@ typedef void(^HTableApexSkinBlock)(HTableBaseApex *cell, HTableView *table);
 
 @interface HTableBaseApex : UITableViewHeaderFooterView
 @property (nonatomic, weak) UITableView *table;
+@property (nonatomic) BOOL isHeader;
 @property (nonatomic) NSInteger section;
 @property (nonatomic, copy) HTableApexBlock cellBlock;
 @property (nonatomic, copy) HTableApexSkinBlock skinBlock;
@@ -35,5 +36,4 @@ typedef void(^HTableApexSkinBlock)(HTableBaseApex *cell, HTableView *table);
 
 @interface HTableBaseApex (HSignal)
 @property (nonatomic, copy) HTableCellSignalBlock signalBlock;
-@property (nonatomic) BOOL isHeader;
 @end
