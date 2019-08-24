@@ -579,7 +579,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 }
 - (void)signalToAllCells:(HTableSignal *)signal {
     dispatch_async(dispatch_queue_create(0, 0), ^{
-        for (UITableViewCell *cell in self.allReuseCells) {
+        for (HTableBaseApex *cell in self.allReuseCells) {
             if (cell.signalBlock) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     cell.signalBlock(cell, signal);
@@ -592,7 +592,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         NSInteger cells = [self numberOfRowsInSection:section];
         for (int i=0; i<cells; i++) {
-            UITableViewCell *cell = [self.allReuseCells objectForKey:NSIndexPath.stringValue(i, section)];
+            HTableBaseApex *cell = [self.allReuseCells objectForKey:NSIndexPath.stringValue(i, section)];
             if (cell.signalBlock) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     cell.signalBlock(cell, signal);
@@ -602,7 +602,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     });
 }
 - (void)signal:(HTableSignal *)signal indexPath:(NSIndexPath *)indexPath  {
-    UITableViewCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
+    HTableBaseApex *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
     if (cell.signalBlock) {
         dispatch_async(dispatch_get_main_queue(), ^{
             cell.signalBlock(cell, signal);
@@ -655,7 +655,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         if (self.signalBlock) self.signalBlock = nil;
         //release all cell
-        for (UITableViewCell *cell in self.allReuseCells) {
+        for (HTableBaseApex *cell in self.allReuseCells) {
             if (cell.signalBlock) {
                 cell.signalBlock = nil;
             }

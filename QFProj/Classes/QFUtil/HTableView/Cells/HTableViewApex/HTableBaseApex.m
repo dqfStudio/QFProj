@@ -55,7 +55,7 @@
 }
 @end
 
-@implementation UITableViewHeaderFooterView (HSignal)
+@implementation HTableBaseApex (HSignal)
 - (HTableCellSignalBlock)signalBlock {
     return objc_getAssociatedObject(self, _cmd);
 }

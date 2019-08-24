@@ -728,7 +728,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 - (void)signalToAllItems:(HTupleSignal *)signal {
     dispatch_async(dispatch_queue_create(0, 0), ^{
-        for (UICollectionViewCell *cell in self.allReuseCells) {
+        for (HTupleBaseCell *cell in self.allReuseCells) {
             if (cell.signalBlock) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     cell.signalBlock(cell, signal);
@@ -741,7 +741,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         NSInteger items = [self numberOfItemsInSection:section];
         for (int i=0; i<items; i++) {
-            UICollectionViewCell *cell = [self.allReuseCells objectForKey:NSIndexPath.stringValue(i, section)];
+            HTupleBaseCell *cell = [self.allReuseCells objectForKey:NSIndexPath.stringValue(i, section)];
             if (cell.signalBlock) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     cell.signalBlock(cell, signal);
@@ -751,7 +751,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     });
 }
 - (void)signal:(HTupleSignal *)signal indexPath:(NSIndexPath *)indexPath  {
-    UICollectionViewCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
+    HTupleBaseCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
     if (cell.signalBlock) {
         dispatch_async(dispatch_get_main_queue(), ^{
             cell.signalBlock(cell, signal);
@@ -804,7 +804,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         if (self.signalBlock) self.signalBlock = nil;
         //release all cell
-        for (UICollectionViewCell *cell in self.allReuseCells) {
+        for (HTupleBaseCell *cell in self.allReuseCells) {
             if (cell.signalBlock) {
                 cell.signalBlock = nil;
             }

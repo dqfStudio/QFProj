@@ -45,6 +45,6 @@ typedef void(^HTupleCellSkinBlock)(HTupleBaseCell *cell, HTupleView *tuple);
 - (CGSize)size;
 @end
 
-@interface UICollectionViewCell (HSignal)
+@interface HTupleBaseCell (HSignal)
 @property (nonatomic, copy) HTupleCellSignalBlock signalBlock;
 @end

@@ -33,7 +33,7 @@ typedef void(^HTableApexSkinBlock)(HTableBaseApex *cell, HTableView *table);
 - (CGSize)size;
 @end
 
-@interface UITableViewHeaderFooterView (HSignal)
+@interface HTableBaseApex (HSignal)
 @property (nonatomic, copy) HTableCellSignalBlock signalBlock;
 @property (nonatomic) BOOL isHeader;
 @end

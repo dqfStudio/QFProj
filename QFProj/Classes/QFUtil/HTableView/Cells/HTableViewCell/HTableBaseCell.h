@@ -35,6 +35,6 @@ typedef void(^HTableCellSkinBlock)(HTableBaseCell *cell, HTableView *table);
 - (CGSize)size;
 @end
 
-@interface UITableViewCell (HSignal)
+@interface HTableBaseCell (HSignal)
 @property (nonatomic, copy) HTableCellSignalBlock signalBlock;
 @end

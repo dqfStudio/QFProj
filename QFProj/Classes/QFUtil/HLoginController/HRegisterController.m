@@ -106,7 +106,7 @@
     return tabBar;
 }
 
-- (void)tuple_tupleView:(HTupleView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tuple_tupleView:(UICollectionView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row == 0) {
         HTupleBaseCell *cell = itemBlock(nil, HTupleBaseCell.class, nil, YES);
         YPTabBar *tabBar = [cell viewWithTag:12345];

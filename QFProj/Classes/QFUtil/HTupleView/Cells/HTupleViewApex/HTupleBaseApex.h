@@ -43,7 +43,7 @@ typedef void(^HTupleApexSkinBlock)(HTupleBaseApex *cell, HTupleView *tuple);
 - (CGSize)size;
 @end
 
-@interface UICollectionReusableView (HSignal)
+@interface HTupleBaseApex (HSignal)
 @property (nonatomic, copy) HTupleCellSignalBlock signalBlock;
 @property (nonatomic) BOOL isHeader;
 @end

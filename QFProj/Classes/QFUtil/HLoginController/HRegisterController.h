@@ -11,5 +11,5 @@
 
 @interface HRegisterController : HViewController
 @property (nonatomic) HTupleView *tupleView;
-- (void)tuple_tupleView:(HTupleView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath;
+- (void)tuple_tupleView:(UICollectionView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath;
 @end

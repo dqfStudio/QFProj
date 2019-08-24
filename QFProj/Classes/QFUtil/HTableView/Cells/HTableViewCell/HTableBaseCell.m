@@ -70,7 +70,7 @@
 }
 @end
 
-@implementation UITableViewCell (HSignal)
+@implementation HTableBaseCell (HSignal)
 - (HTableCellSignalBlock)signalBlock {
     return objc_getAssociatedObject(self, _cmd);
 }

@@ -118,7 +118,7 @@
 }
 @end
 
-@implementation UICollectionReusableView (HSignal)
+@implementation HTupleBaseApex (HSignal)
 - (HTupleCellSignalBlock)signalBlock {
     return objc_getAssociatedObject(self, _cmd);
 }

@@ -124,7 +124,7 @@
 }
 @end
 
-@implementation UICollectionViewCell (HSignal)
+@implementation HTupleBaseCell (HSignal)
 - (HTupleCellSignalBlock)signalBlock {
     return objc_getAssociatedObject(self, _cmd);
 }
