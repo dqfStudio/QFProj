@@ -27,8 +27,8 @@
 
 - (CGSize)tuple1_tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section {
     switch (section) {
-        case 0: return CGSizeMake(self.tupleView.width, 10);
-        case 1: return CGSizeMake(self.tupleView.width, 5);
+        case 0: return CGSizeMake(tupleView.width, 10);
+        case 1: return CGSizeMake(tupleView.width, 5);
         case 2: return CGSizeZero;
         default: return CGSizeZero;
     }
@@ -36,26 +36,26 @@
 - (CGSize)tuple1_tupleView:(HTupleView *)tupleView sizeForFooterInSection:(NSInteger)section {
     switch (section) {
         case 0: return CGSizeZero;
-        case 1: return CGSizeMake(self.tupleView.width, 15);
+        case 1: return CGSizeMake(tupleView.width, 15);
         case 2: return CGSizeZero;
         default: return CGSizeZero;
     }
 }
 - (CGSize)tuple1_tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
-        case 0: return CGSizeMake(self.tupleView.width, 55);
+        case 0: return CGSizeMake(tupleView.width, 55);
         case 1: {
             if (indexPath.row == 0) {
-                return CGSizeMake(self.tupleView.width, 55);
+                return CGSizeMake(tupleView.width, 55);
             }else if (indexPath.row == 3) {
-                return CGSizeMake(self.tupleView.width-100, 55);
+                return CGSizeMake(tupleView.width-100, 55);
             }else if (indexPath.row == 4) {
                 return CGSizeMake(100, 55);
             }
-            return CGSizeMake(self.tupleView.width, 55);
+            return CGSizeMake(tupleView.width, 55);
         }
             break;
-        case 2: return CGSizeMake(self.tupleView.width, 55);
+        case 2: return CGSizeMake(tupleView.width, 55);
         default: return CGSizeZero;
     }
 }
