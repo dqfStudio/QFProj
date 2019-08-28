@@ -34,16 +34,52 @@
     return iPhoneXSeries;
 }
 + (CGFloat)statusBarHeight {
-    return UIDevice.isIPhoneX ? 44.0 : 20.0f;
+    CGFloat height = 0.f;
+    switch ([UIDevice currentDevice].orientation) {
+        case UIDeviceOrientationLandscapeLeft:
+        case UIDeviceOrientationLandscapeRight:
+            height = 0.f;
+            break;
+        case UIDeviceOrientationPortrait:
+            height = UIDevice.isIPhoneX ? 44.0 : 20.0f;
+            break;
+        default:
+            break;
+    }
+    return height;
 }
 + (CGFloat)naviBarHeight {
-    return 44.f;
+    CGFloat height = 44.f;
+    switch ([UIDevice currentDevice].orientation) {
+        case UIDeviceOrientationLandscapeLeft:
+        case UIDeviceOrientationLandscapeRight:
+            height = 44.f;
+            break;
+        case UIDeviceOrientationPortrait:
+            height = 44.f;
+            break;
+        default:
+            break;
+    }
+    return height;
 }
 + (CGFloat)topBarHeight {
-    return UIDevice.isIPhoneX ? 88.f : 64.f;
+    return self.statusBarHeight+self.naviBarHeight;
 }
 + (CGFloat)bottomBarHeight {
-    return UIDevice.isIPhoneX ? 34.f : 0.f;
+    CGFloat height = 0.f;
+    switch ([UIDevice currentDevice].orientation) {
+        case UIDeviceOrientationLandscapeLeft:
+        case UIDeviceOrientationLandscapeRight:
+            height = UIDevice.isIPhoneX ? 34.f : 0.f;
+            break;
+        case UIDeviceOrientationPortrait:
+            height = UIDevice.isIPhoneX ? 34.f : 0.f;
+            break;
+        default:
+            break;
+    }
+    return height;
 }
 
 - (BOOL)isPad {
