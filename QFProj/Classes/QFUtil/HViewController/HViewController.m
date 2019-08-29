@@ -178,21 +178,6 @@
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    //隐藏状态栏
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    switch ([UIDevice currentDevice].orientation) {
-        case UIDeviceOrientationLandscapeLeft:
-        case UIDeviceOrientationLandscapeRight:
-            [[UIApplication sharedApplication] setStatusBarHidden:YES];
-            break;
-        case UIDeviceOrientationPortrait:
-            [[UIApplication sharedApplication] setStatusBarHidden:NO];
-            break;
-        default:
-            break;
-    }
-#pragma clang diagnostic pop
     //重新设置topbar的frame
     if (self.orientation != [UIDevice currentDevice].orientation) {
         self.orientation = [UIDevice currentDevice].orientation;
