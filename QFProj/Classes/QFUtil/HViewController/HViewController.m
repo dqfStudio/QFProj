@@ -387,7 +387,6 @@
 #pragma mark - 状态栏的隐藏控制
 //iOS7必须覆盖该方法并返回YES才能控制状态栏隐藏
 - (BOOL)prefersStatusBarHidden {
-    //return NO;
     switch ([UIDevice currentDevice].orientation) {
         case UIDeviceOrientationLandscapeLeft:
         case UIDeviceOrientationLandscapeRight:
