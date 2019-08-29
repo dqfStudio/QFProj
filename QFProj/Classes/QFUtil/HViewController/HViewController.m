@@ -103,7 +103,7 @@
 
 - (void)pvc_initView {
     [self setNeedsNavigationBarAppearanceUpdate];
-    [self.leftNaviButton setImageUrlString:@"hvc_back_icon"];
+    [self setLeftNaviImage:[UIImage imageNamed:@"hvc_back_icon"]];
 }
 
 - (void)dealloc {
