@@ -469,61 +469,53 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     return CGSizeZero;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    __block UICollectionViewCell *cell = nil;
     if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:tupleItem:atIndexPath:)]) {
         [self.tupleDelegate tupleView:self tupleItem:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            cell = [self dequeueReusableCellWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
-            return cell;
+            return [self dequeueReusableCellWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
         } atIndexPath:indexPath];
     }else if (_categoryDesign && [self respondsToSelector:@selector(tupleView:tupleItem:atIndexPath:)]) {
         [self tupleView:self tupleItem:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            cell = [self dequeueReusableCellWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
-            return cell;
+            return [self dequeueReusableCellWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
         } atIndexPath:indexPath];
     }else if (self.itemTupleBlock) {
         self.itemTupleBlock(^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            cell = [self dequeueReusableCellWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
-            return cell;
+            return [self dequeueReusableCellWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
         }, indexPath);
     }
-    return cell;
+    return [self.allReuseCells objectForKey:indexPath.stringValue];
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    __block UICollectionReusableView *cell = nil;
+    UICollectionReusableView *cell = nil;
     if (kind == UICollectionElementKindSectionHeader) {
         if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:tupleHeader:inSection:)]) {
             [self.tupleDelegate tupleView:self tupleHeader:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-                cell = [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
-                return cell;
+                return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
             } inSection:indexPath.section];
         }else if (_categoryDesign && [self respondsToSelector:@selector(tupleView:tupleHeader:inSection:)]) {
             [self tupleView:self tupleHeader:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-                cell = [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
-                return cell;
+                return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
             } inSection:indexPath.section];
         }else if (self.headerTupleBlock) {
             self.headerTupleBlock(^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-                cell = [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
-                return cell;
+                return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
             }, indexPath.section);
         }
+        cell = [self.allReuseHeaders objectForKey:indexPath.stringValue];
     }else if (kind == UICollectionElementKindSectionFooter) {
         if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:tupleFooter:inSection:)]) {
             [self.tupleDelegate tupleView:self tupleFooter:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-                cell = [self dequeueReusableFooterWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
-                return cell;
+                return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
             } inSection:indexPath.section];
         }else if (_categoryDesign && [self respondsToSelector:@selector(tupleView:tupleFooter:inSection:)]) {
             [self tupleView:self tupleFooter:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-                cell = [self dequeueReusableFooterWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
-                return cell;
+                return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
             } inSection:indexPath.section];
         }else if (self.footerTupleBlock) {
             self.footerTupleBlock(^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-                cell = [self dequeueReusableFooterWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
-                return cell;
+                return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
             }, indexPath.section);
         }
+        cell = [self.allReuseFooters objectForKey:indexPath.stringValue];
     }
     return cell;
 }

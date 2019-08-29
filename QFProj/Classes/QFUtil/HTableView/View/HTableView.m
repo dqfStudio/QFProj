@@ -411,64 +411,52 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     return 0.f;
 }
 - (UIView *)tableView:(HTableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    __block UITableViewHeaderFooterView *cell = nil;
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:tableHeader:inSection:)]) {
         [self.tableDelegate tableView:self tableHeader:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            cell = [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
-            return cell;
+            return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
         } inSection:section];
     }else if (_categoryDesign && [self respondsToSelector:@selector(tableView:tableHeader:inSection:)]) {
         [self tableView:self tableHeader:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            cell = [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
-            return cell;
+            return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
         } inSection:section];
     }else if (self.headerTableBlock) {
         self.headerTableBlock(^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            cell = [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
-            return cell;
+            return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
         }, section);
     }
-    return cell;
+    return [self.allReuseHeaders objectForKey:@(section).stringValue];
 }
 - (UIView *)tableView:(HTableView *)tableView viewForFooterInSection:(NSInteger)section {
-    __block UITableViewHeaderFooterView *cell = nil;
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:tableFooter:inSection:)]) {
         [self.tableDelegate tableView:self tableFooter:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            cell = [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
-            return cell;
+            return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
         } inSection:section];
     }else if (_categoryDesign && [self respondsToSelector:@selector(tableView:tableFooter:inSection:)]) {
         [self tableView:self tableFooter:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            cell = [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
-            return cell;
+            return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
         } inSection:section];
     }else if (self.footerTableBlock) {
         self.footerTableBlock(^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            cell = [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
-            return cell;
+            return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
         }, section);
     }
-    return cell;
+    return [self.allReuseFooters objectForKey:@(section).stringValue];
 }
 - (UITableViewCell *)tableView:(HTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    __block UITableViewCell *cell = nil;
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:tableCell:atIndexPath:)]) {
         [self.tableDelegate tableView:self tableCell:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            cell = [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
-            return cell;
+            return [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
         } atIndexPath:indexPath];
     }else if (_categoryDesign && [self respondsToSelector:@selector(tableView:tableCell:atIndexPath:)]) {
         [self tableView:self tableCell:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            cell = [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
-            return cell;
+            return [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
         } atIndexPath:indexPath];
     }else if (self.cellTableBlock) {
         self.cellTableBlock(^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            cell = [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
-            return cell;
+            return [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
         }, indexPath);
     }
-    return cell;
+    return [self.allReuseCells objectForKey:indexPath.stringValue];
 }
 - (void)tableView:(HTableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.separatorStyle != UITableViewCellSeparatorStyleNone) {
@@ -591,7 +579,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 }
 - (void)signalToAllCells:(HTableSignal *)signal {
     dispatch_async(dispatch_queue_create(0, 0), ^{
-        for (HTableBaseApex *cell in self.allReuseCells) {
+        for (HTableBaseCell *cell in self.allReuseCells) {
             if (cell.signalBlock) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     cell.signalBlock(cell, signal);
@@ -604,7 +592,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         NSInteger cells = [self numberOfRowsInSection:section];
         for (int i=0; i<cells; i++) {
-            HTableBaseApex *cell = [self.allReuseCells objectForKey:NSIndexPath.stringValue(i, section)];
+            HTableBaseCell *cell = [self.allReuseCells objectForKey:NSIndexPath.stringValue(i, section)];
             if (cell.signalBlock) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     cell.signalBlock(cell, signal);
@@ -614,7 +602,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     });
 }
 - (void)signal:(HTableSignal *)signal indexPath:(NSIndexPath *)indexPath  {
-    HTableBaseApex *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
+    HTableBaseCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
     if (cell.signalBlock) {
         dispatch_async(dispatch_get_main_queue(), ^{
             cell.signalBlock(cell, signal);

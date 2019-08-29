@@ -253,7 +253,7 @@
             @strongify(self)
             [self leftNaviButtonPressed];
         }];
-        _leftNaviButton.imageView.contentMode = UIViewContentModeCenter;
+        _leftNaviButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
         [self.topBar addSubview:_leftNaviButton];
     }
     return _leftNaviButton;
