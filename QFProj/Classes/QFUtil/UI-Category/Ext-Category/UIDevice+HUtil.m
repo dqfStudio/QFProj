@@ -24,7 +24,7 @@
     dispatch_once(&onceToken, ^{
         if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
             if (@available(iOS 11.0, *)) {
-                UIWindow *mainWindow = UIApplication.sharedApplication.delegate.window;
+                UIWindow *mainWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
                 if (mainWindow.safeAreaInsets.bottom > 0.0) {
                     iPhoneXSeries = YES;
                 }
@@ -35,51 +35,19 @@
 }
 + (CGFloat)statusBarHeight {
     CGFloat height = 0.f;
-    switch ([UIDevice currentDevice].orientation) {
-        case UIDeviceOrientationLandscapeLeft:
-        case UIDeviceOrientationLandscapeRight:
-            height = 0.f;
-            break;
-        case UIDeviceOrientationPortrait:
-            height = UIDevice.isIPhoneX ? 44.0 : 20.0f;
-            break;
-        default:
-            break;
+    if (!UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+        height = UIDevice.isIPhoneX ? 44.0 : 20.0f;
     }
     return height;
 }
 + (CGFloat)naviBarHeight {
-    CGFloat height = 44.f;
-    switch ([UIDevice currentDevice].orientation) {
-        case UIDeviceOrientationLandscapeLeft:
-        case UIDeviceOrientationLandscapeRight:
-            height = 44.f;
-            break;
-        case UIDeviceOrientationPortrait:
-            height = 44.f;
-            break;
-        default:
-            break;
-    }
-    return height;
+    return 44.f;
 }
 + (CGFloat)topBarHeight {
     return self.statusBarHeight+self.naviBarHeight;
 }
 + (CGFloat)bottomBarHeight {
-    CGFloat height = 0.f;
-    switch ([UIDevice currentDevice].orientation) {
-        case UIDeviceOrientationLandscapeLeft:
-        case UIDeviceOrientationLandscapeRight:
-            height = UIDevice.isIPhoneX ? 34.f : 0.f;
-            break;
-        case UIDeviceOrientationPortrait:
-            height = UIDevice.isIPhoneX ? 34.f : 0.f;
-            break;
-        default:
-            break;
-    }
-    return height;
+    return UIDevice.isIPhoneX ? 34.f : 0.f;
 }
 
 - (BOOL)isPad {

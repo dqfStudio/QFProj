@@ -63,6 +63,7 @@ H_CheckPropertyRange(rrr, 0, 150)
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self setTitle:@"title"];
 //    + (void)showInView:(UIView *)view withType:(HWaitingType)type;
 //    [HWaitingView showInView:self.view withType:HWaitingTypeBlack];
     

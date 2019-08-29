@@ -228,8 +228,8 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 }
 #pragma mark - register class
 - (id)dequeueReusableHeaderWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx section:(NSInteger)section {
-    __block UITableViewHeaderFooterView *cell = nil;
     id (^HCellForHeaderBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
+        UITableViewHeaderFooterView *cell = nil;
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:self.addressValue];
         identifier = [identifier stringByAppendingString:@"HeaderCell"];
@@ -265,8 +265,8 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     return HCellForHeaderBlock(iblk, cls, pre, idx);
 }
 - (id)dequeueReusableFooterWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx section:(NSInteger)section {
-    __block UITableViewHeaderFooterView *cell = nil;
     id (^HCellForFooterBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
+        UITableViewHeaderFooterView *cell = nil;
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:self.addressValue];
         identifier = [identifier stringByAppendingString:@"FooterCell"];
@@ -302,8 +302,8 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     return HCellForFooterBlock(iblk, cls, pre, idx);
 }
 - (id)dequeueReusableCellWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx idxPath:(NSIndexPath *)idxPath {
-    __block UITableViewCell *cell = nil;
     id (^HCellForItemBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
+        UITableViewCell *cell = nil;
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:self.addressValue];
         identifier = [identifier stringByAppendingString:@"ItemCell"];
@@ -411,52 +411,64 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     return 0.f;
 }
 - (UIView *)tableView:(HTableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    __block UITableViewHeaderFooterView *cell = nil;
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:tableHeader:inSection:)]) {
         [self.tableDelegate tableView:self tableHeader:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
+            cell = [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
+            return cell;
         } inSection:section];
     }else if (_categoryDesign && [self respondsToSelector:@selector(tableView:tableHeader:inSection:)]) {
         [self tableView:self tableHeader:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
+            cell = [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
+            return cell;
         } inSection:section];
     }else if (self.headerTableBlock) {
         self.headerTableBlock(^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
+            cell = [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
+            return cell;
         }, section);
     }
-    return UITableViewHeaderFooterView.new;
+    return cell;
 }
 - (UIView *)tableView:(HTableView *)tableView viewForFooterInSection:(NSInteger)section {
+    __block UITableViewHeaderFooterView *cell = nil;
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:tableFooter:inSection:)]) {
         [self.tableDelegate tableView:self tableFooter:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
+            cell = [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
+            return cell;
         } inSection:section];
     }else if (_categoryDesign && [self respondsToSelector:@selector(tableView:tableFooter:inSection:)]) {
         [self tableView:self tableFooter:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
+            cell = [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
+            return cell;
         } inSection:section];
     }else if (self.footerTableBlock) {
         self.footerTableBlock(^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
+            cell = [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
+            return cell;
         }, section);
     }
-    return UITableViewHeaderFooterView.new;
+    return cell;
 }
 - (UITableViewCell *)tableView:(HTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    __block UITableViewCell *cell = nil;
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:tableCell:atIndexPath:)]) {
         [self.tableDelegate tableView:self tableCell:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            return [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
+            cell = [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
+            return cell;
         } atIndexPath:indexPath];
     }else if (_categoryDesign && [self respondsToSelector:@selector(tableView:tableCell:atIndexPath:)]) {
         [self tableView:self tableCell:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            return [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
+            cell = [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
+            return cell;
         } atIndexPath:indexPath];
     }else if (self.cellTableBlock) {
         self.cellTableBlock(^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            return [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
+            cell = [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
+            return cell;
         }, indexPath);
     }
-    return UITableViewCell.new;
+    return cell;
 }
 - (void)tableView:(HTableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.separatorStyle != UITableViewCellSeparatorStyleNone) {
