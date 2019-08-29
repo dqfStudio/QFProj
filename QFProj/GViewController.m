@@ -9,22 +9,22 @@
 #import "GViewController.h"
 
 @interface GViewController () <HTupleViewDelegate>
-@property (nonatomic) HTupleView *tupleView;
+//@property (nonatomic) HTupleView *tupleView;
 @property (nonatomic) NSArray *tupleSource;
 @end
 
 @implementation GViewController
 
-- (HTupleView *)tupleView {
-    if (!_tupleView) {
-        CGRect frame = self.view.bounds;
-        frame.origin.y += 100;
-        _tupleView = [[HTupleView alloc] initWithFrame:frame collectionViewLayout:UICollectionViewFlowLayout.new];
-        [_tupleView setTupleDelegate:self];
-        [_tupleView setBackgroundColor:[UIColor yellowColor]];
-    }
-    return _tupleView;
-}
+//- (HTupleView *)tupleView {
+//    if (!_tupleView) {
+//        CGRect frame = self.view.bounds;
+//        frame.origin.y += 100;
+//        _tupleView = [[HTupleView alloc] initWithFrame:frame collectionViewLayout:UICollectionViewFlowLayout.new];
+//        [_tupleView setTupleDelegate:self];
+//        [_tupleView setBackgroundColor:[UIColor yellowColor]];
+//    }
+//    return _tupleView;
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,10 +46,10 @@
     }
 }
 
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
-    [self.view addSubview:self.tupleView];
-}
+//- (void)viewWillLayoutSubviews {
+//    [super viewWillLayoutSubviews];
+//    [self.view addSubview:self.tupleView];
+//}
 
 - (NSInteger)numberOfSectionsIntupleView:(HTupleView *)tupleView {
 //    return 2;

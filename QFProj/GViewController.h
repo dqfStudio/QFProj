@@ -9,7 +9,8 @@
 #import "HTupleView.h"
 #import "UIColor+HUtil.h"
 #import "HViewController.h"
+#import "HTupleController.h"
 
-@interface GViewController : HViewController
+@interface GViewController : HTupleController
 
 @end

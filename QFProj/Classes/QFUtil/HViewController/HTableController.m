@@ -16,6 +16,7 @@
 - (HTableView *)tableView {
     if (!_tableView) {
         _tableView = [[HTableView alloc] initWithFrame:CGRectZero];
+        [_tableView setTableDelegate:self];
     }
     return _tableView;
 }
