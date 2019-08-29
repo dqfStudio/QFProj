@@ -58,6 +58,8 @@
 
 //topBar的顶部内边距,如果有statusBar没有系统导航栏的情况下为statusbar的高度(20)
 @property (nonatomic) CGFloat statusBarPadding;
+//记录屏幕方向
+@property (nonatomic) UIDeviceOrientation orientation;
 
 @end
 
@@ -147,6 +149,8 @@
     [self.view bringSubviewToFront:self.topBar];
     //要更新statusbar状态的需要调用下这个方法,最好与viewWillDisappear对应
     [self setNeedsStatusBarAppearanceUpdate];
+    //重新记录屏幕方向
+    self.orientation = [UIDevice currentDevice].orientation;
 #ifdef __IPHONE_11_0
     if (@available(iOS 11.0, *)) {
         if ([self.view isKindOfClass:[UIScrollView class]]) {
@@ -170,6 +174,30 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self setNeedsStatusBarAppearanceUpdate];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    //隐藏状态栏
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    switch ([UIDevice currentDevice].orientation) {
+        case UIDeviceOrientationLandscapeLeft:
+        case UIDeviceOrientationLandscapeRight:
+            [[UIApplication sharedApplication] setStatusBarHidden:YES];
+            break;
+        case UIDeviceOrientationPortrait:
+            [[UIApplication sharedApplication] setStatusBarHidden:NO];
+            break;
+        default:
+            break;
+    }
+#pragma clang diagnostic pop
+    //重新设置topbar的frame
+    if (self.orientation != [UIDevice currentDevice].orientation) {
+        self.orientation = [UIDevice currentDevice].orientation;
+        [self resetTopbarFrame];
+    }
 }
 
 #pragma mark - 事件处理
@@ -209,7 +237,7 @@
         _topBarLine = [[UIView alloc] init];
         _topBarLine.frame = CGRectMake(0, UIDevice.naviBarHeight - 1, _topBar.h_width, 1);
         [_topBar addSubview:_topBarLine];
-        _topBarLine.hidden = YES;
+        _topBarLine.hidden = [self prefersTopBarLineHidden];
     }
     return _topBar;
 }
@@ -232,7 +260,7 @@
     if (!_leftNaviButton) {
         _leftNaviButton = [[HWebButtonView alloc] init];
         _leftNaviButton.backgroundColor = nil;
-        _leftNaviButton.frame = CGRectMake(0, 0, UIDevice.naviBarHeight, UIDevice.naviBarHeight);
+        _leftNaviButton.frame = CGRectMake(10, 0, UIDevice.naviBarHeight, UIDevice.naviBarHeight);
         [_leftNaviButton.titleLabel setFont:[UIFont systemFontOfSize:16]];
         _leftNaviButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         @weakify(self)
@@ -251,7 +279,7 @@
         _rightNaviButton = [[HWebButtonView alloc] init];
         _rightNaviButton.backgroundColor = nil;
         [_rightNaviButton.titleLabel setFont:[UIFont systemFontOfSize:16]];
-        _rightNaviButton.frame = CGRectMake(self.topBar.h_width - UIDevice.naviBarHeight, 0, UIDevice.naviBarHeight, UIDevice.naviBarHeight);
+        _rightNaviButton.frame = CGRectMake(self.topBar.h_width - UIDevice.naviBarHeight - 10, 0, UIDevice.naviBarHeight, UIDevice.naviBarHeight);
         _rightNaviButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
         _rightNaviButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         @weakify(self)
@@ -262,6 +290,31 @@
         [self.topBar addSubview:_rightNaviButton];
     }
     return _rightNaviButton;
+}
+
+//重新设置topbar的frame
+- (void)resetTopbarFrame {
+    _statusBarPadding = 0.f;
+    if (![self prefersStatusBarHidden] && ![self prefersNavigationBarHidden]) {
+        _statusBarPadding = UIDevice.statusBarHeight;
+    }
+    //reset topBar
+    if([self prefersNavigationBarHidden]) {
+        _topBar.frame = CGRectMake(0, _statusBarPadding, self.view.h_width, UIDevice.naviBarHeight);
+    }else {
+        _topBar.frame = CGRectMake(0, 0, self.view.h_width, UIDevice.naviBarHeight + _statusBarPadding);
+        _topBar.bounds = CGRectMake(0, -_statusBarPadding, self.view.h_width, UIDevice.naviBarHeight + _statusBarPadding);
+    }
+    //reset topBar line
+    _topBarLine.frame = CGRectMake(0, UIDevice.naviBarHeight - 1, _topBar.h_width, 1);
+    //reset right button
+    _rightNaviButton.frame = CGRectMake(_topBar.h_width - _rightNaviButton.h_width - 10, _rightNaviButton.h_y, _rightNaviButton.h_width, _rightNaviButton.h_height);
+    //reset title label
+    if (_rightNaviButton) {
+        _titleLabel.frame = CGRectMake(_leftNaviButton.h_maxX, 0, _rightNaviButton.h_minX - _leftNaviButton.h_maxX, UIDevice.naviBarHeight);
+    }else {
+        _titleLabel.frame = CGRectMake(_leftNaviButton.h_maxX, 0, self.view.h_width - _leftNaviButton.h_maxX - 10, UIDevice.naviBarHeight);
+    }
 }
 
 #pragma mark - 设置视图
@@ -349,6 +402,16 @@
 #pragma mark - 状态栏的隐藏控制
 //iOS7必须覆盖该方法并返回YES才能控制状态栏隐藏
 - (BOOL)prefersStatusBarHidden {
+    //return NO;
+    switch ([UIDevice currentDevice].orientation) {
+        case UIDeviceOrientationLandscapeLeft:
+        case UIDeviceOrientationLandscapeRight:
+            return YES;
+        case UIDeviceOrientationPortrait:
+            return NO;
+        default:
+            break;
+    }
     return NO;
 }
 
@@ -364,6 +427,10 @@
     self.topBar.hidden = [self prefersNavigationBarHidden];
     self.topBar.backgroundColor = [self preferredNaviBarColor];
     self.topBarLine.backgroundColor = [self preferredNaviShadowColor];
+}
+
+- (BOOL)prefersTopBarLineHidden {
+    return NO;
 }
 
 - (BOOL)prefersNavigationBarHidden {
