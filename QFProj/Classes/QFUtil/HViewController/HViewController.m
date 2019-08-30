@@ -134,6 +134,8 @@
     self.view.backgroundColor = [HViewController appearance].bgColor;
     [self.view addSubview:self.topBar];
     self.view.exclusiveTouch = YES;
+    //记录屏幕方向
+    self.orientation = [UIDevice currentDevice].orientation;
     //关闭暗黑模式
 #ifdef __IPHONE_13_0
     if (@available(iOS 13.0, *)) {
@@ -149,8 +151,6 @@
     [self.view bringSubviewToFront:self.topBar];
     //要更新statusbar状态的需要调用下这个方法,最好与viewWillDisappear对应
     [self setNeedsStatusBarAppearanceUpdate];
-    //重新记录屏幕方向
-    self.orientation = [UIDevice currentDevice].orientation;
 #ifdef __IPHONE_11_0
     if (@available(iOS 11.0, *)) {
         if ([self.view isKindOfClass:[UIScrollView class]]) {
