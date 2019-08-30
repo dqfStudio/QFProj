@@ -30,6 +30,17 @@ typedef void (^HShowClickedBlock)(void);
 @protocol HWaitingProtocol <HShowBaseProtocol>
 
 @optional
+@property (nonatomic) NSInteger style;
+@property (nonatomic) UIColor *bgColor;
+@property (nonatomic) CGFloat marginTop;
+
+@property (nonatomic) NSString *desc;
+@property (nonatomic) UIFont *descFont;
+@property (nonatomic) UIColor *descColor;
+
+
+
+
 - (void)resetFrame:(CGRect)frame; //手动设置frame
 - (void)setScreenFrame; //frame大小与screen frame 相同
 - (void)setBackgroudColor:(UIColor *)color; //设置背景颜色
@@ -53,6 +64,23 @@ typedef void (^HShowClickedBlock)(void);
 @protocol HNoDataProtocol <HShowBaseProtocol>
 
 @optional
+@property (nonatomic) NSInteger style;
+@property (nonatomic) UIColor *bgColor;
+@property (nonatomic) CGFloat marginTop;
+
+@property (nonatomic) BOOL hideImage;
+
+@property (nonatomic) NSString *desc;
+@property (nonatomic) UIFont *descFont;
+@property (nonatomic) UIColor *descColor;
+
+@property (nonatomic) NSString *detlDesc;
+@property (nonatomic) UIFont *detlDescFont;
+@property (nonatomic) UIColor *detlDescColor;
+
+@property (nonatomic,copy) HShowClickedBlock clickedBlock;
+
+
 - (void)resetFrame:(CGRect)frame; //手动设置frame
 - (void)setScreenFrame; //frame大小与screen frame 相同
 - (void)setDisplayImage:(BOOL)display; //是否展示图片，默认展示图片
@@ -79,6 +107,20 @@ typedef void (^HShowClickedBlock)(void);
 @protocol HNoNetworkProtocol <HShowBaseProtocol>
 
 @optional
+
+@property (nonatomic) UIColor *bgColor;
+@property (nonatomic) CGFloat marginTop;
+
+@property (nonatomic) BOOL hideImage;
+
+@property (nonatomic) NSString *desc;
+@property (nonatomic) UIFont *descFont;
+@property (nonatomic) UIColor *descColor;
+
+@property (nonatomic) NSString *detlDesc;
+@property (nonatomic) UIFont *detlDescFont;
+@property (nonatomic) UIColor *detlDescColor;
+
 - (void)resetFrame:(CGRect)frame; //手动设置frame
 - (void)setScreenFrame; //frame大小与screen frame 相同
 - (void)setDisplayImage:(BOOL)display; //是否展示图片，默认展示图片
@@ -105,6 +147,20 @@ typedef void (^HShowClickedBlock)(void);
 @protocol HLoadErrorProtocol <HShowBaseProtocol>
 
 @optional
+
+@property (nonatomic) UIColor *bgColor;
+@property (nonatomic) CGFloat marginTop;
+
+@property (nonatomic) BOOL hideImage;
+
+@property (nonatomic) NSString *desc;
+@property (nonatomic) UIFont *descFont;
+@property (nonatomic) UIColor *descColor;
+
+@property (nonatomic) NSString *detlDesc;
+@property (nonatomic) UIFont *detlDescFont;
+@property (nonatomic) UIColor *detlDescColor;
+
 - (void)resetFrame:(CGRect)frame; //手动设置frame
 - (void)setScreenFrame; //frame大小与screen frame 相同
 - (void)setDisplayImage:(BOOL)display; //是否展示图片，默认展示图片
@@ -131,6 +187,13 @@ typedef void (^HShowClickedBlock)(void);
 @protocol HAlertProtocol <HShowBaseProtocol>
 
 @optional
+
+@property (nonatomic) NSString *title;
+@property (nonatomic) NSString *msg;
+
+@property (nonatomic) NSString *cancelTitle;
+@property (nonatomic) NSArray  *buttonTitles;
+
 - (void)setTitle:(NSString *)title;
 - (void)setMsg:(NSString *)msg;
 - (void)setCancelTitle:(NSString *)title;
@@ -145,6 +208,13 @@ typedef void (^HShowClickedBlock)(void);
 @protocol HSheetProtocol <HShowBaseProtocol>
 
 @optional
+
+@property (nonatomic) NSString *title;
+@property (nonatomic) NSString *msg;
+
+@property (nonatomic) NSString *cancelTitle;
+@property (nonatomic) NSArray  *buttonTitles;
+
 - (void)setTitle:(NSString *)title;
 - (void)setMsg:(NSString *)msg;
 - (void)setCancelTitle:(NSString *)title;
@@ -177,6 +247,9 @@ typedef void (^HShowClickedBlock)(void);
 @protocol HToastProtocol <HShowBaseProtocol>
 
 @optional
+@property (nonatomic) NSString *desc;
+@property (nonatomic) NSTimeInterval delay;
+
 - (void)setDesc:(NSString *)desc;
 - (void)setDelay:(NSTimeInterval)delay;
 
@@ -188,6 +261,10 @@ typedef void (^HShowClickedBlock)(void);
 @protocol HNaviToastProtocol <HShowBaseProtocol>
 
 @optional
+@property (nonatomic) NSString *desc;
+@property (nonatomic) NSString *icon;
+@property (nonatomic) NSTimeInterval delay;//默认为2秒
+
 - (void)setDesc:(NSString *)desc;
 - (void)setIcon:(NSString *)name;
 - (void)setDelay:(NSTimeInterval)delay; //默认为2秒

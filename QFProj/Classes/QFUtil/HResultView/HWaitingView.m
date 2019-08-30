@@ -7,6 +7,7 @@
 //
 
 #import "HWaitingView.h"
+#import "HTupleView.h"
 #import <objc/runtime.h>
 
 #define KImageWidth  130
@@ -15,14 +16,14 @@
 #define KTextWidth   130
 #define KTextHeight  24
 
-#define KMarginTop  1/2
-
 @interface HWaitingView ()
 @property (nonatomic) HTupleView *tupleView;
-@property (nonatomic) HWaitingType waitingType;
 @end
 
 @implementation HWaitingView
+
+@synthesize bgColor,style,desc,descFont,descColor,marginTop;
+
 - (HTupleView *)tupleView {
     if (!_tupleView) {
         _tupleView = [[HTupleView alloc] initWithFrame:self.bounds];
@@ -38,12 +39,6 @@
     }
     return self;
 }
-- (void)setFrame:(CGRect)frame {
-    if(!CGRectEqualToRect(frame, self.frame)) {
-        [super setFrame:frame];
-        [self.tupleView setFrame:self.bounds];
-    }
-}
 - (void)setup {
     //添加view
     [self addSubview:self.tupleView];
@@ -53,131 +48,89 @@
     [self.tupleView tupleWithSections:^CGFloat{
         return 1;
     } items:^CGFloat(NSInteger section) {
-        return 2;
+        return 1;
     } color:^UIColor * _Nullable(NSInteger section) {
         return nil;
     } inset:^UIEdgeInsets(NSInteger section) {
         return UIEdgeInsetsZero;
     }];
     
-    
-    //header
-    [self.tupleView headerWithSize:^CGSize(NSInteger section) {
-        @sss
-        NSInteger height = 0;
-        //第一个CELL
-        height += KImageHeight;
-        //第二个CELL
-        height += KTextHeight;
-        //header高度
-        height = (self.tupleView.height-height)*KMarginTop;
-        return CGSizeMake(self.tupleView.width, height);
-    } edgeInsets:^UIEdgeInsets(NSInteger section) {
-        return UIEdgeInsetsZero;
-    } tupleHeader:^(HTupleHeader  _Nonnull headerBlock, NSInteger section) {
-        headerBlock(nil, HTupleBaseCell.class, nil, YES);
-    }];
-    
-    
-    //footer
-    [self.tupleView footerWithSize:^CGSize(NSInteger section) {
-        @sss
-        NSInteger height = 0;
-        //第一个CELL
-        height += KImageHeight;
-        //第二个CELL
-        height += KTextHeight;
-        //footer高度
-        height = (self.tupleView.height-height)*(1-KMarginTop);
-        return CGSizeMake(self.tupleView.width, height);
-    } edgeInsets:^UIEdgeInsets(NSInteger section) {
-        return UIEdgeInsetsZero;
-    } tupleFooter:^(HTupleFooter  _Nonnull footerBlock, NSInteger section) {
-        footerBlock(nil, HTupleBaseCell.class, nil, YES);
-    }];
-    
-    
     //item
     [self.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
         @sss
-        switch (indexPath.row) {
-            case 0: return CGSizeMake(self.tupleView.width, KImageHeight);
-            case 1: return CGSizeMake(self.tupleView.width, KTextHeight);
-            default: return CGSizeZero;
-        }
+        return CGSizeMake(self.tupleView.width, self.tupleView.height);
     } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
         @sss
-        switch (indexPath.row) {
-            case 0: return UIEdgeInsetsMake(0, self.tupleView.width/2-KImageWidth/2, 0, self.tupleView.width/2-KImageWidth/2);
-            case 1: return UIEdgeInsetsMake(0, self.tupleView.width/2-KTextWidth/2, 0, self.tupleView.width/2-KTextWidth/2);
-            default: return UIEdgeInsetsZero;
-        }
+        CGFloat height = KImageHeight;
+        if (self.desc.length > 0) height += KTextHeight;
+        
+        CGFloat tmpMarginTop = self.tupleView.height/2-height/2;
+        if (self.marginTop > 0) tmpMarginTop -= self.marginTop;
+        
+        return UIEdgeInsetsMake(tmpMarginTop, self.tupleView.width/2-KImageWidth/2, self.tupleView.height - tmpMarginTop - height, self.tupleView.width/2-KImageWidth/2);
     } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
         @sss
-        switch (indexPath.row) {
-            case 0: {
-                HTupleImageCell *cell = itemBlock(nil, HTupleImageCell.class, nil, YES);
-                [cell.imageView setContentMode:UIViewContentModeScaleAspectFit];
-                
-                NSMutableArray *images = [NSMutableArray array];
-                for (int i = 1; i <= 16; i++) {
-                    NSString *imageName = [NSString stringWithFormat:@"loading_new_%d", i];
-                    UIImage *image = [UIImage imageNamed:imageName];
-                    switch (self->_waitingType) {
-                        case HWaitingTypeWhite: {
-                            image = [self reDrawImage:image withColor:[UIColor whiteColor]];
-                        }
-                            break;
-                        case HWaitingTypeGray: {
-                            image = [self reDrawImage:image withColor:[UIColor lightGrayColor]];
-                        }
-                            break;
-                        case HWaitingTypeBlack: {
-                            image = [self reDrawImage:image withColor:[UIColor blackColor]];
-                        }
-                            break;
-                        default:
-                            break;
-                    }
-                    if (image) {
-                        [images addObject:image];
-                    }
-                }
-                cell.imageView.animationImages = images;
-                cell.imageView.animationDuration = 1.0f;
-                [cell.imageView startAnimating];
+        NSString *prefix = @"image";
+        if (self.desc.length > 0) prefix = @"union";
+        
+        HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, prefix, YES);
+        if (self.bgColor) [cell setBackgroundColor:self.bgColor];
+        
+        CGRect frame = [cell getContentFrame];
+        if (self.desc.length > 0) frame.size.height -= KTextHeight; //image和text都显示的情况
+        
+        [cell.imageView setFrame:frame];
+        [cell.imageView setContentMode:UIViewContentModeScaleAspectFit];
+        NSMutableArray *images = [NSMutableArray array];
+        for (int i = 1; i <= 16; i++) {
+            NSString *imageName = [NSString stringWithFormat:@"loading_new_%d", i];
+            UIImage *image = [UIImage imageNamed:imageName];
+            switch (self.style) {
+                case HWaitingTypeWhite:
+                    image = [self reDrawImage:image withColor:[UIColor whiteColor]];
+                    break;
+                case HWaitingTypeGray:
+                    image = [self reDrawImage:image withColor:[UIColor lightGrayColor]];
+                    break;
+                case HWaitingTypeBlack:
+                    image = [self reDrawImage:image withColor:[UIColor blackColor]];
+                    break;
+                default:
+                    break;
             }
-                break;
-            case 1: {
-                HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
-                [cell.label setText:@"请稍候..."];
-                [cell.label setFont:[UIFont systemFontOfSize:14]];
-                [cell.label setTextAlignment:NSTextAlignmentCenter];
-                
-                switch (self->_waitingType) {
-                    case HWaitingTypeWhite: {
-                        [cell.label setTextColor:[UIColor whiteColor]];
-                    }
-                        break;
-                    case HWaitingTypeGray: {
-                        [cell.label setTextColor:[UIColor lightGrayColor]];
-                    }
-                        break;
-                    case HWaitingTypeBlack: {
-                        [cell.label setTextColor:[UIColor blackColor]];
-                    }
-                        break;
-                    default:
-                        break;
-                }
+            if (image) [images addObject:image];
+        }
+        
+        cell.imageView.animationImages = images;
+        cell.imageView.animationDuration = 1.0f;
+        [cell.imageView startAnimating];
+        
+        if (self.desc.length > 0) {//image和text都显示的情况
+            
+            frame.origin.y += KImageHeight;
+            frame.size.height = KTextHeight;
+        
+            [cell.label setFrame:frame];
+            [cell.label setText:@"请稍候..."];
+            [cell.label setFont:[UIFont systemFontOfSize:14]];
+            [cell.label setTextAlignment:NSTextAlignmentCenter];
+            
+            switch (self.style) {
+                case HWaitingTypeWhite:
+                    [cell.label setTextColor:[UIColor whiteColor]];
+                    break;
+                case HWaitingTypeGray:
+                    [cell.label setTextColor:[UIColor lightGrayColor]];
+                    break;
+                case HWaitingTypeBlack:
+                    [cell.label setTextColor:[UIColor blackColor]];
+                    break;
+                default:
+                    break;
             }
-                break;
-            default:
-                break;
         }
     }];
 }
-
 - (void)removeFromSuperview {
     HTupleImageCell *cell = self.tupleView.cell(0, 0);
     if (cell.imageView.isAnimating) {
@@ -185,16 +138,6 @@
     }
     [super removeFromSuperview];
 }
-
-+ (void)showInView:(UIView *)view withType:(HWaitingType)type {
-    if (view) {
-        HWaitingView *waitingView = [[HWaitingView alloc] initWithFrame:view.frame];
-        waitingView.waitingType = type;
-        [view addSubview:waitingView];
-        [view setMgWaitingView:waitingView];
-    }
-}
-
 //重新绘制图片
 - (UIImage *)reDrawImage:(UIImage *)image withColor:(UIColor *)color {
     UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
@@ -209,15 +152,5 @@
     UIImage*newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return newImage;
-}
-
-@end
-
-@implementation UIView (HWaitingView)
-- (HWaitingView *)mgWaitingView {
-    return objc_getAssociatedObject(self, _cmd);
-}
-- (void)setMgWaitingView:(HWaitingView *)mgWaitingView {
-    objc_setAssociatedObject(self, @selector(mgWaitingView), mgWaitingView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 @end

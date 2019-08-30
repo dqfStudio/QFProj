@@ -11,8 +11,8 @@
 #import "AFNetworkReachabilityManager.h"
 
 @interface UIView ()
-@property(nonatomic) HRequestWaitingView *mgWaitingView;
-@property(nonatomic) HRequestResultView *mgResultView;
+@property(nonatomic) HWaitingView *mgWaitingView;
+//@property(nonatomic) HRequestResultView *mgResultView;
 @property(nonatomic) HNaviToast *mgNaviToast;
 @property(nonatomic) HToast *mgToast;
 @property(nonatomic) HAlert *mgAlert;
@@ -22,37 +22,37 @@
 
 @implementation UIView (HShow)
 
-//- (HRequestWaitingView *)mgWaitingView {
-//    @synchronized(self) {
-//        HRequestWaitingView *waitingView = [self getAssociatedValueForKey:_cmd];
-//        if (!waitingView) {
-//            waitingView = [HRequestWaitingView awakeView];
-//            self.mgWaitingView = waitingView;
-//            [waitingView setHidden:YES];
-//            [self addSubview:waitingView];
-//        }
-//        return [self getAssociatedValueForKey:_cmd];
-//    }
-//}
-//- (void)setMgWaitingView:(HRequestWaitingView *)mgWaitingView {
-//    [self setAssociateValue:mgWaitingView withKey:@selector(mgWaitingView)];
-//}
+- (HWaitingView *)mgWaitingView {
+    @synchronized(self) {
+        HWaitingView *waitingView = [self getAssociatedValueForKey:_cmd];
+        if (!waitingView) {
+            waitingView = [[HWaitingView alloc] initWithFrame:self.frame];            
+            self.mgWaitingView = waitingView;
+            [waitingView setHidden:YES];
+            [self addSubview:waitingView];
+        }
+        return [self getAssociatedValueForKey:_cmd];
+    }
+}
+- (void)setMgWaitingView:(HWaitingView *)mgWaitingView {
+    [self setAssociateValue:mgWaitingView withKey:@selector(mgWaitingView)];
+}
 
-//- (HRequestResultView *)mgResultView {
-//    @synchronized(self) {
-//        HRequestResultView *mgResultView = [self getAssociatedValueForKey:_cmd];
-//        if (!mgResultView) {
-//            mgResultView = [HRequestResultView awakeView];
-//            self.mgResultView = mgResultView;
-//            [mgResultView setHidden:YES];
-//            [self addSubview:mgResultView];
-//        }
-//        return [self getAssociatedValueForKey:_cmd];
-//    }
-//}
-//- (void)setMgResultView:(HRequestResultView *)mgResultView {
-//    [self setAssociateValue:mgResultView withKey:@selector(mgResultView)];
-//}
+- (HResultView *)mgResultView {
+    @synchronized(self) {
+        HResultView *mgResultView = [self getAssociatedValueForKey:_cmd];
+        if (!mgResultView) {
+            mgResultView = [[HResultView alloc] initWithFrame:self.frame];
+            self.mgResultView = mgResultView;
+            [mgResultView setHidden:YES];
+            [self addSubview:mgResultView];
+        }
+        return [self getAssociatedValueForKey:_cmd];
+    }
+}
+- (void)setMgResultView:(HResultView *)mgResultView {
+    [self setAssociateValue:mgResultView withKey:@selector(mgResultView)];
+}
 
 - (HNaviToast *)mgNaviToast {
     @synchronized(self) {
@@ -135,7 +135,7 @@
         if ([self.mgResultView conformsToProtocol:@protocol(HNoDataProtocol)]) {
             if (![self.mgResultView isLoading]) {
                 [self.mgResultView start];
-                self.mgResultView.type = MGRequestResultViewTypeNoData;
+//                self.mgResultView.type = MGRequestResultViewTypeNoData;
                 if (configBlock) {
                     configBlock(self.mgResultView);
                 }
@@ -153,7 +153,7 @@
         if ([self.mgResultView conformsToProtocol:@protocol(HNoNetworkProtocol)]) {
             if (![self.mgResultView isLoading]) {
                 [self.mgResultView start];
-                self.mgResultView.type = MGRequestResultViewTypeNoNetwork;
+//                self.mgResultView.type = MGRequestResultViewTypeNoNetwork;
                 if (configBlock) {
                     configBlock(self.mgResultView);
                 }
@@ -172,9 +172,9 @@
             if (![self.mgResultView isLoading]) {
                 [self.mgResultView start];
                 if (![AFNetworkReachabilityManager sharedManager].isReachable) {
-                    self.mgResultView.type = MGRequestResultViewTypeNoNetwork;
+//                    self.mgResultView.type = MGRequestResultViewTypeNoNetwork;
                 }else {
-                    self.mgResultView.type = MGRequestResultViewTypeLoadError;
+//                    self.mgResultView.type = MGRequestResultViewTypeLoadError;
                 }
                 if (configBlock) {
                     configBlock(self.mgResultView);

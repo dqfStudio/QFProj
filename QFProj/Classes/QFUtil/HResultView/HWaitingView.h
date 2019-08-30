@@ -6,20 +6,14 @@
 //  Copyright © 2018年 dqf. All rights reserved.
 //
 
-#import "HTupleView.h"
+#import "HShow+Protocol.h"
 
 typedef NS_ENUM(NSInteger, HWaitingType) {
+    HWaitingTypeBlack,
     HWaitingTypeWhite,
-    HWaitingTypeGray,
-    HWaitingTypeBlack
+    HWaitingTypeGray
 };
 
-@interface HWaitingView : UIView
+@interface HWaitingView : UIView <HWaitingProtocol>
 
-+ (void)showInView:(UIView *)view withType:(HWaitingType)type;
-
-@end
-
-@interface UIView (HWaitingView)
-@property(nonatomic) HWaitingView *mgWaitingView;
 @end

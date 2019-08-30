@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "HShow+Protocol.h"
-#import "HRequestResultView.h"
-#import "HRequestWaitingView.h"
+//#import "HRequestResultView.h"
+//#import "HRequestWaitingView.h"
+#import "HWaitingView.h"
+#import "HResultView.h"
 #import "HNaviToastView.h"
 #import "HShowView.h"
 #import "NSObject+HMessy.h"

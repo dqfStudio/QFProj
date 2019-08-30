@@ -64,6 +64,7 @@ H_CheckPropertyRange(rrr, 0, 150)
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self setTitle:@"title"];
+    [self.topBar setHidden:YES];
 //    + (void)showInView:(UIView *)view withType:(HWaitingType)type;
 //    [HWaitingView showInView:self.view withType:HWaitingTypeBlack];
     
@@ -81,6 +82,25 @@ H_CheckPropertyRange(rrr, 0, 150)
 //    }];
 //
 //    return;
+    
+//    [self.view showWaiting:^(id<HWaitingProtocol> make) {
+//        make.style = 2;
+//        make.marginTop = 88;
+//        make.bgColor = UIColor.redColor;
+//    }];
+    
+    [self.view showNoData:^(id<HNoDataProtocol> make) {
+//        make.detlDesc = @"请稍等";
+        make.marginTop = 90;
+        [make setClickedBlock:^{
+            NSLog(@"");
+        }];
+    }];
+    
+//    [HWaitingView showInView:self.view withType:2];
+    
+    return;
+    
     CGRect frame = self.view.frame;
     frame.origin.y = 100;
     HTupleView *tuple = [[HTupleView alloc] initWithFrame:frame];
