@@ -32,6 +32,7 @@ typedef void (^HButtonBlock)(NSInteger buttonIndex);
 @protocol HWaitingProtocol <HShowBaseProtocol>
 
 @optional
+//0为black，1为white，2为gray
 @property (nonatomic) NSInteger style; //设置展示样式
 @property (nonatomic) UIColor *bgColor; //设置背景颜色
 @property (nonatomic) CGFloat marginTop; //设置marginTop的值
@@ -48,6 +49,7 @@ typedef void (^HButtonBlock)(NSInteger buttonIndex);
 @protocol HResultProtocol <HShowBaseProtocol>
 
 @optional
+//0为noData，1为loadError，2为noNetwork
 @property (nonatomic) NSInteger style; //设置展示样式
 @property (nonatomic) UIColor *bgColor; //设置背景颜色
 @property (nonatomic) CGFloat marginTop; //设置marginTop的值
