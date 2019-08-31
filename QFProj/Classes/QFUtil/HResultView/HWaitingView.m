@@ -80,14 +80,14 @@
             NSString *imageName = [NSString stringWithFormat:@"loading_new_%d", i];
             UIImage *image = [UIImage imageNamed:imageName];
             switch (self.style) {
+                case HWaitingTypeBlack:
+                    image = [self reDrawImage:image withColor:[UIColor blackColor]];
+                    break;
                 case HWaitingTypeWhite:
                     image = [self reDrawImage:image withColor:[UIColor whiteColor]];
                     break;
                 case HWaitingTypeGray:
                     image = [self reDrawImage:image withColor:[UIColor lightGrayColor]];
-                    break;
-                case HWaitingTypeBlack:
-                    image = [self reDrawImage:image withColor:[UIColor blackColor]];
                     break;
                 default:
                     break;
@@ -110,14 +110,14 @@
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             
             switch (self.style) {
+                case HWaitingTypeBlack:
+                    [cell.label setTextColor:[UIColor blackColor]];
+                    break;
                 case HWaitingTypeWhite:
                     [cell.label setTextColor:[UIColor whiteColor]];
                     break;
                 case HWaitingTypeGray:
                     [cell.label setTextColor:[UIColor lightGrayColor]];
-                    break;
-                case HWaitingTypeBlack:
-                    [cell.label setTextColor:[UIColor blackColor]];
                     break;
                 default:
                     break;
