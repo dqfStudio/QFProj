@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HFormCell.h"
 
 /**
  协议层，具体协议跟业务相关
@@ -102,15 +103,10 @@ typedef void (^HButtonBlock)(NSInteger buttonIndex);
 
 @optional
 @property (nonatomic) NSInteger type;
-@property (nonatomic) UIColor *bgColor;
-@property (nonatomic) UIColor *itemBgColor;
-@property (nonatomic) Class tupleClass;
-@property (nonatomic) NSArray *titles;
-@property (nonatomic) NSArray *icons;
-@property (nonatomic) NSInteger lineItems; //一行显示几个
-@property (nonatomic) NSInteger pageLines; //一页显示几行
-@property (nonatomic) UIEdgeInsets edgeInsets;
-@property (nonatomic,copy) HButtonBlock buttonBlock;
+@property (nonatomic) NSArray *modelArr;
+@property (nonatomic) NSInteger rows;//一页显示几行
+@property (nonatomic) NSInteger rowItems;//一行显示几个
+@property (nonatomic,copy) HFormCellBlock buttonBlock;
 
 @end
 

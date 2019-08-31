@@ -107,16 +107,13 @@
 
 @implementation HForm
 
-@synthesize type,bgColor,itemBgColor,tupleClass;
-@synthesize titles,icons,lineItems,pageLines;
-@synthesize edgeInsets,buttonBlock;
+@synthesize type,modelArr,rows,rowItems;
+@synthesize buttonBlock;
 
 - (instancetype)init {
     self = [super init];
     if (self) {
         self.type = 0;
-        self.lineItems = 5;
-        self.pageLines = 1;
     }
     return self;
 }
@@ -124,7 +121,7 @@
 - (void)wakeup {
     switch (self.type) {
         case 0:
-            [HFormController formControllerWithTitles:self.titles icons:self.icons lineItems:self.lineItems pageLines:self.pageLines edgeInsets:self.edgeInsets buttonBlock:self.buttonBlock bgColor:self.bgColor itemBgColor:self.itemBgColor tupleClass:self.tupleClass];
+            [HFormController formControllerWithModel:self.modelArr numberOfRows:self.rows rowItems:self.rowItems buttonBlock:self.buttonBlock];
             break;
         default:
             break;

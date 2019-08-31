@@ -8,7 +8,7 @@
 
 #import "HFormCell.h"
 
-@interface HFormController2 : NSObject
+@interface HFormController : NSObject
 + (instancetype)formControllerWithModel:(NSArray<HFormModel *> *)models
                            numberOfRows:(NSInteger)rows
                                rowItems:(NSInteger)items

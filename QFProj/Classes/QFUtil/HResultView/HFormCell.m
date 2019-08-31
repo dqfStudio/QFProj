@@ -38,7 +38,7 @@
 }
 
 - (void)layoutContentView {
-    HLayoutTupleApex(self.tupleView)
+    HLayoutTupleCell(self.tupleView)
 }
 
 - (void)setup {

@@ -6,7 +6,7 @@
 //  Copyright © 2018年 dqf. All rights reserved.
 //
 
-#import "HFormController2.h"
+#import "HFormController.h"
 #import "UIDevice+HUtil.h"
 #import "UIButton+HUtil.h"
 #import "HTupleView.h"
@@ -14,7 +14,7 @@
 #define KItemHeight     80
 #define KFooterHeight   50
 
-@interface HFormController2 ()
+@interface HFormController ()
 @property (nonatomic) HTupleView *tupleView;
 @property (nonatomic) NSInteger numberOfRows;
 @property (nonatomic) NSInteger rowItems;
@@ -22,13 +22,13 @@
 @property (nonatomic, copy) HFormCellBlock cellBlock;
 @end
 
-@implementation HFormController2
+@implementation HFormController
 
 + (instancetype)formControllerWithModel:(NSArray<HFormModel *> *)models
                            numberOfRows:(NSInteger)rows
                                rowItems:(NSInteger)items
                             buttonBlock:(HFormCellBlock)buttonBlock {
-    HFormController2 *formController = HFormController2.new;
+    HFormController *formController = HFormController.new;
     formController.sourceArr = models;
     formController.numberOfRows = rows;
     formController.rowItems = items;
@@ -60,21 +60,21 @@
         return UIEdgeInsetsZero;
     }];
     
-    [self.tupleView headerWithSize:^CGSize(NSInteger section) {
-        @sss
-        NSInteger height = KFooterHeight;
-        if (UIDevice.isIPhoneX) height += UIDevice.bottomBarHeight;
-        return CGSizeMake(self.tupleView.width, self.tupleView.height-KItemHeight*self.numberOfRows-height);
-    } edgeInsets:^UIEdgeInsets(NSInteger section) {
-        return UIEdgeInsetsZero;
-    } tupleHeader:^(HTupleHeader  _Nonnull headerBlock, NSInteger section) {
-        headerBlock(nil, HTupleButtonView.class, nil, YES);
-//        HTupleButtonView *cell = headerBlock(nil, HTupleButtonView.class, nil, YES);
-//        [cell.buttonView setPressed:^(id sender, id data) {
-//            //销毁对象
-//            [self destroy];
-//        }];
-    }];
+//    [self.tupleView headerWithSize:^CGSize(NSInteger section) {
+//        @sss
+//        NSInteger height = KFooterHeight;
+//        if (UIDevice.isIPhoneX) height += UIDevice.bottomBarHeight;
+//        return CGSizeMake(self.tupleView.width, self.tupleView.height-KItemHeight*self.numberOfRows-height);
+//    } edgeInsets:^UIEdgeInsets(NSInteger section) {
+//        return UIEdgeInsetsZero;
+//    } tupleHeader:^(HTupleHeader  _Nonnull headerBlock, NSInteger section) {
+//        headerBlock(nil, HTupleButtonView.class, nil, YES);
+////        HTupleButtonView *cell = headerBlock(nil, HTupleButtonView.class, nil, YES);
+////        [cell.buttonView setPressed:^(id sender, id data) {
+////            //销毁对象
+////            [self destroy];
+////        }];
+//    }];
     
     [self.tupleView footerWithSize:^CGSize(NSInteger section) {
         @sss
