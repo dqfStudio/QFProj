@@ -289,7 +289,7 @@
 		A2ED9C1222314BA100C9D050 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1022314BA100C9D050 /* SimplePing.m */; };
 		A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1122314BA100C9D050 /* HPingTester.m */; };
 		A2ED9C1722314CAC00C9D050 /* HKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1622314CAC00C9D050 /* HKeyChainStore.m */; };
-		A2FF719D2317BADF00522223 /* hvc_back_icon3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2FF719C2317BADF00522223 /* hvc_back_icon3x.png */; };
+		A2FF719D2317BADF00522223 /* hvc_back_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2FF719C2317BADF00522223 /* hvc_back_icon@3x.png */; };
 		A434870C214809F80030209A /* GViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A434870B214809F80030209A /* GViewController.m */; };
 		A4759710217EC61D00AAAEA9 /* HUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A475970F217EC61C00AAAEA9 /* HUserDefaults.m */; };
 /* End PBXBuildFile section */
@@ -828,7 +828,7 @@
 		A2ED9C1122314BA100C9D050 /* HPingTester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPingTester.m; sourceTree = "<group>"; };
 		A2ED9C1522314CAC00C9D050 /* HKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKeyChainStore.h; sourceTree = "<group>"; };
 		A2ED9C1622314CAC00C9D050 /* HKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKeyChainStore.m; sourceTree = "<group>"; };
-		A2FF719C2317BADF00522223 /* hvc_back_icon3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hvc_back_icon3x.png; sourceTree = "<group>"; };
+		A2FF719C2317BADF00522223 /* hvc_back_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hvc_back_icon@3x.png"; sourceTree = "<group>"; };
 		A434870A214809F80030209A /* GViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GViewController.h; sourceTree = "<group>"; };
 		A434870B214809F80030209A /* GViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GViewController.m; sourceTree = "<group>"; };
 		A475970E217EC61C00AAAEA9 /* HUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUserDefaults.h; sourceTree = "<group>"; };
@@ -1551,7 +1551,7 @@
 			isa = PBXGroup;
 			children = (
 				A206882722CA081400661634 /* hvc_back_icon@2x.png */,
-				A2FF719C2317BADF00522223 /* hvc_back_icon3x.png */,
+				A2FF719C2317BADF00522223 /* hvc_back_icon@3x.png */,
 				A206882622CA081400661634 /* HViewController.h */,
 				A206882522CA081400661634 /* HViewController.m */,
 				A2A8EB6422DF01380049C51B /* UIViewController+HDisappear.h */,
@@ -2298,7 +2298,7 @@
 				A28EF3AB21D8ECC9002F92ED /* loading_new_16@2x.png in Resources */,
 				15C5736F20B3DD7B0070327C /* icon_tuple_arrow_left@2x.png in Resources */,
 				A2E8F50922CCDCAA00E7C9F2 /* icon_tuple_nodata@2x.png in Resources */,
-				A2FF719D2317BADF00522223 /* hvc_back_icon3x.png in Resources */,
+				A2FF719D2317BADF00522223 /* hvc_back_icon@3x.png in Resources */,
 				A28EF3A521D8ECC9002F92ED /* loading_new_6@2x.png in Resources */,
 				A28EF3AF21D8ECC9002F92ED /* loading_new_9@2x.png in Resources */,
 				15C5736E20B3DD7B0070327C /* icon_tuple_arrow_right@2x.png in Resources */,
