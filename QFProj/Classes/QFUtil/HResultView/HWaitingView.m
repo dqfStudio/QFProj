@@ -105,7 +105,8 @@
             frame.size.height = KTextHeight;
         
             [cell.label setFrame:frame];
-            [cell.label setText:@"请稍候..."];
+            //[cell.label setText:@"请稍候..."];
+            [cell.label setText:self.desc];
             [cell.label setFont:[UIFont systemFontOfSize:14]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             

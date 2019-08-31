@@ -56,7 +56,7 @@ typedef void (^HButtonBlock)(NSInteger buttonIndex);
 
 @property (nonatomic) BOOL hideImage; //是否展示图片，默认展示图片
 
-@property (nonatomic) NSString *desc; //设置第一行文字
+@property (nonatomic) NSString *desc; //设置第一行文字，有默认值
 @property (nonatomic) UIFont *descFont; //设置第一行文字字体
 @property (nonatomic) UIColor *descColor; //设置第一行文字颜色
 
