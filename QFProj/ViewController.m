@@ -86,11 +86,13 @@ H_CheckPropertyRange(rrr, 0, 150)
 //    [self.view showWaiting:^(id<HWaitingProtocol> make) {
 //        make.style = 2;
 //        make.marginTop = 88;
-//        make.bgColor = UIColor.redColor;
+//        make.desc = @"请稍等";
+////        make.bgColor = UIColor.redColor;
 //    }];
     
     [self.view showNoData:^(id<HNoDataProtocol> make) {
 //        make.detlDesc = @"请稍等";
+//        make.style = 1;
         make.marginTop = 90;
         [make setClickedBlock:^{
             NSLog(@"");

@@ -11,11 +11,13 @@
 #import <objc/runtime.h>
 #import "AFNetworkReachabilityManager.h"
 
-#define KImageWidth  165
+//#define KImageWidth  165
+#define KImageWidth  200
 #define KImageHeight 140
 
 #define KTextWidth   200
-#define KTextHeight  20
+#define KTextHeight  25
+#define KTextHeight2 20
 
 #define KNoNetwork  1000
 
@@ -70,7 +72,7 @@
         CGFloat height = 0.f;
         if (!self.hideImage) height += KImageHeight;
         height += KTextHeight;
-        if (self.detlDesc.length > 0) height += KTextHeight;
+        if (self.detlDesc.length > 0) height += KTextHeight2;
         
         CGFloat tmpMarginTop = self.tupleView.height/2-height/2;
         if (self.marginTop > 0) tmpMarginTop -= self.marginTop;
@@ -94,8 +96,10 @@
         
         if (!self.hideImage) {
             
-            if (self.desc.length > 0) frame.size.height -= KTextHeight; //image和text都显示的情况
-            if (self.detlDesc.length > 0) frame.size.height -= KTextHeight; //image和text都显示的情况
+            frame.origin.x += 35/2;
+            frame.size.width -= 35;
+            frame.size.height -= KTextHeight; //image和text都显示的情况
+            if (self.detlDesc.length > 0) frame.size.height -= KTextHeight2; //image和text都显示的情况
             
             [cell.imageView setFrame:frame];
             
@@ -114,6 +118,8 @@
             }
         }
         
+        frame.origin.x -= 35/2;
+        frame.size.width += 35;
         if (!self.hideImage) frame.origin.y += KImageHeight;
         frame.size.height = KTextHeight;
         [cell.label setFrame:frame];
@@ -143,7 +149,7 @@
         if (self.detlDesc.length > 0) {//image和text都显示的情况
             
             frame.origin.y += KTextHeight;
-            frame.size.height = KTextHeight;
+            frame.size.height = KTextHeight2;
             [cell.detailLabel setFrame:frame];
             
             [cell.detailLabel setText:self.detlDesc];
