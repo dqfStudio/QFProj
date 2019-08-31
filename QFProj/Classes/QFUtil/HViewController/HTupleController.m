@@ -16,7 +16,6 @@
 - (HTupleView *)tupleView {
     if (!_tupleView) {
         _tupleView = [[HTupleView alloc] initWithFrame:CGRectZero style:HTupleViewStyleSectionColorLayout];
-        [_tupleView setTupleDelegate:self];
         [_tupleView verticalBounceEnabled];
     }
     return _tupleView;
