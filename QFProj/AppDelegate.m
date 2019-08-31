@@ -33,7 +33,7 @@
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 //    RootViewController *controller = [[RootViewController alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ViewController.new];
+    HNavigationController *navController = [[HNavigationController alloc] initWithRootViewController:ViewController.new];
 //    navController.navigationBar.hidden = YES;
 //    self.window.rootViewController = HTabBarController.new;
     self.window.rootViewController = navController;

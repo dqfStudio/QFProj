@@ -99,12 +99,12 @@ H_CheckPropertyRange(rrr, 0, 150)
 //        }];
 //    }];
     
-    [self.view showAlert:^(id<HAlertProtocol> make) {
-        make.title = @"111";
-//        make.msg = @"fjalsfkdflads";
-        make.cancelTitle = @"取消";
-        make.buttonTitles = @[@"222"];
-    }];
+//    [self.view showAlert:^(id<HAlertProtocol> make) {
+//        make.title = @"111";
+////        make.msg = @"fjalsfkdflads";
+//        make.cancelTitle = @"取消";
+//        make.buttonTitles = @[@"222"];
+//    }];
     
 //    [HWaitingView showInView:self.view withType:2];
     
