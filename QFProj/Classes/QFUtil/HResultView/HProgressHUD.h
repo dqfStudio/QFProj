@@ -1,5 +1,5 @@
 //
-//  MBProgressHUD.h
+//  HProgressHUD.h
 //  Version 0.8
 //  Created by Matej Bukovinski on 2.4.09.
 //
@@ -30,62 +30,62 @@
 #import <UIKit/UIKit.h>
 #import <CoreGraphics/CoreGraphics.h>
 
-@protocol MBProgressHUDDelegate;
+@protocol HProgressHUDDelegate;
 
 
 typedef enum {
 	/** Progress is shown using an UIActivityIndicatorView. This is the default. */
-	MBProgressHUDModeIndeterminate,
+	HProgressHUDModeIndeterminate,
 	/** Progress is shown using a round, pie-chart like, progress view. */
-	MBProgressHUDModeDeterminate,
+	HProgressHUDModeDeterminate,
 	/** Progress is shown using a horizontal progress bar */
-	MBProgressHUDModeDeterminateHorizontalBar,
+	HProgressHUDModeDeterminateHorizontalBar,
 	/** Progress is shown using a ring-shaped progress view. */
-	MBProgressHUDModeAnnularDeterminate,
+	HProgressHUDModeAnnularDeterminate,
 	/** Shows a custom view */
-	MBProgressHUDModeCustomView,
+	HProgressHUDModeCustomView,
 	/** Shows only labels */
-	MBProgressHUDModeText
-} MBProgressHUDMode;
+	HProgressHUDModeText
+} HProgressHUDMode;
 
 typedef enum {
 	/** Opacity animation */
-	MBProgressHUDAnimationFade,
+	HProgressHUDAnimationFade,
 	/** Opacity + scale animation */
-	MBProgressHUDAnimationZoom,
-	MBProgressHUDAnimationZoomOut = MBProgressHUDAnimationZoom,
-	MBProgressHUDAnimationZoomIn
-} MBProgressHUDAnimation;
+	HProgressHUDAnimationZoom,
+	HProgressHUDAnimationZoomOut = HProgressHUDAnimationZoom,
+	HProgressHUDAnimationZoomIn
+} HProgressHUDAnimation;
 
 
-#ifndef MB_INSTANCETYPE
+#ifndef H_INSTANCETYPE
 #if __has_feature(objc_instancetype)
-	#define MB_INSTANCETYPE instancetype
+	#define H_INSTANCETYPE instancetype
 #else
-	#define MB_INSTANCETYPE id
+	#define H_INSTANCETYPE id
 #endif
 #endif
 
-#ifndef MB_STRONG
+#ifndef H_STRONG
 #if __has_feature(objc_arc)
-	#define MB_STRONG strong
+	#define H_STRONG strong
 #else
-	#define MB_STRONG retain
+	#define H_STRONG retain
 #endif
 #endif
 
-#ifndef MB_WEAK
+#ifndef H_WEAK
 #if __has_feature(objc_arc_weak)
-	#define MB_WEAK weak
+	#define H_WEAK weak
 #elif __has_feature(objc_arc)
-	#define MB_WEAK unsafe_unretained
+	#define H_WEAK unsafe_unretained
 #else
-	#define MB_WEAK assign
+	#define H_WEAK assign
 #endif
 #endif
 
 #if NS_BLOCKS_AVAILABLE
-typedef void (^MBProgressHUDCompletionBlock)(void);
+typedef void (^HProgressHUDCompletionBlock)(void);
 #endif
 
 
@@ -93,22 +93,22 @@ typedef void (^MBProgressHUDCompletionBlock)(void);
  * Displays a simple HUD window containing a progress indicator and two optional labels for short messages.
  *
  * This is a simple drop-in class for displaying a progress HUD view similar to Apple's private UIProgressHUD class.
- * The MBProgressHUD window spans over the entire space given to it by the initWithFrame constructor and catches all
+ * The HProgressHUD window spans over the entire space given to it by the initWithFrame constructor and catches all
  * user input on this region, thereby preventing the user operations on components below the view. The HUD itself is
  * drawn centered as a rounded semi-transparent view which resizes depending on the user specified content.
  *
  * This view supports four modes of operation:
- * - MBProgressHUDModeIndeterminate - shows a UIActivityIndicatorView
- * - MBProgressHUDModeDeterminate - shows a custom round progress indicator
- * - MBProgressHUDModeAnnularDeterminate - shows a custom annular progress indicator
- * - MBProgressHUDModeCustomView - shows an arbitrary, user specified view (@see customView)
+ * - HProgressHUDModeIndeterminate - shows a UIActivityIndicatorView
+ * - HProgressHUDModeDeterminate - shows a custom round progress indicator
+ * - HProgressHUDModeAnnularDeterminate - shows a custom annular progress indicator
+ * - HProgressHUDModeCustomView - shows an arbitrary, user specified view (@see customView)
  *
  * All three modes can have optional labels assigned:
  * - If the labelText property is set and non-empty then a label containing the provided content is placed below the
  *   indicator view.
  * - If also the detailsLabelText property is set then another label is placed below the first label.
  */
-@interface MBProgressHUD : UIView
+@interface HProgressHUD : UIView
 
 /**
  * Creates a new HUD, adds it to provided view and shows it. The counterpart to this method is hideHUDForView:animated:.
@@ -121,7 +121,7 @@ typedef void (^MBProgressHUDCompletionBlock)(void);
  * @see hideHUDForView:animated:
  * @see animationType
  */
-+ (MB_INSTANCETYPE)showHUDAddedTo:(UIView *)view animated:(BOOL)animated;
++ (H_INSTANCETYPE)showHUDAddedTo:(UIView *)view animated:(BOOL)animated;
 
 /**
  * Finds the top-most HUD subview and hides it. The counterpart to this method is showHUDAddedTo:animated:.
@@ -155,13 +155,13 @@ typedef void (^MBProgressHUDCompletionBlock)(void);
  * @param view The view that is going to be searched.
  * @return A reference to the last HUD subview discovered.
  */
-+ (MB_INSTANCETYPE)HUDForView:(UIView *)view;
++ (H_INSTANCETYPE)HUDForView:(UIView *)view;
 
 /**
  * Finds all HUD subviews and returns them.
  *
  * @param view The view that is going to be searched.
- * @return All found HUD views (array of MBProgressHUD objects).
+ * @return All found HUD views (array of HProgressHUD objects).
  */
 + (NSArray *)allHUDsForView:(UIView *)view;
 
@@ -246,7 +246,7 @@ typedef void (^MBProgressHUDCompletionBlock)(void);
  *
  * @see showAnimated:whileExecutingBlock:onQueue:completionBlock:
  */
-- (void)showAnimated:(BOOL)animated whileExecutingBlock:(dispatch_block_t)block completionBlock:(MBProgressHUDCompletionBlock)completion;
+- (void)showAnimated:(BOOL)animated whileExecutingBlock:(dispatch_block_t)block completionBlock:(HProgressHUDCompletionBlock)completion;
 
 /**
  * Shows the HUD while a block is executing on the specified dispatch queue, then hides the HUD.
@@ -267,41 +267,41 @@ typedef void (^MBProgressHUDCompletionBlock)(void);
  * @see completionBlock
  */
 - (void)showAnimated:(BOOL)animated whileExecutingBlock:(dispatch_block_t)block onQueue:(dispatch_queue_t)queue
-		  completionBlock:(MBProgressHUDCompletionBlock)completion;
+		  completionBlock:(HProgressHUDCompletionBlock)completion;
 
 /**
  * A block that gets called after the HUD was completely hidden.
  */
-@property (copy) MBProgressHUDCompletionBlock completionBlock;
+@property (copy) HProgressHUDCompletionBlock completionBlock;
 
 #endif
 
 /** 
- * MBProgressHUD operation mode. The default is MBProgressHUDModeIndeterminate.
+ * HProgressHUD operation mode. The default is HProgressHUDModeIndeterminate.
  *
- * @see MBProgressHUDMode
+ * @see HProgressHUDMode
  */
-@property (assign) MBProgressHUDMode mode;
+@property (assign) HProgressHUDMode mode;
 
 /**
  * The animation type that should be used when the HUD is shown and hidden. 
  *
- * @see MBProgressHUDAnimation
+ * @see HProgressHUDAnimation
  */
-@property (assign) MBProgressHUDAnimation animationType;
+@property (assign) HProgressHUDAnimation animationType;
 
 /**
- * The UIView (e.g., a UIImageView) to be shown when the HUD is in MBProgressHUDModeCustomView.
+ * The UIView (e.g., a UIImageView) to be shown when the HUD is in HProgressHUDModeCustomView.
  * For best results use a 37 by 37 pixel view (so the bounds match the built in indicator bounds). 
  */
-@property (MB_STRONG) UIView *customView;
+@property (H_STRONG) UIView *customView;
 
 /** 
  * The HUD delegate object. 
  *
- * @see MBProgressHUDDelegate
+ * @see HProgressHUDDelegate
  */
-@property (MB_WEAK) id<MBProgressHUDDelegate> delegate;
+@property (H_WEAK) id<HProgressHUDDelegate> delegate;
 
 /** 
  * An optional short message to be displayed below the activity indicator. The HUD is automatically resized to fit
@@ -326,7 +326,7 @@ typedef void (^MBProgressHUDCompletionBlock)(void);
  * this UIColor and the opacity property is not used.  using retain because performing copy on
  * UIColor base colors (like [UIColor greenColor]) cause problems with the copyZone.
  */
-@property (MB_STRONG) UIColor *color;
+@property (H_STRONG) UIColor *color;
 
 /** 
  * The x-axis offset of the HUD relative to the centre of the superview. 
@@ -386,12 +386,12 @@ typedef void (^MBProgressHUDCompletionBlock)(void);
 /** 
  * Font to be used for the main label. Set this property if the default is not adequate. 
  */
-@property (MB_STRONG) UIFont* labelFont;
+@property (H_STRONG) UIFont* labelFont;
 
 /** 
  * Font to be used for the details label. Set this property if the default is not adequate. 
  */
-@property (MB_STRONG) UIFont* detailsLabelFont;
+@property (H_STRONG) UIFont* detailsLabelFont;
 
 /** 
  * The progress of the progress indicator, from 0.0 to 1.0. Defaults to 0.0. 
@@ -411,14 +411,14 @@ typedef void (^MBProgressHUDCompletionBlock)(void);
 @end
 
 
-@protocol MBProgressHUDDelegate <NSObject>
+@protocol HProgressHUDDelegate <NSObject>
 
 @optional
 
 /** 
  * Called after the HUD was fully hidden from the screen. 
  */
-- (void)hudWasHidden:(MBProgressHUD *)hud;
+- (void)hudWasHidden:(HProgressHUD *)hud;
 
 @end
 
@@ -437,13 +437,13 @@ typedef void (^MBProgressHUDCompletionBlock)(void);
  * Indicator progress color.
  * Defaults to white [UIColor whiteColor]
  */
-@property (nonatomic, MB_STRONG) UIColor *progressTintColor;
+@property (nonatomic, H_STRONG) UIColor *progressTintColor;
 
 /**
  * Indicator background (non-progress) color.
  * Defaults to translucent white (alpha 0.1)
  */
-@property (nonatomic, MB_STRONG) UIColor *backgroundTintColor;
+@property (nonatomic, H_STRONG) UIColor *backgroundTintColor;
 
 /*
  * Display mode - NO = round or YES = annular. Defaults to round.
@@ -467,18 +467,18 @@ typedef void (^MBProgressHUDCompletionBlock)(void);
  * Bar border line color.
  * Defaults to white [UIColor whiteColor].
  */
-@property (nonatomic, MB_STRONG) UIColor *lineColor;
+@property (nonatomic, H_STRONG) UIColor *lineColor;
 
 /**
  * Bar background color.
  * Defaults to clear [UIColor clearColor];
  */
-@property (nonatomic, MB_STRONG) UIColor *progressRemainingColor;
+@property (nonatomic, H_STRONG) UIColor *progressRemainingColor;
 
 /**
  * Bar progress color.
  * Defaults to white [UIColor whiteColor].
  */
-@property (nonatomic, MB_STRONG) UIColor *progressColor;
+@property (nonatomic, H_STRONG) UIColor *progressColor;
 
 @end

@@ -22,8 +22,8 @@
 
 - (void)wakeup {
     UIWindow *window = [[UIApplication sharedApplication].windows firstObject];
-    MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
-    hud.mode = MBProgressHUDModeText;
+    HProgressHUD* hud = [HProgressHUD showHUDAddedTo:window animated:YES];
+    hud.mode = HProgressHUDModeText;
     hud.labelText = self.desc;
     hud.margin = 10.f;
     hud.removeFromSuperViewOnHide = YES;

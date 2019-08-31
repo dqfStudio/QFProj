@@ -126,7 +126,7 @@
 		A20E3CD6231A662B00E6982B /* HNaviToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CCF231A662B00E6982B /* HNaviToastView.m */; };
 		A20E3CD7231A662B00E6982B /* HAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CD2231A662B00E6982B /* HAlertView.m */; };
 		A20E3CD8231A662B00E6982B /* HRequestHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CD4231A662B00E6982B /* HRequestHUD.m */; };
-		A20E3CDF231A663300E6982B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CDA231A663200E6982B /* MBProgressHUD.m */; };
+		A20E3CDF231A663300E6982B /* HProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CDA231A663200E6982B /* HProgressHUD.m */; };
 		A20E3CE0231A663300E6982B /* UIAlertController+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CDC231A663300E6982B /* UIAlertController+HUtil.m */; };
 		A20E3CE1231A663300E6982B /* UIView+HAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CDE231A663300E6982B /* UIView+HAlert.m */; };
 		A219F22F222FB46A00241FD7 /* HIFS.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F22D222FB46A00241FD7 /* HIFS.m */; };
@@ -527,8 +527,8 @@
 		A20E3CD3231A662B00E6982B /* HAlert+Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HAlert+Protocol.h"; sourceTree = "<group>"; };
 		A20E3CD4231A662B00E6982B /* HRequestHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRequestHUD.m; sourceTree = "<group>"; };
 		A20E3CD5231A662B00E6982B /* HRequestHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRequestHUD.h; sourceTree = "<group>"; };
-		A20E3CD9231A663200E6982B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		A20E3CDA231A663200E6982B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		A20E3CD9231A663200E6982B /* HProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HProgressHUD.h; sourceTree = "<group>"; };
+		A20E3CDA231A663200E6982B /* HProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HProgressHUD.m; sourceTree = "<group>"; };
 		A20E3CDB231A663300E6982B /* UIAlertController+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+HUtil.h"; sourceTree = "<group>"; };
 		A20E3CDC231A663300E6982B /* UIAlertController+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+HUtil.m"; sourceTree = "<group>"; };
 		A20E3CDD231A663300E6982B /* UIView+HAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HAlert.h"; sourceTree = "<group>"; };
@@ -1847,8 +1847,8 @@
 				A28EF36C21D8EC2A002F92ED /* HResultView.m */,
 				A28EF3B321D9C9A2002F92ED /* HWaitingView.h */,
 				A28EF3B421D9C9A2002F92ED /* HWaitingView.m */,
-				A20E3CD9231A663200E6982B /* MBProgressHUD.h */,
-				A20E3CDA231A663200E6982B /* MBProgressHUD.m */,
+				A20E3CD9231A663200E6982B /* HProgressHUD.h */,
+				A20E3CDA231A663200E6982B /* HProgressHUD.m */,
 				A20E3CDB231A663300E6982B /* UIAlertController+HUtil.h */,
 				A20E3CDC231A663300E6982B /* UIAlertController+HUtil.m */,
 				A20E3CDD231A663300E6982B /* UIView+HAlert.h */,
@@ -2604,7 +2604,7 @@
 				A2E8F55622D775A200E7C9F2 /* UIView+HSafeMessy.m in Sources */,
 				15B4DE292093034700773E04 /* NSObject+annotation.m in Sources */,
 				A2E8F54422D72A9800E7C9F2 /* YTKRequest.m in Sources */,
-				A20E3CDF231A663300E6982B /* MBProgressHUD.m in Sources */,
+				A20E3CDF231A663300E6982B /* HProgressHUD.m in Sources */,
 				A2B929AD2306978D0091A57D /* SRWebSocket.m in Sources */,
 				15B4DDF32092F96C00773E04 /* UIView+HUtil.m in Sources */,
 				A2E8F51D22D229A500E7C9F2 /* HTupleController.m in Sources */,
