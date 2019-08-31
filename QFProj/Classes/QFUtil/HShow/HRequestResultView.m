@@ -20,7 +20,7 @@
 @property (nonatomic) CGFloat qOffset;
 @property (nonatomic) CGFloat qRatio;
 @property (nonatomic) BOOL setting;
-@property (nonatomic, copy) HShowClickedBlock clickedActionBlock;
+@property (nonatomic, copy) HAlertClickedBlock clickedActionBlock;
 @end
 
 @implementation HRequestResultView
@@ -109,7 +109,7 @@
     self.qRatio = 0.5;
 }
 
-- (void)setClickedBlock:(HShowClickedBlock)showClickedBlock {
+- (void)setClickedBlock:(HAlertClickedBlock)showClickedBlock {
     if (self.clickedActionBlock != showClickedBlock) {
         self.clickedActionBlock = nil;
         self.clickedActionBlock = showClickedBlock;

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UIView+HUtil.h"
 #import "UIDevice+HUtil.h"
-#import "HShow+Protocol.h"
+#import "HAlert+Protocol.h"
 #import "HCommonDefine.h"
 
 typedef NS_ENUM(NSInteger, MGWaitingViewStyle) {

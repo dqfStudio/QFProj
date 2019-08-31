@@ -48,7 +48,7 @@
     return [self safe_initWithObjects:objects forKeys:keys count:cnt];
 }
 - (id)safe_objectForKeyedSubscript:(id)key {
-    if (key && ![key isKindOfClass:NSNull.class]) {
+    if (key) {
         return [self safe_objectForKeyedSubscript:key];
     }else {
 #if DEBUG
@@ -77,7 +77,7 @@
     });
 }
 - (void)safe_setObject:(id)anObject forKey:(id)aKey {
-    if (aKey && ![aKey isKindOfClass:NSNull.class]) {
+    if (aKey) {
         [self safe_setObject:anObject forKey:aKey];
     }else {
 #if DEBUG
@@ -95,7 +95,7 @@
     }
 }
 - (id)safe_objectForKeyedSubscript:(id)key {
-    if (key && ![key isKindOfClass:NSNull.class]) {
+    if (key) {
         return [self safe_objectForKeyedSubscript:key];
     }else {
 #if DEBUG
@@ -105,7 +105,7 @@
     return nil;
 }
 - (void)safe_removeObjectForKey:(id)aKey {
-    if (aKey && ![aKey isKindOfClass:NSNull.class]) {
+    if (aKey) {
         [self safe_removeObjectForKey:aKey];
     }else {
 #if DEBUG

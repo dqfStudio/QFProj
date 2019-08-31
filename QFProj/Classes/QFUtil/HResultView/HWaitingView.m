@@ -22,7 +22,8 @@
 
 @implementation HWaitingView
 
-@synthesize bgColor,style,desc,descFont,descColor,marginTop;
+@synthesize bgColor,style,desc,descFont;
+@synthesize descColor,marginTop,isLoading;
 
 - (HTupleView *)tupleView {
     if (!_tupleView) {
@@ -32,14 +33,7 @@
     }
     return _tupleView;
 }
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self setup];
-    }
-    return self;
-}
-- (void)setup {
+- (void)wakeup {
     //添加view
     [self addSubview:self.tupleView];
     
@@ -136,6 +130,7 @@
     if (cell.imageView.isAnimating) {
         [cell.imageView stopAnimating];
     }
+    [self setIsLoading:NO];
     [super removeFromSuperview];
 }
 //重新绘制图片

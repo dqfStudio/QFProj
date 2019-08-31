@@ -6,13 +6,14 @@
 //  Copyright © 2018年 dqf. All rights reserved.
 //
 
-#import "HShow+Protocol.h"
+#import "HAlert+Protocol.h"
 
 typedef NS_ENUM(NSInteger, HResultType) {
     HResultTypeNoData, // 没有数据
-    HResultTypeLoadError // 请求失败
+    HResultTypeLoadError, // 请求失败
+    HResultTypeNoNetwork // 无网络
 };
 
-@interface HResultView : UIView <HNoDataProtocol>
-
+@interface HResultView : UIView <HResultProtocol>
+- (void)wakeup;
 @end

@@ -17,7 +17,7 @@
 #import "HSimilarity.h"
 #import "HTableViewCell.h"
 
-#import "UIView+HShow.h"
+#import "UIView+HAlert.h"
 #import "HFormController.h"
 #import "NSObject+HAutoFill.h"
 #import "NSObject+HUtil.h"
@@ -90,13 +90,20 @@ H_CheckPropertyRange(rrr, 0, 150)
 ////        make.bgColor = UIColor.redColor;
 //    }];
     
-    [self.view showNoData:^(id<HNoDataProtocol> make) {
-//        make.detlDesc = @"请稍等";
-//        make.style = 1;
-        make.marginTop = 90;
-        [make setClickedBlock:^{
-            NSLog(@"");
-        }];
+//    [self.view showResult:^(id<HResultProtocol> make) {
+//        //        make.detlDesc = @"请稍等";
+//        //        make.style = 1;
+//        make.marginTop = 90;
+//        [make setClickedBlock:^{
+//            NSLog(@"");
+//        }];
+//    }];
+    
+    [self.view showAlert:^(id<HAlertProtocol> make) {
+        make.title = @"111";
+//        make.msg = @"fjalsfkdflads";
+        make.cancelTitle = @"取消";
+        make.buttonTitles = @[@"222"];
     }];
     
 //    [HWaitingView showInView:self.view withType:2];

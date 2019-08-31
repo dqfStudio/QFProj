@@ -1,5 +1,5 @@
 //
-//  UIView+HShow.h
+//  UIView+HAlert.h
 //  HFundation
 //
 //  Created by dqf on 2018/1/22.
@@ -7,16 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HShow+Protocol.h"
-//#import "HRequestResultView.h"
-//#import "HRequestWaitingView.h"
+#import "HAlert+Protocol.h"
 #import "HWaitingView.h"
 #import "HResultView.h"
 #import "HNaviToastView.h"
-#import "HShowView.h"
+#import "HAlertView.h"
 #import "NSObject+HMessy.h"
 
-@interface UIView (HShow)
+@interface UIView (HAlert)
 /**
  加载等待界面
 
@@ -24,23 +22,11 @@
  */
 - (void)showWaiting:(void(^)(id<HWaitingProtocol> make))configBlock;
 /**
- 无数据提示界面
+ 请求结果展示界面协议
  
  @param configBlock 参数配置block
  */
-- (void)showNoData:(void(^)(id<HNoDataProtocol> make))configBlock;
-/**
- 无网络提示界面
- 
- @param configBlock 参数配置block
- */
-- (void)showNoNetwork:(void(^)(id<HNoNetworkProtocol> make))configBlock;
-/**
- 请求失败提示界面
- 
- @param configBlock 参数配置block
- */
-- (void)showLoadError:(void(^)(id<HLoadErrorProtocol> make))configBlock;
+- (void)showResult:(void(^)(id<HResultProtocol> make))configBlock;
 /**
  alert提示
  
@@ -77,8 +63,6 @@
  移除对应提示
  */
 - (void)removeWaiting;
-- (void)removeNoData;
-- (void)removeNoNetwork;
-- (void)removeLoadError;
+- (void)removeResult;
 
 @end

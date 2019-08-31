@@ -1,5 +1,5 @@
 //
-//  HShowView.h
+//  HAlertView.h
 //  QFProj
 //
 //  Created by dqf on 2018/5/31.
@@ -12,29 +12,25 @@
 #import "MBProgressHUD.h"
 #import "UIAlertController+HUtil.h"
 #import "HFormController.h"
-#import "HShow+Protocol.h"
-
-@interface HShowView : NSObject
-
-@end
+#import "HAlert+Protocol.h"
 
 @interface HToast : NSObject <HToastProtocol>
-
+- (void)wakeup;
 @end
 
 @interface HNaviToast : NSObject <HNaviToastProtocol>
-
+- (void)wakeup;
 @end
 
 @interface HAlert : NSObject <HAlertProtocol>
-
+- (void)wakeup;
 @end
 
 @interface HSheet : NSObject <HSheetProtocol>
-
+- (void)wakeup;
 @end
 
 @interface HForm : NSObject <HFormProtocol>
-
+- (void)wakeup;
 @end
 

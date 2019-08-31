@@ -19,8 +19,6 @@
 #define KTextHeight  25
 #define KTextHeight2 20
 
-#define KNoNetwork  1000
-
 @interface HResultView () <HTupleViewDelegate>
 @property (nonatomic) HTupleView *tupleView;
 @end
@@ -30,7 +28,7 @@
 @synthesize bgColor,style,marginTop,hideImage;
 @synthesize desc,descFont,descColor;
 @synthesize detlDesc,detlDescFont,detlDescColor;
-@synthesize clickedBlock;
+@synthesize clickedBlock,isLoading;
 
 - (HTupleView *)tupleView {
     if (!_tupleView) {
@@ -39,14 +37,7 @@
     }
     return _tupleView;
 }
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self setup];
-    }
-    return self;
-}
-- (void)setup {
+- (void)wakeup {
     
     //添加view
     [self addSubview:self.tupleView];
@@ -91,7 +82,7 @@
         CGRect frame = [cell getContentFrame];
         
         if (![AFNetworkReachabilityManager sharedManager].isReachable) {
-            self.style = KNoNetwork;
+            self.style = HResultTypeNoNetwork;
         }
         
         if (!self.hideImage) {
@@ -110,7 +101,7 @@
                 case HResultTypeLoadError:
                     [cell.imageView setImage:[UIImage imageNamed:@"mgf_icon_no_server"]];
                     break;
-                case KNoNetwork:
+                case HResultTypeNoNetwork:
                     [cell.imageView setImage:[UIImage imageNamed:@"mgf_icon_no_network"]];
                     break;
                 default:
@@ -138,7 +129,7 @@
                 case HResultTypeLoadError:
                     [cell.label setText:@"服务器开小差了，请稍后再试~"];
                     break;
-                case KNoNetwork:
+                case HResultTypeNoNetwork:
                     [cell.label setText:@"网络已断开"];
                     break;
                 default:
@@ -165,6 +156,11 @@
             self.clickedBlock();
         }
     }];
+}
+
+- (void)removeFromSuperview {
+    [self setIsLoading:NO];
+    [super removeFromSuperview];
 }
 
 @end
