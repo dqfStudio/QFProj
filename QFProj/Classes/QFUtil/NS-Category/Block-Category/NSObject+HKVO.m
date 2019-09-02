@@ -129,17 +129,17 @@ static void *const HKVOSemaphoreKey = "HKVOSemaphoreKey";
     dispatch_semaphore_signal(kvoSemaphore);
 }
 
-static void *const HNotificationBlockKey = "HNotificationBlockKey";
-static void *const HNotificationSemaphoreKey = "HNotificationSemaphoreKey";
+static void *const HKNotificationBlockKey = "HKNotificationBlockKey";
+static void *const HKNotificationSemaphoreKey = "HKNotificationSemaphoreKey";
 
 - (void)h_addNotificationForName:(NSString *)name block:(void (^)(NSNotification *notify))block {
     if (!name || !block) return;
-    dispatch_semaphore_t notificationSemaphore = [self _h_getSemaphoreWithKey:HNotificationSemaphoreKey];
+    dispatch_semaphore_t notificationSemaphore = [self _h_getSemaphoreWithKey:HKNotificationSemaphoreKey];
     dispatch_semaphore_wait(notificationSemaphore, DISPATCH_TIME_FOREVER);
-    NSMutableDictionary *allTargets = objc_getAssociatedObject(self, HNotificationBlockKey);
+    NSMutableDictionary *allTargets = objc_getAssociatedObject(self, HKNotificationBlockKey);
     if (!allTargets) {
         allTargets = @{}.mutableCopy;
-        objc_setAssociatedObject(self, HNotificationBlockKey, allTargets, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        objc_setAssociatedObject(self, HKNotificationBlockKey, allTargets, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     _HBlockTarget *target = allTargets[name];
     if (!target) {
@@ -155,11 +155,11 @@ static void *const HNotificationSemaphoreKey = "HNotificationSemaphoreKey";
 
 - (void)h_removeNotificationForName:(NSString *)name {
     if (!name) return;
-    NSMutableDictionary *allTargets = objc_getAssociatedObject(self, HNotificationBlockKey);
+    NSMutableDictionary *allTargets = objc_getAssociatedObject(self, HKNotificationBlockKey);
     if (!allTargets.count) return;
     _HBlockTarget *target = allTargets[name];
     if (!target) return;
-    dispatch_semaphore_t notificationSemaphore = [self _h_getSemaphoreWithKey:HNotificationSemaphoreKey];
+    dispatch_semaphore_t notificationSemaphore = [self _h_getSemaphoreWithKey:HKNotificationSemaphoreKey];
     dispatch_semaphore_wait(notificationSemaphore, DISPATCH_TIME_FOREVER);
     [[NSNotificationCenter defaultCenter] removeObserver:target];
     [allTargets removeObjectForKey:name];
@@ -168,9 +168,9 @@ static void *const HNotificationSemaphoreKey = "HNotificationSemaphoreKey";
 }
 
 - (void)h_removeAllNotification {
-    NSMutableDictionary *allTargets = objc_getAssociatedObject(self, HNotificationBlockKey);
+    NSMutableDictionary *allTargets = objc_getAssociatedObject(self, HKNotificationBlockKey);
     if (!allTargets.count) return;
-    dispatch_semaphore_t notificationSemaphore = [self _h_getSemaphoreWithKey:HNotificationSemaphoreKey];
+    dispatch_semaphore_t notificationSemaphore = [self _h_getSemaphoreWithKey:HKNotificationSemaphoreKey];
     dispatch_semaphore_wait(notificationSemaphore, DISPATCH_TIME_FOREVER);
     [allTargets enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, _HBlockTarget *target, BOOL * _Nonnull stop) {
         [[NSNotificationCenter defaultCenter] removeObserver:target];
@@ -183,14 +183,14 @@ static void *const HNotificationSemaphoreKey = "HNotificationSemaphoreKey";
     [[NSNotificationCenter defaultCenter] postNotificationName:name object:nil userInfo:userInfo];
 }
 
-static void * deallocHasSwizzledKey = "deallocHasSwizzledKey";
+static void * hDeallocHasSwizzledKey = "deallocHasSwizzledKey";
 
 /**
  *  调剂dealloc方法，由于无法直接使用运行时的swizzle方法对dealloc方法进行调剂，所以稍微麻烦一些
  */
 - (void)_h_swizzleDealloc {
     //我们给每个类绑定上一个值来判断dealloc方法是否被调剂过，如果调剂过了就无需再次调剂了
-    BOOL swizzled = [objc_getAssociatedObject(self.class, deallocHasSwizzledKey) boolValue];
+    BOOL swizzled = [objc_getAssociatedObject(self.class, hDeallocHasSwizzledKey) boolValue];
     //如果调剂过则直接返回
     if (swizzled) return;
     //开始调剂
@@ -232,7 +232,7 @@ static void * deallocHasSwizzledKey = "deallocHasSwizzledKey";
             originalDealloc = (void(*)(__unsafe_unretained id, SEL))method_setImplementation(deallocMethod, newDeallocIMP);
         }
         //标记该类已经调剂过了
-        objc_setAssociatedObject(self.class, deallocHasSwizzledKey, @(YES), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        objc_setAssociatedObject(self.class, hDeallocHasSwizzledKey, @(YES), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
     }
 }
