@@ -228,3 +228,89 @@
     return frame;
 }
 @end
+
+@implementation HTextField (HValidate)
+
+- (BOOL)isValidatedUserName {
+    NSString *regex = @"^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,11}$";
+    return [self isValidateWithPattern:regex];
+}
+- (BOOL)isValidatedPassword {
+    NSString *regex = @"[a-zA-Z0-9]{6,12}";
+    return [self isValidateWithPattern:regex];
+}
+
+
+
+- (BOOL)isOnlyAlpha {
+    NSString *regex = @"^[a-zA-Z]*$";
+    return [self isValidateWithPattern:regex];
+}
+- (BOOL)isOnlyNumeric {
+    NSString *regex = @"^[a-zA-Z]*$";
+    return [self isValidateWithPattern:regex];
+}
+- (BOOL)isAlphaNumeric {
+    NSString *regex = @"^[a-zA-Z0-9]*$";
+    return [self isValidateWithPattern:regex];
+}
+
+
+
+- (BOOL)isValidatedEmial {
+    NSString *regex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    return [self isValidateWithRegex:regex];
+}
+- (BOOL)isValidatedVCode {
+    NSString *regex = @"[0-9]{4,6}";
+    return [self isValidateWithRegex:regex];
+}
+- (BOOL)isValidatedMobile {
+    //手机号以13， 15，18开头，八个 \d 数字字符
+    NSString *regex = @"^[1][3,4,5,7,8]+\\d{9}$";
+    return [self isValidateWithRegex:regex];
+}
+- (BOOL)isValidatedIDCard {
+    NSString *regex = @"^(\\d{14}|\\d{17})(\\d|[xX])$";
+    return [self isValidateWithRegex:regex];
+}
+
+
+
+- (BOOL)isOnlyChinese {
+    NSString *regex = @"[\u4e00-\u9fa5]+";
+    return [self isValidateWithRegex:regex];
+}
+- (BOOL)isValidatedWechat {
+    NSString *regex = @"^[a-zA-Z]([-_a-zA-Z0-9]{5,19})+$";
+    return [self isValidateWithRegex:regex];
+}
+- (BOOL)isValidatedBankCard {
+    NSString *regex = @"[1-9]([0-9]{13,19})";
+    return [self isValidateWithRegex:regex];
+}
+
+
+
+- (BOOL)isContainIllegalCharacters {
+    NSString *regex = @"^[A-Za-z0-9\\u4e00-\u9fa5]+$";
+    return [self isValidateWithRegex:regex];
+}
+- (BOOL)isValidateWithPattern:(NSString *)pattern {
+    NSRegularExpression *regex = [NSRegularExpression
+                                  regularExpressionWithPattern:pattern
+                                  options:NSRegularExpressionAnchorsMatchLines
+                                  error:nil];
+    NSUInteger numberOfMatches = [regex
+                                  numberOfMatchesInString:self.text
+                                  options:NSMatchingAnchored
+                                  range:NSMakeRange(0, self.text.length)];
+    if (numberOfMatches == 0) {
+        return NO;
+    }
+    return YES;
+}
+- (BOOL)isValidateWithRegex:(NSString *)regex {
+    return [[NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex] evaluateWithObject:self.text];
+}
+@end
