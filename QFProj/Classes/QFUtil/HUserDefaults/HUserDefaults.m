@@ -8,6 +8,7 @@
 
 #import "HUserDefaults.h"
 #import <objc/runtime.h>
+#import "NSObject+HKVO.h"
 
 #define KUSER @"H_USER_DEFAULTS"
 
@@ -68,6 +69,13 @@
 //初始化数据
 - (void)initData {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveUser) name:UIApplicationWillTerminateNotification object:nil];
+    [self h_addObserverBlockForKeyPath:@"isLogin" block:^(id  _Nonnull obj, id  _Nonnull oldVal, id  _Nonnull newVal) {
+        if ([newVal boolValue]) {
+            [self saveUser];
+        }else {
+            [self removeUser];
+        }
+    }];
 //    [[RACObserve(share, isLogin) skip:1] subscribeNext:^(id  _Nullable x) {
 //        if ([x boolValue]) {
 //            [self saveUser];

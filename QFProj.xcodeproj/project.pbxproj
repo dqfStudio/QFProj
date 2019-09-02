@@ -129,6 +129,7 @@
 		A20E3CDF231A663300E6982B /* HProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CDA231A663200E6982B /* HProgressHUD.m */; };
 		A20E3CE0231A663300E6982B /* UIAlertController+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CDC231A663300E6982B /* UIAlertController+HUtil.m */; };
 		A20E3CE1231A663300E6982B /* UIView+HAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CDE231A663300E6982B /* UIView+HAlert.m */; };
+		A20E3CE4231CC3B400E6982B /* NSObject+HKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CE2231CC3B400E6982B /* NSObject+HKVO.m */; };
 		A219F22F222FB46A00241FD7 /* HIFS.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F22D222FB46A00241FD7 /* HIFS.m */; };
 		A222A6C42279AAAD0013098A /* NSDictionary+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A6C32279AAAD0013098A /* NSDictionary+HUtil.m */; };
 		A222A716227C52430013098A /* UILabel+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A715227C52430013098A /* UILabel+HUtil.m */; };
@@ -533,6 +534,8 @@
 		A20E3CDC231A663300E6982B /* UIAlertController+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+HUtil.m"; sourceTree = "<group>"; };
 		A20E3CDD231A663300E6982B /* UIView+HAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HAlert.h"; sourceTree = "<group>"; };
 		A20E3CDE231A663300E6982B /* UIView+HAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HAlert.m"; sourceTree = "<group>"; };
+		A20E3CE2231CC3B400E6982B /* NSObject+HKVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HKVO.m"; sourceTree = "<group>"; };
+		A20E3CE3231CC3B400E6982B /* NSObject+HKVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HKVO.h"; sourceTree = "<group>"; };
 		A219F22D222FB46A00241FD7 /* HIFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIFS.m; sourceTree = "<group>"; };
 		A219F22E222FB46A00241FD7 /* HIFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIFS.h; sourceTree = "<group>"; };
 		A222A6C22279AAAD0013098A /* NSDictionary+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HUtil.h"; sourceTree = "<group>"; };
@@ -1272,6 +1275,8 @@
 			children = (
 				15B4DDC82092F96B00773E04 /* NSObject+BlockSEL.h */,
 				15B4DDC72092F96B00773E04 /* NSObject+BlockSEL.m */,
+				A20E3CE3231CC3B400E6982B /* NSObject+HKVO.h */,
+				A20E3CE2231CC3B400E6982B /* NSObject+HKVO.m */,
 			);
 			path = "Block-Category";
 			sourceTree = "<group>";
@@ -2590,6 +2595,7 @@
 				A2E8F51A22CF925700E7C9F2 /* AppDelegate+HUtil.m in Sources */,
 				A2A8EB5522DDD9B90049C51B /* UINavigationController+HLeaks.m in Sources */,
 				15E6BB9B2136E7E300EBE794 /* YPTabBar.m in Sources */,
+				A20E3CE4231CC3B400E6982B /* NSObject+HKVO.m in Sources */,
 				A24B659722607E8400B257BB /* SKPSMTPMessage.m in Sources */,
 				A2E8F54A22D73AE600E7C9F2 /* HRequestDAOFactory.m in Sources */,
 				A2E8F52622D2EB6E00E7C9F2 /* HNavigationController.m in Sources */,

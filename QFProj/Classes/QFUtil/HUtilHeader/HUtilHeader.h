@@ -50,6 +50,7 @@
 
 //Block-Category
 #import "NSObject+BlockSEL.h"
+#import "NSObject+HKVO.h"
 //Chain-Category
 #import "NSString+HChain.h"
 
