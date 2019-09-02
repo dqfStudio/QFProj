@@ -65,7 +65,7 @@
 		15B4DE032092F96C00773E04 /* NSObject+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDC02092F96B00773E04 /* NSObject+HUtil.m */; };
 		15B4DE042092F96C00773E04 /* NSError+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDC22092F96B00773E04 /* NSError+HUtil.m */; };
 		15B4DE052092F96C00773E04 /* HHexUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDC42092F96B00773E04 /* HHexUtil.m */; };
-		15B4DE062092F96C00773E04 /* NSObject+BlockSEL.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDC72092F96B00773E04 /* NSObject+BlockSEL.m */; };
+		15B4DE062092F96C00773E04 /* NSObject+HBlockSEL.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDC72092F96B00773E04 /* NSObject+HBlockSEL.m */; };
 		15B4DE072092F96C00773E04 /* NSString+HChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDCA2092F96B00773E04 /* NSString+HChain.m */; };
 		15B4DE0B2092F96C00773E04 /* NSString+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDDB2092F96B00773E04 /* NSString+HSafeUtil.m */; };
 		15B4DE0C2092F96C00773E04 /* NSTimer+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDDC2092F96B00773E04 /* NSTimer+HSafeUtil.m */; };
@@ -410,8 +410,8 @@
 		15B4DDC32092F96B00773E04 /* NSDate+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+HUtil.h"; sourceTree = "<group>"; };
 		15B4DDC42092F96B00773E04 /* HHexUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHexUtil.m; sourceTree = "<group>"; };
 		15B4DDC52092F96B00773E04 /* NSUserDefaults+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+HUtil.h"; sourceTree = "<group>"; };
-		15B4DDC72092F96B00773E04 /* NSObject+BlockSEL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BlockSEL.m"; sourceTree = "<group>"; };
-		15B4DDC82092F96B00773E04 /* NSObject+BlockSEL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BlockSEL.h"; sourceTree = "<group>"; };
+		15B4DDC72092F96B00773E04 /* NSObject+HBlockSEL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HBlockSEL.m"; sourceTree = "<group>"; };
+		15B4DDC82092F96B00773E04 /* NSObject+HBlockSEL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HBlockSEL.h"; sourceTree = "<group>"; };
 		15B4DDCA2092F96B00773E04 /* NSString+HChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HChain.m"; sourceTree = "<group>"; };
 		15B4DDCB2092F96B00773E04 /* NSString+HChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HChain.h"; sourceTree = "<group>"; };
 		15B4DDD82092F96B00773E04 /* UIControl+HSafeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+HSafeUtil.h"; sourceTree = "<group>"; };
@@ -1273,8 +1273,8 @@
 		15B4DDC62092F96B00773E04 /* Block-Category */ = {
 			isa = PBXGroup;
 			children = (
-				15B4DDC82092F96B00773E04 /* NSObject+BlockSEL.h */,
-				15B4DDC72092F96B00773E04 /* NSObject+BlockSEL.m */,
+				15B4DDC82092F96B00773E04 /* NSObject+HBlockSEL.h */,
+				15B4DDC72092F96B00773E04 /* NSObject+HBlockSEL.m */,
 				A20E3CE3231CC3B400E6982B /* NSObject+HKVO.h */,
 				A20E3CE2231CC3B400E6982B /* NSObject+HKVO.m */,
 			);
@@ -2479,7 +2479,7 @@
 				A2E8F57522D8356300E7C9F2 /* HCacheImageDecoder.m in Sources */,
 				1547B88E210C4E09009E0374 /* UIViewController+HTracking.m in Sources */,
 				A2A8EC0122E4A4730049C51B /* HCountDownButton.m in Sources */,
-				15B4DE062092F96C00773E04 /* NSObject+BlockSEL.m in Sources */,
+				15B4DE062092F96C00773E04 /* NSObject+HBlockSEL.m in Sources */,
 				A208E18122BA40A2009A6FDD /* UIScrollView+HEmptyDataSetExa.m in Sources */,
 				15F9152620A1817F000261C4 /* QFButton.m in Sources */,
 				15C572B020B016CA0070327C /* UIView+HAccessoryView.m in Sources */,
