@@ -241,7 +241,9 @@
 }
 
 
-
+- (BOOL)isEmpty {
+    return (self.text.length > 0);
+}
 - (BOOL)isOnlyAlpha {
     NSString *regex = @"^[a-zA-Z]*$";
     return [self isValidateWithPattern:regex];

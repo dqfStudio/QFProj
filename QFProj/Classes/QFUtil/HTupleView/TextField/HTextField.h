@@ -40,6 +40,8 @@
 // 字母与数字的组合，长度6-12位
 @property (nonatomic, readonly, getter=isValidatedPassword) BOOL validatedPassword; //是否有效的密码
 
+@property (nonatomic, readonly, getter=isEmpty) BOOL empty; //是否为空
+
 @property (nonatomic, readonly, getter=isOnlyAlpha) BOOL onlyAlpha; //纯字母
 @property (nonatomic, readonly, getter=isOnlyNumeric) BOOL onlyNumeric; //纯数字
 @property (nonatomic, readonly, getter=isAlphaNumeric) BOOL alphaNumeric; //字母与数字的组合
