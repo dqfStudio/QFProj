@@ -56,4 +56,6 @@
 
 @property (nonatomic, readonly, getter=isContainIllegalCharacters) BOOL containIllegalCharacters; //是否包含特殊字符
 
+- (BOOL (^)(NSInteger start, NSInteger end))between;
+
 @end

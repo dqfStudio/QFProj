@@ -290,6 +290,14 @@
     return [self isValidateWithRegex:regex];
 }
 
+- (BOOL (^)(NSInteger start, NSInteger end))between {
+    return ^BOOL (NSInteger start, NSInteger end) {
+        if (self.text.length >= start && self.text.length <= end) {
+            return YES;
+        }
+        return NO;
+    };
+}
 
 
 - (BOOL)isContainIllegalCharacters {
