@@ -330,7 +330,7 @@
 
 
 
-- (BOOL (^)(NSInteger start, NSInteger end))between {
+- (BOOL (^)(NSInteger start, NSInteger end))isBetween {
     return ^BOOL (NSInteger start, NSInteger end) {
         if (self.text.length >= start && self.text.length <= end) {
             return YES;
