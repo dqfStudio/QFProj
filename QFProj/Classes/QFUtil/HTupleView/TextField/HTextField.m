@@ -164,9 +164,9 @@
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     if (self.forbidWhitespaceAndNewline) {
-        [self setText:[self trimmingAllWhitespaceAndNewline]];
+        [self setText:self.trimmingAllWhitespaceAndNewline];
     }
-    [self setText:[self trimmingWhitespaceAndNewline]];
+    [self setText:self.trimmingWhitespaceAndNewline];
 }
 //移动光标
 - (void)cursorLocation:(UITextField *)textField index:(NSInteger)index {
