@@ -13,7 +13,7 @@
 
 @class HTupleSignal;
 
-typedef void(^HTupleCellInitBlock)(id cell);
+typedef void(^HTupleCellInitBlock)(id target);
 typedef void(^HTupleCellSignalBlock)(id target, HTupleSignal *signal);
 
 @interface HTupleSignal : NSObject
