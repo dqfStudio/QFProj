@@ -108,6 +108,7 @@ H_CheckPropertyRange(rrr, 0, 150)
     
 //    [HWaitingView showInView:self.view withType:2];
     
+    
     return;
     
     CGRect frame = self.view.frame;
