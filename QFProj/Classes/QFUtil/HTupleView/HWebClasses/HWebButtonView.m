@@ -180,7 +180,9 @@
     }
 }
 - (void)setImageWithName:(NSString *)fileName {
-    [self setImage:[UIImage imageNamed:fileName]];
+    if (fileName.length > 0) {
+        [self setImage:[UIImage imageNamed:fileName]];
+    }
 }
 - (void)buttonPressed {
     if (_pressed) _pressed(self, nil);

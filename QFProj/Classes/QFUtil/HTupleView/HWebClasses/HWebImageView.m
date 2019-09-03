@@ -157,7 +157,9 @@
     }
 }
 - (void)setImageWithName:(NSString *)fileName {
-    [self setImage:[UIImage imageNamed:fileName]];
+    if (fileName.length > 0) {
+        [self setImage:[UIImage imageNamed:fileName]];
+    }
 }
 - (UITapGestureRecognizer *)tapGesture {
     if (!_tapGesture) {
