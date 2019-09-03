@@ -130,6 +130,7 @@
 		A20E3CE0231A663300E6982B /* UIAlertController+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CDC231A663300E6982B /* UIAlertController+HUtil.m */; };
 		A20E3CE1231A663300E6982B /* UIView+HAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CDE231A663300E6982B /* UIView+HAlert.m */; };
 		A20E3CE4231CC3B400E6982B /* NSObject+HKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CE2231CC3B400E6982B /* NSObject+HKVO.m */; };
+		A20E3CE7231E282300E6982B /* HTextView+HValidate.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CE6231E282300E6982B /* HTextView+HValidate.m */; };
 		A219F22F222FB46A00241FD7 /* HIFS.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F22D222FB46A00241FD7 /* HIFS.m */; };
 		A222A6C42279AAAD0013098A /* NSDictionary+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A6C32279AAAD0013098A /* NSDictionary+HUtil.m */; };
 		A222A716227C52430013098A /* UILabel+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A715227C52430013098A /* UILabel+HUtil.m */; };
@@ -536,6 +537,8 @@
 		A20E3CDE231A663300E6982B /* UIView+HAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HAlert.m"; sourceTree = "<group>"; };
 		A20E3CE2231CC3B400E6982B /* NSObject+HKVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HKVO.m"; sourceTree = "<group>"; };
 		A20E3CE3231CC3B400E6982B /* NSObject+HKVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HKVO.h"; sourceTree = "<group>"; };
+		A20E3CE5231E282300E6982B /* HTextView+HValidate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HTextView+HValidate.h"; sourceTree = "<group>"; };
+		A20E3CE6231E282300E6982B /* HTextView+HValidate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HTextView+HValidate.m"; sourceTree = "<group>"; };
 		A219F22D222FB46A00241FD7 /* HIFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIFS.m; sourceTree = "<group>"; };
 		A219F22E222FB46A00241FD7 /* HIFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIFS.h; sourceTree = "<group>"; };
 		A222A6C22279AAAD0013098A /* NSDictionary+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HUtil.h"; sourceTree = "<group>"; };
@@ -1604,6 +1607,8 @@
 				A222AE1622818F7D0013098A /* HText.h */,
 				A222AE2C22818F7D0013098A /* HTextView.h */,
 				A222AE1822818F7D0013098A /* HTextView.m */,
+				A20E3CE5231E282300E6982B /* HTextView+HValidate.h */,
+				A20E3CE6231E282300E6982B /* HTextView+HValidate.m */,
 				A222AE2E22818F7D0013098A /* HUtility */,
 			);
 			path = Text;
@@ -2511,6 +2516,7 @@
 				A2A8EB3122DB62680049C51B /* UIView+HExtension.m in Sources */,
 				A2E8F57B22D8356300E7C9F2 /* HCache.m in Sources */,
 				15B4DE072092F96C00773E04 /* NSString+HChain.m in Sources */,
+				A20E3CE7231E282300E6982B /* HTextView+HValidate.m in Sources */,
 				1510793F20F98E4800860D1C /* NSTimer+HUtil.m in Sources */,
 				A2ED9C1722314CAC00C9D050 /* HKeyChainStore.m in Sources */,
 				A2A8EBB722E1FDEE0049C51B /* WebViewJavascriptBridgeBase.m in Sources */,
