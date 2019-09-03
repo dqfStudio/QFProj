@@ -166,6 +166,7 @@
     if (self.forbidWhitespaceAndNewline) {
         [self setText:[self trimmingAllWhitespaceAndNewline]];
     }
+    [self setText:[self trimmingWhitespaceAndNewline]];
 }
 //移动光标
 - (void)cursorLocation:(UITextField *)textField index:(NSInteger)index {
@@ -242,7 +243,7 @@
 
 
 - (BOOL)isEmpty {
-    return (self.trimmingWhitespaceAndNewline.length == 0);
+    return (self.text.length == 0);
 }
 - (BOOL)isOnlyAlpha {
     NSString *regex = @"[a-zA-Z]*";
@@ -330,6 +331,14 @@
 
 
 
+- (BOOL (^)(NSInteger length))isEqualto {
+    return ^BOOL (NSInteger length) {
+        if (self.text.length == length) {
+            return YES;
+        }
+        return NO;
+    };
+}
 - (BOOL (^)(NSInteger start, NSInteger end))isBetween {
     return ^BOOL (NSInteger start, NSInteger end) {
         if (self.text.length >= start && self.text.length <= end) {
