@@ -156,6 +156,9 @@
         if (self.didGetError) self.didGetError(self, herr(kDataFormatErrorCode, ([NSString stringWithFormat:@"url = %@", fileName])));
     }
 }
+- (void)setImageWithName:(NSString *)fileName {
+    [self setImage:[UIImage imageNamed:fileName]];
+}
 - (UITapGestureRecognizer *)tapGesture {
     if (!_tapGesture) {
         _tapGesture = [[UITapGestureRecognizer alloc] init];

@@ -179,6 +179,9 @@
         if (self.didGetError) self.didGetError(self, herr(kDataFormatErrorCode, ([NSString stringWithFormat:@"url = %@", fileName])));
     }
 }
+- (void)setImageWithName:(NSString *)fileName {
+    [self setImage:[UIImage imageNamed:fileName]];
+}
 - (void)buttonPressed {
     if (_pressed) _pressed(self, nil);
 }
