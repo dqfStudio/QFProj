@@ -326,6 +326,7 @@
 }
 - (BOOL)isContainIllegalCharacters {
     NSString *regex = @"^[A-Za-z0-9\\u4e00-\u9fa5]+$";
+    //此处结果取反
     return ![self isValidateWithRegex:regex];
 }
 
