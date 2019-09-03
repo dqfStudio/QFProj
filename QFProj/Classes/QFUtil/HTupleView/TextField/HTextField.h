@@ -34,7 +34,6 @@
 @end
 
 @interface HTextField (HValidate)
-
 // 须是字母与数字的组合，长度6-11位
 @property (nonatomic, readonly) BOOL isValidatedUserName; //是否有效的用户名
 // 字母、数字或其组合，长度6-12位
@@ -64,5 +63,4 @@
 
 - (BOOL (^)(NSInteger length))isEqualto; //判断内容长度是否等于某个值
 - (BOOL (^)(NSInteger start, NSInteger end))isBetween;//判断内容长度是否在某两个值之间
-
 @end
