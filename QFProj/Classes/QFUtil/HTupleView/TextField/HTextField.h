@@ -63,6 +63,6 @@
 
 @property (nonatomic, readonly) BOOL isContainIllegalCharacters; //是否包含特殊字符
 
-- (BOOL (^)(NSInteger start, NSInteger end))between;
+- (BOOL (^)(NSInteger start, NSInteger end))between;//判断内容长度是否在某两个值之间
 
 @end
