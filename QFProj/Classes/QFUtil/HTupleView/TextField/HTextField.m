@@ -291,6 +291,10 @@
     NSString *regex = @"[1-9]([0-9]{13,19})";
     return [self isValidateWithRegex:regex];
 }
+- (BOOL)isContainIllegalCharacters {
+    NSString *regex = @"^[A-Za-z0-9\\u4e00-\u9fa5]+$";
+    return [self isValidateWithRegex:regex];
+}
 
 - (BOOL (^)(NSInteger start, NSInteger end))between {
     return ^BOOL (NSInteger start, NSInteger end) {
@@ -302,10 +306,7 @@
 }
 
 
-- (BOOL)isContainIllegalCharacters {
-    NSString *regex = @"^[A-Za-z0-9\\u4e00-\u9fa5]+$";
-    return [self isValidateWithRegex:regex];
-}
+
 - (BOOL)isValidateWithPattern:(NSString *)pattern {
     NSRegularExpression *regex = [NSRegularExpression
                                   regularExpressionWithPattern:pattern
