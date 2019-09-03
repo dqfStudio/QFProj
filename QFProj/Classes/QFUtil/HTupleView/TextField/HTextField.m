@@ -80,11 +80,9 @@
     return self.text;
 }
 - (NSString *)trimmingAllWhitespaceAndNewline {
-    NSString *content = nil;
     if (self.text.length > 0) {
-        content = [self.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-        content = [content stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-        return content;
+        NSString *content = [self.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+        return [content stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     }
     return self.text;
 }
