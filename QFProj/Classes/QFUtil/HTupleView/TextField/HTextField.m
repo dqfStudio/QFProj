@@ -10,6 +10,8 @@
 #import <objc/runtime.h>
 
 @implementation HTextField
+@synthesize leftView = _leftView;
+@synthesize rightView = _rightView;
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -26,48 +28,48 @@
 - (HLabel *)leftLabel {
     if (!_leftLabel) {
         _leftLabel = [HLabel new];
-        [self setLeftViewMode:UITextFieldViewModeAlways];
-        [self setLeftView:_leftLabel];
+        [super setLeftViewMode:UITextFieldViewModeAlways];
+        [super setLeftView:_leftLabel];
     }
     return _leftLabel;
 }
 - (HLabel *)rightLabel {
     if (!_rightLabel) {
         _rightLabel = [HLabel new];
-        [self setRightViewMode:UITextFieldViewModeAlways];
-        [self setRightView:_rightLabel];
+        [super setRightViewMode:UITextFieldViewModeAlways];
+        [super setRightView:_rightLabel];
     }
     return _rightLabel;
 }
-- (HWebImageView *)leftImageView {
-    if (!_leftImageView) {
-        _leftImageView = HWebImageView.new;
-        [self setLeftViewMode:UITextFieldViewModeAlways];
-        [self setLeftView:_leftImageView];
+- (HWebImageView *)leftView {
+    if (!_leftView) {
+        _leftView = HWebImageView.new;
+        [super setLeftViewMode:UITextFieldViewModeAlways];
+        [super setLeftView:_leftView];
     }
-    return _leftImageView;
+    return _leftView;
 }
-- (HWebImageView *)rightImageView {
-    if (!_rightImageView) {
-        _rightImageView = HWebImageView.new;
-        [self setRightViewMode:UITextFieldViewModeAlways];
-        [self setRightView:_rightImageView];
+- (HWebImageView *)rightView {
+    if (!_rightView) {
+        _rightView = HWebImageView.new;
+        [super setRightViewMode:UITextFieldViewModeAlways];
+        [super setRightView:_rightView];
     }
-    return _rightImageView;
+    return _rightView;
 }
 - (HWebButtonView *)leftButton {
     if (!_leftButton) {
         _leftButton = [HWebButtonView new];
-        [self setLeftViewMode:UITextFieldViewModeAlways];
-        [self setLeftView:_leftButton];
+        [super setLeftViewMode:UITextFieldViewModeAlways];
+        [super setLeftView:_leftButton];
     }
     return _leftButton;
 }
 - (HWebButtonView *)rightButton {
     if (!_rightButton) {
         _rightButton = [HWebButtonView new];
-        [self setRightViewMode:UITextFieldViewModeAlways];
-        [self setRightView:_rightButton];
+        [super setRightViewMode:UITextFieldViewModeAlways];
+        [super setRightView:_rightButton];
     }
     return _rightButton;
 }

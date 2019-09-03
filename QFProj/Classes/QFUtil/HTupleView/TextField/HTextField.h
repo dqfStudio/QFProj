@@ -15,8 +15,8 @@
 @property (nonatomic) HLabel *leftLabel;
 @property (nonatomic) HLabel *rightLabel;
 
-@property (nonatomic) HWebImageView *leftImageView;
-@property (nonatomic) HWebImageView *rightImageView;
+@property (nonatomic) HWebImageView *leftView;
+@property (nonatomic) HWebImageView *rightView;
 
 @property (nonatomic) HWebButtonView *leftButton;
 @property (nonatomic) HWebButtonView *rightButton;
