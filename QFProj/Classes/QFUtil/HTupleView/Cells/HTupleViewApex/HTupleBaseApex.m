@@ -67,7 +67,7 @@
     }
 }
 - (CGRect)getSeparatorFrame {
-    CGRect frame = CGRectMake(0, 0, CGRectGetHeight(self.frame) - 1, 1);
+    CGRect frame = CGRectMake(0, CGRectGetHeight(self.frame) - 1, CGRectGetWidth(self.frame), 1);
     frame.origin.x += self.separatorInset.left;
     frame.size.width -= self.separatorInset.left + self.separatorInset.right;
     return frame;

@@ -27,7 +27,7 @@
     return 1;
 }
 - (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
-    return 1;
+    return 2;
 }
 //style == HTupleViewStyleSectionColorLayout
 //- (UIColor *)tupleView:(HTupleView *)tupleView colorForSectionAtIndex:(NSInteger)section {
@@ -63,6 +63,8 @@
 - (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
     [cell setBackgroundColor:UIColor.grayColor];
+    [cell setShouldShowSeparator:YES];
+    [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
     
     CGRect frame = [cell getContentBounds];
     
