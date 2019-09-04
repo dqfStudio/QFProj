@@ -7,11 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "NSObject+HAspects.h"
-#import "HTestManager.h"
-#import "HTabBarController.h"
-#import "GViewController.h"
-#import "ViewController.h"
+#import "HMenuController.h"
 
 @interface AppDelegate ()
 
@@ -22,20 +18,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-//    [@"ViewController".toClass() aspectInstead:@selector(testAction:) usingBlock:^(id<AspectInfo> info, id sender) {
-//        NSLog(@"");
-//    }];
-//    [[HTestManager share] jump:^{
-//        
-//    }];
-    
-//    HTabBarController
-
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    RootViewController *controller = [[RootViewController alloc] init];
-    HNavigationController *navController = [[HNavigationController alloc] initWithRootViewController:ViewController.new];
-//    navController.navigationBar.hidden = YES;
-//    self.window.rootViewController = HTabBarController.new;
+    HNavigationController *navController = [[HNavigationController alloc] initWithRootViewController:HMenuController.new];
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
     return YES;
