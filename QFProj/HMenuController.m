@@ -67,7 +67,6 @@ static const CGFloat kTabBarHeight = 50;
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, UIScreen.width, 1)];
     [lineView setBackgroundColor:[UIColor grayColor]];
     [self.tabBar addSubview:lineView];
-    
 }
 
 - (void)initViewControllers {
@@ -95,55 +94,7 @@ static const CGFloat kTabBarHeight = 50;
     mainVC4.yp_tabItemImage = [UIImage imageNamed:@"di_index"];
     mainVC4.yp_tabItemSelectedImage = [UIImage imageNamed:@"di_index_h"];
     
-    
-//    self.centerVC.yp_tabItemImage = [UIImage imageNamed:@"di_login"];
-//    self.centerVC.yp_tabItemSelectedImage = [UIImage imageNamed:@"di_login_h"];
-    
-//    if (![HUserDefaults defaults].isLogin) {
-//        self.centerVC.yp_tabItemTitle = @"登录";
-//    }else {
-//        self.centerVC.yp_tabItemTitle = @"会员中心";
-//    }
-//    [[RACObserve([HUserDefaults defaults], isLogin) skip:1] subscribeNext:^(NSNumber *x) {
-//        if (x.integerValue == 0) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                HNavigationController *loginVC = [[HNavigationController alloc] initWithRootViewController:HLoginController.new];
-//                [self presentViewController:loginVC animated:YES completion:nil];
-//                self.tabBar.items[3].title = @"登录";
-//                if (self.tabBar.selectedItemIndex != 0) {
-//                    [self.tabBar setSelectedItemIndex:0];
-//                }
-//                //close socket
-//                [[HMultiWebSocketManager shareManager] closeSocket];
-//
-//                [mainVC removeMiniScratchView];
-//            });
-//        }else {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                self.tabBar.items[3].title = @"会员中心";
-//                if (self.tabBar.selectedItemIndex != 0) {
-//                    [self.tabBar setSelectedItemIndex:0];
-//                }
-//                //connect to web socket
-//                NSString *uid = [HUserDefaults defaults].uid;
-//                uid = [NSString stringWithFormat:@"%@", uid];
-//                if (uid.length <= 0) uid = @"K_CONNECT_WEB_SOCKET";
-//                [[HMultiWebSocketManager shareManager] connectWebSocket:uid];
-//                [[HMultiWebSocketManager shareManager] setDelegate:self];
-//            });
-//        }
-//    }];
-    
     self.viewControllers = [NSMutableArray arrayWithObjects:mainVC1, mainVC2, mainVC3, mainVC4, nil];
-    
-//    [RACObserve([HAppDefaults defaults], menuType) subscribeNext:^(NSNumber *x) {
-//        if (x.integerValue >= 0 && x.integerValue < self.viewControllers.count) {
-//            if (self.tabBar.selectedItemIndex != x.integerValue) {
-//                [self.tabBar setSelectedItemIndex:x.integerValue];
-//            }
-//        }
-//    }];
-    
 }
 
 @end
