@@ -38,7 +38,7 @@
 
 - (void)layoutContentView {};
 
-- (CGRect)getContentFrame {
+- (CGRect)getContentBounds {
     return self.bounds;
 }
 - (CGFloat)width {

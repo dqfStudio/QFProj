@@ -36,6 +36,7 @@ typedef void(^HTupleApexSkinBlock)(HTupleBaseApex *cell, HTupleView *tuple);
 @property (nonatomic) UIColor *separatorColor;
 @property (nonatomic) BOOL shouldShowSeparator;
 - (CGRect)getContentFrame;
+- (CGRect)getContentBounds;
 //需要子类重写该方法
 - (void)initUI;
 - (void)layoutContentView;

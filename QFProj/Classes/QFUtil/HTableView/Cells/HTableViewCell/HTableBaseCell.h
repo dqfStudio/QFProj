@@ -10,8 +10,8 @@
 #import "HTableSignal.h"
 
 #define HLayoutTableCell(v) \
-if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
-[v setFrame:[self getContentFrame]];\
+if(!CGRectEqualToRect(v.frame, [self getContentBounds])) {\
+[v setFrame:[self getContentBounds]];\
 }
 
 @class HTableView, HTableBaseCell;
@@ -26,7 +26,7 @@ typedef void(^HTableCellSkinBlock)(HTableBaseCell *cell, HTableView *table);
 @property (nonatomic, copy) HTableItemBlock cellBlock;
 @property (nonatomic, copy) HTableCellSkinBlock skinBlock;
 - (void)reloadData;
-- (CGRect)getContentFrame;
+- (CGRect)getContentBounds;
 //需要子类重写该方法
 - (void)initUI;
 - (void)layoutContentView;

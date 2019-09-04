@@ -44,7 +44,7 @@
 }
 
 - (void)layoutContentView {
-    CGRect frame1 = [self getContentFrame];
+    CGRect frame1 = [self getContentBounds];
     CGRect frame2 = CGRectMake(15, 5, CGRectGetWidth(frame1)-30, CGRectGetHeight(frame1)-10);
     if(!CGRectEqualToRect(self.segment.frame, frame2)) {
         [self.segment setFrame:frame2];

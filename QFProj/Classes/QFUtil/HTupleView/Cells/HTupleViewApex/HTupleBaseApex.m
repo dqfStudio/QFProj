@@ -104,6 +104,12 @@
     frame.size.height -= self.edgeInsets.top + self.edgeInsets.bottom;
     return frame;
 }
+- (CGRect)getContentBounds {
+    CGRect frame = self.getContentFrame;
+    frame.origin.x = 0;
+    frame.origin.y = 0;
+    return frame;
+}
 - (CGFloat)width {
     return CGRectGetWidth(self.frame);
 }

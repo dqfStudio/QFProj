@@ -10,8 +10,8 @@
 #import "HTableSignal.h"
 
 #define HLayoutTableApex(v) \
-if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
-[v setFrame:[self getContentFrame]];\
+if(!CGRectEqualToRect(v.frame, [self getContentBounds])) {\
+[v setFrame:[self getContentBounds]];\
 }
 
 @class HTableView, HTableBaseApex;
@@ -27,7 +27,7 @@ typedef void(^HTableApexSkinBlock)(HTableBaseApex *cell, HTableView *table);
 @property (nonatomic, copy) HTableApexSkinBlock skinBlock;
 //需要子类重写该方法
 - (void)initUI;
-- (CGRect)getContentFrame;
+- (CGRect)getContentBounds;
 - (void)layoutContentView;
 - (CGFloat)width;
 - (CGFloat)height;
