@@ -63,34 +63,6 @@
 - (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
-//            HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
-//            [cell setBackgroundColor:UIColor.grayColor];
-//            [cell setShouldShowSeparator:YES];
-//            [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
-//
-//            CGRect frame = [cell getContentBounds];
-//
-//            CGRect tmpFrame = frame;
-//            tmpFrame.size.width = tmpFrame.size.height;
-//            [cell.imageView setFrame:tmpFrame];
-//            [cell.imageView setBackgroundColor:UIColor.redColor];
-//
-//            CGRect tmpFrame2 = frame;
-//            tmpFrame2.origin.x += CGRectGetMaxX(tmpFrame)+10;
-//            tmpFrame2.size.width = CGRectGetWidth(frame)-tmpFrame2.origin.x;
-//            tmpFrame2.size.height = tmpFrame.size.height/3;
-//            [cell.label setFrame:tmpFrame2];
-//            [cell.label setBackgroundColor:UIColor.redColor];
-//
-//            CGRect tmpFrame3 = tmpFrame2;
-//            tmpFrame3.origin.y += CGRectGetMaxY(tmpFrame2);
-//            [cell.detailLabel setFrame:tmpFrame3];
-//            [cell.detailLabel setBackgroundColor:UIColor.yellowColor];
-//
-//            CGRect tmpFrame4 = tmpFrame2;
-//            tmpFrame4.origin.y += CGRectGetMaxY(tmpFrame3);
-//            [cell.accessoryLabel setFrame:tmpFrame4];
-//            [cell.accessoryLabel setBackgroundColor:UIColor.greenColor];
             HTupleHorizontalCell *cell = itemBlock(nil, HTupleHorizontalCell.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
