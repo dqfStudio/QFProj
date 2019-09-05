@@ -74,6 +74,13 @@
 - (void)setImage:(UIImage *)image;
 @end
 
+typedef NS_OPTIONS(NSUInteger, UIImageViewFilletStyle) {
+    UIImageViewFilletCenter = 0,
+    UIImageViewFilletLeftOrTop,
+    UIImageViewFilletRightOrBottom
+};
+
 @interface UIImageView (HLayer)
 @property (nonatomic) BOOL fillet;//是否圆角展示图片
+@property (nonatomic) UIImageViewFilletStyle filletStyle;//默认居中显示
 @end
