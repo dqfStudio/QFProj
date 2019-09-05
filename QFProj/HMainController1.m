@@ -71,14 +71,14 @@
             CGRect frame = [cell getContentBounds];
             
             CGRect tmpFrame = frame;
-            tmpFrame.size.width = tmpFrame.size.height;
+            tmpFrame.size.width = CGRectGetHeight(tmpFrame);
             [cell.imageView setFrame:tmpFrame];
             [cell.imageView setBackgroundColor:UIColor.redColor];
             
             CGRect tmpFrame2 = frame;
             tmpFrame2.origin.x += CGRectGetMaxX(tmpFrame)+10;
-            tmpFrame2.size.width = CGRectGetWidth(frame)-tmpFrame2.origin.x;
-            tmpFrame2.size.height = tmpFrame.size.height/3;
+            tmpFrame2.size.width = CGRectGetWidth(frame)-CGRectGetMinX(tmpFrame2);
+            tmpFrame2.size.height = CGRectGetHeight(tmpFrame)/3;
             [cell.label setFrame:tmpFrame2];
             [cell.label setBackgroundColor:UIColor.redColor];
             
@@ -102,7 +102,7 @@
             CGRect frame = [cell getContentBounds];
             
             CGRect tmpFrame = frame;
-            tmpFrame.size.width = tmpFrame.size.height;
+            tmpFrame.size.width = CGRectGetHeight(tmpFrame);
             [cell.imageView setFrame:tmpFrame];
             [cell.imageView setBackgroundColor:UIColor.redColor];
             
@@ -134,7 +134,7 @@
             CGRect frame = [cell getContentBounds];
             
             CGRect tmpFrame = frame;
-            tmpFrame.size.width = tmpFrame.size.height;
+            tmpFrame.size.width = CGRectGetHeight(tmpFrame);
             [cell.imageView setFrame:tmpFrame];
             [cell.imageView setBackgroundColor:UIColor.redColor];
             
@@ -152,7 +152,7 @@
             CGRect tmpFrame4 = frame;
             tmpFrame4.origin.x += CGRectGetMaxX(tmpFrame)+10;
             tmpFrame4.size.width = CGRectGetMinX(tmpFrame3)-CGRectGetWidth(tmpFrame)-10-10;
-            tmpFrame4.size.height = tmpFrame.size.height/2;
+            tmpFrame4.size.height = CGRectGetHeight(tmpFrame)/2;
             [cell.label setFrame:tmpFrame4];
             [cell.label setBackgroundColor:UIColor.redColor];
             
