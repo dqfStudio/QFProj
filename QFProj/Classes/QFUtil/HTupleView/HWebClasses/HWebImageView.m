@@ -203,12 +203,21 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [[self class] methodSwizzleWithOrigSEL:@selector(setImage:) overrideSEL:@selector(pvc_setImage:)];
+        [[self class] methodSwizzleWithOrigSEL:@selector(setFrame:) overrideSEL:@selector(pvc_setFrame:)];
     });
 }
 - (void)pvc_setImage:(UIImage *)image {
     [self pvc_setImage:image];
     if (self.fillet && image) {
         [self addFilletLayer];
+    }
+}
+- (void)pvc_setFrame:(CGRect)frame {
+    if (!CGRectEqualToRect(self.frame, frame)) {
+        [self pvc_setFrame:frame];
+        if (self.fillet && self.image) {
+            [self addFilletLayer];
+        }
     }
 }
 - (void)addFilletLayer {
@@ -219,13 +228,10 @@
         CGFloat value = width;
         if (height < width) value = height;
         
-        CALayer *layer = [CALayer layer];
-        layer.frame = CGRectMake(width/2-value/2, height/2-value/2, value, value);
-        layer.contents = (id)self.image.CGImage;
-        layer.cornerRadius = value/2;
-        layer.masksToBounds = YES;
-        [self.layer addSublayer:layer];
-        self.image = nil;
+        //默认居中显示
+        self.layer.frame = CGRectMake(width/2-value/2, height/2-value/2, value, value);
+        self.layer.cornerRadius = value/2;
+        self.layer.masksToBounds = YES;
     }
 }
 @end
