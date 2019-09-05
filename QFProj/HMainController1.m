@@ -173,6 +173,7 @@
             CGRect tmpFrame = frame;
             tmpFrame.size.height = CGRectGetHeight(frame)-20;
             [cell.imageView setFrame:tmpFrame];
+            [cell.imageView setBackgroundColor:UIColor.redColor];
             [cell.imageView setImageWithName:@"icon_no_server"];
             [cell.imageView setFillet:YES];
             
@@ -194,6 +195,8 @@
             tmpFrame.size.height = CGRectGetHeight(frame)-20;
             [cell.imageView setFrame:tmpFrame];
             [cell.imageView setBackgroundColor:UIColor.redColor];
+            [cell.imageView setImageWithName:@"icon_no_server"];
+            [cell.imageView setFillet:YES];
             
             CGRect tmpFrame2 = frame;
             tmpFrame2.origin.y += CGRectGetMaxY(tmpFrame);
@@ -214,6 +217,8 @@
             tmpFrame.size.height = CGRectGetHeight(frame)-20;
             [cell.imageView setFrame:tmpFrame];
             [cell.imageView setBackgroundColor:UIColor.redColor];
+            [cell.imageView setImageWithName:@"icon_no_server"];
+            [cell.imageView setFillet:YES];
             
             CGRect tmpFrame2 = frame;
             tmpFrame2.origin.y += CGRectGetMaxY(tmpFrame);
