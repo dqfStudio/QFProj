@@ -106,10 +106,11 @@
             [cell.imageView setFrame:tmpFrame];
             [cell.imageView setBackgroundColor:UIColor.redColor];
             
-            CGRect tmpFrame2 = tmpFrame;
-            tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame);
+            CGRect tmpFrame2 = CGRectMake(0, 0, 10, 18);
+            tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
+            tmpFrame2.origin.y = CGRectGetHeight(frame)/2-CGRectGetHeight(tmpFrame2)/2;
             [cell.detailView setFrame:tmpFrame2];
-            [cell.detailView setBackgroundColor:UIColor.greenColor];
+            [cell.detailView setImageWithName:@"icon_tuple_arrow_right"];
             
             CGRect tmpFrame3 = frame;
             tmpFrame3.origin.x += CGRectGetMaxX(tmpFrame)+10;
