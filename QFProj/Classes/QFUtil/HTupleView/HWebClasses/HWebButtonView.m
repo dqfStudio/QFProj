@@ -15,7 +15,6 @@
 @interface HWebButtonView()
 @property (nonatomic) UIImageView *_imageView;
 @property (nonatomic) NSString *lastURL;
-
 @end
 
 @implementation HWebButtonView
