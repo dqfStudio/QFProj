@@ -81,7 +81,7 @@
                         break;
                 }
                 
-            }else if (originY > 0)
+            }else if (originY > 0) {
                 
                 switch (self.filletStyle) {
                     case UIImageViewFilletCenter:
@@ -97,7 +97,7 @@
                     default:
                         break;
                 }
-            
+            }
             self.layer.cornerRadius = value/2;
             self.layer.masksToBounds = YES;
         }
