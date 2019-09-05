@@ -109,8 +109,8 @@
             CGRect tmpFrame2 = CGRectMake(0, 0, 10, 18);
             tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
             tmpFrame2.origin.y = CGRectGetHeight(frame)/2-CGRectGetHeight(tmpFrame2)/2;
-            [cell.detailView setFrame:tmpFrame2];
-            [cell.detailView setImageWithName:@"icon_tuple_arrow_right"];
+            [cell.accessoryView setFrame:tmpFrame2];
+            [cell.accessoryView setImageWithName:@"icon_tuple_arrow_right"];
             
             CGRect tmpFrame3 = frame;
             tmpFrame3.origin.x += CGRectGetMaxX(tmpFrame)+10;
@@ -138,15 +138,16 @@
             [cell.imageView setFrame:tmpFrame];
             [cell.imageView setBackgroundColor:UIColor.redColor];
             
-            CGRect tmpFrame2 = tmpFrame;
+            CGRect tmpFrame2 = CGRectMake(0, 0, 10, 18);;
             tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
-            [cell.detailView setFrame:tmpFrame2];
-            [cell.detailView setBackgroundColor:UIColor.redColor];
+            tmpFrame2.origin.y = CGRectGetHeight(frame)/2-CGRectGetHeight(tmpFrame2)/2;
+            [cell.accessoryView setFrame:tmpFrame2];
+            [cell.accessoryView setImageWithName:@"icon_tuple_arrow_right"];
             
             CGRect tmpFrame3 = tmpFrame;
             tmpFrame3.origin.x = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame3)-10;
-            [cell.accessoryView setFrame:tmpFrame3];
-            [cell.accessoryView setBackgroundColor:UIColor.redColor];
+            [cell.detailView setFrame:tmpFrame3];
+            [cell.detailView setBackgroundColor:UIColor.redColor];
             
             CGRect tmpFrame4 = frame;
             tmpFrame4.origin.x += CGRectGetMaxX(tmpFrame)+10;
