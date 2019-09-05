@@ -113,7 +113,7 @@
             
             CGRect tmpFrame3 = frame;
             tmpFrame3.origin.x += CGRectGetMaxX(tmpFrame)+10;
-            tmpFrame3.size.width = CGRectGetMinX(tmpFrame2)-tmpFrame3.origin.x-10;
+            tmpFrame3.size.width = CGRectGetMinX(tmpFrame2)-CGRectGetMinX(tmpFrame3)-10;
             tmpFrame3.size.height = tmpFrame.size.height/2;
             [cell.label setFrame:tmpFrame3];
             [cell.label setBackgroundColor:UIColor.redColor];
