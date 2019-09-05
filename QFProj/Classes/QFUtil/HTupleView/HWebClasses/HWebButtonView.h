@@ -10,6 +10,7 @@
 #import "HCommonDefine.h"
 #import "HCommonBlock.h"
 #import "NSError+HUtil.h"
+#import "UIImageView+HFilletLayer.h"
 
 @interface HWebButtonView : UIButton
 @property (nonatomic) UIColor *renderColor; //父类那个tintColor有问题
@@ -73,4 +74,10 @@
  *  @param image 图片
  */
 - (void)setImage:(UIImage *)image;
+@end
+
+
+@interface HWebButtonView (HFilletLayer)
+@property (nonatomic) BOOL fillet;//是否圆角展示图片
+@property (nonatomic) UIImageViewFilletStyle filletStyle;//默认居中显示
 @end

@@ -189,3 +189,24 @@
 }
 @end
 
+
+@implementation HWebButtonView (HFilletLayer)
+- (BOOL)fillet {
+    return self._imageView.fillet;
+}
+- (void)setFillet:(BOOL)fillet {
+    self._imageView.fillet = fillet;
+}
+- (UIImageViewFilletStyle)filletStyle {
+    return self._imageView.filletStyle;
+}
+- (void)setFilletStyle:(UIImageViewFilletStyle)filletStyle {
+    self._imageView.filletStyle = filletStyle;
+}
+- (void)setBackgroundColor:(UIColor *)backgroundColor {
+    self._imageView.backgroundColor = backgroundColor;
+}
+- (UIColor *)backgroundColor {
+    return self._imageView.backgroundColor;
+}
+@end

@@ -214,16 +214,16 @@
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 10)];
-            
+
             CGRect frame = [cell getContentBounds];
-            
+
             CGRect tmpFrame = frame;
             tmpFrame.size.height = CGRectGetHeight(frame)-25;
             [cell.imageView setFrame:tmpFrame];
             [cell.imageView setBackgroundColor:UIColor.redColor];
             [cell.imageView setImageWithName:@"icon_no_server"];
             [cell.imageView setFillet:YES];
-            
+
             CGRect tmpFrame2 = frame;
             tmpFrame2.origin.y += CGRectGetMaxY(tmpFrame)+5;
             tmpFrame2.size.height = 20;

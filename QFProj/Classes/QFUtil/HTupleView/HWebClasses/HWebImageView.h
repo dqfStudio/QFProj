@@ -10,7 +10,7 @@
 #import "HCommonDefine.h"
 #import "HCommonBlock.h"
 #import "NSError+HUtil.h"
-#import "NSObject+HSwizzleUtil.h"
+#import "UIImageView+HFilletLayer.h"
 
 @interface HWebImageView : UIImageView
 @property (nonatomic) UIImage *placeHoderImage;
@@ -72,15 +72,4 @@
  *  @param image 图片
  */
 - (void)setImage:(UIImage *)image;
-@end
-
-typedef NS_OPTIONS(NSUInteger, UIImageViewFilletStyle) {
-    UIImageViewFilletCenter = 0,
-    UIImageViewFilletLeftOrTop,
-    UIImageViewFilletRightOrBottom
-};
-
-@interface UIImageView (HFilletLayer)
-@property (nonatomic) BOOL fillet;//是否圆角展示图片
-@property (nonatomic) UIImageViewFilletStyle filletStyle;//默认居中显示
 @end

@@ -147,6 +147,8 @@
 		A20E3D162320F6E200E6982B /* icon_tuple_xx_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A20E3D122320F6E200E6982B /* icon_tuple_xx_white@3x.png */; };
 		A20E3D172320F6E200E6982B /* icon_tuple_xx_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A20E3D132320F6E200E6982B /* icon_tuple_xx_gray@2x.png */; };
 		A20E3D182320F6E200E6982B /* icon_tuple_xx_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A20E3D142320F6E200E6982B /* icon_tuple_xx_white@2x.png */; };
+		A20E3D1B232138AA00E6982B /* UIImageView+HFilletLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D1A232138AA00E6982B /* UIImageView+HFilletLayer.m */; };
+		A20E3D1E2321394400E6982B /* UIButton+HFilletLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D1D2321394400E6982B /* UIButton+HFilletLayer.m */; };
 		A219F22F222FB46A00241FD7 /* HIFS.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F22D222FB46A00241FD7 /* HIFS.m */; };
 		A222A6C42279AAAD0013098A /* NSDictionary+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A6C32279AAAD0013098A /* NSDictionary+HUtil.m */; };
 		A222A716227C52430013098A /* UILabel+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A715227C52430013098A /* UILabel+HUtil.m */; };
@@ -571,6 +573,10 @@
 		A20E3D122320F6E200E6982B /* icon_tuple_xx_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_xx_white@3x.png"; sourceTree = "<group>"; };
 		A20E3D132320F6E200E6982B /* icon_tuple_xx_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_xx_gray@2x.png"; sourceTree = "<group>"; };
 		A20E3D142320F6E200E6982B /* icon_tuple_xx_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_xx_white@2x.png"; sourceTree = "<group>"; };
+		A20E3D19232138AA00E6982B /* UIImageView+HFilletLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+HFilletLayer.h"; sourceTree = "<group>"; };
+		A20E3D1A232138AA00E6982B /* UIImageView+HFilletLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+HFilletLayer.m"; sourceTree = "<group>"; };
+		A20E3D1C2321394400E6982B /* UIButton+HFilletLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+HFilletLayer.h"; sourceTree = "<group>"; };
+		A20E3D1D2321394400E6982B /* UIButton+HFilletLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+HFilletLayer.m"; sourceTree = "<group>"; };
 		A219F22D222FB46A00241FD7 /* HIFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIFS.m; sourceTree = "<group>"; };
 		A219F22E222FB46A00241FD7 /* HIFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIFS.h; sourceTree = "<group>"; };
 		A222A6C22279AAAD0013098A /* NSDictionary+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HUtil.h"; sourceTree = "<group>"; };
@@ -1619,6 +1625,10 @@
 				A206882C22CA083700661634 /* HWebButtonView.m */,
 				A206882B22CA083700661634 /* HWebImageView.h */,
 				A206882D22CA083700661634 /* HWebImageView.m */,
+				A20E3D1C2321394400E6982B /* UIButton+HFilletLayer.h */,
+				A20E3D1D2321394400E6982B /* UIButton+HFilletLayer.m */,
+				A20E3D19232138AA00E6982B /* UIImageView+HFilletLayer.h */,
+				A20E3D1A232138AA00E6982B /* UIImageView+HFilletLayer.m */,
 			);
 			path = HWebClasses;
 			sourceTree = "<group>";
@@ -2633,6 +2643,7 @@
 				A222AE5D22818F7D0013098A /* HTextRubyAnnotation.m in Sources */,
 				15112C772105A19600842FE4 /* HUncaughtExceptionHandler.m in Sources */,
 				A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */,
+				A20E3D1B232138AA00E6982B /* UIImageView+HFilletLayer.m in Sources */,
 				153F081520E28CA000C74850 /* HInputValidator.m in Sources */,
 				15B4DD762092F88700773E04 /* main.m in Sources */,
 				15E6BB992136E7E300EBE794 /* UIScrollView+YPTab.m in Sources */,
@@ -2688,6 +2699,7 @@
 				15C5737420B3DD7B0070327C /* HTupleView.m in Sources */,
 				15E6BB9D2136E7E300EBE794 /* YPTabContentView.m in Sources */,
 				15464B7820A2C26300CDD27E /* HTestVC-DQF.m in Sources */,
+				A20E3D1E2321394400E6982B /* UIButton+HFilletLayer.m in Sources */,
 				A2E8F57722D8356300E7C9F2 /* HValueTransformer.m in Sources */,
 				A2E8F55622D775A200E7C9F2 /* UIView+HSafeMessy.m in Sources */,
 				15B4DE292093034700773E04 /* NSObject+annotation.m in Sources */,
