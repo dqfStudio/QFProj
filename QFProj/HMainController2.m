@@ -117,34 +117,61 @@
         }
             break;
         case 1: {
-            HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
+            HTupleHorizontalCell *cell = itemBlock(nil, HTupleHorizontalCell.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
             
             CGRect frame = [cell getContentBounds];
             
-            CGRect tmpFrame = frame;
-            tmpFrame.size.width = tmpFrame.size.height;
-            [cell.imageView setFrame:tmpFrame];
-            [cell.imageView setBackgroundColor:UIColor.redColor];
+            [cell.tupleView tupleWithSections:^CGFloat{
+                return 1;
+            } items:^CGFloat(NSInteger section) {
+                return 2;
+            } color:^UIColor * _Nullable(NSInteger section) {
+                return nil;
+            } inset:^UIEdgeInsets(NSInteger section) {
+                return UIEdgeInsetsZero;
+            }];
             
-            CGRect tmpFrame2 = tmpFrame;
-            tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame);
-            [cell.detailView setFrame:tmpFrame2];
-            [cell.detailView setBackgroundColor:UIColor.greenColor];
+            [cell.tupleView headerWithSize:^CGSize(NSInteger section) {
+                return CGSizeMake(CGRectGetHeight(frame), CGRectGetHeight(frame));
+            } edgeInsets:^UIEdgeInsets(NSInteger section) {
+                return UIEdgeInsetsZero;
+            } tupleHeader:^(HTupleHeader  _Nonnull headerBlock, NSInteger section) {
+                HTupleImageView *cell = headerBlock(nil, HTupleImageView.class, nil, YES);
+                [cell setBackgroundColor:UIColor.redColor];
+            }];
             
-            CGRect tmpFrame3 = frame;
-            tmpFrame3.origin.x += CGRectGetMaxX(tmpFrame)+10;
-            tmpFrame3.size.width = CGRectGetMinX(tmpFrame2)-tmpFrame3.origin.x-10;
-            tmpFrame3.size.height = tmpFrame.size.height/2;
-            [cell.label setFrame:tmpFrame3];
-            [cell.label setBackgroundColor:UIColor.redColor];
+            [cell.tupleView footerWithSize:^CGSize(NSInteger section) {
+                return CGSizeMake(CGRectGetHeight(frame), CGRectGetHeight(frame));
+            } edgeInsets:^UIEdgeInsets(NSInteger section) {
+                return UIEdgeInsetsZero;
+            } tupleFooter:^(HTupleFooter  _Nonnull footerBlock, NSInteger section) {
+                HTupleImageView *cell = footerBlock(nil, HTupleImageView.class, nil, YES);
+                [cell setBackgroundColor:UIColor.greenColor];
+            }];
             
-            CGRect tmpFrame4 = tmpFrame3;
-            tmpFrame4.origin.y += CGRectGetMaxY(tmpFrame3);
-            [cell.detailLabel setFrame:tmpFrame4];
-            [cell.detailLabel setBackgroundColor:UIColor.yellowColor];
+            [cell.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+                return CGSizeMake(CGRectGetWidth(frame)-CGRectGetHeight(frame)*2, CGRectGetHeight(frame)/2);
+            } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
+                return UIEdgeInsetsMake(0, 10, 0, 10);
+            } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+                HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
+                switch (indexPath.row) {
+                    case 0: {
+                        [cell.label setBackgroundColor:UIColor.redColor];
+                    }
+                        break;
+                    case 1: {
+                        [cell.label setBackgroundColor:UIColor.yellowColor];
+                    }
+                        break;
+                        
+                    default:
+                        break;
+                }
+            }];
         }
             break;
         case 2: {
@@ -184,88 +211,211 @@
         }
             break;
         case 3: {
-            HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
+            HTupleVerticalCell *cell = itemBlock(nil, HTupleVerticalCell.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 0)];
             
             CGRect frame = [cell getContentBounds];
             
-            CGRect tmpFrame = frame;
-            tmpFrame.size.height = CGRectGetHeight(frame)-20;
-            [cell.imageView setFrame:tmpFrame];
-            [cell.imageView setBackgroundColor:UIColor.redColor];
+            [cell.tupleView tupleWithSections:^CGFloat{
+                return 1;
+            } items:^CGFloat(NSInteger section) {
+                return 2;
+            } color:^UIColor * _Nullable(NSInteger section) {
+                return nil;
+            } inset:^UIEdgeInsets(NSInteger section) {
+                return UIEdgeInsetsZero;
+            }];
             
-            CGRect tmpFrame2 = frame;
-            tmpFrame2.origin.y += CGRectGetMaxY(tmpFrame);
-            tmpFrame2.size.height = 20;
-            [cell.label setFrame:tmpFrame2];
-            [cell.label setBackgroundColor:UIColor.greenColor];
+            [cell.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+                switch (indexPath.row) {
+                    case 0:
+                        return CGSizeMake(CGRectGetWidth(frame), CGRectGetHeight(frame)-20);
+                        break;
+                    case 1:
+                        return CGSizeMake(CGRectGetWidth(frame), 20);
+                        break;
+                        
+                    default:
+                        break;
+                }
+                return CGSizeZero;
+            } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
+                return UIEdgeInsetsZero;
+            } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+                switch (indexPath.row) {
+                    case 0: {
+                        HTupleImageCell *cell = itemBlock(nil, HTupleImageCell.class, nil, YES);
+                        [cell.imageView setBackgroundColor:UIColor.redColor];
+                    }
+                        break;
+                    case 1: {
+                        HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
+                        [cell.label setBackgroundColor:UIColor.greenColor];
+                    }
+                        break;
+                        
+                    default:
+                        break;
+                }
+            }];
         }
             break;
         case 4: {
-            HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
+            HTupleVerticalCell *cell = itemBlock(nil, HTupleVerticalCell.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             
             CGRect frame = [cell getContentBounds];
             
-            CGRect tmpFrame = frame;
-            tmpFrame.size.height = CGRectGetHeight(frame)-20;
-            [cell.imageView setFrame:tmpFrame];
-            [cell.imageView setBackgroundColor:UIColor.redColor];
+            [cell.tupleView tupleWithSections:^CGFloat{
+                return 1;
+            } items:^CGFloat(NSInteger section) {
+                return 2;
+            } color:^UIColor * _Nullable(NSInteger section) {
+                return nil;
+            } inset:^UIEdgeInsets(NSInteger section) {
+                return UIEdgeInsetsZero;
+            }];
             
-            CGRect tmpFrame2 = frame;
-            tmpFrame2.origin.y += CGRectGetMaxY(tmpFrame);
-            tmpFrame2.size.height = 20;
-            [cell.label setFrame:tmpFrame2];
-            [cell.label setBackgroundColor:UIColor.greenColor];
+            [cell.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+                switch (indexPath.row) {
+                    case 0:
+                        return CGSizeMake(CGRectGetWidth(frame), CGRectGetHeight(frame)-20);
+                        break;
+                    case 1:
+                        return CGSizeMake(CGRectGetWidth(frame), 20);
+                        break;
+                        
+                    default:
+                        break;
+                }
+                return CGSizeZero;
+            } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
+                return UIEdgeInsetsZero;
+            } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+                switch (indexPath.row) {
+                    case 0: {
+                        HTupleImageCell *cell = itemBlock(nil, HTupleImageCell.class, nil, YES);
+                        [cell.imageView setBackgroundColor:UIColor.redColor];
+                    }
+                        break;
+                    case 1: {
+                        HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
+                        [cell.label setBackgroundColor:UIColor.greenColor];
+                    }
+                        break;
+                        
+                    default:
+                        break;
+                }
+            }];
         }
             break;
         case 5: {
-            HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
+            HTupleVerticalCell *cell = itemBlock(nil, HTupleVerticalCell.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 10)];
             
             CGRect frame = [cell getContentBounds];
             
-            CGRect tmpFrame = frame;
-            tmpFrame.size.height = CGRectGetHeight(frame)-20;
-            [cell.imageView setFrame:tmpFrame];
-            [cell.imageView setBackgroundColor:UIColor.redColor];
+            [cell.tupleView tupleWithSections:^CGFloat{
+                return 1;
+            } items:^CGFloat(NSInteger section) {
+                return 2;
+            } color:^UIColor * _Nullable(NSInteger section) {
+                return nil;
+            } inset:^UIEdgeInsets(NSInteger section) {
+                return UIEdgeInsetsZero;
+            }];
             
-            CGRect tmpFrame2 = frame;
-            tmpFrame2.origin.y += CGRectGetMaxY(tmpFrame);
-            tmpFrame2.size.height = 20;
-            [cell.label setFrame:tmpFrame2];
-            [cell.label setBackgroundColor:UIColor.greenColor];
+            [cell.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+                switch (indexPath.row) {
+                    case 0:
+                        return CGSizeMake(CGRectGetWidth(frame), CGRectGetHeight(frame)-20);
+                        break;
+                    case 1:
+                        return CGSizeMake(CGRectGetWidth(frame), 20);
+                        break;
+                        
+                    default:
+                        break;
+                }
+                return CGSizeZero;
+            } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
+                return UIEdgeInsetsZero;
+            } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+                switch (indexPath.row) {
+                    case 0: {
+                        HTupleImageCell *cell = itemBlock(nil, HTupleImageCell.class, nil, YES);
+                        [cell.imageView setBackgroundColor:UIColor.redColor];
+                    }
+                        break;
+                    case 1: {
+                        HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
+                        [cell.label setBackgroundColor:UIColor.greenColor];
+                    }
+                        break;
+                        
+                    default:
+                        break;
+                }
+            }];
         }
             break;
         case 6: {
-            HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
+            HTupleVerticalCell *cell = itemBlock(nil, HTupleVerticalCell.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
-            //            [cell setShouldShowSeparator:YES];
-            //            [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
             
             CGRect frame = [cell getContentBounds];
             
-            CGRect tmpFrame = frame;
-            tmpFrame.size.width = tmpFrame.size.width/3-20/3;
-            [cell.label setFrame:tmpFrame];
-            [cell.label setBackgroundColor:UIColor.greenColor];
+            [cell.tupleView tupleWithSections:^CGFloat{
+                return 1;
+            } items:^CGFloat(NSInteger section) {
+                return 3;
+            } color:^UIColor * _Nullable(NSInteger section) {
+                return nil;
+            } inset:^UIEdgeInsets(NSInteger section) {
+                return UIEdgeInsetsZero;
+            }];
             
-            CGRect tmpFrame2 = frame;
-            tmpFrame2.origin.x = CGRectGetMaxX(tmpFrame)+10;
-            tmpFrame2.size.width = tmpFrame.size.width;
-            [cell.detailLabel setFrame:tmpFrame2];
-            [cell.detailLabel setBackgroundColor:UIColor.redColor];
-            
-            CGRect tmpFrame3 = frame;
-            tmpFrame3.origin.x = CGRectGetMaxX(tmpFrame2)+10;
-            tmpFrame3.size.width = tmpFrame.size.width;
-            [cell.accessoryLabel setFrame:tmpFrame3];
-            [cell.accessoryLabel setBackgroundColor:UIColor.yellowColor];
+            [cell.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+                return CGSizeMake(CGRectGetWidth(frame)/3, CGRectGetHeight(frame));
+            } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
+                switch (indexPath.row) {
+                    case 0:
+                        return UIEdgeInsetsMake(0, 0, 0, 20/3);
+                    case 1:
+                        return UIEdgeInsetsMake(0, 20/6, 0, 20/6);
+                    case 2:
+                        return UIEdgeInsetsMake(0, 20/3, 0, 0);
+                        
+                    default:
+                        break;
+                }
+                return UIEdgeInsetsZero;
+            } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+                HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
+                switch (indexPath.row) {
+                    case 0: {
+                        [cell.label setBackgroundColor:UIColor.greenColor];
+                    }
+                        break;
+                    case 1: {
+                        [cell.label setBackgroundColor:UIColor.redColor];
+                    }
+                        break;
+                    case 2: {
+                        [cell.label setBackgroundColor:UIColor.yellowColor];
+                    }
+                        break;
+                        
+                    default:
+                        break;
+                }
+            }];
         }
             break;
             
