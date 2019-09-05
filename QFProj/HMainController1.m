@@ -171,17 +171,19 @@
             CGRect frame = [cell getContentBounds];
             
             CGRect tmpFrame = frame;
-            tmpFrame.size.height = CGRectGetHeight(frame)-20;
+            tmpFrame.size.height = CGRectGetHeight(frame)-25;
             [cell.imageView setFrame:tmpFrame];
             [cell.imageView setBackgroundColor:UIColor.redColor];
             [cell.imageView setImageWithName:@"icon_no_server"];
             [cell.imageView setFillet:YES];
             
             CGRect tmpFrame2 = frame;
-            tmpFrame2.origin.y += CGRectGetMaxY(tmpFrame);
+            tmpFrame2.origin.y += CGRectGetMaxY(tmpFrame)+5;
             tmpFrame2.size.height = 20;
             [cell.label setFrame:tmpFrame2];
-            [cell.label setBackgroundColor:UIColor.greenColor];
+            [cell.label setFont:[UIFont systemFontOfSize:14]];
+            [cell.label setTextAlignment:NSTextAlignmentCenter];
+            [cell.label setText:@"黑客帝国"];
         }
             break;
         case 4: {
@@ -192,17 +194,19 @@
             CGRect frame = [cell getContentBounds];
             
             CGRect tmpFrame = frame;
-            tmpFrame.size.height = CGRectGetHeight(frame)-20;
+            tmpFrame.size.height = CGRectGetHeight(frame)-25;
             [cell.imageView setFrame:tmpFrame];
             [cell.imageView setBackgroundColor:UIColor.redColor];
             [cell.imageView setImageWithName:@"icon_no_server"];
             [cell.imageView setFillet:YES];
             
             CGRect tmpFrame2 = frame;
-            tmpFrame2.origin.y += CGRectGetMaxY(tmpFrame);
+            tmpFrame2.origin.y += CGRectGetMaxY(tmpFrame)+5;
             tmpFrame2.size.height = 20;
             [cell.label setFrame:tmpFrame2];
-            [cell.label setBackgroundColor:UIColor.greenColor];
+            [cell.label setFont:[UIFont systemFontOfSize:14]];
+            [cell.label setTextAlignment:NSTextAlignmentCenter];
+            [cell.label setText:@"黑客帝国"];
         }
             break;
         case 5: {
@@ -214,17 +218,19 @@
             CGRect frame = [cell getContentBounds];
             
             CGRect tmpFrame = frame;
-            tmpFrame.size.height = CGRectGetHeight(frame)-20;
+            tmpFrame.size.height = CGRectGetHeight(frame)-25;
             [cell.imageView setFrame:tmpFrame];
             [cell.imageView setBackgroundColor:UIColor.redColor];
             [cell.imageView setImageWithName:@"icon_no_server"];
             [cell.imageView setFillet:YES];
             
             CGRect tmpFrame2 = frame;
-            tmpFrame2.origin.y += CGRectGetMaxY(tmpFrame);
+            tmpFrame2.origin.y += CGRectGetMaxY(tmpFrame)+5;
             tmpFrame2.size.height = 20;
             [cell.label setFrame:tmpFrame2];
-            [cell.label setBackgroundColor:UIColor.greenColor];
+            [cell.label setFont:[UIFont systemFontOfSize:14]];
+            [cell.label setTextAlignment:NSTextAlignmentCenter];
+            [cell.label setText:@"黑客帝国"];
         }
             break;
         case 6: {
