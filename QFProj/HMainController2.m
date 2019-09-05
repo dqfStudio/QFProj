@@ -175,39 +175,68 @@
         }
             break;
         case 2: {
-            HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
+            HTupleHorizontalCell *cell = itemBlock(nil, HTupleHorizontalCell.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
             
             CGRect frame = [cell getContentBounds];
             
-            CGRect tmpFrame = frame;
-            tmpFrame.size.width = tmpFrame.size.height;
-            [cell.imageView setFrame:tmpFrame];
-            [cell.imageView setBackgroundColor:UIColor.redColor];
+            [cell.tupleView tupleWithSections:^CGFloat{
+                return 2;
+            } items:^CGFloat(NSInteger section) {
+                if (section == 0) {
+                    return 2;
+                }
+                return 1;
+            } color:^UIColor * _Nullable(NSInteger section) {
+                return nil;
+            } inset:^UIEdgeInsets(NSInteger section) {
+                return UIEdgeInsetsZero;
+            }];
             
-            CGRect tmpFrame2 = tmpFrame;
-            tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
-            [cell.detailView setFrame:tmpFrame2];
-            [cell.detailView setBackgroundColor:UIColor.redColor];
+            [cell.tupleView headerWithSize:^CGSize(NSInteger section) {
+                return CGSizeMake(CGRectGetHeight(frame), CGRectGetHeight(frame));
+            } edgeInsets:^UIEdgeInsets(NSInteger section) {
+                return UIEdgeInsetsZero;
+            } tupleHeader:^(HTupleHeader  _Nonnull headerBlock, NSInteger section) {
+                HTupleImageView *cell = headerBlock(nil, HTupleImageView.class, nil, YES);
+                [cell setBackgroundColor:UIColor.redColor];
+            }];
             
-            CGRect tmpFrame3 = tmpFrame;
-            tmpFrame3.origin.x = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame3)-10;
-            [cell.accessoryView setFrame:tmpFrame3];
-            [cell.accessoryView setBackgroundColor:UIColor.redColor];
-            
-            CGRect tmpFrame4 = frame;
-            tmpFrame4.origin.x += CGRectGetMaxX(tmpFrame)+10;
-            tmpFrame4.size.width = CGRectGetMinX(tmpFrame3)-CGRectGetWidth(tmpFrame)-10-10;
-            tmpFrame4.size.height = tmpFrame.size.height/2;
-            [cell.label setFrame:tmpFrame4];
-            [cell.label setBackgroundColor:UIColor.redColor];
-            
-            CGRect tmpFrame5 = tmpFrame4;
-            tmpFrame5.origin.y += CGRectGetMaxY(tmpFrame4);
-            [cell.detailLabel setFrame:tmpFrame5];
-            [cell.detailLabel setBackgroundColor:UIColor.yellowColor];
+            [cell.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+                if (indexPath.section == 0) {
+                    return CGSizeMake(CGRectGetWidth(frame)-CGRectGetHeight(frame)*3-10, CGRectGetHeight(frame)/2);
+                }else {
+                    return CGSizeMake(CGRectGetHeight(frame)+10, CGRectGetHeight(frame));
+                }
+                return CGSizeZero;
+            } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
+                if (indexPath.section == 0) {
+                    return UIEdgeInsetsMake(0, 10, 0, 10);
+                }else {
+                    return UIEdgeInsetsMake(0, 10, 0, 0);
+                }
+                return UIEdgeInsetsZero;
+            } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+                if (indexPath.section == 0) {
+                    HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
+                    switch (indexPath.row) {
+                        case 0:
+                            [cell.label setBackgroundColor:UIColor.redColor];
+                            break;
+                        case 1:
+                            [cell.label setBackgroundColor:UIColor.yellowColor];
+                            break;
+                            
+                        default:
+                            break;
+                    }
+                }else {
+                    HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
+                    [cell.label setBackgroundColor:UIColor.redColor];
+                }
+            }];
         }
             break;
         case 3: {
