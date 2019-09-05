@@ -80,7 +80,7 @@ typedef NS_OPTIONS(NSUInteger, UIImageViewFilletStyle) {
     UIImageViewFilletRightOrBottom
 };
 
-@interface UIImageView (HLayer)
+@interface UIImageView (HFilletLayer)
 @property (nonatomic) BOOL fillet;//是否圆角展示图片
 @property (nonatomic) UIImageViewFilletStyle filletStyle;//默认居中显示
 @end

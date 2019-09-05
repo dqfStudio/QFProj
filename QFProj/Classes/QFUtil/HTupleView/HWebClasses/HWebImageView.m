@@ -189,7 +189,7 @@
 }
 @end
 
-@implementation UIImageView (HLayer)
+@implementation UIImageView (HFilletLayer)
 - (BOOL)fillet {
     return [objc_getAssociatedObject(self, _cmd) boolValue];
 }
