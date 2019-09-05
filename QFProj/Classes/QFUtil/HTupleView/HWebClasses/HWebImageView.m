@@ -189,3 +189,43 @@
 }
 @end
 
+@implementation UIImageView (HLayer)
+- (BOOL)fillet {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+- (void)setFillet:(BOOL)fillet {
+    objc_setAssociatedObject(self, @selector(fillet), @(fillet), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    if (fillet) {
+        [self addFilletLayer];
+    }
+}
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [[self class] methodSwizzleWithOrigSEL:@selector(setImage:) overrideSEL:@selector(pvc_setImage:)];
+    });
+}
+- (void)pvc_setImage:(UIImage *)image {
+    [self pvc_setImage:image];
+    if (self.fillet && image) {
+        [self addFilletLayer];
+    }
+}
+- (void)addFilletLayer {
+    if (self.image) {
+        CGFloat width = CGRectGetWidth(self.frame);
+        CGFloat height = CGRectGetHeight(self.frame);
+        
+        CGFloat value = width;
+        if (height < width) value = height;
+        
+        CALayer *layer = [CALayer layer];
+        layer.frame = CGRectMake(width/2-value/2, height/2-value/2, value, value);
+        layer.contents = (id)self.image.CGImage;
+        layer.cornerRadius = value/2;
+        layer.masksToBounds = YES;
+        [self.layer addSublayer:layer];
+        self.image = nil;
+    }
+}
+@end

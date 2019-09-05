@@ -10,6 +10,7 @@
 #import "HCommonDefine.h"
 #import "HCommonBlock.h"
 #import "NSError+HUtil.h"
+#import "NSObject+HSwizzleUtil.h"
 
 @interface HWebImageView : UIImageView
 @property (nonatomic) UIImage *placeHoderImage;
@@ -71,4 +72,8 @@
  *  @param image 图片
  */
 - (void)setImage:(UIImage *)image;
+@end
+
+@interface UIImageView (HLayer)
+@property (nonatomic) BOOL fillet;//是否圆角展示图片
 @end
