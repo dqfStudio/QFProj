@@ -38,12 +38,14 @@
             ks[index] = keys[i];
             objs[index] = objects[i];
             ++index;
-        }else {
-#if DEBUG
-            NSAssert(NO,nil);
-#endif
-            return [NSDictionary dictionary];
         }
+        //视图查看器会报错
+//        else {
+//#if DEBUG
+//            NSAssert(NO,nil);
+//#endif
+//            return [NSDictionary dictionary];
+//        }
     }
     return [self safe_initWithObjects:objects forKeys:keys count:cnt];
 }
@@ -95,14 +97,16 @@
     }
 }
 - (id)safe_objectForKeyedSubscript:(id)key {
-    if (key) {
-        return [self safe_objectForKeyedSubscript:key];
-    }else {
-#if DEBUG
-        NSAssert(NO,nil);
-#endif
-    }
-    return nil;
+    //视图查看器会报错
+//    if (key) {
+//        return [self safe_objectForKeyedSubscript:key];
+//    }else {
+//#if DEBUG
+//        NSAssert(NO,nil);
+//#endif
+//    }
+//    return nil;
+    return [self safe_objectForKeyedSubscript:key];
 }
 - (void)safe_removeObjectForKey:(id)aKey {
     if (aKey) {

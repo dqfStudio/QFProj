@@ -85,9 +85,9 @@
         _shouldShowSeparator = shouldShowSeparator;
         if (_shouldShowSeparator) {
             if (!self.separatorView.superview) {
-                [self addSubview:self.separatorView];
+                [self.contentView addSubview:self.separatorView];
             }
-            [self bringSubviewToFront:self.separatorView];
+            [self.contentView bringSubviewToFront:self.separatorView];
         }
         [self.separatorView setHidden:!_shouldShowSeparator];
     }
