@@ -74,6 +74,7 @@
             tmpFrame.size.width = CGRectGetHeight(tmpFrame);
             [cell.imageView setFrame:tmpFrame];
             [cell.imageView setBackgroundColor:UIColor.redColor];
+            [cell.imageView setImageWithName:@"icon_no_server"];
             
             CGRect tmpFrame2 = frame;
             tmpFrame2.origin.x += CGRectGetMaxX(tmpFrame)+10;
@@ -105,6 +106,7 @@
             tmpFrame.size.width = CGRectGetHeight(tmpFrame);
             [cell.imageView setFrame:tmpFrame];
             [cell.imageView setBackgroundColor:UIColor.redColor];
+            [cell.imageView setImageWithName:@"icon_no_server"];
             
             CGRect tmpFrame2 = CGRectMake(0, 0, 10, 18);
             tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
@@ -137,6 +139,7 @@
             tmpFrame.size.width = CGRectGetHeight(tmpFrame);
             [cell.imageView setFrame:tmpFrame];
             [cell.imageView setBackgroundColor:UIColor.redColor];
+            [cell.imageView setImageWithName:@"icon_no_server"];
             
             CGRect tmpFrame2 = CGRectMake(0, 0, 10, 18);;
             tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
@@ -148,6 +151,7 @@
             tmpFrame3.origin.x = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame3)-10;
             [cell.detailView setFrame:tmpFrame3];
             [cell.detailView setBackgroundColor:UIColor.redColor];
+            [cell.detailView setImageWithName:@"icon_no_server"];
             
             CGRect tmpFrame4 = frame;
             tmpFrame4.origin.x += CGRectGetMaxX(tmpFrame)+10;
@@ -245,18 +249,24 @@
             tmpFrame.size.width = tmpFrame.size.width/3-20/3;
             [cell.label setFrame:tmpFrame];
             [cell.label setBackgroundColor:UIColor.greenColor];
+            [cell.label setText:@"header"];
+            [cell.label setTextAlignment:NSTextAlignmentCenter];
             
             CGRect tmpFrame2 = frame;
             tmpFrame2.origin.x = CGRectGetMaxX(tmpFrame)+10;
             tmpFrame2.size.width = tmpFrame.size.width;
             [cell.detailLabel setFrame:tmpFrame2];
             [cell.detailLabel setBackgroundColor:UIColor.redColor];
+            [cell.detailLabel setText:@"cell"];
+            [cell.detailLabel setTextAlignment:NSTextAlignmentCenter];
             
             CGRect tmpFrame3 = frame;
             tmpFrame3.origin.x = CGRectGetMaxX(tmpFrame2)+10;
             tmpFrame3.size.width = tmpFrame.size.width;
             [cell.accessoryLabel setFrame:tmpFrame3];
             [cell.accessoryLabel setBackgroundColor:UIColor.yellowColor];
+            [cell.accessoryLabel setText:@"footer"];
+            [cell.accessoryLabel setTextAlignment:NSTextAlignmentCenter];
         }
             break;
             
