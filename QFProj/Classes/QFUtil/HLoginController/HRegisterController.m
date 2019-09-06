@@ -29,6 +29,7 @@
         } exclusiveItems:^NSArray * _Nullable{
             return @[NSIndexPath.getStringValue(0, 0)];
         }];
+        [_tupleView verticalBounceEnabled];
     }
     return _tupleView;
 }
