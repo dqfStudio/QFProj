@@ -101,192 +101,160 @@
 }
 @end
 
-@interface HTupleViewApex (HCellContentView)
-@property (nonatomic) UIView *cellContentView;
-@end
-
 @implementation HTupleViewApex
 - (void)layoutContentView {
-    HLayoutTupleApex(self.cellContentView)
-}
-- (UIView *)cellContentView {
-    UIView *view = objc_getAssociatedObject(self, _cmd);
-    if (!view) {
-        view = UIView.new;
-        [self addSubview:view];
-        [self setCellContentView:view];
-    }
-    return view;
-}
-- (void)setCellContentView:(UIView *)cellContentView {
-    objc_setAssociatedObject(self, @selector(cellContentView), cellContentView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    HLayoutTupleApex(self.contentView)
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        [self.cellContentView addSubview:_imageView];
+        [self.contentView addSubview:_imageView];
     }
     return _imageView;
 }
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
-        [self.cellContentView addSubview:_label];
+        [self.contentView addSubview:_label];
     }
     return _label;
 }
 - (HLabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
-        [self.cellContentView addSubview:_detailLabel];
+        [self.contentView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
 - (HLabel *)accessoryLabel {
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
-        [self.cellContentView addSubview:_accessoryLabel];
+        [self.contentView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
 }
 - (HWebImageView *)detailView {
     if (!_detailView) {
         _detailView = [HWebImageView new];
-        [self.cellContentView addSubview:_detailView];
+        [self.contentView addSubview:_detailView];
     }
     return _detailView;
 }
 - (HWebImageView *)accessoryView {
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
-        [self.cellContentView addSubview:_accessoryView];
+        [self.contentView addSubview:_accessoryView];
     }
     return _accessoryView;
 }
 @end
 
-@interface HTupleUnionView (HCellContentView)
-@property (nonatomic) UIView *cellContentView;
-@end
-
 @implementation HTupleUnionView
 - (void)layoutContentView {
-    HLayoutTupleApex(self.cellContentView)
-}
-- (UIView *)cellContentView {
-    UIView *view = objc_getAssociatedObject(self, _cmd);
-    if (!view) {
-        view = UIView.new;
-        [self.cellContentView addSubview:view];
-        [self setCellContentView:view];
-    }
-    return view;
-}
-- (void)setCellContentView:(UIView *)cellContentView {
-    objc_setAssociatedObject(self, @selector(cellContentView), cellContentView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    HLayoutTupleApex(self.contentView)
 }
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
-        [self.cellContentView addSubview:_label];
+        [self.contentView addSubview:_label];
     }
     return _label;
 }
 - (HLabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
-        [self.cellContentView addSubview:_detailLabel];
+        [self.contentView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
 - (HLabel *)accessoryLabel {
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
-        [self.cellContentView addSubview:_accessoryLabel];
+        [self.contentView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
 }
 - (HTextView *)textView {
     if (!_textView) {
         _textView = [HTextView new];
-        [self.cellContentView addSubview:_textView];
+        [self.contentView addSubview:_textView];
     }
     return _textView;
 }
 - (HTextView *)detailTextView {
     if (!_detailTextView) {
         _detailTextView = [HTextView new];
-        [self.cellContentView addSubview:_detailTextView];
+        [self.contentView addSubview:_detailTextView];
     }
     return _detailTextView;
 }
 - (HTextView *)accessoryTextView {
     if (!_accessoryTextView) {
         _accessoryTextView = [HTextView new];
-        [self.cellContentView addSubview:_accessoryTextView];
+        [self.contentView addSubview:_accessoryTextView];
     }
     return _accessoryTextView;
 }
 - (HWebButtonView *)buttonView {
     if (!_buttonView) {
         _buttonView = [HWebButtonView new];
-        [self.cellContentView addSubview:_buttonView];
+        [self.contentView addSubview:_buttonView];
     }
     return _buttonView;
 }
 - (HWebButtonView *)detailButtonView {
     if (!_detailButtonView) {
         _detailButtonView = [HWebButtonView new];
-        [self.cellContentView addSubview:_detailButtonView];
+        [self.contentView addSubview:_detailButtonView];
     }
     return _detailButtonView;
 }
 - (HWebButtonView *)accessoryButtonView {
     if (!_accessoryButtonView) {
         _accessoryButtonView = [HWebButtonView new];
-        [self.cellContentView addSubview:_accessoryButtonView];
+        [self.contentView addSubview:_accessoryButtonView];
     }
     return _accessoryButtonView;
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        [self.cellContentView addSubview:_imageView];
+        [self.contentView addSubview:_imageView];
     }
     return _imageView;
 }
 - (HWebImageView *)detailImageView {
     if (!_detailImageView) {
         _detailImageView = HWebImageView.new;
-        [self.cellContentView addSubview:_detailImageView];
+        [self.contentView addSubview:_detailImageView];
     }
     return _detailImageView;
 }
 - (HWebImageView *)accessoryImageView {
     if (!_accessoryImageView) {
         _accessoryImageView = HWebImageView.new;
-        [self.cellContentView addSubview:_accessoryImageView];
+        [self.contentView addSubview:_accessoryImageView];
     }
     return _accessoryImageView;
 }
 - (HTextField *)textField {
     if (!_textField) {
         _textField = HTextField.new;
-        [self.cellContentView addSubview:_textField];
+        [self.contentView addSubview:_textField];
     }
     return _textField;
 }
 - (HTextField *)detailTextField {
     if (!_detailTextField) {
         _detailTextField = HTextField.new;
-        [self.cellContentView addSubview:_detailTextField];
+        [self.contentView addSubview:_detailTextField];
     }
     return _detailTextField;
 }
 - (HTextField *)accessoryTextField {
     if (!_accessoryTextField) {
         _accessoryTextField = HTextField.new;
-        [self.cellContentView addSubview:_accessoryTextField];
+        [self.contentView addSubview:_accessoryTextField];
     }
     return _accessoryTextField;
 }

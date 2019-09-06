@@ -12,7 +12,7 @@
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
-        [self addSubview:_label];
+        [self.contentView addSubview:_label];
     }
     return _label;
 }
@@ -25,7 +25,7 @@
 - (HTextView *)textView {
     if (!_textView) {
         _textView = [HTextView new];
-        [self addSubview:_textView];
+        [self.contentView addSubview:_textView];
     }
     return _textView;
 }
@@ -38,7 +38,7 @@
 - (HWebButtonView *)buttonView {
     if (!_buttonView) {
         _buttonView = [HWebButtonView new];
-        [self addSubview:_buttonView];
+        [self.contentView addSubview:_buttonView];
     }
     return _buttonView;
 }
@@ -51,7 +51,7 @@
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = [HWebImageView new];
-        [self addSubview:_imageView];
+        [self.contentView addSubview:_imageView];
     }
     return _imageView;
 }
@@ -64,7 +64,7 @@
 - (HTextField *)textField {
     if (!_textField) {
         _textField = HTextField.new;
-        [self addSubview:_textField];
+        [self.contentView addSubview:_textField];
     }
     return _textField;
 }
@@ -78,7 +78,7 @@
     if (!_tupleView) {
         _tupleView = [[HTupleView alloc] initWithFrame:self.bounds];
         [_tupleView setScrollEnabled:NO];
-        [self addSubview:_tupleView];
+        [self.contentView addSubview:_tupleView];
     }
     return _tupleView;
 }
@@ -92,7 +92,7 @@
     if (!_tupleView) {
         _tupleView = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleViewScrollDirectionHorizontal];
         [_tupleView setScrollEnabled:NO];
-        [self addSubview:_tupleView];
+        [self.contentView addSubview:_tupleView];
     }
     return _tupleView;
 }
@@ -101,25 +101,9 @@
 }
 @end
 
-@interface HTupleViewCell (HCellContentView)
-@property (nonatomic) UIView *cellContentView;
-@end
-
 @implementation HTupleViewCell
 - (void)layoutContentView {
     HLayoutTupleCell(self.cellContentView)
-}
-- (UIView *)cellContentView {
-    UIView *view = objc_getAssociatedObject(self, _cmd);
-    if (!view) {
-        view = UIView.new;
-        [self addSubview:view];
-        [self setCellContentView:view];
-    }
-    return view;
-}
-- (void)setCellContentView:(UIView *)cellContentView {
-    objc_setAssociatedObject(self, @selector(cellContentView), cellContentView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
@@ -165,25 +149,9 @@
 }
 @end
 
-@interface HTupleUnionCell (HCellContentView)
-@property (nonatomic) UIView *cellContentView;
-@end
-
 @implementation HTupleUnionCell
 - (void)layoutContentView {
     HLayoutTupleCell(self.cellContentView)
-}
-- (UIView *)cellContentView {
-    UIView *view = objc_getAssociatedObject(self, _cmd);
-    if (!view) {
-        view = UIView.new;
-        [self addSubview:view];
-        [self setCellContentView:view];
-    }
-    return view;
-}
-- (void)setCellContentView:(UIView *)cellContentView {
-    objc_setAssociatedObject(self, @selector(cellContentView), cellContentView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 - (HLabel *)label {
     if (!_label) {

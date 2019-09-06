@@ -26,6 +26,14 @@
     return self;
 }
 
+- (UIView *)cellContentView {
+    if (!_cellContentView) {
+        _cellContentView = UIView.new;
+        [self.contentView addSubview:_cellContentView];
+    }
+    return _cellContentView;
+}
+
 - (void)cellSkinEvent {
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.skinBlock) {
