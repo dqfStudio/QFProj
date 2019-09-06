@@ -308,11 +308,11 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:self.addressValue];
         identifier = [identifier stringByAppendingString:@"ItemCell"];
-        if (![self.cellIndexPaths containsObject:idxPath.stringValue]) {
+        if (![self.cellIndexPaths containsObject:idxPath.getStringValue]) {
             identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
         }
         if (pre) identifier = [identifier stringByAppendingString:pre];
-        if (idx) identifier = [identifier stringByAppendingString:idxPath.stringValue];
+        if (idx) identifier = [identifier stringByAppendingString:idxPath.getStringValue];
         if (![self.allReuseIdentifiers containsObject:identifier]) {
             [self.allReuseIdentifiers addObject:identifier];
             [self registerClass:cls forCellReuseIdentifier:identifier];
@@ -330,7 +330,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         }else {
             cell = [self dequeueReusableCellWithIdentifier:identifier forIndexPath:idxPath];
         }
-        [self.allReuseCells setObject:cell forKey:idxPath.stringValue];
+        [self.allReuseCells setObject:cell forKey:idxPath.getStringValue];
         if ([cell respondsToSelector:@selector(layoutContentView)]) {
             [(HTableBaseCell *)cell layoutContentView];
         }
@@ -462,7 +462,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
             return [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
         }, indexPath);
     }
-    return [self.allReuseCells objectForKey:indexPath.stringValue];
+    return [self.allReuseCells objectForKey:indexPath.getStringValue];
 }
 - (void)tableView:(HTableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.separatorStyle != UITableViewCellSeparatorStyleNone) {
@@ -601,7 +601,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         NSInteger cells = [self numberOfRowsInSection:section];
         for (int i=0; i<cells; i++) {
-            HTableBaseCell *cell = [self.allReuseCells objectForKey:NSIndexPath.stringValue(i, section)];
+            HTableBaseCell *cell = [self.allReuseCells objectForKey:NSIndexPath.getStringValue(i, section)];
             if (cell.signalBlock) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     cell.signalBlock(cell, signal);
@@ -611,7 +611,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     });
 }
 - (void)signal:(HTableSignal *)signal indexPath:(NSIndexPath *)indexPath  {
-    HTableBaseCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
+    HTableBaseCell *cell = [self.allReuseCells objectForKey:indexPath.getStringValue];
     if (cell.signalBlock) {
         dispatch_async(dispatch_get_main_queue(), ^{
             cell.signalBlock(cell, signal);
@@ -685,7 +685,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 }
 - (id (^)(NSInteger row, NSInteger section))cell {
     return ^id (NSInteger row, NSInteger section) {
-        return [self.allReuseCells objectForKey:NSIndexPath.stringValue(row, section)];
+        return [self.allReuseCells objectForKey:NSIndexPath.getStringValue(row, section)];
     };
 }
 - (id (^)(NSInteger row, NSInteger section))indexPath {

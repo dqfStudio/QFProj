@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface NSIndexPath (HUtil)
-- (NSString *)stringValue;
-+ (NSString *(^)(NSInteger row, NSInteger section))stringValue;
+- (NSString *)getStringValue;
++ (NSString *(^)(NSInteger row, NSInteger section))getStringValue;
 + (NSIndexPath *(^)(NSInteger row, NSInteger section))getValue;
 @end

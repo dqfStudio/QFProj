@@ -27,7 +27,7 @@
         } exclusiveFooters:^NSArray * _Nullable{
             return nil;
         } exclusiveItems:^NSArray * _Nullable{
-            return @[NSIndexPath.stringValue(0, 0)];
+            return @[NSIndexPath.getStringValue(0, 0)];
         }];
     }
     return _tupleView;
@@ -51,7 +51,7 @@
 - (YPTabBar *)tabBarView {
     CGRect frame = CGRectZero;
     frame.origin.x = self.tupleView.width/2-200/2;
-    frame.origin.y = 110/2-35/2;
+    frame.origin.y = 55/2-35/2;
     frame.size.width  = 200;
     frame.size.height = 35;
     

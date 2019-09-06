@@ -9,10 +9,10 @@
 #import "NSIndexPath+HUtil.h"
 
 @implementation NSIndexPath (HUtil)
-- (NSString *)stringValue {
+- (NSString *)getStringValue {
     return [NSString stringWithFormat:@"%@%@",@(self.row), @(self.section)];
 }
-+ (NSString *(^)(NSInteger row, NSInteger section))stringValue {
++ (NSString *(^)(NSInteger row, NSInteger section))getStringValue {
     return ^NSString *(NSInteger row, NSInteger section) {
         return [NSString stringWithFormat:@"%@%@",@(row), @(section)];
     };

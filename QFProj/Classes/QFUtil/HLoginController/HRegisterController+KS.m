@@ -45,7 +45,7 @@
 - (CGSize)tuple0_tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0: return CGSizeMake(tupleView.width, 55);
-        case 1: return CGSizeMake(tupleView.width, 25);
+        case 1: return CGSizeMake(tupleView.width, 55);
         case 2: return CGSizeMake(tupleView.width, 55);
         default: return CGSizeZero;
     }
@@ -78,7 +78,7 @@
     if (indexPath.section == 0 && indexPath.row == 0) {
         [self tuple_tupleView:tupleView tupleItem:itemBlock atIndexPath:indexPath];
     }else {
-        HTupleTextFieldCell *cell = itemBlock(nil, HTupleTextFieldCell.class, nil, YES);
+        HTupleTextFieldCell *cell = itemBlock(nil, HTupleTextFieldCell.class, @"tuple0", YES);
         [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
         
         [cell.textField.leftLabel setFrame:CGRectMake(0, 0, 80, 60)];

@@ -95,7 +95,7 @@
     if (indexPath.section == 0 && indexPath.row == 0) {
         [self tuple_tupleView:tupleView tupleItem:itemBlock atIndexPath:indexPath];
     }else {
-        HTupleTextFieldCell *cell = itemBlock(nil,HTupleTextFieldCell.class, nil, YES);
+        HTupleTextFieldCell *cell = itemBlock(nil,HTupleTextFieldCell.class, @"tuple1", YES);
         [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
         
         [cell.textField.leftLabel setFrame:CGRectMake(0, 0, 80, 60)];
