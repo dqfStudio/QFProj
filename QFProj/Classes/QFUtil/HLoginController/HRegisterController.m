@@ -38,6 +38,7 @@
     // Do any additional setup after loading the view.
     [self.leftNaviButton setHidden:YES];
     [self setTitle:@"注册"];
+    [self.tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
     [self.view addSubview:self.tupleView];
 }
 
@@ -107,7 +108,7 @@
     return tabBar;
 }
 
-- (void)tuple_tupleView:(HTupleView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tuple_tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row == 0) {
         HTupleBaseCell *cell = itemBlock(nil, HTupleBaseCell.class, nil, YES);
         YPTabBar *tabBar = [cell viewWithTag:12345];

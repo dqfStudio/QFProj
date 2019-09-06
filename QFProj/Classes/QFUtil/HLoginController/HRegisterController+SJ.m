@@ -85,15 +85,15 @@
     return UIEdgeInsetsZero;
 }
 
-- (void)tuple1_tupleView:(HTupleView *)tupleView headerTuple:(HTupleHeader)headerBlock inSection:(NSInteger)section {
+- (void)tuple1_tupleView:(HTupleView *)tupleView tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
     headerBlock(nil, HTupleBaseApex.class, nil, NO);
 }
-- (void)tuple1_tupleView:(HTupleView *)tupleView footerTuple:(HTupleFooter)footerBlock inSection:(NSInteger)section {
+- (void)tuple1_tupleView:(HTupleView *)tupleView tupleFooter:(HTupleFooter)footerBlock inSection:(NSInteger)section {
     footerBlock(nil, HTupleBaseApex.class, nil, NO);
 }
-- (void)tuple1_tupleView:(HTupleView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tuple1_tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row == 0) {
-        [self tuple_tupleView:tupleView itemTuple:itemBlock atIndexPath:indexPath];
+        [self tuple_tupleView:tupleView tupleItem:itemBlock atIndexPath:indexPath];
     }else {
         HTupleTextFieldCell *cell = itemBlock(nil,HTupleTextFieldCell.class, nil, YES);
         [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];

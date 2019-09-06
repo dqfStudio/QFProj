@@ -17,6 +17,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 #define KDefaultPageSize  20
 #define KSectionDesignKey @"section"
 #define KTableDesignKey   @"table"
+#define KTablePrefixKey   @"self_"
 
 @interface HTableView () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) BOOL categoryDesign;
@@ -349,6 +350,11 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     }
     return prefix;
 }
+- (SEL)selectorWithCMD:(SEL)cmd {
+    NSString *selectorString = NSStringFromSelector(cmd);
+    selectorString = [selectorString stringByReplacingOccurrencesOfString:KTablePrefixKey withString:@""];
+    return NSSelectorFromString(selectorString);
+}
 - (NSInteger)numberOfSectionsIntableView:(HTableView *)tableView {
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
         return [self.tableDelegate numberOfSectionsInTableView:self];
@@ -415,8 +421,8 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         [self.tableDelegate tableView:self tableHeader:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
             return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
         } inSection:section];
-    }else if (_categoryDesign && [self respondsToSelector:@selector(tableView:tableHeader:inSection:)]) {
-        [self tableView:self tableHeader:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+    }else if (_categoryDesign && [self respondsToSelector:@selector(self_tableView:tableHeader:inSection:)]) {
+        [self self_tableView:self tableHeader:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
             return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
         } inSection:section];
     }else if (self.headerTableBlock) {
@@ -431,8 +437,8 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         [self.tableDelegate tableView:self tableFooter:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
             return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
         } inSection:section];
-    }else if (_categoryDesign && [self respondsToSelector:@selector(tableView:tableFooter:inSection:)]) {
-        [self tableView:self tableFooter:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+    }else if (_categoryDesign && [self respondsToSelector:@selector(self_tableView:tableFooter:inSection:)]) {
+        [self self_tableView:self tableFooter:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
             return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
         } inSection:section];
     }else if (self.footerTableBlock) {
@@ -447,8 +453,8 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         [self.tableDelegate tableView:self tableCell:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
             return [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
         } atIndexPath:indexPath];
-    }else if (_categoryDesign && [self respondsToSelector:@selector(tableView:tableCell:atIndexPath:)]) {
-        [self tableView:self tableCell:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
+    }else if (_categoryDesign && [self respondsToSelector:@selector(self_tableView:tableCell:atIndexPath:)]) {
+        [self self_tableView:self tableCell:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
             return [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
         } atIndexPath:indexPath];
     }else if (self.cellTableBlock) {
@@ -542,22 +548,25 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     });
 }
 #pragma mark - Category & Design
-- (void)tableView:(HTableView *)tableView tableHeader:(HTableHeader)headerBlock inSection:(NSInteger)section {
+- (void)self_tableView:(HTableView *)tableView tableHeader:(HTableHeader)headerBlock inSection:(NSInteger)section {
     NSString *prefix = [self tableWithPrefix:section];
-    if ([(NSObject *)self.tableDelegate respondsToSelector:_cmd withPre:prefix]) {
-        [(NSObject *)self.tableDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tableView, &headerBlock, &section];
+    SEL selector = [self selectorWithCMD:_cmd];
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&tableView, &headerBlock, &section];
     }
 }
-- (void)tableView:(HTableView *)tableView tableFooter:(HTableFooter)footerBlock inSection:(NSInteger)section {
+- (void)self_tableView:(HTableView *)tableView tableFooter:(HTableFooter)footerBlock inSection:(NSInteger)section {
     NSString *prefix = [self tableWithPrefix:section];
-    if ([(NSObject *)self.tableDelegate respondsToSelector:_cmd withPre:prefix]) {
-        [(NSObject *)self.tableDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tableView, &footerBlock, &section];
+    SEL selector = [self selectorWithCMD:_cmd];
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&tableView, &footerBlock, &section];
     }
 }
-- (void)tableView:(HTableView *)tableView tableCell:(HTableCell)cellBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)self_tableView:(HTableView *)tableView tableCell:(HTableCell)cellBlock atIndexPath:(NSIndexPath *)indexPath {
     NSString *prefix = [self tableWithPrefix:indexPath.section];
-    if ([(NSObject *)self.tableDelegate respondsToSelector:_cmd withPre:prefix]) {
-        [(NSObject *)self.tableDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tableView, &cellBlock, &indexPath];
+    SEL selector = [self selectorWithCMD:_cmd];
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&tableView, &cellBlock, &indexPath];
     }
 }
 @end

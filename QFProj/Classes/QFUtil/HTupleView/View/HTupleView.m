@@ -17,6 +17,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 #define KDefaultPageSize  20
 #define KSectionDesignKey @"section"
 #define KTupleDesignKey   @"tuple"
+#define KTuplePrefixKey   @"self_"
 
 @interface HTupleView () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -607,109 +608,129 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     }
     return prefix;
 }
+- (SEL)selectorWithCMD:(SEL)cmd {
+    NSString *selectorString = NSStringFromSelector(cmd);
+    selectorString = [selectorString stringByReplacingOccurrencesOfString:KTuplePrefixKey withString:@""];
+    return NSSelectorFromString(selectorString);
+}
 - (NSInteger)self_numberOfSectionsIntupleView:(HTupleView *)tupleView {
     if (self.designStyle == HTupleDesignStyleSection) {
         return _designSections;
     }else if (self.designStyle == HTupleDesignStyleTuple) {
         NSString *prefix = [KTupleDesignKey stringByAppendingFormat:@"%@", @(self.tupleState)];
-        if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
-            return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView] integerValue];
+        SEL selector = [self selectorWithCMD:_cmd];
+        if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
+            return [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&tupleView] integerValue];
         }
     }
     return 0;
 }
 - (NSInteger)self_tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
     NSString *prefix = [self tupleWithPrefix:section];
-    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
-        return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section] integerValue];
+    SEL selector = [self selectorWithCMD:_cmd];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&tupleView, &section] integerValue];
     }
     return 0;
 }
 //style == HTupleViewStyleSectionColorLayout
 - (UIColor *)self_tupleView:(HTupleView *)tupleView colorForSectionAtIndex:(NSInteger)section {
     NSString *prefix = [self tupleWithPrefix:section];
-    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
-        return [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section];
+    SEL selector = [self selectorWithCMD:_cmd];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
+        return [(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&tupleView, &section];
     }
     return UIColor.clearColor;
 }
 - (CGSize)self_tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section {
     NSString *prefix = [self tupleWithPrefix:section];
-    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
-        return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section] CGSizeValue];
+    SEL selector = [self selectorWithCMD:_cmd];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&tupleView, &section] CGSizeValue];
     }
     return CGSizeZero;
 }
 - (CGSize)self_tupleView:(HTupleView *)tupleView sizeForFooterInSection:(NSInteger)section {
     NSString *prefix = [self tupleWithPrefix:section];
-    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
-        return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section] CGSizeValue];
+    SEL selector = [self selectorWithCMD:_cmd];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&tupleView, &section] CGSizeValue];
     }
     return CGSizeZero;
 }
 - (CGSize)self_tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     NSString *prefix = [self tupleWithPrefix:indexPath.section];
-    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
-        return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &indexPath] CGSizeValue];
+    SEL selector = [self selectorWithCMD:_cmd];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&tupleView, &indexPath] CGSizeValue];
     }
     return CGSizeZero;
 }
 - (UIEdgeInsets)self_tupleView:(HTupleView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
     NSString *prefix = [self tupleWithPrefix:section];
-    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
-        return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section] UIEdgeInsetsValue];
+    SEL selector = [self selectorWithCMD:_cmd];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&tupleView, &section] UIEdgeInsetsValue];
     }
     return UIEdgeInsetsZero;
 }
 - (UIEdgeInsets)self_tupleView:(HTupleView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
     NSString *prefix = [self tupleWithPrefix:section];
-    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
-        return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section] UIEdgeInsetsValue];
+    SEL selector = [self selectorWithCMD:_cmd];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&tupleView, &section] UIEdgeInsetsValue];
     }
     return UIEdgeInsetsZero;
 }
 - (UIEdgeInsets)self_tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     NSString *prefix = [self tupleWithPrefix:indexPath.section];
-    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
-        return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &indexPath] UIEdgeInsetsValue];
+    SEL selector = [self selectorWithCMD:_cmd];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&tupleView, &indexPath] UIEdgeInsetsValue];
     }
     return UIEdgeInsetsZero;
 }
 - (UIEdgeInsets)self_tupleView:(HTupleView *)tupleView insetForSectionAtIndex:(NSInteger)section {
     NSString *prefix = [self tupleWithPrefix:section];
-    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
-        return [[(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &section] UIEdgeInsetsValue];
+    SEL selector = [self selectorWithCMD:_cmd];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&tupleView, &section] UIEdgeInsetsValue];
     }
     return UIEdgeInsetsZero;
 }
 - (void)self_tupleView:(HTupleView *)tupleView tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
     NSString *prefix = [self tupleWithPrefix:section];
-    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
-        [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &headerBlock, &section];
+    SEL selector = [self selectorWithCMD:_cmd];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&tupleView, &headerBlock, &section];
     }
 }
 - (void)self_tupleView:(HTupleView *)tupleView tupleFooter:(HTupleFooter)footerBlock inSection:(NSInteger)section {
     NSString *prefix = [self tupleWithPrefix:section];
-    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
-        [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &footerBlock, &section];
+    SEL selector = [self selectorWithCMD:_cmd];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&tupleView, &footerBlock, &section];
     }
 }
 - (void)self_tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     NSString *prefix = [self tupleWithPrefix:indexPath.section];
-    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
-        [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &itemBlock, &indexPath];
+    SEL selector = [self selectorWithCMD:_cmd];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&tupleView, &itemBlock, &indexPath];
     }
 }
 - (void)self_tupleView:(HTupleView *)tupleView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     NSString *prefix = [self tupleWithPrefix:indexPath.section];
-    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
-        [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &cell, &indexPath];
+    SEL selector = [self selectorWithCMD:_cmd];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&tupleView, &cell, &indexPath];
     }
 }
 - (void)self_tupleView:(HTupleView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSString *prefix = [self tupleWithPrefix:indexPath.section];
-    if ([(NSObject *)self.tupleDelegate respondsToSelector:_cmd withPre:prefix]) {
-        [(NSObject *)self.tupleDelegate performSelector:_cmd withPre:prefix withMethodArgments:&tupleView, &indexPath];
+    SEL selector = [self selectorWithCMD:_cmd];
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&tupleView, &indexPath];
     }
 }
 @end
