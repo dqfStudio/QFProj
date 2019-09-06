@@ -95,201 +95,23 @@
     if (indexPath.section == 0 && indexPath.row == 0) {
         [self tuple_tupleView:tupleView itemTuple:itemBlock atIndexPath:indexPath];
     }else {
+        HTupleTextFieldCell *cell = itemBlock(nil,HTupleTextFieldCell.class, nil, YES);
+        [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
         
+        [cell.textField.leftLabel setFrame:CGRectMake(0, 0, 80, 60)];
+        [cell.textField.leftLabel setTextAlignment:NSTextAlignmentCenter];
+        [cell.textField.leftLabel setText:@"+86"];
+        [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];
+        
+        [cell.textField setPlaceholder:@"请输入手机号"];
+        [cell.textField setTextColor:[UIColor colorWithString:@"#BABABF"]];
+        [cell.textField setFont:[UIFont systemFontOfSize:14]];
+        //cell.textField.inputValidator = HPhoneValidator.new;
+        
+        [cell setSignalBlock:^(HTupleTextFieldCell *cell, HTupleSignal *signal) {
+            
+        }];
     }
-//    switch (indexPath.section) {
-//        case 0: {
-//            switch (indexPath.row) {
-//                case 0: {
-//                    HTextViewCell5 *cell = itemBlock(HTextViewCell5.class, @"SJ");
-//                    [cell setBackgroundColor:[UIColor colorWithString:@"#FDF2DC"]];
-//                    [cell.label setText:@"手机注册每日随机产生最高999元现金大奖"];
-//                    [cell.label setTextColor:[UIColor blackColor]];
-//                    [cell.label setTextAlignment:NSTextAlignmentLeft];
-//                    [cell.label setFont:[UIFont systemFontOfSize:17]];
-//                    [cell.label setKeywords:@"999元"];
-//                    [cell.label setKeywordsColor:[UIColor redColor]];
-//                    [cell.label formatThatFits];
-//                }
-//                    break;
-//                case 1: {
-//                    HTupleRegisterStyle1Cell *cell = itemBlock(HTupleRegisterStyle1Cell.class, @"SJ");
-//                    [cell setCellText:@"推荐码(非必填)"];
-//                    [cell setCellIcon:@"login_tjm"];
-//                    [cell setKeyboardType:UIKeyboardTypeASCIICapable];
-//                    [cell setInputLimit:15];
-//                    @weakify(cell)
-//                    [cell setSignalBlock:^(HTupleSignal *signal) {
-//                        @strongify(cell)
-//                        HTextFieldCell *tfCell = cell.tupleView.cell(1, 0);
-//                        if (tfCell.textField.text.length > 0) {
-//                            if (![HValidate isValidateReferralCode:tfCell.textField.text]) {
-//                                [HProgressHUD showErrorWithStatus:@"请输入4-15位英文数字组合的推荐码!"];
-//                                HButtonViewCell *btnCell = self.tupleView.cell(0, 2);
-//                                [btnCell.button.button setEnabled:YES];
-//                            } else {
-//                                self.registerDict[@"referralCode"] = tfCell.textField.text;
-//                                [self.tupleView signal:nil indexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
-//                            }
-//                        } else {
-//                            [self.tupleView signal:nil indexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
-//                        }
-//                    }];
-//                }
-//                    break;
-//                case 2: {
-//                    HTupleRegisterStyle1Cell *cell = itemBlock(HTupleRegisterStyle1Cell.class, @"SJ");
-//                    [cell setCellText:@"手机号"];
-//                    [cell setCellIcon:@"reg_phone"];
-//                    [cell setKeyboardType:UIKeyboardTypeNumberPad];
-//                    [cell setInputLimit:11];
-//                    @weakify(cell)
-//                    [cell setSignalBlock:^(HTupleSignal *signal) {
-//                        @strongify(cell)
-//                        HTextFieldCell *tfCell = cell.tupleView.cell(1, 0);
-//                        if (![HValidate isValidateMobile:tfCell.textField.text]) {
-//                            [HProgressHUD showErrorWithStatus:@"请输入正确的手机号"];
-//                            HButtonViewCell *btnCell = self.tupleView.cell(0, 2);
-//                            [btnCell.button.button setEnabled:YES];
-//                        }else {
-//                            self.registerDict[@"mobileNo"] = tfCell.textField.text;
-//                            [self.tupleView signal:nil indexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
-//                        }
-//                    }];
-//                }
-//                    break;
-//                case 3: {
-//                    HTupleRegisterStyle2Cell *cell = itemBlock(HTupleRegisterStyle2Cell.class, @"SJ");
-//                    [cell setCellText:@"验证码"];
-//                    [cell setCellIcon:@"reg_yzm"];
-//                    [cell setIsCodeViewHidden:YES];
-//                    [cell setKeyboardType:UIKeyboardTypeNumberPad];
-//                    @weakify(cell)
-//                    [cell setSignalBlock:^(HTupleSignal *signal) {
-//                        @strongify(cell)
-//                        HTextFieldCell *tfCell = cell.tupleView.cell(1, 0);
-//
-//                        if (tfCell.textField.text.length == 0) {
-//                            [HProgressHUD showErrorWithStatus:@"请输入正确的验证码"];
-//                            HButtonViewCell *btnCell = self.tupleView.cell(0, 2);
-//                            [btnCell.button.button setEnabled:YES];
-//                        }else {
-//                            self.registerDict[@"msgCode"] = tfCell.textField.text;
-//                            [self.tupleView signal:nil indexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
-//                        }
-//                    }];
-//                }
-//                    break;
-//                case 4: {
-//                    HViewCell *cell = itemBlock(HViewCell.class, @"SJ");
-//                    [cell setBottomFillLineWithColor:[HSkinManager lineColor]];
-//
-//                    JKCountDownButton *btn = [cell.view viewWithTag:1111];
-//                    if (!btn) {
-//                        btn = [[JKCountDownButton alloc] initWithFrame:cell.view.bounds];
-//                        [btn setBackgroundColor:[HSkinManager specialColor]];
-//                        [btn setCornerRadius:3];
-//                        [btn setBoarderWith:1 color:[HSkinManager specialColor]];
-//                        [btn setFont:[UIFont systemFontOfSize:15]];
-//                        [btn setTitle:@"发送验证码"];
-//                        [btn setTitleColor:[UIColor whiteColor]];
-//                        [btn setTag:1111];
-//                        [cell.view addSubview:btn];
-//                        @weakify(btn)
-//                        [btn addSingleTapGestureWithBlock:^(UITapGestureRecognizer *recognizer) {
-//                            @strongify(btn)
-//                            HTupleRegisterStyle2Cell *tmpCell = self.tupleView.cell(2, 0);
-//                            HTextFieldCell *tfCell = tmpCell.tupleView.cell(1, 0);
-//
-//                            if (![HValidate isValidateMobile:tfCell.textField.text]) {
-//                                [HProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
-//                            }else {
-//                                [btn setEnabled:NO];
-//                                NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-//                                dic[@"cagent"] = kPlatCode;
-//                                dic[@"mobileNo"] = tfCell.textField.text;
-//                                [[HNetWorkingManager shareManager] sendHTTPDataWithBaseURL:HEADBASEINURL andAppendURL:kRegisterSendChangeCode RequestWay:kPOST withParamters:dic withToken:nil success:^(BOOL isSuccess, id responseObject) {
-//                                    if ([[responseObject objectForKey:@"msg"] isEqualToString:@"success"]) {
-//                                        [HProgressHUD showSuccessWithStatus:@"验证码发送成功！"];
-//                                        [btn startCountDownWithSecond:60];
-//                                        [btn countDownChanging:^NSString *(JKCountDownButton *countDownButton,NSUInteger second) {
-//                                            NSString *title = [NSString stringWithFormat:@"重新获取%zd秒",second];
-//                                            return title;
-//                                        }];
-//                                    }else{
-//                                        [btn setEnabled:YES];
-//                                        [HProgressHUD showErrorWithStatus:responseObject[@"msg"] ? : @"发送验证码失败!!!"];
-//                                    }
-//                                } failure:^(NSError *error) {
-//                                    [btn setEnabled:YES];
-//                                    [HProgressHUD showErrorWithStatus:error.localizedDescription];
-//                                }];
-//
-//                                [btn countDownFinished:^NSString *(JKCountDownButton *countDownButton, NSUInteger second) {
-//                                    countDownButton.enabled = YES;
-//                                    return @"重新发送";
-//                                }];
-//                            }
-//                        }];
-//                    }
-//                }
-//                    break;
-//
-//                default:
-//                    break;
-//            }
-//        }
-//            break;
-//        case 1: {
-//            HTupleRegisterStyle3Cell *cell = itemBlock(HTupleRegisterStyle3Cell.class, @"SJ");
-//            [cell setCellBlock:^(NSIndexPath *idxPath) {
-//                if (idxPath.row == 1) {
-//                    HServiceAgreementVC *vc = HServiceAgreementVC.new;
-//                    [self.navigationController pushViewController:vc animated:YES];
-//                }
-//            }];
-//            @weakify(cell)
-//            [cell setSignalBlock:^(HTupleSignal *signal) {
-//                @strongify(cell)
-//                HButtonViewCell *tfCell = cell.tupleView.cell(0, 0);
-//                if (!tfCell.button.button.selected) {
-//                    [HProgressHUD showErrorWithStatus:@"请先同意用户协议"];
-//                    HButtonViewCell *btnCell = self.tupleView.cell(0, 2);
-//                    [btnCell.button.button setEnabled:YES];
-//                }else {
-//                    [self.tupleView signal:nil indexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
-//                }
-//            }];
-//        }
-//            break;
-//        case 2: {
-//            HButtonViewCell *cell = itemBlock(HButtonViewCell.class, @"SJ");
-//            [cell.button setBackgroundColor:[HSkinManager specialColor]];
-//            [cell.button.button setTitle:@"下一步"];
-//            [cell.button setCornerRadius:5];
-//            [cell.button.layer setMasksToBounds:YES];
-//
-//            [cell setButtonViewBlock:^(HWebButtonView *webButtonView, HButtonViewCell *buttonCell) {
-//                [webButtonView.button setEnabled:NO];
-//                if (self.registerDict.count > 0) {
-//                    [self.registerDict removeAllObjects];
-//                }
-//                [self.tupleView signal:nil indexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-//            }];
-//
-//            @weakify(cell)
-//            @www
-//            [cell setSignalBlock:^(HTupleSignal *signal) {
-//                @strongify(cell)
-//                @sss
-//                [self SJ_nextStepBtn:cell.button];
-//            }];
-//        }
-//            break;
-//
-//        default:
-//            break;
-//    }
 }
 
 @end
