@@ -27,7 +27,7 @@
     return 1;
 }
 - (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
-    return 7;
+    return 8;
 }
 - (CGSize)tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
@@ -240,8 +240,8 @@
         case 6: {
             HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
-//            [cell setShouldShowSeparator:YES];
-//            [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
+            [cell setShouldShowSeparator:YES];
+            [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
             
             CGRect frame = [cell getContentBounds];
             
@@ -267,6 +267,31 @@
             [cell.accessoryLabel setBackgroundColor:UIColor.yellowColor];
             [cell.accessoryLabel setText:@"footer"];
             [cell.accessoryLabel setTextAlignment:NSTextAlignmentCenter];
+        }
+            break;
+        case 7: {
+            HTupleTextFieldCell *cell = itemBlock(nil, HTupleTextFieldCell.class, nil, YES);
+            [cell setBackgroundColor:UIColor.grayColor];
+            [cell.textField setBackgroundColor:UIColor.redColor];
+            
+//            [cell.textField.leftLabel setFrame:CGRectMake(0, 0, 80, 60)];
+//            [cell.textField.leftLabel setTextAlignment:NSTextAlignmentCenter];
+//            [cell.textField.leftLabel setText:@"验证码"];
+//            [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];
+//            [cell.textField.leftLabel setBackgroundColor:UIColor.greenColor];
+            
+            [cell.textField setPlaceholder:@"请输入验证码"];
+            [cell.textField setPlaceholderColor:[UIColor whiteColor]];
+            [cell.textField setTextColor:[UIColor whiteColor]];
+            [cell.textField setFont:[UIFont systemFontOfSize:14]];
+            
+//            [cell.textField.rightButton setFrame:CGRectMake(0, 0, 120, 60)];
+//            [cell.textField.rightButton setTitle:@"获取验证码"];
+//            [cell.textField.rightButton setFont:[UIFont systemFontOfSize:14]];
+//            [cell.textField.rightButton setBackgroundColor:UIColor.greenColor];
+//            [cell.textField.rightButton setPressed:^(id sender, id data) {
+//
+//            }];
         }
             break;
             

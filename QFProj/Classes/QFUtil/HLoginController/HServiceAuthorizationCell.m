@@ -17,8 +17,8 @@
 - (NSMutableAttributedString *)attributedString {
     if (!_attributedString) {
         _buttonView = [[HWebButtonView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
-        [_buttonView setImage:[UIImage imageNamed:@"dribbble"] forState:UIControlStateNormal];
-        [_buttonView setImage:[UIImage imageNamed:@"dribbble"] forState:UIControlStateSelected];
+        [_buttonView setImage:[UIImage imageNamed:@"registet_checkbox_icon"] forState:UIControlStateNormal];
+        [_buttonView setImage:[UIImage imageNamed:@"registet_checkbox_icon_h"] forState:UIControlStateSelected];
         [_buttonView setSelected:!_buttonView.isSelected];
         [_buttonView setPressed:^(HWebButtonView *buttonView, id data) {
             [buttonView setSelected:!buttonView.isSelected];
@@ -26,14 +26,14 @@
         
         _attributedString = [NSMutableAttributedString h_attachmentStringWithContent:_buttonView contentMode:UIViewContentModeScaleAspectFit attachmentSize:_buttonView.frame.size  alignToFont:[UIFont systemFontOfSize:14] alignment:HTextVerticalAlignmentCenter];
         
-        NSString *string1 = @"点击开始,即表示已阅读并同意";
+        NSString *string1 = @"点击开始，即表示已阅读并同意";
         NSString *string2 = @"《服务协议》";
         
         [_attributedString h_appendString:string1];
         [_attributedString h_appendString:string2];
         
-        [_attributedString h_setColor:[UIColor colorWithString:@"#BABABF"] range:NSMakeRange(0, string1.length)];
-        [_attributedString h_setColor:[UIColor colorWithString:@"#34BDD7"] range:NSMakeRange(string1.length, string2.length)];
+        [_attributedString h_setColor:[UIColor colorWithString:@"#BABABF"] range:NSMakeRange(1, string1.length)];
+        [_attributedString h_setColor:[UIColor colorWithString:@"#34BDD7"] range:NSMakeRange(string1.length+1, string2.length)];
         //设置点击
         HTextHighlight *highlight = HTextHighlight.new;
         @www

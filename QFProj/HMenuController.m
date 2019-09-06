@@ -94,7 +94,12 @@ static const CGFloat kTabBarHeight = 50;
     mainVC4.yp_tabItemImage = [UIImage imageNamed:@"di_index"];
     mainVC4.yp_tabItemSelectedImage = [UIImage imageNamed:@"di_index_h"];
     
-    self.viewControllers = [NSMutableArray arrayWithObjects:mainVC1, mainVC2, mainVC3, mainVC4, nil];
+    HLoginController *mainVC5 = HLoginController.new;
+    mainVC5.yp_tabItemTitle = @"登录";
+    mainVC5.yp_tabItemImage = [UIImage imageNamed:@"di_index"];
+    mainVC5.yp_tabItemSelectedImage = [UIImage imageNamed:@"di_index_h"];
+    
+    self.viewControllers = [NSMutableArray arrayWithObjects:mainVC1, mainVC2, mainVC3, mainVC4, mainVC5, nil];
 }
 
 @end
