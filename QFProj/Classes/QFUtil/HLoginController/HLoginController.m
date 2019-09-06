@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.leftNaviButton setHidden:YES];
     [self setTitle:@"登录"];
     [self loadData];
 }

@@ -88,14 +88,13 @@ static const CGFloat kTabBarHeight = 50;
     mainVC3.yp_tabItemImage = [UIImage imageNamed:@"di_index"];
     mainVC3.yp_tabItemSelectedImage = [UIImage imageNamed:@"di_index_h"];
     
-    
-    HMainController4 *mainVC4 = HMainController4.new;
-    mainVC4.yp_tabItemTitle = @"第四页";
+    HLoginController *mainVC4 = HLoginController.new;
+    mainVC4.yp_tabItemTitle = @"登录";
     mainVC4.yp_tabItemImage = [UIImage imageNamed:@"di_index"];
     mainVC4.yp_tabItemSelectedImage = [UIImage imageNamed:@"di_index_h"];
     
-    HLoginController *mainVC5 = HLoginController.new;
-    mainVC5.yp_tabItemTitle = @"登录";
+    HRegisterController *mainVC5 = HRegisterController.new;
+    mainVC5.yp_tabItemTitle = @"注册";
     mainVC5.yp_tabItemImage = [UIImage imageNamed:@"di_index"];
     mainVC5.yp_tabItemSelectedImage = [UIImage imageNamed:@"di_index_h"];
     

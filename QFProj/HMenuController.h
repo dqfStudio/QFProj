@@ -12,6 +12,7 @@
 #import "HMainController3.h"
 #import "HMainController4.h"
 #import "HLoginController.h"
+#import "HRegisterController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

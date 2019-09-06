@@ -214,14 +214,14 @@
     CGRect frame = CGRectInset(bounds, 0, 0);
     frame.origin.x += self.leftInsets.left;
     frame.origin.x += self.leftInsets.right;
-    if (self.leftView) {
-        frame.origin.x += self.leftView.frame.size.width;
+    if (super.leftView) {
+        frame.origin.x += super.leftView.frame.size.width;
         frame.size.width -= frame.origin.x;
     }
     frame.size.width -= self.rightInsets.left;
     frame.size.width -= self.rightInsets.right;
-    if (self.rightView) {
-        frame.size.width -= self.rightView.frame.size.width;
+    if (super.rightView) {
+        frame.size.width -= super.rightView.frame.size.width;
     }
     //光标距右边输入框默认有10pt的距离
     //此处去掉此默认距离，以达到精准控制的目的
