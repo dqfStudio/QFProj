@@ -25,6 +25,12 @@
     return _tupleView;
 }
 
+- (void)vcWillDisappear:(HVCDisappearType)type {
+    if (type == HVCDisappearTypePop || type == HVCDisappearTypeDismiss) {
+        [self.tupleView releaseTupleBlock];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
