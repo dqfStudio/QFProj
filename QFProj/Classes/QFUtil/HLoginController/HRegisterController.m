@@ -41,6 +41,9 @@
     [self setTitle:@"注册"];
     [self.tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
     [self.view addSubview:self.tupleView];
+    
+    [self.tupleView setObject:@"分身状态一" forKey:@"state" state:0];
+    [self.tupleView setObject:@"分身状态二" forKey:@"state" state:1];
 }
 
 - (void)vcWillDisappear:(HVCDisappearType)type {

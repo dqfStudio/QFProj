@@ -86,9 +86,9 @@
         [cell.textField.leftLabel setText:@"昵称"];
         [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];
         
-        [cell.textField setPlaceholder:@"请输入昵称"];
         [cell.textField setTextColor:[UIColor colorWithString:@"#BABABF"]];
         [cell.textField setFont:[UIFont systemFontOfSize:14]];
+        [cell.textField setText:[self.tupleView objectForKey:@"state"]];
         
         [cell setSignalBlock:^(HTupleTextFieldCell *cell, HTupleSignal *signal) {
             

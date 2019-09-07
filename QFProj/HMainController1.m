@@ -92,6 +92,11 @@
             tmpFrame4.origin.y += CGRectGetMaxY(tmpFrame3);
             [cell.accessoryLabel setFrame:tmpFrame4];
             [cell.accessoryLabel setBackgroundColor:UIColor.greenColor];
+            
+            //接收信号
+            [cell setSignalBlock:^(HTupleViewCell *cell, HTupleSignal *signal) {
+                
+            }];
         }
             break;
         case 1: {
@@ -125,6 +130,14 @@
             tmpFrame4.origin.y += CGRectGetMaxY(tmpFrame3);
             [cell.detailLabel setFrame:tmpFrame4];
             [cell.detailLabel setBackgroundColor:UIColor.yellowColor];
+            
+            //接收信号
+            [cell setSignalBlock:^(HTupleViewCell *cell, HTupleSignal *signal) {
+                
+            }];
+            
+            //发送信号
+            //[self.tupleView signal:nil indexPath:NSIndexPath.getValue(0, 0)];
         }
             break;
         case 2: {

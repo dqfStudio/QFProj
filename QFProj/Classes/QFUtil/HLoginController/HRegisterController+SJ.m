@@ -103,10 +103,9 @@
         [cell.textField.leftLabel setText:@"+86"];
         [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];
         
-        [cell.textField setPlaceholder:@"请输入手机号"];
         [cell.textField setTextColor:[UIColor colorWithString:@"#BABABF"]];
         [cell.textField setFont:[UIFont systemFontOfSize:14]];
-        //cell.textField.inputValidator = HPhoneValidator.new;
+        [cell.textField setText:[self.tupleView objectForKey:@"state"]];
         
         [cell setSignalBlock:^(HTupleTextFieldCell *cell, HTupleSignal *signal) {
             
