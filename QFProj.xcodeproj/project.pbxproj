@@ -149,6 +149,9 @@
 		A20E3D182320F6E200E6982B /* icon_tuple_xx_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A20E3D142320F6E200E6982B /* icon_tuple_xx_white@2x.png */; };
 		A20E3D1B232138AA00E6982B /* UIImageView+HFilletLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D1A232138AA00E6982B /* UIImageView+HFilletLayer.m */; };
 		A20E3D1E2321394400E6982B /* UIButton+HFilletLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D1D2321394400E6982B /* UIButton+HFilletLayer.m */; };
+		A20E3D2123239BE400E6982B /* HMainController3+HSection0.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D2023239BE400E6982B /* HMainController3+HSection0.m */; };
+		A20E3D2423239BF600E6982B /* HMainController3+HSection1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D2323239BF600E6982B /* HMainController3+HSection1.m */; };
+		A20E3D2723239C0200E6982B /* HMainController3+HSection2.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D2623239C0200E6982B /* HMainController3+HSection2.m */; };
 		A219F22F222FB46A00241FD7 /* HIFS.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F22D222FB46A00241FD7 /* HIFS.m */; };
 		A222A6C42279AAAD0013098A /* NSDictionary+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A6C32279AAAD0013098A /* NSDictionary+HUtil.m */; };
 		A222A716227C52430013098A /* UILabel+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A715227C52430013098A /* UILabel+HUtil.m */; };
@@ -577,6 +580,12 @@
 		A20E3D1A232138AA00E6982B /* UIImageView+HFilletLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+HFilletLayer.m"; sourceTree = "<group>"; };
 		A20E3D1C2321394400E6982B /* UIButton+HFilletLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+HFilletLayer.h"; sourceTree = "<group>"; };
 		A20E3D1D2321394400E6982B /* UIButton+HFilletLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+HFilletLayer.m"; sourceTree = "<group>"; };
+		A20E3D1F23239BE400E6982B /* HMainController3+HSection0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMainController3+HSection0.h"; sourceTree = "<group>"; };
+		A20E3D2023239BE400E6982B /* HMainController3+HSection0.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HMainController3+HSection0.m"; sourceTree = "<group>"; };
+		A20E3D2223239BF600E6982B /* HMainController3+HSection1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMainController3+HSection1.h"; sourceTree = "<group>"; };
+		A20E3D2323239BF600E6982B /* HMainController3+HSection1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HMainController3+HSection1.m"; sourceTree = "<group>"; };
+		A20E3D2523239C0200E6982B /* HMainController3+HSection2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMainController3+HSection2.h"; sourceTree = "<group>"; };
+		A20E3D2623239C0200E6982B /* HMainController3+HSection2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HMainController3+HSection2.m"; sourceTree = "<group>"; };
 		A219F22D222FB46A00241FD7 /* HIFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIFS.m; sourceTree = "<group>"; };
 		A219F22E222FB46A00241FD7 /* HIFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIFS.h; sourceTree = "<group>"; };
 		A222A6C22279AAAD0013098A /* NSDictionary+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HUtil.h"; sourceTree = "<group>"; };
@@ -1108,6 +1117,12 @@
 				A20E3D00231FE0C000E6982B /* HMainController2.m */,
 				A20E3D02231FE0C800E6982B /* HMainController3.h */,
 				A20E3D03231FE0C800E6982B /* HMainController3.m */,
+				A20E3D1F23239BE400E6982B /* HMainController3+HSection0.h */,
+				A20E3D2023239BE400E6982B /* HMainController3+HSection0.m */,
+				A20E3D2223239BF600E6982B /* HMainController3+HSection1.h */,
+				A20E3D2323239BF600E6982B /* HMainController3+HSection1.m */,
+				A20E3D2523239C0200E6982B /* HMainController3+HSection2.h */,
+				A20E3D2623239C0200E6982B /* HMainController3+HSection2.m */,
 				A20E3D05231FE0D100E6982B /* HMainController4.h */,
 				A20E3D06231FE0D100E6982B /* HMainController4.m */,
 				A20E3D08231FE8FC00E6982B /* HomeIcons */,
@@ -2485,6 +2500,7 @@
 				15B4DE132092F96C00773E04 /* UIControl+HSafeUtil.m in Sources */,
 				A2A8EBF122E4A0AC0049C51B /* HPooCodeView.m in Sources */,
 				15B4DE2D209311F900773E04 /* NSObject+HMessy.m in Sources */,
+				A20E3D2723239C0200E6982B /* HMainController3+HSection2.m in Sources */,
 				A206882322C9FDBD00661634 /* HTableBaseCell.m in Sources */,
 				A2A8EB4F22DDD9690049C51B /* UIView+HLeaks.m in Sources */,
 				A222AE5C22818F7D0013098A /* NSAttributedString+HText.m in Sources */,
@@ -2566,6 +2582,7 @@
 				15B4DE122092F96C00773E04 /* NSObject+HSwizzleUtil.m in Sources */,
 				A208E18022BA40A2009A6FDD /* UIScrollView+HEmptyDataSet.m in Sources */,
 				A20E3CD8231A662B00E6982B /* HRequestHUD.m in Sources */,
+				A20E3D2123239BE400E6982B /* HMainController3+HSection0.m in Sources */,
 				A2E8F57522D8356300E7C9F2 /* HCacheImageDecoder.m in Sources */,
 				1547B88E210C4E09009E0374 /* UIViewController+HTracking.m in Sources */,
 				A2A8EC0122E4A4730049C51B /* HCountDownButton.m in Sources */,
@@ -2642,6 +2659,7 @@
 				A2E8F52022D2300D00E7C9F2 /* HTableController.m in Sources */,
 				A222AE5D22818F7D0013098A /* HTextRubyAnnotation.m in Sources */,
 				15112C772105A19600842FE4 /* HUncaughtExceptionHandler.m in Sources */,
+				A20E3D2423239BF600E6982B /* HMainController3+HSection1.m in Sources */,
 				A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */,
 				A20E3D1B232138AA00E6982B /* UIImageView+HFilletLayer.m in Sources */,
 				153F081520E28CA000C74850 /* HInputValidator.m in Sources */,

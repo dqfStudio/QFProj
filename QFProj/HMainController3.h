@@ -6,12 +6,14 @@
 //  Copyright © 2019 dqfStudio. All rights reserved.
 //
 
-#import "HTupleController.h"
+#import "HViewController.h"
+#import "UIButton+HUtil.h"
+#import "HTupleView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HMainController3 : HTupleController
-
+@interface HMainController3 : HViewController
+@property (nonatomic) HTupleView *tupleView;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -14,22 +14,25 @@
 
 @implementation HMainController3
 
+- (HTupleView *)tupleView {
+    if (!_tupleView) {
+        CGRect frame = UIScreen.bounds;
+        frame.origin.y += UIDevice.topBarHeight;
+        frame.size.height -= UIDevice.topBarHeight;
+        _tupleView = [HTupleView sectionDesignWith:frame andSections:3];
+        [_tupleView verticalBounceEnabled];
+    }
+    return _tupleView;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.leftNaviButton setHidden:YES];
     [self setTitle:@"第三页"];
+    [self.tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
+    [self.view addSubview:self.tupleView];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
