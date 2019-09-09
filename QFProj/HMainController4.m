@@ -68,28 +68,16 @@
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
             
-            CGRect frame = [cell getContentBounds];
+            CGRect frame = [cell getContentFrame];
             
-            [cell.tupleView tupleWithSections:^CGFloat{
-                return 1;
-            } items:^CGFloat(NSInteger section) {
-                return 3;
-            } color:^UIColor * _Nullable(NSInteger section) {
-                return nil;
-            } inset:^UIEdgeInsets(NSInteger section) {
-                return UIEdgeInsetsZero;
+            [cell tupleWithItems:3];
+            [cell headerWithSize:CGSizeMake(CGRectGetHeight(frame), CGRectGetHeight(frame))
+                      edgeInsets:UIEdgeInsetsZero
+                     tupleHeader:^(HTupleHeader  _Nonnull headerBlock, NSIndexPath * _Nonnull indexPath) {
+                         HTupleImageView *cell = headerBlock(nil, HTupleImageView.class, nil, YES);
+                         [cell setBackgroundColor:UIColor.redColor];
             }];
-            
-            [cell.tupleView headerWithSize:^CGSize(NSInteger section) {
-                return CGSizeMake(CGRectGetHeight(frame), CGRectGetHeight(frame));
-            } edgeInsets:^UIEdgeInsets(NSInteger section) {
-                return UIEdgeInsetsZero;
-            } tupleHeader:^(HTupleHeader  _Nonnull headerBlock, NSIndexPath *indexPath) {
-                HTupleImageView *cell = headerBlock(nil, HTupleImageView.class, nil, YES);
-                [cell setBackgroundColor:UIColor.redColor];
-            }];
-            
-            [cell.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+            [cell itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
                 return CGSizeMake(CGRectGetWidth(frame)-CGRectGetHeight(frame), CGRectGetHeight(frame)/3);
             } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
                 return UIEdgeInsetsMake(0, 10, 0, 0);

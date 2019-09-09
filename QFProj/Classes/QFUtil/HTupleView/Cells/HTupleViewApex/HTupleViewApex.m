@@ -85,6 +85,34 @@
 - (void)layoutContentView {
     HLayoutTupleApex(self.tupleView)
 }
+- (void)tupleWithItems:(NSInteger)items {
+    [self.tupleView tupleWithSections:^CGFloat{
+        return 1;
+    } items:^CGFloat(NSInteger section) {
+        return items;
+    } color:^UIColor * _Nullable(NSInteger section) {
+        return nil;
+    } inset:^UIEdgeInsets(NSInteger section) {
+        return UIEdgeInsetsZero;
+    }];
+}
+- (void)headerWithSize:(CGSize)size edgeInsets:(UIEdgeInsets)edge tupleHeader:(HTupleHeaderBlock)block {
+    [self.tupleView headerWithSize:^CGSize(NSInteger section) {
+        return size;
+    } edgeInsets:^UIEdgeInsets(NSInteger section) {
+        return edge;
+    } tupleHeader:block];
+}
+- (void)footerWithSize:(CGSize)size edgeInsets:(UIEdgeInsets)edge tupleFooter:(HTupleFooterBlock)block {
+    [self.tupleView footerWithSize:^CGSize(NSInteger section) {
+        return size;
+    } edgeInsets:^UIEdgeInsets(NSInteger section) {
+        return edge;
+    } tupleFooter:block];
+}
+- (void)itemWithSize:(HSizeForItemBlock)size edgeInsets:(HEdgeInsetsForItemBlock)edge tupleItem:(HTupleItemBlock)block {
+    [self.tupleView itemWithSize:size edgeInsets:edge tupleItem:block];
+}
 @end
 
 @implementation HTupleHorizontalView
@@ -98,6 +126,34 @@
 }
 - (void)layoutContentView {
     HLayoutTupleApex(self.tupleView)
+}
+- (void)tupleWithItems:(NSInteger)items {
+    [self.tupleView tupleWithSections:^CGFloat{
+        return 1;
+    } items:^CGFloat(NSInteger section) {
+        return items;
+    } color:^UIColor * _Nullable(NSInteger section) {
+        return nil;
+    } inset:^UIEdgeInsets(NSInteger section) {
+        return UIEdgeInsetsZero;
+    }];
+}
+- (void)headerWithSize:(CGSize)size edgeInsets:(UIEdgeInsets)edge tupleHeader:(HTupleHeaderBlock)block {
+    [self.tupleView headerWithSize:^CGSize(NSInteger section) {
+        return size;
+    } edgeInsets:^UIEdgeInsets(NSInteger section) {
+        return edge;
+    } tupleHeader:block];
+}
+- (void)footerWithSize:(CGSize)size edgeInsets:(UIEdgeInsets)edge tupleFooter:(HTupleFooterBlock)block {
+    [self.tupleView footerWithSize:^CGSize(NSInteger section) {
+        return size;
+    } edgeInsets:^UIEdgeInsets(NSInteger section) {
+        return edge;
+    } tupleFooter:block];
+}
+- (void)itemWithSize:(HSizeForItemBlock)size edgeInsets:(HEdgeInsetsForItemBlock)edge tupleItem:(HTupleItemBlock)block {
+    [self.tupleView itemWithSize:size edgeInsets:edge tupleItem:block];
 }
 @end
 
