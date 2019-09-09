@@ -82,23 +82,27 @@ static const CGFloat kTabBarHeight = 50;
     mainVC2.yp_tabItemImage = [UIImage imageNamed:@"di_index"];
     mainVC2.yp_tabItemSelectedImage = [UIImage imageNamed:@"di_index_h"];
     
-    
     HMainController3 *mainVC3 = HMainController3.new;
     mainVC3.yp_tabItemTitle = @"第三页";
     mainVC3.yp_tabItemImage = [UIImage imageNamed:@"di_index"];
     mainVC3.yp_tabItemSelectedImage = [UIImage imageNamed:@"di_index_h"];
     
-    HLoginController *mainVC4 = HLoginController.new;
-    mainVC4.yp_tabItemTitle = @"登录";
+    HMainController4 *mainVC4 = HMainController4.new;
+    mainVC4.yp_tabItemTitle = @"第四页";
     mainVC4.yp_tabItemImage = [UIImage imageNamed:@"di_index"];
     mainVC4.yp_tabItemSelectedImage = [UIImage imageNamed:@"di_index_h"];
     
-    HRegisterController *mainVC5 = HRegisterController.new;
-    mainVC5.yp_tabItemTitle = @"注册";
-    mainVC5.yp_tabItemImage = [UIImage imageNamed:@"di_index"];
-    mainVC5.yp_tabItemSelectedImage = [UIImage imageNamed:@"di_index_h"];
+    HLoginController *loginVC = HLoginController.new;
+    loginVC.yp_tabItemTitle = @"登录";
+    loginVC.yp_tabItemImage = [UIImage imageNamed:@"di_index"];
+    loginVC.yp_tabItemSelectedImage = [UIImage imageNamed:@"di_index_h"];
     
-    self.viewControllers = [NSMutableArray arrayWithObjects:mainVC1, mainVC2, mainVC3, mainVC4, mainVC5, nil];
+    HRegisterController *registerVC = HRegisterController.new;
+    registerVC.yp_tabItemTitle = @"注册";
+    registerVC.yp_tabItemImage = [UIImage imageNamed:@"di_index"];
+    registerVC.yp_tabItemSelectedImage = [UIImage imageNamed:@"di_index_h"];
+    
+    self.viewControllers = [NSMutableArray arrayWithObjects:mainVC1, mainVC2, mainVC3, mainVC4, loginVC, registerVC, nil];
 }
 
 @end
