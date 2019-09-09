@@ -499,7 +499,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         }else if (self.headerTupleBlock) {
             self.headerTupleBlock(^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
                 return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
-            }, indexPath.section);
+            }, indexPath);
         }
         cell = [self.allReuseHeaders objectForKey:indexPath.getStringValue];
     }else if (kind == UICollectionElementKindSectionFooter) {
@@ -514,7 +514,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         }else if (self.footerTupleBlock) {
             self.footerTupleBlock(^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
                 return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
-            }, indexPath.section);
+            }, indexPath);
         }
         cell = [self.allReuseFooters objectForKey:indexPath.getStringValue];
     }

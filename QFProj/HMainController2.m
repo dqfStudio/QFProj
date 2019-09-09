@@ -79,16 +79,16 @@
             } inset:^UIEdgeInsets(NSInteger section) {
                 return UIEdgeInsetsZero;
             }];
-            
+
             [cell.tupleView headerWithSize:^CGSize(NSInteger section) {
                 return CGSizeMake(CGRectGetHeight(frame), CGRectGetHeight(frame));
             } edgeInsets:^UIEdgeInsets(NSInteger section) {
                 return UIEdgeInsetsZero;
-            } tupleHeader:^(HTupleHeader  _Nonnull headerBlock, NSInteger section) {
+            } tupleHeader:^(HTupleHeader  _Nonnull headerBlock, NSIndexPath *indexPath) {
                 HTupleImageView *cell = headerBlock(nil, HTupleImageView.class, nil, YES);
                 [cell setBackgroundColor:UIColor.redColor];
             }];
-            
+
             [cell.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
                 return CGSizeMake(CGRectGetWidth(frame)-CGRectGetHeight(frame), CGRectGetHeight(frame)/3);
             } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
@@ -108,12 +108,11 @@
                         [cell.label setBackgroundColor:UIColor.greenColor];
                     }
                         break;
-                        
+
                     default:
                         break;
                 }
-            }];
-        
+            }];            
         }
             break;
         case 1: {
@@ -138,7 +137,7 @@
                 return CGSizeMake(CGRectGetHeight(frame), CGRectGetHeight(frame));
             } edgeInsets:^UIEdgeInsets(NSInteger section) {
                 return UIEdgeInsetsZero;
-            } tupleHeader:^(HTupleHeader  _Nonnull headerBlock, NSInteger section) {
+            } tupleHeader:^(HTupleHeader  _Nonnull headerBlock, NSIndexPath *indexPath) {
                 HTupleImageView *cell = headerBlock(nil, HTupleImageView.class, nil, YES);
                 [cell setBackgroundColor:UIColor.redColor];
             }];
@@ -147,7 +146,7 @@
                 return CGSizeMake(CGRectGetHeight(frame), CGRectGetHeight(frame));
             } edgeInsets:^UIEdgeInsets(NSInteger section) {
                 return UIEdgeInsetsZero;
-            } tupleFooter:^(HTupleFooter  _Nonnull footerBlock, NSInteger section) {
+            } tupleFooter:^(HTupleFooter  _Nonnull footerBlock, NSIndexPath *indexPath) {
                 HTupleImageView *cell = footerBlock(nil, HTupleImageView.class, nil, YES);
                 [cell setBackgroundColor:UIColor.greenColor];
             }];
@@ -199,7 +198,7 @@
                 return CGSizeMake(CGRectGetHeight(frame), CGRectGetHeight(frame));
             } edgeInsets:^UIEdgeInsets(NSInteger section) {
                 return UIEdgeInsetsZero;
-            } tupleHeader:^(HTupleHeader  _Nonnull headerBlock, NSInteger section) {
+            } tupleHeader:^(HTupleHeader  _Nonnull headerBlock, NSIndexPath *indexPath) {
                 HTupleImageView *cell = headerBlock(nil, HTupleImageView.class, nil, YES);
                 [cell setBackgroundColor:UIColor.redColor];
             }];

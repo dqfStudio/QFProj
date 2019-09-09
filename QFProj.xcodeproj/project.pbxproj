@@ -586,6 +586,7 @@
 		A20E3D2323239BF600E6982B /* HMainController3+HSection1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HMainController3+HSection1.m"; sourceTree = "<group>"; };
 		A20E3D2523239C0200E6982B /* HMainController3+HSection2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMainController3+HSection2.h"; sourceTree = "<group>"; };
 		A20E3D2623239C0200E6982B /* HMainController3+HSection2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HMainController3+HSection2.m"; sourceTree = "<group>"; };
+		A20E3D28232634C400E6982B /* HTupleHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleHeader.pch; sourceTree = "<group>"; };
 		A219F22D222FB46A00241FD7 /* HIFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIFS.m; sourceTree = "<group>"; };
 		A219F22E222FB46A00241FD7 /* HIFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIFS.h; sourceTree = "<group>"; };
 		A222A6C22279AAAD0013098A /* NSDictionary+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HUtil.h"; sourceTree = "<group>"; };
@@ -1032,6 +1033,7 @@
 		15707EBD20B5674E00493839 /* HTupleCommon */ = {
 			isa = PBXGroup;
 			children = (
+				A20E3D28232634C400E6982B /* HTupleHeader.pch */,
 				15707EBE20B5675A00493839 /* HTupleSignal.h */,
 				15707EBF20B5675A00493839 /* HTupleSignal.m */,
 				A208E17622BA305C009A6FDD /* HTupleRefresh.h */,

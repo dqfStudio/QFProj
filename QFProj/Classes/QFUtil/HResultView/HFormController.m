@@ -85,7 +85,7 @@
         NSInteger height = 0;
         if (UIDevice.isIPhoneX) height += UIDevice.bottomBarHeight;
         return UIEdgeInsetsMake(10, 0, height, 0);
-    } tupleFooter:^(HTupleFooter  _Nonnull footerBlock, NSInteger section) {
+    } tupleFooter:^(HTupleFooter  _Nonnull footerBlock, NSIndexPath *indexPath) {
         @sss
         HTupleButtonView *cell = footerBlock(nil, HTupleButtonView.class, nil, YES);
         [cell.buttonView setBackgroundColor:[UIColor whiteColor]];
