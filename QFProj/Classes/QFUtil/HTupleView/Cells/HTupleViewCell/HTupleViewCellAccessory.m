@@ -9,6 +9,7 @@
 #import "HTupleViewCellAccessory.h"
 
 @implementation HTupleViewCellAccessory1
+@dynamic imageView, detailView, accessoryView;
 - (void)loadCell {
     CGRect frame = [self getContentBounds];
     
@@ -20,13 +21,14 @@
     tmpFrame2.origin.y += CGRectGetMaxY(tmpFrame);
     [self.detailLabel setFrame:tmpFrame2];
     
-    CGRect tmpFrame3 = tmpFrame2;
+    CGRect tmpFrame3 = tmpFrame;
     tmpFrame3.origin.y += CGRectGetMaxY(tmpFrame2);
     [self.accessoryLabel setFrame:tmpFrame3];
 }
 @end
 
 @implementation HTupleViewCellAccessory2
+@dynamic detailView, accessoryView;
 - (void)loadCell {
     CGRect frame = [self getContentBounds];
     
@@ -45,12 +47,13 @@
     [self.detailLabel setFrame:tmpFrame3];
     
     CGRect tmpFrame4 = tmpFrame3;
-    tmpFrame4.origin.y += CGRectGetMaxY(tmpFrame3);
+    tmpFrame4.origin.y += CGRectGetMaxY(tmpFrame2);
     [self.accessoryLabel setFrame:tmpFrame4];
 }
 @end
 
 @implementation HTupleViewCellAccessory3
+@dynamic detailView;
 - (void)loadCell {
     CGRect frame = [self getContentBounds];
     
@@ -75,7 +78,7 @@
     [self.detailLabel setFrame:tmpFrame4];
     
     CGRect tmpFrame5 = tmpFrame4;
-    tmpFrame5.origin.y += CGRectGetMaxY(tmpFrame4);
+    tmpFrame5.origin.y += CGRectGetMaxY(tmpFrame3);
     [self.accessoryLabel setFrame:tmpFrame5];
 }
 @end
@@ -109,7 +112,7 @@
     [self.detailLabel setFrame:tmpFrame5];
     
     CGRect tmpFrame6 = tmpFrame5;
-    tmpFrame6.origin.y += CGRectGetMaxY(tmpFrame5);
+    tmpFrame6.origin.y += CGRectGetMaxY(tmpFrame4);
     [self.accessoryLabel setFrame:tmpFrame6];
 }
 @end

@@ -8,6 +8,9 @@
 
 #import "HTupleController.h"
 #import "UIButton+HUtil.h"
+#import "HTupleViewCellDefault.h"
+#import "HTupleViewCellDetail.h"
+#import "HTupleViewCellAccessory.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
