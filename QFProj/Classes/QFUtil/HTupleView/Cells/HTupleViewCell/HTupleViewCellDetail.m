@@ -8,7 +8,7 @@
 
 #import "HTupleViewCellDetail.h"
 
-@implementation HTupleViewCellDetail1
+@implementation HTupleViewCellDetail
 @dynamic label, detailLabel;
 - (void)frameChanged {
     CGRect frame = [self getContentBounds];

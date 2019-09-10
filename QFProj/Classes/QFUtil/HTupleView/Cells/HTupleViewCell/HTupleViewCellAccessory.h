@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HTupleViewCellAccessory1 : HTupleViewCellBase
+@interface HTupleViewCellAccessory : HTupleViewCellBase
 @property (nonatomic) HLabel *label;
 @property (nonatomic) HLabel *detailLabel;
 @property (nonatomic) HLabel *accessoryLabel;
