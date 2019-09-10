@@ -63,16 +63,16 @@
 - (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
-            HTupleViewCellAccessory2 *cell = itemBlock(nil, HTupleViewCellAccessory2.class, nil, YES);
+            HTupleViewCellAccessory *cell = itemBlock(nil, HTupleViewCellAccessory.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
-
+            
             [cell.imageView setBackgroundColor:UIColor.redColor];
             [cell.imageView setImageWithName:@"icon_no_server"];
             
             [cell.label setBackgroundColor:UIColor.redColor];
-
+            
             [cell.detailLabel setBackgroundColor:UIColor.yellowColor];
 
             [cell.accessoryLabel setBackgroundColor:UIColor.greenColor];
@@ -84,15 +84,13 @@
         }
             break;
         case 1: {
-            HTupleViewCellDetail5 *cell = itemBlock(nil, HTupleViewCellDetail5.class, nil, YES);
+            HTupleViewCellDetail2 *cell = itemBlock(nil, HTupleViewCellDetail2.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
             
             [cell.imageView setBackgroundColor:UIColor.redColor];
             [cell.imageView setImageWithName:@"icon_no_server"];
-            
-            [cell.accessoryView setImageWithName:@"icon_tuple_arrow_right"];
             
             [cell.label setBackgroundColor:UIColor.redColor];
 
@@ -108,15 +106,13 @@
         }
             break;
         case 2: {
-            HTupleViewCellDetail7 *cell = itemBlock(nil, HTupleViewCellDetail7.class, nil, YES);
+            HTupleViewCellDetail2 *cell = itemBlock(nil, HTupleViewCellDetail2.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
 
             [cell.imageView setBackgroundColor:UIColor.redColor];
             [cell.imageView setImageWithName:@"icon_no_server"];
-
-            [cell.accessoryView setImageWithName:@"icon_tuple_arrow_right"];
 
             [cell.detailView setBackgroundColor:UIColor.redColor];
             [cell.detailView setImageWithName:@"icon_no_server"];

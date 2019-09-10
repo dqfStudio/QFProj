@@ -10,42 +10,22 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HTupleViewCellDefault : HTupleViewCellBase
-@property (nonatomic) HLabel *label; //只显示文字
-@end
-
-@interface HTupleViewCellDefault2 : HTupleViewCellBase
+/*
+ 右边不带箭头
+ */
+@interface HTupleViewCellDefault : HTupleBaseCell
 @property (nonatomic) HWebImageView *imageView; //左边显示图片
-@property (nonatomic) HLabel *label; //右边显示文字
-@end
-
-@interface HTupleViewCellDefault3 : HTupleViewCellBase
-@property (nonatomic) HLabel *label; //左边显示文字
-@property (nonatomic) HWebImageView *accessoryView; //右边显示箭头
-@end
-
-@interface HTupleViewCellDefault4 : HTupleViewCellBase
-@property (nonatomic) HLabel *label; //左边显示文字
+@property (nonatomic) HLabel *label; //显示文字内容
 @property (nonatomic) HWebImageView *detailView; //右边显示图片
 @end
 
-@interface HTupleViewCellDefault5 : HTupleViewCellBase
+/*
+ 右边带有箭头
+ */
+@interface HTupleViewCellDefault2 : HTupleBaseCell
 @property (nonatomic) HWebImageView *imageView; //左边显示图片
-@property (nonatomic) HLabel *label; //中间显示文字
-@property (nonatomic) HWebImageView *accessoryView; //右边显示箭头
-@end
-
-@interface HTupleViewCellDefault6 : HTupleViewCellBase
-@property (nonatomic) HWebImageView *imageView; //左边显示图片
-@property (nonatomic) HLabel *label; //中间显示文字
-@property (nonatomic) HWebImageView *detailView;//右边显示图片
-@end
-
-@interface HTupleViewCellDefault7 : HTupleViewCellBase
-@property (nonatomic) HWebImageView *imageView; //左边显示图片
-@property (nonatomic) HLabel *label; //中间显示文字
+@property (nonatomic) HLabel *label; //显示文字内容
 @property (nonatomic) HWebImageView *detailView; //文字右边，箭头左边显示图片
-@property (nonatomic) HWebImageView *accessoryView; //右边显示箭头
 @end
 
 NS_ASSUME_NONNULL_END

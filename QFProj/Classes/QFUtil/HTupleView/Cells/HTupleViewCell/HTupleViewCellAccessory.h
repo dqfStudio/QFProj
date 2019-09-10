@@ -10,42 +10,26 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HTupleViewCellAccessory : HTupleViewCellBase
-@property (nonatomic) HLabel *label;
-@property (nonatomic) HLabel *detailLabel;
-@property (nonatomic) HLabel *accessoryLabel;
+/*
+ 右边不带箭头
+ */
+@interface HTupleViewCellAccessory : HTupleBaseCell
+@property (nonatomic) HWebImageView *imageView; //左边显示图片
+@property (nonatomic) HLabel *label; //显示文字内容
+@property (nonatomic) HLabel *detailLabel; //显示文字内容详情
+@property (nonatomic) HLabel *accessoryLabel; //显示文字内容附加信息
+@property (nonatomic) HWebImageView *detailView; //右边显示图片
 @end
 
-@interface HTupleViewCellAccessory2 : HTupleViewCellBase
-@property (nonatomic) HWebImageView *imageView;
-@property (nonatomic) HLabel *label;
-@property (nonatomic) HLabel *detailLabel;
-@property (nonatomic) HLabel *accessoryLabel;
-@end
-
-@interface HTupleViewCellAccessory3 : HTupleViewCellBase
-@property (nonatomic) HWebImageView *imageView;
-@property (nonatomic) HLabel *label;
-@property (nonatomic) HLabel *detailLabel;
-@property (nonatomic) HLabel *accessoryLabel;
-@property (nonatomic) HWebImageView *accessoryView;
-@end
-
-@interface HTupleViewCellAccessory4 : HTupleViewCellBase
-@property (nonatomic) HWebImageView *imageView;
-@property (nonatomic) HLabel *label;
-@property (nonatomic) HLabel *detailLabel;
-@property (nonatomic) HLabel *accessoryLabel;
-@property (nonatomic) HWebImageView *detailView;
-@end
-
-@interface HTupleViewCellAccessory5 : HTupleViewCellBase
-@property (nonatomic) HWebImageView *imageView;
-@property (nonatomic) HLabel *label;
-@property (nonatomic) HLabel *detailLabel;
-@property (nonatomic) HLabel *accessoryLabel;
-@property (nonatomic) HWebImageView *detailView;
-@property (nonatomic) HWebImageView *accessoryView;
+/*
+ 右边带有箭头
+ */
+@interface HTupleViewCellAccessory2 : HTupleBaseCell
+@property (nonatomic) HWebImageView *imageView; //左边显示图片
+@property (nonatomic) HLabel *label; //显示文字内容
+@property (nonatomic) HLabel *detailLabel; //显示文字内容详情
+@property (nonatomic) HLabel *accessoryLabel; //显示文字内容附加信息
+@property (nonatomic) HWebImageView *detailView; //文字右边，箭头左边显示图片
 @end
 
 NS_ASSUME_NONNULL_END
