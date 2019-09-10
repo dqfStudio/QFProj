@@ -63,22 +63,20 @@
 - (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
-            HTupleViewCellDefault1 *cell = itemBlock(nil, HTupleViewCellDefault1.class, nil, YES);
+            HTupleViewCellAccessory2 *cell = itemBlock(nil, HTupleViewCellAccessory2.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
             [cell loadCell];
 
-//            [cell.imageView setBackgroundColor:UIColor.redColor];
-//            [cell.imageView setImageWithName:@"icon_no_server"];
-////
-//            [cell.detailView setImageWithName:@"icon_no_server"];
+            [cell.imageView setBackgroundColor:UIColor.redColor];
+            [cell.imageView setImageWithName:@"icon_no_server"];
             
             [cell.label setBackgroundColor:UIColor.redColor];
 
-//            [cell.detailLabel setBackgroundColor:UIColor.yellowColor];
+            [cell.detailLabel setBackgroundColor:UIColor.yellowColor];
 
-//            [cell.accessoryLabel setBackgroundColor:UIColor.greenColor];
+            [cell.accessoryLabel setBackgroundColor:UIColor.greenColor];
             
             //接收信号
             [cell setSignalBlock:^(HTupleViewCell *cell, HTupleSignal *signal) {
