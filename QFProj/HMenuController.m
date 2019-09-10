@@ -102,7 +102,7 @@ static const CGFloat kTabBarHeight = 50;
     registerVC.yp_tabItemImage = [UIImage imageNamed:@"di_index"];
     registerVC.yp_tabItemSelectedImage = [UIImage imageNamed:@"di_index_h"];
     
-    self.viewControllers = [NSMutableArray arrayWithObjects:mainVC1, mainVC2, mainVC3, mainVC4, loginVC, registerVC, nil];
+    self.viewControllers = [NSMutableArray arrayWithObjects:mainVC1, mainVC2, mainVC3, loginVC, registerVC, nil];
 }
 
 @end

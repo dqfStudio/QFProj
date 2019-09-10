@@ -10,7 +10,6 @@
 #import "HTupleRefresh.h"
 #import "HTupleViewCell.h"
 #import "HTupleViewApex.h"
-#import "HTupleHeader.pch"
 #import "NSIndexPath+HUtil.h"
 #import "NSObject+HSelector.h"
 #import "UIScrollView+HEmptyDataSet.h"
@@ -30,6 +29,38 @@ typedef NS_OPTIONS(NSUInteger, HTupleViewStyle) {
 typedef NSUInteger HTupleState;
 
 NS_ASSUME_NONNULL_BEGIN
+
+typedef void (^HTupleRefreshBlock)(void);
+typedef void (^HTupleLoadMoreBlock)(void);
+
+typedef id _Nonnull (^HTupleHeader)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
+typedef id _Nonnull (^HTupleFooter)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
+typedef id _Nonnull (^HTupleItem)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
+
+typedef CGFloat (^HUNumberOfSectionsBlock)(void);
+typedef CGFloat (^HNumberOfItemsBlock)(NSInteger section);
+typedef UIColor *_Nullable(^HColorForSectionBlock)(NSInteger section);
+
+typedef CGSize (^HSizeForHeaderBlock)(NSInteger section);
+typedef CGSize (^HSizeForFooterBlock)(NSInteger section);
+typedef CGSize (^HSizeForItemBlock)(NSIndexPath *indexPath);
+
+typedef NSArray *_Nullable(^HTupleExclusiveForHeaderBlock)(void);
+typedef NSArray *_Nullable(^HTupleExclusiveForFooterBlock)(void);
+typedef NSArray *_Nullable(^HTupleExclusiveForItemBlock)(void);
+
+typedef UIEdgeInsets (^HEdgeInsetsForHeaderBlock)(NSInteger section);
+typedef UIEdgeInsets (^HEdgeInsetsForFooterBlock)(NSInteger section);
+typedef UIEdgeInsets (^HEdgeInsetsForItemBlock)(NSIndexPath *indexPath);
+
+typedef UIEdgeInsets (^HInsetForSectionBlock)(NSInteger section);
+
+typedef void (^HTupleHeaderBlock)(HTupleHeader headerBlock, NSIndexPath *indexPath);
+typedef void (^HTupleFooterBlock)(HTupleFooter footerBlock, NSIndexPath *indexPath);
+typedef void (^HTupleItemBlock)(HTupleItem itemBlock, NSIndexPath *indexPath);
+
+typedef void (^HItemWillDisplayBlock)(UICollectionViewCell *cell, NSIndexPath *indexPath);
+typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 
 @class HTupleView;
 

@@ -7,7 +7,6 @@
 //
 
 #import "HTupleBaseCell.h"
-#import "HTupleHeader.pch"
 #import "HWebButtonView.h"
 #import "HWebImageView.h"
 #import "HTupleView.h"
@@ -39,18 +38,10 @@
 
 @interface HTupleVerticalCell : HTupleBaseCell
 @property (nonatomic) HTupleView *tupleView;
-- (void)tupleWithItems:(NSInteger)items;
-- (void)headerWithSize:(CGSize)size edgeInsets:(UIEdgeInsets)edge tupleHeader:(HTupleHeaderBlock)block;
-- (void)footerWithSize:(CGSize)size edgeInsets:(UIEdgeInsets)edge tupleFooter:(HTupleFooterBlock)block;
-- (void)itemWithSize:(HSizeForItemBlock)size edgeInsets:(HEdgeInsetsForItemBlock)edge tupleItem:(HTupleItemBlock)block;
 @end
 
 @interface HTupleHorizontalCell : HTupleBaseCell
 @property (nonatomic) HTupleView *tupleView;
-- (void)tupleWithItems:(NSInteger)items;
-- (void)headerWithSize:(CGSize)size edgeInsets:(UIEdgeInsets)edge tupleHeader:(HTupleHeaderBlock)block;
-- (void)footerWithSize:(CGSize)size edgeInsets:(UIEdgeInsets)edge tupleFooter:(HTupleFooterBlock)block;
-- (void)itemWithSize:(HSizeForItemBlock)size edgeInsets:(HEdgeInsetsForItemBlock)edge tupleItem:(HTupleItemBlock)block;
 @end
 
 @interface HTupleViewCell : HTupleBaseCell
