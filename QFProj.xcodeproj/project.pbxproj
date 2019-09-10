@@ -152,6 +152,9 @@
 		A20E3D2123239BE400E6982B /* HMainController3+HSection0.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D2023239BE400E6982B /* HMainController3+HSection0.m */; };
 		A20E3D2423239BF600E6982B /* HMainController3+HSection1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D2323239BF600E6982B /* HMainController3+HSection1.m */; };
 		A20E3D2723239C0200E6982B /* HMainController3+HSection2.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D2623239C0200E6982B /* HMainController3+HSection2.m */; };
+		A20E3D332326891900E6982B /* HTupleViewCellAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D322326891900E6982B /* HTupleViewCellAccessory.m */; };
+		A20E3D362326892E00E6982B /* HTupleViewCellDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D352326892E00E6982B /* HTupleViewCellDefault.m */; };
+		A20E3D392326894000E6982B /* HTupleViewCellDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D382326894000E6982B /* HTupleViewCellDetail.m */; };
 		A219F22F222FB46A00241FD7 /* HIFS.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F22D222FB46A00241FD7 /* HIFS.m */; };
 		A222A6C42279AAAD0013098A /* NSDictionary+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A6C32279AAAD0013098A /* NSDictionary+HUtil.m */; };
 		A222A716227C52430013098A /* UILabel+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A715227C52430013098A /* UILabel+HUtil.m */; };
@@ -587,6 +590,12 @@
 		A20E3D2523239C0200E6982B /* HMainController3+HSection2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMainController3+HSection2.h"; sourceTree = "<group>"; };
 		A20E3D2623239C0200E6982B /* HMainController3+HSection2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HMainController3+HSection2.m"; sourceTree = "<group>"; };
 		A20E3D28232634C400E6982B /* HTupleHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleHeader.pch; sourceTree = "<group>"; };
+		A20E3D312326891900E6982B /* HTupleViewCellAccessory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewCellAccessory.h; sourceTree = "<group>"; };
+		A20E3D322326891900E6982B /* HTupleViewCellAccessory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewCellAccessory.m; sourceTree = "<group>"; };
+		A20E3D342326892E00E6982B /* HTupleViewCellDefault.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewCellDefault.h; sourceTree = "<group>"; };
+		A20E3D352326892E00E6982B /* HTupleViewCellDefault.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewCellDefault.m; sourceTree = "<group>"; };
+		A20E3D372326894000E6982B /* HTupleViewCellDetail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewCellDetail.h; sourceTree = "<group>"; };
+		A20E3D382326894000E6982B /* HTupleViewCellDetail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewCellDetail.m; sourceTree = "<group>"; };
 		A219F22D222FB46A00241FD7 /* HIFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIFS.m; sourceTree = "<group>"; };
 		A219F22E222FB46A00241FD7 /* HIFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIFS.h; sourceTree = "<group>"; };
 		A222A6C22279AAAD0013098A /* NSDictionary+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HUtil.h"; sourceTree = "<group>"; };
@@ -1477,6 +1486,12 @@
 				15C5734F20B3DD7B0070327C /* HTupleBaseCell.m */,
 				15C5735020B3DD7B0070327C /* HTupleViewCell.h */,
 				15C5735420B3DD7B0070327C /* HTupleViewCell.m */,
+				A20E3D342326892E00E6982B /* HTupleViewCellDefault.h */,
+				A20E3D352326892E00E6982B /* HTupleViewCellDefault.m */,
+				A20E3D372326894000E6982B /* HTupleViewCellDetail.h */,
+				A20E3D382326894000E6982B /* HTupleViewCellDetail.m */,
+				A20E3D312326891900E6982B /* HTupleViewCellAccessory.h */,
+				A20E3D322326891900E6982B /* HTupleViewCellAccessory.m */,
 				15C5735620B3DD7B0070327C /* tuple_arrow_icons */,
 			);
 			path = HTupleViewCell;
@@ -2487,6 +2502,7 @@
 				A28EF38321D8EC2A002F92ED /* HResultView.m in Sources */,
 				A2E8F54722D72AB700E7C9F2 /* HRequestDAO.m in Sources */,
 				157684D220E2157E00D8DC5B /* NSBlockChain.m in Sources */,
+				A20E3D362326892E00E6982B /* HTupleViewCellDefault.m in Sources */,
 				A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */,
 				15B4DDF82092F96C00773E04 /* UIImage+Util.m in Sources */,
 				1508255520EB1C0F008CAE57 /* HDictionary.m in Sources */,
@@ -2527,6 +2543,7 @@
 				A2A8EBF522E4A17D0049C51B /* HFPickerView.m in Sources */,
 				A2A8EBA022E1F80D0049C51B /* HKeyboardManager+HToolBar.m in Sources */,
 				15B4DDED2092F96C00773E04 /* UIView+HImage.m in Sources */,
+				A20E3D332326891900E6982B /* HTupleViewCellAccessory.m in Sources */,
 				A2A8EB3022DB62680049C51B /* HCycleScrollView.m in Sources */,
 				A206882222C9FDBD00661634 /* HTableViewCell.m in Sources */,
 				15E6BB9E2136E7E300EBE794 /* YPTabItem.m in Sources */,
@@ -2643,6 +2660,7 @@
 				15C5727620A982CA0070327C /* NSObject+HAutoFill.m in Sources */,
 				A2A8EB4822DD7F950049C51B /* HServiceAuthorizationCell.m in Sources */,
 				A2E8F52322D2EB5A00E7C9F2 /* HTabBarController.m in Sources */,
+				A20E3D392326894000E6982B /* HTupleViewCellDetail.m in Sources */,
 				153F081720E28CA000C74850 /* HPhoneValidator.m in Sources */,
 				153F081320E28CA000C74850 /* HAlphaValidator.m in Sources */,
 				A2E8F54222D72A9800E7C9F2 /* YTKChainRequestAgent.m in Sources */,

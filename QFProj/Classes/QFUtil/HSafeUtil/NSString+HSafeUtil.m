@@ -131,3 +131,22 @@
 }
 @end
 
+@implementation NSMutableString (HSafeUtil)
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSArray *strArr = @[@"__NSCFConstantString", @"NSPlaceholderString", @"__NSCFString"];
+        HSwizzleInstanceMethodNames(strArr, @selector(appendString:), @selector(safe_appendString:));
+    });
+}
+- (void)safe_appendString:(NSString *)aString {
+    if([aString isKindOfClass:[NSString class]]){
+        return [self safe_appendString:aString];
+    } else {
+#if DEBUG
+        NSAssert(NO,nil);
+#endif
+    }
+    return [self safe_appendString:@""];
+}
+@end
