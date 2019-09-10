@@ -9,8 +9,7 @@
 #import "HTupleViewCellDefault.h"
 
 @implementation HTupleViewCellDefault1
-@dynamic imageView, detailLabel, accessoryLabel;
-@dynamic detailView, accessoryView;
+@dynamic label;
 - (void)loadCell {
     CGRect frame = [self getContentBounds];
     [self.label setFrame:frame];
@@ -18,8 +17,7 @@
 @end
 
 @implementation HTupleViewCellDefault2
-@dynamic detailLabel, accessoryLabel;
-@dynamic detailView, accessoryView;
+@dynamic imageView, label;
 - (void)loadCell {
     CGRect frame = [self getContentBounds];
     
@@ -36,7 +34,7 @@
 @end
 
 @implementation HTupleViewCellDefault3
-@dynamic detailLabel, accessoryLabel, detailView;
+@dynamic imageView, label, accessoryView;
 - (void)loadCell {
     CGRect frame = [self getContentBounds];
     
@@ -59,7 +57,8 @@
 @end
 
 @implementation HTupleViewCellDefault4
-@dynamic detailLabel, accessoryLabel;
+@dynamic imageView, label;
+@dynamic detailView, accessoryView;
 - (void)loadCell {
     CGRect frame = [self getContentBounds];
     
@@ -83,46 +82,4 @@
     tmpFrame4.size.height = CGRectGetHeight(tmpFrame);
     [self.label setFrame:tmpFrame4];
 }
-//- (HWebImageView *)imageView {
-//    if (!_imageView) {
-//        _imageView = HWebImageView.new;
-//        [self.cellContentView addSubview:_imageView];
-//    }
-//    return _imageView;
-//}
-//- (HLabel *)label {
-//    if (!_label) {
-//        _label = [HLabel new];
-//        [self.cellContentView addSubview:_label];
-//    }
-//    return _label;
-//}
-//- (HLabel *)detailLabel {
-//    if (!_detailLabel) {
-//        _detailLabel = [HLabel new];
-//        [self.cellContentView addSubview:_detailLabel];
-//    }
-//    return _detailLabel;
-//}
-//- (HLabel *)accessoryLabel {
-//    if (!_accessoryLabel) {
-//        _accessoryLabel = [HLabel new];
-//        [self.cellContentView addSubview:_accessoryLabel];
-//    }
-//    return _accessoryLabel;
-//}
-//- (HWebImageView *)detailView {
-//    if (!_detailView) {
-//        _detailView = [HWebImageView new];
-//        [self.cellContentView addSubview:_detailView];
-//    }
-//    return _detailView;
-//}
-//- (HWebImageView *)accessoryView {
-//    if (!_accessoryView) {
-//        _accessoryView = [HWebImageView new];
-//        [self.cellContentView addSubview:_accessoryView];
-//    }
-//    return _accessoryView;
-//}
 @end

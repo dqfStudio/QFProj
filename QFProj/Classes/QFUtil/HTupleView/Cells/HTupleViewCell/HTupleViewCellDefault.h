@@ -6,37 +6,33 @@
 //  Copyright © 2019 dqfStudio. All rights reserved.
 //
 
-#import "HTupleViewCell.h"
+#import "HTupleViewCellBase.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HTupleViewCellDefault1 : HTupleViewCell
-@property (nonatomic) HWebImageView *imageView NS_UNAVAILABLE;
-@property (nonatomic) HLabel *detailLabel NS_UNAVAILABLE;
-@property (nonatomic) HLabel *accessoryLabel NS_UNAVAILABLE;
-@property (nonatomic) HWebImageView *detailView NS_UNAVAILABLE;
-@property (nonatomic) HWebImageView *accessoryView NS_UNAVAILABLE;
+@interface HTupleViewCellDefault1 : HTupleViewCellBase
+@property (nonatomic) HLabel *label;
 - (void)loadCell;
 @end
 
-@interface HTupleViewCellDefault2 : HTupleViewCell
-@property (nonatomic) HLabel *detailLabel NS_UNAVAILABLE;
-@property (nonatomic) HLabel *accessoryLabel NS_UNAVAILABLE;
-@property (nonatomic) HWebImageView *detailView NS_UNAVAILABLE;
-@property (nonatomic) HWebImageView *accessoryView NS_UNAVAILABLE;
+@interface HTupleViewCellDefault2 : HTupleViewCellBase
+@property (nonatomic) HWebImageView *imageView;
+@property (nonatomic) HLabel *label;
 - (void)loadCell;
 @end
 
-@interface HTupleViewCellDefault3 : HTupleViewCell
-@property (nonatomic) HLabel *detailLabel NS_UNAVAILABLE;
-@property (nonatomic) HLabel *accessoryLabel NS_UNAVAILABLE;
-@property (nonatomic) HWebImageView *detailView NS_UNAVAILABLE;
+@interface HTupleViewCellDefault3 : HTupleViewCellBase
+@property (nonatomic) HWebImageView *imageView;
+@property (nonatomic) HLabel *label;
+@property (nonatomic) HWebImageView *accessoryView;
 - (void)loadCell;
 @end
 
-@interface HTupleViewCellDefault4 : HTupleViewCell
-@property (nonatomic) HLabel *detailLabel NS_UNAVAILABLE;
-@property (nonatomic) HLabel *accessoryLabel NS_UNAVAILABLE;
+@interface HTupleViewCellDefault4 : HTupleViewCellBase
+@property (nonatomic) HWebImageView *imageView;
+@property (nonatomic) HLabel *label;
+@property (nonatomic) HWebImageView *detailView;
+@property (nonatomic) HWebImageView *accessoryView;
 - (void)loadCell;
 @end
 

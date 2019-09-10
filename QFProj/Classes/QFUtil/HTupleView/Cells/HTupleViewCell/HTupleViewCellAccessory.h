@@ -6,29 +6,41 @@
 //  Copyright © 2019 dqfStudio. All rights reserved.
 //
 
-#import "HTupleViewCell.h"
+#import "HTupleViewCellBase.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HTupleViewCellAccessory1 : HTupleViewCell
-@property (nonatomic) HWebImageView *imageView NS_UNAVAILABLE;
-@property (nonatomic) HWebImageView *detailView NS_UNAVAILABLE;
-@property (nonatomic) HWebImageView *accessoryView NS_UNAVAILABLE;
+@interface HTupleViewCellAccessory1 : HTupleViewCellBase
+@property (nonatomic) HLabel *label;
+@property (nonatomic) HLabel *detailLabel;
+@property (nonatomic) HLabel *accessoryLabel;
 - (void)loadCell;
 @end
 
-@interface HTupleViewCellAccessory2 : HTupleViewCell
-@property (nonatomic) HWebImageView *detailView NS_UNAVAILABLE;
-@property (nonatomic) HWebImageView *accessoryView NS_UNAVAILABLE;
+@interface HTupleViewCellAccessory2 : HTupleViewCellBase
+@property (nonatomic) HWebImageView *imageView;
+@property (nonatomic) HLabel *label;
+@property (nonatomic) HLabel *detailLabel;
+@property (nonatomic) HLabel *accessoryLabel;
 - (void)loadCell;
 @end
 
-@interface HTupleViewCellAccessory3 : HTupleViewCell
-@property (nonatomic) HWebImageView *detailView NS_UNAVAILABLE;
+@interface HTupleViewCellAccessory3 : HTupleViewCellBase
+@property (nonatomic) HWebImageView *imageView;
+@property (nonatomic) HLabel *label;
+@property (nonatomic) HLabel *detailLabel;
+@property (nonatomic) HLabel *accessoryLabel;
+@property (nonatomic) HWebImageView *accessoryView;
 - (void)loadCell;
 @end
 
-@interface HTupleViewCellAccessory4 : HTupleViewCell
+@interface HTupleViewCellAccessory4 : HTupleViewCellBase
+@property (nonatomic) HWebImageView *imageView;
+@property (nonatomic) HLabel *label;
+@property (nonatomic) HLabel *detailLabel;
+@property (nonatomic) HLabel *accessoryLabel;
+@property (nonatomic) HWebImageView *detailView;
+@property (nonatomic) HWebImageView *accessoryView;
 - (void)loadCell;
 @end
 

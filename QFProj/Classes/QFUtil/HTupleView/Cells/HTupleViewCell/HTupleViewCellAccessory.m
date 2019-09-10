@@ -9,7 +9,7 @@
 #import "HTupleViewCellAccessory.h"
 
 @implementation HTupleViewCellAccessory1
-@dynamic imageView, detailView, accessoryView;
+@dynamic label, detailLabel, accessoryLabel;
 - (void)loadCell {
     CGRect frame = [self getContentBounds];
     
@@ -28,7 +28,8 @@
 @end
 
 @implementation HTupleViewCellAccessory2
-@dynamic detailView, accessoryView;
+@dynamic imageView, label;
+@dynamic detailLabel, accessoryLabel;
 - (void)loadCell {
     CGRect frame = [self getContentBounds];
     
@@ -53,7 +54,8 @@
 @end
 
 @implementation HTupleViewCellAccessory3
-@dynamic detailView;
+@dynamic imageView, label, detailLabel;
+@dynamic accessoryLabel, accessoryView;
 - (void)loadCell {
     CGRect frame = [self getContentBounds];
     
@@ -84,6 +86,8 @@
 @end
 
 @implementation HTupleViewCellAccessory4
+@dynamic label, detailLabel, accessoryLabel;
+@dynamic imageView, detailView, accessoryView;
 - (void)loadCell {
     CGRect frame = [self getContentBounds];
     
