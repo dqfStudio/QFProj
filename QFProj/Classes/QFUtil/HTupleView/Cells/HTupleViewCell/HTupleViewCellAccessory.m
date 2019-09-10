@@ -87,6 +87,36 @@
 
 @implementation HTupleViewCellAccessory4
 @dynamic label, detailLabel, accessoryLabel;
+@dynamic imageView, detailView;
+- (void)frameChanged {
+    CGRect frame = [self getContentBounds];
+    
+    CGRect tmpFrame = frame;
+    tmpFrame.size.width = CGRectGetHeight(tmpFrame);
+    [self.imageView setFrame:tmpFrame];
+    
+    CGRect tmpFrame2 = tmpFrame;
+    tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
+    [self.detailView setFrame:tmpFrame2];
+    
+    CGRect tmpFrame3 = frame;
+    tmpFrame3.origin.x += CGRectGetMaxX(tmpFrame)+10;
+    tmpFrame3.size.width = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame)-10-10;
+    tmpFrame3.size.height = CGRectGetHeight(tmpFrame)/3;
+    [self.label setFrame:tmpFrame3];
+    
+    CGRect tmpFrame4 = tmpFrame3;
+    tmpFrame4.origin.y += CGRectGetMaxY(tmpFrame3);
+    [self.detailLabel setFrame:tmpFrame4];
+    
+    CGRect tmpFrame5 = tmpFrame4;
+    tmpFrame5.origin.y += CGRectGetMaxY(tmpFrame3);
+    [self.accessoryLabel setFrame:tmpFrame5];
+}
+@end
+
+@implementation HTupleViewCellAccessory5
+@dynamic label, detailLabel, accessoryLabel;
 @dynamic imageView, detailView, accessoryView;
 - (void)frameChanged {
     CGRect frame = [self getContentBounds];

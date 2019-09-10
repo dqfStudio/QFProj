@@ -19,4 +19,32 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) HLabel *accessoryLabel;
 @end
 
+@interface HTupleViewCellValue2 : HTupleViewCellBase
+@property (nonatomic) CGFloat leftWidth;
+@property (nonatomic) CGFloat rightWidth;
+
+@property (nonatomic) HWebImageView *imageView;
+@property (nonatomic) HLabel *label;
+@property (nonatomic) HLabel *detailLabel;
+@property (nonatomic) HLabel *accessoryLabel;
+@end
+
+@interface HTupleViewCellValue3 : HTupleViewCellBase
+@property (nonatomic) CGFloat leftWidth;
+@property (nonatomic) CGFloat rightWidth;
+
+@property (nonatomic) HLabel *label;
+@property (nonatomic) HLabel *detailLabel;
+@property (nonatomic) HLabel *accessoryLabel;
+@end
+
+@interface HTupleViewCellValue4 : HTupleViewCellBase
+@property (nonatomic) CGFloat leftWidth;
+@property (nonatomic) CGFloat rightWidth;
+
+@property (nonatomic) HLabel *label;
+@property (nonatomic) HLabel *detailLabel;
+@property (nonatomic) HLabel *accessoryLabel;
+@end
+
 NS_ASSUME_NONNULL_END

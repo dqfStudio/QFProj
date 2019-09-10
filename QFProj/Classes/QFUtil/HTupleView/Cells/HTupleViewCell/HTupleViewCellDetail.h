@@ -33,6 +33,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) HLabel *label;
 @property (nonatomic) HLabel *detailLabel;
 @property (nonatomic) HWebImageView *detailView;
+@end
+
+@interface HTupleViewCellDetail5 : HTupleViewCellBase
+@property (nonatomic) HWebImageView *imageView;
+@property (nonatomic) HLabel *label;
+@property (nonatomic) HLabel *detailLabel;
+@property (nonatomic) HWebImageView *detailView;
 @property (nonatomic) HWebImageView *accessoryView;
 @end
 
