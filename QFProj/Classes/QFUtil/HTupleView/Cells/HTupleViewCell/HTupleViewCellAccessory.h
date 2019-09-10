@@ -14,7 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) HLabel *label;
 @property (nonatomic) HLabel *detailLabel;
 @property (nonatomic) HLabel *accessoryLabel;
-- (void)loadCell;
 @end
 
 @interface HTupleViewCellAccessory2 : HTupleViewCellBase
@@ -22,7 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) HLabel *label;
 @property (nonatomic) HLabel *detailLabel;
 @property (nonatomic) HLabel *accessoryLabel;
-- (void)loadCell;
 @end
 
 @interface HTupleViewCellAccessory3 : HTupleViewCellBase
@@ -31,7 +29,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) HLabel *detailLabel;
 @property (nonatomic) HLabel *accessoryLabel;
 @property (nonatomic) HWebImageView *accessoryView;
-- (void)loadCell;
 @end
 
 @interface HTupleViewCellAccessory4 : HTupleViewCellBase
@@ -41,7 +38,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) HLabel *accessoryLabel;
 @property (nonatomic) HWebImageView *detailView;
 @property (nonatomic) HWebImageView *accessoryView;
-- (void)loadCell;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -17,6 +17,7 @@
 
 #define HLayoutTupleCell(v) \
 if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
+    [self frameChanged];\
     [v setFrame:[self getContentFrame]];\
 }
 
@@ -41,6 +42,7 @@ typedef void(^HTupleCellSkinBlock)(HTupleBaseCell *cell, HTupleView *tuple);
 - (CGRect)getContentBounds;
 //需要子类重写该方法
 - (void)initUI;
+- (void)frameChanged;
 - (void)layoutContentView;
 - (CGFloat)width;
 - (CGFloat)height;

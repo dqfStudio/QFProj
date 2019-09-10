@@ -36,6 +36,8 @@
 //子类覆盖
 - (void)initUI {}
 
+- (void)frameChanged {}
+
 - (void)layoutContentView {};
 
 - (CGRect)getContentBounds {

@@ -11,7 +11,8 @@
 
 #define HLayoutTableCell(v) \
 if(!CGRectEqualToRect(v.frame, [self getContentBounds])) {\
-[v setFrame:[self getContentBounds]];\
+    [self frameChanged];\
+    [v setFrame:[self getContentBounds]];\
 }
 
 @class HTableView, HTableBaseCell;
@@ -29,6 +30,7 @@ typedef void(^HTableCellSkinBlock)(HTableBaseCell *cell, HTableView *table);
 - (CGRect)getContentBounds;
 //需要子类重写该方法
 - (void)initUI;
+- (void)frameChanged;
 - (void)layoutContentView;
 - (CGFloat)width;
 - (CGFloat)height;

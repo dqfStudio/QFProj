@@ -102,6 +102,8 @@
 
 - (void)initUI {}
 
+- (void)frameChanged {}
+
 - (void)layoutContentView {};
 
 - (CGRect)getContentFrame {

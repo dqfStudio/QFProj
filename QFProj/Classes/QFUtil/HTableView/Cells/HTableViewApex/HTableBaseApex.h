@@ -11,7 +11,8 @@
 
 #define HLayoutTableApex(v) \
 if(!CGRectEqualToRect(v.frame, [self getContentBounds])) {\
-[v setFrame:[self getContentBounds]];\
+    [self frameChanged];\
+    [v setFrame:[self getContentBounds]];\
 }
 
 @class HTableView, HTableBaseApex;
@@ -27,6 +28,7 @@ typedef void(^HTableApexSkinBlock)(HTableBaseApex *cell, HTableView *table);
 @property (nonatomic, copy) HTableApexSkinBlock skinBlock;
 //需要子类重写该方法
 - (void)initUI;
+- (void)frameChanged;
 - (CGRect)getContentBounds;
 - (void)layoutContentView;
 - (CGFloat)width;

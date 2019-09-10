@@ -10,7 +10,7 @@
 
 @implementation HTupleViewCellDefault1
 @dynamic label;
-- (void)loadCell {
+- (void)frameChanged {
     CGRect frame = [self getContentBounds];
     [self.label setFrame:frame];
 }
@@ -18,7 +18,7 @@
 
 @implementation HTupleViewCellDefault2
 @dynamic imageView, label;
-- (void)loadCell {
+- (void)frameChanged {
     CGRect frame = [self getContentBounds];
     
     CGRect tmpFrame = frame;
@@ -35,7 +35,7 @@
 
 @implementation HTupleViewCellDefault3
 @dynamic imageView, label, accessoryView;
-- (void)loadCell {
+- (void)frameChanged {
     CGRect frame = [self getContentBounds];
     
     CGRect tmpFrame = frame;
@@ -59,7 +59,7 @@
 @implementation HTupleViewCellDefault4
 @dynamic imageView, label;
 @dynamic detailView, accessoryView;
-- (void)loadCell {
+- (void)frameChanged {
     CGRect frame = [self getContentBounds];
     
     CGRect tmpFrame = frame;
