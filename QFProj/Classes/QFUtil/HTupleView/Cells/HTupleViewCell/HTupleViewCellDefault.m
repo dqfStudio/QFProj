@@ -11,10 +11,7 @@
 @implementation HTupleViewCellDefault1
 - (void)loadCell {
     CGRect frame = [self getContentBounds];
-    
-    CGRect tmpFrame = frame;
-    tmpFrame.size.height = CGRectGetHeight(frame);
-    [self.label setFrame:tmpFrame];
+    [self.label setFrame:frame];
 }
 @end
 
