@@ -85,35 +85,19 @@
         }
             break;
         case 1: {
-            HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
+            HTupleViewCellDetail3 *cell = itemBlock(nil, HTupleViewCellDetail3.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
+            [cell loadCell];
             
-            CGRect frame = [cell getContentBounds];
-            
-            CGRect tmpFrame = frame;
-            tmpFrame.size.width = CGRectGetHeight(tmpFrame);
-            [cell.imageView setFrame:tmpFrame];
             [cell.imageView setBackgroundColor:UIColor.redColor];
             [cell.imageView setImageWithName:@"icon_no_server"];
             
-            CGRect tmpFrame2 = CGRectMake(0, 0, 10, 18);
-            tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
-            tmpFrame2.origin.y = CGRectGetHeight(frame)/2-CGRectGetHeight(tmpFrame2)/2;
-            [cell.accessoryView setFrame:tmpFrame2];
             [cell.accessoryView setImageWithName:@"icon_tuple_arrow_right"];
             
-            CGRect tmpFrame3 = frame;
-            tmpFrame3.origin.x += CGRectGetMaxX(tmpFrame)+10;
-            tmpFrame3.size.width = CGRectGetMinX(tmpFrame2)-CGRectGetMinX(tmpFrame3)-10;
-            tmpFrame3.size.height = tmpFrame.size.height/2;
-            [cell.label setFrame:tmpFrame3];
             [cell.label setBackgroundColor:UIColor.redColor];
-            
-            CGRect tmpFrame4 = tmpFrame3;
-            tmpFrame4.origin.y += CGRectGetMaxY(tmpFrame3);
-            [cell.detailLabel setFrame:tmpFrame4];
+
             [cell.detailLabel setBackgroundColor:UIColor.yellowColor];
             
             //接收信号
@@ -126,41 +110,22 @@
         }
             break;
         case 2: {
-            HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
+            HTupleViewCellDetail4 *cell = itemBlock(nil, HTupleViewCellDetail4.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
-            
-            CGRect frame = [cell getContentBounds];
-            
-            CGRect tmpFrame = frame;
-            tmpFrame.size.width = CGRectGetHeight(tmpFrame);
-            [cell.imageView setFrame:tmpFrame];
+            [cell loadCell];
+
             [cell.imageView setBackgroundColor:UIColor.redColor];
             [cell.imageView setImageWithName:@"icon_no_server"];
-            
-            CGRect tmpFrame2 = CGRectMake(0, 0, 10, 18);;
-            tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
-            tmpFrame2.origin.y = CGRectGetHeight(frame)/2-CGRectGetHeight(tmpFrame2)/2;
-            [cell.accessoryView setFrame:tmpFrame2];
+
             [cell.accessoryView setImageWithName:@"icon_tuple_arrow_right"];
-            
-            CGRect tmpFrame3 = tmpFrame;
-            tmpFrame3.origin.x = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame3)-10;
-            [cell.detailView setFrame:tmpFrame3];
+
             [cell.detailView setBackgroundColor:UIColor.redColor];
             [cell.detailView setImageWithName:@"icon_no_server"];
-            
-            CGRect tmpFrame4 = frame;
-            tmpFrame4.origin.x += CGRectGetMaxX(tmpFrame)+10;
-            tmpFrame4.size.width = CGRectGetMinX(tmpFrame3)-CGRectGetWidth(tmpFrame)-10-10;
-            tmpFrame4.size.height = CGRectGetHeight(tmpFrame)/2;
-            [cell.label setFrame:tmpFrame4];
+
             [cell.label setBackgroundColor:UIColor.redColor];
-            
-            CGRect tmpFrame5 = tmpFrame4;
-            tmpFrame5.origin.y += CGRectGetMaxY(tmpFrame4);
-            [cell.detailLabel setFrame:tmpFrame5];
+
             [cell.detailLabel setBackgroundColor:UIColor.yellowColor];
         }
             break;
