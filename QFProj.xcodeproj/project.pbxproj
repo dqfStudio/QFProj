@@ -156,6 +156,7 @@
 		A20E3D362326892E00E6982B /* HTupleViewCellDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D352326892E00E6982B /* HTupleViewCellDefault.m */; };
 		A20E3D392326894000E6982B /* HTupleViewCellDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D382326894000E6982B /* HTupleViewCellDetail.m */; };
 		A20E3D3C2327607E00E6982B /* HTupleViewCellBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D3B2327607E00E6982B /* HTupleViewCellBase.m */; };
+		A20E3D3F23278A2500E6982B /* HTupleViewCellValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D3E23278A2500E6982B /* HTupleViewCellValue1.m */; };
 		A219F22F222FB46A00241FD7 /* HIFS.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F22D222FB46A00241FD7 /* HIFS.m */; };
 		A222A6C42279AAAD0013098A /* NSDictionary+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A6C32279AAAD0013098A /* NSDictionary+HUtil.m */; };
 		A222A716227C52430013098A /* UILabel+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A715227C52430013098A /* UILabel+HUtil.m */; };
@@ -599,6 +600,8 @@
 		A20E3D382326894000E6982B /* HTupleViewCellDetail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewCellDetail.m; sourceTree = "<group>"; };
 		A20E3D3A2327607E00E6982B /* HTupleViewCellBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewCellBase.h; sourceTree = "<group>"; };
 		A20E3D3B2327607E00E6982B /* HTupleViewCellBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewCellBase.m; sourceTree = "<group>"; };
+		A20E3D3D23278A2500E6982B /* HTupleViewCellValue1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewCellValue1.h; sourceTree = "<group>"; };
+		A20E3D3E23278A2500E6982B /* HTupleViewCellValue1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewCellValue1.m; sourceTree = "<group>"; };
 		A219F22D222FB46A00241FD7 /* HIFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIFS.m; sourceTree = "<group>"; };
 		A219F22E222FB46A00241FD7 /* HIFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIFS.h; sourceTree = "<group>"; };
 		A222A6C22279AAAD0013098A /* NSDictionary+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HUtil.h"; sourceTree = "<group>"; };
@@ -1497,6 +1500,8 @@
 				A20E3D382326894000E6982B /* HTupleViewCellDetail.m */,
 				A20E3D312326891900E6982B /* HTupleViewCellAccessory.h */,
 				A20E3D322326891900E6982B /* HTupleViewCellAccessory.m */,
+				A20E3D3D23278A2500E6982B /* HTupleViewCellValue1.h */,
+				A20E3D3E23278A2500E6982B /* HTupleViewCellValue1.m */,
 				15C5735620B3DD7B0070327C /* tuple_arrow_icons */,
 			);
 			path = HTupleViewCell;
@@ -2608,6 +2613,7 @@
 				A20E3CD8231A662B00E6982B /* HRequestHUD.m in Sources */,
 				A20E3D2123239BE400E6982B /* HMainController3+HSection0.m in Sources */,
 				A2E8F57522D8356300E7C9F2 /* HCacheImageDecoder.m in Sources */,
+				A20E3D3F23278A2500E6982B /* HTupleViewCellValue1.m in Sources */,
 				1547B88E210C4E09009E0374 /* UIViewController+HTracking.m in Sources */,
 				A2A8EC0122E4A4730049C51B /* HCountDownButton.m in Sources */,
 				15B4DE062092F96C00773E04 /* NSObject+HBlockSEL.m in Sources */,

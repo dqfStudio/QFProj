@@ -198,32 +198,23 @@
         }
             break;
         case 6: {
-            HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
+            HTupleViewCellValue1 *cell = itemBlock(nil, HTupleViewCellValue1.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
             
             CGRect frame = [cell getContentBounds];
             
-            CGRect tmpFrame = frame;
-            tmpFrame.size.width = tmpFrame.size.width/3-20/3;
-            [cell.label setFrame:tmpFrame];
+            cell.leftWidth  = frame.size.width/3;
+            cell.rightWidth = frame.size.width/3;
             [cell.label setBackgroundColor:UIColor.greenColor];
             [cell.label setText:@"header"];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
-            
-            CGRect tmpFrame2 = frame;
-            tmpFrame2.origin.x = CGRectGetMaxX(tmpFrame)+10;
-            tmpFrame2.size.width = tmpFrame.size.width;
-            [cell.detailLabel setFrame:tmpFrame2];
+
             [cell.detailLabel setBackgroundColor:UIColor.redColor];
             [cell.detailLabel setText:@"cell"];
             [cell.detailLabel setTextAlignment:NSTextAlignmentCenter];
             
-            CGRect tmpFrame3 = frame;
-            tmpFrame3.origin.x = CGRectGetMaxX(tmpFrame2)+10;
-            tmpFrame3.size.width = tmpFrame.size.width;
-            [cell.accessoryLabel setFrame:tmpFrame3];
             [cell.accessoryLabel setBackgroundColor:UIColor.yellowColor];
             [cell.accessoryLabel setText:@"footer"];
             [cell.accessoryLabel setTextAlignment:NSTextAlignmentCenter];
