@@ -84,7 +84,7 @@
         }
             break;
         case 1: {
-            HTupleViewCellDetail3 *cell = itemBlock(nil, HTupleViewCellDetail3.class, nil, YES);
+            HTupleViewCellDetail5 *cell = itemBlock(nil, HTupleViewCellDetail5.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
@@ -108,7 +108,7 @@
         }
             break;
         case 2: {
-            HTupleViewCellDetail5 *cell = itemBlock(nil, HTupleViewCellDetail5.class, nil, YES);
+            HTupleViewCellDetail7 *cell = itemBlock(nil, HTupleViewCellDetail7.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];

@@ -28,12 +28,44 @@
     CGRect tmpFrame2 = frame;
     tmpFrame2.origin.x += CGRectGetMaxX(tmpFrame)+10;
     tmpFrame2.size.width = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame)-10;
-    tmpFrame2.size.height = CGRectGetHeight(tmpFrame);
     [self.label setFrame:tmpFrame2];
 }
 @end
 
 @implementation HTupleViewCellDefault3
+@dynamic label, accessoryView;
+- (void)frameChanged {
+    CGRect frame = [self getContentBounds];
+    
+    CGRect tmpFrame = CGRectMake(0, 0, 10, 18);
+    tmpFrame.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame);
+    tmpFrame.origin.y = CGRectGetHeight(frame)/2-CGRectGetHeight(tmpFrame)/2;
+    [self.accessoryView setFrame:tmpFrame];
+    [self.accessoryView setImageWithName:@"icon_tuple_arrow_right"];
+    
+    CGRect tmpFrame2 = frame;
+    tmpFrame2.size.width = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame)-10;
+    [self.label setFrame:tmpFrame2];
+}
+@end
+
+@implementation HTupleViewCellDefault4
+@dynamic label, detailView;
+- (void)frameChanged {
+    CGRect frame = [self getContentBounds];
+    
+    CGRect tmpFrame = frame;
+    tmpFrame.size.width = CGRectGetHeight(tmpFrame);
+    tmpFrame.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame);
+    [self.detailView setFrame:tmpFrame];
+    
+    CGRect tmpFrame2 = frame;
+    tmpFrame2.size.width = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame)-10;
+    [self.label setFrame:tmpFrame2];
+}
+@end
+
+@implementation HTupleViewCellDefault5
 @dynamic imageView, label, accessoryView;
 - (void)frameChanged {
     CGRect frame = [self getContentBounds];
@@ -51,12 +83,11 @@
     CGRect tmpFrame3 = frame;
     tmpFrame3.origin.x += CGRectGetMaxX(tmpFrame)+10;
     tmpFrame3.size.width = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame)-10-10;
-    tmpFrame3.size.height = CGRectGetHeight(tmpFrame);
     [self.label setFrame:tmpFrame3];
 }
 @end
 
-@implementation HTupleViewCellDefault4
+@implementation HTupleViewCellDefault6
 @dynamic imageView, label, detailView;
 - (void)frameChanged {
     CGRect frame = [self getContentBounds];
@@ -72,12 +103,11 @@
     CGRect tmpFrame3 = frame;
     tmpFrame3.origin.x += CGRectGetMaxX(tmpFrame)+10;
     tmpFrame3.size.width = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame)-10-10;
-    tmpFrame3.size.height = CGRectGetHeight(tmpFrame);
     [self.label setFrame:tmpFrame3];
 }
 @end
 
-@implementation HTupleViewCellDefault5
+@implementation HTupleViewCellDefault7
 @dynamic imageView, label;
 @dynamic detailView, accessoryView;
 - (void)frameChanged {
@@ -100,7 +130,6 @@
     CGRect tmpFrame4 = frame;
     tmpFrame4.origin.x += CGRectGetMaxX(tmpFrame)+10;
     tmpFrame4.size.width = CGRectGetMinX(tmpFrame3)-CGRectGetWidth(tmpFrame)-10-10;
-    tmpFrame4.size.height = CGRectGetHeight(tmpFrame);
     [self.label setFrame:tmpFrame4];
 }
 @end

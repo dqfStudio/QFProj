@@ -45,6 +45,49 @@
 @end
 
 @implementation HTupleViewCellDetail3
+@dynamic label, detailLabel, accessoryView;
+- (void)frameChanged {
+    CGRect frame = [self getContentBounds];
+    
+    CGRect tmpFrame = CGRectMake(0, 0, 10, 18);
+    tmpFrame.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame);
+    tmpFrame.origin.y = CGRectGetHeight(frame)/2-CGRectGetHeight(tmpFrame)/2;
+    [self.accessoryView setFrame:tmpFrame];
+    [self.accessoryView setImageWithName:@"icon_tuple_arrow_right"];
+    
+    CGRect tmpFrame2 = frame;
+    tmpFrame2.size.width = CGRectGetMinX(tmpFrame)-10;
+    tmpFrame2.size.height = CGRectGetHeight(frame)/2;
+    [self.label setFrame:tmpFrame2];
+    
+    CGRect tmpFrame3 = tmpFrame2;
+    tmpFrame3.origin.y += CGRectGetMaxY(tmpFrame2);
+    [self.detailLabel setFrame:tmpFrame3];
+}
+@end
+
+@implementation HTupleViewCellDetail4
+@dynamic label, detailLabel, detailView;
+- (void)frameChanged {
+    CGRect frame = [self getContentBounds];
+    
+    CGRect tmpFrame = frame;
+    tmpFrame.size.width = CGRectGetHeight(tmpFrame);
+    tmpFrame.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame);
+    [self.detailView setFrame:tmpFrame];
+    
+    CGRect tmpFrame2 = frame;
+    tmpFrame2.size.width = CGRectGetMinX(tmpFrame)-10;
+    tmpFrame2.size.height = CGRectGetHeight(tmpFrame)/2;
+    [self.label setFrame:tmpFrame2];
+    
+    CGRect tmpFrame3 = tmpFrame2;
+    tmpFrame3.origin.y += CGRectGetMaxY(tmpFrame2);
+    [self.detailLabel setFrame:tmpFrame3];
+}
+@end
+
+@implementation HTupleViewCellDetail5
 @dynamic imageView, label;
 @dynamic detailLabel, accessoryView;
 - (void)frameChanged {
@@ -72,7 +115,7 @@
 }
 @end
 
-@implementation HTupleViewCellDetail4
+@implementation HTupleViewCellDetail6
 @dynamic imageView, label;
 @dynamic detailLabel, detailView;
 - (void)frameChanged {
@@ -98,7 +141,7 @@
 }
 @end
 
-@implementation HTupleViewCellDetail5
+@implementation HTupleViewCellDetail7
 @dynamic imageView, label, detailLabel;
 @dynamic detailView, accessoryView;
 - (void)frameChanged {
