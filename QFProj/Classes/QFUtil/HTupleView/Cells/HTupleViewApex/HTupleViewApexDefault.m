@@ -15,8 +15,8 @@
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        [self.cellContentView addSubview:_imageView];
         [self frameChanged];
+        [self.cellContentView addSubview:_imageView];
     }
     return _imageView;
 }
@@ -27,11 +27,27 @@
     }
     return _label;
 }
+- (HLabel *)detailLabel {
+    if (!_detailLabel) {
+        _detailLabel = [HLabel new];
+        [self frameChanged];
+        [self.cellContentView addSubview:_detailLabel];
+    }
+    return _detailLabel;
+}
+- (HLabel *)accessoryLabel {
+    if (!_accessoryLabel) {
+        _accessoryLabel = [HLabel new];
+        [self frameChanged];
+        [self.cellContentView addSubview:_accessoryLabel];
+    }
+    return _accessoryLabel;
+}
 - (HWebImageView *)detailView {
     if (!_detailView) {
         _detailView = [HWebImageView new];
-        [self.cellContentView addSubview:_detailView];
         [self frameChanged];
+        [self.cellContentView addSubview:_detailView];
     }
     return _detailView;
 }
@@ -52,6 +68,13 @@
     }
     
     CGRect tmpFrame4 = frame;
+    if (_detailLabel && _accessoryLabel) {
+        tmpFrame4.size.height = CGRectGetHeight(frame)/3;
+    }else if (_detailLabel || _accessoryLabel) {
+        tmpFrame4.size.height = CGRectGetHeight(frame)/2;
+    }else {
+        tmpFrame4.size.height = CGRectGetHeight(frame);
+    }
     if (_imageView) {
         tmpFrame4.origin.x = CGRectGetMaxX(_imageView.frame)+10;
     }
@@ -69,6 +92,23 @@
         }
     }
     [self.label setFrame:tmpFrame4];
+    
+    if (_detailLabel) {
+        CGRect tmpFrame5 = tmpFrame4;
+        tmpFrame5.origin.y += CGRectGetHeight(tmpFrame4);
+        [_detailLabel setFrame:tmpFrame5];
+    }
+    
+    if (_accessoryLabel) {
+        CGRect tmpFrame6 = tmpFrame4;
+        if (_detailLabel) {
+            tmpFrame6.origin.y += CGRectGetHeight(tmpFrame4);
+            tmpFrame6.origin.y += CGRectGetHeight(tmpFrame6);
+        }else {
+            tmpFrame6.origin.y += CGRectGetHeight(tmpFrame4);
+        }
+        [_accessoryLabel setFrame:tmpFrame6];
+    }
 }
 @end
 
@@ -83,8 +123,8 @@
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        [self.cellContentView addSubview:_imageView];
         [self frameChanged];
+        [self.cellContentView addSubview:_imageView];
     }
     return _imageView;
 }
@@ -95,11 +135,27 @@
     }
     return _label;
 }
+- (HLabel *)detailLabel {
+    if (!_detailLabel) {
+        _detailLabel = [HLabel new];
+        [self frameChanged];
+        [self.cellContentView addSubview:_detailLabel];
+    }
+    return _detailLabel;
+}
+- (HLabel *)accessoryLabel {
+    if (!_accessoryLabel) {
+        _accessoryLabel = [HLabel new];
+        [self frameChanged];
+        [self.cellContentView addSubview:_accessoryLabel];
+    }
+    return _accessoryLabel;
+}
 - (HWebImageView *)detailView {
     if (!_detailView) {
         _detailView = [HWebImageView new];
-        [self.cellContentView addSubview:_detailView];
         [self frameChanged];
+        [self.cellContentView addSubview:_detailView];
     }
     return _detailView;
 }
@@ -133,6 +189,13 @@
     }
     
     CGRect tmpFrame4 = frame;
+    if (_detailLabel && _accessoryLabel) {
+        tmpFrame4.size.height = CGRectGetHeight(frame)/3;
+    }else if (_detailLabel || _accessoryLabel) {
+        tmpFrame4.size.height = CGRectGetHeight(frame)/2;
+    }else {
+        tmpFrame4.size.height = CGRectGetHeight(frame);
+    }
     if (_imageView) {
         tmpFrame4.origin.x = CGRectGetMaxX(_imageView.frame)+10;
     }
@@ -150,5 +213,22 @@
         }
     }
     [self.label setFrame:tmpFrame4];
+    
+    if (_detailLabel) {
+        CGRect tmpFrame5 = tmpFrame4;
+        tmpFrame5.origin.y += CGRectGetHeight(tmpFrame4);
+        [_detailLabel setFrame:tmpFrame5];
+    }
+    
+    if (_accessoryLabel) {
+        CGRect tmpFrame6 = tmpFrame4;
+        if (_detailLabel) {
+            tmpFrame6.origin.y += CGRectGetHeight(tmpFrame4);
+            tmpFrame6.origin.y += CGRectGetHeight(tmpFrame6);
+        }else {
+            tmpFrame6.origin.y += CGRectGetHeight(tmpFrame4);
+        }
+        [_accessoryLabel setFrame:tmpFrame6];
+    }
 }
 @end
