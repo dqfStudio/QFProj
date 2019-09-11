@@ -467,7 +467,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     }else if (self.sizeForItemBlock) {
         return self.sizeForItemBlock(indexPath);
     }
-    return CGSizeZero;
+    //不能为CGSizeZero，否则会崩溃
+    return CGSizeMake(1.f, 1.f);
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:tupleItem:atIndexPath:)]) {
@@ -664,7 +665,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
         return [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&tupleView, &indexPath] CGSizeValue];
     }
-    return CGSizeZero;
+    //不能为CGSizeZero，否则会崩溃
+    return CGSizeMake(1.f, 1.f);
 }
 - (UIEdgeInsets)self_tupleView:(HTupleView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
     NSString *prefix = [self tupleWithPrefix:section];
