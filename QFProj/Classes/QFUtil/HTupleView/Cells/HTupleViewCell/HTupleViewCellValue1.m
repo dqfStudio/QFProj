@@ -112,7 +112,7 @@
     if (self.leftWidth > 0) {
         CGRect tmpFrame5 = tmpFrame4;
         tmpFrame5.size.width = self.leftWidth;
-        [self.label setFrame:tmpFrame5];
+        [self.detailLabel setFrame:tmpFrame5];
     }
     
     if (self.rightWidth > 0) {
@@ -128,7 +128,7 @@
     }
     tmpFrame7.origin.x = self.leftWidth;
     tmpFrame7.size.width = CGRectGetWidth(tmpFrame4)-self.leftWidth-self.rightWidth;
-    [self.detailLabel setFrame:tmpFrame7];
+    [self.label setFrame:tmpFrame7];
 }
 @end
 
@@ -250,7 +250,7 @@
     if (self.leftWidth > 0) {
         CGRect tmpFrame6 = tmpFrame5;
         tmpFrame6.size.width = self.leftWidth;
-        [self.label setFrame:tmpFrame6];
+        [self.detailLabel setFrame:tmpFrame6];
     }
     
     if (self.rightWidth > 0) {
@@ -266,6 +266,6 @@
     }
     tmpFrame8.origin.x = self.leftWidth;
     tmpFrame8.size.width = CGRectGetWidth(tmpFrame5)-self.leftWidth-self.rightWidth;
-    [self.detailLabel setFrame:tmpFrame8];
+    [self.label setFrame:tmpFrame8];
 }
 @end
