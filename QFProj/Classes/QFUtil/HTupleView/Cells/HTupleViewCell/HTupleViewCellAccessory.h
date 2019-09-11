@@ -6,7 +6,7 @@
 //  Copyright © 2019 dqfStudio. All rights reserved.
 //
 
-#import "HTupleViewCellBase.h"
+#import "HTupleViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
