@@ -14,8 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
  右边不带箭头
  */
 @interface HTupleViewCellValue1 : HTupleBaseCell
-@property (nonatomic) CGFloat leftWidth;
-@property (nonatomic) CGFloat rightWidth;
+@property (nonatomic) CGFloat leftWidth; //左边label的宽度
+@property (nonatomic) CGFloat rightWidth; //右边label的宽度
 
 @property (nonatomic) HWebImageView *imageView; //左边显示图片
 @property (nonatomic) HLabel *label; //显示文字内容
@@ -28,8 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
  右边带有箭头
  */
 @interface HTupleViewCellValue2 : HTupleBaseCell
-@property (nonatomic) CGFloat leftWidth;
-@property (nonatomic) CGFloat rightWidth;
+@property (nonatomic) CGFloat leftWidth; //左边label的宽度
+@property (nonatomic) CGFloat rightWidth; //右边label的宽度
 
 @property (nonatomic) HWebImageView *imageView; //左边显示图片
 @property (nonatomic) HLabel *label; //显示文字内容
