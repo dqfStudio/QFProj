@@ -26,7 +26,7 @@
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        [self frameChanged];
+        self.needRefreshFrame = YES;
         [self.cellContentView addSubview:_imageView];
     }
     return _imageView;
@@ -41,7 +41,7 @@
 - (HLabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
-        [self frameChanged];
+        self.needRefreshFrame = YES;
         [self.cellContentView addSubview:_detailLabel];
     }
     return _detailLabel;
@@ -49,7 +49,7 @@
 - (HLabel *)accessoryLabel {
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
-        [self frameChanged];
+        self.needRefreshFrame = YES;
         [self.cellContentView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
@@ -57,7 +57,7 @@
 - (HWebImageView *)detailView {
     if (!_detailView) {
         _detailView = [HWebImageView new];
-        [self frameChanged];
+        self.needRefreshFrame = YES;
         [self.cellContentView addSubview:_detailView];
     }
     return _detailView;
@@ -151,7 +151,7 @@
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        [self frameChanged];
+        self.needRefreshFrame = YES;
         [self.cellContentView addSubview:_imageView];
     }
     return _imageView;
@@ -166,7 +166,7 @@
 - (HLabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
-        [self frameChanged];
+        self.needRefreshFrame = YES;
         [self.cellContentView addSubview:_detailLabel];
     }
     return _detailLabel;
@@ -174,7 +174,7 @@
 - (HLabel *)accessoryLabel {
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
-        [self frameChanged];
+        self.needRefreshFrame = YES;
         [self.cellContentView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
@@ -182,7 +182,7 @@
 - (HWebImageView *)detailView {
     if (!_detailView) {
         _detailView = [HWebImageView new];
-        [self frameChanged];
+        self.needRefreshFrame = YES;
         [self.cellContentView addSubview:_detailView];
     }
     return _detailView;

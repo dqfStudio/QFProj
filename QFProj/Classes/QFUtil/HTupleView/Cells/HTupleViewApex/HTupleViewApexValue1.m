@@ -30,13 +30,13 @@
 - (void)setLeftWidth:(CGFloat)leftWidth {
     if (_leftWidth != leftWidth) {
         _leftWidth = leftWidth;
-        [self frameChanged];
+        self.needRefreshFrame = YES;
     }
 }
 - (void)setRightWidth:(CGFloat)rightWidth {
     if (_rightWidth != rightWidth) {
         _rightWidth = rightWidth;
-        [self frameChanged];
+        self.needRefreshFrame = YES;
     }
 }
 - (UIView *)_cellContentView {
@@ -49,7 +49,7 @@
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        [self frameChanged];
+        self.needRefreshFrame = YES;
         [self.cellContentView addSubview:_imageView];
     }
     return _imageView;
@@ -78,7 +78,7 @@
 - (HWebImageView *)detailView {
     if (!_detailView) {
         _detailView = [HWebImageView new];
-        [self frameChanged];
+        self.needRefreshFrame = YES;
         [self.cellContentView addSubview:_detailView];
     }
     return _detailView;
@@ -167,13 +167,13 @@
 - (void)setLeftWidth:(CGFloat)leftWidth {
     if (_leftWidth != leftWidth) {
         _leftWidth = leftWidth;
-        [self frameChanged];
+        self.needRefreshFrame = YES;
     }
 }
 - (void)setRightWidth:(CGFloat)rightWidth {
     if (_rightWidth != rightWidth) {
         _rightWidth = rightWidth;
-        [self frameChanged];
+        self.needRefreshFrame = YES;
     }
 }
 - (UIView *)_cellContentView {
@@ -186,7 +186,7 @@
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        [self frameChanged];
+        self.needRefreshFrame = YES;
         [self.cellContentView addSubview:_imageView];
     }
     return _imageView;
@@ -215,7 +215,7 @@
 - (HWebImageView *)detailView {
     if (!_detailView) {
         _detailView = [HWebImageView new];
-        [self frameChanged];
+        self.needRefreshFrame = YES;
         [self.cellContentView addSubview:_detailView];
     }
     return _detailView;

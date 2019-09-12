@@ -484,10 +484,15 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
             return [self dequeueReusableCellWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
         }, indexPath);
     }
-    return [self.allReuseCells objectForKey:indexPath.getStringValue];
+    HTupleBaseCell *cell = [self.allReuseCells objectForKey:indexPath.getStringValue];
+    if (cell.needRefreshFrame) {
+        cell.needRefreshFrame = NO;
+        [cell frameChanged];
+    }
+    return cell;
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    UICollectionReusableView *cell = nil;
+    HTupleBaseApex *cell = nil;
     if (kind == UICollectionElementKindSectionHeader) {
         if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:tupleHeader:inSection:)]) {
             [self.tupleDelegate tupleView:self tupleHeader:^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
@@ -518,6 +523,10 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
             }, indexPath);
         }
         cell = [self.allReuseFooters objectForKey:indexPath.getStringValue];
+    }
+    if (cell.needRefreshFrame) {
+        cell.needRefreshFrame = NO;
+        [cell frameChanged];
     }
     return cell;
 }

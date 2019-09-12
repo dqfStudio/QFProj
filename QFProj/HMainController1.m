@@ -63,7 +63,7 @@
 - (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
-            HTupleViewCellValue2 *cell = itemBlock(nil, HTupleViewCellValue2.class, nil, YES);
+            HTupleViewCellDefault *cell = itemBlock(nil, HTupleViewCellDefault.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
@@ -74,8 +74,8 @@
             [cell.detailView setBackgroundColor:UIColor.redColor];
             [cell.detailView setImageWithName:@"icon_no_server"];
 
-            cell.leftWidth = 100;
-            cell.rightWidth = 100;
+//            cell.leftWidth = 100;
+//            cell.rightWidth = 100;
             
             [cell.label setBackgroundColor:UIColor.redColor];
             

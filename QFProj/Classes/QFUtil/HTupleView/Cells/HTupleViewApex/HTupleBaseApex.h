@@ -37,6 +37,8 @@ typedef void(^HTupleApexSkinBlock)(HTupleBaseApex *cell, HTupleView *tuple);
 @property (nonatomic) UIEdgeInsets separatorInset;
 @property (nonatomic) UIColor *separatorColor;
 @property (nonatomic) BOOL shouldShowSeparator;
+//是否需要刷新frame
+@property (nonatomic) BOOL needRefreshFrame;
 - (CGRect)getContentFrame;
 - (CGRect)getContentBounds;
 //需要子类重写该方法
