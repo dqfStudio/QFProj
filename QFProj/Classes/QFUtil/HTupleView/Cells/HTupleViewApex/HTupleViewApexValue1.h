@@ -10,10 +10,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface HTupleViewApexValueBase : HTupleBaseCell
+@property (nonatomic) UIEdgeInsets imageViewInsets; //imageView的上下左右边距
+@property (nonatomic) UILREdgeInsets labelInsets; //label的左右边距
+@property (nonatomic) UILREdgeInsets detailLabelInsets; //detailLabel的左右边距
+@property (nonatomic) UILREdgeInsets accessoryLabelInsets; //accessoryLabel的左右边距
+@property (nonatomic) UILREdgeInsets centerLabelInsets; //中间label的左右边距
+@property (nonatomic) UIEdgeInsets detailViewInsets; //detailView的上下左右边距
+@end
+
 /*
  右边不带箭头
  */
-@interface HTupleViewApexValue1 : HTupleBaseCell
+@interface HTupleViewApexValue1 : HTupleViewApexValueBase
 @property (nonatomic) CGFloat leftWidth; //左边label的宽度
 @property (nonatomic) CGFloat rightWidth; //右边label的宽度
 
@@ -27,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 /*
  右边带有箭头
  */
-@interface HTupleViewApexValue2 : HTupleBaseCell
+@interface HTupleViewApexValue2 : HTupleViewApexValueBase
 @property (nonatomic) CGFloat leftWidth; //左边label的宽度
 @property (nonatomic) CGFloat rightWidth; //右边label的宽度
 
