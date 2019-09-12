@@ -11,6 +11,27 @@
 
 #define KTupleSkinNotify @"tupleSkinNotify"
 
+typedef struct UITBEdgeInsets {
+    CGFloat top, bottom;
+} UITBEdgeInsets;
+
+typedef struct UILREdgeInsets {
+    CGFloat left, right;
+} UILREdgeInsets;
+
+static UITBEdgeInsets UITBEdgeInsetsZero = {0, 0};
+static UILREdgeInsets UILREdgeInsetsZero = {0, 0};
+
+UIKIT_STATIC_INLINE UITBEdgeInsets UITBEdgeInsetsMake(CGFloat top, CGFloat bottom) {
+    UITBEdgeInsets insets = {top, bottom};
+    return insets;
+}
+
+UIKIT_STATIC_INLINE UILREdgeInsets UILREdgeInsetsMake(CGFloat left, CGFloat right) {
+    UILREdgeInsets insets = {left, right};
+    return insets;
+}
+
 @class HTupleSignal;
 
 typedef void(^HTupleCellInitBlock)(id target);

@@ -8,6 +8,17 @@
 
 #import "HTupleViewCellValue1.h"
 
+@implementation HTupleViewCellValueBase
+- (void)initUI {
+    self.imageViewInsets = UIEdgeInsetsZero;
+    self.labelInsets = UILREdgeInsetsZero;
+    self.detailLabelInsets = UILREdgeInsetsZero;
+    self.accessoryLabelInsets = UILREdgeInsetsZero;
+    self.centerLabelInsets = UILREdgeInsetsMake(10, 10);
+    self.detailViewInsets = UIEdgeInsetsZero;
+}
+@end
+
 @interface HTupleViewCellValue1 ()
 @property (nonatomic) UIView *_cellContentView;
 @end

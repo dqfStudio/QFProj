@@ -63,7 +63,7 @@
 - (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
-            HTupleViewCellDefault *cell = itemBlock(nil, HTupleViewCellDefault.class, nil, YES);
+            HTupleViewCellDefault2 *cell = itemBlock(nil, HTupleViewCellDefault2.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
