@@ -89,6 +89,10 @@
     if (_imageView) {
         CGRect tmpFrame = frame;
         tmpFrame.size.width = CGRectGetHeight(tmpFrame);
+        tmpFrame.origin.x += self.imageViewInsets.left;
+        tmpFrame.origin.y += self.imageViewInsets.top;
+        tmpFrame.size.width -= self.imageViewInsets.left+self.imageViewInsets.right;
+        tmpFrame.size.height -= self.imageViewInsets.top+self.imageViewInsets.bottom;
         [_imageView setFrame:tmpFrame];
     }
     
@@ -96,26 +100,31 @@
         CGRect tmpFrame2 = frame;
         tmpFrame2.size.width = CGRectGetHeight(tmpFrame2);
         tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
+        tmpFrame2.origin.x += self.detailViewInsets.left;
+        tmpFrame2.origin.y += self.detailViewInsets.top;
+        tmpFrame2.size.width -= self.detailViewInsets.left+self.detailViewInsets.right;
+        tmpFrame2.size.height -= self.detailViewInsets.top+self.detailViewInsets.bottom;
         [_detailView setFrame:tmpFrame2];
     }
     
     CGRect tmpFrame3 = frame;
     if (_imageView) {
-        tmpFrame3.origin.x = CGRectGetMaxX(_imageView.frame)+10;
+        tmpFrame3.origin.x = CGRectGetMaxX(_imageView.frame)+self.centerLabelInsets.left;
     }
     if (_detailView) {
         if (_imageView) {
-            tmpFrame3.size.width = CGRectGetMinX(_detailView.frame)-CGRectGetMaxX(_imageView.frame)-10-10;
+            tmpFrame3.size.width = CGRectGetMinX(_detailView.frame)-CGRectGetMaxX(_imageView.frame)-self.centerLabelInsets.left-self.centerLabelInsets.right;
         }else {
-            tmpFrame3.size.width = CGRectGetMinX(_detailView.frame)-10;
+            tmpFrame3.size.width = CGRectGetMinX(_detailView.frame)-self.centerLabelInsets.right;
         }
     }else {
         if (_imageView) {
-            tmpFrame3.size.width = CGRectGetWidth(frame)-CGRectGetMaxX(_imageView.frame)-10;
+            tmpFrame3.size.width = CGRectGetWidth(frame)-CGRectGetMaxX(_imageView.frame)-self.centerLabelInsets.left;
         }else {
             tmpFrame3.size.width = CGRectGetWidth(frame);
         }
     }
+    
     [self._cellContentView setFrame:tmpFrame3];
     
     CGRect tmpFrame4 = self._cellContentView.bounds;
@@ -123,6 +132,8 @@
     if (self.leftWidth > 0) {
         CGRect tmpFrame5 = tmpFrame4;
         tmpFrame5.size.width = self.leftWidth;
+        tmpFrame5.origin.x += self.detailLabelInsets.left;
+        tmpFrame5.size.width -= self.detailLabelInsets.left+self.detailLabelInsets.right;
         [self.detailLabel setFrame:tmpFrame5];
     }
     
@@ -130,15 +141,16 @@
         CGRect tmpFrame6 = tmpFrame4;
         tmpFrame6.origin.x = CGRectGetWidth(tmpFrame4)-self.rightWidth;
         tmpFrame6.size.width = self.rightWidth;
+        tmpFrame6.origin.x += self.accessoryLabelInsets.left;
+        tmpFrame6.size.width -= self.accessoryLabelInsets.left+self.accessoryLabelInsets.right;
         [self.accessoryLabel setFrame:tmpFrame6];
     }
     
     CGRect tmpFrame7 = tmpFrame4;
-    if (self.leftWidth > 0) {
-        tmpFrame7.origin.x += CGRectGetMaxX(tmpFrame4)+10;
-    }
     tmpFrame7.origin.x = self.leftWidth;
     tmpFrame7.size.width = CGRectGetWidth(tmpFrame4)-self.leftWidth-self.rightWidth;
+    tmpFrame7.origin.x += self.labelInsets.left;
+    tmpFrame7.size.width -= self.labelInsets.left+self.labelInsets.right;
     [self.label setFrame:tmpFrame7];
 }
 @end
