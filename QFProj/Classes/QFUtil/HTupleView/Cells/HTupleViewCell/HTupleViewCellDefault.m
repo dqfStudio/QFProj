@@ -8,6 +8,28 @@
 
 #import "HTupleViewCellDefault.h"
 
+@implementation HTupleViewCellBase
+- (void)initUI {
+    self.imageViewInsets = UIEdgeInsetsZero;
+    self.labelInsets =  UITBEdgeInsetsZero;
+    self.detailLabelInsets =  UITBEdgeInsetsZero;
+    self.accessoryLabelInsets =  UITBEdgeInsetsZero;
+    self.centerLabelInsets = UILREdgeInsetsMake(10, 10);
+    self.detailViewInsets = UIEdgeInsetsZero;
+}
+@end
+
+@implementation HTupleViewCellBase2
+- (void)initUI {
+    self.imageViewInsets = UIEdgeInsetsZero;
+    self.labelInsets = UILREdgeInsetsZero;
+    self.detailLabelInsets = UILREdgeInsetsZero;
+    self.accessoryLabelInsets = UILREdgeInsetsZero;
+    self.centerLabelInsets = UILREdgeInsetsMake(10, 10);
+    self.detailViewInsets = UIEdgeInsetsZero;
+}
+@end
+
 @implementation HTupleViewCellDefault
 - (void)layoutContentView {
     HLayoutTupleCell(self.cellContentView)
@@ -57,6 +79,10 @@
     if (_imageView) {
         CGRect tmpFrame = frame;
         tmpFrame.size.width = CGRectGetHeight(tmpFrame);
+        tmpFrame.origin.x += self.imageViewInsets.left;
+        tmpFrame.origin.y += self.imageViewInsets.top;
+        tmpFrame.size.width -= self.imageViewInsets.left+self.imageViewInsets.right;
+        tmpFrame.size.height -= self.imageViewInsets.top+self.imageViewInsets.bottom;
         [_imageView setFrame:tmpFrame];
     }
     
@@ -64,6 +90,10 @@
         CGRect tmpFrame3 = frame;
         tmpFrame3.size.width = CGRectGetHeight(tmpFrame3);
         tmpFrame3.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame3);
+        tmpFrame3.origin.x += self.detailViewInsets.left;
+        tmpFrame3.origin.y += self.detailViewInsets.top;
+        tmpFrame3.size.width -= self.detailViewInsets.left+self.detailViewInsets.right;
+        tmpFrame3.size.height -= self.detailViewInsets.top+self.detailViewInsets.bottom;
         [_detailView setFrame:tmpFrame3];
     }
     
@@ -76,37 +106,46 @@
         tmpFrame4.size.height = CGRectGetHeight(frame);
     }
     if (_imageView) {
-        tmpFrame4.origin.x = CGRectGetMaxX(_imageView.frame)+10;
+        tmpFrame4.origin.x = CGRectGetMaxX(_imageView.frame)+self.centerLabelInsets.left;
     }
+    
     if (_detailView) {
         if (_imageView) {
-            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-CGRectGetMaxX(_imageView.frame)-10-10;
+            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-CGRectGetMaxX(_imageView.frame)-self.centerLabelInsets.left-self.centerLabelInsets.right;
         }else {
-            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-10;
+            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-self.centerLabelInsets.right;
         }
     }else {
         if (_imageView) {
-            tmpFrame4.size.width = CGRectGetWidth(frame)-CGRectGetMaxX(_imageView.frame)-10;
+            tmpFrame4.size.width = CGRectGetWidth(frame)-CGRectGetMaxX(_imageView.frame)-self.centerLabelInsets.left;
         }else {
             tmpFrame4.size.width = CGRectGetWidth(frame);
         }
     }
+    CGRect tmpFrame44 = tmpFrame4;
+    
+    tmpFrame4.origin.y += self.labelInsets.top;
+    tmpFrame4.size.height -= self.labelInsets.top+self.labelInsets.bottom;
     [self.label setFrame:tmpFrame4];
     
     if (_detailLabel) {
-        CGRect tmpFrame5 = tmpFrame4;
-        tmpFrame5.origin.y += CGRectGetHeight(tmpFrame4);
+        CGRect tmpFrame5 = tmpFrame44;
+        tmpFrame5.origin.y += CGRectGetHeight(tmpFrame44);
+        tmpFrame5.origin.y += self.detailLabelInsets.top;
+        tmpFrame5.size.height -= self.detailLabelInsets.top+self.detailLabelInsets.bottom;
         [_detailLabel setFrame:tmpFrame5];
     }
     
     if (_accessoryLabel) {
-        CGRect tmpFrame6 = tmpFrame4;
+        CGRect tmpFrame6 = tmpFrame44;
         if (_detailLabel) {
-            tmpFrame6.origin.y += CGRectGetHeight(tmpFrame4);
+            tmpFrame6.origin.y += CGRectGetHeight(tmpFrame44);
             tmpFrame6.origin.y += CGRectGetHeight(tmpFrame6);
         }else {
-            tmpFrame6.origin.y += CGRectGetHeight(tmpFrame4);
+            tmpFrame6.origin.y += CGRectGetHeight(tmpFrame44);
         }
+        tmpFrame6.origin.y += self.accessoryLabelInsets.top;
+        tmpFrame6.size.height -= self.accessoryLabelInsets.top+self.accessoryLabelInsets.bottom;
         [_accessoryLabel setFrame:tmpFrame6];
     }
 }
@@ -172,6 +211,10 @@
     if (_imageView) {
         CGRect tmpFrame = frame;
         tmpFrame.size.width = CGRectGetHeight(tmpFrame);
+        tmpFrame.origin.x += self.imageViewInsets.left;
+        tmpFrame.origin.y += self.imageViewInsets.top;
+        tmpFrame.size.width -= self.imageViewInsets.left+self.imageViewInsets.right;
+        tmpFrame.size.height -= self.imageViewInsets.top+self.imageViewInsets.bottom;
         [_imageView setFrame:tmpFrame];
     }
     
@@ -185,6 +228,10 @@
         CGRect tmpFrame3 = frame;
         tmpFrame3.size.width = CGRectGetHeight(tmpFrame3);
         tmpFrame3.origin.x = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame3)-10;
+        tmpFrame3.origin.x += self.detailViewInsets.left;
+        tmpFrame3.origin.y += self.detailViewInsets.top;
+        tmpFrame3.size.width -= self.detailViewInsets.left+self.detailViewInsets.right;
+        tmpFrame3.size.height -= self.detailViewInsets.top+self.detailViewInsets.bottom;
         [_detailView setFrame:tmpFrame3];
     }
     
@@ -197,7 +244,7 @@
         tmpFrame4.size.height = CGRectGetHeight(frame);
     }
     if (_imageView) {
-        tmpFrame4.origin.x = CGRectGetMaxX(_imageView.frame)+10;
+        tmpFrame4.origin.x = CGRectGetMaxX(_imageView.frame)+self.centerLabelInsets.left;
     }
     if (_detailView) {
         if (_imageView) {
