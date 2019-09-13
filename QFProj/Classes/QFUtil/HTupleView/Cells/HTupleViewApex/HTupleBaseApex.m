@@ -55,8 +55,7 @@
     if (!_separatorView) {
         _separatorView = UIView.new;
         [_separatorView setHidden:YES];
-        //#E2E2E2
-        UIColor *color = [UIColor colorWithRed:226/255.0 green:226/255.0 blue:226/255.0 alpha:1.0];
+        UIColor *color = [UIColor colorWithRed:233/255.0 green:233/255.0 blue:233/255.0 alpha:1.0];
         [_separatorView setBackgroundColor:color];
     }
     return _separatorView;
