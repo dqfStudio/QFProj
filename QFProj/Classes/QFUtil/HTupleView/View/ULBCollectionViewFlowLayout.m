@@ -12,7 +12,7 @@
 static NSString *const ULBCollectionViewSectionColor = @"com.ulb.ULBCollectionElementKindSectionColor";
 
 
-@interface ULBCollectionViewLayoutAttributes  : UICollectionViewLayoutAttributes
+@interface ULBCollectionViewLayoutAttributes : UICollectionViewLayoutAttributes
 // 背景色
 @property (nonatomic, strong) UIColor *backgroudColor;
 
@@ -39,7 +39,7 @@ static NSString *const ULBCollectionViewSectionColor = @"com.ulb.ULBCollectionEl
 
 
 
-@interface ULBCollectionViewFlowLayout  ()
+@interface ULBCollectionViewFlowLayout ()
 
 @property (nonatomic, strong) UIColor *sectonColor;
 @property (nonatomic, strong) NSMutableArray<UICollectionViewLayoutAttributes *> *decorationViewAttrs;
@@ -49,22 +49,21 @@ static NSString *const ULBCollectionViewSectionColor = @"com.ulb.ULBCollectionEl
 
 @implementation ULBCollectionViewFlowLayout
 
-- (void)prepareLayout{
+- (void)prepareLayout {
     [super prepareLayout];
     
     NSInteger sections = [self.collectionView numberOfSections];
     //id<ULBCollectionViewDelegateFlowLayout> delegate  = self.collectionView.delegate;
     id<ULBCollectionViewDelegateFlowLayout> delegate  = (id)self.collectionView.delegate;
-    if ([delegate respondsToSelector:@selector(collectionView:layout:colorForSectionAtIndex:)]) {
-    }else{
-        return ;
+    if (![delegate respondsToSelector:@selector(collectionView:layout:colorForSectionAtIndex:)]) {
+        return;
     }
     
     //1.初始化
     [self registerClass:[ULBCollectionReusableView class] forDecorationViewOfKind:ULBCollectionViewSectionColor];
     [self.decorationViewAttrs removeAllObjects];
     
-    for (NSInteger section =0; section < sections; section++) {
+    for (NSInteger section = 0; section < sections; section++) {
         NSInteger numberOfItems = [self.collectionView numberOfItemsInSection:section];
         if (numberOfItems > 0) {
             UICollectionViewLayoutAttributes *firstAttr = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
@@ -85,7 +84,7 @@ static NSString *const ULBCollectionViewSectionColor = @"com.ulb.ULBCollectionEl
             if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
                 sectionFrame.size.width += sectionInset.left + sectionInset.right;
                 sectionFrame.size.height = self.collectionView.frame.size.height;
-            }else{
+            }else {
                 sectionFrame.size.width = self.collectionView.frame.size.width;
                 sectionFrame.size.height += sectionInset.top + sectionInset.bottom;
             }
@@ -96,8 +95,8 @@ static NSString *const ULBCollectionViewSectionColor = @"com.ulb.ULBCollectionEl
             attr.zIndex = -1;
             attr.backgroudColor = [delegate collectionView:self.collectionView layout:self colorForSectionAtIndex:section];
             [self.decorationViewAttrs addObject:attr];
-        }else{
-            continue ;
+        }else {
+            continue;
         }
     }
     
@@ -173,7 +172,7 @@ static NSString *const ULBCollectionViewSectionColor = @"com.ulb.ULBCollectionEl
 //}
 
 
-- (NSMutableArray<UICollectionViewLayoutAttributes *> *)decorationViewAttrs{
+- (NSMutableArray<UICollectionViewLayoutAttributes *> *)decorationViewAttrs {
     if (!_decorationViewAttrs) {
         _decorationViewAttrs = [NSMutableArray array];
     }
