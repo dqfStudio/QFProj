@@ -30,8 +30,16 @@ UIKIT_STATIC_INLINE UILREdgeInsets UILREdgeInsetsMake(CGFloat left, CGFloat righ
     return (UILREdgeInsets){left, right};
 }
 
-UIKIT_STATIC_INLINE CGSize CGSizeIntegral(CGFloat width, CGFloat height) {
-    return (CGSize){floor(width), floor(height)};
+UIKIT_STATIC_INLINE CGRect UIRectIntegral(CGRect rect) {
+    CGFloat x = floor(rect.origin.x);
+    CGFloat y = floor(rect.origin.y);
+    CGFloat width = floor(rect.origin.x + rect.size.width - x);
+    CGFloat height = floor(rect.origin.y + rect.size.height - y);
+    return (CGRect){x, y, width, height};
+}
+
+UIKIT_STATIC_INLINE CGSize UISizeIntegral(CGSize size) {
+    return (CGSize){floor(size.width), floor(size.height)};
 }
 
 @class HTupleSignal;

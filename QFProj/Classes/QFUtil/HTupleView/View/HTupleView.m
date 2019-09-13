@@ -61,7 +61,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 @implementation HTupleView
 - (instancetype)initWithFrame:(CGRect)frame {
     _flowLayout = UICollectionViewLeftAlignedLayout.new;
-    self = [super initWithFrame:CGRectIntegral(frame) collectionViewLayout:_flowLayout];
+    self = [super initWithFrame:UIRectIntegral(frame) collectionViewLayout:_flowLayout];
     if (self) {
         [self setup];
     }
@@ -73,7 +73,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     }else {
         _flowLayout = ULBCollectionViewFlowLayout.new;
     }
-    self = [super initWithFrame:CGRectIntegral(frame) collectionViewLayout:_flowLayout];
+    self = [super initWithFrame:UIRectIntegral(frame) collectionViewLayout:_flowLayout];
     if (self) {
         [self setup];
     }
@@ -87,7 +87,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         _flowLayout = UICollectionViewLeftAlignedLayout.new;
         _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     }
-    self = [super initWithFrame:CGRectIntegral(frame) collectionViewLayout:_flowLayout];
+    self = [super initWithFrame:UIRectIntegral(frame) collectionViewLayout:_flowLayout];
     if (self) {
         [self setup];
     }
@@ -95,7 +95,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
     _flowLayout = (UICollectionViewFlowLayout *)layout;
-    self = [super initWithFrame:CGRectIntegral(frame) collectionViewLayout:_flowLayout];
+    self = [super initWithFrame:UIRectIntegral(frame) collectionViewLayout:_flowLayout];
     if (self) {
         [self setup];
     }
@@ -110,7 +110,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 - (instancetype)initWithFrame:(CGRect)frame designStyle:(HTupleDesignStyle)style designSection:(NSInteger)sections headers:(NSArray <NSString *> *)headerIndexPaths footers:(NSArray <NSString *> *)footerIndexPaths items:(NSArray <NSString *> *)itemIndexPaths {
     _flowLayout = UICollectionViewLeftAlignedLayout.new;
     _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    self = [super initWithFrame:CGRectIntegral(frame) collectionViewLayout:_flowLayout];
+    self = [super initWithFrame:UIRectIntegral(frame) collectionViewLayout:_flowLayout];
     if (self) {
         _designStyle = style;
         _categoryDesign = YES;
@@ -123,7 +123,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     return self;
 }
 - (void)setFrame:(CGRect)frame {
-    frame = CGRectIntegral(frame);
+    frame = UIRectIntegral(frame);
     if(!CGRectEqualToRect(frame, self.frame)) {
         [super setFrame:frame];
         [self reloadData];
