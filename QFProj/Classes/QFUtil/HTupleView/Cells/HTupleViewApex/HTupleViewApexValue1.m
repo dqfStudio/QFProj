@@ -71,6 +71,7 @@
 - (HLabel *)accessoryLabel {
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
+        [_accessoryLabel setTextAlignment:NSTextAlignmentRight];
         [self._cellContentView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
@@ -208,6 +209,7 @@
 - (HLabel *)accessoryLabel {
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
+        [_accessoryLabel setTextAlignment:NSTextAlignmentRight];
         [self._cellContentView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
