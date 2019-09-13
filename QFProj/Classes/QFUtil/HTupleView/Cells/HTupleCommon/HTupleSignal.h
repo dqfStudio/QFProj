@@ -23,13 +23,15 @@ static UITBEdgeInsets UITBEdgeInsetsZero = {0, 0};
 static UILREdgeInsets UILREdgeInsetsZero = {0, 0};
 
 UIKIT_STATIC_INLINE UITBEdgeInsets UITBEdgeInsetsMake(CGFloat top, CGFloat bottom) {
-    UITBEdgeInsets insets = {top, bottom};
-    return insets;
+    return (UITBEdgeInsets){top, bottom};
 }
 
 UIKIT_STATIC_INLINE UILREdgeInsets UILREdgeInsetsMake(CGFloat left, CGFloat right) {
-    UILREdgeInsets insets = {left, right};
-    return insets;
+    return (UILREdgeInsets){left, right};
+}
+
+UIKIT_STATIC_INLINE CGSize CGSizeIntegral(CGFloat width, CGFloat height) {
+    return (CGSize){floor(width), floor(height)};
 }
 
 @class HTupleSignal;
