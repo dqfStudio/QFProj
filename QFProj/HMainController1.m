@@ -29,23 +29,32 @@
 - (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
     return 8;
 }
+- (UIEdgeInsets)tupleView:(HTupleView *)tupleView insetForSectionAtIndex:(NSInteger)section {
+    if (section == 0) {
+        return UIEdgeInsetsMake(0, 10, 0, 10);
+    }
+    return UIEdgeInsetsZero;
+}
+- (UIColor *)tupleView:(HTupleView *)tupleView colorForSectionAtIndex:(NSInteger)section {
+    return UIColor.blackColor;
+}
 - (CGSize)tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:
         case 1:
         case 2:
-            return CGSizeMake(self.tupleView.width, 65);
+            return CGSizeMake(self.tupleView.widthWithSection(indexPath.section), 65);
             break;
         case 3:
         case 4:
         case 5:
-            return CGSizeMake(self.tupleView.width/3, 120);
+            return CGSizeMake(self.tupleView.widthWithSection(indexPath.section)/3, 120);
             break;
             
         default:
             break;
     }
-    return CGSizeMake(self.tupleView.width, 65);
+    return CGSizeMake(self.tupleView.widthWithSection(indexPath.section), 65);
 }
 - (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
@@ -182,7 +191,7 @@
             [cell setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 10)];
 
             CGRect frame = [cell getContentBounds];
-
+            
             CGRect tmpFrame = frame;
             tmpFrame.size.height = CGRectGetHeight(frame)-25;
             [cell.imageView setFrame:tmpFrame];

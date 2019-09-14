@@ -441,35 +441,41 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     return UIEdgeInsetsZero;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    CGSize size = CGSizeZero;
     if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:sizeForHeaderInSection:)]) {
-        return [self.tupleDelegate tupleView:self sizeForHeaderInSection:section];
+        size = [self.tupleDelegate tupleView:self sizeForHeaderInSection:section];
     }else if (_categoryDesign && [self respondsToSelector:@selector(self_tupleView:sizeForHeaderInSection:)]) {
-        return [self self_tupleView:self sizeForHeaderInSection:section];
+        size = [self self_tupleView:self sizeForHeaderInSection:section];
     }else if (self.sizeForHeaderBlock) {
-        return self.sizeForHeaderBlock(section);
+        size = self.sizeForHeaderBlock(section);
     }
-    return CGSizeZero;
+    return UISizeIntegral(size);
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+    CGSize size = CGSizeZero;
     if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:sizeForFooterInSection:)]) {
-        return [self.tupleDelegate tupleView:self sizeForFooterInSection:section];
+        size = [self.tupleDelegate tupleView:self sizeForFooterInSection:section];
     }else if (_categoryDesign && [self respondsToSelector:@selector(self_tupleView:sizeForFooterInSection:)]) {
-        return [self self_tupleView:self sizeForFooterInSection:section];
+        size = [self self_tupleView:self sizeForFooterInSection:section];
     }else if (self.sizeForFooterBlock) {
-        return self.sizeForFooterBlock(section);
+        size = self.sizeForFooterBlock(section);
     }
-    return CGSizeZero;
+    return UISizeIntegral(size);
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CGSize size = CGSizeZero;
     if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:sizeForItemAtIndexPath:)]) {
-        return [self.tupleDelegate tupleView:self sizeForItemAtIndexPath:indexPath];
+        size = [self.tupleDelegate tupleView:self sizeForItemAtIndexPath:indexPath];
     }else if (_categoryDesign && [self respondsToSelector:@selector(self_tupleView:sizeForItemAtIndexPath:)]) {
-        return [self self_tupleView:self sizeForItemAtIndexPath:indexPath];
+        size = [self self_tupleView:self sizeForItemAtIndexPath:indexPath];
     }else if (self.sizeForItemBlock) {
-        return self.sizeForItemBlock(indexPath);
+        size = self.sizeForItemBlock(indexPath);
     }
     //不能为CGSizeZero，否则会崩溃
-    return CGSizeMake(1.f, 1.f);
+    if (CGSizeEqualToSize(CGSizeZero, size)) {
+        size = CGSizeMake(1.f, 1.f);
+    }
+    return UISizeIntegral(size);
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:tupleItem:atIndexPath:)]) {
@@ -877,6 +883,37 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 - (CGSize)size {
     return self.frame.size;
+}
+- (CGFloat (^)(NSInteger section))widthWithSection {
+    return ^CGFloat (NSInteger section) {
+        CGFloat width = CGRectGetWidth(self.frame);
+        if ([self.tupleDelegate respondsToSelector:@selector(tupleView:insetForSectionAtIndex:)]) {
+            UIEdgeInsets edgeInsets = [self collectionView:self layout:self.flowLayout insetForSectionAtIndex:section];
+            width -= edgeInsets.left + edgeInsets.right;
+        }
+        return width;
+    };
+}
+- (CGFloat (^)(NSInteger section))heightWithSection {
+    return ^CGFloat (NSInteger section) {
+        CGFloat height = CGRectGetHeight(self.frame);
+        if ([self.tupleDelegate respondsToSelector:@selector(tupleView:insetForSectionAtIndex:)]) {
+            UIEdgeInsets edgeInsets = [self collectionView:self layout:self.flowLayout insetForSectionAtIndex:section];
+            height -= edgeInsets.top + edgeInsets.bottom;
+        }
+        return height;
+    };
+}
+- (CGSize (^)(NSInteger section))sizeWithSection {
+    return ^CGSize (NSInteger section) {
+        CGSize size = self.frame.size;
+        if ([self.tupleDelegate respondsToSelector:@selector(tupleView:insetForSectionAtIndex:)]) {
+            UIEdgeInsets edgeInsets = [self collectionView:self layout:self.flowLayout insetForSectionAtIndex:section];
+            size.width -= edgeInsets.left + edgeInsets.right;
+            size.height -= edgeInsets.top + edgeInsets.bottom;
+        }
+        return size;
+    };
 }
 @end
 

@@ -159,6 +159,9 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 - (CGFloat)width;
 - (CGFloat)height;
 - (CGSize)size;
+- (CGFloat (^)(NSInteger section))widthWithSection;
+- (CGFloat (^)(NSInteger section))heightWithSection;
+- (CGSize (^)(NSInteger section))sizeWithSection;
 
 @end
 
