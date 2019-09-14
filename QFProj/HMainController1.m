@@ -30,10 +30,7 @@
     return 8;
 }
 - (UIEdgeInsets)tupleView:(HTupleView *)tupleView insetForSectionAtIndex:(NSInteger)section {
-    if (section == 0) {
-        return UIEdgeInsetsMake(0, 10, 0, 10);
-    }
-    return UIEdgeInsetsZero;
+    return UIEdgeInsetsMake(0, 10, 0, 10);
 }
 - (UIColor *)tupleView:(HTupleView *)tupleView colorForSectionAtIndex:(NSInteger)section {
     return UIColor.redColor;
