@@ -915,6 +915,15 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         return size;
     };
 }
+- (CGFloat)fixSlitWith:(CGFloat)width colCount:(CGFloat)colCount index:(NSInteger)idx {
+    CGFloat itemWidth = width/colCount;
+    CGFloat realItemWidth = floor(itemWidth);
+    CGFloat idxCount = colCount-1;
+    if (idx == idxCount) {
+        realItemWidth = width-realItemWidth*idxCount;
+    }
+    return realItemWidth;
+}
 @end
 
 #define KTupleStateKey   @"_tuple_"

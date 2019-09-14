@@ -36,7 +36,7 @@
     return UIEdgeInsetsZero;
 }
 - (UIColor *)tupleView:(HTupleView *)tupleView colorForSectionAtIndex:(NSInteger)section {
-    return UIColor.blackColor;
+    return UIColor.redColor;
 }
 - (CGSize)tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
@@ -47,8 +47,11 @@
             break;
         case 3:
         case 4:
-        case 5:
-            return CGSizeMake(self.tupleView.widthWithSection(indexPath.section)/3, 120);
+        case 5: {
+            CGFloat width = self.tupleView.widthWithSection(indexPath.section);
+            width = [self.tupleView fixSlitWith:width colCount:3 index:indexPath.row-3];
+            return CGSizeMake(width, 120);
+        }
             break;
             
         default:
