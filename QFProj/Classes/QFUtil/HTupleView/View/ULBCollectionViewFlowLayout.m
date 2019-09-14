@@ -14,7 +14,7 @@ static NSString *const ULBCollectionViewSectionColor = @"com.ulb.ULBCollectionEl
 
 @interface ULBCollectionViewLayoutAttributes : UICollectionViewLayoutAttributes
 // 背景色
-@property (nonatomic, strong) UIColor *backgroudColor;
+@property (nonatomic, strong) UIColor *backgroundColor;
 
 @end
 
@@ -32,7 +32,7 @@ static NSString *const ULBCollectionViewSectionColor = @"com.ulb.ULBCollectionEl
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes{
     [super applyLayoutAttributes:layoutAttributes];
     ULBCollectionViewLayoutAttributes *attr = (ULBCollectionViewLayoutAttributes *)layoutAttributes;
-    self.backgroundColor = attr.backgroudColor;
+    self.backgroundColor = attr.backgroundColor;
 }
 
 @end
@@ -93,7 +93,7 @@ static NSString *const ULBCollectionViewSectionColor = @"com.ulb.ULBCollectionEl
             ULBCollectionViewLayoutAttributes *attr = [ULBCollectionViewLayoutAttributes layoutAttributesForDecorationViewOfKind:ULBCollectionViewSectionColor withIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
             attr.frame = sectionFrame;
             attr.zIndex = -1;
-            attr.backgroudColor = [delegate collectionView:self.collectionView layout:self colorForSectionAtIndex:section];
+            attr.backgroundColor = [delegate collectionView:self.collectionView layout:self colorForSectionAtIndex:section];
             [self.decorationViewAttrs addObject:attr];
         }else {
             continue;
