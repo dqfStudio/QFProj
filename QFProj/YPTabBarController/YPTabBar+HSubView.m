@@ -18,6 +18,7 @@
         UIView *bottomView = [[UIView alloc] initWithFrame:frame];
         [bottomView setBackgroundColor:color];
         [self addSubview:bottomView];
+        self.clipsToBounds = NO;
     }
 }
 
