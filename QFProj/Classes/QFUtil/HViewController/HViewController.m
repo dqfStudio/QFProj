@@ -211,6 +211,8 @@
 - (UIView *)topBar {
     if (!_topBar) {
         _topBar = [[UIView alloc] init];
+        //_topBar = [[UIButton alloc] init];
+        //[_topBar setAdjustsImageWhenHighlighted:NO];
         //没有系统导航栏的时候,status背景色是透明的,用自定义导航栏去伪造一个status背景区域
         if([self prefersNavigationBarHidden]) {
             _topBar.frame = CGRectMake(0, _statusBarPadding, self.view.h_width, UIDevice.naviBarHeight);
