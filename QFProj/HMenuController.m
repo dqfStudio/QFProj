@@ -61,12 +61,8 @@ static const CGFloat kTabBarHeight = 50;
     self.tabBar.itemTitleFont = [UIFont systemFontOfSize:14];
     self.tabBar.itemTitleSelectedFont = [UIFont systemFontOfSize:14];
     [self.tabBar setBackgroundColor:[UIColor whiteColor]];
-    [self.tabBar addBottomViewWithColor:[UIColor whiteColor]];
-    
-    //加间隔线
-    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, UIScreen.width, 1)];
-    [lineView setBackgroundColor:[UIColor grayColor]];
-    [self.tabBar addSubview:lineView];
+    [self.tabBar addTopLineViewWithColor:[UIColor grayColor]];
+    [self.tabBar addBottomBlankViewWithColor:[UIColor whiteColor]];
 }
 
 - (void)initViewControllers {
