@@ -69,6 +69,7 @@
 //                                   );
 //    return outputStr;
 //#pragma clang diagnostic pop
+    [self stringByRemovingPercentEncoding]; //先移除已有的相同编码，然后再进行编码
     return [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
 }
 
