@@ -7,6 +7,7 @@
 //
 
 #import "HTupleViewCell.h"
+#import "Masonry.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,10 +20,57 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) UIEdgeInsets detailViewInsets; //detailView的上下左右边距
 @end
 
+@interface HTupleViewCellValueBase2 : HTupleBaseCell
+@property (nonatomic) UIEdgeInsets imageViewInsets; //imageView的上下左右边距
+@property (nonatomic) CGFloat labelInterval; //两个label的间距
+@property (nonatomic) UILREdgeInsets centerLabelInsets; //中间label的左右边距
+@property (nonatomic) UIEdgeInsets detailViewInsets; //detailView的上下左右边距
+@end
+
 /*
- 右边不带箭头
+ 右边不带箭头，且两个label左右相距排列
  */
-@interface HTupleViewCellValue1 : HTupleViewCellValueBase
+@interface HTupleViewCellValue1 : HTupleViewCellValueBase2
+@property (nonatomic, nullable) HWebImageView *imageView; //左边显示图片
+@property (nonatomic, nonnull)  HLabel *label; //显示文字内容
+@property (nonatomic, nonnull)  HLabel *detailLabel; //显示文字内容详情
+@property (nonatomic, nullable) HWebImageView *detailView; //右边显示图片
+@end
+
+/*
+ 右边不带箭头，且两个label左右对立排列
+ */
+@interface HTupleViewCellValue2 : HTupleViewCellValueBase2
+@property (nonatomic, nullable) HWebImageView *imageView; //左边显示图片
+@property (nonatomic, nonnull)  HLabel *label; //显示文字内容
+@property (nonatomic, nonnull)  HLabel *detailLabel; //显示文字内容详情
+@property (nonatomic, nullable) HWebImageView *detailView; //右边显示图片
+@end
+
+/*
+ 右边带有箭头，且两个label左右相距排列
+ */
+@interface HTupleViewCellValue3 : HTupleViewCellValueBase2
+@property (nonatomic, nullable) HWebImageView *imageView; //左边显示图片
+@property (nonatomic, nonnull)  HLabel *label; //显示文字内容
+@property (nonatomic, nonnull)  HLabel *detailLabel; //显示文字内容详情
+@property (nonatomic, nullable) HWebImageView *detailView; //右边显示图片
+@end
+
+/*
+ 右边带有箭头，且两个label左右对立排列
+ */
+@interface HTupleViewCellValue4 : HTupleViewCellValueBase2
+@property (nonatomic, nullable) HWebImageView *imageView; //左边显示图片
+@property (nonatomic, nonnull)  HLabel *label; //显示文字内容
+@property (nonatomic, nonnull)  HLabel *detailLabel; //显示文字内容详情
+@property (nonatomic, nullable) HWebImageView *detailView; //右边显示图片
+@end
+
+/*
+ 右边不带箭头，显示三个label
+ */
+@interface HTupleViewCellValue5 : HTupleViewCellValueBase
 @property (nonatomic) CGFloat leftWidth; //左边label的宽度
 @property (nonatomic) CGFloat rightWidth; //右边label的宽度
 
@@ -34,9 +82,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /*
- 右边带有箭头
+ 右边带有箭头，显示三个label
  */
-@interface HTupleViewCellValue2 : HTupleViewCellValueBase
+@interface HTupleViewCellValue6 : HTupleViewCellValueBase
 @property (nonatomic) CGFloat leftWidth; //左边label的宽度
 @property (nonatomic) CGFloat rightWidth; //右边label的宽度
 

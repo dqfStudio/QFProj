@@ -72,7 +72,7 @@
 - (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
-            HTupleViewCellDefault *cell = itemBlock(nil, HTupleViewCellDefault.class, nil, YES);
+            HTupleViewCellValue1 *cell = itemBlock(nil, HTupleViewCellValue1.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
@@ -86,11 +86,16 @@
 //            cell.leftWidth = 100;
 //            cell.rightWidth = 100;
             
+//            cell.labelInterval = 0;
+            
             [cell.label setBackgroundColor:UIColor.redColor];
+            [cell.label setText:@"wwwwwwwwwwwwww"];
+//            [cell.label setText:@"wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"];
             
             [cell.detailLabel setBackgroundColor:UIColor.yellowColor];
+            [cell.detailLabel setText:@"qqqqqqqqqqqqq"];
 
-            [cell.accessoryLabel setBackgroundColor:UIColor.greenColor];
+//            [cell.accessoryLabel setBackgroundColor:UIColor.greenColor];
             
             //接收信号
             [cell setSignalBlock:^(HTupleViewCell *cell, HTupleSignal *signal) {
@@ -209,7 +214,7 @@
         }
             break;
         case 6: {
-            HTupleViewCellValue1 *cell = itemBlock(nil, HTupleViewCellValue1.class, nil, YES);
+            HTupleViewCellValue5 *cell = itemBlock(nil, HTupleViewCellValue5.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];

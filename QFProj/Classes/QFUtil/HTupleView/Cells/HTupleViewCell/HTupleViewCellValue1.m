@@ -19,11 +19,530 @@
 }
 @end
 
+@implementation HTupleViewCellValueBase2
+- (void)initUI {
+    self.imageViewInsets = UIEdgeInsetsZero;
+    self.labelInterval = 5;
+    self.centerLabelInsets = UILREdgeInsetsMake(10, 10);
+    self.detailViewInsets = UIEdgeInsetsZero;
+}
+@end
+
 @interface HTupleViewCellValue1 ()
 @property (nonatomic) UIView *_cellContentView;
 @end
 
 @implementation HTupleViewCellValue1
+- (void)layoutContentView {
+    HLayoutTupleCell(self.cellContentView)
+}
+- (UIView *)_cellContentView {
+    if (!__cellContentView) {
+        __cellContentView = UIView.new;
+        [self.cellContentView addSubview:__cellContentView];
+    }
+    return __cellContentView;
+}
+- (HWebImageView *)imageView {
+    if (!_imageView) {
+        _imageView = HWebImageView.new;
+        self.needRefreshFrame = YES;
+        [self.cellContentView addSubview:_imageView];
+    }
+    return _imageView;
+}
+- (HLabel *)label {
+    if (!_label) {
+        _label = [HLabel new];
+        [self._cellContentView addSubview:_label];
+    }
+    return _label;
+}
+- (HLabel *)detailLabel {
+    if (!_detailLabel) {
+        _detailLabel = [HLabel new];
+        [self._cellContentView addSubview:_detailLabel];
+    }
+    return _detailLabel;
+}
+- (HWebImageView *)detailView {
+    if (!_detailView) {
+        _detailView = [HWebImageView new];
+        self.needRefreshFrame = YES;
+        [self.cellContentView addSubview:_detailView];
+    }
+    return _detailView;
+}
+- (void)setLabelInterval:(CGFloat)labelInterval {
+    if (super.labelInterval != labelInterval) {
+        super.labelInterval = labelInterval;
+        [self.label mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.left.bottom.equalTo(@0);
+            make.right.equalTo(self.detailLabel.mas_left).offset(-self.labelInterval);
+        }];
+        
+        [self.detailLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.label.mas_right).offset(self.labelInterval);
+            make.top.bottom.right.equalTo(@0);
+        }];
+    }
+}
+- (void)frameChanged {
+    CGRect frame = [self getContentBounds];
+    
+    if (_imageView) {
+        CGRect tmpFrame = frame;
+        tmpFrame.size.width = CGRectGetHeight(tmpFrame);
+        tmpFrame.origin.x += self.imageViewInsets.left;
+        tmpFrame.origin.y += self.imageViewInsets.top;
+        tmpFrame.size.width -= self.imageViewInsets.left+self.imageViewInsets.right;
+        tmpFrame.size.height -= self.imageViewInsets.top+self.imageViewInsets.bottom;
+        [_imageView setFrame:tmpFrame];
+    }
+    
+    if (_detailView) {
+        CGRect tmpFrame2 = frame;
+        tmpFrame2.size.width = CGRectGetHeight(tmpFrame2);
+        tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
+        tmpFrame2.origin.x += self.detailViewInsets.left;
+        tmpFrame2.origin.y += self.detailViewInsets.top;
+        tmpFrame2.size.width -= self.detailViewInsets.left+self.detailViewInsets.right;
+        tmpFrame2.size.height -= self.detailViewInsets.top+self.detailViewInsets.bottom;
+        [_detailView setFrame:tmpFrame2];
+    }
+    
+    CGRect tmpFrame3 = frame;
+    if (_imageView) {
+        tmpFrame3.origin.x = CGRectGetMaxX(_imageView.frame)+self.centerLabelInsets.left;
+    }
+    if (_detailView) {
+        if (_imageView) {
+            tmpFrame3.size.width = CGRectGetMinX(_detailView.frame)-CGRectGetMaxX(_imageView.frame)-self.centerLabelInsets.left-self.centerLabelInsets.right;
+        }else {
+            tmpFrame3.size.width = CGRectGetMinX(_detailView.frame)-self.centerLabelInsets.right;
+        }
+    }else {
+        if (_imageView) {
+            tmpFrame3.size.width = CGRectGetWidth(frame)-CGRectGetMaxX(_imageView.frame)-self.centerLabelInsets.left;
+        }else {
+            tmpFrame3.size.width = CGRectGetWidth(frame);
+        }
+    }
+    
+    [self._cellContentView setFrame:tmpFrame3];
+    
+    [self.label setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    [self.detailLabel setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+    
+    [self.label setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
+    [self.detailLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+    
+    [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.bottom.equalTo(@0);
+        make.right.equalTo(self.detailLabel.mas_left).offset(-self.labelInterval);
+    }];
+    
+    [self.detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.label.mas_right).offset(self.labelInterval);
+        make.top.bottom.right.equalTo(@0);
+    }];
+}
+@end
+
+@interface HTupleViewCellValue2 ()
+@property (nonatomic) UIView *_cellContentView;
+@end
+
+@implementation HTupleViewCellValue2
+- (void)layoutContentView {
+    HLayoutTupleCell(self.cellContentView)
+}
+- (UIView *)_cellContentView {
+    if (!__cellContentView) {
+        __cellContentView = UIView.new;
+        [self.cellContentView addSubview:__cellContentView];
+    }
+    return __cellContentView;
+}
+- (HWebImageView *)imageView {
+    if (!_imageView) {
+        _imageView = HWebImageView.new;
+        self.needRefreshFrame = YES;
+        [self.cellContentView addSubview:_imageView];
+    }
+    return _imageView;
+}
+- (HLabel *)label {
+    if (!_label) {
+        _label = [HLabel new];
+        [self._cellContentView addSubview:_label];
+    }
+    return _label;
+}
+- (HLabel *)detailLabel {
+    if (!_detailLabel) {
+        _detailLabel = [HLabel new];
+        [self._cellContentView addSubview:_detailLabel];
+    }
+    return _detailLabel;
+}
+- (HWebImageView *)detailView {
+    if (!_detailView) {
+        _detailView = [HWebImageView new];
+        self.needRefreshFrame = YES;
+        [self.cellContentView addSubview:_detailView];
+    }
+    return _detailView;
+}
+- (void)setLabelInterval:(CGFloat)labelInterval {
+    if (super.labelInterval != labelInterval) {
+        super.labelInterval = labelInterval;
+        [self.label mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.left.bottom.equalTo(@0);
+            make.right.equalTo(self.detailLabel.mas_left).offset(-self.labelInterval);
+        }];
+        
+        [self.detailLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.label.mas_right).offset(self.labelInterval);
+            make.top.bottom.right.equalTo(@0);
+        }];
+    }
+}
+- (void)frameChanged {
+    CGRect frame = [self getContentBounds];
+    
+    if (_imageView) {
+        CGRect tmpFrame = frame;
+        tmpFrame.size.width = CGRectGetHeight(tmpFrame);
+        tmpFrame.origin.x += self.imageViewInsets.left;
+        tmpFrame.origin.y += self.imageViewInsets.top;
+        tmpFrame.size.width -= self.imageViewInsets.left+self.imageViewInsets.right;
+        tmpFrame.size.height -= self.imageViewInsets.top+self.imageViewInsets.bottom;
+        [_imageView setFrame:tmpFrame];
+    }
+    
+    if (_detailView) {
+        CGRect tmpFrame2 = frame;
+        tmpFrame2.size.width = CGRectGetHeight(tmpFrame2);
+        tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
+        tmpFrame2.origin.x += self.detailViewInsets.left;
+        tmpFrame2.origin.y += self.detailViewInsets.top;
+        tmpFrame2.size.width -= self.detailViewInsets.left+self.detailViewInsets.right;
+        tmpFrame2.size.height -= self.detailViewInsets.top+self.detailViewInsets.bottom;
+        [_detailView setFrame:tmpFrame2];
+    }
+    
+    CGRect tmpFrame3 = frame;
+    if (_imageView) {
+        tmpFrame3.origin.x = CGRectGetMaxX(_imageView.frame)+self.centerLabelInsets.left;
+    }
+    if (_detailView) {
+        if (_imageView) {
+            tmpFrame3.size.width = CGRectGetMinX(_detailView.frame)-CGRectGetMaxX(_imageView.frame)-self.centerLabelInsets.left-self.centerLabelInsets.right;
+        }else {
+            tmpFrame3.size.width = CGRectGetMinX(_detailView.frame)-self.centerLabelInsets.right;
+        }
+    }else {
+        if (_imageView) {
+            tmpFrame3.size.width = CGRectGetWidth(frame)-CGRectGetMaxX(_imageView.frame)-self.centerLabelInsets.left;
+        }else {
+            tmpFrame3.size.width = CGRectGetWidth(frame);
+        }
+    }
+    
+    [self._cellContentView setFrame:tmpFrame3];
+    
+    [self.label setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+    [self.detailLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    
+    [self.label setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+    [self.detailLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
+    
+    [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.bottom.equalTo(@0);
+        make.right.equalTo(self.detailLabel.mas_left).offset(-self.labelInterval);
+    }];
+    
+    [self.detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.label.mas_right).offset(self.labelInterval);
+        make.top.bottom.right.equalTo(@0);
+    }];
+}
+@end
+
+@interface HTupleViewCellValue3 ()
+@property (nonatomic) UIView *_cellContentView;
+@property (nonatomic) HWebImageView *accessoryView;
+@end
+
+@implementation HTupleViewCellValue3
+- (void)layoutContentView {
+    HLayoutTupleCell(self.cellContentView)
+}
+- (UIView *)_cellContentView {
+    if (!__cellContentView) {
+        __cellContentView = UIView.new;
+        [self.cellContentView addSubview:__cellContentView];
+    }
+    return __cellContentView;
+}
+- (HWebImageView *)imageView {
+    if (!_imageView) {
+        _imageView = HWebImageView.new;
+        self.needRefreshFrame = YES;
+        [self.cellContentView addSubview:_imageView];
+    }
+    return _imageView;
+}
+- (HLabel *)label {
+    if (!_label) {
+        _label = [HLabel new];
+        [self._cellContentView addSubview:_label];
+    }
+    return _label;
+}
+- (HLabel *)detailLabel {
+    if (!_detailLabel) {
+        _detailLabel = [HLabel new];
+        [self._cellContentView addSubview:_detailLabel];
+    }
+    return _detailLabel;
+}
+- (HWebImageView *)detailView {
+    if (!_detailView) {
+        _detailView = [HWebImageView new];
+        self.needRefreshFrame = YES;
+        [self.cellContentView addSubview:_detailView];
+    }
+    return _detailView;
+}
+- (HWebImageView *)accessoryView {
+    if (!_accessoryView) {
+        _accessoryView = [HWebImageView new];
+        [self.cellContentView addSubview:_accessoryView];
+    }
+    return _accessoryView;
+}
+- (void)setLabelInterval:(CGFloat)labelInterval {
+    if (super.labelInterval != labelInterval) {
+        super.labelInterval = labelInterval;
+        [self.label mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.left.bottom.equalTo(@0);
+            make.right.equalTo(self.detailLabel.mas_left).offset(-self.labelInterval);
+        }];
+        
+        [self.detailLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.label.mas_right).offset(self.labelInterval);
+            make.top.bottom.right.equalTo(@0);
+        }];
+    }
+}
+- (void)frameChanged {
+    CGRect frame = [self getContentBounds];
+    
+    if (_imageView) {
+        CGRect tmpFrame = frame;
+        tmpFrame.size.width = CGRectGetHeight(tmpFrame);
+        tmpFrame.origin.x += self.imageViewInsets.left;
+        tmpFrame.origin.y += self.imageViewInsets.top;
+        tmpFrame.size.width -= self.imageViewInsets.left+self.imageViewInsets.right;
+        tmpFrame.size.height -= self.imageViewInsets.top+self.imageViewInsets.bottom;
+        [_imageView setFrame:tmpFrame];
+    }
+    
+    CGRect tmpFrame2 = CGRectMake(0, 0, 10, 18);
+    tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
+    tmpFrame2.origin.y = CGRectGetHeight(frame)/2-CGRectGetHeight(tmpFrame2)/2;
+    [self.accessoryView setFrame:tmpFrame2];
+    [self.accessoryView setImageWithName:@"icon_tuple_arrow_right"];
+    
+    if (_detailView) {
+        CGRect tmpFrame3 = frame;
+        tmpFrame3.size.width = CGRectGetHeight(tmpFrame3);
+        tmpFrame3.origin.x = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame3)-10;
+        tmpFrame2.origin.x += self.detailViewInsets.left;
+        tmpFrame2.origin.y += self.detailViewInsets.top;
+        tmpFrame2.size.width -= self.detailViewInsets.left+self.detailViewInsets.right;
+        tmpFrame2.size.height -= self.detailViewInsets.top+self.detailViewInsets.bottom;
+        [_detailView setFrame:tmpFrame3];
+    }
+    
+    CGRect tmpFrame4 = frame;
+    if (_imageView) {
+        tmpFrame4.origin.x = CGRectGetMaxX(_imageView.frame)+self.centerLabelInsets.left;
+    }
+    if (_detailView) {
+        if (_imageView) {
+            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-CGRectGetMaxX(_imageView.frame)-self.centerLabelInsets.left-self.centerLabelInsets.right;
+        }else {
+            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-self.centerLabelInsets.right;
+        }
+    }else {
+        if (_imageView) {
+            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-CGRectGetMaxX(_imageView.frame)-10-self.centerLabelInsets.left;
+        }else {
+            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-10;
+        }
+    }
+    [self._cellContentView setFrame:tmpFrame4];
+    
+    [self.label setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    [self.detailLabel setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+    
+    [self.label setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
+    [self.detailLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+    
+    [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.bottom.equalTo(@0);
+        make.right.equalTo(self.detailLabel.mas_left).offset(-self.labelInterval);
+    }];
+    
+    [self.detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.label.mas_right).offset(self.labelInterval);
+        make.top.bottom.right.equalTo(@0);
+    }];
+}
+@end
+
+@interface HTupleViewCellValue4 ()
+@property (nonatomic) UIView *_cellContentView;
+@property (nonatomic) HWebImageView *accessoryView;
+@end
+
+@implementation HTupleViewCellValue4
+- (void)layoutContentView {
+    HLayoutTupleCell(self.cellContentView)
+}
+- (UIView *)_cellContentView {
+    if (!__cellContentView) {
+        __cellContentView = UIView.new;
+        [self.cellContentView addSubview:__cellContentView];
+    }
+    return __cellContentView;
+}
+- (HWebImageView *)imageView {
+    if (!_imageView) {
+        _imageView = HWebImageView.new;
+        self.needRefreshFrame = YES;
+        [self.cellContentView addSubview:_imageView];
+    }
+    return _imageView;
+}
+- (HLabel *)label {
+    if (!_label) {
+        _label = [HLabel new];
+        [self._cellContentView addSubview:_label];
+    }
+    return _label;
+}
+- (HLabel *)detailLabel {
+    if (!_detailLabel) {
+        _detailLabel = [HLabel new];
+        [self._cellContentView addSubview:_detailLabel];
+    }
+    return _detailLabel;
+}
+- (HWebImageView *)detailView {
+    if (!_detailView) {
+        _detailView = [HWebImageView new];
+        self.needRefreshFrame = YES;
+        [self.cellContentView addSubview:_detailView];
+    }
+    return _detailView;
+}
+- (HWebImageView *)accessoryView {
+    if (!_accessoryView) {
+        _accessoryView = [HWebImageView new];
+        [self.cellContentView addSubview:_accessoryView];
+    }
+    return _accessoryView;
+}
+- (void)setLabelInterval:(CGFloat)labelInterval {
+    if (super.labelInterval != labelInterval) {
+        super.labelInterval = labelInterval;
+        [self.label mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.left.bottom.equalTo(@0);
+            make.right.equalTo(self.detailLabel.mas_left).offset(-self.labelInterval);
+        }];
+        
+        [self.detailLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.label.mas_right).offset(self.labelInterval);
+            make.top.bottom.right.equalTo(@0);
+        }];
+    }
+}
+- (void)frameChanged {
+    CGRect frame = [self getContentBounds];
+    
+    if (_imageView) {
+        CGRect tmpFrame = frame;
+        tmpFrame.size.width = CGRectGetHeight(tmpFrame);
+        tmpFrame.origin.x += self.imageViewInsets.left;
+        tmpFrame.origin.y += self.imageViewInsets.top;
+        tmpFrame.size.width -= self.imageViewInsets.left+self.imageViewInsets.right;
+        tmpFrame.size.height -= self.imageViewInsets.top+self.imageViewInsets.bottom;
+        [_imageView setFrame:tmpFrame];
+    }
+    
+    CGRect tmpFrame2 = CGRectMake(0, 0, 10, 18);
+    tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
+    tmpFrame2.origin.y = CGRectGetHeight(frame)/2-CGRectGetHeight(tmpFrame2)/2;
+    [self.accessoryView setFrame:tmpFrame2];
+    [self.accessoryView setImageWithName:@"icon_tuple_arrow_right"];
+    
+    if (_detailView) {
+        CGRect tmpFrame3 = frame;
+        tmpFrame3.size.width = CGRectGetHeight(tmpFrame3);
+        tmpFrame3.origin.x = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame3)-10;
+        tmpFrame2.origin.x += self.detailViewInsets.left;
+        tmpFrame2.origin.y += self.detailViewInsets.top;
+        tmpFrame2.size.width -= self.detailViewInsets.left+self.detailViewInsets.right;
+        tmpFrame2.size.height -= self.detailViewInsets.top+self.detailViewInsets.bottom;
+        [_detailView setFrame:tmpFrame3];
+    }
+    
+    CGRect tmpFrame4 = frame;
+    if (_imageView) {
+        tmpFrame4.origin.x = CGRectGetMaxX(_imageView.frame)+self.centerLabelInsets.left;
+    }
+    if (_detailView) {
+        if (_imageView) {
+            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-CGRectGetMaxX(_imageView.frame)-self.centerLabelInsets.left-self.centerLabelInsets.right;
+        }else {
+            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-self.centerLabelInsets.right;
+        }
+    }else {
+        if (_imageView) {
+            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-CGRectGetMaxX(_imageView.frame)-10-self.centerLabelInsets.left;
+        }else {
+            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-10;
+        }
+    }
+    [self._cellContentView setFrame:tmpFrame4];
+    
+    [self.label setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+    [self.detailLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    
+    [self.label setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+    [self.detailLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
+    
+    [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.bottom.equalTo(@0);
+        make.right.equalTo(self.detailLabel.mas_left).offset(-self.labelInterval);
+    }];
+    
+    [self.detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.label.mas_right).offset(self.labelInterval);
+        make.top.bottom.right.equalTo(@0);
+    }];
+}
+@end
+
+@interface HTupleViewCellValue5 ()
+@property (nonatomic) UIView *_cellContentView;
+@end
+
+@implementation HTupleViewCellValue5
 - (void)layoutContentView {
     HLayoutTupleCell(self.cellContentView)
 }
@@ -156,12 +675,12 @@
 }
 @end
 
-@interface HTupleViewCellValue2 ()
+@interface HTupleViewCellValue6 ()
 @property (nonatomic) UIView *_cellContentView;
 @property (nonatomic) HWebImageView *accessoryView;
 @end
 
-@implementation HTupleViewCellValue2
+@implementation HTupleViewCellValue6
 - (void)layoutContentView {
     HLayoutTupleCell(self.cellContentView)
 }
