@@ -887,31 +887,25 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 - (CGFloat (^)(NSInteger section))widthWithSection {
     return ^CGFloat (NSInteger section) {
         CGFloat width = CGRectGetWidth(self.frame);
-        if ([self.tupleDelegate respondsToSelector:@selector(tupleView:insetForSectionAtIndex:)]) {
-            UIEdgeInsets edgeInsets = [self collectionView:self layout:self.flowLayout insetForSectionAtIndex:section];
-            width -= edgeInsets.left + edgeInsets.right;
-        }
+        UIEdgeInsets edgeInsets = [self collectionView:self layout:self.flowLayout insetForSectionAtIndex:section];
+        width -= edgeInsets.left + edgeInsets.right;
         return width;
     };
 }
 - (CGFloat (^)(NSInteger section))heightWithSection {
     return ^CGFloat (NSInteger section) {
         CGFloat height = CGRectGetHeight(self.frame);
-        if ([self.tupleDelegate respondsToSelector:@selector(tupleView:insetForSectionAtIndex:)]) {
-            UIEdgeInsets edgeInsets = [self collectionView:self layout:self.flowLayout insetForSectionAtIndex:section];
-            height -= edgeInsets.top + edgeInsets.bottom;
-        }
+        UIEdgeInsets edgeInsets = [self collectionView:self layout:self.flowLayout insetForSectionAtIndex:section];
+        height -= edgeInsets.top + edgeInsets.bottom;
         return height;
     };
 }
 - (CGSize (^)(NSInteger section))sizeWithSection {
     return ^CGSize (NSInteger section) {
         CGSize size = self.frame.size;
-        if ([self.tupleDelegate respondsToSelector:@selector(tupleView:insetForSectionAtIndex:)]) {
-            UIEdgeInsets edgeInsets = [self collectionView:self layout:self.flowLayout insetForSectionAtIndex:section];
-            size.width -= edgeInsets.left + edgeInsets.right;
-            size.height -= edgeInsets.top + edgeInsets.bottom;
-        }
+        UIEdgeInsets edgeInsets = [self collectionView:self layout:self.flowLayout insetForSectionAtIndex:section];
+        size.width -= edgeInsets.left + edgeInsets.right;
+        size.height -= edgeInsets.top + edgeInsets.bottom;
         return size;
     };
 }
