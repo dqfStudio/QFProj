@@ -896,8 +896,10 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     return ^CGFloat (NSInteger section) {
         CGFloat width = CGRectGetWidth(self.frame);
         NSString *edgeInsetsString = [self.allSectionInsets objectForKey:@(section).stringValue];
-        UIEdgeInsets edgeInsets = UIEdgeInsetsFromString(edgeInsetsString);
-        width -= edgeInsets.left + edgeInsets.right;
+        if (edgeInsetsString.length > 0) {
+            UIEdgeInsets edgeInsets = UIEdgeInsetsFromString(edgeInsetsString);
+            width -= edgeInsets.left + edgeInsets.right;
+        }
         return width;
     };
 }
@@ -905,8 +907,10 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     return ^CGFloat (NSInteger section) {
         CGFloat height = CGRectGetHeight(self.frame);
         NSString *edgeInsetsString = [self.allSectionInsets objectForKey:@(section).stringValue];
-        UIEdgeInsets edgeInsets = UIEdgeInsetsFromString(edgeInsetsString);
-        height -= edgeInsets.top + edgeInsets.bottom;
+        if (edgeInsetsString.length > 0) {
+            UIEdgeInsets edgeInsets = UIEdgeInsetsFromString(edgeInsetsString);
+            height -= edgeInsets.top + edgeInsets.bottom;
+        }
         return height;
     };
 }
@@ -914,9 +918,11 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     return ^CGSize (NSInteger section) {
         CGSize size = self.frame.size;
         NSString *edgeInsetsString = [self.allSectionInsets objectForKey:@(section).stringValue];
-        UIEdgeInsets edgeInsets = UIEdgeInsetsFromString(edgeInsetsString);
-        size.width -= edgeInsets.left + edgeInsets.right;
-        size.height -= edgeInsets.top + edgeInsets.bottom;
+        if (edgeInsetsString.length > 0) {
+            UIEdgeInsets edgeInsets = UIEdgeInsetsFromString(edgeInsetsString);
+            size.width -= edgeInsets.left + edgeInsets.right;
+            size.height -= edgeInsets.top + edgeInsets.bottom;
+        }
         return size;
     };
 }
