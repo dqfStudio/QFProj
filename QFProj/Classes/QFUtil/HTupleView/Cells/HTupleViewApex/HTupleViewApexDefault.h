@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HTupleViewApexDefaultBase : HTupleBaseCell
+@interface HTupleViewApexDefaultBase : HTupleBaseApex
 @property (nonatomic) UIEdgeInsets imageViewInsets; //imageView的上下左右边距
 @property (nonatomic) UITBEdgeInsets labelInsets; //label的上下边距
 @property (nonatomic) UITBEdgeInsets detailLabelInsets; //detailLabel的上下边距

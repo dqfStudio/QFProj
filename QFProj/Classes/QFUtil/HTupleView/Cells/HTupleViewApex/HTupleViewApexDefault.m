@@ -21,20 +21,20 @@
 
 @implementation HTupleViewApexDefault
 - (void)layoutContentView {
-    HLayoutTupleCell(self.cellContentView)
+    HLayoutTupleCell(self.contentView)
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
         self.needRefreshFrame = YES;
-        [self.cellContentView addSubview:_imageView];
+        [self.contentView addSubview:_imageView];
     }
     return _imageView;
 }
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
-        [self.cellContentView addSubview:_label];
+        [self.contentView addSubview:_label];
     }
     return _label;
 }
@@ -42,7 +42,7 @@
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
         self.needRefreshFrame = YES;
-        [self.cellContentView addSubview:_detailLabel];
+        [self.contentView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
@@ -50,7 +50,7 @@
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
         self.needRefreshFrame = YES;
-        [self.cellContentView addSubview:_accessoryLabel];
+        [self.contentView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
 }
@@ -58,7 +58,7 @@
     if (!_detailView) {
         _detailView = [HWebImageView new];
         self.needRefreshFrame = YES;
-        [self.cellContentView addSubview:_detailView];
+        [self.contentView addSubview:_detailView];
     }
     return _detailView;
 }
@@ -146,20 +146,20 @@
 
 @implementation HTupleViewApexDefault2
 - (void)layoutContentView {
-    HLayoutTupleCell(self.cellContentView)
+    HLayoutTupleCell(self.contentView)
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
         self.needRefreshFrame = YES;
-        [self.cellContentView addSubview:_imageView];
+        [self.contentView addSubview:_imageView];
     }
     return _imageView;
 }
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
-        [self.cellContentView addSubview:_label];
+        [self.contentView addSubview:_label];
     }
     return _label;
 }
@@ -167,7 +167,7 @@
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
         self.needRefreshFrame = YES;
-        [self.cellContentView addSubview:_detailLabel];
+        [self.contentView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
@@ -175,7 +175,7 @@
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
         self.needRefreshFrame = YES;
-        [self.cellContentView addSubview:_accessoryLabel];
+        [self.contentView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
 }
@@ -183,14 +183,14 @@
     if (!_detailView) {
         _detailView = [HWebImageView new];
         self.needRefreshFrame = YES;
-        [self.cellContentView addSubview:_detailView];
+        [self.contentView addSubview:_detailView];
     }
     return _detailView;
 }
 - (HWebImageView *)accessoryView {
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
-        [self.cellContentView addSubview:_accessoryView];
+        [self.contentView addSubview:_accessoryView];
     }
     return _accessoryView;
 }
