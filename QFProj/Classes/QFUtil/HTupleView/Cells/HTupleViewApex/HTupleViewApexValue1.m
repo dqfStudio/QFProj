@@ -146,6 +146,20 @@
         make.left.equalTo(self.label.mas_right).offset(self.labelInterval);
         make.top.bottom.right.equalTo(@0);
     }];
+    
+    if (self.label.intrinsicContentSize.width >= frame.size.width - self.labelInterval) {
+        [self.label mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.left.bottom.equalTo(@0);
+            make.right.equalTo(self.detailLabel.mas_left);
+        }];
+        
+        [self.detailLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.label.mas_right);
+            make.top.bottom.right.equalTo(@0);
+        }];
+    }else {
+        [self setLabelInterval:self.labelInterval];
+    }
 }
 @end
 
@@ -401,6 +415,20 @@
         make.left.equalTo(self.label.mas_right).offset(self.labelInterval);
         make.top.bottom.right.equalTo(@0);
     }];
+    
+    if (self.label.intrinsicContentSize.width >= frame.size.width - self.labelInterval) {
+        [self.label mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.left.bottom.equalTo(@0);
+            make.right.equalTo(self.detailLabel.mas_left);
+        }];
+        
+        [self.detailLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.label.mas_right);
+            make.top.bottom.right.equalTo(@0);
+        }];
+    }else {
+        [self setLabelInterval:self.labelInterval];
+    }
 }
 @end
 
