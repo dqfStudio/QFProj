@@ -24,7 +24,9 @@
     _autoLayout = YES;
     _topExtendedLayout = YES;
     _bottomExtendedHeight = 0.f;
-    _extendedInset = UIEdgeInsetsZero;
+    if (UIDevice.isIPhoneX) {
+        _extendedInset = UIEdgeInsetsMake(0, 0, UIDevice.bottomBarHeight, 0);
+    }
     [self.view addSubview:self.tableView];
 }
 - (void)vcWillDisappear:(HVCDisappearType)type {
