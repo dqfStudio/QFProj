@@ -28,6 +28,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 @property (nonatomic) HTupleDesignStyle designStyle;
 
 @property (nonatomic) NSMutableSet *allReuseIdentifiers;
+@property (nonatomic) NSMapTable   *allSectionInsets;
 @property (nonatomic) NSMapTable   *allReuseCells;
 @property (nonatomic) NSMapTable   *allReuseHeaders;
 @property (nonatomic) NSMapTable   *allReuseFooters;
@@ -141,9 +142,10 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     }
     
     _allReuseIdentifiers = [NSMutableSet new];
-    _allReuseCells   = [NSMapTable strongToWeakObjectsMapTable];
-    _allReuseHeaders = [NSMapTable strongToWeakObjectsMapTable];
-    _allReuseFooters = [NSMapTable strongToWeakObjectsMapTable];
+    _allSectionInsets = [NSMapTable strongToStrongObjectsMapTable];
+    _allReuseCells    = [NSMapTable strongToWeakObjectsMapTable];
+    _allReuseHeaders  = [NSMapTable strongToWeakObjectsMapTable];
+    _allReuseFooters  = [NSMapTable strongToWeakObjectsMapTable];
     self.delegate = self;
     self.dataSource = self;
 }
@@ -392,6 +394,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 }
 #pragma mark - UICollectionViewDatasource  & delegate
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    if (self.allSectionInsets.count > 0) {
+        [self.allSectionInsets removeAllObjects];
+    }
     if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(numberOfSectionsInTupleView:)]) {
         return [self.tupleDelegate numberOfSectionsInTupleView:self];
     }else if (_categoryDesign && [self respondsToSelector:@selector(self_numberOfSectionsIntupleView:)]) {
@@ -402,14 +407,17 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     return 1;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    NSUInteger items = 0;
     if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:numberOfItemsInSection:)]) {
-        return [self.tupleDelegate tupleView:self numberOfItemsInSection:section];
+        items = [self.tupleDelegate tupleView:self numberOfItemsInSection:section];
     }else if (_categoryDesign && [self respondsToSelector:@selector(self_tupleView:numberOfItemsInSection:)]) {
-        return [self self_tupleView:self numberOfItemsInSection:section];
+        items = [self self_tupleView:self numberOfItemsInSection:section];
     }else if (self.numberOfItemsBlock) {
-        return self.numberOfItemsBlock(section);
+        items = self.numberOfItemsBlock(section);
     }
-    return 0;
+    UIEdgeInsets edgeInsets = [self collectionView:self layout:self.flowLayout insetForSectionAtIndex:section];
+    [self.allSectionInsets setObject:NSStringFromUIEdgeInsets(edgeInsets) forKey:@(section).stringValue];
+    return items;
 }
 - (UIColor *)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout colorForSectionAtIndex:(NSInteger)section {
     if (!_categoryDesign && [self.tupleDelegate respondsToSelector:@selector(tupleView:colorForSectionAtIndex:)]) {
@@ -887,7 +895,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 - (CGFloat (^)(NSInteger section))widthWithSection {
     return ^CGFloat (NSInteger section) {
         CGFloat width = CGRectGetWidth(self.frame);
-        UIEdgeInsets edgeInsets = [self collectionView:self layout:self.flowLayout insetForSectionAtIndex:section];
+        NSString *edgeInsetsString = [self.allSectionInsets objectForKey:@(section).stringValue];
+        UIEdgeInsets edgeInsets = UIEdgeInsetsFromString(edgeInsetsString);
         width -= edgeInsets.left + edgeInsets.right;
         return width;
     };
@@ -895,7 +904,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 - (CGFloat (^)(NSInteger section))heightWithSection {
     return ^CGFloat (NSInteger section) {
         CGFloat height = CGRectGetHeight(self.frame);
-        UIEdgeInsets edgeInsets = [self collectionView:self layout:self.flowLayout insetForSectionAtIndex:section];
+        NSString *edgeInsetsString = [self.allSectionInsets objectForKey:@(section).stringValue];
+        UIEdgeInsets edgeInsets = UIEdgeInsetsFromString(edgeInsetsString);
         height -= edgeInsets.top + edgeInsets.bottom;
         return height;
     };
@@ -903,7 +913,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 - (CGSize (^)(NSInteger section))sizeWithSection {
     return ^CGSize (NSInteger section) {
         CGSize size = self.frame.size;
-        UIEdgeInsets edgeInsets = [self collectionView:self layout:self.flowLayout insetForSectionAtIndex:section];
+        NSString *edgeInsetsString = [self.allSectionInsets objectForKey:@(section).stringValue];
+        UIEdgeInsets edgeInsets = UIEdgeInsetsFromString(edgeInsetsString);
         size.width -= edgeInsets.left + edgeInsets.right;
         size.height -= edgeInsets.top + edgeInsets.bottom;
         return size;
