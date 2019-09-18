@@ -103,47 +103,47 @@
 
 @implementation HTupleViewApex
 - (void)layoutContentView {
-    HLayoutTupleApex(self.contentView)
+    HLayoutTupleApex(self.apexContentView)
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        [self.contentView addSubview:_imageView];
+        [self.apexContentView addSubview:_imageView];
     }
     return _imageView;
 }
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
-        [self.contentView addSubview:_label];
+        [self.apexContentView addSubview:_label];
     }
     return _label;
 }
 - (HLabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
-        [self.contentView addSubview:_detailLabel];
+        [self.apexContentView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
 - (HLabel *)accessoryLabel {
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
-        [self.contentView addSubview:_accessoryLabel];
+        [self.apexContentView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
 }
 - (HWebImageView *)detailView {
     if (!_detailView) {
         _detailView = [HWebImageView new];
-        [self.contentView addSubview:_detailView];
+        [self.apexContentView addSubview:_detailView];
     }
     return _detailView;
 }
 - (HWebImageView *)accessoryView {
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
-        [self.contentView addSubview:_accessoryView];
+        [self.apexContentView addSubview:_accessoryView];
     }
     return _accessoryView;
 }
@@ -151,110 +151,110 @@
 
 @implementation HTupleUnionView
 - (void)layoutContentView {
-    HLayoutTupleApex(self.contentView)
+    HLayoutTupleApex(self.apexContentView)
 }
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
-        [self.contentView addSubview:_label];
+        [self.apexContentView addSubview:_label];
     }
     return _label;
 }
 - (HLabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
-        [self.contentView addSubview:_detailLabel];
+        [self.apexContentView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
 - (HLabel *)accessoryLabel {
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
-        [self.contentView addSubview:_accessoryLabel];
+        [self.apexContentView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
 }
 - (HTextView *)textView {
     if (!_textView) {
         _textView = [HTextView new];
-        [self.contentView addSubview:_textView];
+        [self.apexContentView addSubview:_textView];
     }
     return _textView;
 }
 - (HTextView *)detailTextView {
     if (!_detailTextView) {
         _detailTextView = [HTextView new];
-        [self.contentView addSubview:_detailTextView];
+        [self.apexContentView addSubview:_detailTextView];
     }
     return _detailTextView;
 }
 - (HTextView *)accessoryTextView {
     if (!_accessoryTextView) {
         _accessoryTextView = [HTextView new];
-        [self.contentView addSubview:_accessoryTextView];
+        [self.apexContentView addSubview:_accessoryTextView];
     }
     return _accessoryTextView;
 }
 - (HWebButtonView *)buttonView {
     if (!_buttonView) {
         _buttonView = [HWebButtonView new];
-        [self.contentView addSubview:_buttonView];
+        [self.apexContentView addSubview:_buttonView];
     }
     return _buttonView;
 }
 - (HWebButtonView *)detailButtonView {
     if (!_detailButtonView) {
         _detailButtonView = [HWebButtonView new];
-        [self.contentView addSubview:_detailButtonView];
+        [self.apexContentView addSubview:_detailButtonView];
     }
     return _detailButtonView;
 }
 - (HWebButtonView *)accessoryButtonView {
     if (!_accessoryButtonView) {
         _accessoryButtonView = [HWebButtonView new];
-        [self.contentView addSubview:_accessoryButtonView];
+        [self.apexContentView addSubview:_accessoryButtonView];
     }
     return _accessoryButtonView;
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        [self.contentView addSubview:_imageView];
+        [self.apexContentView addSubview:_imageView];
     }
     return _imageView;
 }
 - (HWebImageView *)detailImageView {
     if (!_detailImageView) {
         _detailImageView = HWebImageView.new;
-        [self.contentView addSubview:_detailImageView];
+        [self.apexContentView addSubview:_detailImageView];
     }
     return _detailImageView;
 }
 - (HWebImageView *)accessoryImageView {
     if (!_accessoryImageView) {
         _accessoryImageView = HWebImageView.new;
-        [self.contentView addSubview:_accessoryImageView];
+        [self.apexContentView addSubview:_accessoryImageView];
     }
     return _accessoryImageView;
 }
 - (HTextField *)textField {
     if (!_textField) {
         _textField = HTextField.new;
-        [self.contentView addSubview:_textField];
+        [self.apexContentView addSubview:_textField];
     }
     return _textField;
 }
 - (HTextField *)detailTextField {
     if (!_detailTextField) {
         _detailTextField = HTextField.new;
-        [self.contentView addSubview:_detailTextField];
+        [self.apexContentView addSubview:_detailTextField];
     }
     return _detailTextField;
 }
 - (HTextField *)accessoryTextField {
     if (!_accessoryTextField) {
         _accessoryTextField = HTextField.new;
-        [self.contentView addSubview:_accessoryTextField];
+        [self.apexContentView addSubview:_accessoryTextField];
     }
     return _accessoryTextField;
 }

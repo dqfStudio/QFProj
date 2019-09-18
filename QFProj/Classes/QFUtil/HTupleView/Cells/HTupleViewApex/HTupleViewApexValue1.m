@@ -34,12 +34,12 @@
 
 @implementation HTupleViewApexValue1
 - (void)layoutContentView {
-    HLayoutTupleCell(self.contentView)
+    HLayoutTupleCell(self.apexContentView)
 }
 - (UIView *)_cellContentView {
     if (!__cellContentView) {
         __cellContentView = UIView.new;
-        [self.contentView addSubview:__cellContentView];
+        [self.apexContentView addSubview:__cellContentView];
     }
     return __cellContentView;
 }
@@ -47,7 +47,7 @@
     if (!_imageView) {
         _imageView = HWebImageView.new;
         self.needRefreshFrame = YES;
-        [self.contentView addSubview:_imageView];
+        [self.apexContentView addSubview:_imageView];
     }
     return _imageView;
 }
@@ -69,7 +69,7 @@
     if (!_detailView) {
         _detailView = [HWebImageView new];
         self.needRefreshFrame = YES;
-        [self.contentView addSubview:_detailView];
+        [self.apexContentView addSubview:_detailView];
     }
     return _detailView;
 }
@@ -169,12 +169,12 @@
 
 @implementation HTupleViewApexValue2
 - (void)layoutContentView {
-    HLayoutTupleCell(self.contentView)
+    HLayoutTupleCell(self.apexContentView)
 }
 - (UIView *)_cellContentView {
     if (!__cellContentView) {
         __cellContentView = UIView.new;
-        [self.contentView addSubview:__cellContentView];
+        [self.apexContentView addSubview:__cellContentView];
     }
     return __cellContentView;
 }
@@ -182,7 +182,7 @@
     if (!_imageView) {
         _imageView = HWebImageView.new;
         self.needRefreshFrame = YES;
-        [self.contentView addSubview:_imageView];
+        [self.apexContentView addSubview:_imageView];
     }
     return _imageView;
 }
@@ -204,7 +204,7 @@
     if (!_detailView) {
         _detailView = [HWebImageView new];
         self.needRefreshFrame = YES;
-        [self.contentView addSubview:_detailView];
+        [self.apexContentView addSubview:_detailView];
     }
     return _detailView;
 }
@@ -291,12 +291,12 @@
 
 @implementation HTupleViewApexValue3
 - (void)layoutContentView {
-    HLayoutTupleCell(self.contentView)
+    HLayoutTupleCell(self.apexContentView)
 }
 - (UIView *)_cellContentView {
     if (!__cellContentView) {
         __cellContentView = UIView.new;
-        [self.contentView addSubview:__cellContentView];
+        [self.apexContentView addSubview:__cellContentView];
     }
     return __cellContentView;
 }
@@ -304,7 +304,7 @@
     if (!_imageView) {
         _imageView = HWebImageView.new;
         self.needRefreshFrame = YES;
-        [self.contentView addSubview:_imageView];
+        [self.apexContentView addSubview:_imageView];
     }
     return _imageView;
 }
@@ -326,14 +326,14 @@
     if (!_detailView) {
         _detailView = [HWebImageView new];
         self.needRefreshFrame = YES;
-        [self.contentView addSubview:_detailView];
+        [self.apexContentView addSubview:_detailView];
     }
     return _detailView;
 }
 - (HWebImageView *)accessoryView {
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
-        [self.contentView addSubview:_accessoryView];
+        [self.apexContentView addSubview:_accessoryView];
     }
     return _accessoryView;
 }
@@ -439,12 +439,12 @@
 
 @implementation HTupleViewApexValue4
 - (void)layoutContentView {
-    HLayoutTupleCell(self.contentView)
+    HLayoutTupleCell(self.apexContentView)
 }
 - (UIView *)_cellContentView {
     if (!__cellContentView) {
         __cellContentView = UIView.new;
-        [self.contentView addSubview:__cellContentView];
+        [self.apexContentView addSubview:__cellContentView];
     }
     return __cellContentView;
 }
@@ -452,7 +452,7 @@
     if (!_imageView) {
         _imageView = HWebImageView.new;
         self.needRefreshFrame = YES;
-        [self.contentView addSubview:_imageView];
+        [self.apexContentView addSubview:_imageView];
     }
     return _imageView;
 }
@@ -474,14 +474,14 @@
     if (!_detailView) {
         _detailView = [HWebImageView new];
         self.needRefreshFrame = YES;
-        [self.contentView addSubview:_detailView];
+        [self.apexContentView addSubview:_detailView];
     }
     return _detailView;
 }
 - (HWebImageView *)accessoryView {
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
-        [self.contentView addSubview:_accessoryView];
+        [self.apexContentView addSubview:_accessoryView];
     }
     return _accessoryView;
 }
@@ -572,7 +572,7 @@
 
 @implementation HTupleViewApexValue5
 - (void)layoutContentView {
-    HLayoutTupleCell(self.contentView)
+    HLayoutTupleCell(self.apexContentView)
 }
 - (void)setLeftWidth:(CGFloat)leftWidth {
     if (_leftWidth != leftWidth) {
@@ -589,7 +589,7 @@
 - (UIView *)_cellContentView {
     if (!__cellContentView) {
         __cellContentView = UIView.new;
-        [self.contentView addSubview:__cellContentView];
+        [self.apexContentView addSubview:__cellContentView];
     }
     return __cellContentView;
 }
@@ -597,7 +597,7 @@
     if (!_imageView) {
         _imageView = HWebImageView.new;
         self.needRefreshFrame = YES;
-        [self.contentView addSubview:_imageView];
+        [self.apexContentView addSubview:_imageView];
     }
     return _imageView;
 }
@@ -627,7 +627,7 @@
     if (!_detailView) {
         _detailView = [HWebImageView new];
         self.needRefreshFrame = YES;
-        [self.contentView addSubview:_detailView];
+        [self.apexContentView addSubview:_detailView];
     }
     return _detailView;
 }
@@ -710,7 +710,7 @@
 
 @implementation HTupleViewApexValue6
 - (void)layoutContentView {
-    HLayoutTupleCell(self.contentView)
+    HLayoutTupleCell(self.apexContentView)
 }
 - (void)setLeftWidth:(CGFloat)leftWidth {
     if (_leftWidth != leftWidth) {
@@ -727,7 +727,7 @@
 - (UIView *)_cellContentView {
     if (!__cellContentView) {
         __cellContentView = UIView.new;
-        [self.contentView addSubview:__cellContentView];
+        [self.apexContentView addSubview:__cellContentView];
     }
     return __cellContentView;
 }
@@ -735,7 +735,7 @@
     if (!_imageView) {
         _imageView = HWebImageView.new;
         self.needRefreshFrame = YES;
-        [self.contentView addSubview:_imageView];
+        [self.apexContentView addSubview:_imageView];
     }
     return _imageView;
 }
@@ -765,14 +765,14 @@
     if (!_detailView) {
         _detailView = [HWebImageView new];
         self.needRefreshFrame = YES;
-        [self.contentView addSubview:_detailView];
+        [self.apexContentView addSubview:_detailView];
     }
     return _detailView;
 }
 - (HWebImageView *)accessoryView {
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
-        [self.contentView addSubview:_accessoryView];
+        [self.apexContentView addSubview:_accessoryView];
     }
     return _accessoryView;
 }

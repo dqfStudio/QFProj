@@ -26,12 +26,12 @@
     return self;
 }
 
-- (UIView *)contentView {
-    if (!_contentView) {
-        _contentView = UIView.new;
-        [self addSubview:_contentView];
+- (UIView *)apexContentView {
+    if (!_apexContentView) {
+        _apexContentView = UIView.new;
+        [self addSubview:_apexContentView];
     }
-    return _contentView;
+    return _apexContentView;
 }
 
 - (void)cellSkinEvent {
