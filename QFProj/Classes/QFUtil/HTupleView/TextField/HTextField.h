@@ -10,6 +10,7 @@
 #import "HLabel.h"
 #import "HWebImageView.h"
 #import "HWebButtonView.h"
+#import "HGeometry.h"
 
 @interface HTextField : UITextField <UITextFieldDelegate>
 @property (nonatomic) HLabel *leftLabel;
@@ -21,8 +22,8 @@
 @property (nonatomic) HWebButtonView *leftButton;
 @property (nonatomic) HWebButtonView *rightButton;
 
-@property (nonatomic) UIEdgeInsets leftInsets;
-@property (nonatomic) UIEdgeInsets rightInsets;
+@property (nonatomic) UILREdgeInsets leftInsets;
+@property (nonatomic) UILREdgeInsets rightInsets;
 
 @property (nonatomic) UIFont  *placeholderFont;
 @property (nonatomic) UIColor *placeholderColor;

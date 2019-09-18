@@ -704,6 +704,7 @@
 		A26CF7BE2302747B00D73ECD /* NSNull+HSafeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+HSafeUtil.m"; sourceTree = "<group>"; };
 		A273940322A7FF44009676C1 /* HTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableView.m; sourceTree = "<group>"; };
 		A273940522A7FF44009676C1 /* HTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableView.h; sourceTree = "<group>"; };
+		A2853CF32331D4C3005632BB /* HGeometry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HGeometry.h; sourceTree = "<group>"; };
 		A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULBCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A28EF2E721D86DD8002F92ED /* ULBCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ULBCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		A28EF2EA21D86E43002F92ED /* UILabel+HAttributeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeText.h"; sourceTree = "<group>"; };
@@ -1044,6 +1045,7 @@
 		15707EBD20B5674E00493839 /* HTupleCommon */ = {
 			isa = PBXGroup;
 			children = (
+				A2853CF32331D4C3005632BB /* HGeometry.h */,
 				15707EBE20B5675A00493839 /* HTupleSignal.h */,
 				15707EBF20B5675A00493839 /* HTupleSignal.m */,
 				A208E17622BA305C009A6FDD /* HTupleRefresh.h */,
