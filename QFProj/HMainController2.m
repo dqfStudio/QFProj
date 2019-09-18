@@ -66,7 +66,7 @@
             HTupleHorizontalCell *cell = itemBlock(nil, HTupleHorizontalCell.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
-            [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
+            [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
             
             CGRect frame = [cell getContentBounds];
             
@@ -119,7 +119,7 @@
             HTupleHorizontalCell *cell = itemBlock(nil, HTupleHorizontalCell.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
-            [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
+            [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
             
             CGRect frame = [cell getContentBounds];
             
@@ -177,7 +177,7 @@
             HTupleHorizontalCell *cell = itemBlock(nil, HTupleHorizontalCell.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
-            [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
+            [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
             
             CGRect frame = [cell getContentBounds];
             
@@ -242,7 +242,7 @@
             HTupleVerticalCell *cell = itemBlock(nil, HTupleVerticalCell.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
-            [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 0)];
+            [cell setSeparatorInset:UILREdgeInsetsMake(10, 0)];
             
             CGRect frame = [cell getContentBounds];
             
@@ -345,7 +345,7 @@
             HTupleVerticalCell *cell = itemBlock(nil, HTupleVerticalCell.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
-            [cell setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 10)];
+            [cell setSeparatorInset:UILREdgeInsetsMake(0, 10)];
             
             CGRect frame = [cell getContentBounds];
             

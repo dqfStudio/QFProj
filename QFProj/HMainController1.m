@@ -75,7 +75,7 @@
             HTupleViewCellValue1 *cell = itemBlock(nil, HTupleViewCellValue1.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
-            [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
+            [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
             
             [cell.imageView setBackgroundColor:UIColor.redColor];
             [cell.imageView setImageWithName:@"icon_no_server"];
@@ -107,7 +107,7 @@
             HTupleViewCellDefault2 *cell = itemBlock(nil, HTupleViewCellDefault2.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
-            [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
+            [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
             
             [cell.imageView setBackgroundColor:UIColor.redColor];
             [cell.imageView setImageWithName:@"icon_no_server"];
@@ -129,7 +129,7 @@
             HTupleViewCellDefault2 *cell = itemBlock(nil, HTupleViewCellDefault2.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
-            [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
+            [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
 
             [cell.imageView setBackgroundColor:UIColor.redColor];
             [cell.imageView setImageWithName:@"icon_no_server"];
@@ -146,7 +146,7 @@
             HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
-            [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 0)];
+            [cell setSeparatorInset:UILREdgeInsetsMake(10, 0)];
             
             CGRect frame = [cell getContentBounds];
             
@@ -193,7 +193,7 @@
             HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
-            [cell setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 10)];
+            [cell setSeparatorInset:UILREdgeInsetsMake(0, 10)];
 
             CGRect frame = [cell getContentBounds];
             
@@ -217,7 +217,7 @@
             HTupleViewCellValue5 *cell = itemBlock(nil, HTupleViewCellValue5.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
-            [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
+            [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
             
             CGRect frame = [cell getContentBounds];
             

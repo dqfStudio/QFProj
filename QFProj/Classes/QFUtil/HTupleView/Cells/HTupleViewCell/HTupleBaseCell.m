@@ -67,8 +67,8 @@
         [self.separatorView setBackgroundColor:_separatorColor];
     }
 }
-- (void)setSeparatorInset:(UIEdgeInsets)separatorInset {
-    if (!UIEdgeInsetsEqualToEdgeInsets(_separatorInset, separatorInset)) {
+- (void)setSeparatorInset:(UILREdgeInsets)separatorInset {
+    if (!UILREdgeInsetsEqualToEdgeInsets(_separatorInset, separatorInset)) {
         _separatorInset = separatorInset;
         [self.separatorView setFrame:self.getSeparatorFrame];
     }

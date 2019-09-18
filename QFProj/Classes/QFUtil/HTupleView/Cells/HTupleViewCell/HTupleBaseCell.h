@@ -34,7 +34,7 @@ typedef void(^HTupleCellSkinBlock)(HTupleBaseCell *cell, HTupleView *tuple);
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UIEdgeInsets edgeInsets;
 //间隔线
-@property (nonatomic) UIEdgeInsets separatorInset;
+@property (nonatomic) UILREdgeInsets separatorInset;
 @property (nonatomic) UIColor *separatorColor;
 @property (nonatomic) BOOL shouldShowSeparator;
 //是否需要刷新frame

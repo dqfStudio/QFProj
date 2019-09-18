@@ -23,7 +23,7 @@
     HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
     [cell setBackgroundColor:UIColor.grayColor];
     [cell setShouldShowSeparator:YES];
-    [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
+    [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
     
     CGRect frame = [cell getContentBounds];
     

@@ -30,6 +30,14 @@ UIKIT_STATIC_INLINE UILREdgeInsets UILREdgeInsetsMake(CGFloat left, CGFloat righ
     return (UILREdgeInsets){left, right};
 }
 
+UIKIT_STATIC_INLINE BOOL UITBEdgeInsetsEqualToEdgeInsets(UITBEdgeInsets insets1, UITBEdgeInsets insets2) {
+    return insets1.top == insets2.top && insets1.bottom == insets2.bottom;
+}
+
+UIKIT_STATIC_INLINE BOOL UILREdgeInsetsEqualToEdgeInsets(UILREdgeInsets insets1, UILREdgeInsets insets2) {
+    return insets1.left == insets2.left && insets1.right == insets2.right;
+}
+
 UIKIT_STATIC_INLINE CGRect UIRectIntegral(CGRect rect) {
     CGFloat x = floor(rect.origin.x);
     CGFloat y = floor(rect.origin.y);
