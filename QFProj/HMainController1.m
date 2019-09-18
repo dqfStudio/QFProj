@@ -248,7 +248,7 @@
             [cell.textField.leftLabel setText:@"验证码"];
             [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];
             [cell.textField.leftLabel setBackgroundColor:UIColor.greenColor];
-            cell.textField.leftInsets = UILREdgeInsetsMake(0, 0);
+            cell.textField.leftInsets = UILREdgeInsetsMake(0, 5);
             
             [cell.textField setPlaceholder:@"请输入验证码"];
             [cell.textField setPlaceholderColor:[UIColor whiteColor]];
