@@ -8,6 +8,8 @@
 
 #import "HTupleViewApexValue1.h"
 
+#define KArrowSpace 10
+
 @implementation HTupleViewApexValueBase
 - (void)initUI {
     self.imageViewInsets = UIEdgeInsetsZero;
@@ -335,7 +337,7 @@
     if (_detailView) {
         CGRect tmpFrame3 = frame;
         tmpFrame3.size.width = CGRectGetHeight(tmpFrame3);
-        tmpFrame3.origin.x = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame3)-10;
+        tmpFrame3.origin.x = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame3)-KArrowSpace;
         tmpFrame2.origin.x += self.detailViewInsets.left;
         tmpFrame2.origin.y += self.detailViewInsets.top;
         tmpFrame2.size.width -= self.detailViewInsets.left+self.detailViewInsets.right;
@@ -355,9 +357,9 @@
         }
     }else {
         if (_imageView) {
-            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-CGRectGetMaxX(_imageView.frame)-10-self.centerLabelInsets.left;
+            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-CGRectGetMaxX(_imageView.frame)-KArrowSpace-self.centerLabelInsets.left;
         }else {
-            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-10;
+            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-KArrowSpace;
         }
     }
     [self._cellContentView setFrame:tmpFrame4];
@@ -462,7 +464,7 @@
     if (_detailView) {
         CGRect tmpFrame3 = frame;
         tmpFrame3.size.width = CGRectGetHeight(tmpFrame3);
-        tmpFrame3.origin.x = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame3)-10;
+        tmpFrame3.origin.x = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame3)-KArrowSpace;
         tmpFrame2.origin.x += self.detailViewInsets.left;
         tmpFrame2.origin.y += self.detailViewInsets.top;
         tmpFrame2.size.width -= self.detailViewInsets.left+self.detailViewInsets.right;
@@ -482,9 +484,9 @@
         }
     }else {
         if (_imageView) {
-            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-CGRectGetMaxX(_imageView.frame)-10-self.centerLabelInsets.left;
+            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-CGRectGetMaxX(_imageView.frame)-KArrowSpace-self.centerLabelInsets.left;
         }else {
-            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-10;
+            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-KArrowSpace;
         }
     }
     [self._cellContentView setFrame:tmpFrame4];
@@ -752,7 +754,7 @@
     if (_detailView) {
         CGRect tmpFrame3 = frame;
         tmpFrame3.size.width = CGRectGetHeight(tmpFrame3);
-        tmpFrame3.origin.x = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame3)-10;
+        tmpFrame3.origin.x = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame3)-KArrowSpace;
         tmpFrame2.origin.x += self.detailViewInsets.left;
         tmpFrame2.origin.y += self.detailViewInsets.top;
         tmpFrame2.size.width -= self.detailViewInsets.left+self.detailViewInsets.right;
@@ -772,9 +774,9 @@
         }
     }else {
         if (_imageView) {
-            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-CGRectGetMaxX(_imageView.frame)-10-self.centerLabelInsets.left;
+            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-CGRectGetMaxX(_imageView.frame)-KArrowSpace-self.centerLabelInsets.left;
         }else {
-            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-10;
+            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-KArrowSpace;
         }
     }
     [self._cellContentView setFrame:tmpFrame4];

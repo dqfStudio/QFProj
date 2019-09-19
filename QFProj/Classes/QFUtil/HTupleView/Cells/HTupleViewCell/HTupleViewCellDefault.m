@@ -8,6 +8,8 @@
 
 #import "HTupleViewCellDefault.h"
 
+#define KArrowSpace 10
+
 @implementation HTupleViewCellDefaultBase
 - (void)initUI {
     self.imageViewInsets = UIEdgeInsetsZero;
@@ -222,7 +224,7 @@
     if (_detailView) {
         CGRect tmpFrame3 = frame;
         tmpFrame3.size.width = CGRectGetHeight(tmpFrame3);
-        tmpFrame3.origin.x = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame3)-10;
+        tmpFrame3.origin.x = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame3)-KArrowSpace;
         tmpFrame3.origin.x += self.detailViewInsets.left;
         tmpFrame3.origin.y += self.detailViewInsets.top;
         tmpFrame3.size.width -= self.detailViewInsets.left+self.detailViewInsets.right;
@@ -249,9 +251,9 @@
         }
     }else {
         if (_imageView) {
-            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-CGRectGetMaxX(_imageView.frame)-10-self.centerLabelInsets.left;
+            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-CGRectGetMaxX(_imageView.frame)-KArrowSpace-self.centerLabelInsets.left;
         }else {
-            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-10;
+            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-KArrowSpace;
         }
     }
     CGRect tmpFrame44 = tmpFrame4;
