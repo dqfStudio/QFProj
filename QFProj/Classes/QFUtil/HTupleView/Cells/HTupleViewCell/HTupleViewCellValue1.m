@@ -54,6 +54,7 @@
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
+        [_label setBackgroundColor:UIColor.whiteColor];
         [self._cellContentView addSubview:_label];
     }
     return _label;
@@ -61,6 +62,7 @@
 - (HLabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
+        [_detailLabel setBackgroundColor:UIColor.whiteColor];
         [self._cellContentView addSubview:_detailLabel];
     }
     return _detailLabel;
@@ -166,6 +168,7 @@
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
+        [_label setBackgroundColor:UIColor.whiteColor];
         [self._cellContentView addSubview:_label];
     }
     return _label;
@@ -173,6 +176,7 @@
 - (HLabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
+        [_detailLabel setBackgroundColor:UIColor.whiteColor];
         [self._cellContentView addSubview:_detailLabel];
     }
     return _detailLabel;
@@ -281,6 +285,7 @@
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
+        [_label setBackgroundColor:UIColor.whiteColor];
         [self._cellContentView addSubview:_label];
     }
     return _label;
@@ -288,6 +293,7 @@
 - (HLabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
+        [_detailLabel setBackgroundColor:UIColor.whiteColor];
         [self._cellContentView addSubview:_detailLabel];
     }
     return _detailLabel;
@@ -406,6 +412,7 @@
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
+        [_label setBackgroundColor:UIColor.whiteColor];
         [self._cellContentView addSubview:_label];
     }
     return _label;
@@ -413,6 +420,7 @@
 - (HLabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
+        [_detailLabel setBackgroundColor:UIColor.whiteColor];
         [self._cellContentView addSubview:_detailLabel];
     }
     return _detailLabel;
@@ -544,6 +552,7 @@
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
+        [_label setBackgroundColor:UIColor.whiteColor];
         [self._cellContentView addSubview:_label];
     }
     return _label;
@@ -551,6 +560,7 @@
 - (HLabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
+        [_detailLabel setBackgroundColor:UIColor.whiteColor];
         [self._cellContentView addSubview:_detailLabel];
     }
     return _detailLabel;
@@ -558,6 +568,7 @@
 - (HLabel *)accessoryLabel {
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
+        [_accessoryLabel setBackgroundColor:UIColor.whiteColor];
         [_accessoryLabel setTextAlignment:NSTextAlignmentRight];
         [self._cellContentView addSubview:_accessoryLabel];
     }
@@ -682,6 +693,7 @@
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
+        [_label setBackgroundColor:UIColor.whiteColor];
         [self._cellContentView addSubview:_label];
     }
     return _label;
@@ -689,6 +701,7 @@
 - (HLabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
+        [_detailLabel setBackgroundColor:UIColor.whiteColor];
         [self._cellContentView addSubview:_detailLabel];
     }
     return _detailLabel;
@@ -696,6 +709,7 @@
 - (HLabel *)accessoryLabel {
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
+        [_accessoryLabel setBackgroundColor:UIColor.whiteColor];
         [_accessoryLabel setTextAlignment:NSTextAlignmentRight];
         [self._cellContentView addSubview:_accessoryLabel];
     }
