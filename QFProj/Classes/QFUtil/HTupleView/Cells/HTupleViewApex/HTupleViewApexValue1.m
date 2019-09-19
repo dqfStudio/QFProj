@@ -13,9 +13,7 @@
 @implementation HTupleViewApexValueBase
 - (void)initUI {
     self.imageViewInsets = UIEdgeInsetsZero;
-    self.detailLabelInsets = UILREdgeInsetsZero;
-    self.labelInsets = UILREdgeInsetsZero;
-    self.accessoryLabelInsets = UILREdgeInsetsZero;
+    self.labelInterval = 5;
     self.centerLabelInsets = UILREdgeInsetsMake(10, 10);
     self.detailViewInsets = UIEdgeInsetsZero;
 }
@@ -24,7 +22,9 @@
 @implementation HTupleViewApexValueBase2
 - (void)initUI {
     self.imageViewInsets = UIEdgeInsetsZero;
-    self.labelInterval = 5;
+    self.detailLabelInsets = UILREdgeInsetsZero;
+    self.labelInsets = UILREdgeInsetsZero;
+    self.accessoryLabelInsets = UILREdgeInsetsZero;
     self.centerLabelInsets = UILREdgeInsetsMake(10, 10);
     self.detailViewInsets = UIEdgeInsetsZero;
 }
