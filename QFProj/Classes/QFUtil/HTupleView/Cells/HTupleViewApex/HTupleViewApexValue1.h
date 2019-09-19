@@ -27,49 +27,31 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /*
- 右边不带箭头，且两个label左右相距排列
+ 两个label左右相距排列
  */
 @interface HTupleViewApexValue1 : HTupleViewApexValueBase
 @property (nonatomic, nullable) HWebImageView *imageView; //左边显示图片
 @property (nonatomic, nonnull)  HLabel *label; //显示文字内容
 @property (nonatomic, nonnull)  HLabel *detailLabel; //显示文字内容详情
 @property (nonatomic, nullable) HWebImageView *detailView; //右边显示图片
+@property (nonatomic) BOOL showAccessoryArrow; //是否显示右边箭头
 @end
 
 /*
- 右边不带箭头，且两个label左右对立排列
+ 两个label左右对立排列
  */
 @interface HTupleViewApexValue2 : HTupleViewApexValueBase
 @property (nonatomic, nullable) HWebImageView *imageView; //左边显示图片
 @property (nonatomic, nonnull)  HLabel *label; //显示文字内容
 @property (nonatomic, nonnull)  HLabel *detailLabel; //显示文字内容详情
 @property (nonatomic, nullable) HWebImageView *detailView; //右边显示图片
+@property (nonatomic) BOOL showAccessoryArrow; //是否显示右边箭头
 @end
 
 /*
- 右边带有箭头，且两个label左右相距排列
+ 显示三个label
  */
-@interface HTupleViewApexValue3 : HTupleViewApexValueBase
-@property (nonatomic, nullable) HWebImageView *imageView; //左边显示图片
-@property (nonatomic, nonnull)  HLabel *label; //显示文字内容
-@property (nonatomic, nonnull)  HLabel *detailLabel; //显示文字内容详情
-@property (nonatomic, nullable) HWebImageView *detailView; //右边显示图片
-@end
-
-/*
- 右边带有箭头，且两个label左右对立排列
- */
-@interface HTupleViewApexValue4 : HTupleViewApexValueBase
-@property (nonatomic, nullable) HWebImageView *imageView; //左边显示图片
-@property (nonatomic, nonnull)  HLabel *label; //显示文字内容
-@property (nonatomic, nonnull)  HLabel *detailLabel; //显示文字内容详情
-@property (nonatomic, nullable) HWebImageView *detailView; //右边显示图片
-@end
-
-/*
- 右边不带箭头，显示三个label
- */
-@interface HTupleViewApexValue5 : HTupleViewApexValueBase2
+@interface HTupleViewApexValue3 : HTupleViewApexValueBase2
 @property (nonatomic) CGFloat leftWidth; //左边label的宽度
 @property (nonatomic) CGFloat rightWidth; //右边label的宽度
 
@@ -78,20 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nullable) HLabel *detailLabel; //显示文字内容详情
 @property (nonatomic, nullable) HLabel *accessoryLabel; //显示文字内容附加信息
 @property (nonatomic, nullable) HWebImageView *detailView; //右边显示图片
-@end
-
-/*
- 右边带有箭头，显示三个label
- */
-@interface HTupleViewApexValue6 : HTupleViewApexValueBase2
-@property (nonatomic) CGFloat leftWidth; //左边label的宽度
-@property (nonatomic) CGFloat rightWidth; //右边label的宽度
-
-@property (nonatomic, nullable) HWebImageView *imageView; //左边显示图片
-@property (nonatomic, nonnull)  HLabel *label; //显示文字内容
-@property (nonatomic, nullable) HLabel *detailLabel; //显示文字内容详情
-@property (nonatomic, nullable) HLabel *accessoryLabel; //显示文字内容附加信息
-@property (nonatomic, nullable) HWebImageView *detailView; //右边显示图片
+@property (nonatomic) BOOL showAccessoryArrow; //是否显示右边箭头
 @end
 
 NS_ASSUME_NONNULL_END

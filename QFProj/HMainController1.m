@@ -72,7 +72,7 @@
 - (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
-            HTupleViewCellValue4 *cell = itemBlock(nil, HTupleViewCellValue4.class, nil, YES);
+            HTupleViewCellDefault *cell = itemBlock(nil, HTupleViewCellDefault.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
@@ -85,6 +85,8 @@
 
 //            cell.leftWidth = 100;
 //            cell.rightWidth = 100;
+            
+            cell.showAccessoryArrow = YES;
             
 //            cell.labelInterval = 0;
             
@@ -107,7 +109,7 @@
         }
             break;
         case 1: {
-            HTupleViewCellDefault2 *cell = itemBlock(nil, HTupleViewCellDefault2.class, nil, YES);
+            HTupleViewCellDefault *cell = itemBlock(nil, HTupleViewCellDefault.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
@@ -129,10 +131,12 @@
         }
             break;
         case 2: {
-            HTupleViewCellDefault2 *cell = itemBlock(nil, HTupleViewCellDefault2.class, nil, YES);
+            HTupleViewCellDefault *cell = itemBlock(nil, HTupleViewCellDefault.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
+            
+//            cell.showAccessoryArrow = YES;
 
             [cell.imageView setBackgroundColor:UIColor.redColor];
             [cell.imageView setImageWithName:@"icon_no_server"];
@@ -217,7 +221,7 @@
         }
             break;
         case 6: {
-            HTupleViewCellValue5 *cell = itemBlock(nil, HTupleViewCellValue5.class, nil, YES);
+            HTupleViewCellValue3 *cell = itemBlock(nil, HTupleViewCellValue3.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
