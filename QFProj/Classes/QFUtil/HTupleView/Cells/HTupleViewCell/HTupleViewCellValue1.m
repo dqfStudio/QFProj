@@ -117,27 +117,25 @@
     
     [self._cellContentView setFrame:tmpFrame3];
     
-    NSInteger wordWidth = 0;
-    if (self.detailLabel.text.length > 0) {
-        wordWidth = 20; //默认为20
+    if (self.label.text.length > 0 && self.detailLabel.text.length > 0) {
+        NSInteger wordWidth = 20; //默认为20
         wordWidth = self.detailLabel.intrinsicContentSize.width/self.detailLabel.text.length;
         if (wordWidth < 20) wordWidth += wordWidth;
-    }
-    if (self.label.text.length > 0) {
-        if (self.detailLabel.text.length > 0) {
-            if (self.label.intrinsicContentSize.width >= tmpFrame3.size.width - self.labelInterval - wordWidth) {
-                [self.label setFrame:CGRectMake(0, 0, tmpFrame3.size.width, tmpFrame3.size.height)];
-                [self.detailLabel setFrame:CGRectZero];
-            }else {
-                [self.label setFrame:CGRectMake(0, 0, self.label.intrinsicContentSize.width, tmpFrame3.size.height)];
-                [self.detailLabel setFrame:CGRectMake(self.label.intrinsicContentSize.width+self.labelInterval, 0,
-                                                      tmpFrame3.size.width-self.label.intrinsicContentSize.width-self.labelInterval,
-                                                      tmpFrame3.size.height)];
-            }
-        }else {
+        if (self.label.intrinsicContentSize.width >= tmpFrame3.size.width - self.labelInterval - wordWidth) {
             [self.label setFrame:CGRectMake(0, 0, tmpFrame3.size.width, tmpFrame3.size.height)];
             [self.detailLabel setFrame:CGRectZero];
+        }else {
+            [self.label setFrame:CGRectMake(0, 0, self.label.intrinsicContentSize.width, tmpFrame3.size.height)];
+            [self.detailLabel setFrame:CGRectMake(self.label.intrinsicContentSize.width+self.labelInterval, 0,
+                                                  tmpFrame3.size.width-self.label.intrinsicContentSize.width-self.labelInterval,
+                                                  tmpFrame3.size.height)];
         }
+    }else if (self.detailLabel.text.length > 0) {
+        [self.detailLabel setFrame:CGRectMake(0, 0, tmpFrame3.size.width, tmpFrame3.size.height)];
+        [self.label setFrame:CGRectZero];
+    }else {
+        [self.label setFrame:CGRectMake(0, 0, tmpFrame3.size.width, tmpFrame3.size.height)];
+        [self.detailLabel setFrame:CGRectZero];
     }
 }
 @end
@@ -231,29 +229,27 @@
     
     [self._cellContentView setFrame:tmpFrame3];
     
-    NSInteger wordWidth = 0;
-    if (self.label.text.length > 0) {
-        wordWidth = 20; //默认为20
-        wordWidth = self.label.intrinsicContentSize.width/self.label.text.length;
+    if (self.label.text.length > 0 && self.detailLabel.text.length > 0) {
+        NSInteger wordWidth = 20; //默认为20
+        wordWidth = self.detailLabel.intrinsicContentSize.width/self.detailLabel.text.length;
         if (wordWidth < 20) wordWidth += wordWidth;
-    }
-    if (self.detailLabel.text.length > 0) {
-        if (self.label.text.length > 0) {
-            if (self.detailLabel.intrinsicContentSize.width >= tmpFrame3.size.width - self.labelInterval - wordWidth) {
-                [self.detailLabel setFrame:CGRectMake(0, 0, tmpFrame3.size.width, tmpFrame3.size.height)];
-                [self.label setFrame:CGRectZero];
-            }else {
-                [self.label setFrame:CGRectMake(0, 0,
-                                                tmpFrame3.size.width-self.detailLabel.intrinsicContentSize.width-self.labelInterval,
-                                                tmpFrame3.size.height)];
-                [self.detailLabel setFrame:CGRectMake(tmpFrame3.size.width-self.detailLabel.intrinsicContentSize.width, 0,
-                                                      self.detailLabel.intrinsicContentSize.width,
-                                                      tmpFrame3.size.height)];
-            }
-        }else {
+        if (self.detailLabel.intrinsicContentSize.width >= tmpFrame3.size.width - self.labelInterval - wordWidth) {
             [self.detailLabel setFrame:CGRectMake(0, 0, tmpFrame3.size.width, tmpFrame3.size.height)];
             [self.label setFrame:CGRectZero];
+        }else {
+            [self.label setFrame:CGRectMake(0, 0,
+                                            tmpFrame3.size.width-self.detailLabel.intrinsicContentSize.width-self.labelInterval,
+                                            tmpFrame3.size.height)];
+            [self.detailLabel setFrame:CGRectMake(tmpFrame3.size.width-self.detailLabel.intrinsicContentSize.width, 0,
+                                                  self.detailLabel.intrinsicContentSize.width,
+                                                  tmpFrame3.size.height)];
         }
+    }else if (self.detailLabel.text.length > 0) {
+        [self.detailLabel setFrame:CGRectMake(0, 0, tmpFrame3.size.width, tmpFrame3.size.height)];
+        [self.label setFrame:CGRectZero];
+    }else {
+        [self.label setFrame:CGRectMake(0, 0, tmpFrame3.size.width, tmpFrame3.size.height)];
+        [self.detailLabel setFrame:CGRectZero];
     }
 }
 @end
@@ -360,27 +356,25 @@
     }
     [self._cellContentView setFrame:tmpFrame4];
     
-    NSInteger wordWidth = 0;
-    if (self.detailLabel.text.length > 0) {
-        wordWidth = 20; //默认为20
+    if (self.label.text.length > 0 && self.detailLabel.text.length > 0) {
+        NSInteger wordWidth = 20; //默认为20
         wordWidth = self.detailLabel.intrinsicContentSize.width/self.detailLabel.text.length;
         if (wordWidth < 20) wordWidth += wordWidth;
-    }
-    if (self.label.text.length > 0) {
-        if (self.detailLabel.text.length > 0) {
-            if (self.label.intrinsicContentSize.width >= tmpFrame4.size.width - self.labelInterval - wordWidth) {
-                [self.label setFrame:CGRectMake(0, 0, tmpFrame4.size.width, tmpFrame4.size.height)];
-                [self.detailLabel setFrame:CGRectZero];
-            }else {
-                [self.label setFrame:CGRectMake(0, 0, self.label.intrinsicContentSize.width, tmpFrame4.size.height)];
-                [self.detailLabel setFrame:CGRectMake(self.label.intrinsicContentSize.width+self.labelInterval, 0,
-                                                      tmpFrame4.size.width-self.label.intrinsicContentSize.width-self.labelInterval,
-                                                      tmpFrame4.size.height)];
-            }
-        }else {
+        if (self.label.intrinsicContentSize.width >= tmpFrame4.size.width - self.labelInterval - wordWidth) {
             [self.label setFrame:CGRectMake(0, 0, tmpFrame4.size.width, tmpFrame4.size.height)];
             [self.detailLabel setFrame:CGRectZero];
+        }else {
+            [self.label setFrame:CGRectMake(0, 0, self.label.intrinsicContentSize.width, tmpFrame4.size.height)];
+            [self.detailLabel setFrame:CGRectMake(self.label.intrinsicContentSize.width+self.labelInterval, 0,
+                                                  tmpFrame4.size.width-self.label.intrinsicContentSize.width-self.labelInterval,
+                                                  tmpFrame4.size.height)];
         }
+    }else if (self.detailLabel.text.length > 0) {
+        [self.detailLabel setFrame:CGRectMake(0, 0, tmpFrame4.size.width, tmpFrame4.size.height)];
+        [self.label setFrame:CGRectZero];
+    }else {
+        [self.label setFrame:CGRectMake(0, 0, tmpFrame4.size.width, tmpFrame4.size.height)];
+        [self.detailLabel setFrame:CGRectZero];
     }
 }
 @end
@@ -487,29 +481,27 @@
     }
     [self._cellContentView setFrame:tmpFrame4];
     
-    NSInteger wordWidth = 0;
-    if (self.label.text.length > 0) {
-        wordWidth = 20; //默认为20
-        wordWidth = self.label.intrinsicContentSize.width/self.label.text.length;
+    if (self.label.text.length > 0 && self.detailLabel.text.length > 0) {
+        NSInteger wordWidth = 20; //默认为20
+        wordWidth = self.detailLabel.intrinsicContentSize.width/self.detailLabel.text.length;
         if (wordWidth < 20) wordWidth += wordWidth;
-    }
-    if (self.detailLabel.text.length > 0) {
-        if (self.label.text.length > 0) {
-            if (self.detailLabel.intrinsicContentSize.width >= tmpFrame4.size.width - self.labelInterval - wordWidth) {
-                [self.detailLabel setFrame:CGRectMake(0, 0, tmpFrame4.size.width, tmpFrame4.size.height)];
-                [self.label setFrame:CGRectZero];
-            }else {
-                [self.label setFrame:CGRectMake(0, 0,
-                                                tmpFrame4.size.width-self.detailLabel.intrinsicContentSize.width-self.labelInterval,
-                                                tmpFrame4.size.height)];
-                [self.detailLabel setFrame:CGRectMake(tmpFrame4.size.width-self.detailLabel.intrinsicContentSize.width, 0,
-                                                      self.detailLabel.intrinsicContentSize.width,
-                                                      tmpFrame4.size.height)];
-            }
-        }else {
+        if (self.detailLabel.intrinsicContentSize.width >= tmpFrame4.size.width - self.labelInterval - wordWidth) {
             [self.detailLabel setFrame:CGRectMake(0, 0, tmpFrame4.size.width, tmpFrame4.size.height)];
             [self.label setFrame:CGRectZero];
+        }else {
+            [self.label setFrame:CGRectMake(0, 0,
+                                            tmpFrame4.size.width-self.detailLabel.intrinsicContentSize.width-self.labelInterval,
+                                            tmpFrame4.size.height)];
+            [self.detailLabel setFrame:CGRectMake(tmpFrame4.size.width-self.detailLabel.intrinsicContentSize.width, 0,
+                                                  self.detailLabel.intrinsicContentSize.width,
+                                                  tmpFrame4.size.height)];
         }
+    }else if (self.detailLabel.text.length > 0) {
+        [self.detailLabel setFrame:CGRectMake(0, 0, tmpFrame4.size.width, tmpFrame4.size.height)];
+        [self.label setFrame:CGRectZero];
+    }else {
+        [self.label setFrame:CGRectMake(0, 0, tmpFrame4.size.width, tmpFrame4.size.height)];
+        [self.detailLabel setFrame:CGRectZero];
     }
 }
 @end
