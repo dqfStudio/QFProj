@@ -73,20 +73,6 @@
     }
     return _detailView;
 }
-- (void)setLabelInterval:(CGFloat)labelInterval {
-    if (super.labelInterval != labelInterval) {
-        super.labelInterval = labelInterval;
-        [self.label mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.bottom.equalTo(@0);
-            make.right.equalTo(self.detailLabel.mas_left).offset(-self.labelInterval);
-        }];
-        
-        [self.detailLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.label.mas_right).offset(self.labelInterval);
-            make.top.bottom.right.equalTo(@0);
-        }];
-    }
-}
 - (void)frameChanged {
     CGRect frame = [self getContentBounds];
     
@@ -131,34 +117,27 @@
     
     [self._cellContentView setFrame:tmpFrame3];
     
-    [self.label setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
-    [self.detailLabel setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-    
-    [self.label setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
-    [self.detailLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-    
-    [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.bottom.equalTo(@0);
-        make.right.equalTo(self.detailLabel.mas_left).offset(-self.labelInterval);
-    }];
-    
-    [self.detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.label.mas_right).offset(self.labelInterval);
-        make.top.bottom.right.equalTo(@0);
-    }];
-    
-    if (self.label.intrinsicContentSize.width >= frame.size.width - self.labelInterval) {
-        [self.label mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.bottom.equalTo(@0);
-            make.right.equalTo(self.detailLabel.mas_left);
-        }];
-        
-        [self.detailLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.label.mas_right);
-            make.top.bottom.right.equalTo(@0);
-        }];
-    }else {
-        [self setLabelInterval:self.labelInterval];
+    NSInteger wordWidth = 0;
+    if (self.detailLabel.text.length > 0) {
+        wordWidth = 20; //默认为20
+        wordWidth = self.detailLabel.intrinsicContentSize.width/self.detailLabel.text.length;
+        if (wordWidth < 20) wordWidth += wordWidth;
+    }
+    if (self.label.text.length > 0) {
+        if (self.detailLabel.text.length > 0) {
+            if (self.label.intrinsicContentSize.width >= tmpFrame3.size.width - self.labelInterval - wordWidth) {
+                [self.label setFrame:CGRectMake(0, 0, tmpFrame3.size.width, tmpFrame3.size.height)];
+                [self.detailLabel setFrame:CGRectZero];
+            }else {
+                [self.label setFrame:CGRectMake(0, 0, self.label.intrinsicContentSize.width, tmpFrame3.size.height)];
+                [self.detailLabel setFrame:CGRectMake(self.label.intrinsicContentSize.width+self.labelInterval, 0,
+                                                      tmpFrame3.size.width-self.label.intrinsicContentSize.width-self.labelInterval,
+                                                      tmpFrame3.size.height)];
+            }
+        }else {
+            [self.label setFrame:CGRectMake(0, 0, tmpFrame3.size.width, tmpFrame3.size.height)];
+            [self.detailLabel setFrame:CGRectZero];
+        }
     }
 }
 @end
@@ -208,20 +187,6 @@
     }
     return _detailView;
 }
-- (void)setLabelInterval:(CGFloat)labelInterval {
-    if (super.labelInterval != labelInterval) {
-        super.labelInterval = labelInterval;
-        [self.label mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.bottom.equalTo(@0);
-            make.right.equalTo(self.detailLabel.mas_left).offset(-self.labelInterval);
-        }];
-        
-        [self.detailLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.label.mas_right).offset(self.labelInterval);
-            make.top.bottom.right.equalTo(@0);
-        }];
-    }
-}
 - (void)frameChanged {
     CGRect frame = [self getContentBounds];
     
@@ -266,21 +231,30 @@
     
     [self._cellContentView setFrame:tmpFrame3];
     
-    [self.label setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-    [self.detailLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
-    
-    [self.label setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-    [self.detailLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
-    
-    [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.bottom.equalTo(@0);
-        make.right.equalTo(self.detailLabel.mas_left).offset(-self.labelInterval);
-    }];
-    
-    [self.detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.label.mas_right).offset(self.labelInterval);
-        make.top.bottom.right.equalTo(@0);
-    }];
+    NSInteger wordWidth = 0;
+    if (self.label.text.length > 0) {
+        wordWidth = 20; //默认为20
+        wordWidth = self.label.intrinsicContentSize.width/self.label.text.length;
+        if (wordWidth < 20) wordWidth += wordWidth;
+    }
+    if (self.detailLabel.text.length > 0) {
+        if (self.label.text.length > 0) {
+            if (self.detailLabel.intrinsicContentSize.width >= tmpFrame3.size.width - self.labelInterval - wordWidth) {
+                [self.detailLabel setFrame:CGRectMake(0, 0, tmpFrame3.size.width, tmpFrame3.size.height)];
+                [self.label setFrame:CGRectZero];
+            }else {
+                [self.label setFrame:CGRectMake(0, 0,
+                                                tmpFrame3.size.width-self.detailLabel.intrinsicContentSize.width-self.labelInterval,
+                                                tmpFrame3.size.height)];
+                [self.detailLabel setFrame:CGRectMake(tmpFrame3.size.width-self.detailLabel.intrinsicContentSize.width, 0,
+                                                      self.detailLabel.intrinsicContentSize.width,
+                                                      tmpFrame3.size.height)];
+            }
+        }else {
+            [self.detailLabel setFrame:CGRectMake(0, 0, tmpFrame3.size.width, tmpFrame3.size.height)];
+            [self.label setFrame:CGRectZero];
+        }
+    }
 }
 @end
 
@@ -337,20 +311,6 @@
     }
     return _accessoryView;
 }
-- (void)setLabelInterval:(CGFloat)labelInterval {
-    if (super.labelInterval != labelInterval) {
-        super.labelInterval = labelInterval;
-        [self.label mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.bottom.equalTo(@0);
-            make.right.equalTo(self.detailLabel.mas_left).offset(-self.labelInterval);
-        }];
-        
-        [self.detailLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.label.mas_right).offset(self.labelInterval);
-            make.top.bottom.right.equalTo(@0);
-        }];
-    }
-}
 - (void)frameChanged {
     CGRect frame = [self getContentBounds];
     
@@ -400,34 +360,27 @@
     }
     [self._cellContentView setFrame:tmpFrame4];
     
-    [self.label setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
-    [self.detailLabel setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-    
-    [self.label setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
-    [self.detailLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-    
-    [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.bottom.equalTo(@0);
-        make.right.equalTo(self.detailLabel.mas_left).offset(-self.labelInterval);
-    }];
-    
-    [self.detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.label.mas_right).offset(self.labelInterval);
-        make.top.bottom.right.equalTo(@0);
-    }];
-    
-    if (self.label.intrinsicContentSize.width >= frame.size.width - self.labelInterval) {
-        [self.label mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.bottom.equalTo(@0);
-            make.right.equalTo(self.detailLabel.mas_left);
-        }];
-        
-        [self.detailLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.label.mas_right);
-            make.top.bottom.right.equalTo(@0);
-        }];
-    }else {
-        [self setLabelInterval:self.labelInterval];
+    NSInteger wordWidth = 0;
+    if (self.detailLabel.text.length > 0) {
+        wordWidth = 20; //默认为20
+        wordWidth = self.detailLabel.intrinsicContentSize.width/self.detailLabel.text.length;
+        if (wordWidth < 20) wordWidth += wordWidth;
+    }
+    if (self.label.text.length > 0) {
+        if (self.detailLabel.text.length > 0) {
+            if (self.label.intrinsicContentSize.width >= tmpFrame4.size.width - self.labelInterval - wordWidth) {
+                [self.label setFrame:CGRectMake(0, 0, tmpFrame4.size.width, tmpFrame4.size.height)];
+                [self.detailLabel setFrame:CGRectZero];
+            }else {
+                [self.label setFrame:CGRectMake(0, 0, self.label.intrinsicContentSize.width, tmpFrame4.size.height)];
+                [self.detailLabel setFrame:CGRectMake(self.label.intrinsicContentSize.width+self.labelInterval, 0,
+                                                      tmpFrame4.size.width-self.label.intrinsicContentSize.width-self.labelInterval,
+                                                      tmpFrame4.size.height)];
+            }
+        }else {
+            [self.label setFrame:CGRectMake(0, 0, tmpFrame4.size.width, tmpFrame4.size.height)];
+            [self.detailLabel setFrame:CGRectZero];
+        }
     }
 }
 @end
@@ -485,20 +438,6 @@
     }
     return _accessoryView;
 }
-- (void)setLabelInterval:(CGFloat)labelInterval {
-    if (super.labelInterval != labelInterval) {
-        super.labelInterval = labelInterval;
-        [self.label mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.bottom.equalTo(@0);
-            make.right.equalTo(self.detailLabel.mas_left).offset(-self.labelInterval);
-        }];
-        
-        [self.detailLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.label.mas_right).offset(self.labelInterval);
-            make.top.bottom.right.equalTo(@0);
-        }];
-    }
-}
 - (void)frameChanged {
     CGRect frame = [self getContentBounds];
     
@@ -548,21 +487,30 @@
     }
     [self._cellContentView setFrame:tmpFrame4];
     
-    [self.label setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-    [self.detailLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
-    
-    [self.label setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-    [self.detailLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
-    
-    [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.bottom.equalTo(@0);
-        make.right.equalTo(self.detailLabel.mas_left).offset(-self.labelInterval);
-    }];
-    
-    [self.detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.label.mas_right).offset(self.labelInterval);
-        make.top.bottom.right.equalTo(@0);
-    }];
+    NSInteger wordWidth = 0;
+    if (self.label.text.length > 0) {
+        wordWidth = 20; //默认为20
+        wordWidth = self.label.intrinsicContentSize.width/self.label.text.length;
+        if (wordWidth < 20) wordWidth += wordWidth;
+    }
+    if (self.detailLabel.text.length > 0) {
+        if (self.label.text.length > 0) {
+            if (self.detailLabel.intrinsicContentSize.width >= tmpFrame4.size.width - self.labelInterval - wordWidth) {
+                [self.detailLabel setFrame:CGRectMake(0, 0, tmpFrame4.size.width, tmpFrame4.size.height)];
+                [self.label setFrame:CGRectZero];
+            }else {
+                [self.label setFrame:CGRectMake(0, 0,
+                                                tmpFrame4.size.width-self.detailLabel.intrinsicContentSize.width-self.labelInterval,
+                                                tmpFrame4.size.height)];
+                [self.detailLabel setFrame:CGRectMake(tmpFrame4.size.width-self.detailLabel.intrinsicContentSize.width, 0,
+                                                      self.detailLabel.intrinsicContentSize.width,
+                                                      tmpFrame4.size.height)];
+            }
+        }else {
+            [self.detailLabel setFrame:CGRectMake(0, 0, tmpFrame4.size.width, tmpFrame4.size.height)];
+            [self.label setFrame:CGRectZero];
+        }
+    }
 }
 @end
 

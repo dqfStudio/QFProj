@@ -72,7 +72,7 @@
 - (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
-            HTupleViewCellValue1 *cell = itemBlock(nil, HTupleViewCellValue1.class, nil, YES);
+            HTupleViewCellValue4 *cell = itemBlock(nil, HTupleViewCellValue4.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
@@ -91,9 +91,12 @@
             [cell.label setBackgroundColor:UIColor.redColor];
             [cell.label setText:@"wwwwwwwwwwwwww"];
 //            [cell.label setText:@"wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"];
+//            [cell.label setText:@"wwwwwwwwwwwwwwwwwwww"];
+//            [cell.label setText:@"wwwwwwwwwwwwwwwwwww"];
             
             [cell.detailLabel setBackgroundColor:UIColor.yellowColor];
             [cell.detailLabel setText:@"qqqqqqqqqqqqq"];
+//            [cell.detailLabel setText:@"qqqqqqqqqqqqqqqqqqqqqqqq"];
 
 //            [cell.accessoryLabel setBackgroundColor:UIColor.greenColor];
             
