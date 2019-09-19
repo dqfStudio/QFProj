@@ -333,15 +333,15 @@
 - (void)layoutContentView {
     HLayoutTupleCell(self.cellContentView)
 }
-- (void)setLeftWidth:(CGFloat)leftWidth {
-    if (_leftWidth != leftWidth) {
-        _leftWidth = leftWidth;
+- (void)setDetailWidth:(CGFloat)detailWidth {
+    if (_detailWidth != detailWidth) {
+        _detailWidth = detailWidth;
         self.needRefreshFrame = YES;
     }
 }
-- (void)setRightWidth:(CGFloat)rightWidth {
-    if (_rightWidth != rightWidth) {
-        _rightWidth = rightWidth;
+- (void)setAccessoryWidth:(CGFloat)accessoryWidth {
+    if (_accessoryWidth != accessoryWidth) {
+        _accessoryWidth = accessoryWidth;
         self.needRefreshFrame = YES;
     }
 }
@@ -471,26 +471,26 @@
     
     CGRect tmpFrame5 = self._cellContentView.bounds;
     
-    if (self.leftWidth > 0) {
+    if (self.detailWidth > 0) {
         CGRect tmpFrame6 = tmpFrame5;
-        tmpFrame6.size.width = self.leftWidth;
+        tmpFrame6.size.width = self.detailWidth;
         tmpFrame6.origin.x += self.detailLabelInsets.left;
         tmpFrame6.size.width -= self.detailLabelInsets.left+self.detailLabelInsets.right;
         [self.detailLabel setFrame:tmpFrame6];
     }
     
-    if (self.rightWidth > 0) {
+    if (self.accessoryWidth > 0) {
         CGRect tmpFrame7 = tmpFrame5;
-        tmpFrame7.origin.x = CGRectGetWidth(tmpFrame5)-self.rightWidth;
-        tmpFrame7.size.width = self.rightWidth;
+        tmpFrame7.origin.x = CGRectGetWidth(tmpFrame5)-self.accessoryWidth;
+        tmpFrame7.size.width = self.accessoryWidth;
         tmpFrame7.origin.x += self.accessoryLabelInsets.left;
         tmpFrame7.size.width -= self.accessoryLabelInsets.left+self.accessoryLabelInsets.right;
         [self.accessoryLabel setFrame:tmpFrame7];
     }
     
     CGRect tmpFrame8 = tmpFrame5;
-    tmpFrame8.origin.x = self.leftWidth;
-    tmpFrame8.size.width = CGRectGetWidth(tmpFrame5)-self.leftWidth-self.rightWidth;
+    tmpFrame8.origin.x = self.detailWidth;
+    tmpFrame8.size.width = CGRectGetWidth(tmpFrame5)-self.detailWidth-self.accessoryWidth;
     tmpFrame8.origin.x += self.labelInsets.left;
     tmpFrame8.size.width -= self.labelInsets.left+self.labelInsets.right;
     [self.label setFrame:tmpFrame8];

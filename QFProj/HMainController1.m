@@ -83,8 +83,8 @@
             [cell.detailView setBackgroundColor:UIColor.redColor];
             [cell.detailView setImageWithName:@"icon_no_server"];
 
-//            cell.leftWidth = 100;
-//            cell.rightWidth = 100;
+//            cell.detailWidth = 100;
+//            cell.accessoryWidth = 100;
             
             cell.showAccessoryArrow = YES;
             
@@ -228,18 +228,18 @@
             
             CGRect frame = [cell getContentBounds];
             
-            cell.leftWidth  = frame.size.width/3;
-            cell.rightWidth = frame.size.width/3;
+            cell.detailWidth  = frame.size.width/3;
+            cell.accessoryWidth = frame.size.width/3;
             [cell.label setBackgroundColor:UIColor.greenColor];
-            [cell.label setText:@"header"];
+            [cell.label setText:@"label"];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
 
             [cell.detailLabel setBackgroundColor:UIColor.redColor];
-            [cell.detailLabel setText:@"cell"];
+            [cell.detailLabel setText:@"detailLabel"];
             [cell.detailLabel setTextAlignment:NSTextAlignmentCenter];
             
             [cell.accessoryLabel setBackgroundColor:UIColor.yellowColor];
-            [cell.accessoryLabel setText:@"footer"];
+            [cell.accessoryLabel setText:@"accessoryLabel"];
             [cell.accessoryLabel setTextAlignment:NSTextAlignmentCenter];
         }
             break;

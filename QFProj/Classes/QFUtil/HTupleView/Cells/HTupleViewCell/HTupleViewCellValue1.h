@@ -52,8 +52,8 @@ NS_ASSUME_NONNULL_BEGIN
  显示三个label
  */
 @interface HTupleViewCellValue3 : HTupleViewCellValueBase2
-@property (nonatomic) CGFloat leftWidth; //左边label的宽度
-@property (nonatomic) CGFloat rightWidth; //右边label的宽度
+@property (nonatomic) CGFloat detailWidth; //左边detailLabel的宽度
+@property (nonatomic) CGFloat accessoryWidth; //右边accessoryLabel的宽度
 
 @property (nonatomic, nullable) HWebImageView *imageView; //左边显示图片
 @property (nonatomic, nonnull)  HLabel *label; //显示文字内容
