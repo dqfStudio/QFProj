@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) UITBEdgeInsets labelInsets; //label的上下边距
 @property (nonatomic) UITBEdgeInsets detailLabelInsets; //detailLabel的上下边距
 @property (nonatomic) UITBEdgeInsets accessoryLabelInsets; //accessoryLabel的上下边距
-@property (nonatomic) UILREdgeInsets centerLabelInsets; //中间label的左右边距
+@property (nonatomic) UILREdgeInsets centerAreaInsets; //中间label的左右边距
 @property (nonatomic) UIEdgeInsets detailViewInsets; //detailView的上下左右边距
 @end
 

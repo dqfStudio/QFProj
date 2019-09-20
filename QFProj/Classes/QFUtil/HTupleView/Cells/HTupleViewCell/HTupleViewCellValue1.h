@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HTupleViewCellValueBase : HTupleBaseCell
 @property (nonatomic) UIEdgeInsets imageViewInsets; //imageView的上下左右边距
 @property (nonatomic) CGFloat labelInterval; //两个label的间距
-@property (nonatomic) UILREdgeInsets centerLabelInsets; //中间label的左右边距
+@property (nonatomic) UILREdgeInsets centerAreaInsets; //中间label的左右边距
 @property (nonatomic) UIEdgeInsets detailViewInsets; //detailView的上下左右边距
 @end
 
@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) UILREdgeInsets labelInsets; //label的左右边距
 @property (nonatomic) UILREdgeInsets detailLabelInsets; //detailLabel的左右边距
 @property (nonatomic) UILREdgeInsets accessoryLabelInsets; //accessoryLabel的左右边距
-@property (nonatomic) UILREdgeInsets centerLabelInsets; //中间label的左右边距
+@property (nonatomic) UILREdgeInsets centerAreaInsets; //中间label的左右边距
 @property (nonatomic) UIEdgeInsets detailViewInsets; //detailView的上下左右边距
 @end
 

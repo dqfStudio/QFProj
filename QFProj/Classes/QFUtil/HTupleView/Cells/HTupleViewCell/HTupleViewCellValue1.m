@@ -14,7 +14,7 @@
 - (void)initUI {
     self.imageViewInsets = UIEdgeInsetsZero;
     self.labelInterval = 5;
-    self.centerLabelInsets = UILREdgeInsetsMake(10, 10);
+    self.centerAreaInsets = UILREdgeInsetsMake(10, 10);
     self.detailViewInsets = UIEdgeInsetsZero;
 }
 @end
@@ -25,7 +25,7 @@
     self.detailLabelInsets = UILREdgeInsetsZero;
     self.labelInsets = UILREdgeInsetsZero;
     self.accessoryLabelInsets = UILREdgeInsetsZero;
-    self.centerLabelInsets = UILREdgeInsetsMake(10, 10);
+    self.centerAreaInsets = UILREdgeInsetsMake(10, 10);
     self.detailViewInsets = UIEdgeInsetsZero;
 }
 @end
@@ -130,23 +130,23 @@
     
     CGRect tmpFrame4 = frame;
     if (_imageView) {
-        tmpFrame4.origin.x = CGRectGetMaxX(_imageView.frame)+self.centerLabelInsets.left;
+        tmpFrame4.origin.x = CGRectGetMaxX(_imageView.frame)+self.centerAreaInsets.left;
     }
     if (_detailView) {
         if (_imageView) {
-            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-CGRectGetMaxX(_imageView.frame)-self.centerLabelInsets.left-self.centerLabelInsets.right;
+            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-CGRectGetMaxX(_imageView.frame)-self.centerAreaInsets.left-self.centerAreaInsets.right;
         }else {
-            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-self.centerLabelInsets.right;
+            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-self.centerAreaInsets.right;
         }
     }else if (_accessoryView) {
         if (_imageView) {
-            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-CGRectGetMaxX(_imageView.frame)-KArrowSpace-self.centerLabelInsets.left;
+            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-CGRectGetMaxX(_imageView.frame)-KArrowSpace-self.centerAreaInsets.left;
         }else {
             tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-KArrowSpace;
         }
     }else {
         if (_imageView) {
-            tmpFrame4.size.width = CGRectGetWidth(frame)-CGRectGetMaxX(_imageView.frame)-self.centerLabelInsets.left;
+            tmpFrame4.size.width = CGRectGetWidth(frame)-CGRectGetMaxX(_imageView.frame)-self.centerAreaInsets.left;
         }else {
             tmpFrame4.size.width = CGRectGetWidth(frame);
         }
@@ -276,23 +276,23 @@
     
     CGRect tmpFrame4 = frame;
     if (_imageView) {
-        tmpFrame4.origin.x = CGRectGetMaxX(_imageView.frame)+self.centerLabelInsets.left;
+        tmpFrame4.origin.x = CGRectGetMaxX(_imageView.frame)+self.centerAreaInsets.left;
     }
     if (_detailView) {
         if (_imageView) {
-            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-CGRectGetMaxX(_imageView.frame)-self.centerLabelInsets.left-self.centerLabelInsets.right;
+            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-CGRectGetMaxX(_imageView.frame)-self.centerAreaInsets.left-self.centerAreaInsets.right;
         }else {
-            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-self.centerLabelInsets.right;
+            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-self.centerAreaInsets.right;
         }
     }else if (_accessoryView) {
         if (_imageView) {
-            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-CGRectGetMaxX(_imageView.frame)-KArrowSpace-self.centerLabelInsets.left;
+            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-CGRectGetMaxX(_imageView.frame)-KArrowSpace-self.centerAreaInsets.left;
         }else {
             tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-KArrowSpace;
         }
     }else {
         if (_imageView) {
-            tmpFrame4.size.width = CGRectGetWidth(frame)-CGRectGetMaxX(_imageView.frame)-self.centerLabelInsets.left;
+            tmpFrame4.size.width = CGRectGetWidth(frame)-CGRectGetMaxX(_imageView.frame)-self.centerAreaInsets.left;
         }else {
             tmpFrame4.size.width = CGRectGetWidth(frame);
         }
@@ -446,23 +446,23 @@
     
     CGRect tmpFrame4 = frame;
     if (_imageView) {
-        tmpFrame4.origin.x = CGRectGetMaxX(_imageView.frame)+self.centerLabelInsets.left;
+        tmpFrame4.origin.x = CGRectGetMaxX(_imageView.frame)+self.centerAreaInsets.left;
     }
     if (_detailView) {
         if (_imageView) {
-            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-CGRectGetMaxX(_imageView.frame)-self.centerLabelInsets.left-self.centerLabelInsets.right;
+            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-CGRectGetMaxX(_imageView.frame)-self.centerAreaInsets.left-self.centerAreaInsets.right;
         }else {
-            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-self.centerLabelInsets.right;
+            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-self.centerAreaInsets.right;
         }
     }else if (_accessoryView) {
         if (_imageView) {
-            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-CGRectGetMaxX(_imageView.frame)-KArrowSpace-self.centerLabelInsets.left;
+            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-CGRectGetMaxX(_imageView.frame)-KArrowSpace-self.centerAreaInsets.left;
         }else {
             tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-KArrowSpace;
         }
     }else {
         if (_imageView) {
-            tmpFrame4.size.width = CGRectGetWidth(frame)-CGRectGetMaxX(_imageView.frame)-self.centerLabelInsets.left;
+            tmpFrame4.size.width = CGRectGetWidth(frame)-CGRectGetMaxX(_imageView.frame)-self.centerAreaInsets.left;
         }else {
             tmpFrame4.size.width = CGRectGetWidth(frame);
         }
