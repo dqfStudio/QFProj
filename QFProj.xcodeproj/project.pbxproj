@@ -193,7 +193,6 @@
 		A24B6566225EE0EE00B257BB /* HAutoPackage_Release.sh in Resources */ = {isa = PBXBuildFile; fileRef = A24B6562225EE0EE00B257BB /* HAutoPackage_Release.sh */; };
 		A24B6568225EE0EE00B257BB /* README.H.md in Resources */ = {isa = PBXBuildFile; fileRef = A24B6564225EE0EE00B257BB /* README.H.md */; };
 		A24B6569225EE0EE00B257BB /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = A24B6565225EE0EE00B257BB /* exportOptions.plist */; };
-		A24B656D225EE14800B257BB /* HValidate.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B656B225EE14800B257BB /* HValidate.m */; };
 		A24B6571225EE23500B257BB /* HOther.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6570225EE23500B257BB /* HOther.m */; };
 		A24B6574225EE5C700B257BB /* HTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6573225EE5C700B257BB /* HTool.m */; };
 		A24B6577225EE88600B257BB /* HWebviewVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B6576225EE88600B257BB /* HWebviewVC2.m */; };
@@ -669,8 +668,6 @@
 		A24B6563225EE0EE00B257BB /* HProjectDRConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = HProjectDRConfig.xcconfig; sourceTree = "<group>"; };
 		A24B6564225EE0EE00B257BB /* README.H.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.H.md; sourceTree = "<group>"; };
 		A24B6565225EE0EE00B257BB /* exportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = exportOptions.plist; sourceTree = "<group>"; };
-		A24B656B225EE14800B257BB /* HValidate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HValidate.m; sourceTree = "<group>"; };
-		A24B656C225EE14800B257BB /* HValidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HValidate.h; sourceTree = "<group>"; };
 		A24B656F225EE23500B257BB /* HOther.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HOther.h; sourceTree = "<group>"; };
 		A24B6570225EE23500B257BB /* HOther.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HOther.m; sourceTree = "<group>"; };
 		A24B6572225EE5C700B257BB /* HTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTool.h; sourceTree = "<group>"; };
@@ -1189,7 +1186,6 @@
 			children = (
 				A24B658622607E8400B257BB /* SMTPLibrary */,
 				A24B656E225EE21800B257BB /* HOther */,
-				A24B656A225EE14800B257BB /* HValidate */,
 				A24B6561225EE0EE00B257BB /* HAutoPackage */,
 				A24B655D225EE08900B257BB /* HUpdate */,
 				A2ED9C1422314CAC00C9D050 /* HKeyChainStore */,
@@ -1823,15 +1819,6 @@
 				A24B6564225EE0EE00B257BB /* README.H.md */,
 			);
 			path = HAutoPackage;
-			sourceTree = "<group>";
-		};
-		A24B656A225EE14800B257BB /* HValidate */ = {
-			isa = PBXGroup;
-			children = (
-				A24B656C225EE14800B257BB /* HValidate.h */,
-				A24B656B225EE14800B257BB /* HValidate.m */,
-			);
-			path = HValidate;
 			sourceTree = "<group>";
 		};
 		A24B656E225EE21800B257BB /* HOther */ = {
@@ -2537,7 +2524,6 @@
 				A2A8EBBA22E1FDEE0049C51B /* WebViewJavascriptBridge_JS.m in Sources */,
 				A24B6581225F7A7500B257BB /* HPayWebviewVC.m in Sources */,
 				150C7CB721199D9000A05347 /* UIView+HPrinter.m in Sources */,
-				A24B656D225EE14800B257BB /* HValidate.m in Sources */,
 				15464B7720A2C26300CDD27E /* HTestManager.m in Sources */,
 				A2E8F54322D72A9800E7C9F2 /* YTKBatchRequestAgent.m in Sources */,
 				A2E8F53D22D72A9800E7C9F2 /* YTKChainRequest.m in Sources */,
