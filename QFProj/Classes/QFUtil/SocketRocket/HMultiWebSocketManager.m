@@ -8,10 +8,10 @@
 
 #import "HMultiWebSocketManager.h"
 
-#define BeatDuration 4.5//心跳频率
-#define ReconnectTime 3.0//重连频率
-#define MaxBeatMissCout 5//心跳丢失最大次数
-#define MaxRepeateMissCount 5//最大重试失败次数
+#define KBeatDuration 4.5//心跳频率
+#define KReconnectTime 3.0//重连频率
+#define KMaxBeatMissCout 5//心跳丢失最大次数
+#define KMaxRepeateMissCount 5//最大重试失败次数
 
 @interface HMultiWebSocketManager()<SRWebSocketDelegate>
 @property (nonatomic, strong) SRWebSocket *webSocket;
@@ -110,24 +110,20 @@
 }
 
 - (void)reconnect {
-    //NSLog(@"Message  webSocket reconnect _repeatMissCount:%ld", (long)_repeatMissCount);
     [self destoryWebSocket];
     if (self.closeWithUser) {
         return;
     }
-    if (_repeatMissCount > MaxRepeateMissCount) {
+    if (_repeatMissCount > KMaxRepeateMissCount) {
         return;
     }
-    @weakify(self)
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(ReconnectTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        @strongify(self)
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(KReconnectTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self connect];
     });
 }
 
 #pragma mark net work change
 - (void)networkChangeState:(NSNotification *)notification {
-    //NSLog(@"Message webSocket receive network state change: %d", _needMonitorNetWorking);
     if (_needMonitorNetWorking) {
         NSNumber *status = notification.object;
         if (AFNetworkReachabilityStatusReachableViaWWAN == [status integerValue] ||
@@ -149,10 +145,8 @@
 - (void)beatingFire {
     [self beatDestory];
     _beatMissCount = 0;
-    @weakify(self)
     dispatch_async(dispatch_get_main_queue(), ^{
-        @strongify(self)
-        self.beatTimer = [NSTimer scheduledTimerWithTimeInterval:BeatDuration
+        self.beatTimer = [NSTimer scheduledTimerWithTimeInterval:KBeatDuration
                                                           target:self
                                                         selector:@selector(beating)
                                                         userInfo:nil
@@ -163,15 +157,10 @@
 
 - (void)beating {
     ++_beatMissCount;
-    if (_beatMissCount > MaxBeatMissCout) {
-        //NSLog(@"multi websocket heart beat till max limit, and prepare reconnect.");
+    if (_beatMissCount > KMaxBeatMissCout) {
         [self reconnect];
-    }
-    else {
-        if (_webSocket && SR_OPEN  == _webSocket.readyState) {
-            //NSLog(@"multi websocket sendPing");
-            [_webSocket sendPing:nil];
-        }
+    }else if (_webSocket && SR_OPEN  == _webSocket.readyState) {
+        [_webSocket sendPing:nil];
     }
 }
 
@@ -194,9 +183,6 @@
 #pragma mark webSocket delegate
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
     if (_webSocket == webSocket) {
-        //NSLog(@"\n-------------websocket multi------------");
-        //NSLog(@"%@", message);
-        //NSLog(@"\n-------------websocket multi------------");
         [self disposeReceiveInformation:message];
         if (self.delegate && [self.delegate respondsToSelector:@selector(webSocket:didReceiveMessage:)]) {
             [self.delegate webSocket:webSocket didReceiveMessage:message];
@@ -206,7 +192,6 @@
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket {
     if (_webSocket == webSocket) {
-        //NSLog(@"multi webSocket did open: uuid:%@", self.uuid);
         _repeatMissCount = 0;
         if (self.delegate && [self.delegate respondsToSelector:@selector(webSocketDidOpen:)]) {
             [self.delegate webSocketDidOpen:webSocket];
@@ -217,7 +202,6 @@
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {
     if (_webSocket == webSocket) {
-        //NSLog(@"multi websocket didFailWithError: %@", error.userInfo);
         _repeatMissCount++;
         _needMonitorNetWorking = YES;
         if (self.delegate && [self.delegate respondsToSelector:@selector(webSocket:didFailWithError:)]) {
@@ -229,7 +213,6 @@
 
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
     if (_webSocket == webSocket) {
-        //NSLog(@"multi websocket didCloseWithCode:%ld reason:%@", (long)code, reason);
         _needMonitorNetWorking = YES;
         _repeatMissCount = 0;
         if (self.delegate && [self.delegate respondsToSelector:@selector(webSocket:didCloseWithCode:reason:wasClean:)]) {
@@ -242,7 +225,6 @@
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceivePong:(NSData *)pongPayload {
     if (_webSocket == webSocket) {
-        //NSLog(@"multi websocket didReceivePong");
         _beatMissCount = 0;
         if (self.delegate && [self.delegate respondsToSelector:@selector(webSocket:didReceivePong:)]) {
             [self.delegate webSocket:webSocket didReceivePong:pongPayload];
@@ -277,8 +259,7 @@
     NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data
                                                                options:NSJSONReadingMutableContainers
                                                                  error:&error];
-    if(error) {
-        //NSLog(@"JSON解析失败：%@", error);
+    if (error) {
         return nil;
     }
     return dictionary;
