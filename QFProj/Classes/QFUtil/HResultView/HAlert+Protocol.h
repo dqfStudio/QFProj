@@ -14,7 +14,7 @@
  */
 
 typedef void (^HAlertClickedBlock)(void);
-typedef void (^HButtonBlock)(NSInteger buttonIndex);
+typedef void (^HAlertButtonBlock)(NSInteger buttonIndex);
 
 /**
  基础协议
@@ -79,7 +79,7 @@ typedef void (^HButtonBlock)(NSInteger buttonIndex);
 
 @property (nonatomic) NSString *cancelTitle;
 @property (nonatomic) NSArray  *buttonTitles;
-@property (nonatomic,copy) HButtonBlock buttonBlock;
+@property (nonatomic,copy) HAlertButtonBlock buttonBlock;
 
 @end
 
@@ -94,7 +94,7 @@ typedef void (^HButtonBlock)(NSInteger buttonIndex);
 
 @property (nonatomic) NSString *cancelTitle;
 @property (nonatomic) NSArray  *buttonTitles;
-@property (nonatomic,copy) HButtonBlock buttonBlock;
+@property (nonatomic,copy) HAlertButtonBlock buttonBlock;
 
 @end
 
