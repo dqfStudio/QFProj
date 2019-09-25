@@ -8,6 +8,19 @@
 
 #import "HTupleViewCell.h"
 
+@implementation HTupleBlankCell
+- (UIView *)blank {
+    if (!_blank) {
+        _blank = [UIView new];
+        [self.contentView addSubview:_blank];
+    }
+    return _blank;
+}
+- (void)layoutContentView {
+    HLayoutTupleCell(self.blank)
+}
+@end
+
 @implementation HTupleLabelCell
 - (HLabel *)label {
     if (!_label) {

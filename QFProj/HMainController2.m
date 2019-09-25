@@ -85,7 +85,7 @@
             } edgeInsets:^UIEdgeInsets(NSInteger section) {
                 return UIEdgeInsetsZero;
             } tupleHeader:^(HTupleHeader  _Nonnull headerBlock, NSIndexPath *indexPath) {
-                HTupleImageView *cell = headerBlock(nil, HTupleImageView.class, nil, YES);
+                HTupleImageApex *cell = headerBlock(nil, HTupleImageApex.class, nil, YES);
                 [cell setBackgroundColor:UIColor.redColor];
             }];
 
@@ -138,7 +138,7 @@
             } edgeInsets:^UIEdgeInsets(NSInteger section) {
                 return UIEdgeInsetsZero;
             } tupleHeader:^(HTupleHeader  _Nonnull headerBlock, NSIndexPath *indexPath) {
-                HTupleImageView *cell = headerBlock(nil, HTupleImageView.class, nil, YES);
+                HTupleImageApex *cell = headerBlock(nil, HTupleImageApex.class, nil, YES);
                 [cell setBackgroundColor:UIColor.redColor];
             }];
             
@@ -147,7 +147,7 @@
             } edgeInsets:^UIEdgeInsets(NSInteger section) {
                 return UIEdgeInsetsZero;
             } tupleFooter:^(HTupleFooter  _Nonnull footerBlock, NSIndexPath *indexPath) {
-                HTupleImageView *cell = footerBlock(nil, HTupleImageView.class, nil, YES);
+                HTupleImageApex *cell = footerBlock(nil, HTupleImageApex.class, nil, YES);
                 [cell setBackgroundColor:UIColor.greenColor];
             }];
             
@@ -199,7 +199,7 @@
             } edgeInsets:^UIEdgeInsets(NSInteger section) {
                 return UIEdgeInsetsZero;
             } tupleHeader:^(HTupleHeader  _Nonnull headerBlock, NSIndexPath *indexPath) {
-                HTupleImageView *cell = headerBlock(nil, HTupleImageView.class, nil, YES);
+                HTupleImageApex *cell = headerBlock(nil, HTupleImageApex.class, nil, YES);
                 [cell setBackgroundColor:UIColor.redColor];
             }];
             

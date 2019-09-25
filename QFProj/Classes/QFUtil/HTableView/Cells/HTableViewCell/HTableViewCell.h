@@ -22,6 +22,10 @@
 
 @end
 
+@interface HTableBlankCell : HTableBaseCell
+@property (nonatomic) UIView *blank;
+@end
+
 @interface HTableLabelCell : HTableBaseCell
 @property (nonatomic) HLabel *label;
 @end

@@ -47,7 +47,7 @@
         [self.table headerWithHeight:^CGFloat(NSInteger section) {
             return UIDevice.topBarHeight;
         } tableHeader:^(HTableHeader  _Nonnull headerBlock, NSInteger section) {
-            HTableLabelView *cell = headerBlock(nil, HTableLabelView.class, nil, YES);
+            HTableLabelApex *cell = headerBlock(nil, HTableLabelApex.class, nil, YES);
             [cell.label setText:@"debug tool"];
             [cell.label setTextColor:UIColor.blackColor];
             [cell.label setFont:[UIFont systemFontOfSize:17]];

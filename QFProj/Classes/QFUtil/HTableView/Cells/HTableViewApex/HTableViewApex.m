@@ -8,7 +8,20 @@
 
 #import "HTableViewApex.h"
 
-@implementation HTableLabelView
+@implementation HTableBlankApex
+- (UIView *)blank {
+    if (!_blank) {
+        _blank = [UIView new];
+        [self.contentView addSubview:_blank];
+    }
+    return _blank;
+}
+- (void)layoutContentView {
+    HLayoutTableApex(self.blank)
+}
+@end
+
+@implementation HTableLabelApex
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
@@ -21,7 +34,7 @@
 }
 @end
 
-@implementation HTableTextView
+@implementation HTableTextApex
 - (HTextView *)textView {
     if (!_textView) {
         _textView = [HTextView new];
@@ -34,7 +47,7 @@
 }
 @end
 
-@implementation HTableButtonView
+@implementation HTableButtonApex
 - (HWebButtonView *)buttonView {
     if (!_buttonView) {
         _buttonView = [HWebButtonView new];
@@ -47,7 +60,7 @@
 }
 @end
 
-@implementation HTableImageView
+@implementation HTableImageApex
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = [HWebImageView new];
@@ -60,7 +73,7 @@
 }
 @end
 
-@implementation HTableTextFieldView
+@implementation HTableTextFieldApex
 - (HTextField *)textField {
     if (!_textField) {
         _textField = HTextField.new;
@@ -73,7 +86,7 @@
 }
 @end
 
-@implementation HTableVerticalView
+@implementation HTableVerticalApex
 - (HTupleView *)tupleView {
     if (!_tupleView) {
         _tupleView = [[HTupleView alloc] initWithFrame:self.bounds];
@@ -87,7 +100,7 @@
 }
 @end
 
-@implementation HTableHorizontalView
+@implementation HTableHorizontalApex
 - (HTupleView *)tupleView {
     if (!_tupleView) {
         _tupleView = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleViewScrollDirectionHorizontal];
@@ -146,7 +159,7 @@
 }
 @end
 
-@implementation HTableUnionView
+@implementation HTableUnionApex
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];

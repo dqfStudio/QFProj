@@ -16,31 +16,35 @@
 
 @class HTupleView;
 
-@interface HTupleLabelView : HTupleBaseApex
+@interface HTupleBlankApex : HTupleBaseApex
+@property (nonatomic) UIView *blank;
+@end
+
+@interface HTupleLabelApex : HTupleBaseApex
 @property (nonatomic) HLabel *label;
 @end
 
-@interface HTupleTextView : HTupleBaseApex
+@interface HTupleTextApex : HTupleBaseApex
 @property (nonatomic) HTextView *textView;
 @end
 
-@interface HTupleButtonView : HTupleBaseApex
+@interface HTupleButtonApex : HTupleBaseApex
 @property (nonatomic) HWebButtonView *buttonView;
 @end
 
-@interface HTupleImageView : HTupleBaseApex
+@interface HTupleImageApex : HTupleBaseApex
 @property (nonatomic) HWebImageView *imageView;
 @end
 
-@interface HTupleTextFieldView : HTupleBaseApex
+@interface HTupleTextFieldApex : HTupleBaseApex
 @property (nonatomic) HTextField *textField;
 @end
 
-@interface HTupleVerticalView : HTupleBaseApex
+@interface HTupleVerticalApex : HTupleBaseApex
 @property (nonatomic) HTupleView *tupleView;
 @end
 
-@interface HTupleHorizontalView : HTupleBaseApex
+@interface HTupleHorizontalApex : HTupleBaseApex
 @property (nonatomic) HTupleView *tupleView;
 @end
 
@@ -53,7 +57,7 @@
 @property (nonatomic) HWebImageView *accessoryView;
 @end
 
-@interface HTupleUnionView : HTupleBaseApex
+@interface HTupleUnionApex : HTupleBaseApex
 @property (nonatomic) HLabel *label;
 @property (nonatomic) HLabel *detailLabel;
 @property (nonatomic) HLabel *accessoryLabel;

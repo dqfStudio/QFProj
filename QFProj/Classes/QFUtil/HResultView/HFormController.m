@@ -87,7 +87,7 @@
         return UIEdgeInsetsMake(10, 0, height, 0);
     } tupleFooter:^(HTupleFooter  _Nonnull footerBlock, NSIndexPath *indexPath) {
         @sss
-        HTupleButtonView *cell = footerBlock(nil, HTupleButtonView.class, nil, YES);
+        HTupleButtonApex *cell = footerBlock(nil, HTupleButtonApex.class, nil, YES);
         [cell.buttonView setBackgroundColor:[UIColor whiteColor]];
         [cell.buttonView setTitleColor:[UIColor blackColor]];
         [cell.buttonView setTitle:@"取消"];

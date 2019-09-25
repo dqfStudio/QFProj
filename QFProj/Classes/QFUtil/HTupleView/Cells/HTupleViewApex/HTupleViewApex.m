@@ -8,7 +8,20 @@
 
 #import "HTupleViewApex.h"
 
-@implementation HTupleLabelView
+@implementation HTupleBlankApex
+- (UIView *)blank {
+    if (!_blank) {
+        _blank = [UIView new];
+        [self addSubview:_blank];
+    }
+    return _blank;
+}
+- (void)layoutContentView {
+    HLayoutTupleApex(self.blank)
+}
+@end
+
+@implementation HTupleLabelApex
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
@@ -21,7 +34,7 @@
 }
 @end
 
-@implementation HTupleTextView
+@implementation HTupleTextApex
 - (HTextView *)textView {
     if (!_textView) {
         _textView = [HTextView new];
@@ -34,7 +47,7 @@
 }
 @end
 
-@implementation HTupleButtonView
+@implementation HTupleButtonApex
 - (HWebButtonView *)buttonView {
     if (!_buttonView) {
         _buttonView = [HWebButtonView new];
@@ -47,7 +60,7 @@
 }
 @end
 
-@implementation HTupleImageView
+@implementation HTupleImageApex
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = [HWebImageView new];
@@ -60,7 +73,7 @@
 }
 @end
 
-@implementation HTupleTextFieldView
+@implementation HTupleTextFieldApex
 - (HTextField *)textField {
     if (!_textField) {
         _textField = HTextField.new;
@@ -73,7 +86,7 @@
 }
 @end
 
-@implementation HTupleVerticalView
+@implementation HTupleVerticalApex
 - (HTupleView *)tupleView {
     if (!_tupleView) {
         _tupleView = [[HTupleView alloc] initWithFrame:self.bounds];
@@ -87,7 +100,7 @@
 }
 @end
 
-@implementation HTupleHorizontalView
+@implementation HTupleHorizontalApex
 - (HTupleView *)tupleView {
     if (!_tupleView) {
         _tupleView = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleViewScrollDirectionHorizontal];
@@ -149,7 +162,7 @@
 }
 @end
 
-@implementation HTupleUnionView
+@implementation HTupleUnionApex
 - (void)layoutContentView {
     HLayoutTupleApex(self.apexContentView)
 }

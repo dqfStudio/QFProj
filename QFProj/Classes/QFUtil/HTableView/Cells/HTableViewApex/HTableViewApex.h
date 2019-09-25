@@ -10,31 +10,35 @@
 #import "HTupleView.h"
 #import "HLabel.h"
 
-@interface HTableLabelView : HTableBaseApex
+@interface HTableBlankApex : HTableBaseApex
+@property (nonatomic) UIView *blank;
+@end
+
+@interface HTableLabelApex : HTableBaseApex
 @property (nonatomic) HLabel *label;
 @end
 
-@interface HTableTextView : HTableBaseApex
+@interface HTableTextApex : HTableBaseApex
 @property (nonatomic) HTextView *textView;
 @end
 
-@interface HTableButtonView : HTableBaseApex
+@interface HTableButtonApex : HTableBaseApex
 @property (nonatomic) HWebButtonView *buttonView;
 @end
 
-@interface HTableImageView : HTableBaseApex
+@interface HTableImageApex : HTableBaseApex
 @property (nonatomic) HWebImageView *imageView;
 @end
 
-@interface HTableTextFieldView : HTableBaseApex
+@interface HTableTextFieldApex : HTableBaseApex
 @property (nonatomic) HTextField *textField;
 @end
 
-@interface HTableVerticalView : HTableBaseApex
+@interface HTableVerticalApex : HTableBaseApex
 @property (nonatomic) HTupleView *tupleView;
 @end
 
-@interface HTableHorizontalView : HTableBaseApex
+@interface HTableHorizontalApex : HTableBaseApex
 @property (nonatomic) HTupleView *tupleView;
 @end
 
@@ -47,7 +51,7 @@
 @property (nonatomic) HWebImageView *accessoryView;
 @end
 
-@interface HTableUnionView : HTableBaseApex
+@interface HTableUnionApex : HTableBaseApex
 @property (nonatomic) HLabel *label;
 @property (nonatomic) HLabel *detailLabel;
 @property (nonatomic) HLabel *accessoryLabel;

@@ -35,6 +35,19 @@
 }
 @end
 
+@implementation HTableBlankCell
+- (UIView *)blank {
+    if (!_blank) {
+        _blank = [UIView new];
+        [self.contentView addSubview:_blank];
+    }
+    return _blank;
+}
+- (void)layoutContentView {
+    HLayoutTableCell(self.blank)
+}
+@end
+
 @implementation HTableLabelCell
 - (HLabel *)label {
     if (!_label) {
