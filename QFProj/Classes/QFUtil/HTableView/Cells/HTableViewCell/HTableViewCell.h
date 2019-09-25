@@ -23,7 +23,7 @@
 @end
 
 @interface HTableBlankCell : HTableBaseCell
-@property (nonatomic) UIView *blank;
+@property (nonatomic) UIView *view;
 @end
 
 @interface HTableLabelCell : HTableBaseCell

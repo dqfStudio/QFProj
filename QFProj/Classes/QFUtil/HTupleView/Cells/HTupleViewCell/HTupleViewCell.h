@@ -17,7 +17,7 @@
 @class HTupleView;
 
 @interface HTupleBlankCell : HTupleBaseCell
-@property (nonatomic) UIView *blank;
+@property (nonatomic) UIView *view;
 @end
 
 @interface HTupleLabelCell : HTupleBaseCell

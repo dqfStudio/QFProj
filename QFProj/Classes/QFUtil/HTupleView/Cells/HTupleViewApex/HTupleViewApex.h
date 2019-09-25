@@ -17,7 +17,7 @@
 @class HTupleView;
 
 @interface HTupleBlankApex : HTupleBaseApex
-@property (nonatomic) UIView *blank;
+@property (nonatomic) UIView *view;
 @end
 
 @interface HTupleLabelApex : HTupleBaseApex

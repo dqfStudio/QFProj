@@ -9,15 +9,15 @@
 #import "HTupleViewCell.h"
 
 @implementation HTupleBlankCell
-- (UIView *)blank {
-    if (!_blank) {
-        _blank = [UIView new];
-        [self.contentView addSubview:_blank];
+- (UIView *)view {
+    if (!_view) {
+        _view = [UIView new];
+        [self.contentView addSubview:_view];
     }
-    return _blank;
+    return _view;
 }
 - (void)layoutContentView {
-    HLayoutTupleCell(self.blank)
+    HLayoutTupleCell(self.view)
 }
 @end
 

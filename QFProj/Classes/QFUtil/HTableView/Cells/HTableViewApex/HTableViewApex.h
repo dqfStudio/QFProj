@@ -11,7 +11,7 @@
 #import "HLabel.h"
 
 @interface HTableBlankApex : HTableBaseApex
-@property (nonatomic) UIView *blank;
+@property (nonatomic) UIView *view;
 @end
 
 @interface HTableLabelApex : HTableBaseApex

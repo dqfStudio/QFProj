@@ -9,15 +9,15 @@
 #import "HTupleViewApex.h"
 
 @implementation HTupleBlankApex
-- (UIView *)blank {
-    if (!_blank) {
-        _blank = [UIView new];
-        [self addSubview:_blank];
+- (UIView *)view {
+    if (!_view) {
+        _view = [UIView new];
+        [self addSubview:_view];
     }
-    return _blank;
+    return _view;
 }
 - (void)layoutContentView {
-    HLayoutTupleApex(self.blank)
+    HLayoutTupleApex(self.view)
 }
 @end
 
