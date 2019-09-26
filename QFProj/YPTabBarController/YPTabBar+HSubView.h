@@ -12,8 +12,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YPTabBar (HSubView)
-//添加分割线
+//顶部添加分割线
 - (void)addTopLineViewWithColor:(UIColor *)color;
+//底部添加分割线
+- (void)addBottomLineViewWithColor:(UIColor *)color;
 //添加空白适配
 - (void)addBottomBlankViewWithColor:(UIColor *)color;
 @end

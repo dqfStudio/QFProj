@@ -9,9 +9,17 @@
 #import "YPTabBar+HSubView.h"
 
 @implementation YPTabBar (HSubView)
-//添加分割线
+//顶部添加分割线
 - (void)addTopLineViewWithColor:(UIColor *)color {
     CGRect frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 1);
+    UIView *lineView = [[UIView alloc] initWithFrame:frame];
+    [lineView setBackgroundColor:color];
+    [self addSubview:lineView];
+    [self sendSubviewToBack:lineView];
+}
+//底部添加分割线
+- (void)addBottomLineViewWithColor:(UIColor *)color {
+    CGRect frame = CGRectMake(0, self.frame.size.height-1, [UIScreen mainScreen].bounds.size.width, 1);
     UIView *lineView = [[UIView alloc] initWithFrame:frame];
     [lineView setBackgroundColor:color];
     [self addSubview:lineView];

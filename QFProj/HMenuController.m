@@ -115,8 +115,6 @@ static const CGFloat kTabBarHeight = 50;
     [specialItem setContentHorizontalCenterWithVerticalOffset:13 spacing:10];
     // 设置其size，如果不设置，则默认为与其他item一样
     specialItem.size = CGSizeMake([UIScreen width]/7, 80);
-    // 高度大于tabBar，所以需要将此属性设置为NO
-    self.tabBar.clipsToBounds = NO;
     
     @www
     [self.tabBar setSpecialItem:specialItem

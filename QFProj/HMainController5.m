@@ -42,9 +42,7 @@
     [self.tabBar setIndicatorWidth:screenSize.width/3 marginTop:50-3 marginBottom:0 tapSwitchAnimated:NO];
     [self.tabBar setScrollEnabledAndItemWidth:screenSize.width/3];
     
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, UIDevice.topBarHeight + 50, screenSize.width, 1)];
-    [line setBackgroundColor:[UIColor lightGrayColor]];
-    [self.view addSubview:line];
+    [self.tabBar addBottomLineViewWithColor:[UIColor blackColor]];
     
     [self.tabContentView setBackgroundColor:[UIColor grayColor]];
     [self.tabContentView setContentScrollEnabled:YES tapSwitchAnimated:NO];

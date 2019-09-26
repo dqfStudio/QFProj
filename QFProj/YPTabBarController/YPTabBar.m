@@ -463,6 +463,7 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
     [self updateItemsFrame];
     
     self.specialItemHandler = handler;
+    self.clipsToBounds = NO;
 }
 
 #pragma mark - indicator
