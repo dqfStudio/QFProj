@@ -188,12 +188,29 @@
 }
 #pragma mark - Rect
 - (CGRect)leftViewRectForBounds:(CGRect)bounds {
-    CGRect normalRect = [super leftViewRectForBounds:bounds];
+    //CGRect normalRect = [super leftViewRectForBounds:bounds]; //此方法坐标获取有点儿不准确
+    CGRect normalRect = super.leftView.bounds;
+    CGFloat space = bounds.size.height/2-normalRect.size.height/2;
+    if (space <= 0) {
+        normalRect.size.height = bounds.size.height;
+    }else {
+        normalRect.origin.y = space;
+    }
+    
     normalRect.origin.x += self.leftInsets.left;
     return normalRect;
 }
 - (CGRect)rightViewRectForBounds:(CGRect)bounds {
-    CGRect normalRect = [super rightViewRectForBounds:bounds];
+    //CGRect normalRect = [super rightViewRectForBounds:bounds]; //此方法坐标获取有点儿不准确
+    CGRect normalRect = super.rightView.bounds;
+    normalRect.origin.x = bounds.size.width-normalRect.size.width;
+    CGFloat space = bounds.size.height/2-normalRect.size.height/2;
+    if (space <= 0) {
+        normalRect.size.height = bounds.size.height;
+    }else {
+        normalRect.origin.y = space;
+    }
+    
     normalRect.origin.x -= self.rightInsets.right;
     return normalRect;
 }
