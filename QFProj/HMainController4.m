@@ -33,11 +33,12 @@
     self.tabBar.itemTitleSelectedFont = [UIFont systemFontOfSize:17];
     
     self.tabBar.leadingSpace = UIDevice.topBarHeight;
-    if (screenSize.height == 568) {
-        self.tabBar.trailingSpace = screenSize.height-UIDevice.topBarHeight-2*40;
-    }else {
-        self.tabBar.trailingSpace = screenSize.height-UIDevice.topBarHeight-2*45;
-    }
+//    if (screenSize.height == 568) {
+//        self.tabBar.trailingSpace = screenSize.height-UIDevice.topBarHeight-2*40;
+//    }else {
+//        self.tabBar.trailingSpace = screenSize.height-UIDevice.topBarHeight-2*45;
+//    }
+    self.tabBar.trailingSpace = screenSize.height-UIDevice.topBarHeight-2*45;
     
     [self.tabBar layoutTabItemsVertical];
     [self.tabBar setItemSeparatorColor:[UIColor redColor] leading:0 trailing:0];
