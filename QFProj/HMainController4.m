@@ -24,13 +24,8 @@
     [self setTitle:@"第四页"];
     
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
-    if (UIDevice.isIPhoneX) {
-        [self setTabBarFrame:CGRectMake(0, 0, KSidebar, screenSize.height)
-            contentViewFrame:CGRectMake(KSidebar, 0, screenSize.width - KSidebar, screenSize.height)];
-    } else {
-        [self setTabBarFrame:CGRectMake(0, 0, KSidebar, screenSize.height)
-            contentViewFrame:CGRectMake(KSidebar, 0, screenSize.width - KSidebar, screenSize.height)];
-    }
+    [self setTabBarFrame:CGRectMake(0, 0, KSidebar, screenSize.height)
+    contentViewFrame:CGRectMake(KSidebar, 0, screenSize.width - KSidebar, screenSize.height)];
     
     self.tabBar.itemTitleColor = [UIColor colorWithString:@"#535353"];
     self.tabBar.itemTitleSelectedColor = [UIColor colorWithString:@"#CFA359"];
