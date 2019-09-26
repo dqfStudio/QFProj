@@ -184,6 +184,9 @@
 		A222AE6022818F7D0013098A /* HTextRunDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A222AE4722818F7D0013098A /* HTextRunDelegate.m */; };
 		A222AE6122818F7D0013098A /* HTextAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = A222AE4922818F7D0013098A /* HTextAttribute.m */; };
 		A222AE6522828E5C0013098A /* HTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A222AE6422828E5C0013098A /* HTextField.m */; };
+		A227A8FD233C9DB4005611BA /* di_zhuce@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A227A8FB233C9DB4005611BA /* di_zhuce@3x.png */; };
+		A227A8FE233C9DB4005611BA /* di_zhuce@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A227A8FC233C9DB4005611BA /* di_zhuce@2x.png */; };
+		A227A901233C9F1F005611BA /* HMainController5.m in Sources */ = {isa = PBXBuildFile; fileRef = A227A900233C9F1F005611BA /* HMainController5.m */; };
 		A22851FF228D48C100961A86 /* NSObject+HSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = A22851FD228D48C100961A86 /* NSObject+HSelector.m */; };
 		A2296D59228A62080081A479 /* HGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2296D58228A62080081A479 /* HGameViewController.m */; };
 		A2296D5C228A626B0081A479 /* HSFSafariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2296D5B228A626B0081A479 /* HSFSafariViewController.m */; };
@@ -654,6 +657,10 @@
 		A222AE4922818F7D0013098A /* HTextAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTextAttribute.m; sourceTree = "<group>"; };
 		A222AE6322828E5C0013098A /* HTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTextField.h; sourceTree = "<group>"; };
 		A222AE6422828E5C0013098A /* HTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTextField.m; sourceTree = "<group>"; };
+		A227A8FB233C9DB4005611BA /* di_zhuce@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "di_zhuce@3x.png"; sourceTree = "<group>"; };
+		A227A8FC233C9DB4005611BA /* di_zhuce@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "di_zhuce@2x.png"; sourceTree = "<group>"; };
+		A227A8FF233C9F1F005611BA /* HMainController5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMainController5.h; sourceTree = "<group>"; };
+		A227A900233C9F1F005611BA /* HMainController5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMainController5.m; sourceTree = "<group>"; };
 		A22851FD228D48C100961A86 /* NSObject+HSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSelector.m"; sourceTree = "<group>"; };
 		A22851FE228D48C100961A86 /* NSObject+HSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSelector.h"; sourceTree = "<group>"; };
 		A2296D57228A62080081A479 /* HGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGameViewController.h; sourceTree = "<group>"; };
@@ -1136,6 +1143,8 @@
 				A20E3D2623239C0200E6982B /* HMainController3+HSection2.m */,
 				A20E3D05231FE0D100E6982B /* HMainController4.h */,
 				A20E3D06231FE0D100E6982B /* HMainController4.m */,
+				A227A8FF233C9F1F005611BA /* HMainController5.h */,
+				A227A900233C9F1F005611BA /* HMainController5.m */,
 				A20E3D08231FE8FC00E6982B /* HomeIcons */,
 				15E6BB8C2136E7E200EBE794 /* YPTabBarController */,
 			);
@@ -1688,6 +1697,8 @@
 				A20E3D0A231FE8FC00E6982B /* di_index@3x.png */,
 				A20E3D0B231FE8FC00E6982B /* di_index_h@2x.png */,
 				A20E3D0C231FE8FC00E6982B /* di_index_h@3x.png */,
+				A227A8FC233C9DB4005611BA /* di_zhuce@2x.png */,
+				A227A8FB233C9DB4005611BA /* di_zhuce@3x.png */,
 			);
 			path = HomeIcons;
 			sourceTree = "<group>";
@@ -2407,6 +2418,7 @@
 				A28EF3AE21D8ECC9002F92ED /* loading_new_8@2x.png in Resources */,
 				A20E3D172320F6E200E6982B /* icon_tuple_xx_gray@2x.png in Resources */,
 				A28EF38E21D8ECBE002F92ED /* icon_no_server@2x.png in Resources */,
+				A227A8FD233C9DB4005611BA /* di_zhuce@3x.png in Resources */,
 				A28EF3A221D8ECC9002F92ED /* loading_new_15@2x.png in Resources */,
 				15B4DDEC2092F96C00773E04 /* HLaunchImage.jpg in Resources */,
 				A28EF3AB21D8ECC9002F92ED /* loading_new_16@2x.png in Resources */,
@@ -2430,6 +2442,7 @@
 				A28EF38D21D8ECBE002F92ED /* icon_load_nothing@2x.png in Resources */,
 				A20E3CF2231E9A3900E6982B /* registet_checkbox_icon@2x.png in Resources */,
 				A2E8F50822CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png in Resources */,
+				A227A8FE233C9DB4005611BA /* di_zhuce@2x.png in Resources */,
 				A206882922CA081400661634 /* hvc_back_icon@2x.png in Resources */,
 				A28EF3A621D8ECC9002F92ED /* loading_new_13@2x.png in Resources */,
 				A28EF3A721D8ECC9002F92ED /* loading_new_1@2x.png in Resources */,
@@ -2489,6 +2502,7 @@
 			files = (
 				15C5736B20B3DD7B0070327C /* HTupleViewCell.m in Sources */,
 				A20E3CE0231A663300E6982B /* UIAlertController+HUtil.m in Sources */,
+				A227A901233C9F1F005611BA /* HMainController5.m in Sources */,
 				A2E8F54D22D73AF500E7C9F2 /* HRequestDAOStrategy.m in Sources */,
 				15B4DE042092F96C00773E04 /* NSError+HUtil.m in Sources */,
 				A28EF38321D8EC2A002F92ED /* HResultView.m in Sources */,

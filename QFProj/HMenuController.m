@@ -23,6 +23,7 @@ static const CGFloat kTabBarHeight = 50;
     [self.topBar setHidden:YES];
     
     [self initViewControllers];
+    [self addSpecialItem];
     [self setupFrameOfTabBarAndContentView];
 }
 
@@ -98,7 +99,34 @@ static const CGFloat kTabBarHeight = 50;
     registerVC.yp_tabItemImage = [UIImage imageNamed:@"di_index"];
     registerVC.yp_tabItemSelectedImage = [UIImage imageNamed:@"di_index_h"];
     
-    self.viewControllers = [NSMutableArray arrayWithObjects:mainVC1, mainVC2, mainVC3, loginVC, registerVC, nil];
+    self.viewControllers = [NSMutableArray arrayWithObjects:mainVC1, mainVC2, mainVC3, mainVC4, loginVC, registerVC, nil];
+}
+
+- (void)addSpecialItem {
+    YPTabItem *specialItem = [YPTabItem buttonWithType:UIButtonTypeCustom];
+    specialItem.title = @"中间";
+    specialItem.image = [UIImage imageNamed:@"di_zhuce"];
+    specialItem.selectedImage = [UIImage imageNamed:@"di_zhuce"];
+    specialItem.titleColor = [UIColor colorWithString:@"#535353"];
+    specialItem.titleSelectedColor = [UIColor colorWithString:@"#CFA359"];
+    specialItem.backgroundColor = [UIColor clearColor];
+    specialItem.titleFont = [UIFont systemFontOfSize:14];
+    
+    [specialItem setContentHorizontalCenterWithVerticalOffset:13 spacing:10];
+    // 设置其size，如果不设置，则默认为与其他item一样
+    specialItem.size = CGSizeMake([UIScreen width]/7, 80);
+    // 高度大于tabBar，所以需要将此属性设置为NO
+    self.tabBar.clipsToBounds = NO;
+    
+    @www
+    [self.tabBar setSpecialItem:specialItem
+             afterItemWithIndex:2
+                     tapHandler:^(YPTabItem *item) {
+                        @sss
+//                        HNavigationController *registerVC = [[HNavigationController alloc] initWithRootViewController:HMainController5.new];
+//                        [self presentViewController:registerVC animated:YES completion:nil];
+                        [self.navigationController pushViewController:HMainController5.new animated:YES];
+                     }];
 }
 
 @end

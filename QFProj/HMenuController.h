@@ -11,6 +11,7 @@
 #import "HMainController2.h"
 #import "HMainController3.h"
 #import "HMainController4.h"
+#import "HMainController5.h"
 #import "HLoginController.h"
 #import "HRegisterController.h"
 

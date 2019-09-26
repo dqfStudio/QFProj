@@ -15,6 +15,7 @@
     UIView *lineView = [[UIView alloc] initWithFrame:frame];
     [lineView setBackgroundColor:color];
     [self addSubview:lineView];
+    [self sendSubviewToBack:lineView];
 }
 //添加空白适配
 - (void)addBottomBlankViewWithColor:(UIColor *)color {
