@@ -40,7 +40,6 @@
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
-        [_label setBackgroundColor:UIColor.whiteColor];
         self.needRefreshFrame = YES;
         [self.cellContentView addSubview:_label];
     }
@@ -49,7 +48,6 @@
 - (HLabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
-        [_detailLabel setBackgroundColor:UIColor.whiteColor];
         self.needRefreshFrame = YES;
         [self.cellContentView addSubview:_detailLabel];
     }
@@ -58,7 +56,6 @@
 - (HLabel *)accessoryLabel {
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
-        [_accessoryLabel setBackgroundColor:UIColor.whiteColor];
         self.needRefreshFrame = YES;
         [self.cellContentView addSubview:_accessoryLabel];
     }
