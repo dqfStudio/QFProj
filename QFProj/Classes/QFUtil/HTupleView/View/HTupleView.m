@@ -18,6 +18,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 #define KSectionDesignKey @"section"
 #define KTupleDesignKey   @"tuple"
 #define KTuplePrefixKey   @"self_"
+#define KNeedReloadData   @"KNeedReloadDataNotify"
 
 @interface HTupleView () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -148,6 +149,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     _allReuseFooters  = [NSMapTable strongToWeakObjectsMapTable];
     self.delegate = self;
     self.dataSource = self;
+    
+    //是否开启全局监听功能
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tupleNeedReloadData) name:KNeedReloadData object:nil];
 }
 #pragma --mark bounce
 - (void)horizontalBounceEnabled {
@@ -239,6 +243,20 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         _releaseTupleKey = releaseTupleKey;
         if (releaseTupleKey) {
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(releaseTupleBlock) name:releaseTupleKey object:nil];
+        }
+    }
+}
+- (void)tupleNeedReloadData {
+    [self setNeedReloadData:YES];
+}
+- (void)setNeedReloadData:(BOOL)needReloadData {
+    if (_needReloadData != needReloadData) {
+        _needReloadData = needReloadData;
+        if (_needReloadData) {
+            _needReloadData = NO;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self reloadData];
+            });
         }
     }
 }
