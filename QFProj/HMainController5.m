@@ -8,6 +8,8 @@
 
 #import "HMainController5.h"
 
+static const CGFloat kTabBarHeight = 50;
+
 @interface HMainController5 ()
 
 @end
@@ -26,8 +28,8 @@
     
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     
-    [self setTabBarFrame:CGRectMake(0, UIDevice.topBarHeight, screenSize.width, 50)
-        contentViewFrame:CGRectMake(0, 50, screenSize.width, screenSize.height - 50)];
+    [self setTabBarFrame:CGRectMake(0, UIDevice.topBarHeight, screenSize.width, kTabBarHeight)
+        contentViewFrame:CGRectMake(0, kTabBarHeight, screenSize.width, screenSize.height - kTabBarHeight)];
     
     self.tabBar.itemTitleColor = [UIColor blackColor];
     self.tabBar.itemTitleSelectedColor = [UIColor redColor];
@@ -39,7 +41,7 @@
     self.tabBar.indicatorColor = [UIColor redColor];
     
     [self.tabBar setBackgroundColor:[UIColor grayColor]];
-    [self.tabBar setIndicatorWidth:screenSize.width/3 marginTop:50-3 marginBottom:0 tapSwitchAnimated:NO];
+    [self.tabBar setIndicatorWidth:screenSize.width/3 marginTop:kTabBarHeight-3 marginBottom:0 tapSwitchAnimated:NO];
     [self.tabBar setScrollEnabledAndItemWidth:screenSize.width/3];
     
     [self.tabBar addBottomLineViewWithColor:[UIColor blackColor]];
