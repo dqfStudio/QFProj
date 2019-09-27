@@ -381,8 +381,8 @@
 - (HLabel *)accessoryLabel {
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
-        [_accessoryLabel setTextAlignment:NSTextAlignmentRight];
         self.needRefreshFrame = YES;
+        [_accessoryLabel setTextAlignment:NSTextAlignmentRight];
         [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
         [self._cellContentView addSubview:_accessoryLabel];
     }
