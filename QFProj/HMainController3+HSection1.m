@@ -33,7 +33,7 @@
     [cell.imageView setBackgroundColor:UIColor.redColor];
     [cell.imageView setImageWithName:@"icon_no_server"];
     
-    CGRect tmpFrame2 = CGRectMake(0, 0, 10, 18);
+    CGRect tmpFrame2 = CGRectMake(0, 0, 7, 13);
     tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
     tmpFrame2.origin.y = CGRectGetHeight(frame)/2-CGRectGetHeight(tmpFrame2)/2;
     [cell.accessoryView setFrame:tmpFrame2];

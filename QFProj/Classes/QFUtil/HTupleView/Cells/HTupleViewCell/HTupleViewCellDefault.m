@@ -92,7 +92,7 @@
     
     CGRect tmpFrame2 = CGRectZero;
     if (self.showAccessoryArrow) {
-        tmpFrame2 = CGRectMake(0, 0, 10, 18);
+        tmpFrame2 = CGRectMake(0, 0, 7, 13);
         tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
         tmpFrame2.origin.y = CGRectGetHeight(frame)/2-CGRectGetHeight(tmpFrame2)/2;
         [self.accessoryView setFrame:tmpFrame2];
