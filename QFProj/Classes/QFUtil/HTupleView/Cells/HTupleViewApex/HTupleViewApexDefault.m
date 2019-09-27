@@ -41,6 +41,7 @@
     if (!_label) {
         _label = [HLabel new];
         self.needRefreshFrame = YES;
+        [_label setFont:[UIFont systemFontOfSize:14]];
         [self.apexContentView addSubview:_label];
     }
     return _label;
@@ -49,6 +50,7 @@
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
         self.needRefreshFrame = YES;
+        [_detailLabel setFont:[UIFont systemFontOfSize:14]];
         [self.apexContentView addSubview:_detailLabel];
     }
     return _detailLabel;
@@ -57,6 +59,7 @@
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
         self.needRefreshFrame = YES;
+        [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
         [self.apexContentView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;

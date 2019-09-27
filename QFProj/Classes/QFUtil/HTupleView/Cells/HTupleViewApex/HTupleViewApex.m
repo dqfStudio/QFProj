@@ -25,6 +25,7 @@
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
+        [_label setFont:[UIFont systemFontOfSize:14]];
         [self addSubview:_label];
     }
     return _label;
@@ -128,6 +129,7 @@
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
+        [_label setFont:[UIFont systemFontOfSize:14]];
         [self.apexContentView addSubview:_label];
     }
     return _label;
@@ -135,6 +137,7 @@
 - (HLabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
+        [_detailLabel setFont:[UIFont systemFontOfSize:14]];
         [self.apexContentView addSubview:_detailLabel];
     }
     return _detailLabel;
@@ -142,6 +145,7 @@
 - (HLabel *)accessoryLabel {
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
+        [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
         [self.apexContentView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
@@ -169,6 +173,7 @@
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
+        [_label setFont:[UIFont systemFontOfSize:14]];
         [self.apexContentView addSubview:_label];
     }
     return _label;
@@ -176,6 +181,7 @@
 - (HLabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
+        [_detailLabel setFont:[UIFont systemFontOfSize:14]];
         [self.apexContentView addSubview:_detailLabel];
     }
     return _detailLabel;
@@ -183,6 +189,7 @@
 - (HLabel *)accessoryLabel {
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
+        [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
         [self.apexContentView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;

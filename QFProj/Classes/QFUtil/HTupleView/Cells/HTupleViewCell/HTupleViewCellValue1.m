@@ -58,6 +58,7 @@
     if (!_label) {
         _label = [HLabel new];
         self.needRefreshFrame = YES;
+        [_label setFont:[UIFont systemFontOfSize:14]];
         [self._cellContentView addSubview:_label];
     }
     return _label;
@@ -66,6 +67,7 @@
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
         self.needRefreshFrame = YES;
+        [_detailLabel setFont:[UIFont systemFontOfSize:14]];
         [self._cellContentView addSubview:_detailLabel];
     }
     return _detailLabel;
@@ -202,6 +204,7 @@
     if (!_label) {
         _label = [HLabel new];
         self.needRefreshFrame = YES;
+        [_label setFont:[UIFont systemFontOfSize:14]];
         [self._cellContentView addSubview:_label];
     }
     return _label;
@@ -210,6 +213,7 @@
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
         self.needRefreshFrame = YES;
+        [_detailLabel setFont:[UIFont systemFontOfSize:14]];
         [self._cellContentView addSubview:_detailLabel];
     }
     return _detailLabel;
@@ -360,6 +364,7 @@
     if (!_label) {
         _label = [HLabel new];
         self.needRefreshFrame = YES;
+        [_label setFont:[UIFont systemFontOfSize:14]];
         [self._cellContentView addSubview:_label];
     }
     return _label;
@@ -368,6 +373,7 @@
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
         self.needRefreshFrame = YES;
+        [_detailLabel setFont:[UIFont systemFontOfSize:14]];
         [self._cellContentView addSubview:_detailLabel];
     }
     return _detailLabel;
@@ -377,6 +383,7 @@
         _accessoryLabel = [HLabel new];
         [_accessoryLabel setTextAlignment:NSTextAlignmentRight];
         self.needRefreshFrame = YES;
+        [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
         [self._cellContentView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
