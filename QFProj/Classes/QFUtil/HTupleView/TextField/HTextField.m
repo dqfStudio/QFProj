@@ -286,7 +286,7 @@
     return [self isValidateWithRegex:regex];
 }
 - (BOOL)isValidatedVCode {
-    NSString *regex = @"[0-9]{4,6}";
+    NSString *regex = @"[0-9]{4,6}$";
     return [self isValidateWithRegex:regex];
 }
 - (BOOL)isValidatedMobile {
@@ -330,7 +330,7 @@
 
 
 - (BOOL)isOnlyChinese {
-    NSString *regex = @"[\u4e00-\u9fa5]+";
+    NSString *regex = @"[\u4e00-\u9fa5]+$";
     return [self isValidateWithRegex:regex];
 }
 - (BOOL)isValidatedWechat {
