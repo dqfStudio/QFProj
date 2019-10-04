@@ -24,19 +24,19 @@
     return (self.text.length == 0);
 }
 - (BOOL)isOnlyAlpha {
-    NSString *regex = @"[a-zA-Z]*";
+    NSString *regex = @"[a-zA-Z]+$";
     return [self isValidateWithRegex:regex];
 }
 - (BOOL)isOnlyNumeric {
-    NSString *regex = @"[0-9]*";
+    NSString *regex = @"[0-9]+$";
     return [self isValidateWithRegex:regex];
 }
 - (BOOL)isAlphaNumeric {
-    NSString *regex = @"^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{2,10000}$";
+    NSString *regex = @"^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{2,}$";
     return [self isValidateWithRegex:regex];
 }
 - (BOOL)isAlphaOrNumeric {
-    NSString *regex = @"^[A-Za-z0-9]+$";
+    NSString *regex = @"^[a-zA-Z0-9]+$";
     return [self isValidateWithRegex:regex];
 }
 
@@ -47,7 +47,7 @@
     return [self isValidateWithRegex:regex];
 }
 - (BOOL)isValidatedVCode {
-    NSString *regex = @"[0-9]{4,6}";
+    NSString *regex = @"[0-9]{4,6}$";
     return [self isValidateWithRegex:regex];
 }
 - (BOOL)isValidatedMobile {
@@ -91,7 +91,7 @@
 
 
 - (BOOL)isOnlyChinese {
-    NSString *regex = @"[\u4e00-\u9fa5]+";
+    NSString *regex = @"[\u4e00-\u9fa5]+$";
     return [self isValidateWithRegex:regex];
 }
 - (BOOL)isValidatedWechat {
@@ -104,6 +104,7 @@
 }
 - (BOOL)isContainIllegalCharacters {
     NSString *regex = @"^[A-Za-z0-9\\u4e00-\u9fa5]+$";
+    //此处结果取反
     return ![self isValidateWithRegex:regex];
 }
 
