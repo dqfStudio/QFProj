@@ -22,7 +22,8 @@
         return content;
     }
     if ([content doubleValue] > 0) {
-        content = [NSString stringWithFormat:@"%.2f",[content doubleValue]];
+//        content = [NSString stringWithFormat:@"%.2f",[content doubleValue]];
+        content = [NSString stringWithFormat:@"%.2f",floor([content doubleValue]*100)/100];
         NSNumberFormatter *numFormatter = [[NSNumberFormatter alloc]init];
         numFormatter.numberStyle = NSNumberFormatterDecimalStyle;
         
