@@ -22,24 +22,16 @@
         return content;
     }
     if ([content doubleValue] > 0) {
-//        content = [NSString stringWithFormat:@"%.2f",[content doubleValue]];
-        content = [NSString stringWithFormat:@"%.2f",floor([content doubleValue]*100)/100];
-        NSNumberFormatter *numFormatter = [[NSNumberFormatter alloc]init];
-        numFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+        NSNumber *number = @([content doubleValue]);
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        //至少保留两位小数，并不进行四舍五入
+        formatter.roundingMode = NSNumberFormatterRoundFloor;
+        formatter.maximumFractionDigits = 2;
+        formatter.minimumFractionDigits = 2;
+        //格式化样式
+        formatter.numberStyle  = kCFNumberFormatterDecimalStyle;
         
-        NSNumber *num = [NSNumber numberWithDouble:[content doubleValue]];
-        NSString *str = [NSString stringWithFormat:@"%@",[numFormatter stringFromNumber:num]];
-        if ([str rangeOfString:@"."].length > 0) {
-            NSString *floatStr = [str componentsSeparatedByString:@"."][1];
-            if (floatStr.length == 1) {
-                str = [NSString stringWithFormat:@"%@0",str];
-            }else{
-                str = [str substringToIndex:([str rangeOfString:@"."].location + 3)];
-            }
-            return [NSString stringWithFormat:@"%@",str];
-        }else{
-            return [NSString stringWithFormat:@"%@.00",str];
-        }
+        return [formatter stringFromNumber:number];
     }else{
         return @"0.00";
     }
