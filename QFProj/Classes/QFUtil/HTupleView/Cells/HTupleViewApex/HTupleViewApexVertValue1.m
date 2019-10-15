@@ -67,15 +67,15 @@
         [_accessoryLabel setFrame:tmpFrame];
     }
     
-
-    CGRect tmpFrame = frame;
-    tmpFrame.size.height -= self.labelHeight+self.detailHeight+self.accessoryHeight;
-    tmpFrame.origin.y += self.accessoryHeight;
-    
-    tmpFrame.origin.y += self.imageViewInsets.top;
-    tmpFrame.size.height -= self.imageViewInsets.top+self.imageViewInsets.bottom;
-    [self.imageView setFrame:tmpFrame];
-    
+    if (_imageView) {
+        CGRect tmpFrame = frame;
+        tmpFrame.size.height -= self.labelHeight+self.detailHeight+self.accessoryHeight;
+        tmpFrame.origin.y += self.accessoryHeight;
+        
+        tmpFrame.origin.y += self.imageViewInsets.top;
+        tmpFrame.size.height -= self.imageViewInsets.top+self.imageViewInsets.bottom;
+        [_imageView setFrame:tmpFrame];
+    }
     
     if (_label) {
         CGRect tmpFrame = frame;

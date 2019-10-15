@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) CGFloat detailHeight; //detailLabel的高度
 @property (nonatomic) CGFloat accessoryHeight; //accessoryLabel的高度
 
-@property (nonatomic, nonnull)  HWebImageView *imageView; //左边显示图片
+@property (nonatomic, nullable) HWebImageView *imageView; //左边显示图片
 @property (nonatomic, nullable) HLabel *label; //显示文字内容
 @property (nonatomic, nullable) HLabel *detailLabel; //显示文字内容详情
 @property (nonatomic, nullable) HLabel *accessoryLabel; //显示文字内容附加信息
