@@ -28,7 +28,7 @@ typedef void(^HTupleCellSkinBlock)(HTupleBaseCell *cell, HTupleView *tuple);
 
 @interface HTupleBaseCell : UICollectionViewCell
 @property (nonatomic, weak) UICollectionView *tuple;
-@property (nonatomic) UIView *cellContentView;//多个子控件的背景视图
+@property (nonatomic) UIView *containerView;//多个子控件的背景视图
 @property (nonatomic, copy) HTupleCellBlock cellBlock;
 @property (nonatomic, copy) HTupleCellSkinBlock skinBlock;
 @property (nonatomic) NSIndexPath *indexPath;

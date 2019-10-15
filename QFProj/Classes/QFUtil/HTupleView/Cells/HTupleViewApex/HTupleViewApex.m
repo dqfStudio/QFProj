@@ -117,12 +117,12 @@
 
 @implementation HTupleViewApex
 - (void)layoutContentView {
-    HLayoutTupleApex(self.apexContentView)
+    HLayoutTupleApex(self.containerView)
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        [self.apexContentView addSubview:_imageView];
+        [self.containerView addSubview:_imageView];
     }
     return _imageView;
 }
@@ -130,7 +130,7 @@
     if (!_label) {
         _label = [HLabel new];
         [_label setFont:[UIFont systemFontOfSize:14]];
-        [self.apexContentView addSubview:_label];
+        [self.containerView addSubview:_label];
     }
     return _label;
 }
@@ -138,7 +138,7 @@
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.apexContentView addSubview:_detailLabel];
+        [self.containerView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
@@ -146,21 +146,21 @@
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
         [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.apexContentView addSubview:_accessoryLabel];
+        [self.containerView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
 }
 - (HWebImageView *)detailView {
     if (!_detailView) {
         _detailView = [HWebImageView new];
-        [self.apexContentView addSubview:_detailView];
+        [self.containerView addSubview:_detailView];
     }
     return _detailView;
 }
 - (HWebImageView *)accessoryView {
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
-        [self.apexContentView addSubview:_accessoryView];
+        [self.containerView addSubview:_accessoryView];
     }
     return _accessoryView;
 }
@@ -168,13 +168,13 @@
 
 @implementation HTupleUnionApex
 - (void)layoutContentView {
-    HLayoutTupleApex(self.apexContentView)
+    HLayoutTupleApex(self.containerView)
 }
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
         [_label setFont:[UIFont systemFontOfSize:14]];
-        [self.apexContentView addSubview:_label];
+        [self.containerView addSubview:_label];
     }
     return _label;
 }
@@ -182,7 +182,7 @@
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.apexContentView addSubview:_detailLabel];
+        [self.containerView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
@@ -190,91 +190,91 @@
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
         [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.apexContentView addSubview:_accessoryLabel];
+        [self.containerView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
 }
 - (HTextView *)textView {
     if (!_textView) {
         _textView = [HTextView new];
-        [self.apexContentView addSubview:_textView];
+        [self.containerView addSubview:_textView];
     }
     return _textView;
 }
 - (HTextView *)detailTextView {
     if (!_detailTextView) {
         _detailTextView = [HTextView new];
-        [self.apexContentView addSubview:_detailTextView];
+        [self.containerView addSubview:_detailTextView];
     }
     return _detailTextView;
 }
 - (HTextView *)accessoryTextView {
     if (!_accessoryTextView) {
         _accessoryTextView = [HTextView new];
-        [self.apexContentView addSubview:_accessoryTextView];
+        [self.containerView addSubview:_accessoryTextView];
     }
     return _accessoryTextView;
 }
 - (HWebButtonView *)buttonView {
     if (!_buttonView) {
         _buttonView = [HWebButtonView new];
-        [self.apexContentView addSubview:_buttonView];
+        [self.containerView addSubview:_buttonView];
     }
     return _buttonView;
 }
 - (HWebButtonView *)detailButtonView {
     if (!_detailButtonView) {
         _detailButtonView = [HWebButtonView new];
-        [self.apexContentView addSubview:_detailButtonView];
+        [self.containerView addSubview:_detailButtonView];
     }
     return _detailButtonView;
 }
 - (HWebButtonView *)accessoryButtonView {
     if (!_accessoryButtonView) {
         _accessoryButtonView = [HWebButtonView new];
-        [self.apexContentView addSubview:_accessoryButtonView];
+        [self.containerView addSubview:_accessoryButtonView];
     }
     return _accessoryButtonView;
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        [self.apexContentView addSubview:_imageView];
+        [self.containerView addSubview:_imageView];
     }
     return _imageView;
 }
 - (HWebImageView *)detailImageView {
     if (!_detailImageView) {
         _detailImageView = HWebImageView.new;
-        [self.apexContentView addSubview:_detailImageView];
+        [self.containerView addSubview:_detailImageView];
     }
     return _detailImageView;
 }
 - (HWebImageView *)accessoryImageView {
     if (!_accessoryImageView) {
         _accessoryImageView = HWebImageView.new;
-        [self.apexContentView addSubview:_accessoryImageView];
+        [self.containerView addSubview:_accessoryImageView];
     }
     return _accessoryImageView;
 }
 - (HTextField *)textField {
     if (!_textField) {
         _textField = HTextField.new;
-        [self.apexContentView addSubview:_textField];
+        [self.containerView addSubview:_textField];
     }
     return _textField;
 }
 - (HTextField *)detailTextField {
     if (!_detailTextField) {
         _detailTextField = HTextField.new;
-        [self.apexContentView addSubview:_detailTextField];
+        [self.containerView addSubview:_detailTextField];
     }
     return _detailTextField;
 }
 - (HTextField *)accessoryTextField {
     if (!_accessoryTextField) {
         _accessoryTextField = HTextField.new;
-        [self.apexContentView addSubview:_accessoryTextField];
+        [self.containerView addSubview:_accessoryTextField];
     }
     return _accessoryTextField;
 }

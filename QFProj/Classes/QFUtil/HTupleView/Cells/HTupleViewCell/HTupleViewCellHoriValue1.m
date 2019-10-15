@@ -42,26 +42,26 @@
 @end
 
 @interface HTupleViewCellHoriValue1 ()
-@property (nonatomic) UIView *_cellContentView;
+@property (nonatomic) UIView *cellContentView;
 @property (nonatomic) HWebImageView *accessoryView;
 @end
 
 @implementation HTupleViewCellHoriValue1
 - (void)layoutContentView {
-    HLayoutTupleCell(self.cellContentView)
+    HLayoutTupleCell(self.containerView)
 }
-- (UIView *)_cellContentView {
-    if (!__cellContentView) {
-        __cellContentView = UIView.new;
-        [self.cellContentView addSubview:__cellContentView];
+- (UIView *)cellContentView {
+    if (!_cellContentView) {
+        _cellContentView = UIView.new;
+        [self.containerView addSubview:_cellContentView];
     }
-    return __cellContentView;
+    return _cellContentView;
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
         self.needRefreshFrame = YES;
-        [self.cellContentView addSubview:_imageView];
+        [self.containerView addSubview:_imageView];
     }
     return _imageView;
 }
@@ -70,7 +70,7 @@
         _label = [HLabel new];
         self.needRefreshFrame = YES;
         [_label setFont:[UIFont systemFontOfSize:14]];
-        [self._cellContentView addSubview:_label];
+        [self.cellContentView addSubview:_label];
     }
     return _label;
 }
@@ -79,7 +79,7 @@
         _detailLabel = [HLabel new];
         self.needRefreshFrame = YES;
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
-        [self._cellContentView addSubview:_detailLabel];
+        [self.cellContentView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
@@ -87,7 +87,7 @@
     if (!_detailView) {
         _detailView = [HWebImageView new];
         self.needRefreshFrame = YES;
-        [self.cellContentView addSubview:_detailView];
+        [self.containerView addSubview:_detailView];
     }
     return _detailView;
 }
@@ -95,7 +95,7 @@
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
         self.needRefreshFrame = YES;
-        [self.cellContentView addSubview:_accessoryView];
+        [self.containerView addSubview:_accessoryView];
     }
     return _accessoryView;
 }
@@ -162,7 +162,7 @@
             tmpFrame4.size.width = CGRectGetWidth(frame);
         }
     }
-    [self._cellContentView setFrame:tmpFrame4];
+    [self.cellContentView setFrame:tmpFrame4];
     
     if (self.label.text.length > 0 && self.detailLabel.text.length > 0) {
         NSInteger wordWidth = 20; //默认为20
@@ -188,26 +188,26 @@
 @end
 
 @interface HTupleViewCellHoriValue2 ()
-@property (nonatomic) UIView *_cellContentView;
+@property (nonatomic) UIView *cellContentView;
 @property (nonatomic) HWebImageView *accessoryView;
 @end
 
 @implementation HTupleViewCellHoriValue2
 - (void)layoutContentView {
-    HLayoutTupleCell(self.cellContentView)
+    HLayoutTupleCell(self.containerView)
 }
-- (UIView *)_cellContentView {
-    if (!__cellContentView) {
-        __cellContentView = UIView.new;
-        [self.cellContentView addSubview:__cellContentView];
+- (UIView *)cellContentView {
+    if (!_cellContentView) {
+        _cellContentView = UIView.new;
+        [self.containerView addSubview:_cellContentView];
     }
-    return __cellContentView;
+    return _cellContentView;
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
         self.needRefreshFrame = YES;
-        [self.cellContentView addSubview:_imageView];
+        [self.containerView addSubview:_imageView];
     }
     return _imageView;
 }
@@ -216,7 +216,7 @@
         _label = [HLabel new];
         self.needRefreshFrame = YES;
         [_label setFont:[UIFont systemFontOfSize:14]];
-        [self._cellContentView addSubview:_label];
+        [self.cellContentView addSubview:_label];
     }
     return _label;
 }
@@ -225,7 +225,7 @@
         _detailLabel = [HLabel new];
         self.needRefreshFrame = YES;
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
-        [self._cellContentView addSubview:_detailLabel];
+        [self.cellContentView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
@@ -233,7 +233,7 @@
     if (!_detailView) {
         _detailView = [HWebImageView new];
         self.needRefreshFrame = YES;
-        [self.cellContentView addSubview:_detailView];
+        [self.containerView addSubview:_detailView];
     }
     return _detailView;
 }
@@ -241,7 +241,7 @@
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
         self.needRefreshFrame = YES;
-        [self.cellContentView addSubview:_accessoryView];
+        [self.containerView addSubview:_accessoryView];
     }
     return _accessoryView;
 }
@@ -308,7 +308,7 @@
             tmpFrame4.size.width = CGRectGetWidth(frame);
         }
     }
-    [self._cellContentView setFrame:tmpFrame4];
+    [self.cellContentView setFrame:tmpFrame4];
     
     if (self.label.text.length > 0 && self.detailLabel.text.length > 0) {
         NSInteger wordWidth = 20; //默认为20
@@ -336,13 +336,13 @@
 @end
 
 @interface HTupleViewCellHoriValue3 ()
-@property (nonatomic) UIView *_cellContentView;
+@property (nonatomic) UIView *cellContentView;
 @property (nonatomic) HWebImageView *accessoryView;
 @end
 
 @implementation HTupleViewCellHoriValue3
 - (void)layoutContentView {
-    HLayoutTupleCell(self.cellContentView)
+    HLayoutTupleCell(self.containerView)
 }
 - (void)setDetailWidth:(CGFloat)detailWidth {
     if (_detailWidth != detailWidth) {
@@ -356,18 +356,18 @@
         self.needRefreshFrame = YES;
     }
 }
-- (UIView *)_cellContentView {
-    if (!__cellContentView) {
-        __cellContentView = UIView.new;
-        [self.cellContentView addSubview:__cellContentView];
+- (UIView *)cellContentView {
+    if (!_cellContentView) {
+        _cellContentView = UIView.new;
+        [self.containerView addSubview:_cellContentView];
     }
-    return __cellContentView;
+    return _cellContentView;
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
         self.needRefreshFrame = YES;
-        [self.cellContentView addSubview:_imageView];
+        [self.containerView addSubview:_imageView];
     }
     return _imageView;
 }
@@ -376,7 +376,7 @@
         _label = [HLabel new];
         self.needRefreshFrame = YES;
         [_label setFont:[UIFont systemFontOfSize:14]];
-        [self._cellContentView addSubview:_label];
+        [self.cellContentView addSubview:_label];
     }
     return _label;
 }
@@ -385,7 +385,7 @@
         _detailLabel = [HLabel new];
         self.needRefreshFrame = YES;
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
-        [self._cellContentView addSubview:_detailLabel];
+        [self.cellContentView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
@@ -395,7 +395,7 @@
         self.needRefreshFrame = YES;
         [_accessoryLabel setTextAlignment:NSTextAlignmentRight];
         [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
-        [self._cellContentView addSubview:_accessoryLabel];
+        [self.cellContentView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
 }
@@ -403,7 +403,7 @@
     if (!_detailView) {
         _detailView = [HWebImageView new];
         self.needRefreshFrame = YES;
-        [self.cellContentView addSubview:_detailView];
+        [self.containerView addSubview:_detailView];
     }
     return _detailView;
 }
@@ -411,7 +411,7 @@
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
         self.needRefreshFrame = YES;
-        [self.cellContentView addSubview:_accessoryView];
+        [self.containerView addSubview:_accessoryView];
     }
     return _accessoryView;
 }
@@ -478,9 +478,9 @@
             tmpFrame4.size.width = CGRectGetWidth(frame);
         }
     }
-    [self._cellContentView setFrame:tmpFrame4];
+    [self.cellContentView setFrame:tmpFrame4];
     
-    CGRect tmpFrame5 = self._cellContentView.bounds;
+    CGRect tmpFrame5 = self.cellContentView.bounds;
     
     if (self.detailWidth > 0) {
         CGRect tmpFrame6 = tmpFrame5;
@@ -514,13 +514,13 @@
 
 @implementation HTupleViewCellHoriValue4
 - (void)layoutContentView {
-    HLayoutTupleCell(self.cellContentView)
+    HLayoutTupleCell(self.containerView)
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
         self.needRefreshFrame = YES;
-        [self.cellContentView addSubview:_imageView];
+        [self.containerView addSubview:_imageView];
     }
     return _imageView;
 }
@@ -529,7 +529,7 @@
         _label = [HLabel new];
         self.needRefreshFrame = YES;
         [_label setFont:[UIFont systemFontOfSize:14]];
-        [self.cellContentView addSubview:_label];
+        [self.containerView addSubview:_label];
     }
     return _label;
 }
@@ -538,7 +538,7 @@
         _detailLabel = [HLabel new];
         self.needRefreshFrame = YES;
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.cellContentView addSubview:_detailLabel];
+        [self.containerView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
@@ -547,7 +547,7 @@
         _accessoryLabel = [HLabel new];
         self.needRefreshFrame = YES;
         [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.cellContentView addSubview:_accessoryLabel];
+        [self.containerView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
 }
@@ -555,7 +555,7 @@
     if (!_detailView) {
         _detailView = [HWebImageView new];
         self.needRefreshFrame = YES;
-        [self.cellContentView addSubview:_detailView];
+        [self.containerView addSubview:_detailView];
     }
     return _detailView;
 }
@@ -563,7 +563,7 @@
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
         self.needRefreshFrame = YES;
-        [self.cellContentView addSubview:_accessoryView];
+        [self.containerView addSubview:_accessoryView];
     }
     return _accessoryView;
 }

@@ -19,13 +19,13 @@
 
 @implementation HTupleViewCellVertValue1
 - (void)layoutContentView {
-    HLayoutTupleCell(self.cellContentView)
+    HLayoutTupleCell(self.containerView)
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
         self.needRefreshFrame = YES;
-        [self.cellContentView addSubview:_imageView];
+        [self.containerView addSubview:_imageView];
     }
     return _imageView;
 }
@@ -34,7 +34,7 @@
         _label = [HLabel new];
         self.needRefreshFrame = YES;
         [_label setFont:[UIFont systemFontOfSize:14]];
-        [self.cellContentView addSubview:_label];
+        [self.containerView addSubview:_label];
     }
     return _label;
 }
@@ -43,7 +43,7 @@
         _detailLabel = [HLabel new];
         self.needRefreshFrame = YES;
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.cellContentView addSubview:_detailLabel];
+        [self.containerView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
@@ -52,7 +52,7 @@
         _accessoryLabel = [HLabel new];
         self.needRefreshFrame = YES;
         [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.cellContentView addSubview:_accessoryLabel];
+        [self.containerView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
 }
