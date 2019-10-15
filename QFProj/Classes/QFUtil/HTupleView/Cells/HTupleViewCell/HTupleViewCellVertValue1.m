@@ -1,16 +1,16 @@
 //
-//  HTupleViewApexDefault.m
+//  HTupleViewCellVertValue1.m
 //  QFProj
 //
-//  Created by wind on 2019/9/11.
+//  Created by wind on 2019/9/9.
 //  Copyright © 2019 dqfStudio. All rights reserved.
 //
 
-#import "HTupleViewApexDefault.h"
+#import "HTupleViewCellVertValue1.h"
 
 #define KArrowSpace 10
 
-@implementation HTupleViewApexDefaultBase
+@implementation HTupleViewCellVertBase1
 - (void)initUI {
     self.imageViewInsets = UIEdgeInsetsZero;
     self.labelInsets =  UITBEdgeInsetsZero;
@@ -21,19 +21,19 @@
 }
 @end
 
-@interface HTupleViewApexDefault ()
+@interface HTupleViewCellVertValue1 ()
 @property (nonatomic) HWebImageView *accessoryView;
 @end
 
-@implementation HTupleViewApexDefault
+@implementation HTupleViewCellVertValue1
 - (void)layoutContentView {
-    HLayoutTupleCell(self.apexContentView)
+    HLayoutTupleCell(self.cellContentView)
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
         self.needRefreshFrame = YES;
-        [self.apexContentView addSubview:_imageView];
+        [self.cellContentView addSubview:_imageView];
     }
     return _imageView;
 }
@@ -42,7 +42,7 @@
         _label = [HLabel new];
         self.needRefreshFrame = YES;
         [_label setFont:[UIFont systemFontOfSize:14]];
-        [self.apexContentView addSubview:_label];
+        [self.cellContentView addSubview:_label];
     }
     return _label;
 }
@@ -51,7 +51,7 @@
         _detailLabel = [HLabel new];
         self.needRefreshFrame = YES;
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.apexContentView addSubview:_detailLabel];
+        [self.cellContentView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
@@ -60,7 +60,7 @@
         _accessoryLabel = [HLabel new];
         self.needRefreshFrame = YES;
         [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.apexContentView addSubview:_accessoryLabel];
+        [self.cellContentView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
 }
@@ -68,7 +68,7 @@
     if (!_detailView) {
         _detailView = [HWebImageView new];
         self.needRefreshFrame = YES;
-        [self.apexContentView addSubview:_detailView];
+        [self.cellContentView addSubview:_detailView];
     }
     return _detailView;
 }
@@ -76,7 +76,7 @@
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
         self.needRefreshFrame = YES;
-        [self.apexContentView addSubview:_accessoryView];
+        [self.cellContentView addSubview:_accessoryView];
     }
     return _accessoryView;
 }

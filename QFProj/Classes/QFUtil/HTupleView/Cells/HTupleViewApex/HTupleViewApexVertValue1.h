@@ -1,5 +1,5 @@
 //
-//  HTupleViewApexDefault.h
+//  HTupleViewApexVertValue1.h
 //  QFProj
 //
 //  Created by wind on 2019/9/11.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HTupleViewApexDefaultBase : HTupleBaseApex
+@interface HTupleViewApexVertBase1 : HTupleBaseApex
 @property (nonatomic) UIEdgeInsets imageViewInsets; //imageView的上下左右边距
 @property (nonatomic) UITBEdgeInsets labelInsets; //label的上下边距
 @property (nonatomic) UITBEdgeInsets detailLabelInsets; //detailLabel的上下边距
@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) UIEdgeInsets detailViewInsets; //detailView的上下左右边距
 @end
 
-@interface HTupleViewApexDefault : HTupleViewApexDefaultBase
+@interface HTupleViewApexVertValue1 : HTupleViewApexVertBase1
 @property (nonatomic, nullable) HWebImageView *imageView; //左边显示图片
 @property (nonatomic, nonnull)  HLabel *label; //显示文字内容
 @property (nonatomic, nullable) HLabel *detailLabel; //显示文字内容详情

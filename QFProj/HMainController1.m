@@ -72,7 +72,7 @@
 - (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
-            HTupleViewCellDefault *cell = itemBlock(nil, HTupleViewCellDefault.class, nil, YES);
+            HTupleViewCellVertValue1 *cell = itemBlock(nil, HTupleViewCellVertValue1.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
@@ -109,7 +109,7 @@
         }
             break;
         case 1: {
-            HTupleViewCellDefault *cell = itemBlock(nil, HTupleViewCellDefault.class, nil, YES);
+            HTupleViewCellVertValue1 *cell = itemBlock(nil, HTupleViewCellVertValue1.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
@@ -131,7 +131,7 @@
         }
             break;
         case 2: {
-            HTupleViewCellDefault *cell = itemBlock(nil, HTupleViewCellDefault.class, nil, YES);
+            HTupleViewCellVertValue1 *cell = itemBlock(nil, HTupleViewCellVertValue1.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
@@ -221,7 +221,7 @@
         }
             break;
         case 6: {
-            HTupleViewCellValue3 *cell = itemBlock(nil, HTupleViewCellValue3.class, nil, YES);
+            HTupleViewCellHoriValue3 *cell = itemBlock(nil, HTupleViewCellHoriValue3.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];

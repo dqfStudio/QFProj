@@ -152,10 +152,10 @@
 		A20E3D2123239BE400E6982B /* HMainController3+HSection0.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D2023239BE400E6982B /* HMainController3+HSection0.m */; };
 		A20E3D2423239BF600E6982B /* HMainController3+HSection1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D2323239BF600E6982B /* HMainController3+HSection1.m */; };
 		A20E3D2723239C0200E6982B /* HMainController3+HSection2.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D2623239C0200E6982B /* HMainController3+HSection2.m */; };
-		A20E3D332326891900E6982B /* HTupleViewCellDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D322326891900E6982B /* HTupleViewCellDefault.m */; };
-		A20E3D3F23278A2500E6982B /* HTupleViewCellValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D3E23278A2500E6982B /* HTupleViewCellValue1.m */; };
-		A20E3D482328AC0B00E6982B /* HTupleViewApexDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D472328AC0B00E6982B /* HTupleViewApexDefault.m */; };
-		A20E3D4B2328AC1600E6982B /* HTupleViewApexValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D4A2328AC1600E6982B /* HTupleViewApexValue1.m */; };
+		A20E3D332326891900E6982B /* HTupleViewCellVertValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D322326891900E6982B /* HTupleViewCellVertValue1.m */; };
+		A20E3D3F23278A2500E6982B /* HTupleViewCellHoriValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D3E23278A2500E6982B /* HTupleViewCellHoriValue1.m */; };
+		A20E3D482328AC0B00E6982B /* HTupleViewApexVertValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D472328AC0B00E6982B /* HTupleViewApexVertValue1.m */; };
+		A20E3D4B2328AC1600E6982B /* HTupleViewApexHoriValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D4A2328AC1600E6982B /* HTupleViewApexHoriValue1.m */; };
 		A219F22F222FB46A00241FD7 /* HIFS.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F22D222FB46A00241FD7 /* HIFS.m */; };
 		A222A6C42279AAAD0013098A /* NSDictionary+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A6C32279AAAD0013098A /* NSDictionary+HUtil.m */; };
 		A222A716227C52430013098A /* UILabel+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A715227C52430013098A /* UILabel+HUtil.m */; };
@@ -592,14 +592,14 @@
 		A20E3D2323239BF600E6982B /* HMainController3+HSection1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HMainController3+HSection1.m"; sourceTree = "<group>"; };
 		A20E3D2523239C0200E6982B /* HMainController3+HSection2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMainController3+HSection2.h"; sourceTree = "<group>"; };
 		A20E3D2623239C0200E6982B /* HMainController3+HSection2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HMainController3+HSection2.m"; sourceTree = "<group>"; };
-		A20E3D312326891900E6982B /* HTupleViewCellDefault.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewCellDefault.h; sourceTree = "<group>"; };
-		A20E3D322326891900E6982B /* HTupleViewCellDefault.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewCellDefault.m; sourceTree = "<group>"; };
-		A20E3D3D23278A2500E6982B /* HTupleViewCellValue1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewCellValue1.h; sourceTree = "<group>"; };
-		A20E3D3E23278A2500E6982B /* HTupleViewCellValue1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewCellValue1.m; sourceTree = "<group>"; };
-		A20E3D462328AC0B00E6982B /* HTupleViewApexDefault.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewApexDefault.h; sourceTree = "<group>"; };
-		A20E3D472328AC0B00E6982B /* HTupleViewApexDefault.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewApexDefault.m; sourceTree = "<group>"; };
-		A20E3D492328AC1600E6982B /* HTupleViewApexValue1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewApexValue1.h; sourceTree = "<group>"; };
-		A20E3D4A2328AC1600E6982B /* HTupleViewApexValue1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewApexValue1.m; sourceTree = "<group>"; };
+		A20E3D312326891900E6982B /* HTupleViewCellVertValue1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewCellVertValue1.h; sourceTree = "<group>"; };
+		A20E3D322326891900E6982B /* HTupleViewCellVertValue1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewCellVertValue1.m; sourceTree = "<group>"; };
+		A20E3D3D23278A2500E6982B /* HTupleViewCellHoriValue1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewCellHoriValue1.h; sourceTree = "<group>"; };
+		A20E3D3E23278A2500E6982B /* HTupleViewCellHoriValue1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewCellHoriValue1.m; sourceTree = "<group>"; };
+		A20E3D462328AC0B00E6982B /* HTupleViewApexVertValue1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewApexVertValue1.h; sourceTree = "<group>"; };
+		A20E3D472328AC0B00E6982B /* HTupleViewApexVertValue1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewApexVertValue1.m; sourceTree = "<group>"; };
+		A20E3D492328AC1600E6982B /* HTupleViewApexHoriValue1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewApexHoriValue1.h; sourceTree = "<group>"; };
+		A20E3D4A2328AC1600E6982B /* HTupleViewApexHoriValue1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewApexHoriValue1.m; sourceTree = "<group>"; };
 		A219F22D222FB46A00241FD7 /* HIFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIFS.m; sourceTree = "<group>"; };
 		A219F22E222FB46A00241FD7 /* HIFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIFS.h; sourceTree = "<group>"; };
 		A222A6C22279AAAD0013098A /* NSDictionary+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HUtil.h"; sourceTree = "<group>"; };
@@ -1494,10 +1494,10 @@
 				15C5734F20B3DD7B0070327C /* HTupleBaseCell.m */,
 				15C5735020B3DD7B0070327C /* HTupleViewCell.h */,
 				15C5735420B3DD7B0070327C /* HTupleViewCell.m */,
-				A20E3D312326891900E6982B /* HTupleViewCellDefault.h */,
-				A20E3D322326891900E6982B /* HTupleViewCellDefault.m */,
-				A20E3D3D23278A2500E6982B /* HTupleViewCellValue1.h */,
-				A20E3D3E23278A2500E6982B /* HTupleViewCellValue1.m */,
+				A20E3D312326891900E6982B /* HTupleViewCellVertValue1.h */,
+				A20E3D322326891900E6982B /* HTupleViewCellVertValue1.m */,
+				A20E3D3D23278A2500E6982B /* HTupleViewCellHoriValue1.h */,
+				A20E3D3E23278A2500E6982B /* HTupleViewCellHoriValue1.m */,
 				15C5735620B3DD7B0070327C /* tuple_arrow_icons */,
 			);
 			path = HTupleViewCell;
@@ -1597,10 +1597,10 @@
 				A206880A22C9FD1B00661634 /* HTupleBaseApex.m */,
 				A206880C22C9FD1B00661634 /* HTupleViewApex.h */,
 				A206880922C9FD1B00661634 /* HTupleViewApex.m */,
-				A20E3D462328AC0B00E6982B /* HTupleViewApexDefault.h */,
-				A20E3D472328AC0B00E6982B /* HTupleViewApexDefault.m */,
-				A20E3D492328AC1600E6982B /* HTupleViewApexValue1.h */,
-				A20E3D4A2328AC1600E6982B /* HTupleViewApexValue1.m */,
+				A20E3D462328AC0B00E6982B /* HTupleViewApexVertValue1.h */,
+				A20E3D472328AC0B00E6982B /* HTupleViewApexVertValue1.m */,
+				A20E3D492328AC1600E6982B /* HTupleViewApexHoriValue1.h */,
+				A20E3D4A2328AC1600E6982B /* HTupleViewApexHoriValue1.m */,
 			);
 			path = HTupleViewApex;
 			sourceTree = "<group>";
@@ -2547,11 +2547,11 @@
 				A2A8EBF522E4A17D0049C51B /* HFPickerView.m in Sources */,
 				A2A8EBA022E1F80D0049C51B /* HKeyboardManager+HToolBar.m in Sources */,
 				15B4DDED2092F96C00773E04 /* UIView+HImage.m in Sources */,
-				A20E3D332326891900E6982B /* HTupleViewCellDefault.m in Sources */,
+				A20E3D332326891900E6982B /* HTupleViewCellVertValue1.m in Sources */,
 				A2A8EB3022DB62680049C51B /* HCycleScrollView.m in Sources */,
 				A206882222C9FDBD00661634 /* HTableViewCell.m in Sources */,
 				15E6BB9E2136E7E300EBE794 /* YPTabItem.m in Sources */,
-				A20E3D4B2328AC1600E6982B /* HTupleViewApexValue1.m in Sources */,
+				A20E3D4B2328AC1600E6982B /* HTupleViewApexHoriValue1.m in Sources */,
 				A222AE5322818F7D0013098A /* HTextContainerView.m in Sources */,
 				1547B890210C4E09009E0374 /* UIControl+HTracking.m in Sources */,
 				A2E8F55A22D8354400E7C9F2 /* HFileCache.m in Sources */,
@@ -2608,7 +2608,7 @@
 				A20E3CD8231A662B00E6982B /* HRequestHUD.m in Sources */,
 				A20E3D2123239BE400E6982B /* HMainController3+HSection0.m in Sources */,
 				A2E8F57522D8356300E7C9F2 /* HCacheImageDecoder.m in Sources */,
-				A20E3D3F23278A2500E6982B /* HTupleViewCellValue1.m in Sources */,
+				A20E3D3F23278A2500E6982B /* HTupleViewCellHoriValue1.m in Sources */,
 				1547B88E210C4E09009E0374 /* UIViewController+HTracking.m in Sources */,
 				A2A8EC0122E4A4730049C51B /* HCountDownButton.m in Sources */,
 				15B4DE062092F96C00773E04 /* NSObject+HBlockSEL.m in Sources */,
@@ -2716,7 +2716,7 @@
 				15B4DD682092F88700773E04 /* AppDelegate.m in Sources */,
 				A219F22F222FB46A00241FD7 /* HIFS.m in Sources */,
 				A222AE6522828E5C0013098A /* HTextField.m in Sources */,
-				A20E3D482328AC0B00E6982B /* HTupleViewApexDefault.m in Sources */,
+				A20E3D482328AC0B00E6982B /* HTupleViewApexVertValue1.m in Sources */,
 				A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */,
 				157696EB20A0AB6900E31469 /* hFelix.m in Sources */,
 				A206882822CA081400661634 /* HViewController.m in Sources */,
