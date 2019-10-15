@@ -57,42 +57,42 @@
     return _accessoryLabel;
 }
 
-- (HWebImageView *)topImageView {
-    if (!_topImageView) {
-        _topImageView = HWebImageView.new;
+- (HWebImageView *)topView {
+    if (!_topView) {
+        _topView = HWebImageView.new;
         self.needRefreshFrame = YES;
-        [self.imageView addSubview:_topImageView];
+        [self.imageView addSubview:_topView];
     }
-    return _topImageView;
+    return _topView;
 }
-- (HLabel *)imageLabel {
-    if (!_imageLabel) {
-        _imageLabel = [HLabel new];
+- (HLabel *)topLabel {
+    if (!_topLabel) {
+        _topLabel = [HLabel new];
         self.needRefreshFrame = YES;
-        [_imageLabel setBackgroundColor:UIColor.clearColor];
-        [_imageLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.topImageView addSubview:_imageLabel];
+        [_topLabel setBackgroundColor:UIColor.clearColor];
+        [_topLabel setFont:[UIFont systemFontOfSize:14]];
+        [self.topView addSubview:_topLabel];
     }
-    return _imageLabel;
+    return _topLabel;
 }
 
-- (HWebImageView *)bottomImageView {
-    if (!_bottomImageView) {
-        _bottomImageView = HWebImageView.new;
+- (HWebImageView *)bottomView {
+    if (!_bottomView) {
+        _bottomView = HWebImageView.new;
         self.needRefreshFrame = YES;
-        [self.imageView addSubview:_bottomImageView];
+        [self.imageView addSubview:_bottomView];
     }
-    return _bottomImageView;
+    return _bottomView;
 }
-- (HLabel *)imageDetailLabel {
-    if (!_imageDetailLabel) {
-        _imageDetailLabel = [HLabel new];
+- (HLabel *)bottomLabel {
+    if (!_bottomLabel) {
+        _bottomLabel = [HLabel new];
         self.needRefreshFrame = YES;
-        [_imageDetailLabel setBackgroundColor:UIColor.clearColor];
-        [_imageDetailLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.bottomImageView addSubview:_imageDetailLabel];
+        [_bottomLabel setBackgroundColor:UIColor.clearColor];
+        [_bottomLabel setFont:[UIFont systemFontOfSize:14]];
+        [self.bottomView addSubview:_bottomLabel];
     }
-    return _imageDetailLabel;
+    return _bottomLabel;
 }
 - (void)frameChanged {
     CGRect frame = [self getContentBounds];
@@ -114,19 +114,19 @@
         tmpFrame.size.height -= self.imageViewInsets.top+self.imageViewInsets.bottom;
         [_imageView setFrame:tmpFrame];
         
-        if (self.imageLabelHeight > 0) {
+        if (self.topHeight > 0) {
             CGRect tmpFrame = frame;
-            tmpFrame.size.height = self.imageLabelHeight;
-            [self.topImageView setFrame:tmpFrame];
-            [self.imageLabel setFrame:self.topImageView.bounds];
+            tmpFrame.size.height = self.topHeight;
+            [self.topView setFrame:tmpFrame];
+            [self.topLabel setFrame:self.topView.bounds];
         }
         
-        if (self.imageDetailLabelHeight > 0) {
+        if (self.bottomHeight > 0) {
             CGRect tmpFrame = frame;
-            tmpFrame.origin.y = _imageView.frame.size.height-self.imageDetailLabelHeight;
-            tmpFrame.size.height = self.imageDetailLabelHeight;
-            [self.bottomImageView setFrame:tmpFrame];
-            [self.imageDetailLabel setFrame:self.bottomImageView.bounds];
+            tmpFrame.origin.y = _imageView.frame.size.height-self.bottomHeight;
+            tmpFrame.size.height = self.bottomHeight;
+            [self.bottomView setFrame:tmpFrame];
+            [self.bottomLabel setFrame:self.bottomView.bounds];
         }
     }
     
