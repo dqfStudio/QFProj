@@ -26,6 +26,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nullable) HLabel *label; //显示文字内容
 @property (nonatomic, nullable) HLabel *detailLabel; //显示文字内容详情
 @property (nonatomic, nullable) HLabel *accessoryLabel; //显示文字内容附加信息
+
+@property (nonatomic, nullable) HWebImageView *topImageView; //左边显示图片
+@property (nonatomic, nullable) HLabel *imageLabel; //显示文字内容
+@property (nonatomic) CGFloat imageLabelHeight; //labelLabel的高度
+
+@property (nonatomic, nullable) HWebImageView *bottomImageView; //左边显示图片
+@property (nonatomic, nullable) HLabel *imageDetailLabel; //显示文字内容详情
+@property (nonatomic) CGFloat imageDetailLabelHeight; //detailLabel的高度
 @end
 
 NS_ASSUME_NONNULL_END

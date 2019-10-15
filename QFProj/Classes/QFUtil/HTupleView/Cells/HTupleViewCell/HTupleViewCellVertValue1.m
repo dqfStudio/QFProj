@@ -56,6 +56,44 @@
     }
     return _accessoryLabel;
 }
+
+- (HWebImageView *)topImageView {
+    if (!_topImageView) {
+        _topImageView = HWebImageView.new;
+        self.needRefreshFrame = YES;
+        [self.imageView addSubview:_topImageView];
+    }
+    return _topImageView;
+}
+- (HLabel *)imageLabel {
+    if (!_imageLabel) {
+        _imageLabel = [HLabel new];
+        self.needRefreshFrame = YES;
+        [_imageLabel setBackgroundColor:UIColor.clearColor];
+        [_imageLabel setFont:[UIFont systemFontOfSize:14]];
+        [self.topImageView addSubview:_imageLabel];
+    }
+    return _imageLabel;
+}
+
+- (HWebImageView *)bottomImageView {
+    if (!_bottomImageView) {
+        _bottomImageView = HWebImageView.new;
+        self.needRefreshFrame = YES;
+        [self.imageView addSubview:_bottomImageView];
+    }
+    return _bottomImageView;
+}
+- (HLabel *)imageDetailLabel {
+    if (!_imageDetailLabel) {
+        _imageDetailLabel = [HLabel new];
+        self.needRefreshFrame = YES;
+        [_imageDetailLabel setBackgroundColor:UIColor.clearColor];
+        [_imageDetailLabel setFont:[UIFont systemFontOfSize:14]];
+        [self.bottomImageView addSubview:_imageDetailLabel];
+    }
+    return _imageDetailLabel;
+}
 - (void)frameChanged {
     CGRect frame = [self getContentBounds];
     
@@ -75,6 +113,21 @@
         tmpFrame.origin.y += self.imageViewInsets.top;
         tmpFrame.size.height -= self.imageViewInsets.top+self.imageViewInsets.bottom;
         [_imageView setFrame:tmpFrame];
+        
+        if (self.imageLabelHeight > 0) {
+            CGRect tmpFrame = frame;
+            tmpFrame.size.height = self.imageLabelHeight;
+            [self.topImageView setFrame:tmpFrame];
+            [self.imageLabel setFrame:self.topImageView.bounds];
+        }
+        
+        if (self.imageDetailLabelHeight > 0) {
+            CGRect tmpFrame = frame;
+            tmpFrame.origin.y = _imageView.frame.size.height-self.imageDetailLabelHeight;
+            tmpFrame.size.height = self.imageDetailLabelHeight;
+            [self.bottomImageView setFrame:tmpFrame];
+            [self.imageDetailLabel setFrame:self.bottomImageView.bounds];
+        }
     }
     
     if (_label) {
