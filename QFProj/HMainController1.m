@@ -72,7 +72,7 @@
 - (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
-            HTupleViewCellVertValue1 *cell = itemBlock(nil, HTupleViewCellVertValue1.class, nil, YES);
+            HTupleViewCellHoriValue4 *cell = itemBlock(nil, HTupleViewCellHoriValue4.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
@@ -109,7 +109,7 @@
         }
             break;
         case 1: {
-            HTupleViewCellVertValue1 *cell = itemBlock(nil, HTupleViewCellVertValue1.class, nil, YES);
+            HTupleViewCellHoriValue4 *cell = itemBlock(nil, HTupleViewCellHoriValue4.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
@@ -131,7 +131,7 @@
         }
             break;
         case 2: {
-            HTupleViewCellVertValue1 *cell = itemBlock(nil, HTupleViewCellVertValue1.class, nil, YES);
+            HTupleViewCellHoriValue4 *cell = itemBlock(nil, HTupleViewCellHoriValue4.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
@@ -150,71 +150,47 @@
         }
             break;
         case 3: {
-            HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
+            HTupleViewCellVertValue1 *cell = itemBlock(nil, HTupleViewCellVertValue1.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UILREdgeInsetsMake(10, 0)];
             
-            CGRect frame = [cell getContentBounds];
-            
-            CGRect tmpFrame = frame;
-            tmpFrame.size.height = CGRectGetHeight(frame)-25;
-            [cell.imageView setFrame:tmpFrame];
             [cell.imageView setBackgroundColor:UIColor.redColor];
             [cell.imageView setImageWithName:@"icon_no_server"];
             [cell.imageView setFillet:YES];
             
-            CGRect tmpFrame2 = frame;
-            tmpFrame2.origin.y += CGRectGetMaxY(tmpFrame)+5;
-            tmpFrame2.size.height = 20;
-            [cell.label setFrame:tmpFrame2];
+            cell.labelHeight = 25;
             [cell.label setFont:[UIFont systemFontOfSize:14]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setText:@"黑客帝国"];
         }
             break;
         case 4: {
-            HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
+            HTupleViewCellVertValue1 *cell = itemBlock(nil, HTupleViewCellVertValue1.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             
-            CGRect frame = [cell getContentBounds];
-            
-            CGRect tmpFrame = frame;
-            tmpFrame.size.height = CGRectGetHeight(frame)-25;
-            [cell.imageView setFrame:tmpFrame];
             [cell.imageView setBackgroundColor:UIColor.redColor];
             [cell.imageView setImageWithName:@"icon_no_server"];
             [cell.imageView setFillet:YES];
             
-            CGRect tmpFrame2 = frame;
-            tmpFrame2.origin.y += CGRectGetMaxY(tmpFrame)+5;
-            tmpFrame2.size.height = 20;
-            [cell.label setFrame:tmpFrame2];
+            cell.labelHeight = 25;
             [cell.label setFont:[UIFont systemFontOfSize:14]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setText:@"黑客帝国"];
         }
             break;
         case 5: {
-            HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
+            HTupleViewCellVertValue1 *cell = itemBlock(nil, HTupleViewCellVertValue1.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UILREdgeInsetsMake(0, 10)];
 
-            CGRect frame = [cell getContentBounds];
-            
-            CGRect tmpFrame = frame;
-            tmpFrame.size.height = CGRectGetHeight(frame)-25;
-            [cell.imageView setFrame:tmpFrame];
             [cell.imageView setBackgroundColor:UIColor.redColor];
             [cell.imageView setImageWithName:@"icon_no_server"];
             [cell.imageView setFillet:YES];
 
-            CGRect tmpFrame2 = frame;
-            tmpFrame2.origin.y += CGRectGetMaxY(tmpFrame)+5;
-            tmpFrame2.size.height = 20;
-            [cell.label setFrame:tmpFrame2];
+            cell.labelHeight = 25;
             [cell.label setFont:[UIFont systemFontOfSize:14]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setText:@"黑客帝国"];
