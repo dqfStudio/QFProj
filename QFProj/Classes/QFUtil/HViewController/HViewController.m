@@ -151,6 +151,12 @@
     [self.view bringSubviewToFront:self.topBar];
     //要更新statusbar状态的需要调用下这个方法,最好与viewWillDisappear对应
     [self setNeedsStatusBarAppearanceUpdate];
+    //根据导航栏的颜色动态设置状态栏样式
+    if (self.preferredStatusBarColor) {
+        [UIApplication setStatusBarStyleWithColor:self.preferredStatusBarColor];
+    }else if (self.autoAdjustStatusBarStyle && !self.topBar.hidden) {
+        [UIApplication setStatusBarStyleWithColor:self.topBar.backgroundColor];
+    }
 #ifdef __IPHONE_11_0
     if (@available(iOS 11.0, *)) {
         if ([self.view isKindOfClass:[UIScrollView class]]) {
@@ -395,6 +401,17 @@
     return NO;
 }
 
+- (BOOL)autoAdjustStatusBarStyle {
+    if (self.prefersStatusBarHidden) {
+        return NO;
+    }
+    return YES;
+}
+
+- (UIColor *)preferredStatusBarColor {
+    return nil;
+}
+
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleDefault;
 }
@@ -531,21 +548,6 @@
 }
 - (UIScreen *)screen {
     return UIScreen.mainScreen;
-}
-- (CGFloat)width {
-    return CGRectGetWidth(self.view.frame);
-}
-- (CGFloat)height {
-    return CGRectGetHeight(self.view.frame);
-}
-- (CGSize)size {
-    return self.view.frame.size;
-}
-- (CGRect)frame {
-    return self.view.frame;
-}
-- (CGRect)bounds {
-    return self.view.bounds;
 }
 - (NSMutableArray *)sourceArr {
     NSMutableArray *array = objc_getAssociatedObject(self, _cmd);

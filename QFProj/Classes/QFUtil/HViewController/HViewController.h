@@ -89,6 +89,9 @@
 //控制器想要实现状态栏控制及动画，需要实现以下两个方法，当状态栏状态改性时需要调用-setNeedsStatusBarAppearanceUpdate
 //以刷新状态栏状态, 默认实现是显示状态栏和没有动画
 - (BOOL)prefersStatusBarHidden;
+//是否动态调整status bar 的样式
+- (BOOL)autoAdjustStatusBarStyle;
+- (UIColor *)preferredStatusBarColor;
 
 #pragma mark - 导航栏控制
 //每次改变导航栏状态时，需要调用该方法才能刷新状态栏状态
@@ -118,14 +121,9 @@
 @end
 
 @interface HViewController (HMessy)
-//获取window & screen & rect
+//获取window & screen
 - (UIWindow *)window;
 - (UIScreen *)screen;
-- (CGFloat)width;
-- (CGFloat)height;
-- (CGSize)size;
-- (CGRect)frame;
-- (CGRect)bounds;
 //load date
 @property (nonatomic) NSMutableArray *sourceArr;
 @property (nonatomic) NSMutableDictionary *sourceDict;
