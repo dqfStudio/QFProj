@@ -24,12 +24,15 @@
     [self setBackgroundColor:[UIColor clearColor]];
     _forbidWhitespaceAndNewline = YES;
     _editEnabled = YES;
+    _leftInsets  = UIEdgeInsetsMake(0, 0, 0, 5);
+    _rightInsets = UIEdgeInsetsMake(0, 10, 0, 0);
 }
 - (HLabel *)leftLabel {
     if (!_leftLabel) {
         _leftLabel = [HLabel new];
         [super setLeftViewMode:UITextFieldViewModeAlways];
         [super setLeftView:_leftLabel];
+        [self setLeftViewFrame];
     }
     return _leftLabel;
 }
@@ -38,6 +41,7 @@
         _rightLabel = [HLabel new];
         [super setRightViewMode:UITextFieldViewModeAlways];
         [super setRightView:_rightLabel];
+        [self setRightViewFrame];
     }
     return _rightLabel;
 }
@@ -46,6 +50,7 @@
         _leftView = HWebImageView.new;
         [super setLeftViewMode:UITextFieldViewModeAlways];
         [super setLeftView:_leftView];
+        [self setLeftViewFrame];
     }
     return _leftView;
 }
@@ -54,6 +59,7 @@
         _rightView = HWebImageView.new;
         [super setRightViewMode:UITextFieldViewModeAlways];
         [super setRightView:_rightView];
+        [self setRightViewFrame];
     }
     return _rightView;
 }
@@ -62,6 +68,7 @@
         _leftButton = [HWebButtonView new];
         [super setLeftViewMode:UITextFieldViewModeAlways];
         [super setLeftView:_leftButton];
+        [self setLeftViewFrame];
     }
     return _leftButton;
 }
@@ -70,8 +77,57 @@
         _rightButton = [HWebButtonView new];
         [super setRightViewMode:UITextFieldViewModeAlways];
         [super setRightView:_rightButton];
+        [self setRightViewFrame];
     }
     return _rightButton;
+}
+- (void)setLeftWidth:(CGFloat)leftWidth {
+    if (_leftWidth != leftWidth) {
+        _leftWidth = leftWidth;
+        [self setLeftViewFrame];
+    }
+}
+- (void)setRightWidth:(CGFloat)rightWidth {
+    if (_rightWidth != rightWidth) {
+        _rightWidth = rightWidth;
+        [self setRightViewFrame];
+    }
+}
+- (void)setLeftInsets:(UIEdgeInsets)leftInsets {
+    if (!UIEdgeInsetsEqualToEdgeInsets(_leftInsets, leftInsets)) {
+        _leftInsets = leftInsets;
+        [self setLeftViewFrame];
+    }
+}
+- (void)setRightInsets:(UIEdgeInsets)rightInsets {
+    if (!UIEdgeInsetsEqualToEdgeInsets(_rightInsets, rightInsets)) {
+        _rightInsets = rightInsets;
+        [self setRightViewFrame];
+    }
+}
+- (void)setLeftViewFrame {
+    if (super.leftView && _leftWidth > 0) {
+        CGRect frame = self.bounds;
+        frame.size.width = _leftWidth;
+        //调整frame
+        frame.origin.x += _leftInsets.left;
+        frame.origin.y += _leftInsets.top;
+        frame.size.width -= _leftInsets.left+_leftInsets.right;
+        frame.size.height -= _leftInsets.top+_leftInsets.bottom;
+        [super.leftView setFrame:frame];
+    }
+}
+- (void)setRightViewFrame {
+    if (super.rightView && _rightWidth > 0) {
+        CGRect frame = self.bounds;
+        frame.size.width = _rightWidth;
+        //调整frame
+        frame.origin.x += _rightInsets.left;
+        frame.origin.y += _rightInsets.top;
+        frame.size.width -= _rightInsets.left+_rightInsets.right;
+        frame.size.height -= _rightInsets.top+_rightInsets.bottom;
+        [super.rightView setFrame:frame];
+    }
 }
 - (NSString *)trimmingWhitespaceAndNewline {
     if (self.text.length > 0) {
@@ -242,7 +298,7 @@
     }
     //光标距右边输入框默认有10pt的距离
     //此处去掉此默认距离，以达到精准控制的目的
-    //frame.size.width += 10;
+    frame.size.width += 10;
     return frame;
 }
 @end

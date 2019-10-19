@@ -22,8 +22,11 @@
 @property (nonatomic) HWebButtonView *leftButton;
 @property (nonatomic) HWebButtonView *rightButton;
 
-@property (nonatomic) UILREdgeInsets leftInsets;
-@property (nonatomic) UILREdgeInsets rightInsets;
+@property (nonatomic) CGFloat leftWidth;
+@property (nonatomic) CGFloat rightWidth;
+
+@property (nonatomic) UIEdgeInsets leftInsets;
+@property (nonatomic) UIEdgeInsets rightInsets;
 
 @property (nonatomic) UIFont  *placeholderFont;
 @property (nonatomic) UIColor *placeholderColor;
