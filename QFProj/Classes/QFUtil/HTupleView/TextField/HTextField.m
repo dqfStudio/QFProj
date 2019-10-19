@@ -22,6 +22,7 @@
 - (void)setup {
     [self setDelegate:self];
     [self setBackgroundColor:[UIColor clearColor]];
+    [self setFont:[UIFont systemFontOfSize:14]];
     _forbidWhitespaceAndNewline = YES;
     _editEnabled = YES;
     _leftInsets  = UIEdgeInsetsMake(0, 0, 0, 5);
@@ -30,6 +31,7 @@
 - (HLabel *)leftLabel {
     if (!_leftLabel) {
         _leftLabel = [HLabel new];
+        [_leftLabel setFont:[UIFont systemFontOfSize:14]];
         [super setLeftViewMode:UITextFieldViewModeAlways];
         [super setLeftView:_leftLabel];
         [self setLeftViewFrame];
@@ -39,6 +41,7 @@
 - (HLabel *)rightLabel {
     if (!_rightLabel) {
         _rightLabel = [HLabel new];
+        [_rightLabel setFont:[UIFont systemFontOfSize:14]];
         [super setRightViewMode:UITextFieldViewModeAlways];
         [super setRightView:_rightLabel];
         [self setRightViewFrame];
@@ -66,6 +69,7 @@
 - (HWebButtonView *)leftButton {
     if (!_leftButton) {
         _leftButton = [HWebButtonView new];
+        [_leftButton setFont:[UIFont systemFontOfSize:14]];
         [super setLeftViewMode:UITextFieldViewModeAlways];
         [super setLeftView:_leftButton];
         [self setLeftViewFrame];
@@ -75,6 +79,7 @@
 - (HWebButtonView *)rightButton {
     if (!_rightButton) {
         _rightButton = [HWebButtonView new];
+        [_rightButton setFont:[UIFont systemFontOfSize:14]];
         [super setRightViewMode:UITextFieldViewModeAlways];
         [super setRightView:_rightButton];
         [self setRightViewFrame];

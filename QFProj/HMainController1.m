@@ -225,17 +225,14 @@
             cell.textField.leftWidth = 50;
             [cell.textField.leftLabel setTextAlignment:NSTextAlignmentCenter];
             [cell.textField.leftLabel setText:@"验证码"];
-            [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];
             [cell.textField.leftLabel setBackgroundColor:UIColor.greenColor];
             
             [cell.textField setPlaceholder:@"请输入验证码"];
             [cell.textField setPlaceholderColor:[UIColor whiteColor]];
             [cell.textField setTextColor:[UIColor whiteColor]];
-            [cell.textField setFont:[UIFont systemFontOfSize:14]];
             
             cell.textField.rightWidth = 90;
             [cell.textField.rightButton setTitle:@"获取验证码"];
-            [cell.textField.rightButton setFont:[UIFont systemFontOfSize:14]];
             [cell.textField.rightButton setBackgroundColor:UIColor.greenColor];
             [cell.textField.rightButton setPressed:^(id sender, id data) {
 
