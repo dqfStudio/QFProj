@@ -202,10 +202,8 @@
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
             
-            CGRect frame = [cell getContentBounds];
-            
-            cell.detailWidth  = frame.size.width/3;
-            cell.accessoryWidth = frame.size.width/3;
+            cell.detailWidth  = cell.contentWidth/3;
+            cell.accessoryWidth = cell.contentWidth/3;
             [cell.label setBackgroundColor:UIColor.greenColor];
             [cell.label setText:@"label"];
             [cell.label setTextAlignment:NSTextAlignmentCenter];

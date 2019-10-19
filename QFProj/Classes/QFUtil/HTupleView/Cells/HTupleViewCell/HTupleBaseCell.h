@@ -46,9 +46,9 @@ typedef void(^HTupleCellSkinBlock)(HTupleBaseCell *cell, HTupleView *tuple);
 - (void)initUI;
 - (void)frameChanged;
 - (void)layoutContentView;
-- (CGFloat)width;
-- (CGFloat)height;
-- (CGSize)size;
+- (CGFloat)contentWidth;
+- (CGFloat)contentHeight;
+- (CGSize)contentSize;
 @end
 
 @interface HTupleBaseCell (HSignal)

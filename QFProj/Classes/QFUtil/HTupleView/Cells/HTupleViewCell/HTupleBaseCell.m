@@ -125,14 +125,14 @@
     frame.origin.y = 0;
     return frame;
 }
-- (CGFloat)width {
-    return CGRectGetWidth(self.frame);
+- (CGFloat)contentWidth {
+    return CGRectGetWidth(self.getContentFrame);
 }
-- (CGFloat)height {
-    return CGRectGetHeight(self.frame);
+- (CGFloat)contentHeight {
+    return CGRectGetHeight(self.getContentFrame);
 }
-- (CGSize)size {
-    return self.frame.size;
+- (CGSize)contentSize {
+    return self.getContentFrame.size;
 }
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
