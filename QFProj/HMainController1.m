@@ -160,7 +160,6 @@
             [cell.imageView setFillet:YES];
             
             cell.labelHeight = 25;
-            [cell.label setFont:[UIFont systemFontOfSize:14]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setText:@"黑客帝国"];
         }
@@ -175,7 +174,6 @@
             [cell.imageView setFillet:YES];
             
             cell.labelHeight = 25;
-            [cell.label setFont:[UIFont systemFontOfSize:14]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setText:@"黑客帝国"];
         }
@@ -191,7 +189,6 @@
             [cell.imageView setFillet:YES];
 
             cell.labelHeight = 25;
-            [cell.label setFont:[UIFont systemFontOfSize:14]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setText:@"黑客帝国"];
         }
