@@ -114,7 +114,9 @@
         frame.origin.y += _leftInsets.top;
         frame.size.width -= _leftInsets.left+_leftInsets.right;
         frame.size.height -= _leftInsets.top+_leftInsets.bottom;
-        [super.leftView setFrame:frame];
+        if (!CGRectEqualToRect(frame, super.leftView.frame)) {
+            [super.leftView setFrame:frame];
+        }
     }
 }
 - (void)setRightViewFrame {
@@ -126,7 +128,9 @@
         frame.origin.y += _rightInsets.top;
         frame.size.width -= _rightInsets.left+_rightInsets.right;
         frame.size.height -= _rightInsets.top+_rightInsets.bottom;
-        [super.rightView setFrame:frame];
+        if (!CGRectEqualToRect(frame, super.rightView.frame)) {
+            [super.rightView setFrame:frame];
+        }
     }
 }
 - (NSString *)trimmingWhitespaceAndNewline {
