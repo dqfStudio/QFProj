@@ -75,11 +75,11 @@
 }
 - (void)setRenderColor:(UIColor *)renderColor {
     _renderColor = renderColor;
-    if (self.renderColor) {
-        self._imageView.tintColor = self.renderColor;
+    if (_renderColor) {
+        self._imageView.tintColor = _renderColor;
         self._imageView.image = [self._imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         
-        self.tintColor = self.renderColor;
+        self.tintColor = _renderColor;
         [self setImage:[[self imageForState:UIControlStateNormal] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     }else {
         self._imageView.image = [self._imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

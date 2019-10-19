@@ -63,8 +63,8 @@
 }
 - (void)setRenderColor:(UIColor *)renderColor {
     _renderColor = renderColor;
-    if (self.renderColor) {
-        self.tintColor = self.renderColor;
+    if (_renderColor) {
+        self.tintColor = _renderColor;
         super.image = [self.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     }else {
         super.image = [self.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
