@@ -39,6 +39,7 @@
 - (HTextView *)textView {
     if (!_textView) {
         _textView = [HTextView new];
+        [_textView setFont:[UIFont systemFontOfSize:14]];
         [self addSubview:_textView];
     }
     return _textView;
@@ -52,6 +53,7 @@
 - (HWebButtonView *)buttonView {
     if (!_buttonView) {
         _buttonView = [HWebButtonView new];
+        [_buttonView setFont:[UIFont systemFontOfSize:14]];
         [self addSubview:_buttonView];
     }
     return _buttonView;
@@ -78,6 +80,7 @@
 - (HTextField *)textField {
     if (!_textField) {
         _textField = HTextField.new;
+        [_textField setFont:[UIFont systemFontOfSize:14]];
         [self addSubview:_textField];
     }
     return _textField;
@@ -119,57 +122,6 @@
 - (void)layoutContentView {
     HLayoutTupleApex(self.containerView)
 }
-- (HWebImageView *)imageView {
-    if (!_imageView) {
-        _imageView = HWebImageView.new;
-        [self.containerView addSubview:_imageView];
-    }
-    return _imageView;
-}
-- (HLabel *)label {
-    if (!_label) {
-        _label = [HLabel new];
-        [_label setFont:[UIFont systemFontOfSize:14]];
-        [self.containerView addSubview:_label];
-    }
-    return _label;
-}
-- (HLabel *)detailLabel {
-    if (!_detailLabel) {
-        _detailLabel = [HLabel new];
-        [_detailLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.containerView addSubview:_detailLabel];
-    }
-    return _detailLabel;
-}
-- (HLabel *)accessoryLabel {
-    if (!_accessoryLabel) {
-        _accessoryLabel = [HLabel new];
-        [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.containerView addSubview:_accessoryLabel];
-    }
-    return _accessoryLabel;
-}
-- (HWebImageView *)detailView {
-    if (!_detailView) {
-        _detailView = [HWebImageView new];
-        [self.containerView addSubview:_detailView];
-    }
-    return _detailView;
-}
-- (HWebImageView *)accessoryView {
-    if (!_accessoryView) {
-        _accessoryView = [HWebImageView new];
-        [self.containerView addSubview:_accessoryView];
-    }
-    return _accessoryView;
-}
-@end
-
-@implementation HTupleUnionApex
-- (void)layoutContentView {
-    HLayoutTupleApex(self.containerView)
-}
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
@@ -197,6 +149,7 @@
 - (HTextView *)textView {
     if (!_textView) {
         _textView = [HTextView new];
+        [_textView setFont:[UIFont systemFontOfSize:14]];
         [self.containerView addSubview:_textView];
     }
     return _textView;
@@ -204,6 +157,7 @@
 - (HTextView *)detailTextView {
     if (!_detailTextView) {
         _detailTextView = [HTextView new];
+        [_detailTextView setFont:[UIFont systemFontOfSize:14]];
         [self.containerView addSubview:_detailTextView];
     }
     return _detailTextView;
@@ -211,6 +165,7 @@
 - (HTextView *)accessoryTextView {
     if (!_accessoryTextView) {
         _accessoryTextView = [HTextView new];
+        [_accessoryTextView setFont:[UIFont systemFontOfSize:14]];
         [self.containerView addSubview:_accessoryTextView];
     }
     return _accessoryTextView;
@@ -218,6 +173,7 @@
 - (HWebButtonView *)buttonView {
     if (!_buttonView) {
         _buttonView = [HWebButtonView new];
+        [_buttonView setFont:[UIFont systemFontOfSize:14]];
         [self.containerView addSubview:_buttonView];
     }
     return _buttonView;
@@ -225,6 +181,7 @@
 - (HWebButtonView *)detailButtonView {
     if (!_detailButtonView) {
         _detailButtonView = [HWebButtonView new];
+        [_detailButtonView setFont:[UIFont systemFontOfSize:14]];
         [self.containerView addSubview:_detailButtonView];
     }
     return _detailButtonView;
@@ -232,6 +189,7 @@
 - (HWebButtonView *)accessoryButtonView {
     if (!_accessoryButtonView) {
         _accessoryButtonView = [HWebButtonView new];
+        [_accessoryButtonView setFont:[UIFont systemFontOfSize:14]];
         [self.containerView addSubview:_accessoryButtonView];
     }
     return _accessoryButtonView;
@@ -260,6 +218,7 @@
 - (HTextField *)textField {
     if (!_textField) {
         _textField = HTextField.new;
+        [_textField setFont:[UIFont systemFontOfSize:14]];
         [self.containerView addSubview:_textField];
     }
     return _textField;
@@ -267,6 +226,7 @@
 - (HTextField *)detailTextField {
     if (!_detailTextField) {
         _detailTextField = HTextField.new;
+        [_detailTextField setFont:[UIFont systemFontOfSize:14]];
         [self.containerView addSubview:_detailTextField];
     }
     return _detailTextField;
@@ -274,6 +234,7 @@
 - (HTextField *)accessoryTextField {
     if (!_accessoryTextField) {
         _accessoryTextField = HTextField.new;
+        [_accessoryTextField setFont:[UIFont systemFontOfSize:14]];
         [self.containerView addSubview:_accessoryTextField];
     }
     return _accessoryTextField;

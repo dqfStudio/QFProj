@@ -36,14 +36,14 @@
     CGRect tmpFrame2 = CGRectMake(0, 0, 7, 13);;
     tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
     tmpFrame2.origin.y = CGRectGetHeight(frame)/2-CGRectGetHeight(tmpFrame2)/2;
-    [cell.accessoryView setFrame:tmpFrame2];
-    [cell.accessoryView setImageWithName:@"icon_tuple_arrow_right"];
+    [cell.accessoryImageView setFrame:tmpFrame2];
+    [cell.accessoryImageView setImageWithName:@"icon_tuple_arrow_right"];
     
     CGRect tmpFrame3 = tmpFrame;
     tmpFrame3.origin.x = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame3)-10;
-    [cell.detailView setFrame:tmpFrame3];
-    [cell.detailView setBackgroundColor:UIColor.redColor];
-    [cell.detailView setImageWithName:@"icon_no_server"];
+    [cell.detailImageView setFrame:tmpFrame3];
+    [cell.detailImageView setBackgroundColor:UIColor.redColor];
+    [cell.detailImageView setImageWithName:@"icon_no_server"];
     
     CGRect tmpFrame4 = frame;
     tmpFrame4.origin.x += CGRectGetMaxX(tmpFrame)+10;

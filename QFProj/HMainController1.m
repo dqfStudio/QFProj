@@ -103,7 +103,7 @@
 //            [cell.accessoryLabel setBackgroundColor:UIColor.greenColor];
             
             //接收信号
-            [cell setSignalBlock:^(HTupleViewCell *cell, HTupleSignal *signal) {
+            [cell setSignalBlock:^(HTupleViewCellHoriValue4 *cell, HTupleSignal *signal) {
                 
             }];
         }
@@ -122,7 +122,7 @@
             [cell.detailLabel setBackgroundColor:UIColor.yellowColor];
             
             //接收信号
-            [cell setSignalBlock:^(HTupleViewCell *cell, HTupleSignal *signal) {
+            [cell setSignalBlock:^(HTupleViewCellHoriValue4 *cell, HTupleSignal *signal) {
                 
             }];
             

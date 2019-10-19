@@ -36,8 +36,8 @@
     CGRect tmpFrame2 = CGRectMake(0, 0, 7, 13);
     tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
     tmpFrame2.origin.y = CGRectGetHeight(frame)/2-CGRectGetHeight(tmpFrame2)/2;
-    [cell.accessoryView setFrame:tmpFrame2];
-    [cell.accessoryView setImageWithName:@"icon_tuple_arrow_right"];
+    [cell.accessoryImageView setFrame:tmpFrame2];
+    [cell.accessoryImageView setImageWithName:@"icon_tuple_arrow_right"];
     
     CGRect tmpFrame3 = frame;
     tmpFrame3.origin.x += CGRectGetMaxX(tmpFrame)+10;

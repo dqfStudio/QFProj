@@ -170,10 +170,10 @@
 }
 
 - (void)mode1_tupleView:(HTupleView *)tupleView headerTuple:(HTupleHeader)headerBlock inSection:(NSInteger)section {
-    headerBlock(nil, HTupleUnionApex.class, self.modePrefix, YES);
+    headerBlock(nil, HTupleBlankApex.class, self.modePrefix, YES);
 }
 - (void)mode1_tupleView:(HTupleView *)tupleView footerTuple:(HTupleFooter)footerBlock inSection:(NSInteger)section {
-    footerBlock(nil, HTupleUnionApex.class, self.modePrefix, YES);
+    footerBlock(nil, HTupleBlankApex.class, self.modePrefix, YES);
 }
 - (void)mode1_tupleView:(HTupleView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     itemBlock(nil, HTupleImageCell.class, self.modePrefix, YES);
@@ -247,10 +247,10 @@
 }
 
 - (void)mode2_tupleView:(HTupleView *)tupleView headerTuple:(HTupleHeader)headerBlock inSection:(NSInteger)section {
-    headerBlock(nil, HTupleUnionApex.class, self.modePrefix, YES);
+    headerBlock(nil, HTupleBlankApex.class, self.modePrefix, YES);
 }
 - (void)mode2_tupleView:(HTupleView *)tupleView footerTuple:(HTupleFooter)footerBlock inSection:(NSInteger)section {
-    footerBlock(nil, HTupleUnionApex.class, self.modePrefix, YES);
+    footerBlock(nil, HTupleBlankApex.class, self.modePrefix, YES);
 }
 - (void)mode2_tupleView:(HTupleView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     itemBlock(nil, HTupleImageCell.class, self.modePrefix, YES);
@@ -328,10 +328,10 @@
 }
 
 - (void)mode3_tupleView:(HTupleView *)tupleView headerTuple:(HTupleHeader)headerBlock inSection:(NSInteger)section {
-    headerBlock(nil, HTupleUnionApex.class, self.modePrefix, YES);
+    headerBlock(nil, HTupleBlankApex.class, self.modePrefix, YES);
 }
 - (void)mode3_tupleView:(HTupleView *)tupleView footerTuple:(HTupleFooter)footerBlock inSection:(NSInteger)section {
-    footerBlock(nil, HTupleUnionApex.class, self.modePrefix, YES);
+    footerBlock(nil, HTupleBlankApex.class, self.modePrefix, YES);
 }
 - (void)mode3_tupleView:(HTupleView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     itemBlock(nil, HTupleImageCell.class, self.modePrefix, YES);
@@ -389,10 +389,10 @@
 }
 
 - (void)mode4_tupleView:(HTupleView *)tupleView headerTuple:(HTupleHeader)headerBlock inSection:(NSInteger)section {
-    headerBlock(nil, HTupleUnionApex.class, self.modePrefix, YES);
+    headerBlock(nil, HTupleBlankApex.class, self.modePrefix, YES);
 }
 - (void)mode4_tupleView:(HTupleView *)tupleView footerTuple:(HTupleFooter)footerBlock inSection:(NSInteger)section {
-    footerBlock(nil, HTupleUnionApex.class, self.modePrefix, YES);
+    footerBlock(nil, HTupleBlankApex.class, self.modePrefix, YES);
 }
 - (void)mode4_tupleView:(HTupleView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     itemBlock(nil, HTupleLabelCell.class, self.modePrefix, YES);
@@ -462,10 +462,10 @@
 }
 
 - (void)mode5_tupleView:(HTupleView *)tupleView headerTuple:(HTupleHeader)headerBlock inSection:(NSInteger)section {
-    headerBlock(nil, HTupleUnionApex.class, self.modePrefix, YES);
+    headerBlock(nil, HTupleBlankApex.class, self.modePrefix, YES);
 }
 - (void)mode5_tupleView:(HTupleView *)tupleView footerTuple:(HTupleFooter)footerBlock inSection:(NSInteger)section {
-    footerBlock(nil, HTupleUnionApex.class, self.modePrefix, YES);
+    footerBlock(nil, HTupleBlankApex.class, self.modePrefix, YES);
 }
 - (void)mode5_tupleView:(HTupleView *)tupleView itemTuple:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     itemBlock(nil, HTupleLabelCell.class, self.modePrefix, YES);

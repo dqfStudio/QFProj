@@ -49,15 +49,6 @@
 @end
 
 @interface HTupleViewApex : HTupleBaseApex
-@property (nonatomic) HWebImageView *imageView;
-@property (nonatomic) HLabel *label;
-@property (nonatomic) HLabel *detailLabel;
-@property (nonatomic) HLabel *accessoryLabel;
-@property (nonatomic) HWebImageView *detailView;
-@property (nonatomic) HWebImageView *accessoryView;
-@end
-
-@interface HTupleUnionApex : HTupleBaseApex
 @property (nonatomic) HLabel *label;
 @property (nonatomic) HLabel *detailLabel;
 @property (nonatomic) HLabel *accessoryLabel;
