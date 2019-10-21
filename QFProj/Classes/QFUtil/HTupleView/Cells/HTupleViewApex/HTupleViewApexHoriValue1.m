@@ -51,7 +51,7 @@
 
 @implementation HTupleViewApexHoriValue1
 - (void)layoutContentView {
-    HLayoutTupleCell(self.containerView)
+    HLayoutTupleApex(self.containerView)
 }
 - (UIView *)cellContentView {
     if (!_cellContentView) {
@@ -192,7 +192,7 @@
 
 @implementation HTupleViewApexHoriValue2
 - (void)layoutContentView {
-    HLayoutTupleCell(self.containerView)
+    HLayoutTupleApex(self.containerView)
 }
 - (UIView *)cellContentView {
     if (!_cellContentView) {
@@ -335,7 +335,7 @@
 
 @implementation HTupleViewApexHoriValue3
 - (void)layoutContentView {
-    HLayoutTupleCell(self.containerView)
+    HLayoutTupleApex(self.containerView)
 }
 - (void)setDetailWidth:(CGFloat)detailWidth {
     if (_detailWidth != detailWidth) {
@@ -499,7 +499,7 @@
 
 @implementation HTupleViewApexHoriValue4
 - (void)layoutContentView {
-    HLayoutTupleCell(self.containerView)
+    HLayoutTupleApex(self.containerView)
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {

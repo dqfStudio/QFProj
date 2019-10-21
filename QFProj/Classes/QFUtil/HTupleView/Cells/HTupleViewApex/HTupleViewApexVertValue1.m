@@ -20,7 +20,7 @@
 
 @implementation HTupleViewApexVertValue1
 - (void)layoutContentView {
-    HLayoutTupleCell(self.containerView)
+    HLayoutTupleApex(self.containerView)
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
