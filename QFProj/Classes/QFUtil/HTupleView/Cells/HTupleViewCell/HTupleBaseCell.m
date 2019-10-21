@@ -26,12 +26,12 @@
     return self;
 }
 
-- (UIView *)containerView {
-    if (!_containerView) {
-        _containerView = UIView.new;
-        [self.contentView addSubview:_containerView];
+- (UIView *)edgeInsetsView {
+    if (!_edgeInsetsView) {
+        _edgeInsetsView = UIView.new;
+        [self.contentView addSubview:_edgeInsetsView];
     }
-    return _containerView;
+    return _edgeInsetsView;
 }
 
 - (void)cellSkinEvent {

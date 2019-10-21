@@ -118,13 +118,13 @@
 
 @implementation HTupleViewApex
 - (void)layoutContentView {
-    HLayoutTupleApex(self.containerView)
+    HLayoutTupleApex(self.edgeInsetsView)
 }
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
         [_label setFont:[UIFont systemFontOfSize:14]];
-        [self.containerView addSubview:_label];
+        [self.edgeInsetsView addSubview:_label];
     }
     return _label;
 }
@@ -132,7 +132,7 @@
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.containerView addSubview:_detailLabel];
+        [self.edgeInsetsView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
@@ -140,7 +140,7 @@
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
         [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.containerView addSubview:_accessoryLabel];
+        [self.edgeInsetsView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
 }
@@ -148,7 +148,7 @@
     if (!_textView) {
         _textView = [HTextView new];
         [_textView setFont:[UIFont systemFontOfSize:14]];
-        [self.containerView addSubview:_textView];
+        [self.edgeInsetsView addSubview:_textView];
     }
     return _textView;
 }
@@ -156,7 +156,7 @@
     if (!_detailTextView) {
         _detailTextView = [HTextView new];
         [_detailTextView setFont:[UIFont systemFontOfSize:14]];
-        [self.containerView addSubview:_detailTextView];
+        [self.edgeInsetsView addSubview:_detailTextView];
     }
     return _detailTextView;
 }
@@ -164,70 +164,70 @@
     if (!_accessoryTextView) {
         _accessoryTextView = [HTextView new];
         [_accessoryTextView setFont:[UIFont systemFontOfSize:14]];
-        [self.containerView addSubview:_accessoryTextView];
+        [self.edgeInsetsView addSubview:_accessoryTextView];
     }
     return _accessoryTextView;
 }
 - (HWebButtonView *)buttonView {
     if (!_buttonView) {
         _buttonView = [HWebButtonView new];
-        [self.containerView addSubview:_buttonView];
+        [self.edgeInsetsView addSubview:_buttonView];
     }
     return _buttonView;
 }
 - (HWebButtonView *)detailButtonView {
     if (!_detailButtonView) {
         _detailButtonView = [HWebButtonView new];
-        [self.containerView addSubview:_detailButtonView];
+        [self.edgeInsetsView addSubview:_detailButtonView];
     }
     return _detailButtonView;
 }
 - (HWebButtonView *)accessoryButtonView {
     if (!_accessoryButtonView) {
         _accessoryButtonView = [HWebButtonView new];
-        [self.containerView addSubview:_accessoryButtonView];
+        [self.edgeInsetsView addSubview:_accessoryButtonView];
     }
     return _accessoryButtonView;
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        [self.containerView addSubview:_imageView];
+        [self.edgeInsetsView addSubview:_imageView];
     }
     return _imageView;
 }
 - (HWebImageView *)detailImageView {
     if (!_detailImageView) {
         _detailImageView = HWebImageView.new;
-        [self.containerView addSubview:_detailImageView];
+        [self.edgeInsetsView addSubview:_detailImageView];
     }
     return _detailImageView;
 }
 - (HWebImageView *)accessoryImageView {
     if (!_accessoryImageView) {
         _accessoryImageView = HWebImageView.new;
-        [self.containerView addSubview:_accessoryImageView];
+        [self.edgeInsetsView addSubview:_accessoryImageView];
     }
     return _accessoryImageView;
 }
 - (HTextField *)textField {
     if (!_textField) {
         _textField = HTextField.new;
-        [self.containerView addSubview:_textField];
+        [self.edgeInsetsView addSubview:_textField];
     }
     return _textField;
 }
 - (HTextField *)detailTextField {
     if (!_detailTextField) {
         _detailTextField = HTextField.new;
-        [self.containerView addSubview:_detailTextField];
+        [self.edgeInsetsView addSubview:_detailTextField];
     }
     return _detailTextField;
 }
 - (HTextField *)accessoryTextField {
     if (!_accessoryTextField) {
         _accessoryTextField = HTextField.new;
-        [self.containerView addSubview:_accessoryTextField];
+        [self.edgeInsetsView addSubview:_accessoryTextField];
     }
     return _accessoryTextField;
 }
