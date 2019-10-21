@@ -10,6 +10,7 @@
 
 @implementation HTupleViewCellVertBase1
 - (void)initUI {
+    self.needRefreshFrame = YES;
     self.imageViewInsets = UITBEdgeInsetsZero;
     self.labelInsets =  UITBEdgeInsetsZero;
     self.detailLabelInsets =  UITBEdgeInsetsZero;
@@ -24,7 +25,6 @@
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        self.needRefreshFrame = YES;
         [self.containerView addSubview:_imageView];
     }
     return _imageView;
@@ -32,7 +32,6 @@
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
-        self.needRefreshFrame = YES;
         [_label setFont:[UIFont systemFontOfSize:14]];
         [self.containerView addSubview:_label];
     }
@@ -41,7 +40,6 @@
 - (HLabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
-        self.needRefreshFrame = YES;
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
         [self.containerView addSubview:_detailLabel];
     }
@@ -50,7 +48,6 @@
 - (HLabel *)accessoryLabel {
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
-        self.needRefreshFrame = YES;
         [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
         [self.containerView addSubview:_accessoryLabel];
     }
@@ -60,7 +57,6 @@
 - (HWebImageView *)topView {
     if (!_topView) {
         _topView = HWebImageView.new;
-        self.needRefreshFrame = YES;
         [self.imageView addSubview:_topView];
     }
     return _topView;
@@ -68,7 +64,6 @@
 - (HLabel *)topLabel {
     if (!_topLabel) {
         _topLabel = [HLabel new];
-        self.needRefreshFrame = YES;
         [_topLabel setBackgroundColor:UIColor.clearColor];
         [_topLabel setFont:[UIFont systemFontOfSize:14]];
         [self.topView addSubview:_topLabel];
@@ -79,7 +74,6 @@
 - (HWebImageView *)bottomView {
     if (!_bottomView) {
         _bottomView = HWebImageView.new;
-        self.needRefreshFrame = YES;
         [self.imageView addSubview:_bottomView];
     }
     return _bottomView;
@@ -87,7 +81,6 @@
 - (HLabel *)bottomLabel {
     if (!_bottomLabel) {
         _bottomLabel = [HLabel new];
-        self.needRefreshFrame = YES;
         [_bottomLabel setBackgroundColor:UIColor.clearColor];
         [_bottomLabel setFont:[UIFont systemFontOfSize:14]];
         [self.bottomView addSubview:_bottomLabel];

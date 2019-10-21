@@ -12,6 +12,7 @@
 
 @implementation HTupleViewApexHoriBase1
 - (void)initUI {
+    self.needRefreshFrame = YES;
     self.imageViewInsets = UIEdgeInsetsZero;
     self.labelInterval = 5;
     self.centerAreaInsets = UILREdgeInsetsMake(10, 10);
@@ -21,6 +22,7 @@
 
 @implementation HTupleViewApexHoriBase2
 - (void)initUI {
+    self.needRefreshFrame = YES;
     self.imageViewInsets = UIEdgeInsetsZero;
     self.detailLabelInsets = UILREdgeInsetsZero;
     self.labelInsets = UILREdgeInsetsZero;
@@ -32,6 +34,7 @@
 
 @implementation HTupleViewApexHoriBase3
 - (void)initUI {
+    self.needRefreshFrame = YES;
     self.imageViewInsets = UIEdgeInsetsZero;
     self.labelInsets =  UITBEdgeInsetsZero;
     self.detailLabelInsets =  UITBEdgeInsetsZero;
@@ -60,7 +63,6 @@
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        self.needRefreshFrame = YES;
         [self.containerView addSubview:_imageView];
     }
     return _imageView;
@@ -68,7 +70,6 @@
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
-        self.needRefreshFrame = YES;
         [_label setFont:[UIFont systemFontOfSize:14]];
         [self.cellContentView addSubview:_label];
     }
@@ -77,7 +78,6 @@
 - (HLabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
-        self.needRefreshFrame = YES;
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
         [self.cellContentView addSubview:_detailLabel];
     }
@@ -86,7 +86,6 @@
 - (HWebImageView *)detailView {
     if (!_detailView) {
         _detailView = [HWebImageView new];
-        self.needRefreshFrame = YES;
         [self.containerView addSubview:_detailView];
     }
     return _detailView;
@@ -94,7 +93,6 @@
 - (HWebImageView *)accessoryView {
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
-        self.needRefreshFrame = YES;
         [self.containerView addSubview:_accessoryView];
     }
     return _accessoryView;
@@ -206,7 +204,6 @@
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        self.needRefreshFrame = YES;
         [self.containerView addSubview:_imageView];
     }
     return _imageView;
@@ -214,7 +211,6 @@
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
-        self.needRefreshFrame = YES;
         [_label setFont:[UIFont systemFontOfSize:14]];
         [self.cellContentView addSubview:_label];
     }
@@ -223,7 +219,6 @@
 - (HLabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
-        self.needRefreshFrame = YES;
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
         [self.cellContentView addSubview:_detailLabel];
     }
@@ -232,7 +227,6 @@
 - (HWebImageView *)detailView {
     if (!_detailView) {
         _detailView = [HWebImageView new];
-        self.needRefreshFrame = YES;
         [self.containerView addSubview:_detailView];
     }
     return _detailView;
@@ -240,7 +234,6 @@
 - (HWebImageView *)accessoryView {
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
-        self.needRefreshFrame = YES;
         [self.containerView addSubview:_accessoryView];
     }
     return _accessoryView;
@@ -347,13 +340,11 @@
 - (void)setDetailWidth:(CGFloat)detailWidth {
     if (_detailWidth != detailWidth) {
         _detailWidth = detailWidth;
-        self.needRefreshFrame = YES;
     }
 }
 - (void)setAccessoryWidth:(CGFloat)accessoryWidth {
     if (_accessoryWidth != accessoryWidth) {
         _accessoryWidth = accessoryWidth;
-        self.needRefreshFrame = YES;
     }
 }
 - (UIView *)cellContentView {
@@ -366,7 +357,6 @@
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        self.needRefreshFrame = YES;
         [self.containerView addSubview:_imageView];
     }
     return _imageView;
@@ -374,7 +364,6 @@
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
-        self.needRefreshFrame = YES;
         [_label setFont:[UIFont systemFontOfSize:14]];
         [self.cellContentView addSubview:_label];
     }
@@ -383,7 +372,6 @@
 - (HLabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
-        self.needRefreshFrame = YES;
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
         [self.cellContentView addSubview:_detailLabel];
     }
@@ -392,7 +380,6 @@
 - (HLabel *)accessoryLabel {
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
-        self.needRefreshFrame = YES;
         [_accessoryLabel setTextAlignment:NSTextAlignmentRight];
         [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
         [self.cellContentView addSubview:_accessoryLabel];
@@ -402,7 +389,6 @@
 - (HWebImageView *)detailView {
     if (!_detailView) {
         _detailView = [HWebImageView new];
-        self.needRefreshFrame = YES;
         [self.containerView addSubview:_detailView];
     }
     return _detailView;
@@ -410,7 +396,6 @@
 - (HWebImageView *)accessoryView {
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
-        self.needRefreshFrame = YES;
         [self.containerView addSubview:_accessoryView];
     }
     return _accessoryView;
@@ -519,7 +504,6 @@
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        self.needRefreshFrame = YES;
         [self.containerView addSubview:_imageView];
     }
     return _imageView;
@@ -527,7 +511,6 @@
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
-        self.needRefreshFrame = YES;
         [_label setFont:[UIFont systemFontOfSize:14]];
         [self.containerView addSubview:_label];
     }
@@ -536,7 +519,6 @@
 - (HLabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
-        self.needRefreshFrame = YES;
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
         [self.containerView addSubview:_detailLabel];
     }
@@ -545,7 +527,6 @@
 - (HLabel *)accessoryLabel {
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
-        self.needRefreshFrame = YES;
         [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
         [self.containerView addSubview:_accessoryLabel];
     }
@@ -554,7 +535,6 @@
 - (HWebImageView *)detailView {
     if (!_detailView) {
         _detailView = [HWebImageView new];
-        self.needRefreshFrame = YES;
         [self.containerView addSubview:_detailView];
     }
     return _detailView;
@@ -562,7 +542,6 @@
 - (HWebImageView *)accessoryView {
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
-        self.needRefreshFrame = YES;
         [self.containerView addSubview:_accessoryView];
     }
     return _accessoryView;
