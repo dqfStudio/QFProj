@@ -26,6 +26,7 @@ typedef void(^HTableApexSkinBlock)(HTableBaseApex *cell, HTableView *table);
 @property (nonatomic) NSInteger section;
 @property (nonatomic, copy) HTableApexBlock cellBlock;
 @property (nonatomic, copy) HTableApexSkinBlock skinBlock;
+@property (nonatomic, copy) HTableCellSignalBlock signalBlock;
 //需要子类重写该方法
 - (void)initUI;
 - (void)frameChanged;
@@ -34,8 +35,4 @@ typedef void(^HTableApexSkinBlock)(HTableBaseApex *cell, HTableView *table);
 - (CGFloat)width;
 - (CGFloat)height;
 - (CGSize)size;
-@end
-
-@interface HTableBaseApex (HSignal)
-@property (nonatomic, copy) HTableCellSignalBlock signalBlock;
 @end

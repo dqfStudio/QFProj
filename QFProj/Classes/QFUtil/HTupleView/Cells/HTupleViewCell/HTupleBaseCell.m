@@ -138,12 +138,3 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end
-
-@implementation HTupleBaseCell (HSignal)
-- (HTupleCellSignalBlock)signalBlock {
-    return objc_getAssociatedObject(self, _cmd);
-}
-- (void)setSignalBlock:(HTupleCellSignalBlock)signalBlock {
-    objc_setAssociatedObject(self, @selector(signalBlock), signalBlock, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-@end

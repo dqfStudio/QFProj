@@ -31,6 +31,7 @@ typedef void(^HTupleCellSkinBlock)(HTupleBaseCell *cell, HTupleView *tuple);
 @property (nonatomic) UIView *edgeInsetsView;//多个子控件的背景视图
 @property (nonatomic, copy) HTupleCellBlock cellBlock;
 @property (nonatomic, copy) HTupleCellSkinBlock skinBlock;
+@property (nonatomic, copy) HTupleCellSignalBlock signalBlock;
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UIEdgeInsets edgeInsets;
 //间隔线
@@ -49,8 +50,4 @@ typedef void(^HTupleCellSkinBlock)(HTupleBaseCell *cell, HTupleView *tuple);
 - (CGFloat)contentWidth;
 - (CGFloat)contentHeight;
 - (CGSize)contentSize;
-@end
-
-@interface HTupleBaseCell (HSignal)
-@property (nonatomic, copy) HTupleCellSignalBlock signalBlock;
 @end

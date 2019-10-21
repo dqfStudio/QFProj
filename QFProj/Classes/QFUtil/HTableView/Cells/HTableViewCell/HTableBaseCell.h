@@ -26,6 +26,7 @@ typedef void(^HTableCellSkinBlock)(HTableBaseCell *cell, HTableView *table);
 @property (nonatomic) UITableViewCellStyle style;
 @property (nonatomic, copy) HTableItemBlock cellBlock;
 @property (nonatomic, copy) HTableCellSkinBlock skinBlock;
+@property (nonatomic, copy) HTableCellSignalBlock signalBlock;
 - (void)reloadData;
 - (CGRect)getContentBounds;
 //需要子类重写该方法
@@ -35,8 +36,4 @@ typedef void(^HTableCellSkinBlock)(HTableBaseCell *cell, HTableView *table);
 - (CGFloat)width;
 - (CGFloat)height;
 - (CGSize)size;
-@end
-
-@interface HTableBaseCell (HSignal)
-@property (nonatomic, copy) HTableCellSignalBlock signalBlock;
 @end
