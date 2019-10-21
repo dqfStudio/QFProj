@@ -46,6 +46,7 @@
     [self initialize];
 }
 - (void)initialize {
+    [self.titleLabel setFont:[UIFont systemFontOfSize:14]];
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     self.layer.masksToBounds = YES;
     [self addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];

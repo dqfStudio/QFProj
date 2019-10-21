@@ -53,7 +53,6 @@
 - (HWebButtonView *)buttonView {
     if (!_buttonView) {
         _buttonView = [HWebButtonView new];
-        [_buttonView setFont:[UIFont systemFontOfSize:14]];
         [self addSubview:_buttonView];
     }
     return _buttonView;
@@ -80,7 +79,6 @@
 - (HTextField *)textField {
     if (!_textField) {
         _textField = HTextField.new;
-        [_textField setFont:[UIFont systemFontOfSize:14]];
         [self addSubview:_textField];
     }
     return _textField;
@@ -173,7 +171,6 @@
 - (HWebButtonView *)buttonView {
     if (!_buttonView) {
         _buttonView = [HWebButtonView new];
-        [_buttonView setFont:[UIFont systemFontOfSize:14]];
         [self.containerView addSubview:_buttonView];
     }
     return _buttonView;
@@ -181,7 +178,6 @@
 - (HWebButtonView *)detailButtonView {
     if (!_detailButtonView) {
         _detailButtonView = [HWebButtonView new];
-        [_detailButtonView setFont:[UIFont systemFontOfSize:14]];
         [self.containerView addSubview:_detailButtonView];
     }
     return _detailButtonView;
@@ -189,7 +185,6 @@
 - (HWebButtonView *)accessoryButtonView {
     if (!_accessoryButtonView) {
         _accessoryButtonView = [HWebButtonView new];
-        [_accessoryButtonView setFont:[UIFont systemFontOfSize:14]];
         [self.containerView addSubview:_accessoryButtonView];
     }
     return _accessoryButtonView;
@@ -218,7 +213,6 @@
 - (HTextField *)textField {
     if (!_textField) {
         _textField = HTextField.new;
-        [_textField setFont:[UIFont systemFontOfSize:14]];
         [self.containerView addSubview:_textField];
     }
     return _textField;
@@ -226,7 +220,6 @@
 - (HTextField *)detailTextField {
     if (!_detailTextField) {
         _detailTextField = HTextField.new;
-        [_detailTextField setFont:[UIFont systemFontOfSize:14]];
         [self.containerView addSubview:_detailTextField];
     }
     return _detailTextField;
@@ -234,7 +227,6 @@
 - (HTextField *)accessoryTextField {
     if (!_accessoryTextField) {
         _accessoryTextField = HTextField.new;
-        [_accessoryTextField setFont:[UIFont systemFontOfSize:14]];
         [self.containerView addSubview:_accessoryTextField];
     }
     return _accessoryTextField;
