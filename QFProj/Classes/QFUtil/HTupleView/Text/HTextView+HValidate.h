@@ -11,13 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HTextView (HValidate)
-
 // 须是字母与数字的组合，长度6-11位
 @property (nonatomic, readonly) BOOL isValidatedUserName; //是否有效的用户名
 // 字母、数字或其组合，长度6-12位
 @property (nonatomic, readonly) BOOL isValidatedPassword; //是否有效的密码
 
-//@property (nonatomic, readonly, getter=isEmpty) BOOL empty; //是否为空
 @property (nonatomic, readonly) BOOL isEmpty; //是否为空
 
 @property (nonatomic, readonly) BOOL isOnlyAlpha; //纯字母
@@ -42,7 +40,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL (^)(NSInteger length))isEqualto; //判断内容长度是否等于某个值
 - (BOOL (^)(NSInteger start, NSInteger end))isBetween;//判断内容长度是否在某两个值之间
-
 @end
 
 NS_ASSUME_NONNULL_END
