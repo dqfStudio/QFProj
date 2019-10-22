@@ -74,7 +74,7 @@
     HTupleTextFieldCell *cell = itemBlock(nil, HTupleTextFieldCell.class, @"tuple0", YES);
     [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
 
-    [cell.textField.leftLabel setFrame:CGRectMake(0, 0, 80, 60)];
+    [cell.textField setLeftWidth:80];
     [cell.textField.leftLabel setTextAlignment:NSTextAlignmentCenter];
     [cell.textField.leftLabel setText:@"昵称"];
     [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];

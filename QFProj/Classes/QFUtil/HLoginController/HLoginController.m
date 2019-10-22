@@ -67,7 +67,7 @@
                 HTupleTextFieldCell *cell = itemBlock(nil,HTupleTextFieldCell.class, nil, YES);
                 [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                 
-                [cell.textField.leftLabel setFrame:CGRectMake(0, 0, 80, 60)];
+                [cell.textField setLeftWidth:80];
                 [cell.textField.leftLabel setTextAlignment:NSTextAlignmentCenter];
                 [cell.textField.leftLabel setText:@"+86"];
                 [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];
@@ -86,7 +86,7 @@
                 HTupleTextFieldCell *cell = itemBlock(nil, HTupleTextFieldCell.class, nil, YES);
                 [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                 
-                [cell.textField.leftLabel setFrame:CGRectMake(0, 0, 80, 60)];
+                [cell.textField setLeftWidth:80];
                 [cell.textField.leftLabel setTextAlignment:NSTextAlignmentCenter];
                 [cell.textField.leftLabel setText:@"昵称"];
                 [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];
@@ -104,7 +104,7 @@
                 HTupleTextFieldCell *cell = itemBlock(nil, HTupleTextFieldCell.class, nil, YES);
                 [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
                 
-                [cell.textField.leftLabel setFrame:CGRectMake(0, 0, 80, 60)];
+                [cell.textField setLeftWidth:80];
                 [cell.textField.leftLabel setTextAlignment:NSTextAlignmentCenter];
                 [cell.textField.leftLabel setText:@"验证码"];
                 [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];
