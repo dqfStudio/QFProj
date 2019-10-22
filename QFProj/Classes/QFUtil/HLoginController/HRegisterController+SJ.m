@@ -94,7 +94,6 @@
     [cell.textField setLeftWidth:80];
     [cell.textField.leftLabel setTextAlignment:NSTextAlignmentCenter];
     [cell.textField.leftLabel setText:@"+86"];
-    [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];
     
     [cell.textField setTextColor:[UIColor colorWithString:@"#BABABF"]];
     [cell.textField setFont:[UIFont systemFontOfSize:14]];

@@ -70,7 +70,6 @@
                 [cell.textField setLeftWidth:80];
                 [cell.textField.leftLabel setTextAlignment:NSTextAlignmentCenter];
                 [cell.textField.leftLabel setText:@"+86"];
-                [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];
                 
                 [cell.textField setPlaceholder:@"请输入手机号"];
                 [cell.textField setTextColor:[UIColor colorWithString:@"#BABABF"]];
@@ -89,7 +88,6 @@
                 [cell.textField setLeftWidth:80];
                 [cell.textField.leftLabel setTextAlignment:NSTextAlignmentCenter];
                 [cell.textField.leftLabel setText:@"昵称"];
-                [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];
                 
                 [cell.textField setPlaceholder:@"请输入昵称"];
                 [cell.textField setTextColor:[UIColor colorWithString:@"#BABABF"]];
@@ -107,14 +105,13 @@
                 [cell.textField setLeftWidth:80];
                 [cell.textField.leftLabel setTextAlignment:NSTextAlignmentCenter];
                 [cell.textField.leftLabel setText:@"验证码"];
-                [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];
                 
                 [cell.textField setPlaceholder:@"请输入验证码"];
                 [cell.textField setTextColor:[UIColor colorWithString:@"#BABABF"]];
                 [cell.textField setFont:[UIFont systemFontOfSize:14]];
                 //cell.textField.inputValidator = HNumericValidator.new;
                 
-                [cell.textField.rightButton setFrame:CGRectMake(0, 0, 120, 60)];
+                [cell.textField setRightWidth:120];
                 [cell.textField.rightButton setTitle:@"获取验证码"];
                 [cell.textField.rightButton setFont:[UIFont systemFontOfSize:14]];
                 [cell.textField.rightButton setPressed:^(id sender, id data) {
