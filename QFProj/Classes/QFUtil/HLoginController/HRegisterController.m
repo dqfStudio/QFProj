@@ -22,14 +22,9 @@
         frame.size.height -= UIDevice.topBarHeight;
         _tupleView = [HTupleView tupleDesignWith:^CGRect{
             return frame;
-        } exclusiveHeaders:^NSArray * _Nullable{
-            return nil;
-        } exclusiveFooters:^NSArray * _Nullable{
-            return nil;
-        } exclusiveItems:^NSArray * _Nullable{
-            return @[NSIndexPath.getStringValue(0, 0)];
+        } exclusiveSections:^NSArray * _Nullable{
+            return @[@(0)];
         }];
-        [_tupleView verticalBounceEnabled];
     }
     return _tupleView;
 }
@@ -112,15 +107,24 @@
     return tabBar;
 }
 
-- (void)tuple_tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        HTupleBaseCell *cell = itemBlock(nil, HTupleBaseCell.class, nil, YES);
-        YPTabBar *tabBar = [cell viewWithTag:12345];
-        if (!tabBar) {
-            [cell addSubview:[self tabBarView]];
-        }
+- (NSInteger)tupleExa0_tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
+    return 1;
+}
+- (CGSize)tupleExa0_tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section {
+    return CGSizeMake(tupleView.width, 10);
+}
+- (CGSize)tupleExa0_tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(tupleView.width, 55);
+}
+- (void)tupleExa0_tupleView:(HTupleView *)tupleView tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
+    headerBlock(nil, HTupleBaseApex.class, nil, NO);
+}
+- (void)tupleExa0_tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+    HTupleBaseCell *cell = itemBlock(nil, HTupleBaseCell.class, nil, YES);
+    YPTabBar *tabBar = [cell viewWithTag:12345];
+    if (!tabBar) {
+        [cell addSubview:[self tabBarView]];
     }
 }
 
 @end
-

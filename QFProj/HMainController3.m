@@ -20,7 +20,6 @@
         frame.origin.y += UIDevice.topBarHeight;
         frame.size.height -= UIDevice.topBarHeight;
         _tupleView = [HTupleView sectionDesignWith:frame andSections:3];
-        [_tupleView verticalBounceEnabled];
     }
     return _tupleView;
 }

@@ -45,9 +45,7 @@ typedef CGSize (^HSizeForHeaderBlock)(NSInteger section);
 typedef CGSize (^HSizeForFooterBlock)(NSInteger section);
 typedef CGSize (^HSizeForItemBlock)(NSIndexPath *indexPath);
 
-typedef NSArray *_Nullable(^HTupleExclusiveForHeaderBlock)(void);
-typedef NSArray *_Nullable(^HTupleExclusiveForFooterBlock)(void);
-typedef NSArray *_Nullable(^HTupleExclusiveForItemBlock)(void);
+typedef NSArray *_Nullable(^HTupleExclusiveForSectionBlock)(void);
 
 typedef UIEdgeInsets (^HEdgeInsetsForHeaderBlock)(NSInteger section);
 typedef UIEdgeInsets (^HEdgeInsetsForFooterBlock)(NSInteger section);
@@ -112,7 +110,7 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 - (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction;
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout;
 + (instancetype)sectionDesignWith:(CGRect)frame andSections:(NSInteger)sections;
-+ (instancetype)tupleDesignWith:(CGRect (^)(void))frame exclusiveHeaders:(HTupleExclusiveForHeaderBlock)headers exclusiveFooters:(HTupleExclusiveForFooterBlock)footers exclusiveItems:(HTupleExclusiveForItemBlock)items;
++ (instancetype)tupleDesignWith:(CGRect (^)(void))frame exclusiveSections:(HTupleExclusiveForSectionBlock)sections;
 //bounce
 - (void)horizontalBounceEnabled;
 - (void)verticalBounceEnabled;

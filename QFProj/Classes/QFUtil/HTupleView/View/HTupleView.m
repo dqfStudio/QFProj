@@ -15,10 +15,11 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 };
 
 #define KDefaultPageSize  20
-#define KSectionDesignKey @"section"
-#define KTupleDesignKey   @"tuple"
-#define KTuplePrefixKey   @"self_"
-#define KTupleReloadData  @"KTupleReloadDataNotify"
+#define KSectionDesignKey   @"section"
+#define KTupleDesignKey     @"tuple"
+#define KTupleExaDesignKey  @"tupleExa"
+#define KTuplePrefixKey     @"self_"
+#define KTupleReloadData    @"KTupleReloadDataNotify"
 
 @interface HTupleView () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -34,9 +35,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 @property (nonatomic) NSMapTable   *allReuseHeaders;
 @property (nonatomic) NSMapTable   *allReuseFooters;
 
-@property (nonatomic, copy) NSArray <NSString *> *headerIndexPaths;
-@property (nonatomic, copy) NSArray <NSString *> *footerIndexPaths;
-@property (nonatomic, copy) NSArray <NSString *> *itemIndexPaths;
+@property (nonatomic, copy) NSArray <NSNumber *> *sectionIndexPaths;
 
 @property (nonatomic, copy) HUNumberOfSectionsBlock numberOfSectionsBlock;
 @property (nonatomic, copy) HNumberOfItemsBlock numberOfItemsBlock;
@@ -104,12 +103,12 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     return self;
 }
 + (instancetype)sectionDesignWith:(CGRect)frame andSections:(NSInteger)sections {
-    return [[HTupleView alloc] initWithFrame:frame designStyle:HTupleDesignStyleSection designSection:sections headers:nil footers:nil items:nil];
+    return [[HTupleView alloc] initWithFrame:frame designStyle:HTupleDesignStyleSection designSection:sections exclusiveSections:nil];
 }
-+ (instancetype)tupleDesignWith:(CGRect (^)(void))frame exclusiveHeaders:(HTupleExclusiveForHeaderBlock)headers exclusiveFooters:(HTupleExclusiveForFooterBlock)footers exclusiveItems:(HTupleExclusiveForItemBlock)items {
-    return [[HTupleView alloc] initWithFrame:frame() designStyle:HTupleDesignStyleTuple designSection:0 headers:headers() footers:footers() items:items()];
++ (instancetype)tupleDesignWith:(CGRect (^)(void))frame exclusiveSections:(HTupleExclusiveForSectionBlock)sections {
+    return [[HTupleView alloc] initWithFrame:frame() designStyle:HTupleDesignStyleTuple designSection:0 exclusiveSections:sections()];
 }
-- (instancetype)initWithFrame:(CGRect)frame designStyle:(HTupleDesignStyle)style designSection:(NSInteger)sections headers:(NSArray <NSString *> *)headerIndexPaths footers:(NSArray <NSString *> *)footerIndexPaths items:(NSArray <NSString *> *)itemIndexPaths {
+- (instancetype)initWithFrame:(CGRect)frame designStyle:(HTupleDesignStyle)style designSection:(NSInteger)sections exclusiveSections:(NSArray <NSNumber *> *)sectionIndexPaths {
     _flowLayout = UICollectionViewLeftAlignedLayout.new;
     _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     self = [super initWithFrame:UIRectIntegral(frame) collectionViewLayout:_flowLayout];
@@ -117,9 +116,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         _designStyle = style;
         _categoryDesign = YES;
         _designSections = sections;
-        self.headerIndexPaths = headerIndexPaths;
-        self.footerIndexPaths = footerIndexPaths;
-        self.itemIndexPaths = itemIndexPaths;
+        self.sectionIndexPaths = sectionIndexPaths;
         [self setup];
     }
     return self;
@@ -132,7 +129,11 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     }
 }
 - (void)setup {
-    self.bounces = NO;
+    if (_flowLayout.scrollDirection == UICollectionViewScrollDirectionVertical) {
+        [self verticalBounceEnabled];
+    }else {
+        [self horizontalBounceEnabled];
+    }
     self.backgroundColor = UIColor.clearColor;
     self.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     self.showsHorizontalScrollIndicator = NO;
@@ -273,7 +274,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:self.addressValue];
         identifier = [identifier stringByAppendingString:@"HeaderCell"];
-        if (![self.headerIndexPaths containsObject:idxPath.getStringValue]) {
+        if (self.designStyle == HTupleDesignStyleTuple && ![self.sectionIndexPaths containsObject:@(idxPath.section)]) {
             identifier = [identifier stringByAppendingFormat:@"%@", @(self.tupleState)];
         }
         if (pre) identifier = [identifier stringByAppendingString:pre];
@@ -321,7 +322,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:self.addressValue];
         identifier = [identifier stringByAppendingString:@"FooterCell"];
-        if (![self.footerIndexPaths containsObject:idxPath.getStringValue]) {
+        if (self.designStyle == HTupleDesignStyleTuple && ![self.sectionIndexPaths containsObject:@(idxPath.section)]) {
             identifier = [identifier stringByAppendingFormat:@"%@", @(self.tupleState)];
         }
         if (pre) identifier = [identifier stringByAppendingString:pre];
@@ -369,7 +370,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:self.addressValue];
         identifier = [identifier stringByAppendingString:@"ItemCell"];
-        if (![self.itemIndexPaths containsObject:idxPath.getStringValue]) {
+        if (self.designStyle == HTupleDesignStyleTuple && ![self.sectionIndexPaths containsObject:@(idxPath.section)]) {
             identifier = [identifier stringByAppendingFormat:@"%@", @(self.tupleState)];
         }
         if (pre) identifier = [identifier stringByAppendingString:pre];
@@ -647,7 +648,12 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     if (self.designStyle == HTupleDesignStyleSection) {
         prefix = [KSectionDesignKey stringByAppendingFormat:@"%@", @(section)];
     }else if (self.designStyle == HTupleDesignStyleTuple) {
-        prefix = [KTupleDesignKey stringByAppendingFormat:@"%@", @(self.tupleState)];
+        if ([self.sectionIndexPaths containsObject:@(section)]) {
+            NSInteger idx = [self.sectionIndexPaths indexOfObject:@(section)];
+            prefix = [KTupleExaDesignKey stringByAppendingFormat:@"%@", @(idx)];
+        }else {
+            prefix = [KTupleDesignKey stringByAppendingFormat:@"%@", @(self.tupleState)];
+        }
     }
     return prefix;
 }

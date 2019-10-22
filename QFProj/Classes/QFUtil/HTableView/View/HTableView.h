@@ -32,9 +32,7 @@ typedef CGFloat (^HeightForHeaderBlock)(NSInteger section);
 typedef CGFloat (^HeightForFooterBlock)(NSInteger section);
 typedef CGFloat (^HeightForCellBlock)(NSIndexPath *indexPath);
 
-typedef NSArray *_Nullable(^HTableExclusiveForHeaderBlock)(void);
-typedef NSArray *_Nullable(^HTableExclusiveForFooterBlock)(void);
-typedef NSArray *_Nullable(^HTableExclusiveForCellBlock)(void);
+typedef NSArray *_Nullable(^HTableExclusiveForSectionBlock)(void);
 
 typedef void (^HTableHeaderBlock)(HTableHeader headerBlock, NSInteger section);
 typedef void (^HTableFooterBlock)(HTableFooter footerBlock, NSInteger section);
@@ -87,7 +85,7 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 - (instancetype)initWithFrame:(CGRect)frame;
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style;
 + (instancetype)sectionDesignWith:(CGRect)frame andSections:(NSInteger)sections;
-+ (instancetype)tableDesignWith:(CGRect (^)(void))frame exclusiveHeaders:(HTableExclusiveForHeaderBlock)headers exclusiveFooters:(HTableExclusiveForFooterBlock)footers exclusiveCells:(HTableExclusiveForCellBlock)cells;
++ (instancetype)tableDesignWith:(CGRect (^)(void))frame exclusiveSections:(HTableExclusiveForSectionBlock)sections;
 //bounce
 - (void)horizontalBounceEnabled;
 - (void)verticalBounceEnabled;

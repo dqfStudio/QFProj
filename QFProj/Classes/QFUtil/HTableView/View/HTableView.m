@@ -15,10 +15,11 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 };
 
 #define KDefaultPageSize  20
-#define KSectionDesignKey @"section"
-#define KTableDesignKey   @"table"
-#define KTablePrefixKey   @"self_"
-#define KTableReloadData  @"KTableReloadDataNotify"
+#define KSectionDesignKey   @"section"
+#define KTableDesignKey     @"table"
+#define KTableExaDesignKey  @"tableExa"
+#define KTablePrefixKey     @"self_"
+#define KTableReloadData    @"KTableReloadDataNotify"
 
 @interface HTableView () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) BOOL categoryDesign;
@@ -30,9 +31,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 @property (nonatomic) NSMapTable   *allReuseHeaders;
 @property (nonatomic) NSMapTable   *allReuseFooters;
 
-@property (nonatomic, copy) NSArray <NSString *> *headerIndexPaths;
-@property (nonatomic, copy) NSArray <NSString *> *footerIndexPaths;
-@property (nonatomic, copy) NSArray <NSString *> *cellIndexPaths;
+@property (nonatomic, copy) NSArray <NSNumber *> *sectionIndexPaths;
 
 @property (nonatomic, copy) HANumberOfSectionsBlock numberOfSectionsBlock;
 @property (nonatomic, copy) HNumberOfCellsBlock numberOfCellsBlock;
@@ -78,20 +77,18 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     return self;
 }
 + (instancetype)sectionDesignWith:(CGRect)frame andSections:(NSInteger)sections {
-    return [[HTableView alloc] initWithFrame:frame designStyle:HTableDesignStyleSection designSection:sections headers:nil footers:nil cells:nil];
+    return [[HTableView alloc] initWithFrame:frame designStyle:HTableDesignStyleSection designSection:sections exclusiveSections:nil];
 }
-+ (instancetype)tableDesignWith:(CGRect (^)(void))frame exclusiveHeaders:(HTableExclusiveForHeaderBlock)headers exclusiveFooters:(HTableExclusiveForFooterBlock)footers exclusiveCells:(HTableExclusiveForCellBlock)cells {
-    return [[HTableView alloc] initWithFrame:frame() designStyle:HTableDesignStyleTable designSection:0 headers:headers() footers:footers() cells:cells()];
++ (instancetype)tableDesignWith:(CGRect (^)(void))frame exclusiveSections:(HTableExclusiveForSectionBlock)sections {
+    return [[HTableView alloc] initWithFrame:frame() designStyle:HTableDesignStyleTable designSection:0 exclusiveSections:sections()];
 }
-- (instancetype)initWithFrame:(CGRect)frame designStyle:(HTableDesignStyle)style designSection:(NSInteger)sections headers:(NSArray <NSString *> *)headerIndexPaths footers:(NSArray <NSString *> *)footerIndexPaths cells:(NSArray <NSString *> *)cellIndexPaths {
+- (instancetype)initWithFrame:(CGRect)frame designStyle:(HTableDesignStyle)style designSection:(NSInteger)sections exclusiveSections:(NSArray <NSNumber *> *)sectionIndexPaths {
     self = [super initWithFrame:frame];
     if (self) {
         _designStyle = style;
         _categoryDesign = YES;
         _designSections = sections;
-        self.headerIndexPaths = headerIndexPaths;
-        self.footerIndexPaths = footerIndexPaths;
-        self.cellIndexPaths = cellIndexPaths;
+        self.sectionIndexPaths = sectionIndexPaths;
         [self setup];
     }
     return self;
@@ -256,7 +253,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:self.addressValue];
         identifier = [identifier stringByAppendingString:@"HeaderCell"];
-        if (![self.headerIndexPaths containsObject:@(section).stringValue]) {
+        if (self.designStyle == HTableDesignStyleTable && ![self.sectionIndexPaths containsObject:@(section)]) {
             identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
         }
         if (pre) identifier = [identifier stringByAppendingString:pre];
@@ -304,7 +301,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:self.addressValue];
         identifier = [identifier stringByAppendingString:@"FooterCell"];
-        if (![self.footerIndexPaths containsObject:@(section).stringValue]) {
+        if (self.designStyle == HTableDesignStyleTable && ![self.sectionIndexPaths containsObject:@(section)]) {
             identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
         }
         if (pre) identifier = [identifier stringByAppendingString:pre];
@@ -352,7 +349,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         NSString *identifier = NSStringFromClass(cls);
         identifier = [identifier stringByAppendingString:self.addressValue];
         identifier = [identifier stringByAppendingString:@"ItemCell"];
-        if (![self.cellIndexPaths containsObject:idxPath.getStringValue]) {
+        if (self.designStyle == HTableDesignStyleTable && ![self.sectionIndexPaths containsObject:@(idxPath.section)]) {
             identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
         }
         if (pre) identifier = [identifier stringByAppendingString:pre];
@@ -400,7 +397,12 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         if (self.designStyle == HTableDesignStyleSection) {
             prefix = [KSectionDesignKey stringByAppendingFormat:@"%@", @(section)];
         }else if (self.designStyle == HTableDesignStyleTable) {
-            prefix = [KTableDesignKey stringByAppendingFormat:@"%@", @(self.tableState)];
+            if ([self.sectionIndexPaths containsObject:@(section)]) {
+                NSInteger idx = [self.sectionIndexPaths indexOfObject:@(section)];
+                prefix = [KTableExaDesignKey stringByAppendingFormat:@"%@", @(idx)];
+            }else {
+                prefix = [KTableDesignKey stringByAppendingFormat:@"%@", @(self.tableState)];
+            }
         }
     }
     return prefix;

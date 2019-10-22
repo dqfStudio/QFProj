@@ -18,7 +18,6 @@
 }
 - (NSInteger)tuple1_tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
     switch (section) {
-        case 0: return 1;
         case 1: return 5;
         case 2: return 1;
         default: return 0;
@@ -27,7 +26,6 @@
 
 - (CGSize)tuple1_tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section {
     switch (section) {
-        case 0: return CGSizeMake(tupleView.width, 10);
         case 1: return CGSizeMake(tupleView.width, 5);
         case 2: return CGSizeZero;
         default: return CGSizeZero;
@@ -35,7 +33,6 @@
 }
 - (CGSize)tuple1_tupleView:(HTupleView *)tupleView sizeForFooterInSection:(NSInteger)section {
     switch (section) {
-        case 0: return CGSizeZero;
         case 1: return CGSizeMake(tupleView.width, 15);
         case 2: return CGSizeZero;
         default: return CGSizeZero;
@@ -43,7 +40,6 @@
 }
 - (CGSize)tuple1_tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
-        case 0: return CGSizeMake(tupleView.width, 55);
         case 1: {
             if (indexPath.row == 0) {
                 return CGSizeMake(tupleView.width, 55);
@@ -92,25 +88,21 @@
     footerBlock(nil, HTupleBaseApex.class, nil, NO);
 }
 - (void)tuple1_tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        [self tuple_tupleView:tupleView tupleItem:itemBlock atIndexPath:indexPath];
-    }else {
-        HTupleTextFieldCell *cell = itemBlock(nil,HTupleTextFieldCell.class, @"tuple1", YES);
-        [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
+    HTupleTextFieldCell *cell = itemBlock(nil,HTupleTextFieldCell.class, @"tuple1", YES);
+    [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
+    
+    [cell.textField.leftLabel setFrame:CGRectMake(0, 0, 80, 60)];
+    [cell.textField.leftLabel setTextAlignment:NSTextAlignmentCenter];
+    [cell.textField.leftLabel setText:@"+86"];
+    [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];
+    
+    [cell.textField setTextColor:[UIColor colorWithString:@"#BABABF"]];
+    [cell.textField setFont:[UIFont systemFontOfSize:14]];
+    [cell.textField setText:[self.tupleView objectForKey:@"state"]];
+    
+    [cell setSignalBlock:^(HTupleTextFieldCell *cell, HTupleSignal *signal) {
         
-        [cell.textField.leftLabel setFrame:CGRectMake(0, 0, 80, 60)];
-        [cell.textField.leftLabel setTextAlignment:NSTextAlignmentCenter];
-        [cell.textField.leftLabel setText:@"+86"];
-        [cell.textField.leftLabel setFont:[UIFont systemFontOfSize:14]];
-        
-        [cell.textField setTextColor:[UIColor colorWithString:@"#BABABF"]];
-        [cell.textField setFont:[UIFont systemFontOfSize:14]];
-        [cell.textField setText:[self.tupleView objectForKey:@"state"]];
-        
-        [cell setSignalBlock:^(HTupleTextFieldCell *cell, HTupleSignal *signal) {
-            
-        }];
-    }
+    }];
 }
 
 @end
