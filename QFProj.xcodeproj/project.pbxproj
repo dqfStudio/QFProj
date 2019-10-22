@@ -286,6 +286,7 @@
 		A2C2B214235EAC770041AAB5 /* HMainController6.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C2B213235EAC770041AAB5 /* HMainController6.m */; };
 		A2C2B217235EB0630041AAB5 /* HTableViewCellVertValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C2B216235EB0630041AAB5 /* HTableViewCellVertValue1.m */; };
 		A2C2B21A235EB0B70041AAB5 /* HTableViewApexVertValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C2B219235EB0B60041AAB5 /* HTableViewApexVertValue1.m */; };
+		A2C2B21C235F15DA0041AAB5 /* HTupleView的用法.pages in Resources */ = {isa = PBXBuildFile; fileRef = A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */; };
 		A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */; };
 		A2DC22BE2242994800E540BE /* NSObject+HForwarding.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */; };
 		A2E8F50822CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50622CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png */; };
@@ -840,6 +841,7 @@
 		A2C2B216235EB0630041AAB5 /* HTableViewCellVertValue1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableViewCellVertValue1.m; sourceTree = "<group>"; };
 		A2C2B218235EB0B60041AAB5 /* HTableViewApexVertValue1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableViewApexVertValue1.h; sourceTree = "<group>"; };
 		A2C2B219235EB0B60041AAB5 /* HTableViewApexVertValue1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableViewApexVertValue1.m; sourceTree = "<group>"; };
+		A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HTupleView的用法.pages"; sourceTree = "<group>"; };
 		A2DC22B622424F2F00E540BE /* NSObject+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeMessy.h"; sourceTree = "<group>"; };
 		A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HForwarding.h"; sourceTree = "<group>"; };
@@ -1136,6 +1138,7 @@
 			children = (
 				15B4DD662092F88700773E04 /* AppDelegate.h */,
 				15B4DD672092F88700773E04 /* AppDelegate.m */,
+				A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */,
 				15B4DD6F2092F88700773E04 /* Assets.xcassets */,
 				15B4DD7D2092F96B00773E04 /* Classes */,
 				15B4DD742092F88700773E04 /* Info.plist */,
@@ -2456,6 +2459,7 @@
 				15C5736E20B3DD7B0070327C /* icon_tuple_arrow_right@2x.png in Resources */,
 				A20E3D0F231FE8FC00E6982B /* di_index_h@2x.png in Resources */,
 				A28EF3A421D8ECC9002F92ED /* loading_new_10@2x.png in Resources */,
+				A2C2B21C235F15DA0041AAB5 /* HTupleView的用法.pages in Resources */,
 				A20E3CF3231E9A3900E6982B /* registet_checkbox_icon_h@3x.png in Resources */,
 				A20E3CF8231E9A3900E6982B /* login_eye_icon_h@3x.png in Resources */,
 				A28EF38F21D8ECBE002F92ED /* icon_no_server@3x.png in Resources */,
