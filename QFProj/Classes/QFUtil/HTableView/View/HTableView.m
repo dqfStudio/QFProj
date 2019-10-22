@@ -605,12 +605,15 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         if (self.numberOfCellsBlock) self.numberOfCellsBlock = nil;
         
         if (self.heightForHeaderBlock) self.heightForHeaderBlock = nil;
+        if (self.edgeInsetsForHeaderBlock) self.edgeInsetsForHeaderBlock = nil;
         if (self.headerTableBlock) self.headerTableBlock = nil;
         
         if (self.heightForFooterBlock) self.heightForFooterBlock = nil;
+        if (self.edgeInsetsForFooterBlock) self.edgeInsetsForFooterBlock = nil;
         if (self.footerTableBlock) self.footerTableBlock = nil;
         
         if (self.heightForCellBlock) self.heightForCellBlock = nil;
+        if (self.edgeInsetsForItemBlock) self.edgeInsetsForItemBlock = nil;
         if (self.cellTableBlock) self.cellTableBlock = nil;
         
         if (self.cellWillDisplayBlock) self.cellWillDisplayBlock = nil;
