@@ -18,6 +18,7 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 #define KSectionDesignKey @"section"
 #define KTableDesignKey   @"table"
 #define KTablePrefixKey   @"self_"
+#define KTableReloadData  @"KTableReloadDataNotify"
 
 @interface HTableView () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) BOOL categoryDesign;
@@ -39,6 +40,10 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
 @property (nonatomic, copy) HeightForHeaderBlock heightForHeaderBlock;
 @property (nonatomic, copy) HeightForFooterBlock heightForFooterBlock;
 @property (nonatomic, copy) HeightForCellBlock heightForCellBlock;
+
+@property (nonatomic, copy) HEdgeInsetsForHeaderBlock edgeInsetsForHeaderBlock;
+@property (nonatomic, copy) HEdgeInsetsForFooterBlock edgeInsetsForFooterBlock;
+@property (nonatomic, copy) HEdgeInsetsForItemBlock edgeInsetsForItemBlock;
 
 @property (nonatomic, copy) HTableHeaderBlock headerTableBlock;
 @property (nonatomic, copy) HTableFooterBlock footerTableBlock;
@@ -113,6 +118,9 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     self.tableFooterView = [UIView new];
     self.delegate = self;
     self.dataSource = self;
+    
+    //是否开启全局监听功能
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableNeedReloadData) name:KTableReloadData object:nil];
 }
 - (void)setFrame:(CGRect)frame {
     if(!CGRectEqualToRect(frame, self.frame)) {
@@ -140,14 +148,14 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     self.bounces = NO;
 }
 #pragma --mark other methods
-- (void)setSeparatorInset:(UIEdgeInsets)separatorInset {
-    if ([super respondsToSelector:@selector(setSeparatorInset:)]) {
-        [super setSeparatorInset:separatorInset];
-    }
-    if ([super respondsToSelector:@selector(setLayoutMargins:)]) {
-        [super setLayoutMargins:separatorInset];
-    }
-}
+//- (void)setSeparatorInset:(UIEdgeInsets)separatorInset {
+//    if ([super respondsToSelector:@selector(setSeparatorInset:)]) {
+//        [super setSeparatorInset:separatorInset];
+//    }
+//    if ([super respondsToSelector:@selector(setLayoutMargins:)]) {
+//        [super setLayoutMargins:separatorInset];
+//    }
+//}
 - (NSUInteger)pageNo {
     if (_pageNo <= 0) {
         return 1;
@@ -221,6 +229,20 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
         }
     }
 }
+- (void)tableNeedReloadData {
+    [self setNeedReloadData:YES];
+}
+- (void)setNeedReloadData:(BOOL)needReloadData {
+    if (_needReloadData != needReloadData) {
+        _needReloadData = needReloadData;
+        if (_needReloadData) {
+            _needReloadData = NO;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self reloadData];
+            });
+        }
+    }
+}
 - (NSString *)addressValue {
     return [NSString stringWithFormat:@"%p", self];
 }
@@ -258,6 +280,17 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
             cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
         }
         [self.allReuseHeaders setObject:cell forKey:@(section).stringValue];
+        UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
+        if (!self.categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:edgeInsetsForHeaderInSection:)]) {
+            edgeInsets = [self.tableDelegate tableView:self edgeInsetsForHeaderInSection:section];
+        }else if (self.categoryDesign && [self respondsToSelector:@selector(self_tableView:edgeInsetsForHeaderInSection:)]) {
+            edgeInsets = [self self_tableView:self edgeInsetsForHeaderInSection:section];
+        }else if (self.edgeInsetsForHeaderBlock) {
+            edgeInsets = self.edgeInsetsForHeaderBlock(section);
+        }
+        if ([cell respondsToSelector:@selector(edgeInsets)]) {
+            [(HTableBaseApex *)cell setEdgeInsets:edgeInsets];
+        }
         if ([cell respondsToSelector:@selector(layoutContentView)]) {
             [(HTableBaseApex *)cell layoutContentView];
         }
@@ -295,6 +328,17 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
             cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
         }
         [self.allReuseFooters setObject:cell forKey:@(section).stringValue];
+        UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
+        if (!self.categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:edgeInsetsForFooterInSection:)]) {
+            edgeInsets = [self.tableDelegate tableView:self edgeInsetsForFooterInSection:section];
+        }else if (self.categoryDesign && [self respondsToSelector:@selector(self_tableView:edgeInsetsForFooterInSection:)]) {
+            edgeInsets = [self self_tableView:self edgeInsetsForFooterInSection:section];
+        }else if (self.edgeInsetsForItemBlock) {
+            edgeInsets = self.edgeInsetsForFooterBlock(section);
+        }
+        if ([cell respondsToSelector:@selector(edgeInsets)]) {
+            [(HTableBaseApex *)cell setEdgeInsets:edgeInsets];
+        }
         if ([cell respondsToSelector:@selector(layoutContentView)]) {
             [(HTableBaseApex *)cell layoutContentView];
         }
@@ -331,6 +375,17 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
             cell = [self dequeueReusableCellWithIdentifier:identifier forIndexPath:idxPath];
         }
         [self.allReuseCells setObject:cell forKey:idxPath.getStringValue];
+        UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
+        if (!self.categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:edgeInsetsForRowAtIndexPath:)]) {
+            edgeInsets = [self.tableDelegate tableView:self edgeInsetsForRowAtIndexPath:idxPath];
+        }else if (self.categoryDesign && [self respondsToSelector:@selector(self_tableView:edgeInsetsForRowAtIndexPath:)]) {
+            edgeInsets = [self self_tableView:self edgeInsetsForRowAtIndexPath:idxPath];
+        }else if (self.edgeInsetsForItemBlock) {
+            edgeInsets = self.edgeInsetsForItemBlock(idxPath);
+        }
+        if ([cell respondsToSelector:@selector(edgeInsets)]) {
+            [(HTableBaseCell *)cell setEdgeInsets:edgeInsets];
+        }
         if ([cell respondsToSelector:@selector(layoutContentView)]) {
             [(HTableBaseCell *)cell layoutContentView];
         }
@@ -414,7 +469,8 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     }else if (self.heightForCellBlock) {
         return self.heightForCellBlock(indexPath);
     }
-    return 0.f;
+    //不能为0.f，否则会崩溃
+    return 1.f;
 }
 - (UIView *)tableView:(HTableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:tableHeader:inSection:)]) {
@@ -430,7 +486,12 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
             return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
         }, section);
     }
-    return [self.allReuseHeaders objectForKey:@(section).stringValue];
+    HTableBaseApex *cell = [self.allReuseHeaders objectForKey:@(section).stringValue];
+    if (cell.needRefreshFrame) {
+        cell.needRefreshFrame = NO;
+        [cell frameChanged];
+    }
+    return cell;
 }
 - (UIView *)tableView:(HTableView *)tableView viewForFooterInSection:(NSInteger)section {
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:tableFooter:inSection:)]) {
@@ -446,7 +507,12 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
             return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
         }, section);
     }
-    return [self.allReuseFooters objectForKey:@(section).stringValue];
+    HTableBaseApex *cell = [self.allReuseFooters objectForKey:@(section).stringValue];
+    if (cell.needRefreshFrame) {
+        cell.needRefreshFrame = NO;
+        [cell frameChanged];
+    }
+    return cell;
 }
 - (UITableViewCell *)tableView:(HTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:tableCell:atIndexPath:)]) {
@@ -462,17 +528,22 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
             return [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
         }, indexPath);
     }
-    return [self.allReuseCells objectForKey:indexPath.getStringValue];
+    HTableBaseCell *cell = [self.allReuseCells objectForKey:indexPath.getStringValue];
+    if (cell.needRefreshFrame) {
+        cell.needRefreshFrame = NO;
+        [cell frameChanged];
+    }
+    return cell;
 }
 - (void)tableView:(HTableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.separatorStyle != UITableViewCellSeparatorStyleNone) {
-        if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-            [cell setSeparatorInset:self.separatorInset];
-        }
-        if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-            [cell setLayoutMargins:self.separatorInset];
-        }
-    }
+//    if (self.separatorStyle != UITableViewCellSeparatorStyleNone) {
+//        if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+//            [cell setSeparatorInset:self.separatorInset];
+//        }
+//        if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+//            [cell setLayoutMargins:self.separatorInset];
+//        }
+//    }
     NSString *prefix = [self tableWithPrefix:indexPath.section];
     if (!_categoryDesign && [self.tableDelegate respondsToSelector:@selector(tableView:willSelectRowAtIndexPath:)]) {
         [self.tableDelegate tableView:self willDisplayCell:cell forRowAtIndexPath:indexPath];
@@ -548,6 +619,30 @@ typedef NS_OPTIONS(NSUInteger, HTableDesignStyle) {
     });
 }
 #pragma mark - Category & Design
+- (UIEdgeInsets)self_tableView:(HTableView *)tableView edgeInsetsForHeaderInSection:(NSInteger)section {
+    NSString *prefix = [self tableWithPrefix:section];
+    SEL selector = [self selectorWithCMD:_cmd];
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&tableView, &section] UIEdgeInsetsValue];
+    }
+    return UIEdgeInsetsZero;
+}
+- (UIEdgeInsets)self_tableView:(HTableView *)tableView edgeInsetsForFooterInSection:(NSInteger)section {
+    NSString *prefix = [self tableWithPrefix:section];
+    SEL selector = [self selectorWithCMD:_cmd];
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&tableView, &section] UIEdgeInsetsValue];
+    }
+    return UIEdgeInsetsZero;
+}
+- (UIEdgeInsets)self_tableView:(HTableView *)tableView edgeInsetsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [self tableWithPrefix:indexPath.section];
+    SEL selector = [self selectorWithCMD:_cmd];
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&tableView, &indexPath] UIEdgeInsetsValue];
+    }
+    return UIEdgeInsetsZero;
+}
 - (void)self_tableView:(HTableView *)tableView tableHeader:(HTableHeader)headerBlock inSection:(NSInteger)section {
     NSString *prefix = [self tableWithPrefix:section];
     SEL selector = [self selectorWithCMD:_cmd];

@@ -10,9 +10,9 @@
 #import "HTableSignal.h"
 
 #define HLayoutTableApex(v) \
-if(!CGRectEqualToRect(v.frame, [self getContentBounds])) {\
+if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
     [self frameChanged];\
-    [v setFrame:[self getContentBounds]];\
+    [v setFrame:[self getContentFrame]];\
 }
 
 @class HTableView, HTableBaseApex;
@@ -24,15 +24,24 @@ typedef void(^HTableApexSkinBlock)(HTableBaseApex *cell, HTableView *table);
 @property (nonatomic, weak) UITableView *table;
 @property (nonatomic) BOOL isHeader;
 @property (nonatomic) NSInteger section;
+@property (nonatomic) UIEdgeInsets edgeInsets;
+@property (nonatomic) UIView *edgeInsetsView;//多个子控件的背景视图
 @property (nonatomic, copy) HTableApexBlock cellBlock;
 @property (nonatomic, copy) HTableApexSkinBlock skinBlock;
 @property (nonatomic, copy) HTableCellSignalBlock signalBlock;
+//间隔线
+@property (nonatomic) UIEdgeInsets separatorInset;
+@property (nonatomic) UIColor *separatorColor;
+@property (nonatomic) BOOL shouldShowSeparator;
+//是否需要刷新frame
+@property (nonatomic) BOOL needRefreshFrame;
+- (CGRect)getContentFrame;
+- (CGRect)getContentBounds;
 //需要子类重写该方法
 - (void)initUI;
 - (void)frameChanged;
-- (CGRect)getContentBounds;
 - (void)layoutContentView;
-- (CGFloat)width;
-- (CGFloat)height;
-- (CGSize)size;
+- (CGFloat)contentWidth;
+- (CGFloat)contentHeight;
+- (CGSize)contentSize;
 @end

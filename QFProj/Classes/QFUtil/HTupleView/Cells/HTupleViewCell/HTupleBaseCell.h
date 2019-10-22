@@ -28,12 +28,12 @@ typedef void(^HTupleCellSkinBlock)(HTupleBaseCell *cell, HTupleView *tuple);
 
 @interface HTupleBaseCell : UICollectionViewCell
 @property (nonatomic, weak) UICollectionView *tuple;
+@property (nonatomic) NSIndexPath *indexPath;
+@property (nonatomic) UIEdgeInsets edgeInsets;
 @property (nonatomic) UIView *edgeInsetsView;//多个子控件的背景视图
 @property (nonatomic, copy) HTupleCellBlock cellBlock;
 @property (nonatomic, copy) HTupleCellSkinBlock skinBlock;
 @property (nonatomic, copy) HTupleCellSignalBlock signalBlock;
-@property (nonatomic) NSIndexPath *indexPath;
-@property (nonatomic) UIEdgeInsets edgeInsets;
 //间隔线
 @property (nonatomic) UILREdgeInsets separatorInset;
 @property (nonatomic) UIColor *separatorColor;

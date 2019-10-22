@@ -54,6 +54,10 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 - (CGFloat)tableView:(HTableView *)tableView heightForFooterInSection:(NSInteger)section;
 - (CGFloat)tableView:(HTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 
+- (UIEdgeInsets)tableView:(HTableView *)tableView edgeInsetsForHeaderInSection:(NSInteger)section;
+- (UIEdgeInsets)tableView:(HTableView *)tableView edgeInsetsForFooterInSection:(NSInteger)section;
+- (UIEdgeInsets)tableView:(HTableView *)tableView edgeInsetsForRowAtIndexPath:(NSIndexPath *)indexPath;
+
 - (void)tableView:(HTableView *)tableView tableHeader:(HTableHeader)headerBlock inSection:(NSInteger)section;
 - (void)tableView:(HTableView *)tableView tableFooter:(HTableFooter)footerBlock inSection:(NSInteger)section;
 - (void)tableView:(HTableView *)tableView tableCell:(HTableCell)cellBlock atIndexPath:(NSIndexPath *)indexPath;
@@ -76,6 +80,7 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 @property (nonatomic, copy, nullable) HTableLoadMoreBlock loadMoreBlock;  // block to load more data
 
 @property (nonatomic, copy, nullable) NSString *releaseTableKey; //设置释放的key值
+@property (nonatomic) BOOL needReloadData; //是否需要重新加载数据
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;

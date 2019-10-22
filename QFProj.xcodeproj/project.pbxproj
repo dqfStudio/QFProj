@@ -281,6 +281,11 @@
 		A2A8EC0122E4A4730049C51B /* HCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EBFF22E4A4730049C51B /* HCountDownButton.m */; };
 		A2B929AD2306978D0091A57D /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B929A82306978D0091A57D /* SRWebSocket.m */; };
 		A2B929AE2306978D0091A57D /* HMultiWebSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B929AA2306978D0091A57D /* HMultiWebSocketManager.m */; };
+		A2C2B20B235DE0820041AAB5 /* HTableViewCellHoriValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C2B209235DE0820041AAB5 /* HTableViewCellHoriValue1.m */; };
+		A2C2B20E235DEA540041AAB5 /* HTableViewApexHoriValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C2B20D235DEA540041AAB5 /* HTableViewApexHoriValue1.m */; };
+		A2C2B214235EAC770041AAB5 /* HMainController6.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C2B213235EAC770041AAB5 /* HMainController6.m */; };
+		A2C2B217235EB0630041AAB5 /* HTableViewCellVertValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C2B216235EB0630041AAB5 /* HTableViewCellVertValue1.m */; };
+		A2C2B21A235EB0B70041AAB5 /* HTableViewApexVertValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C2B219235EB0B60041AAB5 /* HTableViewApexVertValue1.m */; };
 		A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */; };
 		A2DC22BE2242994800E540BE /* NSObject+HForwarding.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */; };
 		A2E8F50822CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50622CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png */; };
@@ -825,6 +830,16 @@
 		A2B929AA2306978D0091A57D /* HMultiWebSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMultiWebSocketManager.m; sourceTree = "<group>"; };
 		A2B929AB2306978D0091A57D /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		A2B929AC2306978D0091A57D /* HMultiWebSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMultiWebSocketManager.h; sourceTree = "<group>"; };
+		A2C2B209235DE0820041AAB5 /* HTableViewCellHoriValue1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableViewCellHoriValue1.m; sourceTree = "<group>"; };
+		A2C2B20A235DE0820041AAB5 /* HTableViewCellHoriValue1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableViewCellHoriValue1.h; sourceTree = "<group>"; };
+		A2C2B20C235DEA540041AAB5 /* HTableViewApexHoriValue1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableViewApexHoriValue1.h; sourceTree = "<group>"; };
+		A2C2B20D235DEA540041AAB5 /* HTableViewApexHoriValue1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableViewApexHoriValue1.m; sourceTree = "<group>"; };
+		A2C2B212235EAC770041AAB5 /* HMainController6.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMainController6.h; sourceTree = "<group>"; };
+		A2C2B213235EAC770041AAB5 /* HMainController6.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMainController6.m; sourceTree = "<group>"; };
+		A2C2B215235EB0630041AAB5 /* HTableViewCellVertValue1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableViewCellVertValue1.h; sourceTree = "<group>"; };
+		A2C2B216235EB0630041AAB5 /* HTableViewCellVertValue1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableViewCellVertValue1.m; sourceTree = "<group>"; };
+		A2C2B218235EB0B60041AAB5 /* HTableViewApexVertValue1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableViewApexVertValue1.h; sourceTree = "<group>"; };
+		A2C2B219235EB0B60041AAB5 /* HTableViewApexVertValue1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableViewApexVertValue1.m; sourceTree = "<group>"; };
 		A2DC22B622424F2F00E540BE /* NSObject+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeMessy.h"; sourceTree = "<group>"; };
 		A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HForwarding.h"; sourceTree = "<group>"; };
@@ -1145,6 +1160,8 @@
 				A20E3D06231FE0D100E6982B /* HMainController4.m */,
 				A227A8FF233C9F1F005611BA /* HMainController5.h */,
 				A227A900233C9F1F005611BA /* HMainController5.m */,
+				A2C2B212235EAC770041AAB5 /* HMainController6.h */,
+				A2C2B213235EAC770041AAB5 /* HMainController6.m */,
 				A20E3D08231FE8FC00E6982B /* HomeIcons */,
 				15E6BB8C2136E7E200EBE794 /* YPTabBarController */,
 			);
@@ -1623,6 +1640,10 @@
 				A206881822C9FDBC00661634 /* HTableBaseApex.m */,
 				A206881722C9FDBC00661634 /* HTableViewApex.h */,
 				A206881522C9FDBC00661634 /* HTableViewApex.m */,
+				A2C2B218235EB0B60041AAB5 /* HTableViewApexVertValue1.h */,
+				A2C2B219235EB0B60041AAB5 /* HTableViewApexVertValue1.m */,
+				A2C2B20C235DEA540041AAB5 /* HTableViewApexHoriValue1.h */,
+				A2C2B20D235DEA540041AAB5 /* HTableViewApexHoriValue1.m */,
 			);
 			path = HTableViewApex;
 			sourceTree = "<group>";
@@ -1634,6 +1655,10 @@
 				A206881C22C9FDBD00661634 /* HTableBaseCell.m */,
 				A206881D22C9FDBD00661634 /* HTableViewCell.h */,
 				A206881B22C9FDBD00661634 /* HTableViewCell.m */,
+				A2C2B215235EB0630041AAB5 /* HTableViewCellVertValue1.h */,
+				A2C2B216235EB0630041AAB5 /* HTableViewCellVertValue1.m */,
+				A2C2B20A235DE0820041AAB5 /* HTableViewCellHoriValue1.h */,
+				A2C2B209235DE0820041AAB5 /* HTableViewCellHoriValue1.m */,
 			);
 			path = HTableViewCell;
 			sourceTree = "<group>";
@@ -2550,6 +2575,7 @@
 				A20E3D332326891900E6982B /* HTupleViewCellVertValue1.m in Sources */,
 				A2A8EB3022DB62680049C51B /* HCycleScrollView.m in Sources */,
 				A206882222C9FDBD00661634 /* HTableViewCell.m in Sources */,
+				A2C2B20B235DE0820041AAB5 /* HTableViewCellHoriValue1.m in Sources */,
 				15E6BB9E2136E7E300EBE794 /* YPTabItem.m in Sources */,
 				A20E3D4B2328AC1600E6982B /* HTupleViewApexHoriValue1.m in Sources */,
 				A222AE5322818F7D0013098A /* HTextContainerView.m in Sources */,
@@ -2628,6 +2654,7 @@
 				1510794520F99ABB00860D1C /* NSObject+HExclusive.m in Sources */,
 				A222AE5922818F7D0013098A /* HTextUtilities.m in Sources */,
 				150C7CB4211996E800A05347 /* HPrinterManager.m in Sources */,
+				A2C2B21A235EB0B70041AAB5 /* HTableViewApexVertValue1.m in Sources */,
 				153F081420E28CA000C74850 /* HEmailValidator.m in Sources */,
 				A2A8EB3922DB65A90049C51B /* HDrawerViewController.m in Sources */,
 				A2E8F63E22DB51F500E7C9F2 /* NSIndexPath+HUtil.m in Sources */,
@@ -2696,7 +2723,9 @@
 				A28EF3B521D9C9A2002F92ED /* HWaitingView.m in Sources */,
 				A24B6571225EE23500B257BB /* HOther.m in Sources */,
 				A222AE6122818F7D0013098A /* HTextAttribute.m in Sources */,
+				A2C2B217235EB0630041AAB5 /* HTableViewCellVertValue1.m in Sources */,
 				15B4DDF42092F96C00773E04 /* UIGestureRecognizer+HUtil.m in Sources */,
+				A2C2B20E235DEA540041AAB5 /* HTableViewApexHoriValue1.m in Sources */,
 				15C5737320B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				A20E3CFE231FE0B400E6982B /* HMainController1.m in Sources */,
 				A222AE4F22818F7D0013098A /* HTextLayout.m in Sources */,
@@ -2710,6 +2739,7 @@
 				A20E3CD6231A662B00E6982B /* HNaviToastView.m in Sources */,
 				A222AE4C22818F7D0013098A /* HTextDebugOption.m in Sources */,
 				A206880E22C9FD1B00661634 /* HTupleBaseApex.m in Sources */,
+				A2C2B214235EAC770041AAB5 /* HMainController6.m in Sources */,
 				15F9152020A171A8000261C4 /* NSObject+HAspects.m in Sources */,
 				A2E8F57A22D8356300E7C9F2 /* HDiskCache.m in Sources */,
 				A222AE5B22818F7D0013098A /* HTextWeakProxy.m in Sources */,

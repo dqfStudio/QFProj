@@ -24,7 +24,7 @@ static const CGFloat kTabBarHeight = 50;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    [self setTitle:@"中间"];
+    [self setTitle:@"table展示"];
     
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     
@@ -55,8 +55,7 @@ static const CGFloat kTabBarHeight = 50;
 
 - (void)initViewControllers {
     
-    UIViewController *controller1 = [[UIViewController alloc] init];
-    [controller1.view setBackgroundColor:UIColor.redColor];
+    HMainController6 *controller1 = [[HMainController6 alloc] init];
     controller1.yp_tabItemTitle = @"第一个";
     
     UIViewController *controller2 = [[UIViewController alloc] init];

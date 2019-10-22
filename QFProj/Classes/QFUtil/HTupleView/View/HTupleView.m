@@ -18,7 +18,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
 #define KSectionDesignKey @"section"
 #define KTupleDesignKey   @"tuple"
 #define KTuplePrefixKey   @"self_"
-#define KNeedReloadData   @"KNeedReloadDataNotify"
+#define KTupleReloadData  @"KTupleReloadDataNotify"
 
 @interface HTupleView () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -151,7 +151,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleDesignStyle) {
     self.dataSource = self;
     
     //是否开启全局监听功能
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tupleNeedReloadData) name:KNeedReloadData object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tupleNeedReloadData) name:KTupleReloadData object:nil];
 }
 #pragma --mark bounce
 - (void)horizontalBounceEnabled {

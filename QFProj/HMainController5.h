@@ -7,6 +7,7 @@
 //
 
 #import "HTabBarController.h"
+#import "HMainController6.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
