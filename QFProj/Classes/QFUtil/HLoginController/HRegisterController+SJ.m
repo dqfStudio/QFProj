@@ -64,14 +64,7 @@
 }
 - (UIEdgeInsets)tuple1_tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
-        case 2: {
-            if (indexPath.row == 0) {
-                return UIEdgeInsetsMake(0, 30, 0, 0);
-            }else if (indexPath.row == 4) {
-                return UIEdgeInsetsMake(10, 0, 10, 10);
-            }
-        }
-            break;
+        case 2: return UIEdgeInsetsMake(0, 30, 0, 30);
         default: return UIEdgeInsetsZero;
     }
     return UIEdgeInsetsZero;
