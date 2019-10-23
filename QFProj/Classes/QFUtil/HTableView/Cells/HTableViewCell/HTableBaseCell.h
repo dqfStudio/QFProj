@@ -11,9 +11,9 @@
 #import "HGeometry.h"
 
 #define HLayoutTableCell(v) \
-if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
+if(!CGRectEqualToRect(v.frame, [self layoutViewFrame])) {\
     [self frameChanged];\
-    [v setFrame:[self getContentFrame]];\
+    [v setFrame:[self layoutViewFrame]];\
 }
 
 @class HTableView, HTableBaseCell;
@@ -26,7 +26,7 @@ typedef void(^HTableCellSkinBlock)(HTableBaseCell *cell, HTableView *table);
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UIEdgeInsets edgeInsets;
 @property (nonatomic) UITableViewCellStyle style;
-@property (nonatomic) UIView *edgeInsetsView;//多个子控件的背景视图
+@property (nonatomic) UIView *layoutView; //布局视图
 @property (nonatomic, copy) HTableItemBlock cellBlock;
 @property (nonatomic, copy) HTableCellSkinBlock skinBlock;
 @property (nonatomic, copy) HTableCellSignalBlock signalBlock;
@@ -37,12 +37,12 @@ typedef void(^HTableCellSkinBlock)(HTableBaseCell *cell, HTableView *table);
 //是否需要刷新frame
 @property (nonatomic) BOOL needRefreshFrame;
 - (void)reloadData;
-- (CGRect)getContentFrame;
-- (CGRect)getContentBounds;
+- (CGRect)layoutViewFrame;
+- (CGRect)layoutViewBounds;
+- (void)updateLayoutView;
 //需要子类重写该方法
 - (void)initUI;
 - (void)frameChanged;
-- (void)layoutContentView;
 - (CGFloat)contentWidth;
 - (CGFloat)contentHeight;
 - (CGSize)contentSize;

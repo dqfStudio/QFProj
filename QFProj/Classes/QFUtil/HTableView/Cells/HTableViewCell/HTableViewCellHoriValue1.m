@@ -45,27 +45,27 @@
 @end
 
 @interface HTableViewCellHoriValue1 ()
-@property (nonatomic) UIView *containerView;
+@property (nonatomic) UIView *centralLayoutView;
 @property (nonatomic) HWebImageView *accessoryView;
 @end
 
 @implementation HTableViewCellHoriValue1
 @synthesize imageView = _imageView;
 @synthesize accessoryView = _accessoryView;
-- (void)layoutContentView {
-    HLayoutTableCell(self.edgeInsetsView)
+- (void)updateLayoutView {
+    HLayoutTableCell(self.layoutView)
 }
-- (UIView *)containerView {
-    if (!_containerView) {
-        _containerView = UIView.new;
-        [self.edgeInsetsView addSubview:_containerView];
+- (UIView *)centralLayoutView {
+    if (!_centralLayoutView) {
+        _centralLayoutView = UIView.new;
+        [self.layoutView addSubview:_centralLayoutView];
     }
-    return _containerView;
+    return _centralLayoutView;
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        [self.edgeInsetsView addSubview:_imageView];
+        [self.layoutView addSubview:_imageView];
     }
     return _imageView;
 }
@@ -73,7 +73,7 @@
     if (!_label) {
         _label = [HLabel new];
         [_label setFont:[UIFont systemFontOfSize:14]];
-        [self.containerView addSubview:_label];
+        [self.centralLayoutView addSubview:_label];
     }
     return _label;
 }
@@ -81,26 +81,26 @@
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.containerView addSubview:_detailLabel];
+        [self.centralLayoutView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
 - (HWebImageView *)detailView {
     if (!_detailView) {
         _detailView = [HWebImageView new];
-        [self.edgeInsetsView addSubview:_detailView];
+        [self.layoutView addSubview:_detailView];
     }
     return _detailView;
 }
 - (HWebImageView *)accessoryView {
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
-        [self.edgeInsetsView addSubview:_accessoryView];
+        [self.layoutView addSubview:_accessoryView];
     }
     return _accessoryView;
 }
 - (void)frameChanged {
-    CGRect frame = [self getContentBounds];
+    CGRect frame = [self layoutViewBounds];
     
     if (_imageView) {
         CGRect tmpFrame = frame;
@@ -162,7 +162,7 @@
             tmpFrame4.size.width = CGRectGetWidth(frame);
         }
     }
-    [self.containerView setFrame:tmpFrame4];
+    [self.centralLayoutView setFrame:tmpFrame4];
     
     if (self.label.text.length > 0 && self.detailLabel.text.length > 0) {
         NSInteger wordWidth = 20; //默认为20
@@ -188,27 +188,27 @@
 @end
 
 @interface HTableViewCellHoriValue2 ()
-@property (nonatomic) UIView *containerView;
+@property (nonatomic) UIView *centralLayoutView;
 @property (nonatomic) HWebImageView *accessoryView;
 @end
 
 @implementation HTableViewCellHoriValue2
 @synthesize imageView = _imageView;
 @synthesize accessoryView = _accessoryView;
-- (void)layoutContentView {
-    HLayoutTableCell(self.edgeInsetsView)
+- (void)updateLayoutView {
+    HLayoutTableCell(self.layoutView)
 }
-- (UIView *)containerView {
-    if (!_containerView) {
-        _containerView = UIView.new;
-        [self.edgeInsetsView addSubview:_containerView];
+- (UIView *)centralLayoutView {
+    if (!_centralLayoutView) {
+        _centralLayoutView = UIView.new;
+        [self.layoutView addSubview:_centralLayoutView];
     }
-    return _containerView;
+    return _centralLayoutView;
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        [self.edgeInsetsView addSubview:_imageView];
+        [self.layoutView addSubview:_imageView];
     }
     return _imageView;
 }
@@ -216,7 +216,7 @@
     if (!_label) {
         _label = [HLabel new];
         [_label setFont:[UIFont systemFontOfSize:14]];
-        [self.containerView addSubview:_label];
+        [self.centralLayoutView addSubview:_label];
     }
     return _label;
 }
@@ -224,26 +224,26 @@
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.containerView addSubview:_detailLabel];
+        [self.centralLayoutView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
 - (HWebImageView *)detailView {
     if (!_detailView) {
         _detailView = [HWebImageView new];
-        [self.edgeInsetsView addSubview:_detailView];
+        [self.layoutView addSubview:_detailView];
     }
     return _detailView;
 }
 - (HWebImageView *)accessoryView {
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
-        [self.edgeInsetsView addSubview:_accessoryView];
+        [self.layoutView addSubview:_accessoryView];
     }
     return _accessoryView;
 }
 - (void)frameChanged {
-    CGRect frame = [self getContentBounds];
+    CGRect frame = [self layoutViewBounds];
     
     if (_imageView) {
         CGRect tmpFrame = frame;
@@ -305,7 +305,7 @@
             tmpFrame4.size.width = CGRectGetWidth(frame);
         }
     }
-    [self.containerView setFrame:tmpFrame4];
+    [self.centralLayoutView setFrame:tmpFrame4];
     
     if (self.label.text.length > 0 && self.detailLabel.text.length > 0) {
         NSInteger wordWidth = 20; //默认为20
@@ -333,27 +333,27 @@
 @end
 
 @interface HTableViewCellHoriValue3 ()
-@property (nonatomic) UIView *containerView;
+@property (nonatomic) UIView *centralLayoutView;
 @property (nonatomic) HWebImageView *accessoryView;
 @end
 
 @implementation HTableViewCellHoriValue3
 @synthesize imageView = _imageView;
 @synthesize accessoryView = _accessoryView;
-- (void)layoutContentView {
-    HLayoutTableCell(self.edgeInsetsView)
+- (void)updateLayoutView {
+    HLayoutTableCell(self.layoutView)
 }
-- (UIView *)containerView {
-    if (!_containerView) {
-        _containerView = UIView.new;
-        [self.edgeInsetsView addSubview:_containerView];
+- (UIView *)centralLayoutView {
+    if (!_centralLayoutView) {
+        _centralLayoutView = UIView.new;
+        [self.layoutView addSubview:_centralLayoutView];
     }
-    return _containerView;
+    return _centralLayoutView;
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        [self.edgeInsetsView addSubview:_imageView];
+        [self.layoutView addSubview:_imageView];
     }
     return _imageView;
 }
@@ -361,7 +361,7 @@
     if (!_label) {
         _label = [HLabel new];
         [_label setFont:[UIFont systemFontOfSize:14]];
-        [self.containerView addSubview:_label];
+        [self.centralLayoutView addSubview:_label];
     }
     return _label;
 }
@@ -369,7 +369,7 @@
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.containerView addSubview:_detailLabel];
+        [self.centralLayoutView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
@@ -378,26 +378,26 @@
         _accessoryLabel = [HLabel new];
         [_accessoryLabel setTextAlignment:NSTextAlignmentRight];
         [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.containerView addSubview:_accessoryLabel];
+        [self.centralLayoutView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
 }
 - (HWebImageView *)detailView {
     if (!_detailView) {
         _detailView = [HWebImageView new];
-        [self.edgeInsetsView addSubview:_detailView];
+        [self.layoutView addSubview:_detailView];
     }
     return _detailView;
 }
 - (HWebImageView *)accessoryView {
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
-        [self.edgeInsetsView addSubview:_accessoryView];
+        [self.layoutView addSubview:_accessoryView];
     }
     return _accessoryView;
 }
 - (void)frameChanged {
-    CGRect frame = [self getContentBounds];
+    CGRect frame = [self layoutViewBounds];
     
     if (_imageView) {
         CGRect tmpFrame = frame;
@@ -459,9 +459,9 @@
             tmpFrame4.size.width = CGRectGetWidth(frame);
         }
     }
-    [self.containerView setFrame:tmpFrame4];
+    [self.centralLayoutView setFrame:tmpFrame4];
     
-    CGRect tmpFrame5 = self.containerView.bounds;
+    CGRect tmpFrame5 = self.centralLayoutView.bounds;
     
     if (self.detailWidth > 0) {
         CGRect tmpFrame6 = tmpFrame5;
@@ -496,13 +496,13 @@
 @implementation HTableViewCellHoriValue4
 @synthesize imageView = _imageView;
 @synthesize accessoryView = _accessoryView;
-- (void)layoutContentView {
-    HLayoutTableCell(self.edgeInsetsView)
+- (void)updateLayoutView {
+    HLayoutTableCell(self.layoutView)
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        [self.edgeInsetsView addSubview:_imageView];
+        [self.layoutView addSubview:_imageView];
     }
     return _imageView;
 }
@@ -510,7 +510,7 @@
     if (!_label) {
         _label = [HLabel new];
         [_label setFont:[UIFont systemFontOfSize:14]];
-        [self.edgeInsetsView addSubview:_label];
+        [self.layoutView addSubview:_label];
     }
     return _label;
 }
@@ -518,7 +518,7 @@
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.edgeInsetsView addSubview:_detailLabel];
+        [self.layoutView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
@@ -526,26 +526,26 @@
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
         [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.edgeInsetsView addSubview:_accessoryLabel];
+        [self.layoutView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
 }
 - (HWebImageView *)detailView {
     if (!_detailView) {
         _detailView = [HWebImageView new];
-        [self.edgeInsetsView addSubview:_detailView];
+        [self.layoutView addSubview:_detailView];
     }
     return _detailView;
 }
 - (HWebImageView *)accessoryView {
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
-        [self.edgeInsetsView addSubview:_accessoryView];
+        [self.layoutView addSubview:_accessoryView];
     }
     return _accessoryView;
 }
 - (void)frameChanged {
-    CGRect frame = [self getContentBounds];
+    CGRect frame = [self layoutViewBounds];
     
     if (_imageView) {
         CGRect tmpFrame = frame;

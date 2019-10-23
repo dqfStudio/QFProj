@@ -66,7 +66,7 @@
     HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, prefix, YES);
     if (self.bgColor) [cell setBackgroundColor:self.bgColor];
 
-    CGRect frame = [cell getContentFrame];
+    CGRect frame = [cell layoutViewFrame];
     if (self.desc.length > 0) frame.size.height -= KTextHeight; //image和text都显示的情况
 
     [cell.imageView setFrame:frame];

@@ -43,7 +43,7 @@
     }
     return _view;
 }
-- (void)layoutContentView {
+- (void)updateLayoutView {
     HLayoutTableCell(self.view)
 }
 @end
@@ -57,7 +57,7 @@
     }
     return _label;
 }
-- (void)layoutContentView {
+- (void)updateLayoutView {
     HLayoutTableCell(self.label)
 }
 @end
@@ -70,7 +70,7 @@
     }
     return _textView;
 }
-- (void)layoutContentView {
+- (void)updateLayoutView {
     HLayoutTableCell(self.textView)
 }
 @end
@@ -83,7 +83,7 @@
     }
     return _buttonView;
 }
-- (void)layoutContentView {
+- (void)updateLayoutView {
     HLayoutTableCell(self.buttonView)
 }
 @end
@@ -97,7 +97,7 @@
     }
     return _imageView;
 }
-- (void)layoutContentView {
+- (void)updateLayoutView {
     HLayoutTableCell(self.imageView)
 }
 @end
@@ -110,7 +110,7 @@
     }
     return _textField;
 }
-- (void)layoutContentView {
+- (void)updateLayoutView {
     HLayoutTableCell(self.textField)
 }
 @end

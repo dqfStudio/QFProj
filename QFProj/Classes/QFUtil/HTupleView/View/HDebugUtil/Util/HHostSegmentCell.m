@@ -43,8 +43,8 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
-- (void)layoutContentView {
-    CGRect frame1 = [self getContentBounds];
+- (void)updateLayoutView {
+    CGRect frame1 = [self layoutViewBounds];
     CGRect frame2 = CGRectMake(15, 5, CGRectGetWidth(frame1)-30, CGRectGetHeight(frame1)-10);
     if(!CGRectEqualToRect(self.segment.frame, frame2)) {
         [self.segment setFrame:frame2];

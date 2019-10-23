@@ -74,7 +74,7 @@
     HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, prefix, YES);
     if (self.bgColor) [cell setBackgroundColor:self.bgColor];
 
-    CGRect frame = [cell getContentFrame];
+    CGRect frame = [cell layoutViewFrame];
 
     if (![AFNetworkReachabilityManager sharedManager].isReachable) {
         self.style = HResultTypeNoNetwork;

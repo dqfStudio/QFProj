@@ -15,9 +15,9 @@
 //#import "UIButton+HUtil.h"
 
 #define HLayoutTupleApex(v) \
-if(!CGRectEqualToRect(v.frame, [self getContentFrame])) {\
+if(!CGRectEqualToRect(v.frame, [self layoutViewFrame])) {\
     [self frameChanged];\
-    [v setFrame:[self getContentFrame]];\
+    [v setFrame:[self layoutViewFrame]];\
 }
 
 @class HTupleView, HTupleBaseApex;
@@ -30,7 +30,7 @@ typedef void(^HTupleApexSkinBlock)(HTupleBaseApex *cell, HTupleView *tuple);
 @property (nonatomic) BOOL isHeader;
 @property (nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) UIEdgeInsets edgeInsets;
-@property (nonatomic) UIView *edgeInsetsView;//多个子控件的背景视图
+@property (nonatomic) UIView *layoutView; //布局视图
 @property (nonatomic, copy) HTupleApexBlock cellBlock;
 @property (nonatomic, copy) HTupleApexSkinBlock skinBlock;
 @property (nonatomic, copy) HTupleCellSignalBlock signalBlock;
@@ -40,12 +40,12 @@ typedef void(^HTupleApexSkinBlock)(HTupleBaseApex *cell, HTupleView *tuple);
 @property (nonatomic) BOOL shouldShowSeparator;
 //是否需要刷新frame
 @property (nonatomic) BOOL needRefreshFrame;
-- (CGRect)getContentFrame;
-- (CGRect)getContentBounds;
+- (CGRect)layoutViewFrame;
+- (CGRect)layoutViewBounds;
+- (void)updateLayoutView;
 //需要子类重写该方法
 - (void)initUI;
 - (void)frameChanged;
-- (void)layoutContentView;
 - (CGFloat)contentWidth;
 - (CGFloat)contentHeight;
 - (CGSize)contentSize;

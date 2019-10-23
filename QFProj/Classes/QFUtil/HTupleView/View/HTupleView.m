@@ -262,8 +262,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         if ([cell respondsToSelector:@selector(edgeInsets)]) {
             [(HTupleBaseApex *)cell setEdgeInsets:edgeInsets];
         }
-        if ([cell respondsToSelector:@selector(layoutContentView)]) {
-            [(HTupleBaseApex *)cell layoutContentView];
+        if ([cell respondsToSelector:@selector(updateLayoutView)]) {
+            [(HTupleBaseApex *)cell updateLayoutView];
         }
         return cell;
     };
@@ -312,8 +312,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         if ([cell respondsToSelector:@selector(edgeInsets)]) {
             [(HTupleBaseApex *)cell setEdgeInsets:edgeInsets];
         }
-        if ([cell respondsToSelector:@selector(layoutContentView)]) {
-            [(HTupleBaseApex *)cell layoutContentView];
+        if ([cell respondsToSelector:@selector(updateLayoutView)]) {
+            [(HTupleBaseApex *)cell updateLayoutView];
         }
         return cell;
     };
@@ -360,8 +360,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         if ([cell respondsToSelector:@selector(edgeInsets)]) {
             [(HTupleBaseCell *)cell setEdgeInsets:edgeInsets];
         }
-        if ([cell respondsToSelector:@selector(layoutContentView)]) {
-            [(HTupleBaseCell *)cell layoutContentView];
+        if ([cell respondsToSelector:@selector(updateLayoutView)]) {
+            [(HTupleBaseCell *)cell updateLayoutView];
         }
         return cell;
     };

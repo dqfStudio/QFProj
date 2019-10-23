@@ -24,12 +24,12 @@
     }
     return self;
 }
-- (UIView *)edgeInsetsView {
-    if (!_edgeInsetsView) {
-        _edgeInsetsView = UIView.new;
-        [self.contentView addSubview:_edgeInsetsView];
+- (UIView *)layoutView {
+    if (!_layoutView) {
+        _layoutView = UIView.new;
+        [self.contentView addSubview:_layoutView];
     }
-    return _edgeInsetsView;
+    return _layoutView;
 }
 - (UIView *)separatorView {
     if (!_separatorView) {
@@ -106,7 +106,7 @@
 
 - (void)frameChanged {}
 
-- (void)layoutContentView {};
+- (void)updateLayoutView {};
 
 - (void)reloadData {
     if ([self.indexPath isKindOfClass:NSIndexPath.class]) {
@@ -114,7 +114,7 @@
     }
 }
 
-- (CGRect)getContentFrame {
+- (CGRect)layoutViewFrame {
     CGRect frame = self.bounds;
     frame.origin.x += self.edgeInsets.left;
     frame.origin.y += self.edgeInsets.top;
@@ -122,20 +122,20 @@
     frame.size.height -= self.edgeInsets.top + self.edgeInsets.bottom;
     return frame;
 }
-- (CGRect)getContentBounds {
-    CGRect frame = self.getContentFrame;
+- (CGRect)layoutViewBounds {
+    CGRect frame = self.layoutViewFrame;
     frame.origin.x = 0;
     frame.origin.y = 0;
     return frame;
 }
 - (CGFloat)contentWidth {
-    return CGRectGetWidth(self.getContentFrame);
+    return CGRectGetWidth(self.layoutViewFrame);
 }
 - (CGFloat)contentHeight {
-    return CGRectGetHeight(self.getContentFrame);
+    return CGRectGetHeight(self.layoutViewFrame);
 }
 - (CGSize)contentSize {
-    return self.getContentFrame.size;
+    return self.layoutViewFrame.size;
 }
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];

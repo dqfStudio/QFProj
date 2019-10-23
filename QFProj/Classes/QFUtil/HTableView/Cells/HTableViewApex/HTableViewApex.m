@@ -16,7 +16,7 @@
     }
     return _view;
 }
-- (void)layoutContentView {
+- (void)updateLayoutView {
     HLayoutTableApex(self.view)
 }
 @end
@@ -30,7 +30,7 @@
     }
     return _label;
 }
-- (void)layoutContentView {
+- (void)updateLayoutView {
     HLayoutTableApex(self.label)
 }
 @end
@@ -43,7 +43,7 @@
     }
     return _textView;
 }
-- (void)layoutContentView {
+- (void)updateLayoutView {
     HLayoutTableApex(self.textView)
 }
 @end
@@ -56,7 +56,7 @@
     }
     return _buttonView;
 }
-- (void)layoutContentView {
+- (void)updateLayoutView {
     HLayoutTableApex(self.buttonView)
 }
 @end
@@ -69,7 +69,7 @@
     }
     return _imageView;
 }
-- (void)layoutContentView {
+- (void)updateLayoutView {
     HLayoutTableApex(self.imageView)
 }
 @end
@@ -82,7 +82,7 @@
     }
     return _textField;
 }
-- (void)layoutContentView {
+- (void)updateLayoutView {
     HLayoutTableApex(self.textField)
 }
 @end

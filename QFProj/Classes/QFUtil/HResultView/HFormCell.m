@@ -38,7 +38,7 @@
     return _tupleView;
 }
 
-- (void)layoutContentView {
+- (void)updateLayoutView {
     HLayoutTupleCell(self.tupleView)
 }
 

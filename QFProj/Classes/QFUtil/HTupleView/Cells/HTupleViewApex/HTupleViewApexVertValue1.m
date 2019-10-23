@@ -19,13 +19,13 @@
 @end
 
 @implementation HTupleViewApexVertValue1
-- (void)layoutContentView {
-    HLayoutTupleApex(self.edgeInsetsView)
+- (void)updateLayoutView {
+    HLayoutTupleApex(self.layoutView)
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        [self.edgeInsetsView addSubview:_imageView];
+        [self.layoutView addSubview:_imageView];
     }
     return _imageView;
 }
@@ -33,7 +33,7 @@
     if (!_label) {
         _label = [HLabel new];
         [_label setFont:[UIFont systemFontOfSize:14]];
-        [self.edgeInsetsView addSubview:_label];
+        [self.layoutView addSubview:_label];
     }
     return _label;
 }
@@ -41,7 +41,7 @@
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.edgeInsetsView addSubview:_detailLabel];
+        [self.layoutView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
@@ -49,7 +49,7 @@
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
         [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.edgeInsetsView addSubview:_accessoryLabel];
+        [self.layoutView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
 }
@@ -88,7 +88,7 @@
     return _bottomLabel;
 }
 - (void)frameChanged {
-    CGRect frame = [self getContentBounds];
+    CGRect frame = [self layoutViewBounds];
     
     if (_accessoryLabel) {
         CGRect tmpFrame = frame;

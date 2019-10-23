@@ -16,7 +16,7 @@
     }
     return _view;
 }
-- (void)layoutContentView {
+- (void)updateLayoutView {
     HLayoutTupleCell(self.view)
 }
 @end
@@ -30,7 +30,7 @@
     }
     return _label;
 }
-- (void)layoutContentView {
+- (void)updateLayoutView {
     HLayoutTupleCell(self.label)
 }
 @end
@@ -44,7 +44,7 @@
     }
     return _textView;
 }
-- (void)layoutContentView {
+- (void)updateLayoutView {
     HLayoutTupleCell(self.textView)
 }
 @end
@@ -57,7 +57,7 @@
     }
     return _buttonView;
 }
-- (void)layoutContentView {
+- (void)updateLayoutView {
     HLayoutTupleCell(self.buttonView)
 }
 @end
@@ -70,7 +70,7 @@
     }
     return _imageView;
 }
-- (void)layoutContentView {
+- (void)updateLayoutView {
     HLayoutTupleCell(self.imageView)
 }
 @end
@@ -83,20 +83,20 @@
     }
     return _textField;
 }
-- (void)layoutContentView {
+- (void)updateLayoutView {
     HLayoutTupleCell(self.textField)
 }
 @end
 
 @implementation HTupleViewCell
-- (void)layoutContentView {
-    HLayoutTupleCell(self.edgeInsetsView)
+- (void)updateLayoutView {
+    HLayoutTupleCell(self.layoutView)
 }
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
         [_label setFont:[UIFont systemFontOfSize:14]];
-        [self.edgeInsetsView addSubview:_label];
+        [self.layoutView addSubview:_label];
     }
     return _label;
 }
@@ -104,7 +104,7 @@
     if (!_detailLabel) {
         _detailLabel = [HLabel new];
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.edgeInsetsView addSubview:_detailLabel];
+        [self.layoutView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
@@ -112,7 +112,7 @@
     if (!_accessoryLabel) {
         _accessoryLabel = [HLabel new];
         [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
-        [self.edgeInsetsView addSubview:_accessoryLabel];
+        [self.layoutView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
 }
@@ -120,7 +120,7 @@
     if (!_textView) {
         _textView = [HTextView new];
         [_textView setFont:[UIFont systemFontOfSize:14]];
-        [self.edgeInsetsView addSubview:_textView];
+        [self.layoutView addSubview:_textView];
     }
     return _textView;
 }
@@ -128,7 +128,7 @@
     if (!_detailTextView) {
         _detailTextView = [HTextView new];
         [_detailTextView setFont:[UIFont systemFontOfSize:14]];
-        [self.edgeInsetsView addSubview:_detailTextView];
+        [self.layoutView addSubview:_detailTextView];
     }
     return _detailTextView;
 }
@@ -136,70 +136,70 @@
     if (!_accessoryTextView) {
         _accessoryTextView = [HTextView new];
         [_accessoryTextView setFont:[UIFont systemFontOfSize:14]];
-        [self.edgeInsetsView addSubview:_accessoryTextView];
+        [self.layoutView addSubview:_accessoryTextView];
     }
     return _accessoryTextView;
 }
 - (HWebButtonView *)buttonView {
     if (!_buttonView) {
         _buttonView = [HWebButtonView new];
-        [self.edgeInsetsView addSubview:_buttonView];
+        [self.layoutView addSubview:_buttonView];
     }
     return _buttonView;
 }
 - (HWebButtonView *)detailButtonView {
     if (!_detailButtonView) {
         _detailButtonView = [HWebButtonView new];
-        [self.edgeInsetsView addSubview:_detailButtonView];
+        [self.layoutView addSubview:_detailButtonView];
     }
     return _detailButtonView;
 }
 - (HWebButtonView *)accessoryButtonView {
     if (!_accessoryButtonView) {
         _accessoryButtonView = [HWebButtonView new];
-        [self.edgeInsetsView addSubview:_accessoryButtonView];
+        [self.layoutView addSubview:_accessoryButtonView];
     }
     return _accessoryButtonView;
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = HWebImageView.new;
-        [self.edgeInsetsView addSubview:_imageView];
+        [self.layoutView addSubview:_imageView];
     }
     return _imageView;
 }
 - (HWebImageView *)detailImageView {
     if (!_detailImageView) {
         _detailImageView = HWebImageView.new;
-        [self.edgeInsetsView addSubview:_detailImageView];
+        [self.layoutView addSubview:_detailImageView];
     }
     return _detailImageView;
 }
 - (HWebImageView *)accessoryImageView {
     if (!_accessoryImageView) {
         _accessoryImageView = HWebImageView.new;
-        [self.edgeInsetsView addSubview:_accessoryImageView];
+        [self.layoutView addSubview:_accessoryImageView];
     }
     return _accessoryImageView;
 }
 - (HTextField *)textField {
     if (!_textField) {
         _textField = HTextField.new;
-        [self.edgeInsetsView addSubview:_textField];
+        [self.layoutView addSubview:_textField];
     }
     return _textField;
 }
 - (HTextField *)detailTextField {
     if (!_detailTextField) {
         _detailTextField = HTextField.new;
-        [self.edgeInsetsView addSubview:_detailTextField];
+        [self.layoutView addSubview:_detailTextField];
     }
     return _detailTextField;
 }
 - (HTextField *)accessoryTextField {
     if (!_accessoryTextField) {
         _accessoryTextField = HTextField.new;
-        [self.edgeInsetsView addSubview:_accessoryTextField];
+        [self.layoutView addSubview:_accessoryTextField];
     }
     return _accessoryTextField;
 }

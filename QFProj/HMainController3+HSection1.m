@@ -25,7 +25,7 @@
     [cell setShouldShowSeparator:YES];
     [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
     
-    CGRect frame = [cell getContentBounds];
+    CGRect frame = [cell layoutViewBounds];
     
     CGRect tmpFrame = frame;
     tmpFrame.size.width = CGRectGetHeight(tmpFrame);
