@@ -120,6 +120,10 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     self.bounces = NO;
 }
 #pragma --mark other methods
+//屏蔽系统UITableViewCell的间隔线style
+- (void)setSeparatorStyle:(UITableViewCellSeparatorStyle)separatorStyle {
+    super.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
 //- (void)setSeparatorInset:(UIEdgeInsets)separatorInset {
 //    if ([super respondsToSelector:@selector(setSeparatorInset:)]) {
 //        [super setSeparatorInset:separatorInset];
