@@ -88,34 +88,6 @@
 }
 @end
 
-@implementation HTupleVerticalApex
-- (HTupleView *)tupleView {
-    if (!_tupleView) {
-        _tupleView = [[HTupleView alloc] initWithFrame:self.bounds];
-        [_tupleView setScrollEnabled:NO];
-        [self addSubview:_tupleView];
-    }
-    return _tupleView;
-}
-- (void)layoutContentView {
-    HLayoutTupleApex(self.tupleView)
-}
-@end
-
-@implementation HTupleHorizontalApex
-- (HTupleView *)tupleView {
-    if (!_tupleView) {
-        _tupleView = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleViewScrollDirectionHorizontal];
-        [_tupleView setScrollEnabled:NO];
-        [self addSubview:_tupleView];
-    }
-    return _tupleView;
-}
-- (void)layoutContentView {
-    HLayoutTupleApex(self.tupleView)
-}
-@end
-
 @implementation HTupleViewApex
 - (void)layoutContentView {
     HLayoutTupleApex(self.edgeInsetsView)

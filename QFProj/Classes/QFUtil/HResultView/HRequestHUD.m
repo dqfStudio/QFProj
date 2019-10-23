@@ -85,7 +85,7 @@
 - (void)didSelectedItem {
     
 }
-- (NSInteger)numberOfSectionsIntupleView:(HTupleView *)tupleView {
+- (NSInteger)numberOfSectionsInTupleView:(HTupleView *)tupleView {
     return [[self performSelector:_cmd withPre:self.modePrefix withMethodArgments:&tupleView] integerValue];
 }
 - (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
@@ -143,7 +143,7 @@
     _subTitleHeaderSize = CGSizeZero;
     _subTitleSize = CGSizeZero;
 }
-- (NSInteger)mode1_numberOfSectionsIntupleView:(HTupleView *)tupleView {
+- (NSInteger)mode1_numberOfSectionsInTupleView:(HTupleView *)tupleView {
     return 1;
 }
 - (NSInteger)mode1_tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
@@ -203,7 +203,7 @@
     _subTitleHeaderSize = CGSizeZero;
     _subTitleSize = CGSizeZero;
 }
-- (NSInteger)mode2_numberOfSectionsIntupleView:(HTupleView *)tupleView {
+- (NSInteger)mode2_numberOfSectionsInTupleView:(HTupleView *)tupleView {
     return 2;
 }
 - (NSInteger)mode2_tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
@@ -280,7 +280,7 @@
     _subTitleHeaderSize = CGSizeMake(_requestTuple.width, 5);
     _subTitleSize = CGSizeMake(_requestTuple.width, 20);
 }
-- (NSInteger)mode3_numberOfSectionsIntupleView:(HTupleView *)tupleView {
+- (NSInteger)mode3_numberOfSectionsInTupleView:(HTupleView *)tupleView {
     return 3;
 }
 - (NSInteger)mode3_tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
@@ -361,7 +361,7 @@
     _subTitleHeaderSize = CGSizeZero;
     _subTitleSize = CGSizeZero;
 }
-- (NSInteger)mode4_numberOfSectionsIntupleView:(HTupleView *)tupleView {
+- (NSInteger)mode4_numberOfSectionsInTupleView:(HTupleView *)tupleView {
     return 1;
 }
 - (NSInteger)mode4_tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
@@ -422,7 +422,7 @@
     _subTitleHeaderSize = CGSizeMake(_requestTuple.width, 5);
     _subTitleSize = CGSizeMake(_requestTuple.width, 20);
 }
-- (NSInteger)mode5_numberOfSectionsIntupleView:(HTupleView *)tupleView {
+- (NSInteger)mode5_numberOfSectionsInTupleView:(HTupleView *)tupleView {
     return 2;
 }
 - (NSInteger)mode5_tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {

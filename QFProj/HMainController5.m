@@ -27,29 +27,29 @@ static const CGFloat kTabBarHeight = 50;
     [self setTitle:@"table展示"];
     
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
-    
+
     [self setTabBarFrame:CGRectMake(0, UIDevice.topBarHeight, screenSize.width, kTabBarHeight)
         contentViewFrame:CGRectMake(0, kTabBarHeight, screenSize.width, screenSize.height - kTabBarHeight)];
-    
+
     self.tabBar.itemTitleColor = [UIColor blackColor];
     self.tabBar.itemTitleSelectedColor = [UIColor redColor];
     self.tabBar.itemTitleFont = [UIFont systemFontOfSize:16];
     self.tabBar.itemTitleSelectedFont = [UIFont systemFontOfSize:17];
-    
+
     self.tabBar.itemFontChangeFollowContentScroll = YES;
     self.tabBar.indicatorScrollFollowContent = YES;
     self.tabBar.indicatorColor = [UIColor redColor];
-    
+
     [self.tabBar setBackgroundColor:[UIColor grayColor]];
     [self.tabBar setIndicatorWidth:screenSize.width/3 marginTop:kTabBarHeight-3 marginBottom:0 tapSwitchAnimated:NO];
     [self.tabBar setScrollEnabledAndItemWidth:screenSize.width/3];
-    
+
     [self.tabBar addBottomLineViewWithColor:[UIColor blackColor]];
-    
+
     [self.tabContentView setBackgroundColor:[UIColor grayColor]];
     [self.tabContentView setContentScrollEnabled:YES tapSwitchAnimated:NO];
     self.tabContentView.loadViewOfChildContollerWhileAppear = YES;
-    
+
     [self initViewControllers];
 }
 

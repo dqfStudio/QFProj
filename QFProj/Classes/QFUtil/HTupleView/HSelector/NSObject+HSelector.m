@@ -88,6 +88,12 @@
         if(!strcmp(returnType, @encode(BOOL)) ) {
             returnValue = [NSNumber numberWithBool:*((BOOL*)buffer)];
         }
+        else if(!strcmp(returnType, @encode(float)) ){
+            returnValue = [NSNumber numberWithFloat:*((float*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(double)) ){
+            returnValue = [NSNumber numberWithDouble:*((double*)buffer)];
+        }
         else if(!strcmp(returnType, @encode(NSInteger)) ){
             returnValue = [NSNumber numberWithInteger:*((NSInteger*)buffer)];
         }
@@ -169,6 +175,12 @@
         if(!strcmp(returnType, @encode(BOOL)) ) {
             returnValue = [NSNumber numberWithBool:*((BOOL*)buffer)];
         }
+        else if(!strcmp(returnType, @encode(float)) ){
+            returnValue = [NSNumber numberWithFloat:*((float*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(double)) ){
+            returnValue = [NSNumber numberWithDouble:*((double*)buffer)];
+        }
         else if(!strcmp(returnType, @encode(NSInteger)) ){
             returnValue = [NSNumber numberWithInteger:*((NSInteger*)buffer)];
         }
@@ -189,13 +201,13 @@
 }
 
 - (BOOL)respondsToSelector:(SEL)aSelector withPre:(NSString *)pre {
-    NSString *selectorString = [NSString stringWithFormat:@"%@_%@",pre,NSStringFromSelector(aSelector)];
+    NSString *selectorString = [NSString stringWithFormat:@"%@%@",pre,NSStringFromSelector(aSelector)];
     SEL selector = NSSelectorFromString(selectorString);
     return [self respondsToSelector:selector];
 }
 
 - (id)performSelector:(SEL)aSelector withPre:(NSString *)pre withMethodArgments:(void *)firstParameter, ... {
-    NSString *selectorString = [NSString stringWithFormat:@"%@_%@",pre,NSStringFromSelector(aSelector)];
+    NSString *selectorString = [NSString stringWithFormat:@"%@%@",pre,NSStringFromSelector(aSelector)];
     SEL selector = NSSelectorFromString(selectorString);
     //1、创建签名对象
     NSMethodSignature *signature = [[self class] instanceMethodSignatureForSelector:selector];
@@ -256,6 +268,12 @@
         
         if(!strcmp(returnType, @encode(BOOL)) ) {
             returnValue = [NSNumber numberWithBool:*((BOOL*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(float)) ){
+            returnValue = [NSNumber numberWithFloat:*((float*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(double)) ){
+            returnValue = [NSNumber numberWithDouble:*((double*)buffer)];
         }
         else if(!strcmp(returnType, @encode(NSInteger)) ){
             returnValue = [NSNumber numberWithInteger:*((NSInteger*)buffer)];
@@ -354,6 +372,12 @@
         if(!strcmp(returnType, @encode(BOOL)) ) {
             returnValue = [NSNumber numberWithBool:*((BOOL*)buffer)];
         }
+        else if(!strcmp(returnType, @encode(float)) ){
+            returnValue = [NSNumber numberWithFloat:*((float*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(double)) ){
+            returnValue = [NSNumber numberWithDouble:*((double*)buffer)];
+        }
         else if(!strcmp(returnType, @encode(NSInteger)) ){
             returnValue = [NSNumber numberWithInteger:*((NSInteger*)buffer)];
         }
@@ -442,6 +466,12 @@
         if(!strcmp(returnType, @encode(BOOL)) ) {
             returnValue = [NSNumber numberWithBool:*((BOOL*)buffer)];
         }
+        else if(!strcmp(returnType, @encode(float)) ){
+            returnValue = [NSNumber numberWithFloat:*((float*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(double)) ){
+            returnValue = [NSNumber numberWithDouble:*((double*)buffer)];
+        }
         else if(!strcmp(returnType, @encode(NSInteger)) ){
             returnValue = [NSNumber numberWithInteger:*((NSInteger*)buffer)];
         }
@@ -470,7 +500,7 @@
 
 
 + (id)performClassSelector:(SEL)aSelector withPre:(NSString *)pre withMethodArgments:(void *)firstParameter, ... {
-    NSString *selectorString = [NSString stringWithFormat:@"%@_%@",pre,NSStringFromSelector(aSelector)];
+    NSString *selectorString = [NSString stringWithFormat:@"%@%@",pre,NSStringFromSelector(aSelector)];
     SEL selector = NSSelectorFromString(selectorString);
     return [self performSelector:selector withMethodArgments:firstParameter];
 }

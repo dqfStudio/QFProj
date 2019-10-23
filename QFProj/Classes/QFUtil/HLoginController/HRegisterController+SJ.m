@@ -13,7 +13,7 @@
 @end
 
 @implementation HRegisterController (SJ)
-- (NSInteger)tuple1_numberOfSectionsIntupleView:(HTupleView *)tupleView {
+- (NSInteger)tuple1_numberOfSectionsInTupleView:(HTupleView *)tupleView {
     return 3;
 }
 - (NSInteger)tuple1_tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {

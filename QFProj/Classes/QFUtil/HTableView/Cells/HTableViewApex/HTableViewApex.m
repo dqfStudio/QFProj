@@ -87,34 +87,6 @@
 }
 @end
 
-@implementation HTableVerticalApex
-- (HTupleView *)tupleView {
-    if (!_tupleView) {
-        _tupleView = [[HTupleView alloc] initWithFrame:self.bounds];
-        [_tupleView setScrollEnabled:NO];
-        [self.contentView addSubview:_tupleView];
-    }
-    return _tupleView;
-}
-- (void)layoutContentView {
-    HLayoutTableApex(self.tupleView)
-}
-@end
-
-@implementation HTableHorizontalApex
-- (HTupleView *)tupleView {
-    if (!_tupleView) {
-        _tupleView = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleViewScrollDirectionHorizontal];
-        [_tupleView setScrollEnabled:NO];
-        [self.contentView addSubview:_tupleView];
-    }
-    return _tupleView;
-}
-- (void)layoutContentView {
-    HLayoutTableApex(self.tupleView)
-}
-@end
-
 @implementation HTableViewApex
 - (HLabel *)label {
     if (!_label) {

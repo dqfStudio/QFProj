@@ -34,7 +34,7 @@
 - (UIEdgeInsets)tableView:(HTableView *)tableView edgeInsetsForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UIEdgeInsetsMake(10, 10, 10, 10);
 }
-- (void)tableView:(HTableView *)tableView tableCell:(HTableCell)cellBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(HTableView *)tableView tableRow:(HTableRow)cellBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
             HTableViewCellHoriValue4 *cell = cellBlock(nil, HTableViewCellHoriValue4.class, nil, YES);

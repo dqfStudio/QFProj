@@ -40,14 +40,6 @@
 @property (nonatomic) HTextField *textField;
 @end
 
-@interface HTupleVerticalCell : HTupleBaseCell
-@property (nonatomic) HTupleView *tupleView;
-@end
-
-@interface HTupleHorizontalCell : HTupleBaseCell
-@property (nonatomic) HTupleView *tupleView;
-@end
-
 @interface HTupleViewCell : HTupleBaseCell
 @property (nonatomic) HLabel *label;
 @property (nonatomic) HLabel *detailLabel;

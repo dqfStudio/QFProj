@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "HTableRefresh.h"
 #import "HTableViewCell.h"
+#import "HTableViewApex.h"
 #import "NSIndexPath+HUtil.h"
 #import "NSObject+HSelector.h"
-#import "HTableViewApex.h"
 #import "UIScrollView+HEmptyDataSet.h"
 
 typedef NSUInteger HTableState;
@@ -23,23 +23,9 @@ typedef void (^HTableLoadMoreBlock)(void);
 
 typedef id _Nonnull (^HTableHeader)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
 typedef id _Nonnull (^HTableFooter)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
-typedef id _Nonnull (^HTableCell)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
+typedef id _Nonnull (^HTableRow)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
 
-typedef CGFloat (^HANumberOfSectionsBlock)(void);
-typedef CGFloat (^HNumberOfCellsBlock)(NSInteger section);
-
-typedef CGFloat (^HeightForHeaderBlock)(NSInteger section);
-typedef CGFloat (^HeightForFooterBlock)(NSInteger section);
-typedef CGFloat (^HeightForCellBlock)(NSIndexPath *indexPath);
-
-typedef NSArray *_Nullable(^HTableExclusiveForSectionBlock)(void);
-
-typedef void (^HTableHeaderBlock)(HTableHeader headerBlock, NSInteger section);
-typedef void (^HTableFooterBlock)(HTableFooter footerBlock, NSInteger section);
-typedef void (^HTableCellBlock)(HTableCell cellBlock, NSIndexPath *indexPath);
-
-typedef void (^HCellWillDisplayBlock)(UITableViewCell *cell, NSIndexPath *indexPath);
-typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
+typedef NSArray *_Nullable(^HTableSectionExclusiveBlock)(void);
 
 @class HTableView;
 
@@ -58,7 +44,7 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 
 - (void)tableView:(HTableView *)tableView tableHeader:(HTableHeader)headerBlock inSection:(NSInteger)section;
 - (void)tableView:(HTableView *)tableView tableFooter:(HTableFooter)footerBlock inSection:(NSInteger)section;
-- (void)tableView:(HTableView *)tableView tableCell:(HTableCell)cellBlock atIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(HTableView *)tableView tableRow:(HTableRow)rowBlock atIndexPath:(NSIndexPath *)indexPath;
 
 - (void)tableView:(HTableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)tableView:(HTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -84,8 +70,8 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)initWithFrame:(CGRect)frame;
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style;
-+ (instancetype)sectionDesignWith:(CGRect)frame andSections:(NSInteger)sections;
-+ (instancetype)tableDesignWith:(CGRect (^)(void))frame exclusiveSections:(HTableExclusiveForSectionBlock)sections;
+//split设计初始化方法
++ (instancetype)tableDesignWith:(CGRect (^)(void))frame exclusiveSections:(HTableSectionExclusiveBlock)sections;
 //bounce
 - (void)horizontalBounceEnabled;
 - (void)verticalBounceEnabled;
@@ -99,17 +85,11 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 - (id)dequeueReusableHeaderWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx section:(NSInteger)section;
 - (id)dequeueReusableFooterWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx section:(NSInteger)section;
 - (id)dequeueReusableCellWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx idxPath:(NSIndexPath *)idxPath;
-//block methods
-- (void)tableWithSections:(HANumberOfSectionsBlock)sections cells:(HNumberOfCellsBlock)cells;
-- (void)headerWithHeight:(HeightForHeaderBlock)height tableHeader:(HTableHeaderBlock)block;
-- (void)footerWithHeight:(HeightForFooterBlock)height tableFooter:(HTableFooterBlock)block;
-- (void)cellWithHeight:(HeightForCellBlock)height tableCell:(HTableCellBlock)block;
-- (void)cellWillDisplayBlock:(HCellWillDisplayBlock)block;
-- (void)didSelectCell:(HDidSelectCellBlock)block;
-- (void)deselectCell:(NSIndexPath *)indexPath;
+//release method
 - (void)releaseTableBlock;
 @end
 
+/// 信号机制分类
 @interface HTableView (HSignal)
 
 @property (nonatomic, copy, nullable) HTableCellSignalBlock signalBlock;
@@ -134,10 +114,10 @@ typedef void (^HDidSelectCellBlock)(NSIndexPath *indexPath);
 - (CGFloat)width;
 - (CGFloat)height;
 - (CGSize)size;
-
 @end
 
-@interface HTableView (HState)
+/// split设计数据存储分类
+@interface HTableView (HSplitState)
 
 @property (nonatomic, assign) HTableState tableState; //set table view different state
 

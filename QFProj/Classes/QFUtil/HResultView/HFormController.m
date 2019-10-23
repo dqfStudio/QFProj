@@ -41,6 +41,7 @@
         CGRect frame = [UIScreen mainScreen].bounds;
         _tupleView = [[HTupleView alloc] initWithFrame:frame];
         [_tupleView setScrollEnabled:NO];
+        [_tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
     }
     return _tupleView;
 }
@@ -48,75 +49,66 @@
 - (void)setup {
     //添加view
     [[UIApplication sharedApplication].delegate.window addSubview:self.tupleView];
-    
-    @www
-    [self.tupleView tupleWithSections:^CGFloat{
-        return 1;
-    } items:^CGFloat(NSInteger section) {
-        return 1;
-    } color:^UIColor * _Nullable(NSInteger section) {
-        return nil;
-    } inset:^UIEdgeInsets(NSInteger section) {
-        return UIEdgeInsetsZero;
-    }];
-    
-//    [self.tupleView headerWithSize:^CGSize(NSInteger section) {
-//        @sss
-//        NSInteger height = KFooterHeight;
-//        if (UIDevice.isIPhoneX) height += UIDevice.bottomBarHeight;
-//        return CGSizeMake(self.tupleView.width, self.tupleView.height-KItemHeight*self.numberOfRows-height);
-//    } edgeInsets:^UIEdgeInsets(NSInteger section) {
-//        return UIEdgeInsetsZero;
-//    } tupleHeader:^(HTupleHeader  _Nonnull headerBlock, NSInteger section) {
-//        headerBlock(nil, HTupleButtonView.class, nil, YES);
-////        HTupleButtonView *cell = headerBlock(nil, HTupleButtonView.class, nil, YES);
-////        [cell.buttonView setPressed:^(id sender, id data) {
-////            //销毁对象
-////            [self destroy];
-////        }];
+}
+
+- (NSInteger)numberOfSectionsInTupleView:(HTupleView *)tupleView {
+    return 1;
+}
+- (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
+    return 1;
+}
+
+- (CGSize)tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section {
+    NSInteger height = KFooterHeight;
+    if (UIDevice.isIPhoneX) height += UIDevice.bottomBarHeight;
+    return CGSizeMake(self.tupleView.width, self.tupleView.height-KItemHeight*self.numberOfRows-height);
+}
+- (CGSize)tupleView:(HTupleView *)tupleView sizeForFooterInSection:(NSInteger)section {
+    NSInteger height = KFooterHeight;
+    if (UIDevice.isIPhoneX) height += UIDevice.bottomBarHeight;
+    return CGSizeMake(self.tupleView.width, height);
+}
+- (CGSize)tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(self.tupleView.width, KItemHeight*self.numberOfRows);
+}
+
+- (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
+    NSInteger height = 0;
+    if (UIDevice.isIPhoneX) height += UIDevice.bottomBarHeight;
+    return UIEdgeInsetsMake(10, 0, height, 0);
+}
+
+- (void)tupleView:(HTupleView *)tupleView tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
+    headerBlock(nil, HTupleButtonApex.class, nil, YES);
+//    HTupleButtonApex *cell = headerBlock(nil, HTupleButtonApex.class, nil, YES);
+//    [cell.buttonView setPressed:^(id sender, id data) {
+//        //销毁对象
+//        [self destroy];
 //    }];
-    
-    [self.tupleView footerWithSize:^CGSize(NSInteger section) {
-        @sss
-        NSInteger height = KFooterHeight;
-        if (UIDevice.isIPhoneX) height += UIDevice.bottomBarHeight;
-        return CGSizeMake(self.tupleView.width, height);
-    } edgeInsets:^UIEdgeInsets(NSInteger section) {
-        NSInteger height = 0;
-        if (UIDevice.isIPhoneX) height += UIDevice.bottomBarHeight;
-        return UIEdgeInsetsMake(10, 0, height, 0);
-    } tupleFooter:^(HTupleFooter  _Nonnull footerBlock, NSIndexPath *indexPath) {
-        @sss
-        HTupleButtonApex *cell = footerBlock(nil, HTupleButtonApex.class, nil, YES);
-        [cell.buttonView setBackgroundColor:[UIColor whiteColor]];
-        [cell.buttonView setTitleColor:[UIColor blackColor]];
-        [cell.buttonView setTitle:@"取消"];
-        [cell.buttonView setPressed:^(id sender, id data) {
-            //销毁对象
-            [self destroy];
-        }];
+}
+- (void)tupleView:(HTupleView *)tupleView tupleFooter:(HTupleFooter)footerBlock inSection:(NSInteger)section {
+    HTupleButtonApex *cell = footerBlock(nil, HTupleButtonApex.class, nil, YES);
+    [cell.buttonView setBackgroundColor:[UIColor whiteColor]];
+    [cell.buttonView setTitleColor:[UIColor blackColor]];
+    [cell.buttonView setTitle:@"取消"];
+    [cell.buttonView setPressed:^(id sender, id data) {
+        //销毁对象
+        [self destroy];
     }];
+}
+- (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+    HFormCell *cell = itemBlock(nil, HFormCell.class, nil, YES);
+    [cell setModelArr:self.sourceArr];
     
-    [self.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+    //配置参数
+    [cell setRows:self.numberOfRows];
+    [cell setRowItems:self.rowItems];
+    @www
+    [cell setFormCellBlock:^(NSIndexPath *idxPath, HFormModel *model) {
         @sss
-        return CGSizeMake(self.tupleView.width, KItemHeight*self.numberOfRows);
-    } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
-        return UIEdgeInsetsZero;
-    } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
-        @sss
-        HFormCell *cell = itemBlock(nil, HFormCell.class, nil, YES);
-        [cell setModelArr:self.sourceArr];
-        
-        //配置参数
-        [cell setRows:self.numberOfRows];
-        [cell setRowItems:self.rowItems];
-        
-        [cell setFormCellBlock:^(NSIndexPath *idxPath, HFormModel *model) {
-            @sss
-            if (self.cellBlock) {
-                self.cellBlock(indexPath, model);
-            }
-        }];
+        if (self.cellBlock) {
+            self.cellBlock(indexPath, model);
+        }
     }];
 }
 

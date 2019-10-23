@@ -19,7 +19,12 @@
         CGRect frame = UIScreen.bounds;
         frame.origin.y += UIDevice.topBarHeight;
         frame.size.height -= UIDevice.topBarHeight;
-        _tupleView = [HTupleView sectionDesignWith:frame andSections:3];
+//        _tupleView = [HTupleView sectionDesignWith:frame andSections:3];
+        _tupleView = [HTupleView tupleDesignWith:^CGRect{
+            return frame;
+        } exclusiveSections:^NSArray * _Nullable{
+            return @[@(0),@(1),@(2)];
+        }];
     }
     return _tupleView;
 }
@@ -39,5 +44,7 @@
     [self.tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
     [self.view addSubview:self.tupleView];
 }
-
+- (NSInteger)tuple0_numberOfSectionsInTupleView:(HTupleView *)tupleView {
+    return 3;
+}
 @end

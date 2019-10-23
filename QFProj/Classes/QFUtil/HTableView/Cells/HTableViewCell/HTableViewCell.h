@@ -46,14 +46,6 @@
 @property (nonatomic) HTextField *textField;
 @end
 
-@interface HTableVerticalCell : HTableBaseCell
-@property (nonatomic) HTupleView *tupleView;
-@end
-
-@interface HTableHorizontalCell : HTableBaseCell
-@property (nonatomic) HTupleView *tupleView;
-@end
-
 @interface HTableViewCell : HTableBaseCell
 @property (nonatomic) HLabel *label;
 @property (nonatomic) HLabel *detailLabel;

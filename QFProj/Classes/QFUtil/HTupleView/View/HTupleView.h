@@ -14,16 +14,10 @@
 #import "NSObject+HSelector.h"
 #import "UIScrollView+HEmptyDataSet.h"
 #import "ULBCollectionViewFlowLayout.h"
-#import "UICollectionViewLeftAlignedLayout.h"
 
-typedef NS_OPTIONS(NSUInteger, HTupleViewScrollDirection) {
-    HTupleViewScrollDirectionVertical = 0,
-    HTupleViewScrollDirectionHorizontal
-};
-
-typedef NS_OPTIONS(NSUInteger, HTupleViewStyle) {
-    HTupleViewStyleLeftAlignedLayout = 0,
-    HTupleViewStyleSectionColorLayout
+typedef NS_OPTIONS(NSUInteger, HTupleDirection) {
+    HTupleDirectionVertical = 0,
+    HTupleDirectionHorizontal
 };
 
 typedef NSUInteger HTupleState;
@@ -37,28 +31,7 @@ typedef id _Nonnull (^HTupleHeader)(id _Nullable iblk, Class _Nonnull cls, id _N
 typedef id _Nonnull (^HTupleFooter)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
 typedef id _Nonnull (^HTupleItem)(id _Nullable iblk, Class _Nonnull cls, id _Nullable pre, bool idx);
 
-typedef CGFloat (^HUNumberOfSectionsBlock)(void);
-typedef CGFloat (^HNumberOfItemsBlock)(NSInteger section);
-typedef UIColor *_Nullable(^HColorForSectionBlock)(NSInteger section);
-
-typedef CGSize (^HSizeForHeaderBlock)(NSInteger section);
-typedef CGSize (^HSizeForFooterBlock)(NSInteger section);
-typedef CGSize (^HSizeForItemBlock)(NSIndexPath *indexPath);
-
-typedef NSArray *_Nullable(^HTupleExclusiveForSectionBlock)(void);
-
-typedef UIEdgeInsets (^HEdgeInsetsForHeaderBlock)(NSInteger section);
-typedef UIEdgeInsets (^HEdgeInsetsForFooterBlock)(NSInteger section);
-typedef UIEdgeInsets (^HEdgeInsetsForItemBlock)(NSIndexPath *indexPath);
-
-typedef UIEdgeInsets (^HInsetForSectionBlock)(NSInteger section);
-
-typedef void (^HTupleHeaderBlock)(HTupleHeader headerBlock, NSIndexPath *indexPath);
-typedef void (^HTupleFooterBlock)(HTupleFooter footerBlock, NSIndexPath *indexPath);
-typedef void (^HTupleItemBlock)(HTupleItem itemBlock, NSIndexPath *indexPath);
-
-typedef void (^HItemWillDisplayBlock)(UICollectionViewCell *cell, NSIndexPath *indexPath);
-typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
+typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 
 @class HTupleView;
 
@@ -66,7 +39,7 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 @optional
 - (NSInteger)numberOfSectionsInTupleView:(HTupleView *)tupleView;
 - (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section;
- //style == HTupleViewStyleSectionColorLayout
+//layout == ULBCollectionViewFlowLayout
 - (UIColor *)tupleView:(HTupleView *)tupleView colorForSectionAtIndex:(NSInteger)section;
 
 - (CGSize)tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section;
@@ -105,12 +78,12 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
-- (instancetype)initWithFrame:(CGRect)frame;
-- (instancetype)initWithFrame:(CGRect)frame style:(HTupleViewStyle)style;
-- (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleViewScrollDirection)direction;
+//默认layout为ULBCollectionViewFlowLayout
+- (instancetype)initWithFrame:(CGRect)frame; //默认为垂直滚动方向
+- (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleDirection)direction;
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout;
-+ (instancetype)sectionDesignWith:(CGRect)frame andSections:(NSInteger)sectOions;
-+ (instancetype)tupleDesignWith:(CGRect (^)(void))frame exclusiveSections:(HTupleExclusiveForSectionBlock)sections;
+//split设计初始化方法
++ (instancetype)tupleDesignWith:(CGRect (^)(void))frame exclusiveSections:(HTupleSectionExclusiveBlock)sections;
 //bounce
 - (void)horizontalBounceEnabled;
 - (void)verticalBounceEnabled;
@@ -124,16 +97,11 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 - (id)dequeueReusableHeaderWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx idxPath:(NSIndexPath *)idxPath;
 - (id)dequeueReusableFooterWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx idxPath:(NSIndexPath *)idxPath;
 - (id)dequeueReusableCellWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx idxPath:(NSIndexPath *)idxPath;
-//block methods
-- (void)tupleWithSections:(HUNumberOfSectionsBlock)sections items:(HNumberOfItemsBlock)items color:(HColorForSectionBlock _Nullable )color inset:(HInsetForSectionBlock _Nullable )inset;
-- (void)headerWithSize:(HSizeForHeaderBlock)size edgeInsets:(HEdgeInsetsForHeaderBlock)edge tupleHeader:(HTupleHeaderBlock)block;
-- (void)footerWithSize:(HSizeForFooterBlock)size edgeInsets:(HEdgeInsetsForFooterBlock)edge tupleFooter:(HTupleFooterBlock)block;
-- (void)itemWithSize:(HSizeForItemBlock)size edgeInsets:(HEdgeInsetsForItemBlock)edge tupleItem:(HTupleItemBlock)block;
-- (void)itemWillDisplayBlock:(HItemWillDisplayBlock)block;
-- (void)didSelectItem:(HDidSelectItemBlock)block;
+//release method
 - (void)releaseTupleBlock;
 @end
 
+/// 信号机制分类
 @interface HTupleView (HSignal)
 
 @property (nonatomic, copy, nullable) HTupleCellSignalBlock signalBlock;
@@ -166,7 +134,8 @@ typedef void (^HDidSelectItemBlock)(NSIndexPath *indexPath);
 - (CGFloat)fixSlitWith:(CGFloat)width colCount:(CGFloat)colCount index:(NSInteger)idx;
 @end
 
-@interface HTupleView (HState)
+/// split设计数据存储分类
+@interface HTupleView (HSplitState)
 
 @property (nonatomic, assign) HTupleState tupleState; //set tuple view different state
 

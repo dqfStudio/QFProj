@@ -15,7 +15,7 @@
 @implementation HTupleController
 - (HTupleView *)tupleView {
     if (!_tupleView) {
-        _tupleView = [[HTupleView alloc] initWithFrame:CGRectZero style:HTupleViewStyleSectionColorLayout];
+        _tupleView = [[HTupleView alloc] initWithFrame:CGRectZero];
     }
     return _tupleView;
 }

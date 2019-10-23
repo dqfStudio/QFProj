@@ -27,9 +27,10 @@
 
 - (HTupleView *)tupleView {
     if (!_tupleView) {
-        _tupleView = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleViewScrollDirectionHorizontal];
+        _tupleView = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleDirectionHorizontal];
         [_tupleView setBackgroundColor:[UIColor whiteColor]];
         [_tupleView setPagingEnabled:YES];
+        [_tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
         // 设置默认参数
         [self setup];
         [self addSubview:_tupleView];
@@ -44,58 +45,52 @@
 - (void)setup {
     self.rows = 1;
     self.rowItems = 4;
-    @www
-    [self.tupleView tupleWithSections:^CGFloat{
-        @sss
-        NSInteger pages = 1;
-        if (self.modelArr) {
-            
-            NSInteger items = self.modelArr.count;
-            NSInteger tmpItems = self.rows*self.rowItems;
-            
-            pages = items/tmpItems;
-            tmpItems = pages*tmpItems;
-            
-            if (tmpItems != items) {
-                pages += 1;
+}
+
+- (NSInteger)numberOfSectionsInTupleView:(HTupleView *)tupleView {
+    NSInteger pages = 1;
+    if (self.modelArr) {
+
+        NSInteger items = self.modelArr.count;
+        NSInteger tmpItems = self.rows*self.rowItems;
+
+        pages = items/tmpItems;
+        tmpItems = pages*tmpItems;
+
+        if (tmpItems != items) {
+            pages += 1;
+        }
+    }
+    return pages;
+}
+
+- (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
+    return self.rows*self.rowItems;
+}
+
+- (CGSize)tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(self.tupleView.width/self.rowItems-1, self.tupleView.height/self.rows-1);
+}
+
+- (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+    NSInteger index = indexPath.section*self.rows*self.rowItems + indexPath.row;
+    if (index < self.modelArr.count) {
+        HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
+        [cell.buttonView setTitleColor:[UIColor blackColor]];
+
+        HFormModel *model = [self.modelArr objectAtIndex:index];
+
+        [cell.buttonView setImage:[UIImage imageNamed:model.icon]];
+        [cell.buttonView setTitle:model.title];
+
+        [cell.buttonView setPressed:^(id sender, id data) {
+            if (self.formCellBlock) {
+                self.formCellBlock(indexPath, model);
             }
-        }
-        return pages;
-    } items:^CGFloat(NSInteger section) {
-        @sss
-        return self.rows*self.rowItems;
-    } color:^UIColor * _Nullable(NSInteger section) {
-        return nil;
-    } inset:^UIEdgeInsets(NSInteger section) {
-        return UIEdgeInsetsZero;
-    }];
-    
-    [self.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
-        @sss
-        return CGSizeMake(self.tupleView.width/self.rowItems-1, self.tupleView.height/self.rows-1);
-    } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
-        return UIEdgeInsetsZero;
-    } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
-        @sss
-        NSInteger index = indexPath.section*self.rows*self.rowItems + indexPath.row;
-        if (index < self.modelArr.count) {
-            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
-            [cell.buttonView setTitleColor:[UIColor blackColor]];
-            
-            HFormModel *model = [self.modelArr objectAtIndex:index];
-            
-            [cell.buttonView setImage:[UIImage imageNamed:model.icon]];
-            [cell.buttonView setTitle:model.title];
-            
-            [cell.buttonView setPressed:^(id sender, id data) {
-                if (self.formCellBlock) {
-                    self.formCellBlock(indexPath, model);
-                }
-            }];
-        }else {
-            itemBlock(nil, HTupleBaseCell.class, nil, YES);
-        }
-    }];
+        }];
+    }else {
+        itemBlock(nil, HTupleBaseCell.class, nil, YES);
+    }
 }
 
 - (void)setModelArr:(NSArray<HFormModel *> *)modelArr {

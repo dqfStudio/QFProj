@@ -115,34 +115,6 @@
 }
 @end
 
-@implementation HTableVerticalCell
-- (HTupleView *)tupleView {
-    if (!_tupleView) {
-        _tupleView = [[HTupleView alloc] initWithFrame:self.bounds];
-        [_tupleView setScrollEnabled:NO];
-        [self.contentView addSubview:_tupleView];
-    }
-    return _tupleView;
-}
-- (void)layoutContentView {
-    HLayoutTableCell(self.tupleView)
-}
-@end
-
-@implementation HTableHorizontalCell
-- (HTupleView *)tupleView {
-    if (!_tupleView) {
-        _tupleView = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleViewScrollDirectionHorizontal];
-        [_tupleView setScrollEnabled:NO];
-        [self.contentView addSubview:_tupleView];
-    }
-    return _tupleView;
-}
-- (void)layoutContentView {
-    HLayoutTableCell(self.tupleView)
-}
-@end
-
 @implementation HTableViewCell
 @synthesize imageView = _imageView;
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {

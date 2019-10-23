@@ -40,14 +40,6 @@
 @property (nonatomic) HTextField *textField;
 @end
 
-@interface HTupleVerticalApex : HTupleBaseApex
-@property (nonatomic) HTupleView *tupleView;
-@end
-
-@interface HTupleHorizontalApex : HTupleBaseApex
-@property (nonatomic) HTupleView *tupleView;
-@end
-
 @interface HTupleViewApex : HTupleBaseApex
 @property (nonatomic) HLabel *label;
 @property (nonatomic) HLabel *detailLabel;

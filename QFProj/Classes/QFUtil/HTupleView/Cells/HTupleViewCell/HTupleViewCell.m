@@ -88,34 +88,6 @@
 }
 @end
 
-@implementation HTupleVerticalCell
-- (HTupleView *)tupleView {
-    if (!_tupleView) {
-        _tupleView = [[HTupleView alloc] initWithFrame:self.bounds];
-        [_tupleView setScrollEnabled:NO];
-        [self.contentView addSubview:_tupleView];
-    }
-    return _tupleView;
-}
-- (void)layoutContentView {
-    HLayoutTupleCell(self.tupleView)
-}
-@end
-
-@implementation HTupleHorizontalCell
-- (HTupleView *)tupleView {
-    if (!_tupleView) {
-        _tupleView = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleViewScrollDirectionHorizontal];
-        [_tupleView setScrollEnabled:NO];
-        [self.contentView addSubview:_tupleView];
-    }
-    return _tupleView;
-}
-- (void)layoutContentView {
-    HLayoutTupleCell(self.tupleView)
-}
-@end
-
 @implementation HTupleViewCell
 - (void)layoutContentView {
     HLayoutTupleCell(self.edgeInsetsView)
