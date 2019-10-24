@@ -90,9 +90,6 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     self.tableFooterView = [UIView new];
     self.delegate = self;
     self.dataSource = self;
-    
-    //是否开启全局监听功能
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableNeedReloadData) name:KTableReloadData object:nil];
 }
 - (void)setFrame:(CGRect)frame {
     if(!CGRectEqualToRect(frame, self.frame)) {
@@ -205,9 +202,6 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
         }
     }
 }
-- (void)tableNeedReloadData {
-    [self setNeedReloadData:YES];
-}
 - (void)setNeedReloadData:(BOOL)needReloadData {
     if (_needReloadData != needReloadData) {
         _needReloadData = needReloadData;
@@ -218,6 +212,17 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
             });
         }
     }
+}
+- (void)setEnableReloadNotify:(BOOL)enableReloadNotify {
+    _enableReloadNotify = enableReloadNotify;
+    if (_enableReloadNotify) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableNeedReloadData) name:KTableReloadData object:nil];
+    }else {
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:KTableReloadData object:nil];
+    }
+}
+- (void)tableNeedReloadData {
+    [self setNeedReloadData:YES];
 }
 - (NSString *)addressValue {
     return [NSString stringWithFormat:@"%p", self];

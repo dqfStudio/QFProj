@@ -101,9 +101,6 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     _allReuseFooters  = [NSMapTable strongToWeakObjectsMapTable];
     self.delegate = self;
     self.dataSource = self;
-    
-    //是否开启全局监听功能
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tupleNeedReloadData) name:KTupleReloadData object:nil];
 }
 #pragma --mark bounce
 - (void)horizontalBounceEnabled {
@@ -198,9 +195,6 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         }
     }
 }
-- (void)tupleNeedReloadData {
-    [self setNeedReloadData:YES];
-}
 - (void)setNeedReloadData:(BOOL)needReloadData {
     if (_needReloadData != needReloadData) {
         _needReloadData = needReloadData;
@@ -211,6 +205,17 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
             });
         }
     }
+}
+- (void)setEnableReloadNotify:(BOOL)enableReloadNotify {
+    _enableReloadNotify = enableReloadNotify;
+    if (_enableReloadNotify) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tupleNeedReloadData) name:KTupleReloadData object:nil];
+    }else {
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:KTupleReloadData object:nil];
+    }
+}
+- (void)tupleNeedReloadData {
+    [self setNeedReloadData:YES];
 }
 - (NSString *)addressValue {
     return [NSString stringWithFormat:@"%p", self];
