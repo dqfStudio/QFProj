@@ -70,7 +70,7 @@ typedef NSArray *_Nullable(^HTableSectionExclusiveBlock)(void);
 @property (nonatomic, copy, nullable) HTableLoadMoreBlock loadMoreBlock;  // block to load more data
 
 @property (nonatomic, copy, nullable) NSString *releaseTableKey; //设置释放的key值
-@property (nonatomic) BOOL enableReloadNotify; //是否允许监听重新加载通知，默认为NO
+@property (nonatomic, copy, nullable) NSString *reloadTableKey; //设置reload的key值
 //禁止调用初始化话方法init和new
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;

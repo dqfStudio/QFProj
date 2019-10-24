@@ -17,7 +17,6 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 #define KDefaultPageSize    20
 #define KTableDesignKey     @"table"
 #define KTableExaDesignKey  @"tableExa"
-#define KTableReloadData    @"KTableReloadDataNotify"
 
 @interface HTableAppearance ()
 @property (nonatomic) NSHashTable *hashTable;
@@ -239,15 +238,18 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
         }
     }
 }
-- (void)setEnableReloadNotify:(BOOL)enableReloadNotify {
-    _enableReloadNotify = enableReloadNotify;
-    if (_enableReloadNotify) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableNeedReloadData) name:KTableReloadData object:nil];
-    }else {
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:KTableReloadData object:nil];
+- (void)setReloadTableKey:(NSString *)reloadTableKey {
+    if (_reloadTableKey != reloadTableKey) {
+        if (_reloadTableKey && reloadTableKey) {
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:_reloadTableKey object:nil];
+        }
+        _reloadTableKey = reloadTableKey;
+        if (reloadTableKey) {
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableData) name:reloadTableKey object:nil];
+        }
     }
 }
-- (void)tableNeedReloadData {
+- (void)reloadTableData {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self reloadData];
     });

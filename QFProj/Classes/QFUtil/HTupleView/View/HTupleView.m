@@ -17,7 +17,6 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 #define KDefaultPageSize    20
 #define KTupleDesignKey     @"tuple"
 #define KTupleExaDesignKey  @"tupleExa"
-#define KTupleReloadData    @"KTupleReloadDataNotify"
 
 @interface HTupleAppearance ()
 @property (nonatomic) NSHashTable *hashTable;
@@ -232,15 +231,18 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         }
     }
 }
-- (void)setEnableReloadNotify:(BOOL)enableReloadNotify {
-    _enableReloadNotify = enableReloadNotify;
-    if (_enableReloadNotify) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tupleNeedReloadData) name:KTupleReloadData object:nil];
-    }else {
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:KTupleReloadData object:nil];
+- (void)setReloadTupleKey:(NSString *)reloadTupleKey {
+    if (_reloadTupleKey != reloadTupleKey) {
+        if (_reloadTupleKey && reloadTupleKey) {
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:_reloadTupleKey object:nil];
+        }
+        _reloadTupleKey = reloadTupleKey;
+        if (reloadTupleKey) {
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTupleData) name:reloadTupleKey object:nil];
+        }
     }
 }
-- (void)tupleNeedReloadData {
+- (void)reloadTupleData {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self reloadData];
     });
