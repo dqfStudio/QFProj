@@ -84,7 +84,7 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout;
 //split设计初始化方法
 + (instancetype)tupleDesignWith:(CGRect (^)(void))frame exclusiveSections:(HTupleSectionExclusiveBlock)sections;
-//bounce
+//bounce method
 - (void)horizontalBounceEnabled;
 - (void)verticalBounceEnabled;
 - (void)bounceEnabled;

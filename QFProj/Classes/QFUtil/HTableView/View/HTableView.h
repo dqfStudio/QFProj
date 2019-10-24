@@ -72,7 +72,7 @@ typedef NSArray *_Nullable(^HTableSectionExclusiveBlock)(void);
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style;
 //split设计初始化方法
 + (instancetype)tableDesignWith:(CGRect (^)(void))frame exclusiveSections:(HTableSectionExclusiveBlock)sections;
-//bounce
+//bounce method
 - (void)horizontalBounceEnabled;
 - (void)verticalBounceEnabled;
 - (void)bounceEnabled;
