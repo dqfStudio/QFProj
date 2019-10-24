@@ -258,8 +258,8 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
         NSString *prefix = [self prefixWithSection:section];
         SEL selector = @selector(tableView:edgeInsetsForHeaderInSection:);
         if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
-            HTableView *tmpTableView = self;
-            edgeInsets = [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&tmpTableView, &section] UIEdgeInsetsValue];
+            HTableView *copyTableView = self;
+            edgeInsets = [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&copyTableView, &section] UIEdgeInsetsValue];
         }
         //设置属性
         if ([cell respondsToSelector:@selector(edgeInsets)]) {
@@ -305,8 +305,8 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
         NSString *prefix = [self prefixWithSection:section];
         SEL selector = @selector(tableView:edgeInsetsForFooterInSection:);
         if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
-            HTableView *tmpTableView = self;
-            edgeInsets = [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&tmpTableView, &section] UIEdgeInsetsValue];
+            HTableView *copyTableView = self;
+            edgeInsets = [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&copyTableView, &section] UIEdgeInsetsValue];
         }
         //设置属性
         if ([cell respondsToSelector:@selector(edgeInsets)]) {
@@ -351,8 +351,8 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
         NSString *prefix = [self prefixWithSection:idxPath.section];
         SEL selector = @selector(tableView:edgeInsetsForRowAtIndexPath:);
         if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
-            HTableView *tmpTableView = self;
-            edgeInsets = [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&tmpTableView, &idxPath] UIEdgeInsetsValue];
+            HTableView *copyTableView = self;
+            edgeInsets = [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&copyTableView, &idxPath] UIEdgeInsetsValue];
         }
         //设置属性
         if ([cell respondsToSelector:@selector(edgeInsets)]) {
