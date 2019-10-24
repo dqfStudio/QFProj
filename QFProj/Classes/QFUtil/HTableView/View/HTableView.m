@@ -202,17 +202,6 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
         }
     }
 }
-- (void)setNeedReloadData:(BOOL)needReloadData {
-    if (_needReloadData != needReloadData) {
-        _needReloadData = needReloadData;
-        if (_needReloadData) {
-            _needReloadData = NO;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self reloadData];
-            });
-        }
-    }
-}
 - (void)setEnableReloadNotify:(BOOL)enableReloadNotify {
     _enableReloadNotify = enableReloadNotify;
     if (_enableReloadNotify) {
@@ -222,7 +211,9 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     }
 }
 - (void)tableNeedReloadData {
-    [self setNeedReloadData:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self reloadData];
+    });
 }
 - (NSString *)addressValue {
     return [NSString stringWithFormat:@"%p", self];
