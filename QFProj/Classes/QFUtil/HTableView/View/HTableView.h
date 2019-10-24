@@ -29,6 +29,12 @@ typedef NSArray *_Nullable(^HTableSectionExclusiveBlock)(void);
 
 @class HTableView;
 
+//此类用于全工程刷新tableView
+@interface HTableAppearance : NSObject
++ (instancetype)appearance;
+- (void)enumerateOperation:(void (^)(void))completion;
+@end
+
 @protocol HTableViewDelegate <NSObject>
 @optional
 - (NSInteger)numberOfSectionsInTableView:(HTableView *)tableView;

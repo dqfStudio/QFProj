@@ -19,6 +19,40 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 #define KTableExaDesignKey  @"tableExa"
 #define KTableReloadData    @"KTableReloadDataNotify"
 
+@interface HTableAppearance ()
+@property (nonatomic) NSHashTable *hashTable;
+@end
+
+@implementation HTableAppearance
++ (instancetype)appearance {
+    static id sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[self alloc] init];
+    });
+    return sharedInstance;
+}
+- (void)addObject:(id)anObject {
+    if (!self.hashTable) {
+        self.hashTable = [NSHashTable weakObjectsHashTable];
+    }
+    [self.hashTable addObject:anObject];
+}
+- (void)enumerateOperation:(void (^)(void))completion {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSArray *allObjects = [[self.hashTable objectEnumerator] allObjects];
+        //倒序执行
+        for (NSUInteger i=allObjects.count-1; i>=0; i--) {
+            HTableView *table = allObjects[i];
+            [table reloadData];
+        }
+        if (completion) {
+            completion();
+        }
+    });
+}
+@end
+
 @interface HTableView () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic) HTableStyle tableStyle;
@@ -69,6 +103,9 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     return self;
 }
 - (void)setup {
+    //保存tableView用于全局刷新
+    [[HTableAppearance appearance] addObject:self];
+    
     self.alwaysBounceVertical = YES;
     self.backgroundColor = UIColor.clearColor;
     self.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;

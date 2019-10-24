@@ -19,6 +19,40 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 #define KTupleExaDesignKey  @"tupleExa"
 #define KTupleReloadData    @"KTupleReloadDataNotify"
 
+@interface HTupleAppearance ()
+@property (nonatomic) NSHashTable *hashTable;
+@end
+
+@implementation HTupleAppearance
++ (instancetype)appearance {
+    static id sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[self alloc] init];
+    });
+    return sharedInstance;
+}
+- (void)addObject:(id)anObject {
+    if (!self.hashTable) {
+        self.hashTable = [NSHashTable weakObjectsHashTable];
+    }
+    [self.hashTable addObject:anObject];
+}
+- (void)enumerateOperation:(void (^)(void))completion {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSArray *allObjects = [[self.hashTable objectEnumerator] allObjects];
+        //倒序执行
+        for (NSUInteger i=allObjects.count-1; i>=0; i--) {
+            HTupleView *tuple = allObjects[i];
+            [tuple reloadData];
+        }
+        if (completion) {
+            completion();
+        }
+    });
+}
+@end
+
 @interface HTupleView () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic) UICollectionViewFlowLayout *flowLayout;
@@ -80,6 +114,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     }
 }
 - (void)setup {
+    //保存tupleView用于全局刷新
+    [[HTupleAppearance appearance] addObject:self];
+    
     if (_flowLayout.scrollDirection == UICollectionViewScrollDirectionVertical) {
         [self verticalBounceEnabled];
     }else {
