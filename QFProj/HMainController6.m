@@ -120,8 +120,8 @@
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
             
-            cell.detailWidth  = cell.contentWidth/3;
-            cell.accessoryWidth = cell.contentWidth/3;
+            cell.detailWidth  = CGRectGetWidth(cell.layoutViewBounds)/3;
+            cell.accessoryWidth = CGRectGetWidth(cell.layoutViewBounds)/3;
             [cell.label setBackgroundColor:UIColor.greenColor];
             [cell.label setText:@"label"];
             [cell.label setTextAlignment:NSTextAlignmentCenter];

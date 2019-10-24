@@ -94,16 +94,23 @@
 //子类覆盖
 - (void)initUI {}
 
-- (void)frameChanged {}
+- (void)relayoutSubviews {};
 
-- (void)updateLayoutView {};
+- (void)setEdgeInsets:(UIEdgeInsets)edgeInsets {
+    _edgeInsets = edgeInsets;
+    //更新layoutView的frame
+    CGRect frame = [self layoutViewFrame];
+    if(!CGRectEqualToRect(self.layoutView.frame, frame)) {
+        [self.layoutView setFrame:frame];
+    }
+}
 
 - (CGRect)layoutViewFrame {
     CGRect frame = self.bounds;
-    frame.origin.x += self.edgeInsets.left;
-    frame.origin.y += self.edgeInsets.top;
-    frame.size.width -= self.edgeInsets.left + self.edgeInsets.right;
-    frame.size.height -= self.edgeInsets.top + self.edgeInsets.bottom;
+    frame.origin.x += _edgeInsets.left;
+    frame.origin.y += _edgeInsets.top;
+    frame.size.width -= _edgeInsets.left + _edgeInsets.right;
+    frame.size.height -= _edgeInsets.top + _edgeInsets.bottom;
     return frame;
 }
 - (CGRect)layoutViewBounds {
@@ -111,15 +118,6 @@
     frame.origin.x = 0;
     frame.origin.y = 0;
     return frame;
-}
-- (CGFloat)contentWidth {
-    return CGRectGetWidth(self.layoutViewFrame);
-}
-- (CGFloat)contentHeight {
-    return CGRectGetHeight(self.layoutViewFrame);
-}
-- (CGSize)contentSize {
-    return self.layoutViewFrame.size;
 }
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];

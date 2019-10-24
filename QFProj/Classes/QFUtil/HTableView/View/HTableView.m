@@ -255,21 +255,19 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
         }else {
             cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
         }
+        //保存cell
         [self.allReuseHeaders setObject:cell forKey:@(section).stringValue];
+        //调用代理方法
         UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-        
         NSString *prefix = [self prefixWithSection:section];
         SEL selector = @selector(tableView:edgeInsetsForHeaderInSection:);
         if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
             HTableView *tmpTableView = self;
             edgeInsets = [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&tmpTableView, &section] UIEdgeInsetsValue];
         }
-        
+        //设置属性
         if ([cell respondsToSelector:@selector(edgeInsets)]) {
             [(HTableBaseApex *)cell setEdgeInsets:edgeInsets];
-        }
-        if ([cell respondsToSelector:@selector(updateLayoutView)]) {
-            [(HTableBaseApex *)cell updateLayoutView];
         }
         return cell;
     };
@@ -304,21 +302,19 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
         }else {
             cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
         }
+        //保存cell
         [self.allReuseFooters setObject:cell forKey:@(section).stringValue];
+        //调用代理方法
         UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-        
         NSString *prefix = [self prefixWithSection:section];
         SEL selector = @selector(tableView:edgeInsetsForFooterInSection:);
         if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
             HTableView *tmpTableView = self;
             edgeInsets = [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&tmpTableView, &section] UIEdgeInsetsValue];
         }
-        
+        //设置属性
         if ([cell respondsToSelector:@selector(edgeInsets)]) {
             [(HTableBaseApex *)cell setEdgeInsets:edgeInsets];
-        }
-        if ([cell respondsToSelector:@selector(updateLayoutView)]) {
-            [(HTableBaseApex *)cell updateLayoutView];
         }
         return cell;
     };
@@ -352,21 +348,19 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
         }else {
             cell = [self dequeueReusableCellWithIdentifier:identifier forIndexPath:idxPath];
         }
+        //保存cell
         [self.allReuseCells setObject:cell forKey:idxPath.getStringValue];
+        //调用代理方法
         UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-        
         NSString *prefix = [self prefixWithSection:idxPath.section];
         SEL selector = @selector(tableView:edgeInsetsForRowAtIndexPath:);
         if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
             HTableView *tmpTableView = self;
             edgeInsets = [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&tmpTableView, &idxPath] UIEdgeInsetsValue];
         }
-        
+        //设置属性
         if ([cell respondsToSelector:@selector(edgeInsets)]) {
             [(HTableBaseCell *)cell setEdgeInsets:edgeInsets];
-        }
-        if ([cell respondsToSelector:@selector(updateLayoutView)]) {
-            [(HTableBaseCell *)cell updateLayoutView];
         }
         return cell;
     };
@@ -442,6 +436,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     return 1.f;
 }
 - (UIView *)tableView:(HTableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    //调用代理方法
     NSString *prefix = [self prefixWithSection:section];
     SEL selector = @selector(tableView:tableHeader:inSection:);
     HTableHeader headerBlock = ^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
@@ -450,15 +445,16 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&tableView, &headerBlock, &section];
     }
-
+    //调用cell
     HTableBaseApex *cell = [self.allReuseHeaders objectForKey:@(section).stringValue];
-    if (cell.needRefreshFrame) {
-        cell.needRefreshFrame = NO;
-        [cell frameChanged];
+    //更新布局
+    if ([cell respondsToSelector:@selector(relayoutSubviews)]) {
+        [cell relayoutSubviews];
     }
     return cell;
 }
 - (UIView *)tableView:(HTableView *)tableView viewForFooterInSection:(NSInteger)section {
+    //调用代理方法
     NSString *prefix = [self prefixWithSection:section];
     SEL selector = @selector(tableView:tableFooter:inSection:);
     HTableFooter footerBlock = ^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
@@ -467,15 +463,16 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&tableView, &footerBlock, &section];
     }
-
+    //调用cell
     HTableBaseApex *cell = [self.allReuseFooters objectForKey:@(section).stringValue];
-    if (cell.needRefreshFrame) {
-        cell.needRefreshFrame = NO;
-        [cell frameChanged];
+    //更新布局
+    if ([cell respondsToSelector:@selector(relayoutSubviews)]) {
+        [cell relayoutSubviews];
     }
     return cell;
 }
 - (UITableViewCell *)tableView:(HTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //调用代理方法
     NSString *prefix = [self prefixWithSection:indexPath.section];
     SEL selector = @selector(tableView:tableRow:atIndexPath:);
     HTableRow cellBlock = ^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
@@ -484,11 +481,11 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&tableView, &cellBlock, &indexPath];
     }
-
+    //调用cell
     HTableBaseCell *cell = [self.allReuseCells objectForKey:indexPath.getStringValue];
-    if (cell.needRefreshFrame) {
-        cell.needRefreshFrame = NO;
-        [cell frameChanged];
+    //更新布局
+    if ([cell respondsToSelector:@selector(relayoutSubviews)]) {
+        [cell relayoutSubviews];
     }
     return cell;
 }

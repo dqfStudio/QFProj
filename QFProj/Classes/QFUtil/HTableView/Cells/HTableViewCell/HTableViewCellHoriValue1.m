@@ -12,7 +12,6 @@
 
 @implementation HTableViewCellHoriBase1
 - (void)initUI {
-    self.needRefreshFrame = YES;
     self.imageViewInsets = UIEdgeInsetsZero;
     self.labelInterval = 5;
     self.centerAreaInsets = UILREdgeInsetsMake(10, 10);
@@ -22,7 +21,6 @@
 
 @implementation HTableViewCellHoriBase2
 - (void)initUI {
-    self.needRefreshFrame = YES;
     self.imageViewInsets = UIEdgeInsetsZero;
     self.detailLabelInsets = UILREdgeInsetsZero;
     self.labelInsets = UILREdgeInsetsZero;
@@ -34,7 +32,6 @@
 
 @implementation HTableViewCellHoriBase3
 - (void)initUI {
-    self.needRefreshFrame = YES;
     self.imageViewInsets = UIEdgeInsetsZero;
     self.labelInsets =  UITBEdgeInsetsZero;
     self.detailLabelInsets =  UITBEdgeInsetsZero;
@@ -52,8 +49,8 @@
 @implementation HTableViewCellHoriValue1
 @synthesize imageView = _imageView;
 @synthesize accessoryView = _accessoryView;
-- (void)updateLayoutView {
-    HLayoutTableCell(self.layoutView)
+- (void)relayoutSubviews {
+    [self updateSubViews];
 }
 - (UIView *)centralLayoutView {
     if (!_centralLayoutView) {
@@ -99,7 +96,7 @@
     }
     return _accessoryView;
 }
-- (void)frameChanged {
+- (void)updateSubViews {
     CGRect frame = [self layoutViewBounds];
     
     if (_imageView) {
@@ -195,8 +192,8 @@
 @implementation HTableViewCellHoriValue2
 @synthesize imageView = _imageView;
 @synthesize accessoryView = _accessoryView;
-- (void)updateLayoutView {
-    HLayoutTableCell(self.layoutView)
+- (void)relayoutSubviews {
+    [self updateSubViews];
 }
 - (UIView *)centralLayoutView {
     if (!_centralLayoutView) {
@@ -242,7 +239,7 @@
     }
     return _accessoryView;
 }
-- (void)frameChanged {
+- (void)updateSubViews {
     CGRect frame = [self layoutViewBounds];
     
     if (_imageView) {
@@ -340,8 +337,8 @@
 @implementation HTableViewCellHoriValue3
 @synthesize imageView = _imageView;
 @synthesize accessoryView = _accessoryView;
-- (void)updateLayoutView {
-    HLayoutTableCell(self.layoutView)
+- (void)relayoutSubviews {
+    [self updateSubViews];
 }
 - (UIView *)centralLayoutView {
     if (!_centralLayoutView) {
@@ -396,7 +393,7 @@
     }
     return _accessoryView;
 }
-- (void)frameChanged {
+- (void)updateSubViews {
     CGRect frame = [self layoutViewBounds];
     
     if (_imageView) {
@@ -496,8 +493,8 @@
 @implementation HTableViewCellHoriValue4
 @synthesize imageView = _imageView;
 @synthesize accessoryView = _accessoryView;
-- (void)updateLayoutView {
-    HLayoutTableCell(self.layoutView)
+- (void)relayoutSubviews {
+    [self updateSubViews];
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
@@ -544,7 +541,7 @@
     }
     return _accessoryView;
 }
-- (void)frameChanged {
+- (void)updateSubViews {
     CGRect frame = [self layoutViewBounds];
     
     if (_imageView) {

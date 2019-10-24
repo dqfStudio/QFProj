@@ -12,7 +12,6 @@
 
 @implementation HTupleViewApexHoriBase1
 - (void)initUI {
-    self.needRefreshFrame = YES;
     self.imageViewInsets = UIEdgeInsetsZero;
     self.labelInterval = 5;
     self.centerAreaInsets = UILREdgeInsetsMake(10, 10);
@@ -22,7 +21,6 @@
 
 @implementation HTupleViewApexHoriBase2
 - (void)initUI {
-    self.needRefreshFrame = YES;
     self.imageViewInsets = UIEdgeInsetsZero;
     self.detailLabelInsets = UILREdgeInsetsZero;
     self.labelInsets = UILREdgeInsetsZero;
@@ -34,7 +32,6 @@
 
 @implementation HTupleViewApexHoriBase3
 - (void)initUI {
-    self.needRefreshFrame = YES;
     self.imageViewInsets = UIEdgeInsetsZero;
     self.labelInsets =  UITBEdgeInsetsZero;
     self.detailLabelInsets =  UITBEdgeInsetsZero;
@@ -50,8 +47,8 @@
 @end
 
 @implementation HTupleViewApexHoriValue1
-- (void)updateLayoutView {
-    HLayoutTupleApex(self.layoutView)
+- (void)relayoutSubviews {
+    [self updateSubViews];
 }
 - (UIView *)centralLayoutView {
     if (!_centralLayoutView) {
@@ -97,7 +94,7 @@
     }
     return _accessoryView;
 }
-- (void)frameChanged {
+- (void)updateSubViews {
     CGRect frame = [self layoutViewBounds];
     
     if (_imageView) {
@@ -191,8 +188,8 @@
 @end
 
 @implementation HTupleViewApexHoriValue2
-- (void)updateLayoutView {
-    HLayoutTupleApex(self.layoutView)
+- (void)relayoutSubviews {
+    [self updateSubViews];
 }
 - (UIView *)centralLayoutView {
     if (!_centralLayoutView) {
@@ -238,7 +235,7 @@
     }
     return _accessoryView;
 }
-- (void)frameChanged {
+- (void)updateSubViews {
     CGRect frame = [self layoutViewBounds];
     
     if (_imageView) {
@@ -334,18 +331,8 @@
 @end
 
 @implementation HTupleViewApexHoriValue3
-- (void)updateLayoutView {
-    HLayoutTupleApex(self.layoutView)
-}
-- (void)setDetailWidth:(CGFloat)detailWidth {
-    if (_detailWidth != detailWidth) {
-        _detailWidth = detailWidth;
-    }
-}
-- (void)setAccessoryWidth:(CGFloat)accessoryWidth {
-    if (_accessoryWidth != accessoryWidth) {
-        _accessoryWidth = accessoryWidth;
-    }
+- (void)relayoutSubviews {
+    [self updateSubViews];
 }
 - (UIView *)centralLayoutView {
     if (!_centralLayoutView) {
@@ -400,7 +387,7 @@
     }
     return _accessoryView;
 }
-- (void)frameChanged {
+- (void)updateSubViews {
     CGRect frame = [self layoutViewBounds];
     
     if (_imageView) {
@@ -498,8 +485,8 @@
 @end
 
 @implementation HTupleViewApexHoriValue4
-- (void)updateLayoutView {
-    HLayoutTupleApex(self.layoutView)
+- (void)relayoutSubviews {
+    [self updateSubViews];
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
@@ -546,7 +533,7 @@
     }
     return _accessoryView;
 }
-- (void)frameChanged {
+- (void)updateSubViews {
     CGRect frame = [self layoutViewBounds];
     
     if (_imageView) {

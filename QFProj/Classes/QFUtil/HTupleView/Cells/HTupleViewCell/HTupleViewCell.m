@@ -12,11 +12,11 @@
 - (UIView *)view {
     if (!_view) {
         _view = [UIView new];
-        [self.contentView addSubview:_view];
+        [self.layoutView addSubview:_view];
     }
     return _view;
 }
-- (void)updateLayoutView {
+- (void)relayoutSubviews {
     HLayoutTupleCell(self.view)
 }
 @end
@@ -26,11 +26,11 @@
     if (!_label) {
         _label = [HLabel new];
         [_label setFont:[UIFont systemFontOfSize:14]];
-        [self.contentView addSubview:_label];
+        [self.layoutView addSubview:_label];
     }
     return _label;
 }
-- (void)updateLayoutView {
+- (void)relayoutSubviews {
     HLayoutTupleCell(self.label)
 }
 @end
@@ -40,11 +40,11 @@
     if (!_textView) {
         _textView = [HTextView new];
         [_textView setFont:[UIFont systemFontOfSize:14]];
-        [self.contentView addSubview:_textView];
+        [self.layoutView addSubview:_textView];
     }
     return _textView;
 }
-- (void)updateLayoutView {
+- (void)relayoutSubviews {
     HLayoutTupleCell(self.textView)
 }
 @end
@@ -53,11 +53,11 @@
 - (HWebButtonView *)buttonView {
     if (!_buttonView) {
         _buttonView = [HWebButtonView new];
-        [self.contentView addSubview:_buttonView];
+        [self.layoutView addSubview:_buttonView];
     }
     return _buttonView;
 }
-- (void)updateLayoutView {
+- (void)relayoutSubviews {
     HLayoutTupleCell(self.buttonView)
 }
 @end
@@ -66,11 +66,11 @@
 - (HWebImageView *)imageView {
     if (!_imageView) {
         _imageView = [HWebImageView new];
-        [self.contentView addSubview:_imageView];
+        [self.layoutView addSubview:_imageView];
     }
     return _imageView;
 }
-- (void)updateLayoutView {
+- (void)relayoutSubviews {
     HLayoutTupleCell(self.imageView)
 }
 @end
@@ -79,19 +79,17 @@
 - (HTextField *)textField {
     if (!_textField) {
         _textField = HTextField.new;
-        [self.contentView addSubview:_textField];
+        HLayoutTupleCell(_textField)
+        [self.layoutView addSubview:_textField];
     }
     return _textField;
 }
-- (void)updateLayoutView {
+- (void)relayoutSubviews {
     HLayoutTupleCell(self.textField)
 }
 @end
 
 @implementation HTupleViewCell
-- (void)updateLayoutView {
-    HLayoutTupleCell(self.layoutView)
-}
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];

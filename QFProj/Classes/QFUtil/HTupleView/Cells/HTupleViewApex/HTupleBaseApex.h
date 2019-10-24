@@ -15,9 +15,8 @@
 //#import "UIButton+HUtil.h"
 
 #define HLayoutTupleApex(v) \
-if(!CGRectEqualToRect(v.frame, [self layoutViewFrame])) {\
-    [self frameChanged];\
-    [v setFrame:[self layoutViewFrame]];\
+if(!CGRectEqualToRect(v.frame, [self layoutViewBounds])) {\
+    [v setFrame:[self layoutViewBounds]];\
 }
 
 @class HTupleView, HTupleBaseApex;
@@ -26,27 +25,32 @@ typedef void(^HTupleApexBlock)(NSIndexPath *idxPath);
 typedef void(^HTupleApexSkinBlock)(HTupleBaseApex *cell, HTupleView *tuple);
 
 @interface HTupleBaseApex : UICollectionReusableView
+//cell所在的tuple view
 @property (nonatomic, weak) UICollectionView *tuple;
+//cell是否为section header
 @property (nonatomic) BOOL isHeader;
+//cell所在的indexPath
 @property (nonatomic) NSIndexPath *indexPath;
+//cell的边距
 @property (nonatomic) UIEdgeInsets edgeInsets;
-@property (nonatomic) UIView *layoutView; //布局视图
+//用于加载在contentView上的布局视图
+@property (nonatomic) UIView *layoutView;
+//cell点击block，用户用户点击事件
 @property (nonatomic, copy) HTupleApexBlock cellBlock;
+//换肤block
 @property (nonatomic, copy) HTupleApexSkinBlock skinBlock;
+//信号block
 @property (nonatomic, copy) HTupleCellSignalBlock signalBlock;
-//间隔线
+//cell间隔线的边距、颜色和是否显示间隔线
 @property (nonatomic) UILREdgeInsets separatorInset;
 @property (nonatomic) UIColor *separatorColor;
 @property (nonatomic) BOOL shouldShowSeparator;
-//是否需要刷新frame
-@property (nonatomic) BOOL needRefreshFrame;
+//layoutView的frame和bounds
 - (CGRect)layoutViewFrame;
 - (CGRect)layoutViewBounds;
-- (void)updateLayoutView;
-//需要子类重写该方法
+///子类可覆盖下列方法
+//cell初始化是调用的方法
 - (void)initUI;
-- (void)frameChanged;
-- (CGFloat)contentWidth;
-- (CGFloat)contentHeight;
-- (CGSize)contentSize;
+//用于子类更新子视图布局
+- (void)relayoutSubviews;
 @end

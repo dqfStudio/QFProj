@@ -10,7 +10,6 @@
 
 @implementation HTupleViewApexVertBase1
 - (void)initUI {
-    self.needRefreshFrame = YES;
     self.imageViewInsets = UITBEdgeInsetsZero;
     self.labelInsets =  UITBEdgeInsetsZero;
     self.detailLabelInsets =  UITBEdgeInsetsZero;
@@ -19,8 +18,8 @@
 @end
 
 @implementation HTupleViewApexVertValue1
-- (void)updateLayoutView {
-    HLayoutTupleApex(self.layoutView)
+- (void)relayoutSubviews {
+    [self updateSubViews];
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
@@ -87,7 +86,7 @@
     }
     return _bottomLabel;
 }
-- (void)frameChanged {
+- (void)updateSubViews {
     CGRect frame = [self layoutViewBounds];
     
     if (_accessoryLabel) {

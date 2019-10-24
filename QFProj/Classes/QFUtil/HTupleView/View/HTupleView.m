@@ -248,22 +248,20 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         }else {
             cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:idxPath];
         }
+        //保存cell
         [self.allReuseHeaders setObject:cell forKey:idxPath.getStringValue];
-        
+        //调用代理方法
         UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
         NSString *prefix = [self prefixWithSection:idxPath.section];
         SEL selector = @selector(tupleView:edgeInsetsForHeaderInSection:);
         if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
-            HTupleView *tmpTupleView = self;
+            HTupleView *copyTupleView = self;
             NSUInteger section = idxPath.section;
-            edgeInsets = [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&tmpTupleView, &section] UIEdgeInsetsValue];
+            edgeInsets = [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&copyTupleView, &section] UIEdgeInsetsValue];
         }
-
+        //设置属性
         if ([cell respondsToSelector:@selector(edgeInsets)]) {
             [(HTupleBaseApex *)cell setEdgeInsets:edgeInsets];
-        }
-        if ([cell respondsToSelector:@selector(updateLayoutView)]) {
-            [(HTupleBaseApex *)cell updateLayoutView];
         }
         return cell;
     };
@@ -298,22 +296,20 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         }else {
             cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:idxPath];
         }
+        //保存cell
         [self.allReuseFooters setObject:cell forKey:idxPath.getStringValue];
+        //调用代理方法
         UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-
         NSString *prefix = [self prefixWithSection:idxPath.section];
         SEL selector = @selector(tupleView:edgeInsetsForFooterInSection:);
         if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
-            HTupleView *tmpTupleView = self;
+            HTupleView *copyTupleView = self;
             NSUInteger section = idxPath.section;
-            edgeInsets = [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&tmpTupleView, &section] UIEdgeInsetsValue];
+            edgeInsets = [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&copyTupleView, &section] UIEdgeInsetsValue];
         }
-
+        //设置属性
         if ([cell respondsToSelector:@selector(edgeInsets)]) {
             [(HTupleBaseApex *)cell setEdgeInsets:edgeInsets];
-        }
-        if ([cell respondsToSelector:@selector(updateLayoutView)]) {
-            [(HTupleBaseApex *)cell updateLayoutView];
         }
         return cell;
     };
@@ -347,21 +343,19 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         }else {
             cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:idxPath];
         }
+        //保存cell
         [self.allReuseCells setObject:cell forKey:idxPath.getStringValue];
+        //调用代理方法
         UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-
         NSString *prefix = [self prefixWithSection:idxPath.section];
         SEL selector = @selector(tupleView:edgeInsetsForItemAtIndexPath:);
         if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
-            HTupleView *tmpTupleView = self;
-            edgeInsets = [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&tmpTupleView, &idxPath] UIEdgeInsetsValue];
+            HTupleView *copyTupleView = self;
+            edgeInsets = [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&copyTupleView, &idxPath] UIEdgeInsetsValue];
         }
-
+        //设置属性
         if ([cell respondsToSelector:@selector(edgeInsets)]) {
             [(HTupleBaseCell *)cell setEdgeInsets:edgeInsets];
-        }
-        if ([cell respondsToSelector:@selector(updateLayoutView)]) {
-            [(HTupleBaseCell *)cell updateLayoutView];
         }
         return cell;
     };
@@ -462,6 +456,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     return UISizeIntegral(size);
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    //调用代理方法
     NSString *prefix = [self prefixWithSection:indexPath.section];
     SEL selector = @selector(tupleView:tupleItem:atIndexPath:);
     HTupleItem itemBlock = ^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
@@ -470,17 +465,18 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
         [(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&collectionView, &itemBlock, &indexPath];
     }
-
+    //调用cell
     HTupleBaseCell *cell = [self.allReuseCells objectForKey:indexPath.getStringValue];
-    if (cell.needRefreshFrame) {
-        cell.needRefreshFrame = NO;
-        [cell frameChanged];
+    //更新布局
+    if ([cell respondsToSelector:@selector(relayoutSubviews)]) {
+        [cell relayoutSubviews];
     }
     return cell;
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     HTupleBaseApex *cell = nil;
     if (kind == UICollectionElementKindSectionHeader) {
+        //调用代理方法
         NSString *prefix = [self prefixWithSection:indexPath.section];
         SEL selector = @selector(tupleView:tupleHeader:inSection:);
         HTupleHeader headerBlock = ^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
@@ -490,8 +486,10 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
             [(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&collectionView, &headerBlock, &section];
         }
+        //调用cell
         cell = [self.allReuseHeaders objectForKey:indexPath.getStringValue];
     }else if (kind == UICollectionElementKindSectionFooter) {
+        //调用代理方法
         NSString *prefix = [self prefixWithSection:indexPath.section];
         SEL selector = @selector(tupleView:tupleFooter:inSection:);
         HTupleFooter footerBlock = ^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
@@ -501,11 +499,12 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
             [(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&collectionView, &footerBlock, &section];
         }
+        //调用cell
         cell = [self.allReuseFooters objectForKey:indexPath.getStringValue];
     }
-    if (cell.needRefreshFrame) {
-        cell.needRefreshFrame = NO;
-        [cell frameChanged];
+    //更新布局
+    if ([cell respondsToSelector:@selector(relayoutSubviews)]) {
+        [cell relayoutSubviews];
     }
     return cell;
 }

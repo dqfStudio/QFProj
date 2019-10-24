@@ -12,7 +12,6 @@
 
 @implementation HTupleViewCellHoriBase1
 - (void)initUI {
-    self.needRefreshFrame = YES;
     self.imageViewInsets = UIEdgeInsetsZero;
     self.labelInterval = 5;
     self.centerAreaInsets = UILREdgeInsetsMake(10, 10);
@@ -22,7 +21,6 @@
 
 @implementation HTupleViewCellHoriBase2
 - (void)initUI {
-    self.needRefreshFrame = YES;
     self.imageViewInsets = UIEdgeInsetsZero;
     self.detailLabelInsets = UILREdgeInsetsZero;
     self.labelInsets = UILREdgeInsetsZero;
@@ -34,7 +32,6 @@
 
 @implementation HTupleViewCellHoriBase3
 - (void)initUI {
-    self.needRefreshFrame = YES;
     self.imageViewInsets = UIEdgeInsetsZero;
     self.labelInsets =  UITBEdgeInsetsZero;
     self.detailLabelInsets =  UITBEdgeInsetsZero;
@@ -50,8 +47,8 @@
 @end
 
 @implementation HTupleViewCellHoriValue1
-- (void)updateLayoutView {
-    HLayoutTupleCell(self.layoutView)
+- (void)relayoutSubviews {
+    [self updateSubViews];
 }
 - (UIView *)centralLayoutView {
     if (!_centralLayoutView) {
@@ -97,7 +94,7 @@
     }
     return _accessoryView;
 }
-- (void)frameChanged {
+- (void)updateSubViews {
     CGRect frame = [self layoutViewBounds];
     
     if (_imageView) {
@@ -191,8 +188,8 @@
 @end
 
 @implementation HTupleViewCellHoriValue2
-- (void)updateLayoutView {
-    HLayoutTupleCell(self.layoutView)
+- (void)relayoutSubviews {
+    [self updateSubViews];
 }
 - (UIView *)centralLayoutView {
     if (!_centralLayoutView) {
@@ -238,7 +235,7 @@
     }
     return _accessoryView;
 }
-- (void)frameChanged {
+- (void)updateSubViews {
     CGRect frame = [self layoutViewBounds];
     
     if (_imageView) {
@@ -334,8 +331,8 @@
 @end
 
 @implementation HTupleViewCellHoriValue3
-- (void)updateLayoutView {
-    HLayoutTupleCell(self.layoutView)
+- (void)relayoutSubviews {
+    [self updateSubViews];
 }
 - (UIView *)centralLayoutView {
     if (!_centralLayoutView) {
@@ -390,7 +387,7 @@
     }
     return _accessoryView;
 }
-- (void)frameChanged {
+- (void)updateSubViews {
     CGRect frame = [self layoutViewBounds];
     
     if (_imageView) {
@@ -488,8 +485,8 @@
 @end
 
 @implementation HTupleViewCellHoriValue4
-- (void)updateLayoutView {
-    HLayoutTupleCell(self.layoutView)
+- (void)relayoutSubviews {
+    [self updateSubViews];
 }
 - (HWebImageView *)imageView {
     if (!_imageView) {
@@ -536,7 +533,7 @@
     }
     return _accessoryView;
 }
-- (void)frameChanged {
+- (void)updateSubViews {
     CGRect frame = [self layoutViewBounds];
     
     if (_imageView) {
