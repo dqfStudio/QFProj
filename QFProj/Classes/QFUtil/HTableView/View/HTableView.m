@@ -56,7 +56,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     }
     return self;
 }
-+ (instancetype)tableDesignWith:(CGRect (^)(void))frame exclusiveSections:(HTableSectionExclusiveBlock)sections {
++ (instancetype)tableFrame:(CGRect (^)(void))frame exclusiveSections:(HTableSectionExclusiveBlock)sections {
     return [[HTableView alloc] initWithFrame:frame() exclusiveSections:sections()];
 }
 - (instancetype)initWithFrame:(CGRect)frame exclusiveSections:(NSArray <NSNumber *> *)sectionPaths {

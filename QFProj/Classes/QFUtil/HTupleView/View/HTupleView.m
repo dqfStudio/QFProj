@@ -58,7 +58,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     }
     return self;
 }
-+ (instancetype)tupleDesignWith:(CGRect (^)(void))frame exclusiveSections:(HTupleSectionExclusiveBlock)sections {
++ (instancetype)tupleFrame:(CGRect (^)(void))frame exclusiveSections:(HTupleSectionExclusiveBlock)sections {
     return [[HTupleView alloc] initWithFrame:frame() exclusiveSections:sections()];
 }
 - (instancetype)initWithFrame:(CGRect)frame exclusiveSections:(NSArray <NSNumber *> *)sectionPaths {
