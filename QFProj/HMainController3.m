@@ -19,7 +19,6 @@
         CGRect frame = UIScreen.bounds;
         frame.origin.y += UIDevice.topBarHeight;
         frame.size.height -= UIDevice.topBarHeight;
-//        _tupleView = [HTupleView sectionDesignWith:frame andSections:3];
         _tupleView = [HTupleView tupleDesignWith:^CGRect{
             return frame;
         } exclusiveSections:^NSArray * _Nullable{
