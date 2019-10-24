@@ -358,6 +358,18 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     return HCellForItemBlock(iblk, cls, pre, idx);
 }
 #pragma mark - UICollectionViewDatasource  & delegate
+- (NSString *)prefixWithSection:(NSInteger)section {
+    NSString *prefix = @"";
+    if (self.tupleStyle == HTupleStyleSplit) {
+        if ([self.sectionPaths containsObject:@(section)]) {
+            NSInteger idx = [self.sectionPaths indexOfObject:@(section)];
+            prefix = [KTupleExaDesignKey stringByAppendingFormat:@"%@_", @(idx)];
+        }else {
+            prefix = [KTupleDesignKey stringByAppendingFormat:@"%@_", @(self.tupleState)];
+        }
+    }
+    return prefix;
+}
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     if (self.allSectionInsets.count > 0) {
         [self.allSectionInsets removeAllObjects];
@@ -530,19 +542,6 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         if (self.loadMoreBlock) self.loadMoreBlock = nil;
         
     });
-}
-#pragma mark - Category & Design
-- (NSString *)prefixWithSection:(NSInteger)section {
-    NSString *prefix = @"";
-    if (self.tupleStyle == HTupleStyleSplit) {
-        if ([self.sectionPaths containsObject:@(section)]) {
-            NSInteger idx = [self.sectionPaths indexOfObject:@(section)];
-            prefix = [KTupleExaDesignKey stringByAppendingFormat:@"%@_", @(idx)];
-        }else {
-            prefix = [KTupleDesignKey stringByAppendingFormat:@"%@_", @(self.tupleState)];
-        }
-    }
-    return prefix;
 }
 @end
 
