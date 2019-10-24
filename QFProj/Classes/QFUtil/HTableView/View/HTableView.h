@@ -65,7 +65,7 @@ typedef NSArray *_Nullable(^HTableSectionExclusiveBlock)(void);
 
 @property (nonatomic, copy, nullable) NSString *releaseTableKey; //设置释放的key值
 @property (nonatomic) BOOL needReloadData; //是否需要重新加载数据
-
+//禁止调用初始化话方法init和new
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)initWithFrame:(CGRect)frame;
@@ -81,7 +81,7 @@ typedef NSArray *_Nullable(^HTableSectionExclusiveBlock)(void);
 - (void)beginRefreshing:(void (^)(void))completion;
 - (void)endRefreshing:(void (^)(void))completion;
 - (void)endLoadMore:(void (^)(void))completion;
-//register class
+//register class method
 - (id)dequeueReusableHeaderWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx section:(NSInteger)section;
 - (id)dequeueReusableFooterWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx section:(NSInteger)section;
 - (id)dequeueReusableCellWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx idxPath:(NSIndexPath *)idxPath;
@@ -91,26 +91,26 @@ typedef NSArray *_Nullable(^HTableSectionExclusiveBlock)(void);
 
 /// 信号机制分类
 @interface HTableView (HSignal)
-
+//tableView持有的信号block
 @property (nonatomic, copy, nullable) HTableCellSignalBlock signalBlock;
-
+//给tableView发送信号
 - (void)signalToTable:(HTableSignal *_Nullable)signal;
-
+//给所有cell、某个section下的item或单独某个cell发送信号
 - (void)signalToAllCells:(HTableSignal *_Nullable)signal;
 - (void)signal:(HTableSignal *_Nullable)signal cellSection:(NSInteger)section;
 - (void)signal:(HTableSignal *_Nullable)signal indexPath:(NSIndexPath *)indexPath;
-
+//给所有header或单独某个header发送信号
 - (void)signalToAllHeader:(HTableSignal *_Nullable)signal;
 - (void)signal:(HTableSignal *_Nullable)signal headerSection:(NSInteger)section;
-
+//给所有footer或单独某个footer发送信号
 - (void)signalToAllFooter:(HTableSignal *_Nullable)signal;
 - (void)signal:(HTableSignal *_Nullable)signal footerSection:(NSInteger)section;
-
+//释放所有信号block
 - (void)releaseAllSignal;
-
+//根据传入的row和section获取cell或indexPath
 - (id (^)(NSInteger row, NSInteger section))cell;
 - (id (^)(NSInteger row, NSInteger section))indexPath;
-
+//获取tableView的宽高和大小
 - (CGFloat)width;
 - (CGFloat)height;
 - (CGSize)size;
@@ -118,21 +118,21 @@ typedef NSArray *_Nullable(^HTableSectionExclusiveBlock)(void);
 
 /// split设计数据存储分类
 @interface HTableView (HSplitState)
-
-@property (nonatomic, assign) HTableState tableState; //set table view different state
-
+//tableView分体式设计所表示的状态
+@property (nonatomic, assign) HTableState tableState;
+//向某个状态或当前状态添加一个值
 - (void)setObject:(id)anObject forKey:(NSString *)aKey;
 - (void)setObject:(id)anObject forKey:(NSString *)aKey state:(HTableState)tableState;
-
+//获取某个状态或当前状态的一个值
 - (nullable id)objectForKey:(NSString *)aKey;
 - (nullable id)objectForKey:(NSString *)aKey state:(HTableState)tableState;
-
+//删除某个状态或当前状态下的一个值
 - (void)removeObjectForKey:(NSString *)aKey;
 - (void)removeObjectForKey:(NSString *)aKey state:(HTableState)tableState;
-
+//删除某个状态或当前状态的值
 - (void)removeStateObject;
 - (void)removeObjectForState:(HTableState)tableState;
-
+//删除所有状态的值
 - (void)clearTableState;
 @end
 
