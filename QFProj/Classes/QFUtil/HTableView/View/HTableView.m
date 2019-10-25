@@ -19,7 +19,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 #define KTableExaDesignKey  @"tableExa"
 
 @interface HTableAppearance ()
-@property (nonatomic) NSHashTable *hashTable;
+@property (nonatomic) NSHashTable *hashTables;
 @end
 
 @implementation HTableAppearance
@@ -31,15 +31,15 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     });
     return sharedInstance;
 }
-- (void)addObject:(id)anObject {
-    if (!self.hashTable) {
-        self.hashTable = [NSHashTable weakObjectsHashTable];
+- (void)addTable:(id)anTable {
+    if (!self.hashTables) {
+        self.hashTables = [NSHashTable weakObjectsHashTable];
     }
-    [self.hashTable addObject:anObject];
+    [self.hashTables addObject:anTable];
 }
-- (void)enumerateOperation:(void (^)(void))completion {
+- (void)enumerateTables:(void (^)(void))completion {
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSArray *allObjects = [[self.hashTable objectEnumerator] allObjects];
+        NSArray *allObjects = [[self.hashTables objectEnumerator] allObjects];
         //倒序执行
         for (NSUInteger i=allObjects.count-1; i>=0; i--) {
             HTableView *table = allObjects[i];
@@ -103,7 +103,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 }
 - (void)setup {
     //保存tableView用于全局刷新
-    [[HTableAppearance appearance] addObject:self];
+    [[HTableAppearance appearance] addTable:self];
     
     self.alwaysBounceVertical = YES;
     self.backgroundColor = UIColor.clearColor;

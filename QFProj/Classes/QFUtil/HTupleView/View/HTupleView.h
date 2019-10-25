@@ -38,7 +38,7 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 //此类用于全工程刷新tupleView
 @interface HTupleAppearance : NSObject
 + (instancetype)appearance;
-- (void)enumerateOperation:(void (^)(void))completion;
+- (void)enumerateTuples:(void (^)(void))completion;
 @end
 
 @protocol HTupleViewDelegate <NSObject>

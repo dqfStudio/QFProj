@@ -19,7 +19,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 #define KTupleExaDesignKey  @"tupleExa"
 
 @interface HTupleAppearance ()
-@property (nonatomic) NSHashTable *hashTuple;
+@property (nonatomic) NSHashTable *hashTuples;
 @end
 
 @implementation HTupleAppearance
@@ -31,15 +31,15 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     });
     return sharedInstance;
 }
-- (void)addObject:(id)anObject {
-    if (!self.hashTuple) {
-        self.hashTuple = [NSHashTable weakObjectsHashTable];
+- (void)addTuple:(id)anTuple {
+    if (!self.hashTuples) {
+        self.hashTuples = [NSHashTable weakObjectsHashTable];
     }
-    [self.hashTuple addObject:anObject];
+    [self.hashTuples addObject:anTuple];
 }
-- (void)enumerateOperation:(void (^)(void))completion {
+- (void)enumerateTuples:(void (^)(void))completion {
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSArray *allObjects = [[self.hashTuple objectEnumerator] allObjects];
+        NSArray *allObjects = [[self.hashTuples objectEnumerator] allObjects];
         //倒序执行
         for (NSUInteger i=allObjects.count-1; i>=0; i--) {
             HTupleView *tuple = allObjects[i];
@@ -114,7 +114,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 }
 - (void)setup {
     //保存tupleView用于全局刷新
-    [[HTupleAppearance appearance] addObject:self];
+    [[HTupleAppearance appearance] addTuple:self];
     
     if (_flowLayout.scrollDirection == UICollectionViewScrollDirectionVertical) {
         [self verticalBounceEnabled];

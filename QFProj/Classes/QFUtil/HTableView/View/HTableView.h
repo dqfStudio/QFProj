@@ -32,7 +32,7 @@ typedef NSArray *_Nullable(^HTableSectionExclusiveBlock)(void);
 //此类用于全工程刷新tableView
 @interface HTableAppearance : NSObject
 + (instancetype)appearance;
-- (void)enumerateOperation:(void (^)(void))completion;
+- (void)enumerateTables:(void (^)(void))completion;
 @end
 
 @protocol HTableViewDelegate <NSObject>
