@@ -70,12 +70,12 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 
 @implementation HTupleView
 - (instancetype)initWithFrame:(CGRect)frame {
-    _flowLayout = ULBCollectionViewFlowLayout.new;
+    _flowLayout = HCollectionViewFlowLayout.new;
     _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     return [self initWithFrame:UIRectIntegral(frame) collectionViewLayout:_flowLayout];
 }
 - (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleDirection)direction {
-    _flowLayout = ULBCollectionViewFlowLayout.new;
+    _flowLayout = HCollectionViewFlowLayout.new;
     if (direction == HTupleDirectionHorizontal) {
         _flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     }else {
@@ -95,7 +95,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     return [[HTupleView alloc] initWithFrame:frame() exclusiveSections:sections()];
 }
 - (instancetype)initWithFrame:(CGRect)frame exclusiveSections:(NSArray <NSNumber *> *)sectionPaths {
-    _flowLayout = ULBCollectionViewFlowLayout.new;
+    _flowLayout = HCollectionViewFlowLayout.new;
     _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     self = [super initWithFrame:UIRectIntegral(frame) collectionViewLayout:_flowLayout];
     if (self) {
@@ -447,7 +447,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     [self.allSectionInsets setObject:NSStringFromUIEdgeInsets(edgeInsets) forKey:@(section).stringValue];
     return items;
 }
-//layout == ULBCollectionViewFlowLayout
+//layout == HCollectionViewFlowLayout
 - (UIColor *)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout colorForSectionAtIndex:(NSInteger)section {
     NSString *prefix = [self prefixWithSection:section];
     SEL selector = @selector(tupleView:colorForSectionAtIndex:);

@@ -212,7 +212,7 @@
 		A265FF732269F70C0093C780 /* HVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A265FF712269F70C0093C780 /* HVersionManager.m */; };
 		A26CF7BF2302747C00D73ECD /* NSNull+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A26CF7BE2302747B00D73ECD /* NSNull+HSafeUtil.m */; };
 		A273940B22A7FF44009676C1 /* HTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A273940322A7FF44009676C1 /* HTableView.m */; };
-		A28EF2E821D86DD8002F92ED /* ULBCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */; };
+		A28EF2E821D86DD8002F92ED /* HCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */; };
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
 		A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */; };
 		A28EF38321D8EC2A002F92ED /* HResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF36C21D8EC2A002F92ED /* HResultView.m */; };
@@ -715,8 +715,8 @@
 		A273940322A7FF44009676C1 /* HTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableView.m; sourceTree = "<group>"; };
 		A273940522A7FF44009676C1 /* HTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableView.h; sourceTree = "<group>"; };
 		A2853CF32331D4C3005632BB /* HGeometry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HGeometry.h; sourceTree = "<group>"; };
-		A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULBCollectionViewFlowLayout.m; sourceTree = "<group>"; };
-		A28EF2E721D86DD8002F92ED /* ULBCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ULBCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		A28EF2E721D86DD8002F92ED /* HCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		A28EF2EA21D86E43002F92ED /* UILabel+HAttributeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeText.h"; sourceTree = "<group>"; };
 		A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+HAttributeText.m"; sourceTree = "<group>"; };
 		A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YPTabBar+HSubView.m"; sourceTree = "<group>"; };
@@ -1545,8 +1545,8 @@
 				15C5736720B3DD7B0070327C /* HTupleView.m */,
 				15C5736220B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.h */,
 				15C5736520B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.m */,
-				A28EF2E721D86DD8002F92ED /* ULBCollectionViewFlowLayout.h */,
-				A28EF2E621D86DD8002F92ED /* ULBCollectionViewFlowLayout.m */,
+				A28EF2E721D86DD8002F92ED /* HCollectionViewFlowLayout.h */,
+				A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2625,7 +2625,7 @@
 				15B4DDF72092F96C00773E04 /* UIDevice+HUtil.m in Sources */,
 				A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */,
 				A24B6577225EE88600B257BB /* HWebviewVC2.m in Sources */,
-				A28EF2E821D86DD8002F92ED /* ULBCollectionViewFlowLayout.m in Sources */,
+				A28EF2E821D86DD8002F92ED /* HCollectionViewFlowLayout.m in Sources */,
 				A2E8F55322D73E4B00E7C9F2 /* HRequest.m in Sources */,
 				A2A8EBB822E1FDEE0049C51B /* WKWebViewJavascriptBridge.m in Sources */,
 				A24B657E225F768000B257BB /* HWebviewVC.m in Sources */,

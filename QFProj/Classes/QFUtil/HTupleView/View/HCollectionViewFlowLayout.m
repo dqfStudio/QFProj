@@ -1,66 +1,55 @@
 //
-//  ULBCollectionViewFlowLayout.m
-//  uliaobao
+//  HCollectionViewFlowLayout.m
+//  QFProj
 //
-//  Created by FishYu on 16/8/24.
-//  Copyright © 2016年 CGC. All rights reserved.
+//  Created by dqf on 2018/5/19.
+//  Copyright © 2018年 dqfStudio. All rights reserved.
 //
 
-#import "ULBCollectionViewFlowLayout.h"
+#import "HCollectionViewFlowLayout.h"
 
 
-static NSString *const ULBCollectionViewSectionColor = @"com.ulb.ULBCollectionElementKindSectionColor";
+static NSString *const HCollectionViewSectionColor = @"com.dqf.HCollectionElementKindSectionColor";
 
 
-@interface ULBCollectionViewLayoutAttributes : UICollectionViewLayoutAttributes
-// 背景色
-@property (nonatomic, strong) UIColor *backgroundColor;
-
+@interface HCollectionViewLayoutAttributes : UICollectionViewLayoutAttributes
+@property (nonatomic) UIColor *backgroundColor; //背景色
 @end
-
-@implementation ULBCollectionViewLayoutAttributes
-
-@end
-
-@interface ULBCollectionReusableView : UICollectionReusableView
-
+@implementation HCollectionViewLayoutAttributes
 @end
 
 
-@implementation ULBCollectionReusableView
-
+@interface HCollectionReusableView : UICollectionReusableView
+@end
+@implementation HCollectionReusableView
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes{
     [super applyLayoutAttributes:layoutAttributes];
-    ULBCollectionViewLayoutAttributes *attr = (ULBCollectionViewLayoutAttributes *)layoutAttributes;
+    HCollectionViewLayoutAttributes *attr = (HCollectionViewLayoutAttributes *)layoutAttributes;
     self.backgroundColor = attr.backgroundColor;
 }
-
 @end
 
 
-
-@interface ULBCollectionViewFlowLayout ()
-
-@property (nonatomic, strong) UIColor *sectonColor;
-@property (nonatomic, strong) NSMutableArray<UICollectionViewLayoutAttributes *> *decorationViewAttrs;
-
+@interface HCollectionViewFlowLayout ()
+@property (nonatomic) UIColor *sectonColor;
+@property (nonatomic) NSMutableArray<UICollectionViewLayoutAttributes *> *decorationViewAttrs;
 @end
 
 
-@implementation ULBCollectionViewFlowLayout
+@implementation HCollectionViewFlowLayout
 
 - (void)prepareLayout {
     [super prepareLayout];
     
     NSInteger sections = [self.collectionView numberOfSections];
-    //id<ULBCollectionViewDelegateFlowLayout> delegate  = self.collectionView.delegate;
-    id<ULBCollectionViewDelegateFlowLayout> delegate  = (id)self.collectionView.delegate;
+    //id<HCollectionViewDelegateFlowLayout> delegate  = self.collectionView.delegate;
+    id<HCollectionViewDelegateFlowLayout> delegate  = (id)self.collectionView.delegate;
     if (![delegate respondsToSelector:@selector(collectionView:layout:colorForSectionAtIndex:)]) {
         return;
     }
     
     //1.初始化
-    [self registerClass:[ULBCollectionReusableView class] forDecorationViewOfKind:ULBCollectionViewSectionColor];
+    [self registerClass:[HCollectionReusableView class] forDecorationViewOfKind:HCollectionViewSectionColor];
     [self.decorationViewAttrs removeAllObjects];
     
     for (NSInteger section = 0; section < sections; section++) {
@@ -90,7 +79,7 @@ static NSString *const ULBCollectionViewSectionColor = @"com.ulb.ULBCollectionEl
             }
             
             //2. 定义
-            ULBCollectionViewLayoutAttributes *attr = [ULBCollectionViewLayoutAttributes layoutAttributesForDecorationViewOfKind:ULBCollectionViewSectionColor withIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
+            HCollectionViewLayoutAttributes *attr = [HCollectionViewLayoutAttributes layoutAttributesForDecorationViewOfKind:HCollectionViewSectionColor withIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
             attr.frame = sectionFrame;
             attr.zIndex = -1;
             attr.backgroundColor = [delegate collectionView:self.collectionView layout:self colorForSectionAtIndex:section];
@@ -170,7 +159,6 @@ static NSString *const ULBCollectionViewSectionColor = @"com.ulb.ULBCollectionEl
 //    }
 //    return attributes;
 //}
-
 
 - (NSMutableArray<UICollectionViewLayoutAttributes *> *)decorationViewAttrs {
     if (!_decorationViewAttrs) {

@@ -13,7 +13,7 @@
 #import "NSIndexPath+HUtil.h"
 #import "NSObject+HSelector.h"
 #import "UIScrollView+HEmptyDataSet.h"
-#import "ULBCollectionViewFlowLayout.h"
+#import "HCollectionViewFlowLayout.h"
 
 typedef NS_OPTIONS(NSUInteger, HTupleDirection) {
     HTupleDirectionVertical = 0,
@@ -45,7 +45,7 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 @optional
 - (NSInteger)numberOfSectionsInTupleView:(HTupleView *)tupleView;
 - (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section;
-//layout == ULBCollectionViewFlowLayout
+//layout == HCollectionViewFlowLayout
 - (UIColor *)tupleView:(HTupleView *)tupleView colorForSectionAtIndex:(NSInteger)section;
 
 - (CGSize)tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section;
@@ -66,7 +66,7 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 - (void)tupleView:(HTupleView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
-@interface HTupleView : UICollectionView <HTupleViewDelegate, ULBCollectionViewDelegateFlowLayout>
+@interface HTupleView : UICollectionView <HTupleViewDelegate, HCollectionViewDelegateFlowLayout>
 @property (nonatomic, weak, nullable) id <HTupleViewDelegate> tupleDelegate;
 
 @property (nonatomic, assign) NSUInteger pageNo;    // page number, default 1
@@ -84,7 +84,7 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 //禁止调用初始化话方法init和new
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
-//默认layout为ULBCollectionViewFlowLayout
+//默认layout为HCollectionViewFlowLayout
 - (instancetype)initWithFrame:(CGRect)frame; //默认为垂直滚动方向
 - (instancetype)initWithFrame:(CGRect)frame scrollDirection:(HTupleDirection)direction;
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout;
