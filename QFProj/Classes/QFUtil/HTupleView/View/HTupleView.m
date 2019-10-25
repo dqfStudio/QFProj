@@ -19,7 +19,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 #define KTupleExaDesignKey  @"tupleExa"
 
 @interface HTupleAppearance ()
-@property (nonatomic) NSHashTable *hashTable;
+@property (nonatomic) NSHashTable *hashTuple;
 @end
 
 @implementation HTupleAppearance
@@ -32,14 +32,14 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     return sharedInstance;
 }
 - (void)addObject:(id)anObject {
-    if (!self.hashTable) {
-        self.hashTable = [NSHashTable weakObjectsHashTable];
+    if (!self.hashTuple) {
+        self.hashTuple = [NSHashTable weakObjectsHashTable];
     }
-    [self.hashTable addObject:anObject];
+    [self.hashTuple addObject:anObject];
 }
 - (void)enumerateOperation:(void (^)(void))completion {
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSArray *allObjects = [[self.hashTable objectEnumerator] allObjects];
+        NSArray *allObjects = [[self.hashTuple objectEnumerator] allObjects];
         //倒序执行
         for (NSUInteger i=allObjects.count-1; i>=0; i--) {
             HTupleView *tuple = allObjects[i];
