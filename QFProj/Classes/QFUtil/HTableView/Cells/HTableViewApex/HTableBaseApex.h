@@ -17,7 +17,6 @@ if(!CGRectEqualToRect(v.frame, [self layoutViewBounds])) {\
 @class HTableView, HTableBaseApex;
 
 typedef void(^HTableApexBlock)(NSIndexPath *idxPath);
-typedef void(^HTableApexSkinBlock)(HTableBaseApex *cell, HTableView *table);
 
 @interface HTableBaseApex : UITableViewHeaderFooterView
 //cell所在的table view
@@ -32,8 +31,6 @@ typedef void(^HTableApexSkinBlock)(HTableBaseApex *cell, HTableView *table);
 @property (nonatomic) UIView *layoutView;
 //cell点击block，用户用户点击事件
 @property (nonatomic, copy) HTableApexBlock cellBlock;
-//换肤block
-@property (nonatomic, copy) HTableApexSkinBlock skinBlock;
 //信号block
 @property (nonatomic, copy) HTableCellSignalBlock signalBlock;
 //cell间隔线的边距、颜色和是否显示间隔线

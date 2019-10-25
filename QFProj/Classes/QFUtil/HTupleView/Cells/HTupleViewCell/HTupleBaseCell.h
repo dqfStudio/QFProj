@@ -23,7 +23,6 @@ if(!CGRectEqualToRect(v.frame, [self layoutViewBounds])) {\
 @class HTupleView, HTupleBaseCell;
 
 typedef void(^HTupleCellBlock)(NSIndexPath *idxPath);
-typedef void(^HTupleCellSkinBlock)(HTupleBaseCell *cell, HTupleView *tuple);
 
 @interface HTupleBaseCell : UICollectionViewCell
 //cell所在的tuple view
@@ -36,8 +35,6 @@ typedef void(^HTupleCellSkinBlock)(HTupleBaseCell *cell, HTupleView *tuple);
 @property (nonatomic) UIView *layoutView;
 //cell点击block，用户用户点击事件
 @property (nonatomic, copy) HTupleCellBlock cellBlock;
-//换肤block
-@property (nonatomic, copy) HTupleCellSkinBlock skinBlock;
 //信号block
 @property (nonatomic, copy) HTupleCellSignalBlock signalBlock;
 //cell间隔线的边距、颜色和是否显示间隔线
