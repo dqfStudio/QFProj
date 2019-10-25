@@ -150,9 +150,9 @@
             }
                 break;
             case UITableViewCellAccessoryDisclosureIndicator: {
-                UIImageView *accImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 7, 13)];
-                accImgView.image = [UIImage imageNamed:@"icon_tuple_arrow_right"];
-                self.accessoryView = accImgView;
+                UIImageView *arrowView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 7, 13)];
+                arrowView.image = [UIImage imageNamed:@"icon_tuple_arrow_right"];
+                self.accessoryView = arrowView;
             }
                 break;
                 
