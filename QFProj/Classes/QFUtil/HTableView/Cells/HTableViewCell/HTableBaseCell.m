@@ -142,21 +142,25 @@
 
 @implementation HTableBaseCell (HAccessory)
 - (void)setAccessoryType:(UITableViewCellAccessoryType)accessoryType {
-    switch (accessoryType) {
-        case UITableViewCellAccessoryNone: {
-            self.accessoryView = nil;
+#ifdef __IPHONE_13_0
+    if (@available(iOS 13.0, *)) {
+        switch (accessoryType) {
+            case UITableViewCellAccessoryNone: {
+                self.accessoryView = nil;
+            }
+                break;
+            case UITableViewCellAccessoryDisclosureIndicator: {
+                UIImageView *accImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 7, 13)];
+                accImgView.image = [UIImage imageNamed:@"icon_tuple_arrow_right"];
+                self.accessoryView = accImgView;
+            }
+                break;
+                
+            default:
+                break;
         }
-            break;
-        case UITableViewCellAccessoryDisclosureIndicator: {
-            UIImageView *accImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 7, 13)];
-            accImgView.image = [UIImage imageNamed:@"icon_tuple_arrow_right"];
-            self.accessoryView = accImgView;
-        }
-            break;
-            
-        default:
-            break;
     }
+#endif
     [super setAccessoryType:accessoryType];
 }
 @end
