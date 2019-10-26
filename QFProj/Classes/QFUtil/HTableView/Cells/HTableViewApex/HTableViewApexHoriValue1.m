@@ -90,43 +90,42 @@
 - (HWebImageView *)accessoryView {
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
+        [_accessoryView setImageWithName:@"icon_tuple_arrow_right"];
         [self.layoutView addSubview:_accessoryView];
     }
     return _accessoryView;
 }
 - (void)updateSubViews {
     CGRect frame = [self layoutViewBounds];
-    
-    if (_imageView) {
-        CGRect tmpFrame = frame;
-        tmpFrame.size.width = CGRectGetHeight(tmpFrame);
-        tmpFrame.origin.x += self.imageViewInsets.left;
-        tmpFrame.origin.y += self.imageViewInsets.top;
-        tmpFrame.size.width -= self.imageViewInsets.left+self.imageViewInsets.right;
-        tmpFrame.size.height -= self.imageViewInsets.top+self.imageViewInsets.bottom;
-        [_imageView setFrame:tmpFrame];
-    }
-    
+    CGRect tmpFrame1 = frame;
     CGRect tmpFrame2 = CGRectZero;
-    if (self.showAccessoryArrow) {
-        tmpFrame2 = CGRectMake(0, 0, 7, 13);
-        tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
-        tmpFrame2.origin.y = CGRectGetHeight(frame)/2-CGRectGetHeight(tmpFrame2)/2;
-        [self.accessoryView setFrame:tmpFrame2];
-        [self.accessoryView setImageWithName:@"icon_tuple_arrow_right"];
-    }else {
-        tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
-        tmpFrame2.origin.y = CGRectGetHeight(frame)/2-CGRectGetHeight(tmpFrame2)/2;
+    CGRect tmpFrame3 = frame;
+    CGRect tmpFrame4 = frame;
+    
+    //计算imageView的坐标
+    if (_imageView) {
+        tmpFrame1.size.width = CGRectGetHeight(tmpFrame1); //默认宽高相等
+        tmpFrame1.origin.x += self.imageViewInsets.left;
+        tmpFrame1.origin.y += self.imageViewInsets.top;
+        tmpFrame1.size.width -= self.imageViewInsets.left+self.imageViewInsets.right;
+        tmpFrame1.size.height -= self.imageViewInsets.top+self.imageViewInsets.bottom;
+        [_imageView setFrame:tmpFrame1];
+        //计算tmpFrame4的x坐标
+        tmpFrame4.origin.x = CGRectGetMaxX(_imageView.frame)+self.centralInsets.left;
     }
     
+    //计算accessoryView的坐标
+    if (self.showAccessoryArrow) tmpFrame2 = CGRectMake(0, 0, 7, 13);
+    tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
+    tmpFrame2.origin.y = CGRectGetHeight(frame)/2-CGRectGetHeight(tmpFrame2)/2;
+    if (self.showAccessoryArrow) [self.accessoryView setFrame:tmpFrame2];
+    
+    //计算detailView的坐标
     if (_detailView) {
-        CGRect tmpFrame3 = frame;
-        tmpFrame3.size.width = CGRectGetHeight(tmpFrame3);
-        if (self.showAccessoryArrow) {
-            tmpFrame3.origin.x = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame3)-KArrowSpace;
-        }else {
-            tmpFrame3.origin.x = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame3);
-        }
+        tmpFrame3.size.width = CGRectGetHeight(tmpFrame3); //默认宽高相等
+        tmpFrame3.origin.x = CGRectGetMinX(tmpFrame2)-CGRectGetWidth(tmpFrame3);
+        if (self.showAccessoryArrow) tmpFrame3.origin.x -= KArrowSpace;
+        
         tmpFrame2.origin.x += self.detailViewInsets.left;
         tmpFrame2.origin.y += self.detailViewInsets.top;
         tmpFrame2.size.width -= self.detailViewInsets.left+self.detailViewInsets.right;
@@ -134,31 +133,19 @@
         [_detailView setFrame:tmpFrame3];
     }
     
-    CGRect tmpFrame4 = frame;
-    if (_imageView) {
-        tmpFrame4.origin.x = CGRectGetMaxX(_imageView.frame)+self.centralInsets.left;
-    }
+    //计算centralLayoutView的宽度
     if (_detailView) {
-        if (_imageView) {
-            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-CGRectGetMaxX(_imageView.frame)-self.centralInsets.left-self.centralInsets.right;
-        }else {
-            tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-self.centralInsets.right;
-        }
+        tmpFrame4.size.width = CGRectGetMinX(_detailView.frame)-tmpFrame4.origin.x-self.centralInsets.right;
     }else if (_accessoryView) {
-        if (_imageView) {
-            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-CGRectGetMaxX(_imageView.frame)-KArrowSpace-self.centralInsets.left;
-        }else {
-            tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-KArrowSpace;
-        }
+        tmpFrame4.size.width = CGRectGetMinX(_accessoryView.frame)-tmpFrame4.origin.x-KArrowSpace;
     }else {
-        if (_imageView) {
-            tmpFrame4.size.width = CGRectGetWidth(frame)-CGRectGetMaxX(_imageView.frame)-self.centralInsets.left;
-        }else {
-            tmpFrame4.size.width = CGRectGetWidth(frame);
-        }
+        tmpFrame4.size.width = CGRectGetWidth(frame)-tmpFrame4.origin.x;
     }
+    
+    //计算centralLayoutView的坐标
     [self.centralLayoutView setFrame:tmpFrame4];
     
+    //计算label和detailLabel的坐标
     if (self.label.text.length > 0 && self.detailLabel.text.length > 0) {
         NSInteger wordWidth = 20; //默认为20
         wordWidth = self.detailLabel.intrinsicContentSize.width/self.detailLabel.text.length;
