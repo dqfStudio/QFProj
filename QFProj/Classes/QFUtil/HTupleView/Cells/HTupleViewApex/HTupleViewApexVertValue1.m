@@ -89,6 +89,7 @@
 - (void)updateSubViews {
     CGRect frame = [self layoutViewBounds];
     
+    //计算accessoryLabel的坐标
     if (_accessoryLabel) {
         CGRect tmpFrame = frame;
         tmpFrame.size.height = self.accessoryHeight;
@@ -97,6 +98,7 @@
         [_accessoryLabel setFrame:tmpFrame];
     }
     
+    //计算imageView的坐标
     if (_imageView) {
         CGRect tmpFrame = frame;
         tmpFrame.size.height -= self.labelHeight+self.detailHeight+self.accessoryHeight;
@@ -106,6 +108,7 @@
         tmpFrame.size.height -= self.imageViewInsets.top+self.imageViewInsets.bottom;
         [_imageView setFrame:tmpFrame];
         
+        //计算topLabel的坐标
         if (self.topHeight > 0) {
             CGRect tmpFrame = frame;
             tmpFrame.size.height = self.topHeight;
@@ -113,6 +116,7 @@
             [self.topLabel setFrame:self.topView.bounds];
         }
         
+        //计算bottomLabel的坐标
         if (self.bottomHeight > 0) {
             CGRect tmpFrame = frame;
             tmpFrame.origin.y = _imageView.frame.size.height-self.bottomHeight;
@@ -122,6 +126,7 @@
         }
     }
     
+    //计算label的坐标
     if (_label) {
         CGRect tmpFrame = frame;
         tmpFrame.size.height = self.labelHeight;
@@ -132,6 +137,7 @@
         [_label setFrame:tmpFrame];
     }
     
+    //计算detailLabel的坐标
     if (_detailLabel) {
         CGRect tmpFrame = frame;
         tmpFrame.size.height = self.detailHeight;
