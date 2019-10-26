@@ -15,8 +15,9 @@
 //#import "UIButton+HUtil.h"
 
 #define HLayoutTupleApex(v) \
-if(!CGRectEqualToRect(v.frame, [self layoutViewBounds])) {\
-    [v setFrame:[self layoutViewBounds]];\
+CGRect frame = self.layoutViewBounds;\
+if(!CGRectEqualToRect(v.frame, frame)) {\
+    [v setFrame:frame];\
 }
 
 @class HTupleView, HTupleBaseApex;

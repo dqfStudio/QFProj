@@ -11,8 +11,9 @@
 #import "HGeometry.h"
 
 #define HLayoutTableCell(v) \
-if(!CGRectEqualToRect(v.frame, [self layoutViewBounds])) {\
-    [v setFrame:[self layoutViewBounds]];\
+CGRect frame = self.layoutViewBounds;\
+if(!CGRectEqualToRect(v.frame, frame)) {\
+    [v setFrame:frame];\
 }
 
 @class HTableView, HTableBaseCell;
