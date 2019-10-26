@@ -529,6 +529,7 @@
 - (HWebImageView *)accessoryView {
     if (!_accessoryView) {
         _accessoryView = [HWebImageView new];
+        [_accessoryView setImageWithName:@"icon_tuple_arrow_right"];
         [self.layoutView addSubview:_accessoryView];
     }
     return _accessoryView;
@@ -556,10 +557,7 @@
     if (self.showAccessoryArrow) tmpFrame2 = CGRectMake(0, 0, 7, 13);
     tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
     tmpFrame2.origin.y = CGRectGetHeight(frame)/2-CGRectGetHeight(tmpFrame2)/2;
-    if (self.showAccessoryArrow) {
-        [self.accessoryView setFrame:tmpFrame2];
-        [self.accessoryView setImageWithName:@"icon_tuple_arrow_right"];
-    }
+    if (self.showAccessoryArrow) [self.accessoryView setFrame:tmpFrame2];
     
     //计算detailView的坐标
     if (_detailView) {
