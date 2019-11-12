@@ -593,32 +593,28 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 }
 
 - (void)signalToTupleView:(HTupleSignal *)signal {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.signalBlock) {
+    if (self.signalBlock) {
+        dispatch_async(dispatch_get_main_queue(), ^{
             self.signalBlock(self, signal);
-        }
-    });
+        });
+    }
 }
 - (void)signalToAllItems:(HTupleSignal *)signal {
-    dispatch_async(dispatch_queue_create(0, 0), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
         for (HTupleBaseCell *cell in self.allReuseCells) {
             if (cell.signalBlock) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    cell.signalBlock(cell, signal);
-                });
+                cell.signalBlock(cell, signal);
             }
         }
     });
 }
 - (void)signal:(HTupleSignal *)signal itemSection:(NSInteger)section {
-    dispatch_async(dispatch_queue_create(0, 0), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
         NSInteger items = [self numberOfItemsInSection:section];
         for (int i=0; i<items; i++) {
             HTupleBaseCell *cell = [self.allReuseCells objectForKey:NSIndexPath.getStringValue(i, section)];
             if (cell.signalBlock) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    cell.signalBlock(cell, signal);
-                });
+                cell.signalBlock(cell, signal);
             }
         }
     });
@@ -632,14 +628,12 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     }
 }
 - (void)signalToAllHeader:(HTupleSignal *)signal {
-    dispatch_async(dispatch_queue_create(0, 0), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
         NSInteger sections = [self numberOfSections];
         for (int i=0; i<sections; i++) {
             HTupleBaseApex *header = [self.allReuseHeaders objectForKey:NSIndexPath.getStringValue(0, i)];
             if (header.signalBlock) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    header.signalBlock(header, signal);
-                });
+                header.signalBlock(header, signal);
             }
         }
     });
@@ -653,14 +647,12 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     }
 }
 - (void)signalToAllFooter:(HTupleSignal *)signal {
-    dispatch_async(dispatch_queue_create(0, 0), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
         NSInteger sections = [self numberOfSections];
         for (int i=0; i<sections; i++) {
             HTupleBaseApex *footer = [self.allReuseFooters objectForKey:NSIndexPath.getStringValue(0, i)];
             if (footer.signalBlock) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    footer.signalBlock(footer, signal);
-                });
+                footer.signalBlock(footer, signal);
             }
         }
     });
