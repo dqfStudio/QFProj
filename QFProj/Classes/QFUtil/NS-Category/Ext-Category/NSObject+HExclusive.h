@@ -11,12 +11,10 @@
 
 @class NSMutableSet;
 
-typedef void(^HExclusive)(void);
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (HExclusive)
-- (void)exclusive:(NSString * _Nonnull)exc block:(void (^)(HExclusive stop))block;
+- (void)exclusive:(NSString * _Nonnull)exc delay:(NSTimeInterval)interval block:(void (^)(void))block;
 - (void)removeExclusive:(NSString * _Nonnull)exc;
 - (void)synchronized:(void (^)(void))sync;
 @end

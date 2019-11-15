@@ -25,11 +25,8 @@ _Pragma("clang diagnostic pop")
     }
 }
 - (void)logMark {
-    [self exclusive:@"logMarkExclusive" block:^(HExclusive stop) {
+    [self exclusive:@"logMarkExclusive" delay:1 block:^{
         [self logAction];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            stop();
-        });
     }];
 }
 - (void)logAction {
