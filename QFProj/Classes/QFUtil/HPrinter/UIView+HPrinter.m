@@ -75,7 +75,7 @@ _Pragma("clang diagnostic pop")
     }
     else if ([self isKindOfClass:UIImageView.class]) {
         UIImageView *imageView = (UIImageView *)self;
-        if (imageView.image.accessibilityIdentifier) {
+        if (imageView.image.accessibilityIdentifier.length > 0) {
             printf("HPrinting-->imageView.image.name:%s\n", imageView.image.accessibilityIdentifier.UTF8String);
         }
         return;
