@@ -255,146 +255,137 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 }
 #pragma mark - register class
 - (id)dequeueReusableHeaderWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx idxPath:(NSIndexPath *)idxPath {
-    id (^HCellForHeaderBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
-        UICollectionReusableView *cell = nil;
-        NSString *identifier = NSStringFromClass(cls);
-        identifier = [identifier stringByAppendingString:self.addressValue];
-        identifier = [identifier stringByAppendingString:@"HeaderCell"];
-        if (self.tupleStyle == HTupleStyleSplit && ![self.sectionPaths containsObject:@(idxPath.section)]) {
-            identifier = [identifier stringByAppendingFormat:@"%@", @(self.tupleState)];
-        }
-        if (pre) identifier = [identifier stringByAppendingString:pre];
-        if (idx) identifier = [identifier stringByAppendingString:idxPath.getStringValue];
-        if (![self.allReuseIdentifiers containsObject:identifier]) {
-            [self.allReuseIdentifiers addObject:identifier];
-            [self registerClass:cls forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier];
-            cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:idxPath];
-            HTupleBaseApex *tmpCell = (HTupleBaseApex *)cell;
-            tmpCell.tuple = self;
-            tmpCell.indexPath = idxPath;
-            tmpCell.isHeader = YES;
-            //init method
-            if (iblk) {
-                HTupleCellInitBlock initHeaderBlock = iblk;
-                if (initHeaderBlock) {
-                    initHeaderBlock(cell);
-                }
+    UICollectionReusableView *cell = nil;
+    NSString *identifier = NSStringFromClass(cls);
+    identifier = [identifier stringByAppendingString:self.addressValue];
+    identifier = [identifier stringByAppendingString:@"HeaderCell"];
+    if (self.tupleStyle == HTupleStyleSplit && ![self.sectionPaths containsObject:@(idxPath.section)]) {
+        identifier = [identifier stringByAppendingFormat:@"%@", @(self.tupleState)];
+    }
+    if (pre) identifier = [identifier stringByAppendingString:pre];
+    if (idx) identifier = [identifier stringByAppendingString:idxPath.getStringValue];
+    if (![self.allReuseIdentifiers containsObject:identifier]) {
+        [self.allReuseIdentifiers addObject:identifier];
+        [self registerClass:cls forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier];
+        cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:idxPath];
+        HTupleBaseApex *tmpCell = (HTupleBaseApex *)cell;
+        tmpCell.tuple = self;
+        tmpCell.indexPath = idxPath;
+        tmpCell.isHeader = YES;
+        //init method
+        if (iblk) {
+            HTupleCellInitBlock initHeaderBlock = iblk;
+            if (initHeaderBlock) {
+                initHeaderBlock(cell);
             }
-        }else {
-            cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:idxPath];
         }
-        //保存cell
-        [self.allReuseHeaders setObject:cell forKey:idxPath.getStringValue];
-        //调用代理方法
-        UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-        NSString *prefix = [self prefixWithSection:idxPath.section];
-        SEL selector = @selector(tupleView:edgeInsetsForHeaderInSection:);
-        if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
-            HTupleView *copyTupleView = self;
-            NSUInteger section = idxPath.section;
-            edgeInsets = [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&copyTupleView, &section] UIEdgeInsetsValue];
-        }
-        //设置属性
-        if ([cell respondsToSelector:@selector(edgeInsets)]) {
-            [(HTupleBaseApex *)cell setEdgeInsets:edgeInsets];
-        }
-        return cell;
-    };
-    return HCellForHeaderBlock(iblk, cls, pre, idx);
+    }else {
+        cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:idxPath];
+    }
+    //保存cell
+    [self.allReuseHeaders setObject:cell forKey:idxPath.getStringValue];
+    //调用代理方法
+    UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
+    NSString *prefix = [self prefixWithSection:idxPath.section];
+    SEL selector = @selector(tupleView:edgeInsetsForHeaderInSection:);
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
+        HTupleView *copyTupleView = self;
+        NSUInteger section = idxPath.section;
+        edgeInsets = [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&copyTupleView, &section] UIEdgeInsetsValue];
+    }
+    //设置属性
+    if ([cell respondsToSelector:@selector(edgeInsets)]) {
+        [(HTupleBaseApex *)cell setEdgeInsets:edgeInsets];
+    }
+    return cell;
 }
 - (id)dequeueReusableFooterWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx idxPath:(NSIndexPath *)idxPath {
-    id (^HCellForFooterBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
-        UICollectionReusableView *cell = nil;
-        NSString *identifier = NSStringFromClass(cls);
-        identifier = [identifier stringByAppendingString:self.addressValue];
-        identifier = [identifier stringByAppendingString:@"FooterCell"];
-        if (self.tupleStyle == HTupleStyleSplit && ![self.sectionPaths containsObject:@(idxPath.section)]) {
-            identifier = [identifier stringByAppendingFormat:@"%@", @(self.tupleState)];
-        }
-        if (pre) identifier = [identifier stringByAppendingString:pre];
-        if (idx) identifier = [identifier stringByAppendingString:idxPath.getStringValue];
-        if (![self.allReuseIdentifiers containsObject:identifier]) {
-            [self.allReuseIdentifiers addObject:identifier];
-            [self registerClass:cls forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier];
-            cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:idxPath];
-            HTupleBaseApex *tmpCell = (HTupleBaseApex *)cell;
-            tmpCell.tuple = self;
-            tmpCell.indexPath = idxPath;
-            tmpCell.isHeader = NO;
-            //init method
-            if (iblk) {
-                HTupleCellInitBlock initFooterBlock = iblk;
-                if (initFooterBlock) {
-                    initFooterBlock(cell);
-                }
+    UICollectionReusableView *cell = nil;
+    NSString *identifier = NSStringFromClass(cls);
+    identifier = [identifier stringByAppendingString:self.addressValue];
+    identifier = [identifier stringByAppendingString:@"FooterCell"];
+    if (self.tupleStyle == HTupleStyleSplit && ![self.sectionPaths containsObject:@(idxPath.section)]) {
+        identifier = [identifier stringByAppendingFormat:@"%@", @(self.tupleState)];
+    }
+    if (pre) identifier = [identifier stringByAppendingString:pre];
+    if (idx) identifier = [identifier stringByAppendingString:idxPath.getStringValue];
+    if (![self.allReuseIdentifiers containsObject:identifier]) {
+        [self.allReuseIdentifiers addObject:identifier];
+        [self registerClass:cls forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier];
+        cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:idxPath];
+        HTupleBaseApex *tmpCell = (HTupleBaseApex *)cell;
+        tmpCell.tuple = self;
+        tmpCell.indexPath = idxPath;
+        tmpCell.isHeader = NO;
+        //init method
+        if (iblk) {
+            HTupleCellInitBlock initFooterBlock = iblk;
+            if (initFooterBlock) {
+                initFooterBlock(cell);
             }
-        }else {
-            cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:idxPath];
         }
-        //保存cell
-        [self.allReuseFooters setObject:cell forKey:idxPath.getStringValue];
-        //调用代理方法
-        UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-        NSString *prefix = [self prefixWithSection:idxPath.section];
-        SEL selector = @selector(tupleView:edgeInsetsForFooterInSection:);
-        if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
-            HTupleView *copyTupleView = self;
-            NSUInteger section = idxPath.section;
-            edgeInsets = [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&copyTupleView, &section] UIEdgeInsetsValue];
-        }
-        //设置属性
-        if ([cell respondsToSelector:@selector(edgeInsets)]) {
-            [(HTupleBaseApex *)cell setEdgeInsets:edgeInsets];
-        }
-        return cell;
-    };
-    return HCellForFooterBlock(iblk, cls, pre, idx);
+    }else {
+        cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:idxPath];
+    }
+    //保存cell
+    [self.allReuseFooters setObject:cell forKey:idxPath.getStringValue];
+    //调用代理方法
+    UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
+    NSString *prefix = [self prefixWithSection:idxPath.section];
+    SEL selector = @selector(tupleView:edgeInsetsForFooterInSection:);
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
+        HTupleView *copyTupleView = self;
+        NSUInteger section = idxPath.section;
+        edgeInsets = [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&copyTupleView, &section] UIEdgeInsetsValue];
+    }
+    //设置属性
+    if ([cell respondsToSelector:@selector(edgeInsets)]) {
+        [(HTupleBaseApex *)cell setEdgeInsets:edgeInsets];
+    }
+    return cell;
 }
 - (id)dequeueReusableCellWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx idxPath:(NSIndexPath *)idxPath {
-    id (^HCellForItemBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
-        UICollectionViewCell *cell = nil;
-        NSString *identifier = NSStringFromClass(cls);
-        identifier = [identifier stringByAppendingString:self.addressValue];
-        identifier = [identifier stringByAppendingString:@"ItemCell"];
-        if (self.tupleStyle == HTupleStyleSplit && ![self.sectionPaths containsObject:@(idxPath.section)]) {
-            identifier = [identifier stringByAppendingFormat:@"%@", @(self.tupleState)];
-        }
-        if (pre) identifier = [identifier stringByAppendingString:pre];
-        if (idx) identifier = [identifier stringByAppendingString:idxPath.getStringValue];
-        if (![self.allReuseIdentifiers containsObject:identifier]) {
-            [self.allReuseIdentifiers addObject:identifier];
-            [self registerClass:cls forCellWithReuseIdentifier:identifier];
-            cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:idxPath];
-            HTupleBaseCell *tmpCell = (HTupleBaseCell *)cell;
-            tmpCell.tuple = self;
-            tmpCell.indexPath = idxPath;
-            //init method
-            if (iblk) {
-                HTupleCellInitBlock initCellBlock = iblk;
-                if (initCellBlock) {
-                    initCellBlock(cell);
-                }
+    UICollectionViewCell *cell = nil;
+    NSString *identifier = NSStringFromClass(cls);
+    identifier = [identifier stringByAppendingString:self.addressValue];
+    identifier = [identifier stringByAppendingString:@"ItemCell"];
+    if (self.tupleStyle == HTupleStyleSplit && ![self.sectionPaths containsObject:@(idxPath.section)]) {
+        identifier = [identifier stringByAppendingFormat:@"%@", @(self.tupleState)];
+    }
+    if (pre) identifier = [identifier stringByAppendingString:pre];
+    if (idx) identifier = [identifier stringByAppendingString:idxPath.getStringValue];
+    if (![self.allReuseIdentifiers containsObject:identifier]) {
+        [self.allReuseIdentifiers addObject:identifier];
+        [self registerClass:cls forCellWithReuseIdentifier:identifier];
+        cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:idxPath];
+        HTupleBaseCell *tmpCell = (HTupleBaseCell *)cell;
+        tmpCell.tuple = self;
+        tmpCell.indexPath = idxPath;
+        //init method
+        if (iblk) {
+            HTupleCellInitBlock initCellBlock = iblk;
+            if (initCellBlock) {
+                initCellBlock(cell);
             }
-        }else {
-            cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:idxPath];
         }
-        //保存cell
-        [self.allReuseCells setObject:cell forKey:idxPath.getStringValue];
-        //调用代理方法
-        UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-        NSString *prefix = [self prefixWithSection:idxPath.section];
-        SEL selector = @selector(tupleView:edgeInsetsForItemAtIndexPath:);
-        if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
-            HTupleView *copyTupleView = self;
-            edgeInsets = [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&copyTupleView, &idxPath] UIEdgeInsetsValue];
-        }
-        //设置属性
-        if ([cell respondsToSelector:@selector(edgeInsets)]) {
-            [(HTupleBaseCell *)cell setEdgeInsets:edgeInsets];
-        }
-        return cell;
-    };
-    return HCellForItemBlock(iblk, cls, pre, idx);
+    }else {
+        cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:idxPath];
+    }
+    //保存cell
+    [self.allReuseCells setObject:cell forKey:idxPath.getStringValue];
+    //调用代理方法
+    UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
+    NSString *prefix = [self prefixWithSection:idxPath.section];
+    SEL selector = @selector(tupleView:edgeInsetsForItemAtIndexPath:);
+    if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
+        HTupleView *copyTupleView = self;
+        edgeInsets = [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&copyTupleView, &idxPath] UIEdgeInsetsValue];
+    }
+    //设置属性
+    if ([cell respondsToSelector:@selector(edgeInsets)]) {
+        [(HTupleBaseCell *)cell setEdgeInsets:edgeInsets];
+    }
+    return cell;
 }
 #pragma mark - UICollectionViewDatasource  & delegate
 - (NSString *)prefixWithSection:(NSInteger)section {
