@@ -498,7 +498,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     NSString *prefix = [self prefixWithSection:indexPath.section];
     SEL selector = @selector(tupleView:tupleItem:atIndexPath:);
     HTupleItem itemBlock = ^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-        return [self dequeueReusableCellWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
+        return [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
     };
     if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
         [(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&collectionView, &itemBlock, &indexPath];
@@ -518,7 +518,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         NSString *prefix = [self prefixWithSection:indexPath.section];
         SEL selector = @selector(tupleView:tupleHeader:inSection:);
         HTupleHeader headerBlock = ^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
+            return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
         };
         NSUInteger section = indexPath.section;
         if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
@@ -531,7 +531,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         NSString *prefix = [self prefixWithSection:indexPath.section];
         SEL selector = @selector(tupleView:tupleFooter:inSection:);
         HTupleFooter footerBlock = ^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-            return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:nil idx:idx idxPath:indexPath];
+            return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
         };
         NSUInteger section = indexPath.section;
         if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
