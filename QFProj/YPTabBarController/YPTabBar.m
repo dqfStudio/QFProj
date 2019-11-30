@@ -305,7 +305,9 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
         selectedItemIndex >= self.items.count ||
         self.items.count == 0) {
         if (selectedItemIndex == _selectedItemIndex) {
-            [self.delegate yp_tabBar:self reSelectedTabAtIndex:selectedItemIndex];
+            if (self.delegate && [self.delegate respondsToSelector:@selector(yp_tabBar:reSelectedTabAtIndex:)]) {
+                [self.delegate yp_tabBar:self reSelectedTabAtIndex:selectedItemIndex];
+            }
         }
         return;
     }
