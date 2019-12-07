@@ -262,144 +262,135 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 }
 #pragma mark - register class
 - (id)dequeueReusableHeaderWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx section:(NSInteger)section {
-    id (^HCellForHeaderBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
-        UITableViewHeaderFooterView *cell = nil;
-        NSString *identifier = NSStringFromClass(cls);
-        identifier = [identifier stringByAppendingString:self.addressValue];
-        identifier = [identifier stringByAppendingString:@"HeaderCell"];
-        if (self.tableStyle == HTableStyleSplit && ![self.sectionPaths containsObject:@(section)]) {
-            identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
-        }
-        if (pre) identifier = [identifier stringByAppendingString:pre];
-        if (idx) identifier = [identifier stringByAppendingString:@(section).stringValue];
-        if (![self.allReuseIdentifiers containsObject:identifier]) {
-            [self.allReuseIdentifiers addObject:identifier];
-            [self registerClass:cls forHeaderFooterViewReuseIdentifier:identifier];
-            cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
-            HTableBaseApex *tmpCell = (HTableBaseApex *)cell;
-            tmpCell.table = self;
-            tmpCell.section = section;
-            tmpCell.isHeader = YES;
-            //init method
-            if (iblk) {
-                HTableCellInitBlock initHeaderBlock = iblk;
-                if (initHeaderBlock) {
-                    initHeaderBlock(cell);
-                }
+    UITableViewHeaderFooterView *cell = nil;
+    NSString *identifier = NSStringFromClass(cls);
+    identifier = [identifier stringByAppendingString:self.addressValue];
+    identifier = [identifier stringByAppendingString:@"HeaderCell"];
+    if (self.tableStyle == HTableStyleSplit && ![self.sectionPaths containsObject:@(section)]) {
+        identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
+    }
+    if (pre) identifier = [identifier stringByAppendingString:pre];
+    if (idx) identifier = [identifier stringByAppendingString:@(section).stringValue];
+    if (![self.allReuseIdentifiers containsObject:identifier]) {
+        [self.allReuseIdentifiers addObject:identifier];
+        [self registerClass:cls forHeaderFooterViewReuseIdentifier:identifier];
+        cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+        HTableBaseApex *tmpCell = (HTableBaseApex *)cell;
+        tmpCell.table = self;
+        tmpCell.section = section;
+        tmpCell.isHeader = YES;
+        //init method
+        if (iblk) {
+            HTableCellInitBlock initHeaderBlock = iblk;
+            if (initHeaderBlock) {
+                initHeaderBlock(cell);
             }
-        }else {
-            cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
         }
-        //保存cell
-        [self.allReuseHeaders setObject:cell forKey:@(section).stringValue];
-        //调用代理方法
-        UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-        NSString *prefix = [self prefixWithSection:section];
-        SEL selector = @selector(tableView:edgeInsetsForHeaderInSection:);
-        if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
-            HTableView *copyTableView = self;
-            edgeInsets = [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&copyTableView, &section] UIEdgeInsetsValue];
-        }
-        //设置属性
-        if ([cell respondsToSelector:@selector(edgeInsets)]) {
-            [(HTableBaseApex *)cell setEdgeInsets:edgeInsets];
-        }
-        return cell;
-    };
-    return HCellForHeaderBlock(iblk, cls, pre, idx);
+    }else {
+        cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+    }
+    //保存cell
+    [self.allReuseHeaders setObject:cell forKey:@(section).stringValue];
+    //调用代理方法
+    UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
+    NSString *prefix = [self prefixWithSection:section];
+    SEL selector = @selector(tableView:edgeInsetsForHeaderInSection:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        HTableView *copyTableView = self;
+        edgeInsets = [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&copyTableView, &section] UIEdgeInsetsValue];
+    }
+    //设置属性
+    if ([cell respondsToSelector:@selector(edgeInsets)]) {
+        [(HTableBaseApex *)cell setEdgeInsets:edgeInsets];
+    }
+    return cell;
 }
 - (id)dequeueReusableFooterWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx section:(NSInteger)section {
-    id (^HCellForFooterBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
-        UITableViewHeaderFooterView *cell = nil;
-        NSString *identifier = NSStringFromClass(cls);
-        identifier = [identifier stringByAppendingString:self.addressValue];
-        identifier = [identifier stringByAppendingString:@"FooterCell"];
-        if (self.tableStyle == HTableStyleSplit && ![self.sectionPaths containsObject:@(section)]) {
-            identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
-        }
-        if (pre) identifier = [identifier stringByAppendingString:pre];
-        if (idx) identifier = [identifier stringByAppendingString:@(section).stringValue];
-        if (![self.allReuseIdentifiers containsObject:identifier]) {
-            [self.allReuseIdentifiers addObject:identifier];
-            [self registerClass:cls forHeaderFooterViewReuseIdentifier:identifier];
-            cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
-            HTableBaseApex *tmpCell = (HTableBaseApex *)cell;
-            tmpCell.table = self;
-            tmpCell.section = section;
-            tmpCell.isHeader = NO;
-            //init method
-            if (iblk) {
-                HTableCellInitBlock initFooterBlock = iblk;
-                if (initFooterBlock) {
-                    initFooterBlock(cell);
-                }
+    UITableViewHeaderFooterView *cell = nil;
+    NSString *identifier = NSStringFromClass(cls);
+    identifier = [identifier stringByAppendingString:self.addressValue];
+    identifier = [identifier stringByAppendingString:@"FooterCell"];
+    if (self.tableStyle == HTableStyleSplit && ![self.sectionPaths containsObject:@(section)]) {
+        identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
+    }
+    if (pre) identifier = [identifier stringByAppendingString:pre];
+    if (idx) identifier = [identifier stringByAppendingString:@(section).stringValue];
+    if (![self.allReuseIdentifiers containsObject:identifier]) {
+        [self.allReuseIdentifiers addObject:identifier];
+        [self registerClass:cls forHeaderFooterViewReuseIdentifier:identifier];
+        cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+        HTableBaseApex *tmpCell = (HTableBaseApex *)cell;
+        tmpCell.table = self;
+        tmpCell.section = section;
+        tmpCell.isHeader = NO;
+        //init method
+        if (iblk) {
+            HTableCellInitBlock initFooterBlock = iblk;
+            if (initFooterBlock) {
+                initFooterBlock(cell);
             }
-        }else {
-            cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
         }
-        //保存cell
-        [self.allReuseFooters setObject:cell forKey:@(section).stringValue];
-        //调用代理方法
-        UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-        NSString *prefix = [self prefixWithSection:section];
-        SEL selector = @selector(tableView:edgeInsetsForFooterInSection:);
-        if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
-            HTableView *copyTableView = self;
-            edgeInsets = [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&copyTableView, &section] UIEdgeInsetsValue];
-        }
-        //设置属性
-        if ([cell respondsToSelector:@selector(edgeInsets)]) {
-            [(HTableBaseApex *)cell setEdgeInsets:edgeInsets];
-        }
-        return cell;
-    };
-    return HCellForFooterBlock(iblk, cls, pre, idx);
+    }else {
+        cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+    }
+    //保存cell
+    [self.allReuseFooters setObject:cell forKey:@(section).stringValue];
+    //调用代理方法
+    UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
+    NSString *prefix = [self prefixWithSection:section];
+    SEL selector = @selector(tableView:edgeInsetsForFooterInSection:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        HTableView *copyTableView = self;
+        edgeInsets = [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&copyTableView, &section] UIEdgeInsetsValue];
+    }
+    //设置属性
+    if ([cell respondsToSelector:@selector(edgeInsets)]) {
+        [(HTableBaseApex *)cell setEdgeInsets:edgeInsets];
+    }
+    return cell;
 }
 - (id)dequeueReusableCellWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx idxPath:(NSIndexPath *)idxPath {
-    id (^HCellForItemBlock)(id iblk, Class cls, id pre, bool idx) = ^(id iblk, Class cls, id pre, bool idx) {
-        UITableViewCell *cell = nil;
-        NSString *identifier = NSStringFromClass(cls);
-        identifier = [identifier stringByAppendingString:self.addressValue];
-        identifier = [identifier stringByAppendingString:@"ItemCell"];
-        if (self.tableStyle == HTableStyleSplit && ![self.sectionPaths containsObject:@(idxPath.section)]) {
-            identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
-        }
-        if (pre) identifier = [identifier stringByAppendingString:pre];
-        if (idx) identifier = [identifier stringByAppendingString:idxPath.getStringValue];
-        if (![self.allReuseIdentifiers containsObject:identifier]) {
-            [self.allReuseIdentifiers addObject:identifier];
-            [self registerClass:cls forCellReuseIdentifier:identifier];
-            cell = [self dequeueReusableCellWithIdentifier:identifier forIndexPath:idxPath];
-            HTableBaseCell *tmpCell = (HTableBaseCell *)cell;
-            tmpCell.table = self;
-            tmpCell.indexPath = idxPath;
-            //init method
-            if (iblk) {
-                HTableCellInitBlock initCellBlock = iblk;
-                if (initCellBlock) {
-                    initCellBlock(cell);
-                }
+    UITableViewCell *cell = nil;
+    NSString *identifier = NSStringFromClass(cls);
+    identifier = [identifier stringByAppendingString:self.addressValue];
+    identifier = [identifier stringByAppendingString:@"ItemCell"];
+    if (self.tableStyle == HTableStyleSplit && ![self.sectionPaths containsObject:@(idxPath.section)]) {
+        identifier = [identifier stringByAppendingFormat:@"%@", @(self.tableState)];
+    }
+    if (pre) identifier = [identifier stringByAppendingString:pre];
+    if (idx) identifier = [identifier stringByAppendingString:idxPath.getStringValue];
+    if (![self.allReuseIdentifiers containsObject:identifier]) {
+        [self.allReuseIdentifiers addObject:identifier];
+        [self registerClass:cls forCellReuseIdentifier:identifier];
+        cell = [self dequeueReusableCellWithIdentifier:identifier forIndexPath:idxPath];
+        HTableBaseCell *tmpCell = (HTableBaseCell *)cell;
+        tmpCell.table = self;
+        tmpCell.indexPath = idxPath;
+        //init method
+        if (iblk) {
+            HTableCellInitBlock initCellBlock = iblk;
+            if (initCellBlock) {
+                initCellBlock(cell);
             }
-        }else {
-            cell = [self dequeueReusableCellWithIdentifier:identifier forIndexPath:idxPath];
         }
-        //保存cell
-        [self.allReuseCells setObject:cell forKey:idxPath.getStringValue];
-        //调用代理方法
-        UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-        NSString *prefix = [self prefixWithSection:idxPath.section];
-        SEL selector = @selector(tableView:edgeInsetsForRowAtIndexPath:);
-        if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
-            HTableView *copyTableView = self;
-            edgeInsets = [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&copyTableView, &idxPath] UIEdgeInsetsValue];
-        }
-        //设置属性
-        if ([cell respondsToSelector:@selector(edgeInsets)]) {
-            [(HTableBaseCell *)cell setEdgeInsets:edgeInsets];
-        }
-        return cell;
-    };
-    return HCellForItemBlock(iblk, cls, pre, idx);
+    }else {
+        cell = [self dequeueReusableCellWithIdentifier:identifier forIndexPath:idxPath];
+    }
+    //保存cell
+    [self.allReuseCells setObject:cell forKey:idxPath.getStringValue];
+    //调用代理方法
+    UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
+    NSString *prefix = [self prefixWithSection:idxPath.section];
+    SEL selector = @selector(tableView:edgeInsetsForRowAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        HTableView *copyTableView = self;
+        edgeInsets = [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&copyTableView, &idxPath] UIEdgeInsetsValue];
+    }
+    //设置属性
+    if ([cell respondsToSelector:@selector(edgeInsets)]) {
+        [(HTableBaseCell *)cell setEdgeInsets:edgeInsets];
+    }
+    return cell;
 }
 #pragma mark - UITableViewDatasource & delegate
 - (NSString *)prefixWithSection:(NSInteger)section {
