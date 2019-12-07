@@ -16,9 +16,9 @@
 //#import "UIButton+HUtil.h"
 
 #define HLayoutTupleCell(v) \
-CGRect frame = self.layoutViewBounds;\
-if(!CGRectEqualToRect(v.frame, frame)) {\
-    [v setFrame:frame];\
+CGRect _frame = self.layoutViewBounds;\
+if(!CGRectEqualToRect(v.frame, _frame)) {\
+    [v setFrame:_frame];\
 }
 
 @class HTupleView, HTupleBaseCell;
