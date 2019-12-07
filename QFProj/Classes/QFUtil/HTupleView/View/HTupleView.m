@@ -263,7 +263,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         identifier = [identifier stringByAppendingFormat:@"%@", @(self.tupleState)];
     }
     if (pre) identifier = [identifier stringByAppendingString:pre];
-    if (idx) identifier = [identifier stringByAppendingString:idxPath.getStringValue];
+    if (idx) identifier = [identifier stringByAppendingString:idxPath.stringValue];
     if (![self.allReuseIdentifiers containsObject:identifier]) {
         [self.allReuseIdentifiers addObject:identifier];
         [self registerClass:cls forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier];
@@ -283,7 +283,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:idxPath];
     }
     //保存cell
-    [self.allReuseHeaders setObject:cell forKey:idxPath.getStringValue];
+    [self.allReuseHeaders setObject:cell forKey:idxPath.stringValue];
     //调用代理方法
     UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
     NSString *prefix = [self prefixWithSection:idxPath.section];
@@ -308,7 +308,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         identifier = [identifier stringByAppendingFormat:@"%@", @(self.tupleState)];
     }
     if (pre) identifier = [identifier stringByAppendingString:pre];
-    if (idx) identifier = [identifier stringByAppendingString:idxPath.getStringValue];
+    if (idx) identifier = [identifier stringByAppendingString:idxPath.stringValue];
     if (![self.allReuseIdentifiers containsObject:identifier]) {
         [self.allReuseIdentifiers addObject:identifier];
         [self registerClass:cls forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier];
@@ -328,7 +328,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         cell = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:idxPath];
     }
     //保存cell
-    [self.allReuseFooters setObject:cell forKey:idxPath.getStringValue];
+    [self.allReuseFooters setObject:cell forKey:idxPath.stringValue];
     //调用代理方法
     UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
     NSString *prefix = [self prefixWithSection:idxPath.section];
@@ -353,7 +353,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         identifier = [identifier stringByAppendingFormat:@"%@", @(self.tupleState)];
     }
     if (pre) identifier = [identifier stringByAppendingString:pre];
-    if (idx) identifier = [identifier stringByAppendingString:idxPath.getStringValue];
+    if (idx) identifier = [identifier stringByAppendingString:idxPath.stringValue];
     if (![self.allReuseIdentifiers containsObject:identifier]) {
         [self.allReuseIdentifiers addObject:identifier];
         [self registerClass:cls forCellWithReuseIdentifier:identifier];
@@ -372,7 +372,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         cell = [self dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:idxPath];
     }
     //保存cell
-    [self.allReuseCells setObject:cell forKey:idxPath.getStringValue];
+    [self.allReuseCells setObject:cell forKey:idxPath.stringValue];
     //调用代理方法
     UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
     NSString *prefix = [self prefixWithSection:idxPath.section];
@@ -504,7 +504,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         [(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&collectionView, &itemBlock, &indexPath];
     }
     //调用cell
-    HTupleBaseCell *cell = [self.allReuseCells objectForKey:indexPath.getStringValue];
+    HTupleBaseCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
     //更新布局
     if ([cell respondsToSelector:@selector(relayoutSubviews)]) {
         [cell relayoutSubviews];
@@ -525,7 +525,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
             [(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&collectionView, &headerBlock, &section];
         }
         //调用cell
-        cell = [self.allReuseHeaders objectForKey:indexPath.getStringValue];
+        cell = [self.allReuseHeaders objectForKey:indexPath.stringValue];
     }else if (kind == UICollectionElementKindSectionFooter) {
         //调用代理方法
         NSString *prefix = [self prefixWithSection:indexPath.section];
@@ -538,7 +538,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
             [(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&collectionView, &footerBlock, &section];
         }
         //调用cell
-        cell = [self.allReuseFooters objectForKey:indexPath.getStringValue];
+        cell = [self.allReuseFooters objectForKey:indexPath.stringValue];
     }
     //更新布局
     if ([cell respondsToSelector:@selector(relayoutSubviews)]) {
@@ -603,7 +603,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSInteger items = [self numberOfItemsInSection:section];
         for (int i=0; i<items; i++) {
-            HTupleBaseCell *cell = [self.allReuseCells objectForKey:NSIndexPath.getStringValue(i, section)];
+            HTupleBaseCell *cell = [self.allReuseCells objectForKey:NSIndexPath.stringValue(i, section)];
             if (cell.signalBlock) {
                 cell.signalBlock(cell, signal);
             }
@@ -611,7 +611,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     });
 }
 - (void)signal:(HTupleSignal *)signal indexPath:(NSIndexPath *)indexPath  {
-    HTupleBaseCell *cell = [self.allReuseCells objectForKey:indexPath.getStringValue];
+    HTupleBaseCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
     if (cell.signalBlock) {
         dispatch_async(dispatch_get_main_queue(), ^{
             cell.signalBlock(cell, signal);
@@ -622,7 +622,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSInteger sections = [self numberOfSections];
         for (int i=0; i<sections; i++) {
-            HTupleBaseApex *header = [self.allReuseHeaders objectForKey:NSIndexPath.getStringValue(0, i)];
+            HTupleBaseApex *header = [self.allReuseHeaders objectForKey:NSIndexPath.stringValue(0, i)];
             if (header.signalBlock) {
                 header.signalBlock(header, signal);
             }
@@ -630,7 +630,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     });
 }
 - (void)signal:(HTupleSignal *)signal headerSection:(NSInteger)section {
-    HTupleBaseApex *header = [self.allReuseHeaders objectForKey:NSIndexPath.getStringValue(0, section)];
+    HTupleBaseApex *header = [self.allReuseHeaders objectForKey:NSIndexPath.stringValue(0, section)];
     if (header.signalBlock) {
         dispatch_async(dispatch_get_main_queue(), ^{
             header.signalBlock(header, signal);
@@ -641,7 +641,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSInteger sections = [self numberOfSections];
         for (int i=0; i<sections; i++) {
-            HTupleBaseApex *footer = [self.allReuseFooters objectForKey:NSIndexPath.getStringValue(0, i)];
+            HTupleBaseApex *footer = [self.allReuseFooters objectForKey:NSIndexPath.stringValue(0, i)];
             if (footer.signalBlock) {
                 footer.signalBlock(footer, signal);
             }
@@ -649,7 +649,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     });
 }
 - (void)signal:(HTupleSignal *)signal footerSection:(NSInteger)section {
-    HTupleBaseApex *footer = [self.allReuseFooters objectForKey:NSIndexPath.getStringValue(0, section)];
+    HTupleBaseApex *footer = [self.allReuseFooters objectForKey:NSIndexPath.stringValue(0, section)];
     if (footer.signalBlock) {
         dispatch_async(dispatch_get_main_queue(), ^{
             footer.signalBlock(footer, signal);
@@ -681,7 +681,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 }
 - (id (^)(NSInteger row, NSInteger section))cell {
     return ^id (NSInteger row, NSInteger section) {
-        return [self.allReuseCells objectForKey:NSIndexPath.getStringValue(row, section)];
+        return [self.allReuseCells objectForKey:NSIndexPath.stringValue(row, section)];
     };
 }
 - (id (^)(NSInteger row, NSInteger section))indexPath {
