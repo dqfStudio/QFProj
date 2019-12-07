@@ -287,6 +287,7 @@
 		A2C2B217235EB0630041AAB5 /* HTableViewCellVertValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C2B216235EB0630041AAB5 /* HTableViewCellVertValue1.m */; };
 		A2C2B21A235EB0B70041AAB5 /* HTableViewApexVertValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C2B219235EB0B60041AAB5 /* HTableViewApexVertValue1.m */; };
 		A2C2B21C235F15DA0041AAB5 /* HTupleView的用法.pages in Resources */ = {isa = PBXBuildFile; fileRef = A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */; };
+		A2C8C89F239BE5E000C15AE9 /* HLabel+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C8C89E239BE5DF00C15AE9 /* HLabel+HUtil.m */; };
 		A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */; };
 		A2DC22BE2242994800E540BE /* NSObject+HForwarding.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */; };
 		A2E8F50822CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50622CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png */; };
@@ -842,6 +843,8 @@
 		A2C2B218235EB0B60041AAB5 /* HTableViewApexVertValue1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableViewApexVertValue1.h; sourceTree = "<group>"; };
 		A2C2B219235EB0B60041AAB5 /* HTableViewApexVertValue1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTableViewApexVertValue1.m; sourceTree = "<group>"; };
 		A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HTupleView的用法.pages"; sourceTree = "<group>"; };
+		A2C8C89D239BE5DF00C15AE9 /* HLabel+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HLabel+HUtil.h"; sourceTree = "<group>"; };
+		A2C8C89E239BE5DF00C15AE9 /* HLabel+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HLabel+HUtil.m"; sourceTree = "<group>"; };
 		A2DC22B622424F2F00E540BE /* NSObject+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeMessy.h"; sourceTree = "<group>"; };
 		A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HForwarding.h"; sourceTree = "<group>"; };
@@ -1746,6 +1749,8 @@
 				A222AE1922818F7D0013098A /* HComponent */,
 				A222AE1722818F7D0013098A /* HLabel.h */,
 				A222AE2D22818F7D0013098A /* HLabel.m */,
+				A2C8C89D239BE5DF00C15AE9 /* HLabel+HUtil.h */,
+				A2C8C89E239BE5DF00C15AE9 /* HLabel+HUtil.m */,
 				A222AE3F22818F7D0013098A /* HString */,
 				A222AE1622818F7D0013098A /* HText.h */,
 				A222AE2C22818F7D0013098A /* HTextView.h */,
@@ -2597,6 +2602,7 @@
 				A2ED9C1222314BA100C9D050 /* SimplePing.m in Sources */,
 				A4759710217EC61D00AAAEA9 /* HUserDefaults.m in Sources */,
 				A2E8F53F22D72A9800E7C9F2 /* YTKBaseRequest.m in Sources */,
+				A2C8C89F239BE5E000C15AE9 /* HLabel+HUtil.m in Sources */,
 				A20E3CE1231A663300E6982B /* UIView+HAlert.m in Sources */,
 				A20E3D04231FE0C800E6982B /* HMainController3.m in Sources */,
 				A28EF3C421DA1DFE002F92ED /* HFormCell.m in Sources */,
