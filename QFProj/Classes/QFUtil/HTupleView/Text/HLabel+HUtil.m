@@ -61,10 +61,10 @@
     [self setAssociateValue:@(imgIndex) withKey:@selector(imgIndex)];
 }
 
-- (NSWordAlign)wordAlign {
+- (HWordAlign)wordAlign {
     return [[self getAssociatedValueForKey:_cmd] integerValue];
 }
-- (void)setWordAlign:(NSWordAlign)wordAlign {
+- (void)setWordAlign:(HWordAlign)wordAlign {
     [self setAssociateValue:@(wordAlign) withKey:@selector(wordAlign)];
 }
 
@@ -228,13 +228,13 @@
         
         //调整图片位置使文字居上居中居下显示
         switch (self.wordAlign) {
-            case NSWordAlignBottom:
+            case HWordAlignBottom:
             {
                 CGSize  imageSize = attch.bounds.size;
                 attch.bounds = CGRectMake(0, 0, imageSize.width, imageSize.height);
             }
                 break;
-            case NSWordAlignCenter:
+            case HWordAlignCenter:
             {
                 CGSize  imageSize = attch.bounds.size;
                 CGSize  wordSize = [self.text boundingRectWithSize:CGSizeMake(CGRectGetWidth(self.frame), MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.font} context:nil].size;
@@ -245,7 +245,7 @@
                 attch.bounds = CGRectMake(0, height, imageSize.width, imageSize.height);
             }
                 break;
-            case NSWordAlignTop:
+            case HWordAlignTop:
             {
                 CGSize  imageSize = attch.bounds.size;
                 CGSize  wordSize = [self.text boundingRectWithSize:CGSizeMake(CGRectGetWidth(self.frame), MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.font} context:nil].size;

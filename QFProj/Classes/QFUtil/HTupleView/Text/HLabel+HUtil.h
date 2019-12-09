@@ -11,10 +11,10 @@
 #import "NSAttributedString+HText.h"
 #import "HLabel.h"
 
-typedef NS_ENUM(NSInteger, NSWordAlign) {
-    NSWordAlignBottom = 0,
-    NSWordAlignCenter,
-    NSWordAlignTop
+typedef NS_ENUM(NSInteger, HWordAlign) {
+    HWordAlignBottom = 0,
+    HWordAlignCenter,
+    HWordAlignTop
 };
 
 typedef void(^HKeywordsBlock)(void);
@@ -34,7 +34,7 @@ typedef void(^HKeywordsBlock)(void);
 
 //插入图片
 @property (nonatomic, assign) NSInteger   imgIndex;
-@property (nonatomic, assign) NSWordAlign wordAlign;
+@property (nonatomic, assign) HWordAlign wordAlign;
 @property (nonatomic, assign) CGSize      imgSize;
 @property (nonatomic, strong) NSString    *imgUrl;
 @property (nonatomic, assign) NSInteger   leftSpace;
