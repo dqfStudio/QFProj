@@ -25,7 +25,9 @@ static NSString *const HCollectionViewSectionColor = @"com.dqf.HCollectionElemen
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes{
     [super applyLayoutAttributes:layoutAttributes];
     HCollectionViewLayoutAttributes *attr = (HCollectionViewLayoutAttributes *)layoutAttributes;
-    self.backgroundColor = attr.backgroundColor;
+    if (attr.backgroundColor && [attr.backgroundColor isKindOfClass:UIColor.class]) {
+        self.backgroundColor = attr.backgroundColor;
+    }
 }
 @end
 
