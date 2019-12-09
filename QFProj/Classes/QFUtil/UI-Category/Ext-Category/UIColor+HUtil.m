@@ -14,7 +14,13 @@
     CGColorSpaceModel colorSpaceModel = CGColorSpaceGetModel(CGColorGetColorSpace(self.CGColor));
     if (colorSpaceModel == kCGColorSpaceModelRGB) {
         const CGFloat *components = CGColorGetComponents(self.CGColor);
-        return [UIColor colorWithRed:(1.0 - components[0]) green:(1.0 - components[1]) blue:(1.0 - components[2]) alpha:components[3]];
+        UIColor *color = [UIColor colorWithRed:(1.0 - components[0]) green:(1.0 - components[1]) blue:(1.0 - components[2]) alpha:components[3]];
+        
+        IMP imp = [color methodForSelector:NSSelectorFromString(@"retain")];
+        void (*func)(id) = (void *)imp;
+        func(color);
+        
+        return color;
     }
     else return nil;
 }
@@ -48,10 +54,16 @@
     [[NSScanner scannerWithString:bString] scanHexInt:&b];
     [[NSScanner scannerWithString:aString] scanHexInt:&a];
     
-    return [UIColor colorWithRed:((float) r / 255.0f)
-                           green:((float) g / 255.0f)
-                            blue:((float) b / 255.0f)
-                           alpha:((float) a / 255.0f)];
+    UIColor *color = [UIColor colorWithRed:((float) r / 255.0f)
+                                     green:((float) g / 255.0f)
+                                      blue:((float) b / 255.0f)
+                                     alpha:((float) a / 255.0f)];
+
+    IMP imp = [color methodForSelector:NSSelectorFromString(@"retain")];
+    void (*func)(id) = (void *)imp;
+    func(color);
+    
+    return color;
 }
 
 + (UIColor *)colorWithString:(NSString *)colorStr alpha:(float)alpha {
@@ -76,10 +88,16 @@
     [[NSScanner scannerWithString:gString] scanHexInt:&g];
     [[NSScanner scannerWithString:bString] scanHexInt:&b];
     
-    return [UIColor colorWithRed:((float) r / 255.0f)
-                           green:((float) g / 255.0f)
-                            blue:((float) b / 255.0f)
-                           alpha:alpha];
+    UIColor *color = [UIColor colorWithRed:((float) r / 255.0f)
+                                     green:((float) g / 255.0f)
+                                      blue:((float) b / 255.0f)
+                                     alpha:alpha];
+    
+    IMP imp = [color methodForSelector:NSSelectorFromString(@"retain")];
+    void (*func)(id) = (void *)imp;
+    func(color);
+    
+    return color;
 }
 
 + (UIColor *)colorWithHex:(int)hex {
@@ -90,29 +108,47 @@
     float r = ((float)((hex & 0xff0000) >> 16))/255.0;
     float g = ((float)((hex & 0xff00) >> 8))/255.0;
     float b = ((float)((hex & 0xff) >> 0))/255.0;
-    return [UIColor colorWithRed:r green:g blue:b alpha:alpha];
+    
+    UIColor *color = [UIColor colorWithRed:r green:g blue:b alpha:alpha];
+    IMP imp = [color methodForSelector:NSSelectorFromString(@"retain")];
+    void (*func)(id) = (void *)imp;
+    func(color);
+    
+    return color;
 }
 
 + (UIColor *)random {
-    return [UIColor colorWithRed:(arc4random()%256)*1.0/256 green:(arc4random()%256)*1.0/256 blue:(arc4random()%256)*1.0/256 alpha:1];
+    UIColor *color = [UIColor colorWithRed:(arc4random()%256)*1.0/256 green:(arc4random()%256)*1.0/256 blue:(arc4random()%256)*1.0/256 alpha:1];
+    
+    IMP imp = [color methodForSelector:NSSelectorFromString(@"retain")];
+    void (*func)(id) = (void *)imp;
+    func(color);
+    
+    return color;
 }
 
-- (BOOL)isLighterColor {
+/*是否是浅色 YES 是浅色， NO是深色**/
+- (BOOL)isLighterColor{
     CGFloat r=0, g=0, b=0, a=0;
-    if ([self respondsToSelector:@selector(getRed:green:blue:alpha:)]) {
-        [self getRed:&r green:&g blue:&b alpha:&a];
-    }else {
-        const CGFloat *components = CGColorGetComponents(self.CGColor);
-        r = components[0];
-        g = components[1];
-        b = components[2];
-        a = components[3];//透明度
-    }
-    BOOL isLighter = NO;
-    if(r*0.299+g*0.578+b*0.114>=0.75) {
-        isLighter = YES;//浅色
-    }
-    return isLighter;
+      if ([self respondsToSelector:@selector(getRed:green:blue:alpha:)]) {
+          [self getRed:&r green:&g blue:&b alpha:&a];
+      }else {
+          const CGFloat *components = CGColorGetComponents(self.CGColor);
+          r = components[0];
+          g = components[1];
+          b = components[2];
+          a = components[3];//透明度
+      }
+      BOOL isLighter = NO;
+      if(r*0.299 + g*0.578 + b*0.114 >= 0.75) {
+          isLighter = YES;//浅色
+      }
+      return isLighter;
+}
+
+/*是否是浅色 YES 是浅色， NO是深色**/
++ (BOOL)isLighterColorWithColor:(UIColor*)color{
+    return [color isLighterColor];
 }
 @end
 
