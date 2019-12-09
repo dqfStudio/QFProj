@@ -10,6 +10,8 @@
 
 @interface NSObject (HSelector)
 
+- (BOOL)respondsToSelector:(SEL)aSelector withPre:(NSString *)pre;
+
 #pragma --make 执行实例方法
 
 - (id)performSelector:(SEL)aSelector withObjects:(NSArray *)objects;
@@ -25,8 +27,6 @@
 
 + (id)performClassSelector:(SEL)aSelector withMethodArgments:(void *)firstParameter, ...;
 - (id)performClassSelector:(SEL)aSelector withMethodArgments:(void *)firstParameter, ...;
-
-- (BOOL)respondsToSelector:(SEL)aSelector withPre:(NSString *)pre;
 
 + (id)performClassSelector:(SEL)aSelector withPre:(NSString *)pre withMethodArgments:(void *)firstParameter, ...;
 - (id)performClassSelector:(SEL)aSelector withPre:(NSString *)pre withMethodArgments:(void *)firstParameter, ...;
