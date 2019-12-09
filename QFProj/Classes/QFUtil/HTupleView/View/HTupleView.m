@@ -487,10 +487,6 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
         size = [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&collectionView, &indexPath] CGSizeValue];
     }
-    //不能为CGSizeZero，否则会崩溃
-    if (CGSizeEqualToSize(CGSizeZero, size)) {
-        size = CGSizeMake(1.f, 1.f);
-    }
     return UISizeIntegral(size);
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
