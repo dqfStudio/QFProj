@@ -206,10 +206,4 @@
 - (void)setFilletStyle:(UIImageViewFilletStyle)filletStyle {
     self._imageView.filletStyle = filletStyle;
 }
-- (void)setBackgroundColor:(UIColor *)backgroundColor {
-    self._imageView.backgroundColor = backgroundColor;
-}
-- (UIColor *)backgroundColor {
-    return self._imageView.backgroundColor;
-}
 @end
