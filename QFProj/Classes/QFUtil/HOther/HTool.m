@@ -21,6 +21,8 @@
     if([content isEqualToString:@"--"] || [content isEqualToString:@"维护中"] || [content isEqualToString:@"加载中..."]){
         return content;
     }
+    content = [content stringByReplacingOccurrencesOfString:@"," withString:@""];
+    content = [content stringByReplacingOccurrencesOfString:@"，" withString:@""];
     if ([content doubleValue] > 0) {
         NSNumber *number = @([content doubleValue]);
         NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
