@@ -33,6 +33,12 @@
 - (NSUInteger)length {
     return self.stringValue.length;
 }
+- (NSString *)stringValue {
+    NSNumberFormatter *formatter = [NSNumberFormatter new];
+    //格式化样式
+    formatter.numberStyle  = kCFNumberFormatterDecimalStyle;
+    return [formatter stringFromNumber:self];
+}
 - (BOOL)isEmpty {
     NSString *string = [self.stringValue stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if (string.length == 0) {
