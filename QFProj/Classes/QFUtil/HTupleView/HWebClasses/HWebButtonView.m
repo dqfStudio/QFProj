@@ -91,15 +91,15 @@
         [self setImage:[[self imageForState:UIControlStateNormal] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
     }
 }
-//- (void)setImage:(UIImage *)image {
-//    [self _setImage:image];
-//    self.lastURL = nil;
-//    self.placeHoderImage = nil;
-//    self.imageView.alpha = 1;
-//    if (self.didGetImage) {
-//        self.didGetImage(self, image);
-//    }
-//}
+- (void)setWithImage:(UIImage *)image {
+    [self _setImage:image];
+    self.lastURL = nil;
+    self.placeHoderImage = nil;
+    self.imageView.alpha = 1;
+    if (self.didGetImage) {
+        self.didGetImage(self, image);
+    }
+}
 - (void)setImageUrl:(NSURL *)url {
     [self setImageUrl:url syncLoadCache:NO];
 }
@@ -175,7 +175,7 @@
         NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
         NSString *filePath = [resourcePath stringByAppendingPathComponent:fileName];
         UIImage *image = [UIImage imageWithContentsOfFile:filePath];
-        [self setImage:image];
+        [self setWithImage:image];
     }else {
         [self _setImage:nil];
         self.lastURL = nil;
@@ -184,7 +184,7 @@
 }
 - (void)setImageWithName:(NSString *)fileName {
     if (fileName.length > 0) {
-        [self setImage:[UIImage imageNamed:fileName]];
+        [self setWithImage:[UIImage imageNamed:fileName]];
     }
 }
 - (void)buttonPressed {

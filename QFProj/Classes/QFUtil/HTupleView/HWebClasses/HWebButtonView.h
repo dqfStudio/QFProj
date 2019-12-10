@@ -68,13 +68,6 @@
  *  @param fileName 图片名称
  */
 - (void)setImageWithName:(NSString *)fileName;
-
-/**
- *  直接设置图片
- *
- *  @param image 图片
- */
-//- (void)setImage:(UIImage *)image;
 @end
 
 
