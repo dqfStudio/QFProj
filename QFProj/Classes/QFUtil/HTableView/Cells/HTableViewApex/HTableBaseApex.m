@@ -87,6 +87,7 @@
     CGRect frame = [self layoutViewFrame];
     if(!CGRectEqualToRect(self.layoutView.frame, frame)) {
         [self.layoutView setFrame:frame];
+        [self relayoutSubviews];
     }
 }
 
