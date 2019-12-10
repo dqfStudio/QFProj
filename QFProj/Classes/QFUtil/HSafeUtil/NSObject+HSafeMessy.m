@@ -33,11 +33,12 @@
 - (NSUInteger)length {
     return self.stringValue.length;
 }
+//会保留小数点儿后六位，如果小数超过六位的情况下
 - (NSString *)stringValue {
-    NSNumberFormatter *formatter = [NSNumberFormatter new];
-    //格式化样式
-    formatter.numberStyle  = kCFNumberFormatterDecimalStyle;
-    return [formatter stringFromNumber:self];
+    NSString *string = [NSString stringWithFormat:@"%f", [self doubleValue]];
+    NSDecimalNumber *decimalNumber = [NSDecimalNumber decimalNumberWithString:string];
+    //NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh-cn"];
+    return [decimalNumber descriptionWithLocale:nil];
 }
 - (BOOL)isEmpty {
     NSString *string = [self.stringValue stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
