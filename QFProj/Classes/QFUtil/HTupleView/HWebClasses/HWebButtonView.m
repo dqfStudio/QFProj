@@ -57,6 +57,7 @@
         __imageView.contentMode = UIViewContentModeScaleAspectFill;
         __imageView.layer.masksToBounds = YES;
         __imageView.userInteractionEnabled = NO;
+        __imageView.hidden = YES;
         __imageView.autoresizingMask = (UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth);
     }
     return __imageView;
@@ -70,8 +71,10 @@
         }else {
             self._imageView.image = image;
         }
+        self._imageView.hidden = NO;
     }else {
         self._imageView.image = nil;
+        self._imageView.hidden = YES;
     }
 }
 - (void)setRenderColor:(UIColor *)renderColor {
@@ -88,15 +91,15 @@
         [self setImage:[[self imageForState:UIControlStateNormal] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
     }
 }
-- (void)setImage:(UIImage *)image {
-    [self _setImage:image];
-    self.lastURL = nil;
-    self.placeHoderImage = nil;
-    self.imageView.alpha = 1;
-    if (self.didGetImage) {
-        self.didGetImage(self, image);
-    }
-}
+//- (void)setImage:(UIImage *)image {
+//    [self _setImage:image];
+//    self.lastURL = nil;
+//    self.placeHoderImage = nil;
+//    self.imageView.alpha = 1;
+//    if (self.didGetImage) {
+//        self.didGetImage(self, image);
+//    }
+//}
 - (void)setImageUrl:(NSURL *)url {
     [self setImageUrl:url syncLoadCache:NO];
 }

@@ -74,7 +74,7 @@
  *
  *  @param image 图片
  */
-- (void)setImage:(UIImage *)image;
+//- (void)setImage:(UIImage *)image;
 @end
 
 
