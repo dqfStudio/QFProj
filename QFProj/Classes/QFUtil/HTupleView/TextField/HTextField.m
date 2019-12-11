@@ -10,8 +10,6 @@
 #import <objc/runtime.h>
 
 @implementation HTextField
-@synthesize leftView = _leftView;
-@synthesize rightView = _rightView;
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -48,23 +46,23 @@
     }
     return _rightLabel;
 }
-- (HWebImageView *)leftView {
-    if (!_leftView) {
-        _leftView = HWebImageView.new;
+- (HWebImageView *)leftImage {
+    if (!_leftImage) {
+        _leftImage = HWebImageView.new;
         [super setLeftViewMode:UITextFieldViewModeAlways];
-        [super setLeftView:_leftView];
+        [super setLeftView:_leftImage];
         [self setLeftViewFrame];
     }
-    return _leftView;
+    return _leftImage;
 }
-- (HWebImageView *)rightView {
-    if (!_rightView) {
-        _rightView = HWebImageView.new;
+- (HWebImageView *)rightImage {
+    if (!_rightImage) {
+        _rightImage = HWebImageView.new;
         [super setRightViewMode:UITextFieldViewModeAlways];
-        [super setRightView:_rightView];
+        [super setRightView:_rightImage];
         [self setRightViewFrame];
     }
-    return _rightView;
+    return _rightImage;
 }
 - (HWebButtonView *)leftButton {
     if (!_leftButton) {
