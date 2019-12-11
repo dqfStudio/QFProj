@@ -9,6 +9,7 @@
 #import "HTupleBaseCell.h"
 #import "HWebButtonView.h"
 #import "HWebImageView.h"
+#import "HLabel+HUtil.h"
 #import "HTupleView.h"
 #import "HTextField.h"
 #import "HTextView.h"

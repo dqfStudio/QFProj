@@ -7,6 +7,7 @@
 //
 
 #import "HTableBaseApex.h"
+#import "HLabel+HUtil.h"
 #import "HTupleView.h"
 #import "HLabel.h"
 
