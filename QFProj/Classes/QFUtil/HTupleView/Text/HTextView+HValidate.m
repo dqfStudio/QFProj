@@ -2,7 +2,7 @@
 //  HTextView+HValidate.m
 //  QFProj
 //
-//  Created by wind on 2019/9/3.
+//  Created by dqf on 2019/9/3.
 //  Copyright © 2019 dqfStudio. All rights reserved.
 //
 

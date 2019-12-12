@@ -2,7 +2,7 @@
 //  HCountDownButton.h
 //  HCountDownButton
 //
-//  Created by wind on 2019/3/23.
+//  Created by dqf on 2019/3/23.
 //  Copyright © 2019年 dqf. All rights reserved.
 //
 

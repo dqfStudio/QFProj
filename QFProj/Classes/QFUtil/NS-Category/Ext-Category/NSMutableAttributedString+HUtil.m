@@ -2,7 +2,7 @@
 //  NSMutableAttributedString+HUtil.m
 //  QFProj
 //
-//  Created by wind on 2019/4/29.
+//  Created by dqf on 2019/4/29.
 //  Copyright © 2019 dqfStudio. All rights reserved.
 //
 

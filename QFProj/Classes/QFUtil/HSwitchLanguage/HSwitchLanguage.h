@@ -2,7 +2,7 @@
 //  HSwitchLanguage.h
 //  TestProject
 //
-//  Created by wind on 2018/6/5.
+//  Created by dqf on 2018/6/5.
 //  Copyright © 2018年 dqf. All rights reserved.
 //
 

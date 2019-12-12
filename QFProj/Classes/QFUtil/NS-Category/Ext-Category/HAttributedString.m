@@ -2,7 +2,7 @@
 //  HAttributedString.m
 //  QFProj
 //
-//  Created by wind on 2019/6/9.
+//  Created by dqf on 2019/6/9.
 //  Copyright © 2019 dqfStudio. All rights reserved.
 //
 

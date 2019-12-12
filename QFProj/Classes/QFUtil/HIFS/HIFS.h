@@ -2,8 +2,8 @@
 //  HIFS.h
 //  Pro
 //
-//  Created by wind on 2019/3/6.
-//  Copyright © 2019年 wind. All rights reserved.
+//  Created by dqf on 2019/3/6.
+//  Copyright © 2019年 dqfStudio. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

@@ -2,7 +2,7 @@
 //  HMainController3+HSection1.h
 //  QFProj
 //
-//  Created by wind on 2019/9/7.
+//  Created by dqf on 2019/9/7.
 //  Copyright © 2019 dqfStudio. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  NSObject+HForwarding.m
 //  QFProj
 //
-//  Created by wind on 2019/3/20.
+//  Created by dqf on 2019/3/20.
 //  Copyright © 2019年 dqfStudio. All rights reserved.
 //
 

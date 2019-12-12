@@ -2,7 +2,7 @@
 //  HMainController1.m
 //  QFProj
 //
-//  Created by wind on 2019/9/4.
+//  Created by dqf on 2019/9/4.
 //  Copyright © 2019 dqfStudio. All rights reserved.
 //
 
@@ -135,8 +135,6 @@
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
             [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
-            
-//            cell.showAccessoryArrow = YES;
 
             [cell.imageView setBackgroundColor:UIColor.redColor];
             [cell.imageView setImageWithName:@"icon_no_server"];

@@ -2,7 +2,7 @@
 //  HResultView.h
 //  HProjectModel1
 //
-//  Created by wind on 2018/12/30.
+//  Created by dqf on 2018/12/30.
 //  Copyright © 2018年 dqf. All rights reserved.
 //
 

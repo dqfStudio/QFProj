@@ -2,7 +2,7 @@
 //  UILabel+HAttributeText.h
 //  UILabel+HAttributeText
 //
-//  Created by wind on 2018/12/26.
+//  Created by dqf on 2018/12/26.
 //  Copyright © 2018年 dqf. All rights reserved.
 //
 

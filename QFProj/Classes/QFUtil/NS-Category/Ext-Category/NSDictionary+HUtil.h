@@ -2,7 +2,7 @@
 //  NSDictionary+HUtil.h
 //  QFProj
 //
-//  Created by wind on 2019/5/1.
+//  Created by dqf on 2019/5/1.
 //  Copyright © 2019 dqfStudio. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  HRequestDAOStrategy.m
 //  QFProj
 //
-//  Created by wind on 2019/7/11.
+//  Created by dqf on 2019/7/11.
 //  Copyright © 2019 dqfStudio. All rights reserved.
 //
 

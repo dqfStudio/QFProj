@@ -2,7 +2,7 @@
 //  HTableViewCellVertValue1.m
 //  QFProj
 //
-//  Created by wind on 2019/9/9.
+//  Created by dqf on 2019/9/9.
 //  Copyright © 2019 dqfStudio. All rights reserved.
 //
 
