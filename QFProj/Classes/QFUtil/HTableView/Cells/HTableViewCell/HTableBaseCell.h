@@ -18,8 +18,6 @@ if(!CGRectEqualToRect(v.frame, _frame)) {\
 
 @class HTableView, HTableBaseCell;
 
-typedef void(^HTableItemBlock)(NSIndexPath *idxPath);
-
 @interface HTableBaseCell : UITableViewCell
 //cell所在的table view
 @property (nonatomic, weak) UITableView *table;
@@ -31,8 +29,6 @@ typedef void(^HTableItemBlock)(NSIndexPath *idxPath);
 @property (nonatomic) UITableViewCellStyle style;
 //用于加载在contentView上的布局视图
 @property (nonatomic) UIView *layoutView;
-//cell点击block，用户用户点击事件
-@property (nonatomic, copy) HTableItemBlock cellBlock;
 //信号block
 @property (nonatomic, copy) HTableCellSignalBlock signalBlock;
 //cell间隔线的边距、颜色和是否显示间隔线
