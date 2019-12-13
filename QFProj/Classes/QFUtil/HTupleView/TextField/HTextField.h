@@ -44,6 +44,7 @@
 @property (nonatomic, readonly) BOOL isValidatedPassword; //是否有效的密码
 
 @property (nonatomic, readonly) BOOL isEmpty; //是否为空
+@property (nonatomic, readonly) NSUInteger length; //字符长度
 
 @property (nonatomic, readonly) BOOL isOnlyAlpha; //纯字母
 @property (nonatomic, readonly) BOOL isOnlyNumeric; //纯数字

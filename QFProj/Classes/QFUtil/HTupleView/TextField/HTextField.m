@@ -325,6 +325,9 @@
 - (BOOL)isEmpty {
     return (self.text.length == 0);
 }
+- (NSUInteger)length {
+    return self.text.length;
+}
 - (BOOL)isOnlyAlpha {
     NSString *regex = @"[a-zA-Z]+$";
     return [self isValidateWithRegex:regex];
