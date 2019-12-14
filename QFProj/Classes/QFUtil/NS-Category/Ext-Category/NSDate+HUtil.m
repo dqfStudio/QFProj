@@ -34,7 +34,7 @@ static const NSDate *startDate = nil;
     [formatter setDateFormat:formatString];
     return [formatter stringFromDate:[NSDate date]];
 }
-+ (NSDate *)dateWithString:(NSString*)aString format:(NSDateFormat)format {
++ (NSDate *)dateWithString:(NSString *)aString format:(NSDateFormat)format {
     if (!aString || aString.length == 0) return nil;
     NSString *formatString = [self stringWithFormat:format];
     NSDateFormatter *formatter = NSDateFormatter.new;

@@ -39,11 +39,11 @@
 + (void)enableLogging;
 + (void)setLogMaxLength:(int)length;
 
-- (void)registerHandler:(NSString*)handlerName handler:(WVJBHandler)handler;
-- (void)removeHandler:(NSString*)handlerName;
-- (void)callHandler:(NSString*)handlerName;
-- (void)callHandler:(NSString*)handlerName data:(id)data;
-- (void)callHandler:(NSString*)handlerName data:(id)data responseCallback:(WVJBResponseCallback)responseCallback;
+- (void)registerHandler:(NSString *)handlerName handler:(WVJBHandler)handler;
+- (void)removeHandler:(NSString *)handlerName;
+- (void)callHandler:(NSString *)handlerName;
+- (void)callHandler:(NSString *)handlerName data:(id)data;
+- (void)callHandler:(NSString *)handlerName data:(id)data responseCallback:(WVJBResponseCallback)responseCallback;
 - (void)setWebViewDelegate:(id)webViewDelegate;
 - (void)disableJavscriptAlertBoxSafetyTimeout;
 

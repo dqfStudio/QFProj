@@ -14,7 +14,7 @@
 @end
 
 @implementation UINavigationController (HBackHandler)
-- (BOOL)navigationBar:(UINavigationBar *)navigationBar shouldPopItem:(UINavigationItem*)item {
+- (BOOL)navigationBar:(UINavigationBar *)navigationBar shouldPopItem:(UINavigationItem *)item {
     if([self.viewControllers count] < [navigationBar.items count]) return YES;
     BOOL shouldPop = YES;
     UIViewController *vc = [self topViewController];

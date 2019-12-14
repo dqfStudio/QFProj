@@ -142,7 +142,7 @@
     return mDate;
 }
 
-+ (NSDate *)stringToDate:(NSString*)strDate {
++ (NSDate *)stringToDate:(NSString *)strDate {
     NSString *dateString = strDate;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
@@ -150,7 +150,7 @@
     return date;
 }
 
-+ (NSString*)weekdayStringFromDate:(NSDate*)inputDate {
++ (NSString *)weekdayStringFromDate:(NSDate *)inputDate {
     NSArray *weekdays = [NSArray arrayWithObjects: [NSNull null], @"星期天", @"星期一", @"星期二", @"星期三", @"星期四", @"星期五", @"星期六", nil];
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierChinese];
     NSTimeZone *timeZone = [[NSTimeZone alloc] initWithName:@"Asia/Shanghai"];

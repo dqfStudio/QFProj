@@ -8,9 +8,9 @@
 
 @interface UIView (HKBToolBar)
 
-- (void)h_addDoneOnKeyboardWithTarget:(id)target action:(SEL)action titleText:(NSString*)titleText;
+- (void)h_addDoneOnKeyboardWithTarget:(id)target action:(SEL)action titleText:(NSString *)titleText;
 
-- (void)h_addPreviousNextRightOnKeyboardWithTarget:(id)target previousAction:(SEL)previousAction nextAction:(SEL)nextAction rightButtonAction:(SEL)rightButtonAction titleText:(NSString*)titleText;
+- (void)h_addPreviousNextRightOnKeyboardWithTarget:(id)target previousAction:(SEL)previousAction nextAction:(SEL)nextAction rightButtonAction:(SEL)rightButtonAction titleText:(NSString *)titleText;
 
 -(void)h_setEnablePrevious:(BOOL)isPreviousEnabled next:(BOOL)isNextEnabled;
 

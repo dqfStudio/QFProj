@@ -9,7 +9,7 @@
 
 @implementation UIView (HKBToolBar)
 
-- (void)h_addDoneOnKeyboardWithTarget:(id)target action:(SEL)action titleText:(NSString*)titleText {
+- (void)h_addDoneOnKeyboardWithTarget:(id)target action:(SEL)action titleText:(NSString *)titleText {
     if (![self respondsToSelector:@selector(setInputAccessoryView:)])    return;
     UIToolbar *toolbar = [[UIToolbar alloc] init];
     toolbar.barStyle = UIBarStyleDefault;
@@ -20,10 +20,10 @@
     [items addObject:doneButton];
     [toolbar setItems:items];
     toolbar.frame = CGRectMake(0, 0, 0, 44);
-    [(UITextField*)self setInputAccessoryView:toolbar];
+    [(UITextField *)self setInputAccessoryView:toolbar];
 }
 
-- (void)h_addPreviousNextRightOnKeyboardWithTarget:(id)target previousAction:(SEL)previousAction nextAction:(SEL)nextAction rightButtonAction:(SEL)rightButtonAction titleText:(NSString*)titleText {
+- (void)h_addPreviousNextRightOnKeyboardWithTarget:(id)target previousAction:(SEL)previousAction nextAction:(SEL)nextAction rightButtonAction:(SEL)rightButtonAction titleText:(NSString *)titleText {
     if (![self respondsToSelector:@selector(setInputAccessoryView:)])    return;
     UIToolbar *toolbar = [[UIToolbar alloc] init];
     toolbar.barStyle = UIBarStyleDefault;
@@ -46,15 +46,15 @@
     [items addObject:doneButton];
     [toolbar setItems:items];
     toolbar.frame = CGRectMake(0, 0, 0, 44);
-    [(UITextField*)self setInputAccessoryView:toolbar];
+    [(UITextField *)self setInputAccessoryView:toolbar];
 }
 
 - (void)h_setEnablePrevious:(BOOL)isPreviousEnabled next:(BOOL)isNextEnabled {
-    UIToolbar *inputAccessoryView = (UIToolbar*)[self inputAccessoryView];
+    UIToolbar *inputAccessoryView = (UIToolbar *)[self inputAccessoryView];
     if ([inputAccessoryView isKindOfClass:[UIToolbar class]] && [[inputAccessoryView items] count]>3)
     {
-        UIBarButtonItem *prevButton = (UIBarButtonItem*)[[inputAccessoryView items] objectAtIndex:0];
-        UIBarButtonItem *nextButton = (UIBarButtonItem*)[[inputAccessoryView items] objectAtIndex:2];
+        UIBarButtonItem *prevButton = (UIBarButtonItem *)[[inputAccessoryView items] objectAtIndex:0];
+        UIBarButtonItem *nextButton = (UIBarButtonItem *)[[inputAccessoryView items] objectAtIndex:2];
         if ([prevButton isKindOfClass:[UIBarButtonItem class]] && [nextButton isKindOfClass:[UIBarButtonItem class]])
         {
             if (prevButton.enabled != isPreviousEnabled)

@@ -88,7 +88,7 @@ extern NSString *const SRHTTPResponseErrorKey;
 
 // Delegate queue will be dispatch_main_queue by default.
 // You cannot set both OperationQueue and dispatch_queue.
-- (void)setDelegateOperationQueue:(NSOperationQueue*) queue;
+- (void)setDelegateOperationQueue:(NSOperationQueue *) queue;
 - (void)setDelegateDispatchQueue:(dispatch_queue_t) queue;
 
 // By default, it will schedule itself on +[NSRunLoop SR_networkRunLoop] using defaultModes.

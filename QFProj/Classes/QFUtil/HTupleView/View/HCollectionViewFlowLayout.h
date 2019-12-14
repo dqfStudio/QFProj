@@ -10,7 +10,7 @@
 
 /// 扩展section的背景色
 @protocol HCollectionViewDelegateFlowLayout <UICollectionViewDelegateFlowLayout>
-- (UIColor *)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout colorForSectionAtIndex:(NSInteger)section;
+- (UIColor *)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout colorForSectionAtIndex:(NSInteger)section;
 @end
 
 @interface HCollectionViewFlowLayout : UICollectionViewFlowLayout

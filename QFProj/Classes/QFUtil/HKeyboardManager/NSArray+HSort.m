@@ -11,7 +11,7 @@
 
 @implementation NSArray (HSort)
 
-- (NSArray*)h_sortedUIViewArrayByTag {
+- (NSArray *)h_sortedUIViewArrayByTag {
     return [self sortedArrayUsingComparator:^NSComparisonResult(UIView *view1, UIView *view2) {
         
         if ([view1 respondsToSelector:@selector(tag)] && [view2 respondsToSelector:@selector(tag)])
@@ -27,7 +27,7 @@
     }];
 }
 
-- (NSArray*)h_sortedUIViewArrayByPosition {
+- (NSArray *)h_sortedUIViewArrayByPosition {
     return [self sortedArrayUsingComparator:^NSComparisonResult(UIView *view1, UIView *view2) {
         
         CGFloat x1 = CGRectGetMinX(view1.frame);
@@ -47,7 +47,7 @@
     }];
 }
 
-- (NSArray*)h_sortedUIViewArrayByPositionForWindow {
+- (NSArray *)h_sortedUIViewArrayByPositionForWindow {
     NSMutableArray * filtrate = @[].mutableCopy;
     [self enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL * _Nonnull stop) {
         CGRect viewWindow1 = [[view superview] convertRect:view.frame toView:[UIWindow h_getWindow]];

@@ -110,7 +110,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     if (_controllableRequests) {
         [_controllableRequests enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            //[(HNetworkDAO*)obj cancel];
+            //[(HNetworkDAO *)obj cancel];
         }];
     }
     _controllableRequests = nil;

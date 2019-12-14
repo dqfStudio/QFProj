@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///
 ///  @param chainRequest The corresponding chain request.
 ///  @param request      First failed request that causes the whole request to fail.
-- (void)chainRequestFailed:(YTKChainRequest *)chainRequest failedBaseRequest:(YTKBaseRequest*)request;
+- (void)chainRequestFailed:(YTKChainRequest *)chainRequest failedBaseRequest:(YTKBaseRequest *)request;
 
 @end
 

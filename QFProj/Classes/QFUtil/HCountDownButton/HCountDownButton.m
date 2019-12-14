@@ -29,7 +29,7 @@
     [self addTarget:self action:@selector(touched:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)touched:(HCountDownButton*)sender {
+- (void)touched:(HCountDownButton *)sender {
     if (_touchedCountDownButtonHandler) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self->_touchedCountDownButtonHandler(sender,sender.tag);

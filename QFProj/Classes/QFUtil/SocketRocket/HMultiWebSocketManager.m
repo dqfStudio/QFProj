@@ -59,7 +59,7 @@
 }
 
 #pragma mark connect API
-- (void)connectWebSocket:(NSString*)uuid {
+- (void)connectWebSocket:(NSString *)uuid {
     self.closeWithUser = NO;
     if (![self.uuid isEqualToString:uuid]) {
         [self destoryWebSocket];

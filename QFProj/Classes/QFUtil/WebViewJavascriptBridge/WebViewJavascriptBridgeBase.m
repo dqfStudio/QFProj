@@ -42,7 +42,7 @@ static int logMaxLength = 500;
     _uniqueId = 0;
 }
 
-- (void)sendData:(id)data responseCallback:(WVJBResponseCallback)responseCallback handlerName:(NSString*)handlerName {
+- (void)sendData:(id)data responseCallback:(WVJBResponseCallback)responseCallback handlerName:(NSString *)handlerName {
     NSMutableDictionary* message = [NSMutableDictionary dictionary];
     
     if (data) {
@@ -122,29 +122,29 @@ static int logMaxLength = 500;
     }
 }
 
-- (BOOL)isWebViewJavascriptBridgeURL:(NSURL*)url {
+- (BOOL)isWebViewJavascriptBridgeURL:(NSURL *)url {
     if (![self isSchemeMatch:url]) {
         return NO;
     }
     return [self isBridgeLoadedURL:url] || [self isQueueMessageURL:url];
 }
 
-- (BOOL)isSchemeMatch:(NSURL*)url {
+- (BOOL)isSchemeMatch:(NSURL *)url {
     NSString* scheme = url.scheme.lowercaseString;
     return [scheme isEqualToString:kNewProtocolScheme] || [scheme isEqualToString:kOldProtocolScheme];
 }
 
-- (BOOL)isQueueMessageURL:(NSURL*)url {
+- (BOOL)isQueueMessageURL:(NSURL *)url {
     NSString* host = url.host.lowercaseString;
     return [self isSchemeMatch:url] && [host isEqualToString:kQueueHasMessage];
 }
 
-- (BOOL)isBridgeLoadedURL:(NSURL*)url {
+- (BOOL)isBridgeLoadedURL:(NSURL *)url {
     NSString* host = url.host.lowercaseString;
     return [self isSchemeMatch:url] && [host isEqualToString:kBridgeLoaded];
 }
 
-- (void)logUnkownMessage:(NSURL*)url {
+- (void)logUnkownMessage:(NSURL *)url {
     NSLog(@"WebViewJavascriptBridge: WARNING: Received unknown WebViewJavascriptBridge command %@", [url absoluteString]);
 }
 
@@ -167,7 +167,7 @@ static int logMaxLength = 500;
     [self.delegate _evaluateJavascript:javascriptCommand];
 }
 
-- (void)_queueMessage:(WVJBMessage*)message {
+- (void)_queueMessage:(WVJBMessage *)message {
     if (self.startupMessageQueue) {
         [self.startupMessageQueue addObject:message];
     } else {
@@ -175,7 +175,7 @@ static int logMaxLength = 500;
     }
 }
 
-- (void)_dispatchMessage:(WVJBMessage*)message {
+- (void)_dispatchMessage:(WVJBMessage *)message {
     NSString *messageJSON = [self _serializeMessage:message pretty:NO];
     [self _log:@"SEND" json:messageJSON];
     messageJSON = [messageJSON stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
@@ -202,7 +202,7 @@ static int logMaxLength = 500;
     return [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:message options:(NSJSONWritingOptions)(pretty ? NSJSONWritingPrettyPrinted : 0) error:nil] encoding:NSUTF8StringEncoding];
 }
 
-- (NSArray*)_deserializeMessageJSON:(NSString *)messageJSON {
+- (NSArray *)_deserializeMessageJSON:(NSString *)messageJSON {
     return [NSJSONSerialization JSONObjectWithData:[messageJSON dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
 }
 

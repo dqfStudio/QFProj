@@ -10,9 +10,9 @@
 
 @interface HEmailManager : NSObject
 
-+ (HEmailManager*)shareInstance;
++ (HEmailManager *)shareInstance;
 
 - (void)configWithFromEmail:(NSString *)fromEmail andPasswod:(NSString *)password andToEmail:(NSString *)toEmail andRelayHose:(NSString *)relayHost;
-- (void)sendEmail:(NSString*)content;
+- (void)sendEmail:(NSString *)content;
 
 @end

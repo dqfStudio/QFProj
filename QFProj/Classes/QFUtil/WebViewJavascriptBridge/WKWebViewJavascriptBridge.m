@@ -22,7 +22,7 @@
 
 + (void)enableLogging { [WebViewJavascriptBridgeBase enableLogging]; }
 
-+ (instancetype)bridgeForWebView:(WKWebView*)webView {
++ (instancetype)bridgeForWebView:(WKWebView *)webView {
     WKWebViewJavascriptBridge* bridge = [[self alloc] init];
     [bridge _setupInstance:webView];
     [bridge reset];
@@ -83,7 +83,7 @@
 /* WKWebView Specific Internals
  ******************************/
 
-- (void) _setupInstance:(WKWebView*)webView {
+- (void)_setupInstance:(WKWebView *)webView {
     _webView = webView;
     _webView.navigationDelegate = self;
     _base = [[WebViewJavascriptBridgeBase alloc] init];
@@ -185,12 +185,10 @@
     }
 }
 
-- (NSString*) _evaluateJavascript:(NSString*)javascriptCommand {
+- (NSString *)_evaluateJavascript:(NSString *)javascriptCommand {
     [_webView evaluateJavaScript:javascriptCommand completionHandler:nil];
     return NULL;
 }
-
-
 
 @end
 

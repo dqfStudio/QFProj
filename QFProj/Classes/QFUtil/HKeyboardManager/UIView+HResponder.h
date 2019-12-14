@@ -14,21 +14,21 @@
 
 - (BOOL)h_isCanBecomeFirstResponder;
 
-- (NSArray*)h_responderSiblings;
+- (NSArray *)h_responderSiblings;
 
-- (NSArray*)h_responderChildViews;
+- (NSArray *)h_responderChildViews;
 
 
-- (UIViewController*)hh_viewController;
+- (UIViewController *)hh_viewController;
 
 - (UIViewController *)h_topMostController;
 
-- (NSMutableArray*)h_findSonViewByClass:(Class)type mutableArray:(NSMutableArray *)sonViews isMember:(BOOL)isMember;
+- (NSMutableArray *)h_findSonViewByClass:(Class)type mutableArray:(NSMutableArray *)sonViews isMember:(BOOL)isMember;
 
 
 - (UIView *)h_findFatherViewByClass:(Class)type isMember:(BOOL)isMember;
 
-- (NSMutableArray*)h_findFatherViewByClass:(Class)type mutableArray:(NSMutableArray *)fatherViews isMember:(BOOL)isMember;
+- (NSMutableArray *)h_findFatherViewByClass:(Class)type mutableArray:(NSMutableArray *)fatherViews isMember:(BOOL)isMember;
 
 - (NSInteger)h_depth;
 
@@ -41,12 +41,12 @@
 
 + (UIViewController *)h_getRootViewController;
 
-+ (UIViewController*)h_topMostControllerForStack;
++ (UIViewController *)h_topMostControllerForStack;
 
 + (UINavigationController *)h_topMostNavigationController;
 
-+ (UIViewController*)h_currentNavigationViewController;
++ (UIViewController *)h_currentNavigationViewController;
 
-+ (UIViewController*)h_currentViewController;
++ (UIViewController *)h_currentViewController;
 
 @end

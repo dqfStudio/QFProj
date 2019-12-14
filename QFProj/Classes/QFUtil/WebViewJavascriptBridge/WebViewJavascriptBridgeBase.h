@@ -17,7 +17,7 @@ typedef void (^WVJBHandler)(id data, WVJBResponseCallback responseCallback);
 typedef NSDictionary WVJBMessage;
 
 @protocol WebViewJavascriptBridgeBaseDelegate <NSObject>
-- (NSString*) _evaluateJavascript:(NSString*)javascriptCommand;
+- (NSString *)_evaluateJavascript:(NSString *)javascriptCommand;
 @end
 
 @interface WebViewJavascriptBridgeBase : NSObject
@@ -32,13 +32,13 @@ typedef NSDictionary WVJBMessage;
 + (void)enableLogging;
 + (void)setLogMaxLength:(int)length;
 - (void)reset;
-- (void)sendData:(id)data responseCallback:(WVJBResponseCallback)responseCallback handlerName:(NSString*)handlerName;
+- (void)sendData:(id)data responseCallback:(WVJBResponseCallback)responseCallback handlerName:(NSString *)handlerName;
 - (void)flushMessageQueue:(NSString *)messageQueueString;
 - (void)injectJavascriptFile;
-- (BOOL)isWebViewJavascriptBridgeURL:(NSURL*)url;
-- (BOOL)isQueueMessageURL:(NSURL*)urll;
-- (BOOL)isBridgeLoadedURL:(NSURL*)urll;
-- (void)logUnkownMessage:(NSURL*)url;
+- (BOOL)isWebViewJavascriptBridgeURL:(NSURL *)url;
+- (BOOL)isQueueMessageURL:(NSURL *)urll;
+- (BOOL)isBridgeLoadedURL:(NSURL *)urll;
+- (void)logUnkownMessage:(NSURL *)url;
 - (NSString *)webViewJavascriptCheckCommand;
 - (NSString *)webViewJavascriptFetchQueyCommand;
 - (void)disableJavscriptAlertBoxSafetyTimeout;

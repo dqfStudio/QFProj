@@ -118,11 +118,11 @@
     [self.textEditView resignFirstResponder];
 }
 
-- (NSArray*)h_getResponderViews {
+- (NSArray *)h_getResponderViews {
     return [self h_getResponderViewsWithDeep:YES sortType:self.sortType];
 }
 
-- (NSArray*)h_getResponderViewsWithDeep:(BOOL)isDeep sortType:(NSInteger)sortType {
+- (NSArray *)h_getResponderViewsWithDeep:(BOOL)isDeep sortType:(NSInteger)sortType {
     NSArray * editViews = nil;
     if (isDeep) {
         UIScrollView * scrollView = (UIScrollView *)[self.textEditView h_findFatherViewByClass:[UIScrollView class] isMember:NO];

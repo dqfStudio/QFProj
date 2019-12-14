@@ -30,7 +30,7 @@
 @interface HMultiWebSocketManager : NSObject
 @property (nonatomic, weak) id<HMultiWebSokcetManagerDelegate> delegate;
 + (instancetype)shareManager;
-- (void)connectWebSocket:(NSString*)uuid;
+- (void)connectWebSocket:(NSString *)uuid;
 - (void)closeSocket;
 // Send a UTF8 String or Data.
 - (void)sendData:(id)data;

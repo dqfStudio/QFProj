@@ -23,7 +23,7 @@ typedef enum HSimilarityType {
 
 @implementation HSimilarity
 
-- (void)setCompareImage:(UIImage*)image1 image:(UIImage*)image2 {
+- (void)setCompareImage:(UIImage *)image1 image:(UIImage *)image2 {
     _image1 = image1;
     _image2 = image2;
 }
@@ -89,7 +89,7 @@ unsigned int ToGrey(unsigned int rgb) {
     return ( red * 38 +  green * 75 +  blue * 15 )>>7;
 }
 
-- (unsigned int)UIcolorToRGB:(UIColor*)color {
+- (unsigned int)UIcolorToRGB:(UIColor *)color {
     unsigned int RGB,R,G,B;
     RGB = R = G = B = 0x00000000;
     CGFloat r,g,b,a;
@@ -101,7 +101,7 @@ unsigned int ToGrey(unsigned int rgb) {
     return RGB;
 }
 
-- (UIColor *)colorAtPixel:(CGPoint)point image:(UIImage*)image {
+- (UIColor *)colorAtPixel:(CGPoint)point image:(UIImage *)image {
     // Cancel if point is outside image coordinates
     if (!CGRectContainsPoint(CGRectMake(0.0f, 0.0f, image.size.width, image.size.height), point)) {
         return nil;

@@ -20,7 +20,7 @@
 
 @implementation HEmailManager
 
-+ (HEmailManager*)shareInstance {
++ (HEmailManager *)shareInstance {
     static dispatch_once_t onceToken;
     static HEmailManager * emailManager;
     dispatch_once(&onceToken, ^{
@@ -36,7 +36,7 @@
     self.relayHost = relayHost;
 }
 
-- (void)sendEmail:(NSString*)content {
+- (void)sendEmail:(NSString *)content {
     SKPSMTPMessage *myMessage = [[SKPSMTPMessage alloc] init];
     myMessage.delegate = self;
     myMessage.fromEmail = self.fromEmail;//发送者邮箱

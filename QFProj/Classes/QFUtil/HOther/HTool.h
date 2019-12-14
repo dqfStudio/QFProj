@@ -36,9 +36,9 @@
 
 + (NSString *)currentDateString;
 
-+ (NSDate *)stringToDate:(NSString*)strDate;
++ (NSDate *)stringToDate:(NSString *)strDate;
 
-+ (NSString*)weekdayStringFromDate:(NSDate*)inputDate;
++ (NSString *)weekdayStringFromDate:(NSDate *)inputDate;
 
 + (NSString *)getCountdownTimeStr:(NSTimeInterval)interval;
 

@@ -127,7 +127,7 @@ static HKeyboardManager *hShareKB = nil;
 }
 
 
-- (void)textEditViewDidBeginEditing:(NSNotification*)notification {
+- (void)textEditViewDidBeginEditing:(NSNotification *)notification {
     if (_enable == NO) return;
 
     _textEditView = notification.object;
@@ -137,7 +137,7 @@ static HKeyboardManager *hShareKB = nil;
         [self h_startToolBar];
     }
 
-    UIScrollView *superScrollView = (UIScrollView*)[_textEditView h_findFatherViewByClass:[UIScrollView class] isMember:NO];
+    UIScrollView *superScrollView = (UIScrollView *)[_textEditView h_findFatherViewByClass:[UIScrollView class] isMember:NO];
     if (!_superScrollView) {
         if (superScrollView && (superScrollView.isScrollEnabled == YES)) {
             NSMutableArray * scrollVs = @[].mutableCopy;
@@ -250,7 +250,7 @@ static HKeyboardManager *hShareKB = nil;
 
 }
 
-- (void)textEditViewDidEndEditing:(NSNotification*)notification {
+- (void)textEditViewDidEndEditing:(NSNotification *)notification {
     UIView * editView = notification.object;
     if (_textEditView == editView) {
         [_textEditView.window removeGestureRecognizer:_tapGesture];
@@ -260,7 +260,7 @@ static HKeyboardManager *hShareKB = nil;
     }
 }
 
-- (void)keyboardWillShow:(NSNotification*)aNotification {
+- (void)keyboardWillShow:(NSNotification *)aNotification {
     if (_enable == NO)    return;
 
     if (aNotification) {
@@ -331,12 +331,12 @@ static HKeyboardManager *hShareKB = nil;
     }
 }
 
-- (void)keyboardDidShow:(NSNotification*)aNotification {
+- (void)keyboardDidShow:(NSNotification *)aNotification {
     if (_enable == NO)    return;
     _kbShow = YES;
 }
 
-- (void)keyboardWillHide:(NSNotification*)aNotification {
+- (void)keyboardWillHide:(NSNotification *)aNotification {
     if (_enable == NO)    return;
 
     if (_superScrollView == nil) {
@@ -369,13 +369,13 @@ static HKeyboardManager *hShareKB = nil;
     [self toNULL];
 }
 
-- (void)keyboardDidHide:(NSNotification*)aNotification {
+- (void)keyboardDidHide:(NSNotification *)aNotification {
     if (_enable == NO)    return;
     [_textEditViewRootVC.view setNeedsLayout];
     [_textEditViewRootVC.view setNeedsDisplay];
     [_textEditViewRootVC.view layoutIfNeeded];
 }
-- (void)tapRecognized:(UITapGestureRecognizer*)gesture {
+- (void)tapRecognized:(UITapGestureRecognizer *)gesture {
     if (gesture.state == UIGestureRecognizerStateEnded)
     {
         [_textEditView resignFirstResponder];

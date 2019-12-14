@@ -454,7 +454,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 0.f;
 }
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     NSString *prefix = [self prefixWithSection:section];
     SEL selector = @selector(tupleView:insetForSectionAtIndex:);
     if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {

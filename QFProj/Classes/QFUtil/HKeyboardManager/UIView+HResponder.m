@@ -30,18 +30,18 @@
     {
         if ([self isKindOfClass:[UITextField class]])
         {
-            isCanBecomeFirstResponder = [(UITextField*)self isEnabled];
+            isCanBecomeFirstResponder = [(UITextField *)self isEnabled];
         }
         else if ([self isKindOfClass:[UITextView class]])
         {
-            isCanBecomeFirstResponder = [(UITextView*)self isEditable];
+            isCanBecomeFirstResponder = [(UITextView *)self isEditable];
         }
     }
     
     return isCanBecomeFirstResponder;
 }
 
-- (NSArray*)h_responderSiblings {
+- (NSArray *)h_responderSiblings {
     NSArray *siblings = self.superview.subviews;
     NSMutableArray *tempTextFields = [[NSMutableArray alloc] init];
     
@@ -52,7 +52,7 @@
     return tempTextFields;
 }
 
-- (NSArray*)h_responderChildViews {
+- (NSArray *)h_responderChildViews {
     NSMutableArray *textFields = [[NSMutableArray alloc] init];
     NSArray *subViews = self.subviews;;
     
@@ -79,7 +79,7 @@
         nextResponder = [nextResponder nextResponder];
         
         if ([nextResponder isKindOfClass:[UIViewController class]])
-            return (UIViewController*)nextResponder;
+            return (UIViewController *)nextResponder;
         
     } while (nextResponder != nil);
     
@@ -109,7 +109,7 @@
         } while (matchController != nil && [matchController isKindOfClass:[UIViewController class]] == NO);
     }
 
-    return (UIViewController*)matchController;
+    return (UIViewController *)matchController;
 }
 
 - (NSArray<NSString *> *)hSystemTypeArray {
@@ -134,7 +134,7 @@
     return NO;
 }
 
-- (NSMutableArray*)h_findSonViewByClass:(Class)type mutableArray:(NSMutableArray *)sonViews isMember:(BOOL)isMember{
+- (NSMutableArray *)h_findSonViewByClass:(Class)type mutableArray:(NSMutableArray *)sonViews isMember:(BOOL)isMember{
     UIView * superview = self;
     for (UIView *subview in superview.subviews) {
         if ([subview.subviews count] > 0) {
@@ -194,7 +194,7 @@
     
 }
 
-- (NSMutableArray*)h_findFatherViewByClass:(Class)type mutableArray:(NSMutableArray *)fatherViews isMember:(BOOL)isMember{
+- (NSMutableArray *)h_findFatherViewByClass:(Class)type mutableArray:(NSMutableArray *)fatherViews isMember:(BOOL)isMember{
     UIView * fatherV = self;
     while (fatherV && [fatherV isKindOfClass:[UIView class]]) {
         UIView * fatherV1 = [fatherV h_findFatherViewByClass:type isMember:isMember];
@@ -263,13 +263,13 @@
     return rootVC;
 }
 
-+ (UIViewController*)h_topMostController {
++ (UIViewController *)h_topMostController {
     UIViewController *topController = [self h_getRootViewController];
     while ([topController presentedViewController])    topController = [topController presentedViewController];
     return topController;
 }
 
-+ (UIViewController*)h_topMostControllerForStack {
++ (UIViewController *)h_topMostControllerForStack {
     UIViewController *topController = [self h_getWindowRootVC];
     while ([topController presentedViewController])    topController = [topController presentedViewController];
     return topController;
@@ -290,20 +290,20 @@
     return nil;
 }
 
-+ (UIViewController*)h_currentNavigationViewController; {
++ (UIViewController *)h_currentNavigationViewController; {
     UIViewController *currentViewController = nil;
     if ([self h_topMostNavigationController]) {
         currentViewController = [self h_topMostNavigationController];
         
-        while ([currentViewController isKindOfClass:[UINavigationController class]] && [(UINavigationController*)currentViewController topViewController])
-            currentViewController = [(UINavigationController*)currentViewController topViewController];
+        while ([currentViewController isKindOfClass:[UINavigationController class]] && [(UINavigationController *)currentViewController topViewController])
+            currentViewController = [(UINavigationController *)currentViewController topViewController];
     } else {
         currentViewController = [self h_topMostController];
     }
     return currentViewController;
 }
 
-+ (UIViewController*)h_currentViewController{
++ (UIViewController *)h_currentViewController{
     UIViewController *currentViewController = [self h_currentNavigationViewController];
     while ([currentViewController presentedViewController])    currentViewController = [currentViewController presentedViewController];
     return currentViewController;

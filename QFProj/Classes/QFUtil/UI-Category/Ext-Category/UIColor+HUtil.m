@@ -147,7 +147,7 @@
 }
 
 /*是否是浅色 YES 是浅色， NO是深色**/
-+ (BOOL)isLighterColorWithColor:(UIColor*)color{
++ (BOOL)isLighterColorWithColor:(UIColor *)color{
     return [color isLighterColor];
 }
 @end

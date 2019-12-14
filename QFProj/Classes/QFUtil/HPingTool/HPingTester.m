@@ -21,7 +21,7 @@
 
 @implementation HPingTester
 
-- (instancetype)initWithHostName:(NSString*)hostName {
+- (instancetype)initWithHostName:(NSString *)hostName {
     if (self = [super init]) {
         _hostName = hostName;
         self.simplePing = [[SimplePing alloc] initWithHostName:hostName];

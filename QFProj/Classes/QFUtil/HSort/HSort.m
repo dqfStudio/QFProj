@@ -164,7 +164,7 @@
  *  所有的多音字匹配的拼音首字母键值对，每个姓氏多音字对应一字符串
  *  多音字姓氏使用第三方平台转换时，如果转换错误，将使用该键值对匹配替换
  */
-+ (NSDictionary*)getDicForAllPolyphoneSurnameFirstLetters {
++ (NSDictionary *)getDicForAllPolyphoneSurnameFirstLetters {
     static NSDictionary* g_pAllPolyphoneSurnameFirstLetters = nil;
     static dispatch_once_t pred;
     dispatch_once(&pred, ^

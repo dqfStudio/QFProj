@@ -27,7 +27,7 @@
     }
     return self;
 }
-- (void)tapClick:(UITapGestureRecognizer*)tap {
+- (void)tapClick:(UITapGestureRecognizer *)tap {
     [self changeCode];
 }
 - (void)changeCode {

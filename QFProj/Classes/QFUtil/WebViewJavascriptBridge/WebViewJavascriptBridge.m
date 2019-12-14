@@ -41,7 +41,7 @@
 + (instancetype)bridge:(id)webView {
 #if defined supportsWKWebView
     if ([webView isKindOfClass:[WKWebView class]]) {
-        return (WebViewJavascriptBridge*) [WKWebViewJavascriptBridge bridgeForWebView:webView];
+        return (WebViewJavascriptBridge *) [WKWebViewJavascriptBridge bridgeForWebView:webView];
     }
 #endif
     if ([webView isKindOfClass:[WVJB_WEBVIEW_TYPE class]]) {
@@ -53,7 +53,7 @@
     return nil;
 }
 
-- (void)setWebViewDelegate:(WVJB_WEBVIEW_DELEGATE_TYPE*)webViewDelegate {
+- (void)setWebViewDelegate:(WVJB_WEBVIEW_DELEGATE_TYPE *)webViewDelegate {
     _webViewDelegate = webViewDelegate;
 }
 
@@ -100,7 +100,7 @@
     _webViewDelegate = nil;
 }
 
-- (NSString*) _evaluateJavascript:(NSString*)javascriptCommand {
+- (NSString *) _evaluateJavascript:(NSString *)javascriptCommand {
     return [_webView stringByEvaluatingJavaScriptFromString:javascriptCommand];
 }
 
@@ -108,7 +108,7 @@
 /* Platform specific internals: OSX
  **********************************/
 
-- (void) _platformSpecificSetup:(WVJB_WEBVIEW_TYPE*)webView {
+- (void) _platformSpecificSetup:(WVJB_WEBVIEW_TYPE *)webView {
     _webView = webView;
     _webView.policyDelegate = self;
     _base = [[WebViewJavascriptBridgeBase alloc] init];
@@ -146,7 +146,7 @@
 /* Platform specific internals: iOS
  **********************************/
 
-- (void) _platformSpecificSetup:(WVJB_WEBVIEW_TYPE*)webView {
+- (void) _platformSpecificSetup:(WVJB_WEBVIEW_TYPE *)webView {
     _webView = webView;
     _webView.delegate = self;
     _base = [[WebViewJavascriptBridgeBase alloc] init];

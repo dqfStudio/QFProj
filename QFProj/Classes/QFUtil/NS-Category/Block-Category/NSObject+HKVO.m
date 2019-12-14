@@ -76,7 +76,7 @@
 static void *const HKVOBlockKey = "HKVOBlockKey";
 static void *const HKVOSemaphoreKey = "HKVOSemaphoreKey";
 
-- (void)h_addObserverBlockForKeyPath:(NSString*)keyPath block:(void (^)(id obj, id oldVal, id newVal))block {
+- (void)h_addObserverBlockForKeyPath:(NSString *)keyPath block:(void (^)(id obj, id oldVal, id newVal))block {
     if (!keyPath || !block) return;
     dispatch_semaphore_t kvoSemaphore = [self _h_getSemaphoreWithKey:HKVOSemaphoreKey];
     dispatch_semaphore_wait(kvoSemaphore, DISPATCH_TIME_FOREVER);

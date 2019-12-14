@@ -20,7 +20,7 @@ typedef NS_ENUM(NSInteger, NSDateFormat) {
 + (void)time:(void(^)(void))callback;
 
 + (NSString *)dateWithFormat:(NSDateFormat)format;
-+ (NSDate *)dateWithString:(NSString*)aString format:(NSDateFormat)format;
++ (NSDate *)dateWithString:(NSString *)aString format:(NSDateFormat)format;
 + (NSString *)weekdayFromDate:(NSDate *)date;
 + (NSString *)pastWithDays:(NSUInteger)days format:(NSDateFormat)format;
 + (NSString *)pastWithDate:(NSDate *)date Days:(NSUInteger)days format:(NSDateFormat)format;
