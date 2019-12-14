@@ -614,6 +614,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         });
     }
 }
+- (void)signal:(HTupleSignal *)signal toRow:(NSInteger)row inSection:(NSInteger)section {
+    [self signal:signal indexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+}
 - (void)signalToAllHeader:(HTupleSignal *)signal {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSInteger sections = [self numberOfSections];

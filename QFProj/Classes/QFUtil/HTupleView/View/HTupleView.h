@@ -117,6 +117,7 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 - (void)signalToAllItems:(HTupleSignal *_Nullable)signal;
 - (void)signal:(HTupleSignal *_Nullable)signal itemSection:(NSInteger)section;
 - (void)signal:(HTupleSignal *_Nullable)signal indexPath:(NSIndexPath *)indexPath;
+- (void)signal:(HTupleSignal *_Nullable)signal toRow:(NSInteger)row inSection:(NSInteger)section;
 //给所有header或单独某个header发送信号
 - (void)signalToAllHeader:(HTupleSignal *_Nullable)signal;
 - (void)signal:(HTupleSignal *_Nonnull)signal headerSection:(NSInteger)section;
