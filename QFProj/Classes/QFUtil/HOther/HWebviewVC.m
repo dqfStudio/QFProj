@@ -391,8 +391,7 @@
 }
 
 #pragma mark - over load
-- (BOOL)shouldAutorotate
-{
+- (BOOL)shouldAutorotate {
 //    return _isTXQP ? NO : UIApplication.appDel.allowRotate;
     return NO;
 }

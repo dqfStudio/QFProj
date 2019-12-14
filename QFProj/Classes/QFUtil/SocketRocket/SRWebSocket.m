@@ -749,8 +749,7 @@ static __strong NSData *CRLFCRLF;
     });
 }
 
-- (void)_writeData:(NSData *)data;
-{    
+- (void)_writeData:(NSData *)data; {
     [self assertOnWorkQueue];
 
     if (_closeWhenFinishedWriting) {
@@ -891,8 +890,7 @@ static inline BOOL closeCodeIsValid(int closeCode) {
     [self _pumpWriting];
 }
 
-- (void)_handleFrameWithData:(NSData *)frameData opCode:(NSInteger)opcode;
-{                
+- (void)_handleFrameWithData:(NSData *)frameData opCode:(NSInteger)opcode; {
     // Check that the current data is valid UTF8
     
     BOOL isControlFrame = (opcode == SROpCodePing || opcode == SROpCodePong || opcode == SROpCodeConnectionClose);
@@ -1174,8 +1172,7 @@ static const uint8_t SRPayloadLenMask   = 0x7F;
     [self _addConsumerWithScanner:consumer callback:callback dataLength:0];
 }
 
-- (void)_addConsumerWithDataLength:(size_t)dataLength callback:(data_callback)callback readToCurrentFrame:(BOOL)readToCurrentFrame unmaskBytes:(BOOL)unmaskBytes;
-{   
+- (void)_addConsumerWithDataLength:(size_t)dataLength callback:(data_callback)callback readToCurrentFrame:(BOOL)readToCurrentFrame unmaskBytes:(BOOL)unmaskBytes; {
     [self assertOnWorkQueue];
     assert(dataLength);
     
@@ -1183,8 +1180,7 @@ static const uint8_t SRPayloadLenMask   = 0x7F;
     [self _pumpScanner];
 }
 
-- (void)_addConsumerWithScanner:(stream_scanner)consumer callback:(data_callback)callback dataLength:(size_t)dataLength;
-{    
+- (void)_addConsumerWithScanner:(stream_scanner)consumer callback:(data_callback)callback dataLength:(size_t)dataLength; {
     [self assertOnWorkQueue];
     [_consumers addObject:[_consumerPool consumerWithScanner:consumer handler:callback bytesNeeded:dataLength readToCurrentFrame:NO unmaskBytes:NO]];
     [self _pumpScanner];

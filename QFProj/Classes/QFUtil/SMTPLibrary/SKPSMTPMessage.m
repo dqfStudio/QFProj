@@ -67,8 +67,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
 #pragma mark -
 #pragma mark Memory & Lifecycle
 
-- (id)init
-{
+- (id)init {
     static NSArray *defaultPorts = nil;
     
     if (!defaultPorts)
@@ -91,8 +90,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
     return self;
 }
 
-- (id)copyWithZone:(NSZone *)zone
-{
+- (id)copyWithZone:(NSZone *)zone {
     SKPSMTPMessage *smtpMessageCopy = [[[self class] allocWithZone:zone] init];
     smtpMessageCopy.delegate = self.delegate;
     smtpMessageCopy.fromEmail = self.fromEmail;
@@ -114,20 +112,17 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
 #pragma mark -
 #pragma mark Connection Timers
 
-- (void)startShortWatchdog
-{
+- (void)startShortWatchdog {
     NSLog(@"*** starting short watchdog ***");
     self.watchdogTimer = [NSTimer scheduledTimerWithTimeInterval:SHORT_LIVENESS_TIMEOUT target:self selector:@selector(connectionWatchdog:) userInfo:nil repeats:NO];
 }
 
-- (void)startLongWatchdog
-{
+- (void)startLongWatchdog {
     NSLog(@"*** starting long watchdog ***");
     self.watchdogTimer = [NSTimer scheduledTimerWithTimeInterval:LONG_LIVENESS_TIMEOUT target:self selector:@selector(connectionWatchdog:) userInfo:nil repeats:NO];
 }
 
-- (void)stopWatchdog
-{
+- (void)stopWatchdog {
     NSLog(@"*** stopping watchdog ***");
     [self.watchdogTimer invalidate];
     self.watchdogTimer = nil;
@@ -136,8 +131,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
 
 #pragma mark Watchdog Callback
 
-- (void)connectionWatchdog:(NSTimer *)aTimer
-{
+- (void)connectionWatchdog:(NSTimer *)aTimer {
     [self cleanUpStreams];
     
     // No hard error if we're wating on a reply
@@ -203,8 +197,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
 }
 
 
-- (BOOL)send
-{
+- (BOOL)send {
     NSAssert(sendState == kSKPSMTPIdle, @"Message has already been sent!");
     
     if (requiresAuth)
@@ -289,8 +282,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
 #pragma mark -
 #pragma mark <NSStreamDelegate>
 
-- (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode 
-{
+- (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode  {
     switch(eventCode) 
     {
         case NSStreamEventNone: {
@@ -383,8 +375,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
 }
 
             
-- (void)parseBuffer
-{
+- (void)parseBuffer {
     // Pull out the next line
     NSScanner *scanner = [NSScanner scannerWithString:inputString];
     NSString *tmpLine = nil;
@@ -811,8 +802,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
     }
 }
 
-- (BOOL)sendParts
-{
+- (BOOL)sendParts {
     NSMutableString *message = [[NSMutableString alloc] init];
     static NSString *separatorString = @"--SKPSMTPMessage--Separator--Delimiter\r\n";
     
@@ -880,8 +870,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
     return YES;
 }
 
-- (void)connectionConnectedCheck:(NSTimer *)aTimer
-{
+- (void)connectionConnectedCheck:(NSTimer *)aTimer {
     if (sendState == kSKPSMTPConnecting)
     {
         [inputStream close];
@@ -903,8 +892,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
 }
 
 
-- (void)cleanUpStreams
-{
+- (void)cleanUpStreams {
     [inputStream close];
     [inputStream removeFromRunLoop:[NSRunLoop currentRunLoop]
                            forMode:NSDefaultRunLoopMode];

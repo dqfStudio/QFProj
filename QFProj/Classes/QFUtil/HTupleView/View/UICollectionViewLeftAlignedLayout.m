@@ -28,8 +28,7 @@
 
 @implementation UICollectionViewLayoutAttributes (LeftAligned)
 
-- (void)leftAlignFrameWithSectionInset:(UIEdgeInsets)sectionInset
-{
+- (void)leftAlignFrameWithSectionInset:(UIEdgeInsets)sectionInset {
     CGRect frame = self.frame;
     frame.origin.x = sectionInset.left;
     self.frame = frame;
@@ -98,8 +97,7 @@
     [self setYInArr:tmpAttrArr y:ymin];
     return updatedAttributes;
 }
-- (void)setYInArr:(NSMutableArray *)tmpAttrArr y:(float)ymin
-{
+- (void)setYInArr:(NSMutableArray *)tmpAttrArr y:(float)ymin {
     for (UICollectionViewLayoutAttributes *topAlignAttrs in tmpAttrArr)
     {
         CGRect rect = topAlignAttrs.frame;
@@ -147,8 +145,7 @@
     return currentItemAttributes;
 }
 
-- (CGFloat)evaluatedMinimumInteritemSpacingForSectionAtIndex:(NSInteger)sectionIndex
-{
+- (CGFloat)evaluatedMinimumInteritemSpacingForSectionAtIndex:(NSInteger)sectionIndex {
     if ([self.collectionView.delegate respondsToSelector:@selector(collectionView:layout:minimumInteritemSpacingForSectionAtIndex:)]) {
         id<UICollectionViewDelegateLeftAlignedLayout> delegate = (id<UICollectionViewDelegateLeftAlignedLayout>)self.collectionView.delegate;
 
@@ -158,8 +155,7 @@
     }
 }
 
-- (UIEdgeInsets)evaluatedSectionInsetForItemAtIndex:(NSInteger)index
-{
+- (UIEdgeInsets)evaluatedSectionInsetForItemAtIndex:(NSInteger)index {
     if ([self.collectionView.delegate respondsToSelector:@selector(collectionView:layout:insetForSectionAtIndex:)]) {
         id<UICollectionViewDelegateLeftAlignedLayout> delegate = (id<UICollectionViewDelegateLeftAlignedLayout>)self.collectionView.delegate;
 
