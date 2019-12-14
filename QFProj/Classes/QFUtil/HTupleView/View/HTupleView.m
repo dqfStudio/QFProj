@@ -606,16 +606,14 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         }
     });
 }
-- (void)signal:(HTupleSignal *)signal indexPath:(NSIndexPath *)indexPath  {
+- (void)signal:(HTupleSignal *)signal toRow:(NSInteger)row inSection:(NSInteger)section {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
     HTupleBaseCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
     if (cell.signalBlock) {
         dispatch_async(dispatch_get_main_queue(), ^{
             cell.signalBlock(cell, signal);
         });
     }
-}
-- (void)signal:(HTupleSignal *)signal toRow:(NSInteger)row inSection:(NSInteger)section {
-    [self signal:signal indexPath:[NSIndexPath indexPathForRow:row inSection:section]];
 }
 - (void)signalToAllHeader:(HTupleSignal *)signal {
     dispatch_async(dispatch_get_main_queue(), ^{
