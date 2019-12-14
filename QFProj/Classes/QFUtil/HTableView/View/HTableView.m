@@ -587,7 +587,8 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
         }
     });
 }
-- (void)signal:(HTableSignal *)signal indexPath:(NSIndexPath *)indexPath  {
+- (void)signal:(HTableSignal *)signal toRow:(NSInteger)row inSection:(NSInteger)section {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
     HTableBaseCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
     if (cell.signalBlock) {
         dispatch_async(dispatch_get_main_queue(), ^{

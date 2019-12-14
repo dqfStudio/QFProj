@@ -104,7 +104,7 @@ typedef NSArray *_Nullable(^HTableSectionExclusiveBlock)(void);
 //给所有cell、某个section下的item或单独某个cell发送信号
 - (void)signalToAllCells:(HTableSignal *_Nullable)signal;
 - (void)signal:(HTableSignal *_Nullable)signal cellSection:(NSInteger)section;
-- (void)signal:(HTableSignal *_Nullable)signal indexPath:(NSIndexPath *)indexPath;
+- (void)signal:(HTableSignal *_Nullable)signal toRow:(NSInteger)row inSection:(NSInteger)section;
 //给所有header或单独某个header发送信号
 - (void)signalToAllHeader:(HTableSignal *_Nullable)signal;
 - (void)signal:(HTableSignal *_Nullable)signal headerSection:(NSInteger)section;
