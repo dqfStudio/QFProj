@@ -54,6 +54,8 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 
 @interface HTableView () <UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic, weak, nullable) id <HTableViewDelegate> tableDelegate;
+
 @property (nonatomic) HTableStyle tableStyle;
 
 @property (nonatomic) NSMutableSet *allReuseIdentifiers;
@@ -66,6 +68,8 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 @end
 
 @implementation HTableView
+
+@dynamic delegate;
 
 #pragma --mark init
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -101,6 +105,16 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     }
     return self;
 }
+- (void)setDelegate:(id<HTableViewDelegate>)delegate {
+    self.tableDelegate = delegate;
+}
+- (void)setDataSource:(id<UITableViewDataSource>)dataSource {}
+- (void)setFrame:(CGRect)frame {
+    if(!CGRectEqualToRect(frame, self.frame)) {
+        [super setFrame:frame];
+        [self reloadData];
+    }
+}
 - (void)setup {
     //保存tableView用于全局刷新
     [[HTableAppearance appearance] addTable:self];
@@ -124,14 +138,8 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     _allReuseHeaders = [NSMapTable strongToWeakObjectsMapTable];
     _allReuseFooters = [NSMapTable strongToWeakObjectsMapTable];
     self.tableFooterView = [UIView new];
-    self.delegate = self;
-    self.dataSource = self;
-}
-- (void)setFrame:(CGRect)frame {
-    if(!CGRectEqualToRect(frame, self.frame)) {
-        [super setFrame:frame];
-        [self reloadData];
-    }
+    super.delegate = self;
+    super.dataSource = self;
 }
 #pragma --mark bounce
 - (void)horizontalBounceEnabled {

@@ -41,7 +41,7 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 - (void)enumerateTuples:(void (^)(void))completion;
 @end
 
-@protocol HTupleViewDelegate <NSObject>
+@protocol HTupleViewDelegate <UICollectionViewDelegate>
 @optional
 - (NSInteger)numberOfSectionsInTupleView:(HTupleView *)tupleView;
 - (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section;
@@ -67,7 +67,7 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 @end
 
 @interface HTupleView : UICollectionView <HTupleViewDelegate, HCollectionViewDelegateFlowLayout>
-@property (nonatomic, weak, nullable) id <HTupleViewDelegate> tupleDelegate;
+@property (nonatomic, weak, nullable) id <HTupleViewDelegate> delegate;
 
 @property (nonatomic, assign) NSUInteger pageNo;    // page number, default 1
 @property (nonatomic, assign) NSUInteger pageSize;  // page size, default 20

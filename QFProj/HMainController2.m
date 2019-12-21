@@ -20,7 +20,7 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.leftNaviButton setHidden:YES];
     [self setTitle:@"第二页"];
-    [self.tupleView setTupleDelegate:self];
+    [self.tupleView setDelegate:self];
 }
 
 //- (NSInteger)numberOfSectionsInTupleView:(HTupleView *)tupleView {

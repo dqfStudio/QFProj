@@ -54,6 +54,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 
 @interface HTupleView () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
+@property (nonatomic, weak, nullable) id <HTupleViewDelegate> tupleDelegate;
+
 @property (nonatomic) UICollectionViewFlowLayout *flowLayout;
 
 @property (nonatomic) HTupleStyle tupleStyle;
@@ -69,6 +71,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 @end
 
 @implementation HTupleView
+
+@dynamic delegate;
+
 - (instancetype)initWithFrame:(CGRect)frame {
     _flowLayout = HCollectionViewFlowLayout.new;
     _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
@@ -105,6 +110,10 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     }
     return self;
 }
+- (void)setDelegate:(id<HTupleViewDelegate>)delegate {
+    self.tupleDelegate = delegate;
+}
+- (void)setDataSource:(id<UICollectionViewDataSource>)dataSource {}
 - (void)setFrame:(CGRect)frame {
     frame = UIRectIntegral(frame);
     if(!CGRectEqualToRect(frame, self.frame)) {
@@ -135,8 +144,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     _allReuseCells    = [NSMapTable strongToWeakObjectsMapTable];
     _allReuseHeaders  = [NSMapTable strongToWeakObjectsMapTable];
     _allReuseFooters  = [NSMapTable strongToWeakObjectsMapTable];
-    self.delegate = self;
-    self.dataSource = self;
+    super.delegate = self;
+    super.dataSource = self;
 }
 #pragma --mark bounce
 - (void)horizontalBounceEnabled {

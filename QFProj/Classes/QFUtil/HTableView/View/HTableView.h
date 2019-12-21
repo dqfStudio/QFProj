@@ -35,7 +35,7 @@ typedef NSArray *_Nullable(^HTableSectionExclusiveBlock)(void);
 - (void)enumerateTables:(void (^)(void))completion;
 @end
 
-@protocol HTableViewDelegate <NSObject>
+@protocol HTableViewDelegate <UITableViewDelegate>
 @optional
 - (NSInteger)numberOfSectionsInTableView:(HTableView *)tableView;
 - (NSInteger)tableView:(HTableView *)tableView numberOfRowsInSection:(NSInteger)section;
@@ -57,7 +57,7 @@ typedef NSArray *_Nullable(^HTableSectionExclusiveBlock)(void);
 @end
 
 @interface HTableView : UITableView <HTableViewDelegate>
-@property (nonatomic, weak, nullable) id <HTableViewDelegate> tableDelegate;
+@property (nonatomic, weak, nullable) id <HTableViewDelegate> delegate;
 
 @property (nonatomic, assign) NSUInteger pageNo;    // page number, default 1
 @property (nonatomic, assign) NSUInteger pageSize;  // page size, default 20

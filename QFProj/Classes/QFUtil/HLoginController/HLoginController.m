@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view.
     [self.leftNaviButton setHidden:YES];
     [self setTitle:@"登录"];
-    [self.tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
+    [self.tupleView setDelegate:(id<HTupleViewDelegate>)self];
 }
 
 - (NSInteger)numberOfSectionsInTupleView:(HTupleView *)tupleView {
