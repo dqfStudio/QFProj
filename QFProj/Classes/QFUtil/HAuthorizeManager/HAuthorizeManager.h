@@ -10,17 +10,17 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger){
-    AuthorizationTypeCamera,   //相机
-    AuthorizationTypeAudio,    //麦克风
-    AuthorizationTypeLocation,  //位置
-    AuthorizationTypePhotoLibrary,  //相册
+    AuthorizationTypeCamera,       //相机
+    AuthorizationTypeAudio,        //麦克风
+    AuthorizationTypeLocation,     //位置
+    AuthorizationTypePhotoLibrary, //相册
     AuthorizationTypeContacts,     //通讯录
-}AuthorizationType;
+} AuthorizationType;
 
 typedef NS_ENUM(NSInteger){
     AuthorizationStatusAuthorized,
     AuthorizationStatusDenied,
-}AuthorizationStatus;
+} AuthorizationStatus;
 
 typedef void(^AuthorizationCompletionBlock)(AuthorizationStatus status);
 

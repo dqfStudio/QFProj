@@ -14,9 +14,9 @@
 
 #define dispatch_main_async_safe(block)\
 if ([NSThread isMainThread]) {\
-block();\
-} else {\
-dispatch_async(dispatch_get_main_queue(), block);\
+    block();\
+}else {\
+    dispatch_async(dispatch_get_main_queue(), block);\
 }
 
 @interface HAuthorizeManager()<CLLocationManagerDelegate>
@@ -48,65 +48,58 @@ dispatch_async(dispatch_get_main_queue(), block);\
     [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {}];
     //通讯录
     CNContactStore *contactStore = [[CNContactStore alloc] init];
-    [contactStore requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
-    }];
+    [contactStore requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
 }
 
 + (void)getAutorizationStatusWithType:(AuthorizationType)authorizationType completion:(AuthorizationCompletionBlock)completion {
     switch (authorizationType) {
-        case AuthorizationTypeCamera:
-        {
+        case AuthorizationTypeCamera: {
             [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
                 if (granted) {
                     completion(AuthorizationStatusAuthorized);
-                }else{
+                }else {
                     completion(AuthorizationStatusDenied);
                 }
             }];
         }
             break;
-        case AuthorizationTypeAudio:
-        {
+        case AuthorizationTypeAudio: {
             [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio completionHandler:^(BOOL granted) {
                 if (granted) {
                     completion(AuthorizationStatusAuthorized);
-                }else{
+                }else {
                     completion(AuthorizationStatusDenied);
                 }
             }];
         }
             break;
-        case AuthorizationTypeLocation:
-        {
+        case AuthorizationTypeLocation: {
             CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
             if (status == kCLAuthorizationStatusNotDetermined) {
                 [HAuthorizeManager sharemanager].authorizationCompletionBlock = completion;
             }else if (status == kCLAuthorizationStatusAuthorizedWhenInUse || status == kCLAuthorizationStatusAuthorizedAlways){
                 completion(AuthorizationStatusAuthorized);
-            }else{
+            }else {
                 completion(AuthorizationStatusDenied);
             }
         }
             break;
-        case AuthorizationTypePhotoLibrary:
-        {
+        case AuthorizationTypePhotoLibrary: {
             [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
                 if (status == PHAuthorizationStatusAuthorized) {
                     completion(AuthorizationStatusAuthorized);
-                }else{
+                }else {
                     completion(AuthorizationStatusDenied);
                 }
             }];
         }
             break;
-        case AuthorizationTypeContacts:
-        {
-            //通讯录
+        case AuthorizationTypeContacts: {//通讯录
             CNContactStore *contactStore = [[CNContactStore alloc] init];
             [contactStore requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
                 if (granted) {
                     completion(AuthorizationStatusAuthorized);
-                }else{
+                }else {
                     completion(AuthorizationStatusDenied);
                 }
             }];
@@ -128,32 +121,27 @@ dispatch_async(dispatch_get_main_queue(), block);\
         }];
     };
     switch (authorizationType) {
-        case AuthorizationTypePhotoLibrary://没有相册权限
-        {
+        case AuthorizationTypePhotoLibrary: {//没有相册权限
             title = @"没有相册权限";
             message = KCHECK_AUTH_PHOTOLIB;
         }
             break;
-        case AuthorizationTypeCamera://没有相机权限
-        {
+        case AuthorizationTypeCamera: {//没有相机权限
             title = @"没有相机权限";
             message = KCHECK_AUTH_CAMERA;
         }
             break;
-        case AuthorizationTypeAudio://没有麦克风权限
-        {
+        case AuthorizationTypeAudio: {//没有麦克风权限
             title = @"没有麦克风权限";
             message = KCHECK_AUTH_MICROPHONE;
         }
             break;
-        case AuthorizationTypeContacts://没有通讯录权限
-        {
+        case AuthorizationTypeContacts: {//没有通讯录权限
             title = @"没有通讯录权限";
             message = KCHECK_AUTH_CONTACT;
         }
             break;
-        case AuthorizationTypeLocation://没有定位权限
-        {
+        case AuthorizationTypeLocation: {//没有定位权限
             title = @"没有位置权限";
             message = KCHECK_AUTH_LOCATION;
         }
