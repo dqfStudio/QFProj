@@ -40,12 +40,12 @@
         case 0:
         case 1:
         case 2:
-            return CGSizeMake(self.tupleView.widthWithSection(indexPath.section), 65);
+            return CGSizeMake(self.tupleView.widthForSection(indexPath.section), 65);
             break;
         case 3:
         case 4:
         case 5: {
-            CGFloat width = self.tupleView.widthWithSection(indexPath.section);
+            CGFloat width = self.tupleView.widthForSection(indexPath.section);
             width = [self.tupleView fixSlitWith:width colCount:3 index:indexPath.row-3];
             return CGSizeMake(width, 120);
         }
@@ -54,7 +54,7 @@
         default:
             break;
     }
-    return CGSizeMake(self.tupleView.widthWithSection(indexPath.section), 65);
+    return CGSizeMake(self.tupleView.widthForSection(indexPath.section), 65);
 }
 - (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
