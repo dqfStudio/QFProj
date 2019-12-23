@@ -46,7 +46,7 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 - (NSInteger)numberOfSectionsInTupleView:(HTupleView *)tupleView;
 - (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section;
 //layout == HCollectionViewFlowLayout
-- (UIColor *)tupleView:(HTupleView *)tupleView colorForSectionAtIndex:(NSInteger)section;
+- (UIColor *)tupleView:(HTupleView *)tupleView colorForSection:(NSInteger)section;
 
 - (CGSize)tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section;
 - (CGSize)tupleView:(HTupleView *)tupleView sizeForFooterInSection:(NSInteger)section;
@@ -56,7 +56,7 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 - (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section;
 - (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath;
 
-- (UIEdgeInsets)tupleView:(HTupleView *)tupleView insetForSectionAtIndex:(NSInteger)section;
+- (UIEdgeInsets)tupleView:(HTupleView *)tupleView insetForSection:(NSInteger)section;
 
 - (void)tupleView:(HTupleView *)tupleView tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section;
 - (void)tupleView:(HTupleView *)tupleView tupleFooter:(HTupleFooter)footerBlock inSection:(NSInteger)section;

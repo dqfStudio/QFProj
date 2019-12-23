@@ -450,7 +450,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 //layout == HCollectionViewFlowLayout
 - (UIColor *)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout colorForSectionAtIndex:(NSInteger)section {
     NSString *prefix = [self prefixWithSection:section];
-    SEL selector = @selector(tupleView:colorForSectionAtIndex:);
+    SEL selector = @selector(tupleView:colorForSection:);
     if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
         UIColor *color = [(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&collectionView, &section];
         if (color && [color isKindOfClass:UIColor.class]) return color;
@@ -465,7 +465,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     NSString *prefix = [self prefixWithSection:section];
-    SEL selector = @selector(tupleView:insetForSectionAtIndex:);
+    SEL selector = @selector(tupleView:insetForSection:);
     if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
         return [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&collectionView, &section] UIEdgeInsetsValue];
     }

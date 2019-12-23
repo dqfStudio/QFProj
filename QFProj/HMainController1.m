@@ -29,10 +29,10 @@
 - (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
     return 8;
 }
-- (UIEdgeInsets)tupleView:(HTupleView *)tupleView insetForSectionAtIndex:(NSInteger)section {
+- (UIEdgeInsets)tupleView:(HTupleView *)tupleView insetForSection:(NSInteger)section {
     return UIEdgeInsetsMake(0, 10, 0, 10);
 }
-- (UIColor *)tupleView:(HTupleView *)tupleView colorForSectionAtIndex:(NSInteger)section {
+- (UIColor *)tupleView:(HTupleView *)tupleView colorForSection:(NSInteger)section {
     return UIColor.redColor;
 }
 - (CGSize)tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
