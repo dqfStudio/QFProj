@@ -69,13 +69,13 @@
 //初始化数据
 - (void)initData {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveUser) name:UIApplicationWillTerminateNotification object:nil];
-    [self h_addObserverBlockForKeyPath:@"isLogin" block:^(id  _Nonnull obj, id  _Nonnull oldVal, id  _Nonnull newVal) {
-        if ([newVal boolValue]) {
-            [self saveUser];
-        }else {
-            [self removeUser];
-        }
-    }];
+//    [self h_addObserverBlockForKeyPath:@"isLogin" block:^(id  _Nonnull obj, id  _Nonnull oldVal, id  _Nonnull newVal) {
+//        if ([newVal boolValue]) {
+//            [self saveUser];
+//        }else {
+//            [self removeUser];
+//        }
+//    }];
 //    [[RACObserve(share, isLogin) skip:1] subscribeNext:^(id  _Nullable x) {
 //        if ([x boolValue]) {
 //            [self saveUser];
@@ -83,6 +83,14 @@
 //            [self removeUser];
 //        }
 //    }];
+}
+- (void)setIsLogin:(BOOL)isLogin {
+    _isLogin = isLogin;
+    if (_isLogin) {
+        [self saveUser];
+    }else {
+        [self removeUser];
+    }
 }
 
 - (void)saveUser {
