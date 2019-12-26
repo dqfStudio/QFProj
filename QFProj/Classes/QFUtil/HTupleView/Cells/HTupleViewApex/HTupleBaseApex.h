@@ -39,6 +39,11 @@ if(!CGRectEqualToRect(v.frame, _frame)) {\
 @property (nonatomic) UILREdgeInsets separatorInset;
 @property (nonatomic) UIColor *separatorColor;
 @property (nonatomic) BOOL shouldShowSeparator;
+//unavailable init methods
+- (instancetype)init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
+- (instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE;
 //layoutView的frame和bounds
 - (CGRect)layoutViewFrame;
 - (CGRect)layoutViewBounds;
