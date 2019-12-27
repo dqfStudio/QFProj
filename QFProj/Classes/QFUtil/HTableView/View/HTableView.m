@@ -464,7 +464,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     NSString *prefix = [self prefixWithSection:indexPath.section];
     SEL selector = @selector(tableView:heightForRowAtIndexPath:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
-        return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&tableView, &indexPath] integerValue];
+        return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&tableView, &indexPath] floatValue];
     }
     //不能为0.f，否则会崩溃
     return 1.f;

@@ -94,6 +94,12 @@
         else if(!strcmp(returnType, @encode(NSUInteger)) ){
             returnValue = [NSNumber numberWithUnsignedInteger:*((NSUInteger*)buffer)];
         }
+        else if(!strcmp(returnType, @encode(float)) ){
+            returnValue = [NSNumber numberWithFloat:*((float*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(double)) ){
+            returnValue = [NSNumber numberWithFloat:*((double*)buffer)];
+        }
         else if(!strcmp(returnType, @encode(int))) {
             returnValue = [NSNumber numberWithInt:*((int*)buffer)];
         }
@@ -174,6 +180,12 @@
         }
         else if(!strcmp(returnType, @encode(NSUInteger)) ){
             returnValue = [NSNumber numberWithUnsignedInteger:*((NSUInteger*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(float)) ){
+            returnValue = [NSNumber numberWithFloat:*((float*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(double)) ){
+            returnValue = [NSNumber numberWithFloat:*((double*)buffer)];
         }
         else if(!strcmp(returnType, @encode(int))) {
             returnValue = [NSNumber numberWithInt:*((int*)buffer)];
@@ -262,6 +274,12 @@
         }
         else if(!strcmp(returnType, @encode(NSUInteger)) ){
             returnValue = [NSNumber numberWithUnsignedInteger:*((NSUInteger*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(float)) ){
+            returnValue = [NSNumber numberWithFloat:*((float*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(double)) ){
+            returnValue = [NSNumber numberWithFloat:*((double*)buffer)];
         }
         else if(!strcmp(returnType, @encode(int))) {
             returnValue = [NSNumber numberWithInt:*((int*)buffer)];
@@ -360,6 +378,12 @@
         else if(!strcmp(returnType, @encode(NSUInteger)) ){
             returnValue = [NSNumber numberWithUnsignedInteger:*((NSUInteger*)buffer)];
         }
+        else if(!strcmp(returnType, @encode(float)) ){
+            returnValue = [NSNumber numberWithFloat:*((float*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(double)) ){
+            returnValue = [NSNumber numberWithFloat:*((double*)buffer)];
+        }
         else if(!strcmp(returnType, @encode(int))) {
             returnValue = [NSNumber numberWithInt:*((int*)buffer)];
         }
@@ -447,6 +471,12 @@
         }
         else if(!strcmp(returnType, @encode(NSUInteger)) ){
             returnValue = [NSNumber numberWithUnsignedInteger:*((NSUInteger*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(float)) ){
+            returnValue = [NSNumber numberWithFloat:*((float*)buffer)];
+        }
+        else if(!strcmp(returnType, @encode(double)) ){
+            returnValue = [NSNumber numberWithFloat:*((double*)buffer)];
         }
         else if(!strcmp(returnType, @encode(int))) {
             returnValue = [NSNumber numberWithInt:*((int*)buffer)];
