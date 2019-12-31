@@ -208,6 +208,7 @@
 		A24B659922607E8400B257BB /* Base64Transcoder.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B659122607E8400B257BB /* Base64Transcoder.m */; };
 		A24B659B22607E8400B257BB /* HSK_CFUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B659422607E8400B257BB /* HSK_CFUtilities.m */; };
 		A24B659E22609CE600B257BB /* NSObject+HName.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B659C22609CE600B257BB /* NSObject+HName.m */; };
+		A255229623BAFFFE00A18D7D /* HSkinManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A255229523BAFFFE00A18D7D /* HSkinManager.m */; };
 		A265FF6F2269F6280093C780 /* HHostUrlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A265FF6D2269F6280093C780 /* HHostUrlManager.m */; };
 		A265FF732269F70C0093C780 /* HVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A265FF712269F70C0093C780 /* HVersionManager.m */; };
 		A26CF7BF2302747C00D73ECD /* NSNull+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A26CF7BE2302747B00D73ECD /* NSNull+HSafeUtil.m */; };
@@ -706,6 +707,8 @@
 		A24B659422607E8400B257BB /* HSK_CFUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSK_CFUtilities.m; sourceTree = "<group>"; };
 		A24B659C22609CE600B257BB /* NSObject+HName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HName.m"; sourceTree = "<group>"; };
 		A24B659D22609CE600B257BB /* NSObject+HName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HName.h"; sourceTree = "<group>"; };
+		A255229423BAFFFE00A18D7D /* HSkinManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSkinManager.h; sourceTree = "<group>"; };
+		A255229523BAFFFE00A18D7D /* HSkinManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSkinManager.m; sourceTree = "<group>"; };
 		A265FF692269D8AA0093C780 /* HUtilHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUtilHeader.h; sourceTree = "<group>"; };
 		A265FF6A2269D8AA0093C780 /* HCommonBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommonBlock.h; sourceTree = "<group>"; };
 		A265FF6B2269D8AA0093C780 /* HCommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCommonDefine.h; sourceTree = "<group>"; };
@@ -1180,6 +1183,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A255229323BAFFEA00A18D7D /* HSkinManager */,
 				A274E79323A3BCB30095B162 /* HJsonManager */,
 				A2B929A72306978D0091A57D /* SocketRocket */,
 				A2A8EBFE22E4A4730049C51B /* HCountDownButton */,
@@ -1909,6 +1913,16 @@
 				A24B658E22607E8400B257BB /* SKPSMTPMessage.m */,
 			);
 			path = SMTPLibrary;
+			sourceTree = "<group>";
+		};
+		A255229323BAFFEA00A18D7D /* HSkinManager */ = {
+			isa = PBXGroup;
+			children = (
+				A255229423BAFFFE00A18D7D /* HSkinManager.h */,
+				A255229523BAFFFE00A18D7D /* HSkinManager.m */,
+			);
+			name = HSkinManager;
+			path = QFUtil/HSkinManager;
 			sourceTree = "<group>";
 		};
 		A265FF682269D8AA0093C780 /* HUtilHeader */ = {
@@ -2784,6 +2798,7 @@
 				A2A8EB4522DC6F920049C51B /* HRegisterController+SJ.m in Sources */,
 				A2A8EB3F22DC6F300049C51B /* HRegisterController.m in Sources */,
 				15B4DE032092F96C00773E04 /* NSObject+HUtil.m in Sources */,
+				A255229623BAFFFE00A18D7D /* HSkinManager.m in Sources */,
 				A2E8F51A22CF925700E7C9F2 /* AppDelegate+HUtil.m in Sources */,
 				A2A8EB5522DDD9B90049C51B /* UINavigationController+HLeaks.m in Sources */,
 				15E6BB9B2136E7E300EBE794 /* YPTabBar.m in Sources */,
