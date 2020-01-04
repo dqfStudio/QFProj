@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSDictionary (HUtil)
 - (BOOL)containsObject:(NSString *)anObject;
+- (nullable NSString *)stringForKey:(NSString *)aKey;
 @end
+
+NS_ASSUME_NONNULL_END
