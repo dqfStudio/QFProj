@@ -22,6 +22,6 @@
         NSNumber *number = value;
         return number.stringValue;
     }
-    return value;
+    return [NSString stringWithFormat:@"%@", value];
 }
 @end
