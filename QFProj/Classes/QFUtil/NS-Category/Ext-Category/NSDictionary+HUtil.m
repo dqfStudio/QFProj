@@ -19,8 +19,7 @@
     }else if ([value isKindOfClass:NSString.class]) {
         return value;
     }else if ([value isKindOfClass:NSNumber.class]) {
-        NSNumber *number = value;
-        return number.stringValue;
+        return ((NSNumber *)value).stringValue;
     }
     return [NSString stringWithFormat:@"%@", value];
 }
