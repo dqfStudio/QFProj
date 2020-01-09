@@ -2,8 +2,8 @@
 //  HSkinManager.m
 //  QFProj
 //
-//  Created by wind on 2019/12/31.
-//  Copyright © 2019 dqfStudio. All rights reserved.
+//  Created by wind on 2020/1/9.
+//  Copyright © 2020 dqfStudio. All rights reserved.
 //
 
 #import "HSkinManager.h"
@@ -187,3 +187,4 @@
 }
 
 @end
+

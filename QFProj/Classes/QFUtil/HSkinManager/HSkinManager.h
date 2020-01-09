@@ -2,14 +2,12 @@
 //  HSkinManager.h
 //  QFProj
 //
-//  Created by wind on 2019/12/31.
-//  Copyright © 2019 dqfStudio. All rights reserved.
+//  Created by wind on 2020/1/9.
+//  Copyright © 2020 dqfStudio. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "UIColor+HUtil.h"
-
-NS_ASSUME_NONNULL_BEGIN
 
 @interface HSkinManager : NSObject
 
@@ -114,5 +112,3 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor *)textFieldPlaceholderAccessoryColor;
 
 @end
-
-NS_ASSUME_NONNULL_END
