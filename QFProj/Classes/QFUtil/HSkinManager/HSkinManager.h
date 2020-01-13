@@ -272,7 +272,7 @@
 
 @interface HSkinManager2 : NSObject
 
-#pragma --mark naviBar
+#pragma --mark navi bar
 //导航栏背景颜色
 + (UIColor *)naviBarColor;
 + (UIColor *)naviBarDetailColor;
@@ -316,7 +316,7 @@
 + (UIColor *)naviBarSeparatorExtra1Color;
 + (UIColor *)naviBarSeparatorExtra2Color;
 
-#pragma --mark tabbar
+#pragma --mark tab bar
 //tabBar背景色
 + (UIColor *)tabBarColor;
 + (UIColor *)tabBarDetailColor;
