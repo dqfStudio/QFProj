@@ -649,3 +649,291 @@
 
 @end
 
+@implementation HSkinManager2
+
+#pragma --mark naviBar
+//导航栏背景颜色
++ (UIColor *)naviBarColor {
+    return nil;
+}
++ (UIColor *)naviBarDetailColor {
+    return nil;
+}
++ (UIColor *)naviBarAccessoryColor {
+    return nil;
+}
++ (UIColor *)naviBarExtra1Color {
+    return nil;
+}
++ (UIColor *)naviBarExtra2Color {
+    return nil;
+}
+//导航栏标题颜色
++ (UIColor *)naviBarTitleColor {
+    return nil;
+}
++ (UIColor *)naviBarTitleDetailColor {
+    return nil;
+}
++ (UIColor *)naviBarTitleAccessoryColor {
+    return nil;
+}
++ (UIColor *)naviBarTitleExtra1Color {
+    return nil;
+}
++ (UIColor *)naviBarTitleExtra2Color {
+    return nil;
+}
+//导航栏左边控件背景颜色
++ (UIColor *)naviBarLeftColor {
+    return nil;
+}
++ (UIColor *)naviBarLeftDetailColor {
+    return nil;
+}
++ (UIColor *)naviBarLeftAccessoryColor {
+    return nil;
+}
++ (UIColor *)naviBarLeftExtra1Color {
+    return nil;
+}
++ (UIColor *)naviBarLeftExtra2Color {
+    return nil;
+}
+//导航栏左边控件标题颜色
++ (UIColor *)naviBarLeftTitleColor {
+    return nil;
+}
++ (UIColor *)naviBarLeftTitleDetailColor {
+    return nil;
+}
++ (UIColor *)naviBarLeftTitleAccessoryColor {
+    return nil;
+}
++ (UIColor *)naviBarLeftTitleExtra1Color {
+    return nil;
+}
++ (UIColor *)naviBarLeftTitleExtra2Color {
+    return nil;
+}
+//导航朗右边控件背景颜色
++ (UIColor *)naviBarRightColor {
+    return nil;
+}
++ (UIColor *)naviBarRightDetailColor {
+    return nil;
+}
++ (UIColor *)naviBarRightAccessoryColor {
+    return nil;
+}
++ (UIColor *)naviBarRightExtra1Color {
+    return nil;
+}
++ (UIColor *)naviBarRightExtra2Color {
+    return nil;
+}
+//导航栏右边控件标题颜色
++ (UIColor *)naviBarRightTitleColor {
+    return nil;
+}
++ (UIColor *)naviBarRightTitleDetailColor {
+    return nil;
+}
++ (UIColor *)naviBarRightTitleAccessoryColor {
+    return nil;
+}
++ (UIColor *)naviBarRightTitleExtra1Color {
+    return nil;
+}
++ (UIColor *)naviBarRightTitleExtra2Color {
+    return nil;
+}
+//导航栏间隔线颜色
++ (UIColor *)naviBarSeparatorColor {
+    return nil;
+}
++ (UIColor *)naviBarSeparatorDetailColor {
+    return nil;
+}
++ (UIColor *)naviBarSeparatorAccessoryColor {
+    return nil;
+}
++ (UIColor *)naviBarSeparatorExtra1Color {
+    return nil;
+}
++ (UIColor *)naviBarSeparatorExtra2Color {
+    return nil;
+}
+
+#pragma --mark tabbar
+//tabBar背景色
++ (UIColor *)tabBarColor {
+    return nil;
+}
++ (UIColor *)tabBarDetailColor {
+    return nil;
+}
++ (UIColor *)tabBarAccessoryColor {
+    return nil;
+}
++ (UIColor *)tabBarExtra1Color {
+    return nil;
+}
++ (UIColor *)tabBarExtra2Color {
+    return nil;
+}
+//tabBar标题常规颜色
++ (UIColor *)tabBarTitleNormalColor {
+    return nil;
+}
++ (UIColor *)tabBarTitleNormalDetailColor {
+    return nil;
+}
++ (UIColor *)tabBarTitleNormalAccessoryColor {
+    return nil;
+}
++ (UIColor *)tabBarTitleNormalExtra1Color {
+    return nil;
+}
++ (UIColor *)tabBarTitleNormalExtra2Color {
+    return nil;
+}
+//tabBar标题选中颜色
++ (UIColor *)tabBarTitleSelectedColor {
+    return nil;
+}
++ (UIColor *)tabBarTitleSelectedDetailColor {
+    return nil;
+}
++ (UIColor *)tabBarTitleSelectedAccessoryColor {
+    return nil;
+}
++ (UIColor *)tabBarTitleSelectedExtra1Color {
+    return nil;
+}
++ (UIColor *)tabBarTitleSelectedExtra2Color {
+    return nil;
+}
+
+#pragma --mark view color
+//View背景颜色
++ (UIColor *)viewColor {
+    return nil;
+}
++ (UIColor *)viewDetailColor {
+    return nil;
+}
++ (UIColor *)viewAccessoryColor {
+    return nil;
+}
++ (UIColor *)viewExtra1Color {
+    return nil;
+}
++ (UIColor *)viewExtra2Color {
+    return nil;
+}
+
+// view border color 颜色
++ (UIColor *)viewBorderColor {
+    return nil;
+}
++ (UIColor *)viewBorderDetailColor {
+    return nil;
+}
++ (UIColor *)viewBorderAccessoryColor {
+    return nil;
+}
++ (UIColor *)viewBorderExtra1Color {
+    return nil;
+}
++ (UIColor *)viewBorderExtra2Color {
+    return nil;
+}
+
+// view stroke color 颜色
++ (UIColor *)viewStrokeColor {
+    return nil;
+}
++ (UIColor *)viewStrokeDetailColor {
+    return nil;
+}
++ (UIColor *)viewStrokeAccessoryColor {
+    return nil;
+}
++ (UIColor *)viewStrokeExtra1Color {
+    return nil;
+}
++ (UIColor *)viewStrokeExtra2Color {
+    return nil;
+}
+
+// view line color 颜色
++ (UIColor *)viewLineColor {
+    return nil;
+}
++ (UIColor *)viewLineDetailColor {
+    return nil;
+}
++ (UIColor *)viewLineAccessoryColor {
+    return nil;
+}
++ (UIColor *)viewLineExtra1Color {
+    return nil;
+}
++ (UIColor *)viewLineExtra2Color {
+    return nil;
+}
+
+#pragma --mark text color
+//text normal 颜色
++ (UIColor *)textNormalColor {
+    return nil;
+}
++ (UIColor *)textNormalDetailColor {
+    return nil;
+}
++ (UIColor *)textNormalAccessoryColor {
+    return nil;
+}
++ (UIColor *)textNormalExtra1Color {
+    return nil;
+}
++ (UIColor *)textNormalExtra2Color {
+    return nil;
+}
+
+//text selected 颜色
++ (UIColor *)textSelectedColor {
+    return nil;
+}
++ (UIColor *)textSelectedDetailColor {
+    return nil;
+}
++ (UIColor *)textSelectedAccessoryColor {
+    return nil;
+}
++ (UIColor *)textSelectedExtra1Color {
+    return nil;
+}
++ (UIColor *)textSelectedExtra2Color {
+    return nil;
+}
+
+//text highlighted 颜色
++ (UIColor *)textHighlightedColor {
+    return nil;
+}
++ (UIColor *)textHighlightedDetailColor {
+    return nil;
+}
++ (UIColor *)textHighlightedAccessoryColor {
+    return nil;
+}
++ (UIColor *)textHighlightedExtra1Color {
+    return nil;
+}
++ (UIColor *)textHighlightedExtra2Color {
+    return nil;
+}
+
+@end
