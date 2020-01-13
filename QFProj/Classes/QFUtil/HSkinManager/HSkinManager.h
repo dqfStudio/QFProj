@@ -272,72 +272,8 @@
 
 @interface HSkinManager2 : NSObject
 
-#pragma --mark navi bar
-//导航栏背景颜色
-+ (UIColor *)naviBarColor;
-+ (UIColor *)naviBarDetailColor;
-+ (UIColor *)naviBarAccessoryColor;
-+ (UIColor *)naviBarExtra1Color;
-+ (UIColor *)naviBarExtra2Color;
-//导航栏标题颜色
-+ (UIColor *)naviBarTitleColor;
-+ (UIColor *)naviBarTitleDetailColor;
-+ (UIColor *)naviBarTitleAccessoryColor;
-+ (UIColor *)naviBarTitleExtra1Color;
-+ (UIColor *)naviBarTitleExtra2Color;
-//导航栏左边控件背景颜色
-+ (UIColor *)naviBarLeftColor;
-+ (UIColor *)naviBarLeftDetailColor;
-+ (UIColor *)naviBarLeftAccessoryColor;
-+ (UIColor *)naviBarLeftExtra1Color;
-+ (UIColor *)naviBarLeftExtra2Color;
-//导航栏左边控件标题颜色
-+ (UIColor *)naviBarLeftTitleColor;
-+ (UIColor *)naviBarLeftTitleDetailColor;
-+ (UIColor *)naviBarLeftTitleAccessoryColor;
-+ (UIColor *)naviBarLeftTitleExtra1Color;
-+ (UIColor *)naviBarLeftTitleExtra2Color;
-//导航朗右边控件背景颜色
-+ (UIColor *)naviBarRightColor;
-+ (UIColor *)naviBarRightDetailColor;
-+ (UIColor *)naviBarRightAccessoryColor;
-+ (UIColor *)naviBarRightExtra1Color;
-+ (UIColor *)naviBarRightExtra2Color;
-//导航栏右边控件标题颜色
-+ (UIColor *)naviBarRightTitleColor;
-+ (UIColor *)naviBarRightTitleDetailColor;
-+ (UIColor *)naviBarRightTitleAccessoryColor;
-+ (UIColor *)naviBarRightTitleExtra1Color;
-+ (UIColor *)naviBarRightTitleExtra2Color;
-//导航栏间隔线颜色
-+ (UIColor *)naviBarSeparatorColor;
-+ (UIColor *)naviBarSeparatorDetailColor;
-+ (UIColor *)naviBarSeparatorAccessoryColor;
-+ (UIColor *)naviBarSeparatorExtra1Color;
-+ (UIColor *)naviBarSeparatorExtra2Color;
-
-#pragma --mark tab bar
-//tabBar背景色
-+ (UIColor *)tabBarColor;
-+ (UIColor *)tabBarDetailColor;
-+ (UIColor *)tabBarAccessoryColor;
-+ (UIColor *)tabBarExtra1Color;
-+ (UIColor *)tabBarExtra2Color;
-//tabBar标题常规颜色
-+ (UIColor *)tabBarTitleNormalColor;
-+ (UIColor *)tabBarTitleNormalDetailColor;
-+ (UIColor *)tabBarTitleNormalAccessoryColor;
-+ (UIColor *)tabBarTitleNormalExtra1Color;
-+ (UIColor *)tabBarTitleNormalExtra2Color;
-//tabBar标题选中颜色
-+ (UIColor *)tabBarTitleSelectedColor;
-+ (UIColor *)tabBarTitleSelectedDetailColor;
-+ (UIColor *)tabBarTitleSelectedAccessoryColor;
-+ (UIColor *)tabBarTitleSelectedExtra1Color;
-+ (UIColor *)tabBarTitleSelectedExtra2Color;
-
 #pragma --mark view color
-//View背景颜色
+// view 背景颜色
 + (UIColor *)viewColor;
 + (UIColor *)viewDetailColor;
 + (UIColor *)viewAccessoryColor;
@@ -350,13 +286,6 @@
 + (UIColor *)viewBorderAccessoryColor;
 + (UIColor *)viewBorderExtra1Color;
 + (UIColor *)viewBorderExtra2Color;
-
-// view stroke color 颜色
-+ (UIColor *)viewStrokeColor;
-+ (UIColor *)viewStrokeDetailColor;
-+ (UIColor *)viewStrokeAccessoryColor;
-+ (UIColor *)viewStrokeExtra1Color;
-+ (UIColor *)viewStrokeExtra2Color;
 
 // view line color 颜色
 + (UIColor *)viewLineColor;
