@@ -765,27 +765,27 @@
 + (UIColor *)viewColor {
     return nil;
 }
-+ (UIColor *)viewDetailColor {
++ (UIColor *)viewDarkColor {
     return nil;
 }
-+ (UIColor *)viewAccessoryColor {
++ (UIColor *)viewLightColor {
     return nil;
 }
 
-+ (UIColor *)viewDarkColor {
++ (UIColor *)viewDetailColor {
     return nil;
 }
 + (UIColor *)viewDarkDetailColor {
     return nil;
 }
-+ (UIColor *)viewDarkAccessoryColor {
++ (UIColor *)viewLightDetailColor {
     return nil;
 }
 
-+ (UIColor *)viewLightColor {
++ (UIColor *)viewAccessoryColor {
     return nil;
 }
-+ (UIColor *)viewLightDetailColor {
++ (UIColor *)viewDarkAccessoryColor {
     return nil;
 }
 + (UIColor *)viewLightAccessoryColor {
@@ -807,27 +807,27 @@
 + (UIColor *)textColor {
     return nil;
 }
-+ (UIColor *)textDetailColor {
++ (UIColor *)textDarkColor {
     return nil;
 }
-+ (UIColor *)textAccessoryColor {
++ (UIColor *)textLightColor {
     return nil;
 }
 
-+ (UIColor *)textDarkColor {
++ (UIColor *)textDetailColor {
     return nil;
 }
 + (UIColor *)textDarkDetailColor {
     return nil;
 }
-+ (UIColor *)textDarkAccessoryColor {
++ (UIColor *)textLightDetailColor {
     return nil;
 }
 
-+ (UIColor *)textLightColor {
++ (UIColor *)textAccessoryColor {
     return nil;
 }
-+ (UIColor *)textLightDetailColor {
++ (UIColor *)textDarkAccessoryColor {
     return nil;
 }
 + (UIColor *)textLightAccessoryColor {

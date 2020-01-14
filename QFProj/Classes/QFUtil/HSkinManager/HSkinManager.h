@@ -323,15 +323,15 @@
 #pragma --mark view color
 // view 颜色
 + (UIColor *)viewColor;
-+ (UIColor *)viewDetailColor;
-+ (UIColor *)viewAccessoryColor;
-
 + (UIColor *)viewDarkColor;
-+ (UIColor *)viewDarkDetailColor;
-+ (UIColor *)viewDarkAccessoryColor;
-
 + (UIColor *)viewLightColor;
+
++ (UIColor *)viewDetailColor;
++ (UIColor *)viewDarkDetailColor;
 + (UIColor *)viewLightDetailColor;
+
++ (UIColor *)viewAccessoryColor;
++ (UIColor *)viewDarkAccessoryColor;
 + (UIColor *)viewLightAccessoryColor;
 
 + (UIColor *)viewExtra1Color;
@@ -341,15 +341,15 @@
 #pragma --mark text color
 // text 颜色
 + (UIColor *)textColor;
-+ (UIColor *)textDetailColor;
-+ (UIColor *)textAccessoryColor;
-
 + (UIColor *)textDarkColor;
-+ (UIColor *)textDarkDetailColor;
-+ (UIColor *)textDarkAccessoryColor;
-
 + (UIColor *)textLightColor;
+
++ (UIColor *)textDetailColor;
++ (UIColor *)textDarkDetailColor;
 + (UIColor *)textLightDetailColor;
+
++ (UIColor *)textAccessoryColor;
++ (UIColor *)textDarkAccessoryColor;
 + (UIColor *)textLightAccessoryColor;
 
 + (UIColor *)textExtra1Color;
