@@ -756,3 +756,92 @@
 }
 
 @end
+
+
+@implementation HSkinManager3
+
+#pragma --mark view color
+// view 颜色
++ (UIColor *)viewColor {
+    return nil;
+}
++ (UIColor *)viewDetailColor {
+    return nil;
+}
++ (UIColor *)viewAccessoryColor {
+    return nil;
+}
+
++ (UIColor *)viewDarkColor {
+    return nil;
+}
++ (UIColor *)viewDarkDetailColor {
+    return nil;
+}
++ (UIColor *)viewDarkAccessoryColor {
+    return nil;
+}
+
++ (UIColor *)viewLightColor {
+    return nil;
+}
++ (UIColor *)viewLightDetailColor {
+    return nil;
+}
++ (UIColor *)viewLightAccessoryColor {
+    return nil;
+}
+
++ (UIColor *)viewExtra1Color {
+    return nil;
+}
++ (UIColor *)viewDarkExtra1Color {
+    return nil;
+}
++ (UIColor *)viewLightExtra1Color {
+    return nil;
+}
+
+#pragma --mark text color
+// text 颜色
++ (UIColor *)textColor {
+    return nil;
+}
++ (UIColor *)textDetailColor {
+    return nil;
+}
++ (UIColor *)textAccessoryColor {
+    return nil;
+}
+
++ (UIColor *)textDarkColor {
+    return nil;
+}
++ (UIColor *)textDarkDetailColor {
+    return nil;
+}
++ (UIColor *)textDarkAccessoryColor {
+    return nil;
+}
+
++ (UIColor *)textLightColor {
+    return nil;
+}
++ (UIColor *)textLightDetailColor {
+    return nil;
+}
++ (UIColor *)textLightAccessoryColor {
+    return nil;
+}
+
++ (UIColor *)textExtra1Color {
+    return nil;
+}
++ (UIColor *)textDarkExtra1Color {
+    return nil;
+}
++ (UIColor *)textLightExtra1Color {
+    return nil;
+}
+
+@end

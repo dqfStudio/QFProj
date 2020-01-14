@@ -317,3 +317,43 @@
 + (UIColor *)textHighlightedExtra2Color;
 
 @end
+
+@interface HSkinManager3 : NSObject
+
+#pragma --mark view color
+// view 颜色
++ (UIColor *)viewColor;
++ (UIColor *)viewDetailColor;
++ (UIColor *)viewAccessoryColor;
+
++ (UIColor *)viewDarkColor;
++ (UIColor *)viewDarkDetailColor;
++ (UIColor *)viewDarkAccessoryColor;
+
++ (UIColor *)viewLightColor;
++ (UIColor *)viewLightDetailColor;
++ (UIColor *)viewLightAccessoryColor;
+
++ (UIColor *)viewExtra1Color;
++ (UIColor *)viewDarkExtra1Color;
++ (UIColor *)viewLightExtra1Color;
+
+#pragma --mark text color
+// text 颜色
++ (UIColor *)textColor;
++ (UIColor *)textDetailColor;
++ (UIColor *)textAccessoryColor;
+
++ (UIColor *)textDarkColor;
++ (UIColor *)textDarkDetailColor;
++ (UIColor *)textDarkAccessoryColor;
+
++ (UIColor *)textLightColor;
++ (UIColor *)textLightDetailColor;
++ (UIColor *)textLightAccessoryColor;
+
++ (UIColor *)textExtra1Color;
++ (UIColor *)textDarkExtra1Color;
++ (UIColor *)textLightExtra1Color;
+
+@end
