@@ -82,25 +82,17 @@
 
             [cell.detailView setBackgroundColor:UIColor.redColor];
             [cell.detailView setImageWithName:@"icon_no_server"];
-
-//            cell.detailWidth = 100;
-//            cell.accessoryWidth = 100;
             
             cell.showAccessoryArrow = YES;
             
-//            cell.labelInterval = 0;
-            
             [cell.label setBackgroundColor:UIColor.redColor];
-            [cell.label setText:@"wwwwwwwwwwwwww"];
-//            [cell.label setText:@"wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"];
-//            [cell.label setText:@"wwwwwwwwwwwwwwwwwwww"];
-//            [cell.label setText:@"wwwwwwwwwwwwwwwwwww"];
+            [cell.label setText:@"label"];
             
             [cell.detailLabel setBackgroundColor:UIColor.yellowColor];
-            [cell.detailLabel setText:@"qqqqqqqqqqqqq"];
-//            [cell.detailLabel setText:@"qqqqqqqqqqqqqqqqqqqqqqqq"];
+            [cell.detailLabel setText:@"detailLabel"];
 
-//            [cell.accessoryLabel setBackgroundColor:UIColor.greenColor];
+            [cell.accessoryLabel setBackgroundColor:UIColor.greenColor];
+            [cell.accessoryLabel setText:@"accessoryLabel"];
             
             //接收信号
             [cell setSignalBlock:^(HTupleViewCellHoriValue4 *cell, HTupleSignal *signal) {
