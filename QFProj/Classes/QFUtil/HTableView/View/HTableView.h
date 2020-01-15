@@ -52,7 +52,7 @@ typedef NSArray *_Nullable(^HTableSectionExclusiveBlock)(void);
 - (void)tableView:(HTableView *)tableView tableFooter:(HTableFooter)footerBlock inSection:(NSInteger)section;
 - (void)tableView:(HTableView *)tableView tableRow:(HTableRow)rowBlock atIndexPath:(NSIndexPath *)indexPath;
 
-- (void)tableView:(HTableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(HTableView *)tableView willDisplayCell:(HTableBaseCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)tableView:(HTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 @end
 

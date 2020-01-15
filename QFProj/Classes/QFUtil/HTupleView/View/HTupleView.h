@@ -62,7 +62,7 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 - (void)tupleView:(HTupleView *)tupleView tupleFooter:(HTupleFooter)footerBlock inSection:(NSInteger)section;
 - (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath;
 
-- (void)tupleView:(HTupleView *)tupleView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)tupleView:(HTupleView *)tupleView willDisplayCell:(HTupleBaseCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath;
 - (void)tupleView:(HTupleView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
