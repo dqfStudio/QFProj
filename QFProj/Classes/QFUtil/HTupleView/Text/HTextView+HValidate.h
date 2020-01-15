@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) BOOL isOnlyAlpha; //纯字母
 @property (nonatomic, readonly) BOOL isOnlyNumeric; //纯数字
-@property (nonatomic, readonly) BOOL isAlphaNumeric; //须是字母与数字的组合，默认验证2-10000位
+@property (nonatomic, readonly) BOOL isAlphaNumeric; //须是字母与数字的组合，默认验证两位及以上
 @property (nonatomic, readonly) BOOL isAlphaOrNumeric; //字母、数字或两者的组合
 
 @property (nonatomic, readonly) BOOL isValidatedEmial; //是否有效的邮箱
