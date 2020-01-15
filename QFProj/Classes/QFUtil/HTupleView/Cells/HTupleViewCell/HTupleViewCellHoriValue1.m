@@ -148,15 +148,21 @@
     //计算label和detailLabel的坐标
     if (self.label.text.length > 0 && self.detailLabel.text.length > 0) {
         NSInteger wordWidth = 20; //默认为20
-        wordWidth = self.detailLabel.intrinsicContentSize.width/self.detailLabel.text.length;
+        
+        //CGSize stringSize = self.label.intrinsicContentSize;
+        CGSize stringSize = [self.label.text sizeWithAttributes:[NSDictionary dictionaryWithObject:self.label.font forKey:NSFontAttributeName]];
+        CGSize stringSize2 = [self.detailLabel.text sizeWithAttributes:[NSDictionary dictionaryWithObject:self.detailLabel.font forKey:NSFontAttributeName]];
+        
+        wordWidth = stringSize2.width/self.detailLabel.text.length;
         if (wordWidth < 20) wordWidth += wordWidth;
-        if (self.label.intrinsicContentSize.width >= tmpFrame4.size.width - self.labelInterval - wordWidth) {
+        if (stringSize.width >= tmpFrame4.size.width - self.labelInterval - wordWidth) {
             [self.label setFrame:CGRectMake(0, 0, tmpFrame4.size.width, tmpFrame4.size.height)];
             [self.detailLabel setFrame:CGRectZero];
         }else {
-            [self.label setFrame:CGRectMake(0, 0, self.label.intrinsicContentSize.width, tmpFrame4.size.height)];
-            [self.detailLabel setFrame:CGRectMake(self.label.intrinsicContentSize.width+self.labelInterval, 0,
-                                                  tmpFrame4.size.width-self.label.intrinsicContentSize.width-self.labelInterval,
+            [self.label setFrame:CGRectMake(0, 0, stringSize.width, tmpFrame4.size.height)];
+            [self.detailLabel setFrame:CGRectMake(stringSize.width+self.labelInterval,
+                                                  0,
+                                                  tmpFrame4.size.width-stringSize.width-self.labelInterval,
                                                   tmpFrame4.size.height)];
         }
     }else if (self.detailLabel.text.length > 0) {
@@ -276,17 +282,23 @@
     //计算label和detailLabel的坐标
     if (self.label.text.length > 0 && self.detailLabel.text.length > 0) {
         NSInteger wordWidth = 20; //默认为20
-        wordWidth = self.detailLabel.intrinsicContentSize.width/self.detailLabel.text.length;
+        
+        //CGSize stringSize = self.detailLabel.intrinsicContentSize;
+        CGSize stringSize = [self.detailLabel.text sizeWithAttributes:[NSDictionary dictionaryWithObject:self.detailLabel.font forKey:NSFontAttributeName]];
+        
+        wordWidth = stringSize.width/self.detailLabel.text.length;
         if (wordWidth < 20) wordWidth += wordWidth;
-        if (self.detailLabel.intrinsicContentSize.width >= tmpFrame4.size.width - self.labelInterval - wordWidth) {
+        if (stringSize.width >= tmpFrame4.size.width - self.labelInterval - wordWidth) {
             [self.detailLabel setFrame:CGRectMake(0, 0, tmpFrame4.size.width, tmpFrame4.size.height)];
             [self.label setFrame:CGRectZero];
         }else {
-            [self.label setFrame:CGRectMake(0, 0,
-                                            tmpFrame4.size.width-self.detailLabel.intrinsicContentSize.width-self.labelInterval,
+            [self.label setFrame:CGRectMake(0,
+                                            0,
+                                            tmpFrame4.size.width-stringSize.width-self.labelInterval,
                                             tmpFrame4.size.height)];
-            [self.detailLabel setFrame:CGRectMake(tmpFrame4.size.width-self.detailLabel.intrinsicContentSize.width, 0,
-                                                  self.detailLabel.intrinsicContentSize.width,
+            [self.detailLabel setFrame:CGRectMake(tmpFrame4.size.width-stringSize.width,
+                                                  0,
+                                                  stringSize.width,
                                                   tmpFrame4.size.height)];
         }
     }else if (self.detailLabel.text.length > 0) {
