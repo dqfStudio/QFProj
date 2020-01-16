@@ -15,17 +15,6 @@
 
 @implementation HPresentAnimation
 
-+ (instancetype)defaultAnimation {
-    HPresentAnimation *animation = HPresentAnimation.new;
-    animation.presetType  = HTransitionStyleAlert;
-    animation.shadowColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
-    animation.contentSize = CGSizeZero;
-    animation.isShadowDismiss = YES;
-    animation.animationCompletion = nil;
-    animation.animationDuration = 0.25;
-    return animation;
-}
-
 #pragma mark - UIViewControllerTransitioningDelegate
 // 返回的对象控制Presented时的动画 (开始动画的具体细节负责类)
 - (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {

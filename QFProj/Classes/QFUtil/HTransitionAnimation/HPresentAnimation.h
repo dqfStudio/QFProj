@@ -12,8 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HPresentAnimation : HBaseAnimation <UIViewControllerTransitioningDelegate>
 
-+ (instancetype)defaultAnimation;
-
 /*
  * 弹框的尺寸大小
  */
