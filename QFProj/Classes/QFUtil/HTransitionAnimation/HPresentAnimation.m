@@ -16,7 +16,7 @@
 @implementation HPresentAnimation
 
 + (instancetype)defaultAnimation {
-    HPresentAnimation *animation  = HPresentAnimation.new;
+    HPresentAnimation *animation = HPresentAnimation.new;
     animation.presetType  = HTransitionStyleAlert;
     animation.shadowColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
     animation.contentSize = CGSizeZero;
@@ -35,7 +35,7 @@
 }
 // 由返回的控制器控制dismissed时的动画 (结束动画的具体细节负责类)
 - (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
-    self.transitionType  = HTransitionAnimationTypeDismiss;
+    self.transitionType = HTransitionAnimationTypeDismiss;
     if (self.animationCompletion) self.animationCompletion(HTransitionAnimationTypeDismiss, YES);
     return self;
 }
@@ -62,7 +62,7 @@
 //    transitionContext.containerView.layer.shadowRadius = 10.0f;
     
     //动画时间
-    NSTimeInterval duration  = [self transitionDuration:transitionContext];
+    NSTimeInterval duration = [self transitionDuration:transitionContext];
     
     HAnimationWeakSelf(weakSelf)
     if (self.presetType == HTransitionStyleAlert) {
@@ -92,7 +92,7 @@
 - (void)animationForDismissedView:(nonnull id<UIViewControllerContextTransitioning>)transitionContext {
     UIView *presentedView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     //动画时间
-    NSTimeInterval duration  = [self transitionDuration:transitionContext];
+    NSTimeInterval duration = [self transitionDuration:transitionContext];
     
     HAnimationWeakSelf(weakSelf)
     if (self.presetType == HTransitionStyleAlert) {
@@ -124,7 +124,7 @@
     presentationVC.presentType = self.presetType;
     presentationVC.contentSize = self.contentSize;
     presentationVC.isShadowDismiss = self.isShadowDismiss;
-    presentationVC.shadowColor  = self.shadowColor;
+    presentationVC.shadowColor = self.shadowColor;
     self.presentationVC = presentationVC;
     return presentationVC;
 }
