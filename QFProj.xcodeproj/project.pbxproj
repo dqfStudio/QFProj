@@ -282,6 +282,11 @@
 		A2A8EBF522E4A17D0049C51B /* HFPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EBF322E4A17D0049C51B /* HFPickerView.m */; };
 		A2A8EC0122E4A4730049C51B /* HCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EBFF22E4A4730049C51B /* HCountDownButton.m */; };
 		A2B2453123C75F7D0073DEDF /* HSkinManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B2453023C75F7D0073DEDF /* HSkinManager.m */; };
+		A2B3708C23D01C6600B20DBF /* HBaseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B3708223D01C6600B20DBF /* HBaseAnimation.m */; };
+		A2B3708D23D01C6600B20DBF /* HPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B3708623D01C6600B20DBF /* HPresentationController.m */; };
+		A2B3708E23D01C6600B20DBF /* UIViewController+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B3708923D01C6600B20DBF /* UIViewController+Animation.m */; };
+		A2B3708F23D01C6600B20DBF /* HPresentAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B3708A23D01C6600B20DBF /* HPresentAnimation.m */; };
+		A2B3709023D01C6600B20DBF /* HTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B3708B23D01C6600B20DBF /* HTransitionAnimation.m */; };
 		A2B929AD2306978D0091A57D /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B929A82306978D0091A57D /* SRWebSocket.m */; };
 		A2B929AE2306978D0091A57D /* HMultiWebSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B929AA2306978D0091A57D /* HMultiWebSocketManager.m */; };
 		A2C2B20B235DE0820041AAB5 /* HTableViewCellHoriValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C2B209235DE0820041AAB5 /* HTableViewCellHoriValue1.m */; };
@@ -836,6 +841,17 @@
 		A2A8EC0022E4A4730049C51B /* HCountDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCountDownButton.h; sourceTree = "<group>"; };
 		A2B2452F23C75F7D0073DEDF /* HSkinManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSkinManager.h; sourceTree = "<group>"; };
 		A2B2453023C75F7D0073DEDF /* HSkinManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSkinManager.m; sourceTree = "<group>"; };
+		A2B3708123D01C6600B20DBF /* HPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPresentationController.h; sourceTree = "<group>"; };
+		A2B3708223D01C6600B20DBF /* HBaseAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBaseAnimation.m; sourceTree = "<group>"; };
+		A2B3708323D01C6600B20DBF /* HTransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTransitionAnimation.h; sourceTree = "<group>"; };
+		A2B3708423D01C6600B20DBF /* HPresentAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPresentAnimation.h; sourceTree = "<group>"; };
+		A2B3708523D01C6600B20DBF /* UIViewController+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Animation.h"; sourceTree = "<group>"; };
+		A2B3708623D01C6600B20DBF /* HPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPresentationController.m; sourceTree = "<group>"; };
+		A2B3708723D01C6600B20DBF /* HBaseAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBaseAnimation.h; sourceTree = "<group>"; };
+		A2B3708823D01C6600B20DBF /* HAnimationHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAnimationHeader.h; sourceTree = "<group>"; };
+		A2B3708923D01C6600B20DBF /* UIViewController+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Animation.m"; sourceTree = "<group>"; };
+		A2B3708A23D01C6600B20DBF /* HPresentAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPresentAnimation.m; sourceTree = "<group>"; };
+		A2B3708B23D01C6600B20DBF /* HTransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTransitionAnimation.m; sourceTree = "<group>"; };
 		A2B929A82306978D0091A57D /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		A2B929A92306978D0091A57D /* SocketRocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketRocket.h; sourceTree = "<group>"; };
 		A2B929AA2306978D0091A57D /* HMultiWebSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMultiWebSocketManager.m; sourceTree = "<group>"; };
@@ -1186,6 +1202,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A2B3708023D01C6600B20DBF /* HTransitionAnimation */,
 				A255229323BAFFEA00A18D7D /* HSkinManager */,
 				A274E79323A3BCB30095B162 /* HJsonManager */,
 				A2B929A72306978D0091A57D /* SocketRocket */,
@@ -2237,6 +2254,25 @@
 			path = QFUtil/HCountDownButton;
 			sourceTree = "<group>";
 		};
+		A2B3708023D01C6600B20DBF /* HTransitionAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				A2B3708823D01C6600B20DBF /* HAnimationHeader.h */,
+				A2B3708723D01C6600B20DBF /* HBaseAnimation.h */,
+				A2B3708223D01C6600B20DBF /* HBaseAnimation.m */,
+				A2B3708423D01C6600B20DBF /* HPresentAnimation.h */,
+				A2B3708A23D01C6600B20DBF /* HPresentAnimation.m */,
+				A2B3708123D01C6600B20DBF /* HPresentationController.h */,
+				A2B3708623D01C6600B20DBF /* HPresentationController.m */,
+				A2B3708323D01C6600B20DBF /* HTransitionAnimation.h */,
+				A2B3708B23D01C6600B20DBF /* HTransitionAnimation.m */,
+				A2B3708523D01C6600B20DBF /* UIViewController+Animation.h */,
+				A2B3708923D01C6600B20DBF /* UIViewController+Animation.m */,
+			);
+			name = HTransitionAnimation;
+			path = QFUtil/HTransitionAnimation;
+			sourceTree = "<group>";
+		};
 		A2B929A72306978D0091A57D /* SocketRocket */ = {
 			isa = PBXGroup;
 			children = (
@@ -2636,6 +2672,7 @@
 				A4759710217EC61D00AAAEA9 /* HUserDefaults.m in Sources */,
 				A2E8F53F22D72A9800E7C9F2 /* YTKBaseRequest.m in Sources */,
 				A2C8C89F239BE5E000C15AE9 /* HLabel+HUtil.m in Sources */,
+				A2B3708F23D01C6600B20DBF /* HPresentAnimation.m in Sources */,
 				A20E3CE1231A663300E6982B /* UIView+HAlert.m in Sources */,
 				A20E3D04231FE0C800E6982B /* HMainController3.m in Sources */,
 				A28EF3C421DA1DFE002F92ED /* HFormCell.m in Sources */,
@@ -2659,6 +2696,7 @@
 				15B4DE002092F96C00773E04 /* NSDate+HUtil.m in Sources */,
 				15B4DDFE2092F96C00773E04 /* NSString+HUtil.m in Sources */,
 				15707EC020B5675A00493839 /* HTupleSignal.m in Sources */,
+				A2B3708C23D01C6600B20DBF /* HBaseAnimation.m in Sources */,
 				150C7CB12119961F00A05347 /* UIWindow+HPrinter.m in Sources */,
 				153F081220E28CA000C74850 /* HAlphaNumericValidator.m in Sources */,
 				15B4DDF72092F96C00773E04 /* UIDevice+HUtil.m in Sources */,
@@ -2695,6 +2733,7 @@
 				15B4DE2A2093034700773E04 /* HClassManager.m in Sources */,
 				15B4DE1D209302BF00773E04 /* HGoTo.m in Sources */,
 				1510794520F99ABB00860D1C /* NSObject+HExclusive.m in Sources */,
+				A2B3708E23D01C6600B20DBF /* UIViewController+Animation.m in Sources */,
 				A222AE5922818F7D0013098A /* HTextUtilities.m in Sources */,
 				150C7CB4211996E800A05347 /* HPrinterManager.m in Sources */,
 				A2C2B21A235EB0B70041AAB5 /* HTableViewApexVertValue1.m in Sources */,
@@ -2754,6 +2793,7 @@
 				A206882122C9FDBD00661634 /* HTableBaseApex.m in Sources */,
 				A2E8F52022D2300D00E7C9F2 /* HTableController.m in Sources */,
 				A222AE5D22818F7D0013098A /* HTextRubyAnnotation.m in Sources */,
+				A2B3708D23D01C6600B20DBF /* HPresentationController.m in Sources */,
 				15112C772105A19600842FE4 /* HUncaughtExceptionHandler.m in Sources */,
 				A20E3D2423239BF600E6982B /* HMainController3+HSection1.m in Sources */,
 				A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */,
@@ -2781,6 +2821,7 @@
 				A222A6C42279AAAD0013098A /* NSDictionary+HUtil.m in Sources */,
 				A2A8EB5222DDD99D0049C51B /* UIViewController+HLeaks.m in Sources */,
 				A20E3CD6231A662B00E6982B /* HNaviToastView.m in Sources */,
+				A2B3709023D01C6600B20DBF /* HTransitionAnimation.m in Sources */,
 				A222AE4C22818F7D0013098A /* HTextDebugOption.m in Sources */,
 				A206880E22C9FD1B00661634 /* HTupleBaseApex.m in Sources */,
 				A2C2B214235EAC770041AAB5 /* HMainController6.m in Sources */,
