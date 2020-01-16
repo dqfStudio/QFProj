@@ -6,8 +6,8 @@
 //  Copyright © 2019 admin. All rights reserved.
 //
 #import <UIKit/UIKit.h>
-#import "HTransitionAnimation.h"
 #import "HPresentAnimation.h"
+#import "HTransitionAnimation.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nullable) HTransitionAnimation *transitionAnimation;
 
 #pragma mark - Present、Dismiss -> Alert
+#pragma mark -
 /*
  viewController 要显示的控制器
  contentSize    显示的视图大小
@@ -47,7 +48,9 @@ NS_ASSUME_NONNULL_BEGIN
 */
 - (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize animationDuration:(NSTimeInterval)duration shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HAnimationCompletion __nullable)completion;
 
+
 #pragma mark - Present、Dismiss -> Sheet
+#pragma mark -
 /*
  viewController 要显示的控制器
  contentSize    显示的视图大小
@@ -74,6 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize animationDuration:(NSTimeInterval)duration shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HAnimationCompletion __nullable)completion;
 
 #pragma mark - Push、Pop
+#pragma mark -
 /*
  viewController 要显示的控制器
  completion     动画结束后的回调

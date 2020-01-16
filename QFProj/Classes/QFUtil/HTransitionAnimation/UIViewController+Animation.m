@@ -12,6 +12,7 @@
 @implementation UIViewController (Animation)
 
 #pragma mark - 通过runtime 动态添加属性
+#pragma mark -
 /**
  * Present、Dismiss 动画类
 */
@@ -32,6 +33,7 @@
 }
 
 #pragma mark - Present、Dismiss -> Alert
+#pragma mark -
 /*
  viewController 要显示的控制器
  contentSize    显示的视图大小
@@ -71,6 +73,7 @@
 }
 
 #pragma mark - Present、Dismiss -> Sheet
+#pragma mark -
 /*
  viewController 要显示的控制器
  contentSize    显示的视图大小
@@ -110,6 +113,7 @@
 }
 
 #pragma mark - 私有方式
+#pragma mark -
 - (void)presentedViewController:(UIViewController*)viewController animation:(HPresentAnimation *)animation {
     if(animation) {
         self.presentAnimation = animation;
@@ -127,6 +131,7 @@
 }
 
 #pragma mark - Push、Pop
+#pragma mark -
 /*
  viewController 要显示的控制器
  completion     动画结束后的回调
@@ -145,6 +150,7 @@
 }
 
 #pragma mark - UINavigationControllerDelegate
+#pragma mark -
 - (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
     if(operation == UINavigationControllerOperationPush) {
         self.transitionAnimation.transitionType = HTransitionAnimationTypePush;
