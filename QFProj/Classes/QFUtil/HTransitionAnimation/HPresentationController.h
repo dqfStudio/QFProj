@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 //蒙层颜色
 @property (nonatomic, nullable) UIColor *shadowColor;
 //弹出框类型
-@property (nonatomic) HTransitionPresentType presentType;
+@property (nonatomic) HTransitionStyle presentType;
 //内容层大小
 @property (nonatomic) CGSize contentSize;
 ///点击阴影是否关闭页面

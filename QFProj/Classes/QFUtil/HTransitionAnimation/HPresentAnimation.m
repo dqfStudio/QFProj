@@ -17,7 +17,7 @@
 
 + (instancetype)defaultAnimation {
     HPresentAnimation *animation  = HPresentAnimation.new;
-    animation.presetType  = HTransitionPresentTypeAlert;
+    animation.presetType  = HTransitionStyleAlert;
     animation.shadowColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
     animation.contentSize = CGSizeZero;
     animation.isShadowDismiss = YES;
@@ -65,7 +65,7 @@
     NSTimeInterval duration  = [self transitionDuration:transitionContext];
     
     HAnimationWeakSelf(weakSelf)
-    if (self.presetType == HTransitionPresentTypeAlert) {
+    if (self.presetType == HTransitionStyleAlert) {
         presentedView.alpha = 0.0f;
         presentedView.transform = CGAffineTransformMakeScale(1.2, 1.2);
         // 动画弹出
@@ -77,7 +77,7 @@
                 [transitionContext completeTransition:YES];
             }
         }];
-    } else if (self.presetType == HTransitionPresentTypeSheet) {
+    } else if (self.presetType == HTransitionStyleSheet) {
         presentedView.transform = CGAffineTransformMakeTranslation(0, weakSelf.contentSize.height);
         [UIView animateWithDuration:duration animations:^{
             presentedView.transform = CGAffineTransformIdentity;
@@ -95,7 +95,7 @@
     NSTimeInterval duration  = [self transitionDuration:transitionContext];
     
     HAnimationWeakSelf(weakSelf)
-    if (self.presetType == HTransitionPresentTypeAlert) {
+    if (self.presetType == HTransitionStyleAlert) {
         // 消失
         [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
             presentedView.alpha = 0.0f;
@@ -106,7 +106,7 @@
                 [transitionContext completeTransition:YES];
             }
         }];
-    }else if (self.presetType == HTransitionPresentTypeSheet){
+    }else if (self.presetType == HTransitionStyleSheet){
         [UIView animateWithDuration:duration animations:^{
             presentedView.transform = CGAffineTransformMakeTranslation(0, weakSelf.contentSize.height);
         } completion:^(BOOL finished) {

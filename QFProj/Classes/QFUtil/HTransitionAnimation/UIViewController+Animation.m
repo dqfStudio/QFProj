@@ -63,7 +63,7 @@
 */
 - (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize animationDuration:(NSTimeInterval)duration shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HAnimationCompletion __nullable)completion {
    HPresentAnimation *animation = HPresentAnimation.new;
-   animation.presetType  = HTransitionPresentTypeAlert;
+   animation.presetType  = HTransitionStyleAlert;
    animation.contentSize = aSize;
    animation.animationDuration = duration;
    animation.shadowColor = aColor;
@@ -103,7 +103,7 @@
  */
 - (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize animationDuration:(NSTimeInterval)duration shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HAnimationCompletion __nullable)completion {
     HPresentAnimation *animation = HPresentAnimation.new;
-    animation.presetType  = HTransitionPresentTypeSheet;
+    animation.presetType  = HTransitionStyleSheet;
     animation.contentSize = aSize;
     animation.animationDuration = duration;
     animation.shadowColor = aColor;

@@ -6,7 +6,6 @@
 //  Copyright © 2019 admin. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "HBaseAnimation.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -23,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 /*
  * 弹框的类型(默认Alert)
  */
-@property (nonatomic) HTransitionPresentType presetType;
+@property (nonatomic) HTransitionStyle presetType;
 
 /*
  * 弹框点击背景是否dismiss (消失）默认NO

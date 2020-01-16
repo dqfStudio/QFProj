@@ -12,21 +12,21 @@
 #define HAnimationWeakSelf(weakSelf) __weak __typeof(&*self)weakSelf = self;
 
 /*
+ * 弹出框的类型
+ */
+typedef NS_ENUM(NSUInteger, HTransitionStyle) {
+    HTransitionStyleAlert, //中间弹出
+    HTransitionStyleSheet, //底部弹出
+};
+
+/*
  * 转场动画类型（push、pop、present、dismiss)
-*/
-typedef NS_ENUM(NSInteger ,HTransitionAnimationType) {
+ */
+typedef NS_ENUM(NSInteger, HTransitionAnimationType) {
     HTransitionAnimationTypePush,    //push
     HTransitionAnimationTypePop,     //push
     HTransitionAnimationTypePresent, //present
     HTransitionAnimationTypeDismiss, //dismiss
-};
-
-/*
- * 弹出框的类型
- */
-typedef NS_ENUM(NSUInteger, HTransitionPresentType) {
-    HTransitionPresentTypeAlert, //中间弹出
-    HTransitionPresentTypeSheet, //底部弹出
 };
 
 /*
@@ -37,7 +37,6 @@ typedef NS_ENUM(NSInteger, HFinishedAnimationType) {
     HFinishedAnimationTypeShow,    //显示
     HFinishedAnimationTypeDismiss, //消失
 };
-
 
 /*
  * 弹出动画结束后回调
