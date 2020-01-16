@@ -97,10 +97,10 @@
 
 #pragma mark - 蒙层
 - (UIView *)contentCoverView {
-    if(_contentCoverView == nil){
+    if (_contentCoverView == nil) {
         _contentCoverView = [[UIView alloc]initWithFrame:self.containerView.bounds];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissAction)];
-       [_contentCoverView addGestureRecognizer:tap];
+        [_contentCoverView addGestureRecognizer:tap];
     }
     return _contentCoverView;
 }
@@ -108,7 +108,7 @@
 /*蒙层颜色*/
 - (void)setShadowColor:(UIColor *)shadowColor {
     _shadowColor = shadowColor;
-    if(_shadowColor == nil){
+    if (_shadowColor == nil) {
         _shadowColor = [[UIColor blackColor] colorWithAlphaComponent:0.2f];
     }
     _contentCoverView.backgroundColor = _shadowColor;

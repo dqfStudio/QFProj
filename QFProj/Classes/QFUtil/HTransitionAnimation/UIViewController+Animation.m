@@ -63,11 +63,11 @@
 */
 - (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize animationDuration:(NSTimeInterval)duration shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HAnimationCompletion __nullable)completion {
    HPresentAnimation *animation = HPresentAnimation.new;
-   animation.presetType  = HTransitionStyleAlert;
+   animation.presetType = HTransitionStyleAlert;
    animation.contentSize = aSize;
    animation.animationDuration = duration;
    animation.shadowColor = aColor;
-   animation.isShadowDismiss  = isShadowDismiss;
+   animation.isShadowDismiss = isShadowDismiss;
    animation.animationCompletion = completion;
    [self presentedViewController:viewController animation:animation];
 }
@@ -103,11 +103,11 @@
  */
 - (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize animationDuration:(NSTimeInterval)duration shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HAnimationCompletion __nullable)completion {
     HPresentAnimation *animation = HPresentAnimation.new;
-    animation.presetType  = HTransitionStyleSheet;
+    animation.presetType = HTransitionStyleSheet;
     animation.contentSize = aSize;
     animation.animationDuration = duration;
     animation.shadowColor = aColor;
-    animation.isShadowDismiss  = isShadowDismiss;
+    animation.isShadowDismiss = isShadowDismiss;
     animation.animationCompletion = completion;
     [self presentedViewController:viewController animation:animation];
 }
@@ -137,8 +137,8 @@
  completion     动画结束后的回调
 */
 - (void)pushViewController:(UIViewController *)viewController completion:(HAnimationCompletion)completion {
-    HTransitionAnimation *anmiation  = HTransitionAnimation.new;
-    self.transitionAnimation  = anmiation;
+    HTransitionAnimation *anmiation = HTransitionAnimation.new;
+    self.transitionAnimation = anmiation;
     UINavigationController *navigationVC = nil;
     if([self isKindOfClass:UINavigationController.class]) {
         navigationVC = (UINavigationController*)self;
@@ -155,7 +155,7 @@
     if(operation == UINavigationControllerOperationPush) {
         self.transitionAnimation.transitionType = HTransitionAnimationTypePush;
         return self.transitionAnimation;
-    }else if(operation  == UINavigationControllerOperationPop) {
+    }else if(operation == UINavigationControllerOperationPop) {
          self.transitionAnimation.transitionType = HTransitionAnimationTypePop;
         return self.transitionAnimation;
     }
