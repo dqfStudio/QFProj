@@ -98,8 +98,8 @@
 #pragma mark - 蒙层
 - (UIView *)contentCoverView {
     if (_contentCoverView == nil) {
-        _contentCoverView = [[UIView alloc]initWithFrame:self.containerView.bounds];
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissAction)];
+        _contentCoverView = [[UIView alloc] initWithFrame:self.containerView.bounds];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissAction)];
         [_contentCoverView addGestureRecognizer:tap];
     }
     return _contentCoverView;
