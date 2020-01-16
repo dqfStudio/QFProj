@@ -1,10 +1,11 @@
 //
 //  UIViewController+Animation.h
-//  KYProjectModel
+//  QFProj
 //
-//  Created by TX-Kevin on 2019/12/14.
+//  Created by dqf on 2019/12/14.
 //  Copyright © 2019 admin. All rights reserved.
 //
+
 #import <UIKit/UIKit.h>
 #import "HPresentAnimation.h"
 #import "HTransitionAnimation.h"
