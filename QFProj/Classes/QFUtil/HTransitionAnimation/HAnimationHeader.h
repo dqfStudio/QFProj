@@ -16,7 +16,7 @@
  */
 typedef NS_ENUM(NSUInteger, HTransitionStyle) {
     HTransitionStyleAlert, //中间弹出
-    HTransitionStyleSheet, //底部弹出
+    HTransitionStyleSheet  //底部弹出
 };
 
 /*
@@ -26,7 +26,7 @@ typedef NS_ENUM(NSInteger, HTransitionAnimationType) {
     HTransitionAnimationTypePush,    //push
     HTransitionAnimationTypePop,     //push
     HTransitionAnimationTypePresent, //present
-    HTransitionAnimationTypeDismiss, //dismiss
+    HTransitionAnimationTypeDismiss  //dismiss
 };
 
 /*
@@ -35,7 +35,7 @@ typedef NS_ENUM(NSInteger, HTransitionAnimationType) {
 typedef NS_ENUM(NSInteger, HFinishedAnimationType) {
     HFinishedAnimationTypeNone,    //
     HFinishedAnimationTypeShow,    //显示
-    HFinishedAnimationTypeDismiss, //消失
+    HFinishedAnimationTypeDismiss  //消失
 };
 
 /*
