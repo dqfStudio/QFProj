@@ -14,20 +14,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HTransitionAnimation : NSObject <UIViewControllerAnimatedTransitioning>
 
-/**
- * 转场动画类型
-*/
+//转场动画类型
 @property (nonatomic) HTransitionType transitionType;
-/**
- * 动画时间, 默认0.25秒
- */
+//动画时间, 默认0.25秒
 @property (nonatomic) NSTimeInterval transitionDuration;
-/**
- * 转场动画结束回调
-*/
+//转场动画结束回调
 @property (nonatomic, copy, nullable) HTransitionCompletion transitionCompletion;
 
-//#pragma mark -- transitionType（子类实现）
+#pragma mark -- transitionType（子类实现）
 //动画开始方法
 - (void)startPushAnimation:(id<UIViewControllerContextTransitioning>)transitionContext;
 - (void)startPopAnimation:(id<UIViewControllerContextTransitioning>)transitionContext;
