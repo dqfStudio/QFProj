@@ -42,6 +42,15 @@ NS_ASSUME_NONNULL_BEGIN
 /*
  viewController 要显示的控制器
  contentSize    显示的视图大小
+ shadowColor    蒙层颜色
+ shadowDismiss  点击阴影是否dismiss当前页面
+ completion     动画结束后的回调
+*/
+- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HAnimationCompletion __nullable)completion;
+
+/*
+ viewController 要显示的控制器
+ contentSize    显示的视图大小
  duration       动画时间
  shadowColor    蒙层颜色
  shadowDismiss  点击阴影是否dismiss当前页面
@@ -66,6 +75,15 @@ NS_ASSUME_NONNULL_BEGIN
  completion     动画结束后的回调
  */
 - (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor completion:(HAnimationCompletion __nullable)completion;
+
+/*
+ viewController 要显示的控制器
+ contentSize    显示的视图大小
+ shadowColor    蒙层颜色
+ shadowDismiss  点击阴影是否dismiss当前页面
+ completion     动画结束后的回调
+ */
+- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HAnimationCompletion __nullable)completion;
 
 /*
  viewController 要显示的控制器

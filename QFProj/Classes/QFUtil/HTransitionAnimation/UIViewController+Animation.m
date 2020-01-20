@@ -50,7 +50,18 @@
  completion     动画结束后的回调
 */
 - (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor completion:(HAnimationCompletion __nullable)completion {
-    [self presentAlertController:viewController contentSize:aSize animationDuration:0.25 shadowColor:aColor shadowDismiss:YES completion:completion];
+    [self presentAlertController:viewController contentSize:aSize animationDuration:0.25 shadowColor:aColor shadowDismiss:NO completion:completion];
+}
+
+/*
+ viewController 要显示的控制器
+ contentSize    显示的视图大小
+ shadowColor    蒙层颜色
+ shadowDismiss  点击阴影是否dismiss当前页面
+ completion     动画结束后的回调
+*/
+- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HAnimationCompletion __nullable)completion {
+   [self presentAlertController:viewController contentSize:aSize animationDuration:0.25 shadowColor:aColor shadowDismiss:isShadowDismiss completion:completion];
 }
 
 /*
@@ -90,7 +101,18 @@
  completion     动画结束后的回调
  */
 - (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor completion:(HAnimationCompletion __nullable)completion {
-    [self presentSheetController:viewController contentSize:aSize animationDuration:0.25 shadowColor:aColor shadowDismiss:YES completion:completion];
+    [self presentSheetController:viewController contentSize:aSize animationDuration:0.25 shadowColor:aColor shadowDismiss:NO completion:completion];
+}
+
+/*
+ viewController 要显示的控制器
+ contentSize    显示的视图大小
+ shadowColor    蒙层颜色
+ shadowDismiss  点击阴影是否dismiss当前页面
+ completion     动画结束后的回调
+ */
+- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HAnimationCompletion __nullable)completion {
+    [self presentSheetController:viewController contentSize:aSize animationDuration:0.25 shadowColor:aColor shadowDismiss:isShadowDismiss completion:completion];
 }
 
 /*

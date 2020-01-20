@@ -115,7 +115,7 @@
 }
 
 - (void)dismissAction {
-    if (!self.isShadowDismiss) {
+    if (self.isShadowDismiss) {
         [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
     }
 }
