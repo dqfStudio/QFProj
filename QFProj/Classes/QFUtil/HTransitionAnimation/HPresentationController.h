@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HCommonDefine.h"
-#import "HAnimationHeader.h"
+#import "HTransitionHeader.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

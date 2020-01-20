@@ -72,10 +72,10 @@
 
 - (CGRect)frameOfPresentedViewInContainerView {
     CGRect makeRect = CGRectZero;
-    if(self.presentType == HTransitionStyleAlert) {
+    if (self.presentType == HTransitionStyleAlert) {
         makeRect = CGRectMake(self.containerView.center.x- self.contentSize.width*0.5, self.containerView.center.y-self.contentSize.height*0.5, self.contentSize.width, self.contentSize.height);
         
-    }else if(self.presentType == HTransitionStyleSheet) {
+    }else if (self.presentType == HTransitionStyleSheet) {
         if(CGSizeEqualToSize(self.contentSize, CGSizeZero)){
             self.contentSize = CGSizeMake(CGRectGetWidth(self.containerView.bounds), CGRectGetHeight(self.containerView.bounds));
         }

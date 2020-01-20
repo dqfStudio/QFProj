@@ -39,7 +39,7 @@
  contentSize    显示的视图大小
  completion     动画结束后的回调
 */
-- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize completion:(HAnimationCompletion __nullable)completion {
+- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize completion:(HTransitionCompletion __nullable)completion {
     [self presentAlertController:viewController contentSize:aSize shadowColor:nil completion:completion];
 }
 
@@ -49,7 +49,7 @@
  shadowColor    蒙层颜色
  completion     动画结束后的回调
 */
-- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor completion:(HAnimationCompletion __nullable)completion {
+- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor completion:(HTransitionCompletion __nullable)completion {
     [self presentAlertController:viewController contentSize:aSize animationDuration:0.25 shadowColor:aColor shadowDismiss:NO completion:completion];
 }
 
@@ -60,7 +60,7 @@
  shadowDismiss  点击阴影是否dismiss当前页面
  completion     动画结束后的回调
 */
-- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HAnimationCompletion __nullable)completion {
+- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HTransitionCompletion __nullable)completion {
    [self presentAlertController:viewController contentSize:aSize animationDuration:0.25 shadowColor:aColor shadowDismiss:isShadowDismiss completion:completion];
 }
 
@@ -72,14 +72,14 @@
  shadowDismiss  点击阴影是否dismiss当前页面
  completion     动画结束后的回调
 */
-- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize animationDuration:(NSTimeInterval)duration shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HAnimationCompletion __nullable)completion {
+- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize animationDuration:(NSTimeInterval)duration shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HTransitionCompletion __nullable)completion {
    HPresentAnimation *animation = HPresentAnimation.new;
    animation.presetType = HTransitionStyleAlert;
    animation.contentSize = aSize;
    animation.animationDuration = duration;
    animation.shadowColor = aColor;
    animation.isShadowDismiss = isShadowDismiss;
-   animation.animationCompletion = completion;
+   animation.transitionCompletion = completion;
    [self presentedViewController:viewController animation:animation];
 }
 
@@ -90,7 +90,7 @@
  contentSize    显示的视图大小
  completion     动画结束后的回调
 */
-- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize completion:(HAnimationCompletion __nullable)completion {
+- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize completion:(HTransitionCompletion __nullable)completion {
     [self presentSheetController:viewController contentSize:aSize shadowColor:nil completion:completion];
 }
 
@@ -100,7 +100,7 @@
  shadowColor    蒙层颜色
  completion     动画结束后的回调
  */
-- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor completion:(HAnimationCompletion __nullable)completion {
+- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor completion:(HTransitionCompletion __nullable)completion {
     [self presentSheetController:viewController contentSize:aSize animationDuration:0.25 shadowColor:aColor shadowDismiss:NO completion:completion];
 }
 
@@ -111,7 +111,7 @@
  shadowDismiss  点击阴影是否dismiss当前页面
  completion     动画结束后的回调
  */
-- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HAnimationCompletion __nullable)completion {
+- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HTransitionCompletion __nullable)completion {
     [self presentSheetController:viewController contentSize:aSize animationDuration:0.25 shadowColor:aColor shadowDismiss:isShadowDismiss completion:completion];
 }
 
@@ -123,14 +123,14 @@
  shadowDismiss  点击阴影是否dismiss当前页面
  completion     动画结束后的回调
  */
-- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize animationDuration:(NSTimeInterval)duration shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HAnimationCompletion __nullable)completion {
+- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize animationDuration:(NSTimeInterval)duration shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HTransitionCompletion __nullable)completion {
     HPresentAnimation *animation = HPresentAnimation.new;
     animation.presetType = HTransitionStyleSheet;
     animation.contentSize = aSize;
     animation.animationDuration = duration;
     animation.shadowColor = aColor;
     animation.isShadowDismiss = isShadowDismiss;
-    animation.animationCompletion = completion;
+    animation.transitionCompletion = completion;
     [self presentedViewController:viewController animation:animation];
 }
 
@@ -142,13 +142,6 @@
         viewController.modalPresentationStyle = UIModalPresentationCustom; //设置目标vc的动画为自定义
         viewController.transitioningDelegate = animation; //设置动画管理代理类
     }
-    @weakify(self);
-    self.presentAnimation.animationCompletion = ^(HTransitionAnimationType transitionType, BOOL finished) {
-        @strongify(self);
-        if(transitionType == HTransitionAnimationTypeDismiss && finished) {
-            self.presentAnimation = nil;
-        }
-    };
     [self presentViewController:viewController animated:YES completion:nil];
 }
 
@@ -158,9 +151,10 @@
  viewController 要显示的控制器
  completion     动画结束后的回调
 */
-- (void)pushViewController:(UIViewController *)viewController completion:(HAnimationCompletion)completion {
-    HTransitionAnimation *anmiation = HTransitionAnimation.new;
-    self.transitionAnimation = anmiation;
+- (void)pushViewController:(UIViewController *)viewController completion:(HTransitionCompletion)completion {
+    HTransitionAnimation *animation = HTransitionAnimation.new;
+    animation.transitionCompletion = completion;
+    self.transitionAnimation = animation;
     UINavigationController *navigationVC = nil;
     if([self isKindOfClass:UINavigationController.class]) {
         navigationVC = (UINavigationController*)self;
@@ -175,10 +169,12 @@
 #pragma mark -
 - (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
     if(operation == UINavigationControllerOperationPush) {
-        self.transitionAnimation.transitionType = HTransitionAnimationTypePush;
+        self.transitionAnimation.transitionType = HTransitionTypePush;
+        if (self.transitionAnimation.transitionCompletion) self.transitionAnimation.transitionCompletion(HTransitionTypePush);
         return self.transitionAnimation;
     }else if(operation == UINavigationControllerOperationPop) {
-         self.transitionAnimation.transitionType = HTransitionAnimationTypePop;
+        self.transitionAnimation.transitionType = HTransitionTypePop;
+        if (self.transitionAnimation.transitionCompletion) self.transitionAnimation.transitionCompletion(HTransitionTypePop);
         return self.transitionAnimation;
     }
     return nil;

@@ -233,7 +233,17 @@
     
 }
 - (void)tupleView:(HTupleView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-
+    HMainController2 *mainController2 = HMainController2.new;
+    [self presentAlertController:mainController2 contentSize:CGSizeMake(250, 150) animationDuration:0.25 shadowColor:UIColor.redColor shadowDismiss:YES completion:^(HTransitionType transitionType) {
+        NSLog(@"");
+    }];
+//    [self presentSheetController:mainController2 contentSize:CGSizeMake(250, 150) animationDuration:0.25 shadowColor:UIColor.redColor shadowDismiss:YES completion:^(HTransitionType transitionType) {
+//        NSLog(@"");
+//    }];
+    
+//    [self.navigationController pushViewController:mainController2 completion:^(HTransitionType transitionType) {
+//        NSLog(@"");
+//    }];
 }
 
 @end

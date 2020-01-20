@@ -28,16 +28,16 @@
 //所有的过渡动画事务都在这个方法里面完成
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
     switch (_transitionType) {
-        case HTransitionAnimationTypePush:
+        case HTransitionTypePush:
             [self pushAnimation:transitionContext];
             break;
-        case HTransitionAnimationTypePop:
+        case HTransitionTypePop:
             [self popAnimation:transitionContext];
             break;
-        case HTransitionAnimationTypePresent:
+        case HTransitionTypePresent:
             [self presentAnimation:transitionContext];
             break;
-        case HTransitionAnimationTypeDismiss:
+        case HTransitionTypeDismiss:
             [self dismissAnimation:transitionContext];
             break;
         default:
@@ -51,22 +51,21 @@
         return;
     }
     switch (_transitionType) {
-        case HTransitionAnimationTypePush:
+        case HTransitionTypePush:
             //NSLog(@"push 动画结束");
             break;
-        case HTransitionAnimationTypePop:
+        case HTransitionTypePop:
              //NSLog(@"Pop 动画结束");
             break;
-        case HTransitionAnimationTypePresent:
+        case HTransitionTypePresent:
             //NSLog(@"present 动画结束");
             break;
-        case HTransitionAnimationTypeDismiss:
+        case HTransitionTypeDismiss:
             //NSLog(@"dismiss 动画结束");
             break;
         default:
             break;
     }
-    if (self.animationCompletion) self.animationCompletion(_transitionType, YES);
 }
 
 - (void)presentAnimation:(id<UIViewControllerContextTransitioning>)transitionContext {}

@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
  contentSize    显示的视图大小
  completion     动画结束后的回调
 */
-- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize completion:(HAnimationCompletion __nullable)completion;
+- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize completion:(HTransitionCompletion __nullable)completion;
 
 /*
  viewController 要显示的控制器
@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
  shadowColor    蒙层颜色
  completion     动画结束后的回调
 */
-- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor completion:(HAnimationCompletion __nullable)completion;
+- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor completion:(HTransitionCompletion __nullable)completion;
 
 /*
  viewController 要显示的控制器
@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
  shadowDismiss  点击阴影是否dismiss当前页面
  completion     动画结束后的回调
 */
-- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HAnimationCompletion __nullable)completion;
+- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HTransitionCompletion __nullable)completion;
 
 /*
  viewController 要显示的控制器
@@ -56,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
  shadowDismiss  点击阴影是否dismiss当前页面
  completion     动画结束后的回调
 */
-- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize animationDuration:(NSTimeInterval)duration shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HAnimationCompletion __nullable)completion;
+- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize animationDuration:(NSTimeInterval)duration shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HTransitionCompletion __nullable)completion;
 
 
 #pragma mark - Present、Dismiss -> Sheet
@@ -66,7 +66,7 @@ NS_ASSUME_NONNULL_BEGIN
  contentSize    显示的视图大小
  completion     动画结束后的回调
 */
-- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize completion:(HAnimationCompletion __nullable)completion;
+- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize completion:(HTransitionCompletion __nullable)completion;
 
 /*
  viewController 要显示的控制器
@@ -74,7 +74,7 @@ NS_ASSUME_NONNULL_BEGIN
  shadowColor    蒙层颜色
  completion     动画结束后的回调
  */
-- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor completion:(HAnimationCompletion __nullable)completion;
+- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor completion:(HTransitionCompletion __nullable)completion;
 
 /*
  viewController 要显示的控制器
@@ -83,7 +83,7 @@ NS_ASSUME_NONNULL_BEGIN
  shadowDismiss  点击阴影是否dismiss当前页面
  completion     动画结束后的回调
  */
-- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HAnimationCompletion __nullable)completion;
+- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HTransitionCompletion __nullable)completion;
 
 /*
  viewController 要显示的控制器
@@ -93,7 +93,7 @@ NS_ASSUME_NONNULL_BEGIN
  shadowDismiss  点击阴影是否dismiss当前页面
  completion     动画结束后的回调
  */
-- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize animationDuration:(NSTimeInterval)duration shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HAnimationCompletion __nullable)completion;
+- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize animationDuration:(NSTimeInterval)duration shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HTransitionCompletion __nullable)completion;
 
 #pragma mark - Push、Pop
 #pragma mark -
@@ -101,7 +101,7 @@ NS_ASSUME_NONNULL_BEGIN
  viewController 要显示的控制器
  completion     动画结束后的回调
 */
-- (void)pushViewController:(UIViewController *)viewController completion:(HAnimationCompletion __nullable)completion;
+- (void)pushViewController:(UIViewController *)viewController completion:(HTransitionCompletion __nullable)completion;
 
 @end
 

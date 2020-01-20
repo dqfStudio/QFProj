@@ -848,7 +848,7 @@
 		A2B3708523D01C6600B20DBF /* UIViewController+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Animation.h"; sourceTree = "<group>"; };
 		A2B3708623D01C6600B20DBF /* HPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPresentationController.m; sourceTree = "<group>"; };
 		A2B3708723D01C6600B20DBF /* HBaseAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBaseAnimation.h; sourceTree = "<group>"; };
-		A2B3708823D01C6600B20DBF /* HAnimationHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAnimationHeader.h; sourceTree = "<group>"; };
+		A2B3708823D01C6600B20DBF /* HTransitionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTransitionHeader.h; sourceTree = "<group>"; };
 		A2B3708923D01C6600B20DBF /* UIViewController+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Animation.m"; sourceTree = "<group>"; };
 		A2B3708A23D01C6600B20DBF /* HPresentAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPresentAnimation.m; sourceTree = "<group>"; };
 		A2B3708B23D01C6600B20DBF /* HTransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTransitionAnimation.m; sourceTree = "<group>"; };
@@ -2257,7 +2257,7 @@
 		A2B3708023D01C6600B20DBF /* HTransitionAnimation */ = {
 			isa = PBXGroup;
 			children = (
-				A2B3708823D01C6600B20DBF /* HAnimationHeader.h */,
+				A2B3708823D01C6600B20DBF /* HTransitionHeader.h */,
 				A2B3708723D01C6600B20DBF /* HBaseAnimation.h */,
 				A2B3708223D01C6600B20DBF /* HBaseAnimation.m */,
 				A2B3708423D01C6600B20DBF /* HPresentAnimation.h */,

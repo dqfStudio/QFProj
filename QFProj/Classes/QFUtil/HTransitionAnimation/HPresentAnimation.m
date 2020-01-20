@@ -18,14 +18,14 @@
 #pragma mark - UIViewControllerTransitioningDelegate
 // 返回的对象控制Presented时的动画 (开始动画的具体细节负责类)
 - (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
-    self.transitionType = HTransitionAnimationTypePresent;
-    if (self.animationCompletion) self.animationCompletion(HTransitionAnimationTypePresent, YES);
+    self.transitionType = HTransitionTypePresent;
+    if (self.transitionCompletion) self.transitionCompletion(HTransitionTypePresent);
     return self;
 }
 // 由返回的控制器控制dismissed时的动画 (结束动画的具体细节负责类)
 - (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
-    self.transitionType = HTransitionAnimationTypeDismiss;
-    if (self.animationCompletion) self.animationCompletion(HTransitionAnimationTypeDismiss, YES);
+    self.transitionType = HTransitionTypeDismiss;
+    if (self.transitionCompletion) self.transitionCompletion(HTransitionTypeDismiss);
     return self;
 }
 
