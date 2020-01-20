@@ -30,6 +30,13 @@ typedef NS_ENUM(NSInteger, HTransitionType) {
 };
 
 /*
+ * push动画类型
+ */
+typedef NS_ENUM(NSInteger, HPushAnimationType) {
+    HPushAnimationTypeOCDoor //开关门动画
+};
+
+/*
  * 弹出动画结束后回调
  */
 typedef void (^HTransitionCompletion) (HTransitionType transitionType);

@@ -6,11 +6,11 @@
 //  Copyright © 2019 admin. All rights reserved.
 //
 
-#import "HBaseAnimation.h"
+#import "HTransitionAnimation.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HPresentAnimation : HBaseAnimation <UIViewControllerTransitioningDelegate>
+@interface HPresentAnimation : HTransitionAnimation <UIViewControllerTransitioningDelegate>
 
 /*
  * 弹框的尺寸大小

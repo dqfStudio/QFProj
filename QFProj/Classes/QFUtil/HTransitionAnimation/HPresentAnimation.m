@@ -19,23 +19,29 @@
 // 返回的对象控制Presented时的动画 (开始动画的具体细节负责类)
 - (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
     self.transitionType = HTransitionTypePresent;
-    if (self.transitionCompletion) self.transitionCompletion(HTransitionTypePresent);
     return self;
 }
 // 由返回的控制器控制dismissed时的动画 (结束动画的具体细节负责类)
 - (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
     self.transitionType = HTransitionTypeDismiss;
-    if (self.transitionCompletion) self.transitionCompletion(HTransitionTypeDismiss);
     return self;
 }
 
 #pragma mark - 重写父类方法
-- (void)presentAnimation:(id<UIViewControllerContextTransitioning>)transitionContext {
+- (void)startPresentAnimation:(id<UIViewControllerContextTransitioning>)transitionContext {
     [self animationForPresentedView:transitionContext];
 }
-- (void)dismissAnimation:(id<UIViewControllerContextTransitioning>)transitionContext {
+- (void)startDismissAnimation:(id<UIViewControllerContextTransitioning>)transitionContext {
     [self animationForDismissedView:transitionContext];
 }
+
+- (void)endPresentAnimation {
+    if (self.transitionCompletion) self.transitionCompletion(HTransitionTypePresent);
+}
+- (void)endDismissAnimation {
+    if (self.transitionCompletion) self.transitionCompletion(HTransitionTypeDismiss);
+}
+
 #pragma mark - 自定义动画实现方法
 //弹出动画
 - (void)animationForPresentedView:(nonnull id<UIViewControllerContextTransitioning>)transitionContext {
@@ -107,6 +113,9 @@
     }
 }
 
+@end
+
+@implementation HPresentAnimation (HPresent)
 #pragma mark - UIViewControllerTransitioningDelegate
 - (nullable UIPresentationController *)presentationControllerForPresentedViewController:(UIViewController *)presented presentingViewController:(UIViewController *)presenting sourceViewController:(UIViewController *)source {
     HPresentationController *presentationVC = [[HPresentationController alloc]initWithPresentedViewController:presented presentingViewController:presenting];
@@ -117,5 +126,4 @@
     self.presentationVC = presentationVC;
     return presentationVC;
 }
-
 @end

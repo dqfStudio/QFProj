@@ -8,19 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "HPresentAnimation.h"
-#import "HTransitionAnimation.h"
+#import "HPushAnimation.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (Animation)
-/**
-  动画管理类(Present、Dismiss)
- */
-@property (nonatomic, nullable) HPresentAnimation *presentAnimation;
-/**
-  动画管理类(Push、Pop)
- */
-@property (nonatomic, nullable) HTransitionAnimation *transitionAnimation;
 
 #pragma mark - Present、Dismiss -> Alert
 #pragma mark -

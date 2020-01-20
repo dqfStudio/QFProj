@@ -9,28 +9,47 @@
 #import "UIViewController+Animation.h"
 #import <objc/runtime.h>
 
-@implementation UIViewController (Animation)
+@interface UIViewController (HTransition)
+//动画管理类(Present、Dismiss)
+@property (nonatomic, nullable) HPresentAnimation *presentAnimation;
+//动画管理类(Push、Pop)
+@property (nonatomic, nullable) HPushAnimation *pushAnimation;
+@end
+
+@implementation UIViewController (HTransition)
 
 #pragma mark - 通过runtime 动态添加属性
 #pragma mark -
-/**
- * Present、Dismiss 动画类
-*/
+//Present、Dismiss 动画类
 - (HPresentAnimation *)presentAnimation {
     return  objc_getAssociatedObject(self, _cmd);
 }
 - (void)setPresentAnimation:(HPresentAnimation *)presentAnimation {
     objc_setAssociatedObject(self, @selector(presentAnimation), presentAnimation, OBJC_ASSOCIATION_RETAIN);
 }
-/**
- * Push、Pop 开门动画效果
-*/
-- (HTransitionAnimation *)transitionAnimation {
+//Push、Pop 开门动画效果
+- (HPushAnimation *)pushAnimation {
     return  objc_getAssociatedObject(self, _cmd);
 }
-- (void)setTransitionAnimation:(HTransitionAnimation *)transitionAnimation {
-    objc_setAssociatedObject(self, @selector(transitionAnimation), transitionAnimation, OBJC_ASSOCIATION_RETAIN);
+- (void)setPushAnimation:(HPushAnimation *)pushAnimation {
+    objc_setAssociatedObject(self, @selector(pushAnimation), pushAnimation, OBJC_ASSOCIATION_RETAIN);
 }
+
+#pragma mark - UINavigationControllerDelegate
+#pragma mark -
+- (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
+    if (operation == UINavigationControllerOperationPush) {
+        self.pushAnimation.transitionType = HTransitionTypePush;
+        return self.pushAnimation;
+    }else if (operation == UINavigationControllerOperationPop) {
+        self.pushAnimation.transitionType = HTransitionTypePop;
+        return self.pushAnimation;
+    }
+    return nil;
+}
+@end
+
+@implementation UIViewController (Animation)
 
 #pragma mark - Present、Dismiss -> Alert
 #pragma mark -
@@ -76,7 +95,7 @@
    HPresentAnimation *animation = HPresentAnimation.new;
    animation.presetType = HTransitionStyleAlert;
    animation.contentSize = aSize;
-   animation.animationDuration = duration;
+   animation.transitionDuration = duration;
    animation.shadowColor = aColor;
    animation.isShadowDismiss = isShadowDismiss;
    animation.transitionCompletion = completion;
@@ -127,7 +146,7 @@
     HPresentAnimation *animation = HPresentAnimation.new;
     animation.presetType = HTransitionStyleSheet;
     animation.contentSize = aSize;
-    animation.animationDuration = duration;
+    animation.transitionDuration = duration;
     animation.shadowColor = aColor;
     animation.isShadowDismiss = isShadowDismiss;
     animation.transitionCompletion = completion;
@@ -152,9 +171,9 @@
  completion     动画结束后的回调
 */
 - (void)pushViewController:(UIViewController *)viewController completion:(HTransitionCompletion)completion {
-    HTransitionAnimation *animation = HTransitionAnimation.new;
+    HPushAnimation *animation = HPushAnimation.new;
     animation.transitionCompletion = completion;
-    self.transitionAnimation = animation;
+    self.pushAnimation = animation;
     UINavigationController *navigationVC = nil;
     if([self isKindOfClass:UINavigationController.class]) {
         navigationVC = (UINavigationController*)self;
@@ -163,21 +182,6 @@
     }
     navigationVC.delegate = (id<UINavigationControllerDelegate>)self;
     [navigationVC pushViewController:viewController animated:YES];
-}
-
-#pragma mark - UINavigationControllerDelegate
-#pragma mark -
-- (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
-    if(operation == UINavigationControllerOperationPush) {
-        self.transitionAnimation.transitionType = HTransitionTypePush;
-        if (self.transitionAnimation.transitionCompletion) self.transitionAnimation.transitionCompletion(HTransitionTypePush);
-        return self.transitionAnimation;
-    }else if(operation == UINavigationControllerOperationPop) {
-        self.transitionAnimation.transitionType = HTransitionTypePop;
-        if (self.transitionAnimation.transitionCompletion) self.transitionAnimation.transitionCompletion(HTransitionTypePop);
-        return self.transitionAnimation;
-    }
-    return nil;
 }
 
 @end
