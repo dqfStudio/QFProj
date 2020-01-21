@@ -21,6 +21,27 @@
 
 @implementation HPingTester
 
++ (instancetype)sharedInstance {
+    static dispatch_once_t once;
+    static id sharedInstance;
+    dispatch_once(&once, ^{
+        sharedInstance = [[self alloc] init];
+    });
+    return sharedInstance;
+}
+
+- (void)startPingWith:(NSString *)hostName completion:(HPingBlock)pingBlock {
+    _hostName = hostName;
+    self.simplePing = [[SimplePing alloc] initWithHostName:hostName];
+    self.simplePing.delegate = self;
+    self.simplePing.addressStyle = SimplePingAddressStyleAny;
+    self.timeout = 1.5;
+    self.pingItems = [NSMutableArray new];
+    
+    _pingBlock = pingBlock;
+    [self.simplePing start];
+}
+
 - (instancetype)initWithHostName:(NSString *)hostName {
     if (self = [super init]) {
         _hostName = hostName;

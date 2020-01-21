@@ -13,12 +13,12 @@
 - (void)addStrategy:(id<HRequestStrategy>)strategy;
 // 执行GET请求
 - (void)performGetRequest:(NSString *)url
-           withParameters:(NSDictionary *)args
+               parameters:(NSDictionary *)args
               whenSeccsss:(YTKRequestCompletionBlock)sucBlock
                whenFailed:(YTKRequestCompletionBlock)failBlock;
 // 执行POST请求
 - (void)performPostRequest:(NSString *)url
-            withParameters:(NSDictionary *)args
+                parameters:(NSDictionary *)args
                whenSeccsss:(YTKRequestCompletionBlock)sucBlock
                 whenFailed:(YTKRequestCompletionBlock)failBlock;
 @end

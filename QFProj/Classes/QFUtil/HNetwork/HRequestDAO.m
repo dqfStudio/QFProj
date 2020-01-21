@@ -38,23 +38,23 @@
 }
 // 执行GET请求
 - (void)performGetRequest:(NSString *)url
-           withParameters:(NSDictionary *)args
+               parameters:(NSDictionary *)args
               whenSeccsss:(YTKRequestCompletionBlock)sucBlock
                whenFailed:(YTKRequestCompletionBlock)failBlock {
     [self performHTTPRequest:url
                requestMethod:YTKRequestMethodGET
-              withParameters:args
+              parameters:args
                  whenSeccsss:sucBlock
                   whenFailed:failBlock];
 }
 // 执行POST请求
 - (void)performPostRequest:(NSString *)url
-            withParameters:(NSDictionary *)args
+                parameters:(NSDictionary *)args
                whenSeccsss:(YTKRequestCompletionBlock)sucBlock
                 whenFailed:(YTKRequestCompletionBlock)failBlock {
     [self performHTTPRequest:url
                requestMethod:YTKRequestMethodPOST
-              withParameters:args
+              parameters:args
                  whenSeccsss:sucBlock
                   whenFailed:failBlock];
 }

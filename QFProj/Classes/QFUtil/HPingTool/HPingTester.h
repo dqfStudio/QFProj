@@ -13,12 +13,15 @@ typedef void(^HPingBlock)(NSString *hostName, NSTimeInterval time, NSError *erro
 
 @interface HPingTester : NSObject <SimplePingDelegate>
 
++ (instancetype)sharedInstance;
+
 @property (nonatomic) NSTimeInterval timeout;//default 1.5
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)initWithHostName:(NSString *)hostName NS_DESIGNATED_INITIALIZER;
 
+- (void)startPingWith:(NSString *)hostName completion:(HPingBlock)pingBlock;
 - (void)startPingWith:(HPingBlock)pingBlock;
 - (BOOL)isPinging;
 - (void)stopPing;

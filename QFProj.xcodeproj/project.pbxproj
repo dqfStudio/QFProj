@@ -333,6 +333,7 @@
 		A2ED9C1222314BA100C9D050 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1022314BA100C9D050 /* SimplePing.m */; };
 		A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1122314BA100C9D050 /* HPingTester.m */; };
 		A2ED9C1722314CAC00C9D050 /* HKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1622314CAC00C9D050 /* HKeyChainStore.m */; };
+		A2FA53C623D732D100C5F710 /* HNetWorkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FA53C523D732D100C5F710 /* HNetWorkingManager.m */; };
 		A2FF719D2317BADF00522223 /* hvc_back_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2FF719C2317BADF00522223 /* hvc_back_icon@3x.png */; };
 		A4759710217EC61D00AAAEA9 /* HUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A475970F217EC61C00AAAEA9 /* HUserDefaults.m */; };
 /* End PBXBuildFile section */
@@ -943,6 +944,8 @@
 		A2ED9C1122314BA100C9D050 /* HPingTester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPingTester.m; sourceTree = "<group>"; };
 		A2ED9C1522314CAC00C9D050 /* HKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKeyChainStore.h; sourceTree = "<group>"; };
 		A2ED9C1622314CAC00C9D050 /* HKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKeyChainStore.m; sourceTree = "<group>"; };
+		A2FA53C423D732D100C5F710 /* HNetWorkingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNetWorkingManager.h; sourceTree = "<group>"; };
+		A2FA53C523D732D100C5F710 /* HNetWorkingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNetWorkingManager.m; sourceTree = "<group>"; };
 		A2FF719C2317BADF00522223 /* hvc_back_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hvc_back_icon@3x.png"; sourceTree = "<group>"; };
 		A475970E217EC61C00AAAEA9 /* HUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUserDefaults.h; sourceTree = "<group>"; };
 		A475970F217EC61C00AAAEA9 /* HUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUserDefaults.m; sourceTree = "<group>"; };
@@ -2299,6 +2302,8 @@
 				A2E8F54922D73AE600E7C9F2 /* HRequestDAOFactory.m */,
 				A2E8F54B22D73AF500E7C9F2 /* HRequestDAOStrategy.h */,
 				A2E8F54C22D73AF500E7C9F2 /* HRequestDAOStrategy.m */,
+				A2FA53C423D732D100C5F710 /* HNetWorkingManager.h */,
+				A2FA53C523D732D100C5F710 /* HNetWorkingManager.m */,
 				A2E8F52822D72A9800E7C9F2 /* YTKNetwork */,
 			);
 			name = HNetwork;
@@ -2661,6 +2666,7 @@
 				A2E8F55A22D8354400E7C9F2 /* HFileCache.m in Sources */,
 				A2E8F57622D8356300E7C9F2 /* HValueTransformerFactory.m in Sources */,
 				A2E8F57422D8356300E7C9F2 /* NSURL+HExtendedFileAttributes.m in Sources */,
+				A2FA53C623D732D100C5F710 /* HNetWorkingManager.m in Sources */,
 				A222AE4E22818F7D0013098A /* HTextMagnifier.m in Sources */,
 				A265FF6F2269F6280093C780 /* HHostUrlManager.m in Sources */,
 				A222AE6022818F7D0013098A /* HTextRunDelegate.m in Sources */,

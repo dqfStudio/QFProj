@@ -85,7 +85,7 @@
 //执行HTTP请求
 - (void)performHTTPRequest:(NSString *)url
              requestMethod:(YTKRequestMethod)method
-            withParameters:(NSDictionary *)args
+                parameters:(NSDictionary *)args
                whenSeccsss:(YTKRequestCompletionBlock)sucBlock
                 whenFailed:(YTKRequestCompletionBlock)failBlock {
     NSString *baseUrl = @"";//此处需要根据实际值修改
