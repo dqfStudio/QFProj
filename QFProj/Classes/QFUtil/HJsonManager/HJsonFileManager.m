@@ -52,6 +52,8 @@
                 resource = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
                 if ([resource isKindOfClass:NSArray.class] || [resource isKindOfClass:NSDictionary.class]) {
                     [self.mutableDict setObject:resource forKey:name];
+                }else {
+                    return nil;
                 }
             }
         }
