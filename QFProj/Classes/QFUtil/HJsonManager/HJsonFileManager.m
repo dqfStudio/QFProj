@@ -27,6 +27,20 @@
     }
     return _mutableDict;
 }
++ (nullable id)resourceWithName:(NSString *)name {
+    if (![name isKindOfClass:NSString.class]) return nil;
+    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:nil];
+    if (path) {
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        if (data) {
+            id resource = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            if ([resource isKindOfClass:NSArray.class] || [resource isKindOfClass:NSDictionary.class]) {
+                return resource;
+            }
+        }
+    }
+    return nil;
+}
 - (nullable id)resourceWithName:(NSString *)name {
     if (![name isKindOfClass:NSString.class]) return nil;
     id resource = [self.mutableDict objectForKey:name];

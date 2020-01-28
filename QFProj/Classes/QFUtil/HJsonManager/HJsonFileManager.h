@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HJsonFileManager : NSObject
 + (instancetype)share;
++ (nullable id)resourceWithName:(NSString *)name; //加载资源
 - (nullable id)resourceWithName:(NSString *)name; //加载资源
 - (void)releaseResource:(NSString *)name; //释放资源
 @end
