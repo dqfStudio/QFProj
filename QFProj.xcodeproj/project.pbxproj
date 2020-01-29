@@ -215,6 +215,7 @@
 		A273940B22A7FF44009676C1 /* HTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A273940322A7FF44009676C1 /* HTableView.m */; };
 		A274E79623A3BCC20095B162 /* HJsonFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A274E79523A3BCC20095B162 /* HJsonFileManager.m */; };
 		A27D00A723E12FA3009D5475 /* HJsonList in Resources */ = {isa = PBXBuildFile; fileRef = A27D00A623E12FA3009D5475 /* HJsonList */; };
+		A27D00AC23E16A08009D5475 /* 活动记实 in Resources */ = {isa = PBXBuildFile; fileRef = A27D00AB23E16A08009D5475 /* 活动记实 */; };
 		A28EF2E821D86DD8002F92ED /* HCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */; };
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
 		A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */; };
@@ -730,6 +731,7 @@
 		A274E79423A3BCC20095B162 /* HJsonFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HJsonFileManager.h; sourceTree = "<group>"; };
 		A274E79523A3BCC20095B162 /* HJsonFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HJsonFileManager.m; sourceTree = "<group>"; };
 		A27D00A623E12FA3009D5475 /* HJsonList */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HJsonList; sourceTree = "<group>"; };
+		A27D00AB23E16A08009D5475 /* 活动记实 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "活动记实"; sourceTree = "<group>"; };
 		A2853CF32331D4C3005632BB /* HGeometry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HGeometry.h; sourceTree = "<group>"; };
 		A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A28EF2E721D86DD8002F92ED /* HCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCollectionViewFlowLayout.h; sourceTree = "<group>"; };
@@ -1207,6 +1209,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A27D00AA23E169F2009D5475 /* 活动记实 */,
 				A2B3708023D01C6600B20DBF /* HTransitionAnimation */,
 				A255229323BAFFEA00A18D7D /* HSkinManager */,
 				A274E79323A3BCB30095B162 /* HJsonManager */,
@@ -2023,6 +2026,15 @@
 			path = QFUtil/HJsonManager;
 			sourceTree = "<group>";
 		};
+		A27D00AA23E169F2009D5475 /* 活动记实 */ = {
+			isa = PBXGroup;
+			children = (
+				A27D00AB23E16A08009D5475 /* 活动记实 */,
+			);
+			name = "活动记实";
+			path = "QFUtil/活动记实";
+			sourceTree = "<group>";
+		};
 		A28EF2E921D86E43002F92ED /* UILabel+HAttributeText */ = {
 			isa = PBXGroup;
 			children = (
@@ -2560,6 +2572,7 @@
 				A28EF3A721D8ECC9002F92ED /* loading_new_1@2x.png in Resources */,
 				15B4DD702092F88700773E04 /* Assets.xcassets in Resources */,
 				A20E3D10231FE8FC00E6982B /* di_index_h@3x.png in Resources */,
+				A27D00AC23E16A08009D5475 /* 活动记实 in Resources */,
 				A28EF3AD21D8ECC9002F92ED /* loading_new_12@2x.png in Resources */,
 				A28EF38B21D8ECBE002F92ED /* icon_no_network@2x.png in Resources */,
 				15B4DD6E2092F88700773E04 /* Main.storyboard in Resources */,
