@@ -168,10 +168,12 @@
 #pragma mark -
 /*
  viewController 要显示的控制器
+ animationType  动画类型
  completion     动画结束后的回调
 */
-- (void)pushViewController:(UIViewController *)viewController completion:(HTransitionCompletion)completion {
+- (void)pushViewController:(UIViewController *)viewController animationType:(HPushAnimationType)type completion:(HTransitionCompletion)completion {
     HPushAnimation *animation = HPushAnimation.new;
+    animation.pushAnimationType = type;
     animation.transitionCompletion = completion;
     self.pushAnimation = animation;
     UINavigationController *navigationVC = nil;
