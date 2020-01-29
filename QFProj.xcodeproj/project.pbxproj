@@ -214,6 +214,7 @@
 		A26CF7BF2302747C00D73ECD /* NSNull+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A26CF7BE2302747B00D73ECD /* NSNull+HSafeUtil.m */; };
 		A273940B22A7FF44009676C1 /* HTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A273940322A7FF44009676C1 /* HTableView.m */; };
 		A274E79623A3BCC20095B162 /* HJsonFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A274E79523A3BCC20095B162 /* HJsonFileManager.m */; };
+		A27D00A723E12FA3009D5475 /* HJsonList in Resources */ = {isa = PBXBuildFile; fileRef = A27D00A623E12FA3009D5475 /* HJsonList */; };
 		A28EF2E821D86DD8002F92ED /* HCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */; };
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
 		A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */; };
@@ -728,6 +729,7 @@
 		A273940522A7FF44009676C1 /* HTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTableView.h; sourceTree = "<group>"; };
 		A274E79423A3BCC20095B162 /* HJsonFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HJsonFileManager.h; sourceTree = "<group>"; };
 		A274E79523A3BCC20095B162 /* HJsonFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HJsonFileManager.m; sourceTree = "<group>"; };
+		A27D00A623E12FA3009D5475 /* HJsonList */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HJsonList; sourceTree = "<group>"; };
 		A2853CF32331D4C3005632BB /* HGeometry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HGeometry.h; sourceTree = "<group>"; };
 		A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A28EF2E721D86DD8002F92ED /* HCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCollectionViewFlowLayout.h; sourceTree = "<group>"; };
@@ -2015,6 +2017,7 @@
 			children = (
 				A274E79423A3BCC20095B162 /* HJsonFileManager.h */,
 				A274E79523A3BCC20095B162 /* HJsonFileManager.m */,
+				A27D00A623E12FA3009D5475 /* HJsonList */,
 			);
 			name = HJsonManager;
 			path = QFUtil/HJsonManager;
@@ -2542,6 +2545,7 @@
 				A20E3CF3231E9A3900E6982B /* registet_checkbox_icon_h@3x.png in Resources */,
 				A20E3CF8231E9A3900E6982B /* login_eye_icon_h@3x.png in Resources */,
 				A28EF38F21D8ECBE002F92ED /* icon_no_server@3x.png in Resources */,
+				A27D00A723E12FA3009D5475 /* HJsonList in Resources */,
 				A28EF3A121D8ECC9002F92ED /* loading_new_14@2x.png in Resources */,
 				A24B6569225EE0EE00B257BB /* exportOptions.plist in Resources */,
 				A20E3D152320F6E200E6982B /* icon_tuple_xx_gray@3x.png in Resources */,
