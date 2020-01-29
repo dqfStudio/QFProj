@@ -21,11 +21,12 @@
     });
     return sharedInstance;
 }
-- (NSMutableDictionary *)mutableDict {
-    if (!_mutableDict) {
+- (instancetype)init {
+    self = [super init];
+    if (self) {
         _mutableDict = NSMutableDictionary.dictionary;
     }
-    return _mutableDict;
+    return self;
 }
 + (nullable id)resourceWithName:(NSString *)name {
     if (![name isKindOfClass:NSString.class]) return nil;
@@ -43,7 +44,7 @@
 }
 - (nullable id)resourceWithName:(NSString *)name {
     if (![name isKindOfClass:NSString.class]) return nil;
-    id resource = [self.mutableDict objectForKey:name];
+    id resource = [_mutableDict objectForKey:name];
     if (!resource) {
         NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:nil];
         if (path) {
@@ -51,7 +52,7 @@
             if (data) {
                 resource = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
                 if ([resource isKindOfClass:NSArray.class] || [resource isKindOfClass:NSDictionary.class]) {
-                    [self.mutableDict setObject:resource forKey:name];
+                    [_mutableDict setObject:resource forKey:name];
                 }else {
                     return nil;
                 }
@@ -62,8 +63,8 @@
 }
 - (void)releaseResource:(NSString *)name {
     if (![name isKindOfClass:NSString.class]) return;
-    if ([self.mutableDict.allKeys containsObject:name]) {
-        [self.mutableDict removeObjectForKey:name];
+    if ([_mutableDict.allKeys containsObject:name]) {
+        [_mutableDict removeObjectForKey:name];
     }
 }
 @end
