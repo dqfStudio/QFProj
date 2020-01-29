@@ -10,6 +10,7 @@
 #import "HLabel.h"
 #import "HWebImageView.h"
 #import "HWebButtonView.h"
+#import "HCountDownButton.h"
 #import "HGeometry.h"
 
 @interface HTextField : UITextField <UITextFieldDelegate>
@@ -21,6 +22,8 @@
 
 @property (nonatomic) HWebButtonView *leftButton;
 @property (nonatomic) HWebButtonView *rightButton;
+
+@property (nonatomic) HCountDownButton *rightCountDownButton; //获取验证码
 
 @property (nonatomic) CGFloat leftWidth;
 @property (nonatomic) CGFloat rightWidth;

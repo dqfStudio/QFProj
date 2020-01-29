@@ -84,6 +84,16 @@
     }
     return _rightButton;
 }
+- (HCountDownButton *)rightCountDownButton {
+    if (!_rightCountDownButton) {
+        _rightCountDownButton = [HCountDownButton new];
+        [_rightCountDownButton setFont:[UIFont systemFontOfSize:14]];
+        [super setRightViewMode:UITextFieldViewModeAlways];
+        [super setRightView:_rightCountDownButton];
+        [self setRightViewFrame];
+    }
+    return _rightCountDownButton;
+}
 - (void)setLeftWidth:(CGFloat)leftWidth {
     if (_leftWidth != leftWidth) {
         _leftWidth = leftWidth;
