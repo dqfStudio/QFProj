@@ -94,6 +94,15 @@
     }
     return _rightCountDownButton;
 }
+- (HPooCodeView *)rightPooCodeView {
+    if (!_rightPooCodeView) {
+        _rightPooCodeView = [HPooCodeView new];
+        [super setRightViewMode:UITextFieldViewModeAlways];
+        [super setRightView:_rightPooCodeView];
+        [self setRightViewFrame];
+    }
+    return _rightPooCodeView;
+}
 - (void)setLeftWidth:(CGFloat)leftWidth {
     if (_leftWidth != leftWidth) {
         _leftWidth = leftWidth;

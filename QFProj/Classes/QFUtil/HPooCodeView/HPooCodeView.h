@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HPooCodeView : UIView
+@interface HPooCodeView : UIControl
 
 /**
  初始化
@@ -22,9 +22,9 @@
 /**
 PooCodeView:1.随机内容(默认由0~9与26个大小写字母随机组合);2.文本颜色(默认黑色);3.字体大小(默认20);4.获取当前验证码等;
 */
-@property (nonatomic) UIColor *textColor;             // 文本颜色
-@property (nonatomic) int textSize;                   // 字体大小
-@property (nonatomic) NSMutableString *changeString;  // 验证码
+@property (nonatomic, readwrite) UIColor   *textColor;     // 文本颜色
+@property (nonatomic, readwrite) NSInteger textSize;       // 字体大小
+@property (nonatomic, readonly)  NSString  *changeString;  // 验证码
 
 //刷新随机验证码
 - (void)changeCode;

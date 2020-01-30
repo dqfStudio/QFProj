@@ -11,6 +11,7 @@
 #import "HWebImageView.h"
 #import "HWebButtonView.h"
 #import "HCountDownButton.h"
+#import "HPooCodeView.h"
 #import "HGeometry.h"
 
 @interface HTextField : UITextField <UITextFieldDelegate>
@@ -24,6 +25,7 @@
 @property (nonatomic) HWebButtonView *rightButton;
 
 @property (nonatomic) HCountDownButton *rightCountDownButton; //获取验证码
+@property (nonatomic) HPooCodeView *rightPooCodeView; //验证码
 
 @property (nonatomic) CGFloat leftWidth;
 @property (nonatomic) CGFloat rightWidth;

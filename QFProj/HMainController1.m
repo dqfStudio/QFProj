@@ -235,6 +235,9 @@
             [cell.textField.rightCountDownButton countDownFinished:^NSString *(HCountDownButton *countDownButton, NSUInteger second) {
                 return @"重新获取";
             }];
+//            [cell.textField.rightPooCodeView setBackgroundColor:UIColor.greenColor];
+//            cell.textField.rightPooCodeView.textSize = 17;
+//            cell.textField.rightPooCodeView.textColor = [UIColor blackColor];
         }
             break;
             
