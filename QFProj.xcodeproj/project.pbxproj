@@ -114,7 +114,7 @@
 		A206882922CA081400661634 /* hvc_back_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A206882722CA081400661634 /* hvc_back_icon@2x.png */; };
 		A206882F22CA083700661634 /* HWebButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = A206882C22CA083700661634 /* HWebButtonView.m */; };
 		A206883022CA083700661634 /* HWebImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A206882D22CA083700661634 /* HWebImageView.m */; };
-		A2079ADB23E2990000AF1BA1 /* HPooCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2079ADA23E2990000AF1BA1 /* HPooCodeView.m */; };
+		A2079ADB23E2990000AF1BA1 /* HVerifyCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2079ADA23E2990000AF1BA1 /* HVerifyCodeView.m */; };
 		A2079ADE23E2994D00AF1BA1 /* HCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A2079ADD23E2994D00AF1BA1 /* HCountDownButton.m */; };
 		A208D62E22AD373E009A6FDD /* HAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = A208D62C22AD373E009A6FDD /* HAttributedString.m */; };
 		A208E17822BA305C009A6FDD /* HTupleRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = A208E17722BA305C009A6FDD /* HTupleRefresh.m */; };
@@ -549,8 +549,8 @@
 		A206882C22CA083700661634 /* HWebButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebButtonView.m; sourceTree = "<group>"; };
 		A206882D22CA083700661634 /* HWebImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebImageView.m; sourceTree = "<group>"; };
 		A206882E22CA083700661634 /* HWebButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebButtonView.h; sourceTree = "<group>"; };
-		A2079AD923E2990000AF1BA1 /* HPooCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPooCodeView.h; sourceTree = "<group>"; };
-		A2079ADA23E2990000AF1BA1 /* HPooCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPooCodeView.m; sourceTree = "<group>"; };
+		A2079AD923E2990000AF1BA1 /* HVerifyCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HVerifyCodeView.h; sourceTree = "<group>"; };
+		A2079ADA23E2990000AF1BA1 /* HVerifyCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HVerifyCodeView.m; sourceTree = "<group>"; };
 		A2079ADC23E2994D00AF1BA1 /* HCountDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCountDownButton.h; sourceTree = "<group>"; };
 		A2079ADD23E2994D00AF1BA1 /* HCountDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCountDownButton.m; sourceTree = "<group>"; };
 		A208D62C22AD373E009A6FDD /* HAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAttributedString.m; sourceTree = "<group>"; };
@@ -1866,8 +1866,8 @@
 			children = (
 				A222AE6322828E5C0013098A /* HTextField.h */,
 				A222AE6422828E5C0013098A /* HTextField.m */,
-				A2079AD923E2990000AF1BA1 /* HPooCodeView.h */,
-				A2079ADA23E2990000AF1BA1 /* HPooCodeView.m */,
+				A2079AD923E2990000AF1BA1 /* HVerifyCodeView.h */,
+				A2079ADA23E2990000AF1BA1 /* HVerifyCodeView.m */,
 				A2079ADC23E2994D00AF1BA1 /* HCountDownButton.h */,
 				A2079ADD23E2994D00AF1BA1 /* HCountDownButton.m */,
 			);
@@ -2711,7 +2711,7 @@
 				A2E8F55322D73E4B00E7C9F2 /* HRequest.m in Sources */,
 				A2A8EBB822E1FDEE0049C51B /* WKWebViewJavascriptBridge.m in Sources */,
 				A24B657E225F768000B257BB /* HWebviewVC.m in Sources */,
-				A2079ADB23E2990000AF1BA1 /* HPooCodeView.m in Sources */,
+				A2079ADB23E2990000AF1BA1 /* HVerifyCodeView.m in Sources */,
 				15B4DDFB2092F96C00773E04 /* UIColor+HUtil.m in Sources */,
 				15B4DDE82092F96C00773E04 /* AppDelegate+HDebug.m in Sources */,
 				15112C6A210574DB00842FE4 /* UIAlertController+HError.m in Sources */,

@@ -94,14 +94,14 @@
     }
     return _rightCountDownButton;
 }
-- (HPooCodeView *)rightPooCodeView {
-    if (!_rightPooCodeView) {
-        _rightPooCodeView = [HPooCodeView new];
+- (HVerifyCodeView *)rightVerifyCodeView {
+    if (!_rightVerifyCodeView) {
+        _rightVerifyCodeView = [HVerifyCodeView new];
         [super setRightViewMode:UITextFieldViewModeAlways];
-        [super setRightView:_rightPooCodeView];
+        [super setRightView:_rightVerifyCodeView];
         [self setRightViewFrame];
     }
-    return _rightPooCodeView;
+    return _rightVerifyCodeView;
 }
 - (void)setLeftWidth:(CGFloat)leftWidth {
     if (_leftWidth != leftWidth) {
