@@ -219,10 +219,21 @@
             [cell.textField setTextColor:[UIColor whiteColor]];
             
             cell.textField.rightWidth = 90;
-            [cell.textField.rightButton setTitle:@"获取验证码"];
-            [cell.textField.rightButton setBackgroundColor:UIColor.greenColor];
-            [cell.textField.rightButton setPressed:^(id sender, id data) {
-
+//            [cell.textField.rightButton setTitle:@"获取验证码"];
+//            [cell.textField.rightButton setBackgroundColor:UIColor.greenColor];
+//            [cell.textField.rightButton setPressed:^(id sender, id data) {
+//
+//            }];
+            [cell.textField.rightCountDownButton setTitle:@"获取验证码"];
+            [cell.textField.rightCountDownButton setBackgroundColor:UIColor.greenColor];
+            [cell.textField.rightCountDownButton countDownButtonHandler:^(HCountDownButton *countDownButton, NSInteger tag) {
+                [countDownButton startCountDownWithSecond:60];
+            }];
+            [cell.textField.rightCountDownButton countDownChanging:^NSString *(HCountDownButton *countDownButton, NSUInteger second) {
+                return [NSString stringWithFormat:@"还剩%ld秒",second];
+            }];
+            [cell.textField.rightCountDownButton countDownFinished:^NSString *(HCountDownButton *countDownButton, NSUInteger second) {
+                return @"重新获取";
             }];
         }
             break;
