@@ -12,16 +12,6 @@
 #define HRandColor(a) HRGBColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255), a)
 
 @implementation HVerifyCodeView
-- (id)initWithFrame:(CGRect)frame chars:(NSArray *)charsArray {
-    self = [super initWithFrame:frame];
-    if (self) {
-        self.backgroundColor = HRandColor(0.2);
-        [self addTarget:self action:@selector(verifyCodeAction) forControlEvents:UIControlEventTouchUpInside];
-        _charsArray = charsArray;
-        [self loadCode];
-    }
-    return self;
-}
 - (id)init {
     self = [super init];
     if (self) {

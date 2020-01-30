@@ -219,11 +219,13 @@
             [cell.textField setTextColor:[UIColor whiteColor]];
             
             cell.textField.rightWidth = 90;
+            //普通view
 //            [cell.textField.rightButton setTitle:@"获取验证码"];
 //            [cell.textField.rightButton setBackgroundColor:UIColor.greenColor];
 //            [cell.textField.rightButton setPressed:^(id sender, id data) {
 //
 //            }];
+            //短信验证码
             [cell.textField.rightCountDownButton setTitle:@"获取验证码"];
             [cell.textField.rightCountDownButton setBackgroundColor:UIColor.greenColor];
             [cell.textField.rightCountDownButton countDownButtonHandler:^(HCountDownButton *countDownButton, NSInteger tag) {
@@ -235,9 +237,11 @@
             [cell.textField.rightCountDownButton countDownFinished:^NSString *(HCountDownButton *countDownButton, NSUInteger second) {
                 return @"重新获取";
             }];
-//            [cell.textField.rightPooCodeView setBackgroundColor:UIColor.greenColor];
-//            cell.textField.rightPooCodeView.textSize = 17;
-//            cell.textField.rightPooCodeView.textColor = [UIColor blackColor];
+            //图形验证码
+//            [cell.textField.rightVerifyCodeView setBackgroundColor:UIColor.greenColor];
+//            cell.textField.rightVerifyCodeView.textSize = 20;
+//            cell.textField.rightVerifyCodeView.textColor = [UIColor blackColor];
+//            cell.textField.rightVerifyCodeView.charsArray = @[@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9"];
         }
             break;
             
