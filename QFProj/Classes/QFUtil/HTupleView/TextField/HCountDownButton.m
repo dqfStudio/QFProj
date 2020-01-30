@@ -30,7 +30,7 @@
 }
 
 - (void)touched:(HCountDownButton *)sender {
-    if (_touchedCountDownButtonHandler) {
+    if (_touchedCountDownButtonHandler && (_second <= 0 || _second == _totalSecond)) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self->_touchedCountDownButtonHandler(sender,sender.tag);
         });
