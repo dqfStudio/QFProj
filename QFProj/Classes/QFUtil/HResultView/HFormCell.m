@@ -8,7 +8,6 @@
 
 #import "HFormCell.h"
 #import "HTupleView.h"
-#import "UIButton+HUtil.h"
 
 @interface HFormCell ()
 @property (nonatomic) HTupleView *tupleView;

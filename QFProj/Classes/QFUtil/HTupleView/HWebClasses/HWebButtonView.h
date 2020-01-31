@@ -10,7 +10,6 @@
 #import "HCommonDefine.h"
 #import "HCommonBlock.h"
 #import "NSError+HUtil.h"
-#import "UIButton+HUtil.h"
 #import "UIImageView+HFilletLayer.h"
 
 @interface HWebButtonView : UIButton
@@ -74,4 +73,23 @@
 @interface HWebButtonView (HFilletLayer)
 @property (nonatomic) BOOL fillet;//是否圆角展示图片
 @property (nonatomic) UIImageViewFilletStyle filletStyle;//默认居中显示
+@end
+
+
+@interface UIButton (HUtil)
+- (void)setTitle:(NSString *)title;
+- (void)setTitleColor:(UIColor *)color;
+- (void)setFont:(UIFont *)font;
+- (void)setTextAlignment:(NSTextAlignment)textAlignment;
+- (void)setImage:(UIImage *)image;
+- (void)setBackgroundImage:(UIImage *)image;
+- (void)addTarget:(id)target action:(SEL)action;
+
+//图左文字右
+- (void)imageAndTextWithSpacing:(CGFloat)spacing;
+//图右文字左
+- (void)textAndImageWithSpacing:(CGFloat)spacing;
+//图上文字下
+- (void)imageUpAndTextDownWithSpacing:(CGFloat)spacing;
+
 @end

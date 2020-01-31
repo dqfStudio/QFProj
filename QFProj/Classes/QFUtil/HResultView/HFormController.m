@@ -8,7 +8,6 @@
 
 #import "HFormController.h"
 #import "UIDevice+HUtil.h"
-#import "UIButton+HUtil.h"
 #import "HTupleView.h"
 
 #define KItemHeight     80

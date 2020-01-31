@@ -7,7 +7,6 @@
 //
 
 #import "HTupleController.h"
-#import "UIButton+HUtil.h"
 #import "HTupleViewCellVertValue1.h"
 #import "HTupleViewCellHoriValue1.h"
 
