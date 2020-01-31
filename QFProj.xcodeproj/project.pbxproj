@@ -218,6 +218,13 @@
 		A274E79623A3BCC20095B162 /* HJsonFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A274E79523A3BCC20095B162 /* HJsonFileManager.m */; };
 		A27D00A723E12FA3009D5475 /* HJsonList in Resources */ = {isa = PBXBuildFile; fileRef = A27D00A623E12FA3009D5475 /* HJsonList */; };
 		A27D00AC23E16A08009D5475 /* 活动记实 in Resources */ = {isa = PBXBuildFile; fileRef = A27D00AB23E16A08009D5475 /* 活动记实 */; };
+		A289DCEA23E3DFD400FC59F1 /* HTupleViewBannerApex.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DCE923E3DFD400FC59F1 /* HTupleViewBannerApex.m */; };
+		A289DCEC23E3E31100FC59F1 /* HCyclePlaceholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A289DCEB23E3E31100FC59F1 /* HCyclePlaceholder@2x.png */; };
+		A289DCF123E3E31A00FC59F1 /* HCyclePageControlDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A289DCED23E3E31A00FC59F1 /* HCyclePageControlDot@2x.png */; };
+		A289DCF223E3E31A00FC59F1 /* HCyclePageControlCurrentDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A289DCEE23E3E31A00FC59F1 /* HCyclePageControlCurrentDot@2x.png */; };
+		A289DCF323E3E31A00FC59F1 /* HCyclePageControlDot@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A289DCEF23E3E31A00FC59F1 /* HCyclePageControlDot@3x.png */; };
+		A289DCF423E3E31A00FC59F1 /* HCyclePageControlCurrentDot@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A289DCF023E3E31A00FC59F1 /* HCyclePageControlCurrentDot@3x.png */; };
+		A289DCF723E3E3E900FC59F1 /* HTupleViewBannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DCF623E3E3E900FC59F1 /* HTupleViewBannerCell.m */; };
 		A28EF2E821D86DD8002F92ED /* HCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */; };
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
 		A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */; };
@@ -737,6 +744,15 @@
 		A27D00A623E12FA3009D5475 /* HJsonList */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HJsonList; sourceTree = "<group>"; };
 		A27D00AB23E16A08009D5475 /* 活动记实 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "活动记实"; sourceTree = "<group>"; };
 		A2853CF32331D4C3005632BB /* HGeometry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HGeometry.h; sourceTree = "<group>"; };
+		A289DCE823E3DFD400FC59F1 /* HTupleViewBannerApex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewBannerApex.h; sourceTree = "<group>"; };
+		A289DCE923E3DFD400FC59F1 /* HTupleViewBannerApex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewBannerApex.m; sourceTree = "<group>"; };
+		A289DCEB23E3E31100FC59F1 /* HCyclePlaceholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HCyclePlaceholder@2x.png"; sourceTree = "<group>"; };
+		A289DCED23E3E31A00FC59F1 /* HCyclePageControlDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HCyclePageControlDot@2x.png"; sourceTree = "<group>"; };
+		A289DCEE23E3E31A00FC59F1 /* HCyclePageControlCurrentDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HCyclePageControlCurrentDot@2x.png"; sourceTree = "<group>"; };
+		A289DCEF23E3E31A00FC59F1 /* HCyclePageControlDot@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HCyclePageControlDot@3x.png"; sourceTree = "<group>"; };
+		A289DCF023E3E31A00FC59F1 /* HCyclePageControlCurrentDot@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HCyclePageControlCurrentDot@3x.png"; sourceTree = "<group>"; };
+		A289DCF523E3E3E900FC59F1 /* HTupleViewBannerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewBannerCell.h; sourceTree = "<group>"; };
+		A289DCF623E3E3E900FC59F1 /* HTupleViewBannerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewBannerCell.m; sourceTree = "<group>"; };
 		A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A28EF2E721D86DD8002F92ED /* HCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		A28EF2EA21D86E43002F92ED /* UILabel+HAttributeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeText.h"; sourceTree = "<group>"; };
@@ -2139,9 +2155,14 @@
 				A2A8EB1D22DB62670049C51B /* HCollectionViewCell.m */,
 				A2A8EB2A22DB62670049C51B /* HCycleScrollView.h */,
 				A2A8EB2722DB62670049C51B /* HCycleScrollView.m */,
+				A289DCE823E3DFD400FC59F1 /* HTupleViewBannerApex.h */,
+				A289DCE923E3DFD400FC59F1 /* HTupleViewBannerApex.m */,
+				A289DCF523E3E3E900FC59F1 /* HTupleViewBannerCell.h */,
+				A289DCF623E3E3E900FC59F1 /* HTupleViewBannerCell.m */,
 				A2A8EB1E22DB62670049C51B /* HPageControl */,
 				A2A8EB1C22DB62670049C51B /* UIView+HExtension.h */,
 				A2A8EB2822DB62670049C51B /* UIView+HExtension.m */,
+				A289DCEB23E3E31100FC59F1 /* HCyclePlaceholder@2x.png */,
 			);
 			name = HCycleScrollView;
 			path = QFUtil/HCycleScrollView;
@@ -2150,14 +2171,18 @@
 		A2A8EB1E22DB62670049C51B /* HPageControl */ = {
 			isa = PBXGroup;
 			children = (
-				A2A8EB1F22DB62670049C51B /* HAnimatedDotView.h */,
-				A2A8EB2022DB62670049C51B /* HPageControl.h */,
-				A2A8EB2122DB62670049C51B /* HAbstractDotView.m */,
-				A2A8EB2222DB62670049C51B /* HDotView.m */,
-				A2A8EB2322DB62670049C51B /* HPageControl.m */,
-				A2A8EB2422DB62670049C51B /* HAnimatedDotView.m */,
 				A2A8EB2522DB62670049C51B /* HAbstractDotView.h */,
+				A2A8EB2122DB62670049C51B /* HAbstractDotView.m */,
+				A2A8EB1F22DB62670049C51B /* HAnimatedDotView.h */,
+				A2A8EB2422DB62670049C51B /* HAnimatedDotView.m */,
 				A2A8EB2622DB62670049C51B /* HDotView.h */,
+				A2A8EB2222DB62670049C51B /* HDotView.m */,
+				A2A8EB2022DB62670049C51B /* HPageControl.h */,
+				A2A8EB2322DB62670049C51B /* HPageControl.m */,
+				A289DCEE23E3E31A00FC59F1 /* HCyclePageControlCurrentDot@2x.png */,
+				A289DCF023E3E31A00FC59F1 /* HCyclePageControlCurrentDot@3x.png */,
+				A289DCED23E3E31A00FC59F1 /* HCyclePageControlDot@2x.png */,
+				A289DCEF23E3E31A00FC59F1 /* HCyclePageControlDot@3x.png */,
 			);
 			path = HPageControl;
 			sourceTree = "<group>";
@@ -2513,7 +2538,11 @@
 				A28EF3A821D8ECC9002F92ED /* loading_new_2@2x.png in Resources */,
 				A20E3CF7231E9A3900E6982B /* login_eye_icon_h@2x.png in Resources */,
 				A20E3CF5231E9A3900E6982B /* registet_checkbox_icon@3x.png in Resources */,
+				A289DCF423E3E31A00FC59F1 /* HCyclePageControlCurrentDot@3x.png in Resources */,
 				A28EF38A21D8ECBE002F92ED /* icon_load_nothing@3x.png in Resources */,
+				A289DCF223E3E31A00FC59F1 /* HCyclePageControlCurrentDot@2x.png in Resources */,
+				A289DCEC23E3E31100FC59F1 /* HCyclePlaceholder@2x.png in Resources */,
+				A289DCF123E3E31A00FC59F1 /* HCyclePageControlDot@2x.png in Resources */,
 				A20E3D0E231FE8FC00E6982B /* di_index@3x.png in Resources */,
 				A20E3CF1231E9A3900E6982B /* login_eye_icon@3x.png in Resources */,
 				15B4DD732092F88700773E04 /* LaunchScreen.storyboard in Resources */,
@@ -2549,6 +2578,7 @@
 				A20E3CF2231E9A3900E6982B /* registet_checkbox_icon@2x.png in Resources */,
 				A2E8F50822CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png in Resources */,
 				A227A8FE233C9DB4005611BA /* di_zhuce@2x.png in Resources */,
+				A289DCF323E3E31A00FC59F1 /* HCyclePageControlDot@3x.png in Resources */,
 				A206882922CA081400661634 /* hvc_back_icon@2x.png in Resources */,
 				A28EF3A621D8ECC9002F92ED /* loading_new_13@2x.png in Resources */,
 				A28EF3A721D8ECC9002F92ED /* loading_new_1@2x.png in Resources */,
@@ -2805,6 +2835,7 @@
 				A20E3D1B232138AA00E6982B /* UIImageView+HFilletLayer.m in Sources */,
 				153F081520E28CA000C74850 /* HInputValidator.m in Sources */,
 				15B4DD762092F88700773E04 /* main.m in Sources */,
+				A289DCF723E3E3E900FC59F1 /* HTupleViewBannerCell.m in Sources */,
 				15E6BB992136E7E300EBE794 /* UIScrollView+YPTab.m in Sources */,
 				15B4DDF52092F96C00773E04 /* UINavigationController+HUtil.m in Sources */,
 				A2A8EBD222E427FA0049C51B /* HMonitorControl.m in Sources */,
@@ -2874,6 +2905,7 @@
 				A2B929AD2306978D0091A57D /* SRWebSocket.m in Sources */,
 				15B4DDF32092F96C00773E04 /* UIView+HUtil.m in Sources */,
 				A2E8F51D22D229A500E7C9F2 /* HTupleController.m in Sources */,
+				A289DCEA23E3DFD400FC59F1 /* HTupleViewBannerApex.m in Sources */,
 				A222AE4B22818F7D0013098A /* HTextEffectWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
