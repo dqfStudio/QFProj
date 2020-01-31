@@ -227,6 +227,9 @@
 		A289DCF723E3E3E900FC59F1 /* HTupleViewBannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DCF623E3E3E900FC59F1 /* HTupleViewBannerCell.m */; };
 		A289DCFA23E3E6E500FC59F1 /* HTupleViewMarqueeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DCF923E3E6E500FC59F1 /* HTupleViewMarqueeCell.m */; };
 		A289DCFD23E3E6F800FC59F1 /* HTupleViewMarqueeApex.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DCFC23E3E6F800FC59F1 /* HTupleViewMarqueeApex.m */; };
+		A289DD0423E413C800FC59F1 /* HTextLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DD0323E413C800FC59F1 /* HTextLoopView.m */; };
+		A289DD0723E418D700FC59F1 /* HTupleViewTextLoopApex.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DD0623E418D700FC59F1 /* HTupleViewTextLoopApex.m */; };
+		A289DD0A23E418E200FC59F1 /* HTupleViewTextLoopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DD0923E418E200FC59F1 /* HTupleViewTextLoopCell.m */; };
 		A28EF2E821D86DD8002F92ED /* HCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */; };
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
 		A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */; };
@@ -759,6 +762,12 @@
 		A289DCF923E3E6E500FC59F1 /* HTupleViewMarqueeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewMarqueeCell.m; sourceTree = "<group>"; };
 		A289DCFB23E3E6F800FC59F1 /* HTupleViewMarqueeApex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewMarqueeApex.h; sourceTree = "<group>"; };
 		A289DCFC23E3E6F800FC59F1 /* HTupleViewMarqueeApex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewMarqueeApex.m; sourceTree = "<group>"; };
+		A289DD0223E413C800FC59F1 /* HTextLoopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTextLoopView.h; sourceTree = "<group>"; };
+		A289DD0323E413C800FC59F1 /* HTextLoopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTextLoopView.m; sourceTree = "<group>"; };
+		A289DD0523E418D700FC59F1 /* HTupleViewTextLoopApex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewTextLoopApex.h; sourceTree = "<group>"; };
+		A289DD0623E418D700FC59F1 /* HTupleViewTextLoopApex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewTextLoopApex.m; sourceTree = "<group>"; };
+		A289DD0823E418E200FC59F1 /* HTupleViewTextLoopCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewTextLoopCell.h; sourceTree = "<group>"; };
+		A289DD0923E418E200FC59F1 /* HTupleViewTextLoopCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewTextLoopCell.m; sourceTree = "<group>"; };
 		A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A28EF2E721D86DD8002F92ED /* HCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		A28EF2EA21D86E43002F92ED /* UILabel+HAttributeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeText.h"; sourceTree = "<group>"; };
@@ -1231,6 +1240,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A289DCFE23E4135800FC59F1 /* HTextLoopView */,
 				A27D00AA23E169F2009D5475 /* 活动记实 */,
 				A2B3708023D01C6600B20DBF /* HTransitionAnimation */,
 				A255229323BAFFEA00A18D7D /* HSkinManager */,
@@ -2059,6 +2069,20 @@
 			path = "QFUtil/活动记实";
 			sourceTree = "<group>";
 		};
+		A289DCFE23E4135800FC59F1 /* HTextLoopView */ = {
+			isa = PBXGroup;
+			children = (
+				A289DD0223E413C800FC59F1 /* HTextLoopView.h */,
+				A289DD0323E413C800FC59F1 /* HTextLoopView.m */,
+				A289DD0823E418E200FC59F1 /* HTupleViewTextLoopCell.h */,
+				A289DD0923E418E200FC59F1 /* HTupleViewTextLoopCell.m */,
+				A289DD0523E418D700FC59F1 /* HTupleViewTextLoopApex.h */,
+				A289DD0623E418D700FC59F1 /* HTupleViewTextLoopApex.m */,
+			);
+			name = HTextLoopView;
+			path = QFUtil/HTextLoopView;
+			sourceTree = "<group>";
+		};
 		A28EF2E921D86E43002F92ED /* UILabel+HAttributeText */ = {
 			isa = PBXGroup;
 			children = (
@@ -2165,10 +2189,10 @@
 				A2A8EB1D22DB62670049C51B /* HCollectionViewCell.m */,
 				A2A8EB2A22DB62670049C51B /* HCycleScrollView.h */,
 				A2A8EB2722DB62670049C51B /* HCycleScrollView.m */,
-				A289DCE823E3DFD400FC59F1 /* HTupleViewBannerApex.h */,
-				A289DCE923E3DFD400FC59F1 /* HTupleViewBannerApex.m */,
 				A289DCF523E3E3E900FC59F1 /* HTupleViewBannerCell.h */,
 				A289DCF623E3E3E900FC59F1 /* HTupleViewBannerCell.m */,
+				A289DCE823E3DFD400FC59F1 /* HTupleViewBannerApex.h */,
+				A289DCE923E3DFD400FC59F1 /* HTupleViewBannerApex.m */,
 				A2A8EB1E22DB62670049C51B /* HPageControl */,
 				A2A8EB1C22DB62670049C51B /* UIView+HExtension.h */,
 				A2A8EB2822DB62670049C51B /* UIView+HExtension.m */,
@@ -2756,6 +2780,7 @@
 				15B4DDE82092F96C00773E04 /* AppDelegate+HDebug.m in Sources */,
 				15112C6A210574DB00842FE4 /* UIAlertController+HError.m in Sources */,
 				15B4DDEA2092F96C00773E04 /* HDebugView.m in Sources */,
+				A289DD0723E418D700FC59F1 /* HTupleViewTextLoopApex.m in Sources */,
 				15B4DE122092F96C00773E04 /* NSObject+HSwizzleUtil.m in Sources */,
 				A208E18022BA40A2009A6FDD /* UIScrollView+HEmptyDataSet.m in Sources */,
 				A20E3CD8231A662B00E6982B /* HRequestHUD.m in Sources */,
@@ -2776,6 +2801,7 @@
 				A20E3CD7231A662B00E6982B /* HAlertView.m in Sources */,
 				A2A8EBBE22E3FDB40049C51B /* HWebview.m in Sources */,
 				15B4DE2A2093034700773E04 /* HClassManager.m in Sources */,
+				A289DD0A23E418E200FC59F1 /* HTupleViewTextLoopCell.m in Sources */,
 				15B4DE1D209302BF00773E04 /* HGoTo.m in Sources */,
 				1510794520F99ABB00860D1C /* NSObject+HExclusive.m in Sources */,
 				A2B3708E23D01C6600B20DBF /* UIViewController+Animation.m in Sources */,
@@ -2818,6 +2844,7 @@
 				A222AE5122818F7D0013098A /* HTextLine.m in Sources */,
 				15B4DE1C209302BF00773E04 /* HGotoRuntimeSupport.m in Sources */,
 				A2A8EB2D22DB62680049C51B /* HDotView.m in Sources */,
+				A289DD0423E413C800FC59F1 /* HTextLoopView.m in Sources */,
 				A222AE4A22818F7D0013098A /* HTextView.m in Sources */,
 				15C5727620A982CA0070327C /* NSObject+HAutoFill.m in Sources */,
 				A2A8EB4822DD7F950049C51B /* HServiceAuthorizationCell.m in Sources */,

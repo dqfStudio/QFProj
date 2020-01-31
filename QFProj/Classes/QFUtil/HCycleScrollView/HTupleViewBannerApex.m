@@ -9,8 +9,6 @@
 #import "HTupleViewBannerApex.h"
 #import "HCycleScrollView.h"
 
-#define KApexHeight 180
-
 @interface HTupleViewBannerApex () <HCycleScrollViewDelegate>
 @property (nonatomic) HCycleScrollView *cycleScrollView;
 @end
@@ -19,7 +17,7 @@
 
 - (HCycleScrollView *)cycleScrollView {
     if (!_cycleScrollView) {
-        _cycleScrollView = [HCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, self.frame.size.width, KApexHeight) delegate:self placeholderImage:[UIImage imageNamed:@"HCyclePlaceholder"]];
+        _cycleScrollView = [HCycleScrollView cycleScrollViewWithFrame:self.bounds delegate:self placeholderImage:[UIImage imageNamed:@"HCyclePlaceholder"]];
         _cycleScrollView.pageControlAliment = HCycleScrollViewPageContolAlimentCenter;
         _cycleScrollView.currentPageDotColor = [UIColor whiteColor];
     }
@@ -35,13 +33,11 @@
 }
 
 - (void)relayoutSubviews {
-    CGRect frame = self.layoutViewFrame;
-    frame.size.height = KApexHeight;
-    [self.cycleScrollView setFrame:frame];
+    HLayoutTupleApex(self.cycleScrollView)
 }
 
 - (void)initUI {
-    [self addSubview:self.cycleScrollView];
+    [self.layoutView addSubview:self.cycleScrollView];
 }
 
 #pragma mark - HCycleScrollViewDelegate

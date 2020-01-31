@@ -9,8 +9,6 @@
 #import "HTupleViewBannerCell.h"
 #import "HCycleScrollView.h"
 
-#define KCellHeight 180
-
 @interface HTupleViewBannerCell () <HCycleScrollViewDelegate>
 @property (nonatomic) HCycleScrollView *cycleScrollView;
 @end
@@ -19,7 +17,7 @@
 
 - (HCycleScrollView *)cycleScrollView {
     if (!_cycleScrollView) {
-        _cycleScrollView = [HCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, self.frame.size.width, KCellHeight) delegate:self placeholderImage:[UIImage imageNamed:@"HCyclePlaceholder"]];
+        _cycleScrollView = [HCycleScrollView cycleScrollViewWithFrame:self.bounds delegate:self placeholderImage:[UIImage imageNamed:@"HCyclePlaceholder"]];
         _cycleScrollView.pageControlAliment = HCycleScrollViewPageContolAlimentCenter;
         _cycleScrollView.currentPageDotColor = [UIColor whiteColor];
     }
@@ -35,13 +33,11 @@
 }
 
 - (void)relayoutSubviews {
-    CGRect frame = self.layoutViewFrame;
-    frame.size.height = KCellHeight;
-    [self.cycleScrollView setFrame:frame];
+    HLayoutTupleCell(self.cycleScrollView)
 }
 
 - (void)initUI {
-    [self addSubview:self.cycleScrollView];
+    [self.layoutView addSubview:self.cycleScrollView];
 }
 
 #pragma mark - HCycleScrollViewDelegate

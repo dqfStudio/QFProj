@@ -9,8 +9,6 @@
 #import "HTupleViewMarqueeApex.h"
 #import "HMarquee.h"
 
-#define KApexHeight 40
-
 @interface HTupleViewMarqueeApex ()
 @property (nonatomic) HMarquee *marquee;
 @end
@@ -19,7 +17,7 @@
 
 - (HMarquee *)marquee {
     if (!_marquee) {
-        _marquee = [[HMarquee alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, KApexHeight) speed:HMarqueeSpeedLevelMediumSlow Msg:nil];
+        _marquee = [[HMarquee alloc] initWithFrame:self.bounds speed:HMarqueeSpeedLevelMediumSlow Msg:nil];
         [_marquee changeTapMarqueeAction:^{
             if (self.selectedBlock) {
                 self.selectedBlock();
@@ -58,13 +56,11 @@
 }
 
 - (void)relayoutSubviews {
-    CGRect frame = self.layoutViewFrame;
-    frame.size.height = KApexHeight;
-    [self.marquee setFrame:frame];
+    HLayoutTupleApex(self.marquee)
 }
 
 - (void)initUI {
-    [self addSubview:self.marquee];
+    [self.layoutView addSubview:self.marquee];
 }
 
 @end

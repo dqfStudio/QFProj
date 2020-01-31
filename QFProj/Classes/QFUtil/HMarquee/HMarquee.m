@@ -90,22 +90,30 @@ typedef NS_ENUM(NSInteger, HMarqueeTapMode) {
 }
 
 - (void)setFrame:(CGRect)frame {
-    [super setFrame:frame];
+    if(!CGRectEqualToRect(self.frame, frame)) {
+        [super setFrame:frame];
+        
+        _middleView.frame = self.bounds;
+        
+        self.bgBtn.frame = self.bounds;
+        
+        CGRect tmpFrame = _marqueeLbl.frame;
+        tmpFrame.size.height = self.frame.size.height;
+        _marqueeLbl.frame = tmpFrame;
+    }
 }
 
 - (void)doSometingBeginning {
     self.layer.masksToBounds = YES;
     self.backgroundColor = self.bgColor;
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(backAndRestart) name:@"UIApplicationDidBecomeActiveNotification" object:nil];
-    UIView *middleView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-    self.middleView = middleView;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backAndRestart) name:@"UIApplicationDidBecomeActiveNotification" object:nil];
+    self.middleView = nil;
+    _middleView = [[UIView alloc] initWithFrame:self.bounds];
     [_middleView addSubview:self.marqueeLbl];
     [self addSubview:_middleView];
     [self addLeftAndRightGradient];
     
-    CGRect frame = self.frame;
-    frame.origin = CGPointZero;
-    self.bgBtn.frame = frame;
+    self.bgBtn.frame = self.bounds;
     [self bringSubviewToFront:self.bgBtn];
 }
 
@@ -127,9 +135,7 @@ typedef NS_ENUM(NSInteger, HMarqueeTapMode) {
 
 - (UIButton *)bgBtn {
     if (!_bgBtn) {
-        CGFloat w = self.frame.size.width;
-        CGFloat h = self.frame.size.height;
-        _bgBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, w, h)];
+        _bgBtn = [[UIButton alloc] initWithFrame:self.bounds];
         [_bgBtn addTarget:self action:@selector(bgButtonClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _bgBtn;
@@ -139,11 +145,11 @@ typedef NS_ENUM(NSInteger, HMarqueeTapMode) {
     if (!_marqueeLbl) {
         self.tapMode = HMarqueeTapForMove;
         CGFloat h = self.frame.size.height;
-        _marqueeLbl = [[UILabel alloc]init];
+        _marqueeLbl = [[UILabel alloc] init];
         _marqueeLbl.text = self.msg;
         UIFont *fnt = [UIFont fontWithName:@"HelveticaNeue" size:14.0f];
         _marqueeLbl.font = fnt;
-        CGSize msgSize = [_marqueeLbl.text sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:fnt,NSFontAttributeName, nil]];
+        CGSize msgSize = [_marqueeLbl.text sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:fnt, NSFontAttributeName, nil]];
         _marqueeLbl.frame = CGRectMake(0, 0, msgSize.width, h);
         if (self.marqueeLabelFont != nil) {
             _marqueeLbl.font = self.marqueeLabelFont;
