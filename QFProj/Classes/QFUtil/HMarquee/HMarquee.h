@@ -15,7 +15,11 @@ typedef NS_ENUM(NSInteger, HMarqueeSpeedLevel) {
 @interface HMarquee : UIView
 
 // 滚动文字 修改源码，防止出来可以在接口调用完成后动态设置显示文案
-@property (nonatomic, copy) NSString *msg;
+@property (nonatomic, copy)   NSString *msg;
+// 背景颜色
+@property (nonatomic) UIColor *bgColor;
+// 字体颜色
+@property (nonatomic) UIColor *txtColor;
 
 /**
  *  style is default, backgroundColor is white,textColor is black;
@@ -24,7 +28,7 @@ typedef NS_ENUM(NSInteger, HMarqueeSpeedLevel) {
  *
  *  @return self
  */
-- (instancetype)initWithFrame:(CGRect)frame speed:(HMarqueeSpeedLevel)speed Msg:(NSString *)msg ;
+- (instancetype)initWithFrame:(CGRect)frame speed:(HMarqueeSpeedLevel)speed Msg:(NSString *)msg;
 
 /**
  *  style is diy, backgroundColor and textColor can config

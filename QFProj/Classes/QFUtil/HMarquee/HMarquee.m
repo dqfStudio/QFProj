@@ -16,8 +16,6 @@ typedef NS_ENUM(NSInteger, HMarqueeTapMode) {
 
 @property(nonatomic, strong) UIButton             *bgBtn;
 @property(nonatomic, strong) UILabel              *marqueeLbl;
-@property(nonatomic, strong) UIColor              *bgColor;
-@property(nonatomic, strong) UIColor              *txtColor;
 @property(nonatomic, strong) NSTimer              *timer;
 @property(nonatomic, copy  ) HWonderfulAction     tapAction;
 @property(nonatomic, assign) HMarqueeTapMode      tapMode;
@@ -32,6 +30,7 @@ typedef NS_ENUM(NSInteger, HMarqueeTapMode) {
 - (instancetype)initWithFrame:(CGRect)frame speed:(HMarqueeSpeedLevel)speed Msg:(NSString *)msg bgColor:(UIColor *)bgColor txtColor:(UIColor *)txtColor {
     if (self = [super initWithFrame:frame]) {
         self.layer.cornerRadius = 2;
+        self.msg = msg;
         if(bgColor) {
             self.bgColor = bgColor;
         }else {
@@ -58,6 +57,18 @@ typedef NS_ENUM(NSInteger, HMarqueeTapMode) {
     _msg = msg;
     self.marqueeLbl.text = msg;
     [self doSometingBeginning];
+}
+
+// 背景颜色
+- (void)setBgColor:(UIColor *)bgColor {
+    _bgColor = bgColor;
+    self.backgroundColor = _bgColor;
+}
+
+// 字体颜色
+- (void)setTxtColor:(UIColor *)txtColor {
+    _txtColor = txtColor;
+    _marqueeLbl.textColor = _txtColor;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame speed:(HMarqueeSpeedLevel)speed Msg:(NSString *)msg {

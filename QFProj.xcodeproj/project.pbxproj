@@ -225,6 +225,8 @@
 		A289DCF323E3E31A00FC59F1 /* HCyclePageControlDot@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A289DCEF23E3E31A00FC59F1 /* HCyclePageControlDot@3x.png */; };
 		A289DCF423E3E31A00FC59F1 /* HCyclePageControlCurrentDot@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A289DCF023E3E31A00FC59F1 /* HCyclePageControlCurrentDot@3x.png */; };
 		A289DCF723E3E3E900FC59F1 /* HTupleViewBannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DCF623E3E3E900FC59F1 /* HTupleViewBannerCell.m */; };
+		A289DCFA23E3E6E500FC59F1 /* HTupleViewMarqueeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DCF923E3E6E500FC59F1 /* HTupleViewMarqueeCell.m */; };
+		A289DCFD23E3E6F800FC59F1 /* HTupleViewMarqueeApex.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DCFC23E3E6F800FC59F1 /* HTupleViewMarqueeApex.m */; };
 		A28EF2E821D86DD8002F92ED /* HCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */; };
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
 		A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */; };
@@ -753,6 +755,10 @@
 		A289DCF023E3E31A00FC59F1 /* HCyclePageControlCurrentDot@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HCyclePageControlCurrentDot@3x.png"; sourceTree = "<group>"; };
 		A289DCF523E3E3E900FC59F1 /* HTupleViewBannerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewBannerCell.h; sourceTree = "<group>"; };
 		A289DCF623E3E3E900FC59F1 /* HTupleViewBannerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewBannerCell.m; sourceTree = "<group>"; };
+		A289DCF823E3E6E500FC59F1 /* HTupleViewMarqueeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewMarqueeCell.h; sourceTree = "<group>"; };
+		A289DCF923E3E6E500FC59F1 /* HTupleViewMarqueeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewMarqueeCell.m; sourceTree = "<group>"; };
+		A289DCFB23E3E6F800FC59F1 /* HTupleViewMarqueeApex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewMarqueeApex.h; sourceTree = "<group>"; };
+		A289DCFC23E3E6F800FC59F1 /* HTupleViewMarqueeApex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewMarqueeApex.m; sourceTree = "<group>"; };
 		A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A28EF2E721D86DD8002F92ED /* HCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		A28EF2EA21D86E43002F92ED /* UILabel+HAttributeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeText.h"; sourceTree = "<group>"; };
@@ -2143,6 +2149,10 @@
 			children = (
 				A2A8EACB22DB59FD0049C51B /* HMarquee.h */,
 				A2A8EACC22DB59FD0049C51B /* HMarquee.m */,
+				A289DCF823E3E6E500FC59F1 /* HTupleViewMarqueeCell.h */,
+				A289DCF923E3E6E500FC59F1 /* HTupleViewMarqueeCell.m */,
+				A289DCFB23E3E6F800FC59F1 /* HTupleViewMarqueeApex.h */,
+				A289DCFC23E3E6F800FC59F1 /* HTupleViewMarqueeApex.m */,
 			);
 			name = HMarquee;
 			path = QFUtil/HMarquee;
@@ -2783,6 +2793,7 @@
 				15B4DE022092F96C00773E04 /* NSUserDefaults+HUtil.m in Sources */,
 				A2A8EB3122DB62680049C51B /* UIView+HExtension.m in Sources */,
 				A2E8F57B22D8356300E7C9F2 /* HCache.m in Sources */,
+				A289DCFA23E3E6E500FC59F1 /* HTupleViewMarqueeCell.m in Sources */,
 				A274E79623A3BCC20095B162 /* HJsonFileManager.m in Sources */,
 				15B4DE072092F96C00773E04 /* NSString+HChain.m in Sources */,
 				A20E3CE7231E282300E6982B /* HTextView+HValidate.m in Sources */,
@@ -2889,6 +2900,7 @@
 				A2E8F54A22D73AE600E7C9F2 /* HRequestDAOFactory.m in Sources */,
 				A2E8F52622D2EB6E00E7C9F2 /* HNavigationController.m in Sources */,
 				A26CF7BF2302747C00D73ECD /* NSNull+HSafeUtil.m in Sources */,
+				A289DCFD23E3E6F800FC59F1 /* HTupleViewMarqueeApex.m in Sources */,
 				A2A8EBAA22E1F9F60049C51B /* HNetworkConfig.m in Sources */,
 				A222AE5E22818F7D0013098A /* HTextArchiver.m in Sources */,
 				A265FF732269F70C0093C780 /* HVersionManager.m in Sources */,
