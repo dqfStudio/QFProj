@@ -427,28 +427,28 @@
     //保存centralLayoutView的值
     CGRect tmpFrame5 = self.centralLayoutView.bounds;
     
-    //计算detailLabel的坐标
-    if (self.detailWidth > 0) {
-        CGRect tmpFrame6 = tmpFrame5;
-        tmpFrame6.size.width = self.detailWidth;
-        tmpFrame6.origin.x += self.detailLabelInsets.left;
-        tmpFrame6.size.width -= self.detailLabelInsets.left+self.detailLabelInsets.right;
-        [self.detailLabel setFrame:tmpFrame6];
-    }
-    
     //计算accessoryLabel的坐标
     if (self.accessoryWidth > 0) {
+        CGRect tmpFrame6 = tmpFrame5;
+        tmpFrame6.size.width = self.accessoryWidth;
+        tmpFrame6.origin.x += self.accessoryLabelInsets.left;
+        tmpFrame6.size.width -= self.accessoryLabelInsets.left+self.accessoryLabelInsets.right;
+        [self.accessoryLabel setFrame:tmpFrame6];
+    }
+    
+    //计算detailLabel的坐标
+    if (self.detailWidth > 0) {
         CGRect tmpFrame7 = tmpFrame5;
-        tmpFrame7.origin.x = CGRectGetWidth(tmpFrame5)-self.accessoryWidth;
-        tmpFrame7.size.width = self.accessoryWidth;
-        tmpFrame7.origin.x += self.accessoryLabelInsets.left;
-        tmpFrame7.size.width -= self.accessoryLabelInsets.left+self.accessoryLabelInsets.right;
-        [self.accessoryLabel setFrame:tmpFrame7];
+        tmpFrame7.origin.x = CGRectGetWidth(tmpFrame5)-self.detailWidth;
+        tmpFrame7.size.width = self.detailWidth;
+        tmpFrame7.origin.x += self.detailLabelInsets.left;
+        tmpFrame7.size.width -= self.detailLabelInsets.left+self.detailLabelInsets.right;
+        [self.detailLabel setFrame:tmpFrame7];
     }
     
     //计算label的坐标
     CGRect tmpFrame8 = tmpFrame5;
-    tmpFrame8.origin.x = self.detailWidth;
+    tmpFrame8.origin.x = self.accessoryWidth;
     tmpFrame8.size.width = CGRectGetWidth(tmpFrame5)-self.detailWidth-self.accessoryWidth;
     tmpFrame8.origin.x += self.labelInsets.left;
     tmpFrame8.size.width -= self.labelInsets.left+self.labelInsets.right;
