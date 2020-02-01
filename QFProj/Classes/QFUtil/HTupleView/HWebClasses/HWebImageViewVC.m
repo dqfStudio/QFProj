@@ -54,7 +54,7 @@
             [self.webview loadRequest:request];
         }else {
             NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"HWebImageViewHtml.html" ofType:nil];
-            NSURL *url = [[NSURL alloc]initWithString:htmlPath];
+            NSURL *url = [[NSURL alloc] initWithString:htmlPath];
             [self.webview loadRequest:[NSURLRequest requestWithURL:url]];
         }
     }
@@ -100,10 +100,12 @@
                     }
                 }
             }
-            imagePath = [NSString stringWithFormat:@"file:/%@//%@",imagePath, tmpImageUrl];
-            //注入js
-            NSString *js = [NSString stringWithFormat:@"document.images[0].src='%@'",imagePath];
-            [webView stringByEvaluatingJavaScriptFromString:js];
+            if (imagePath && tmpImageUrl) {
+                imagePath = [NSString stringWithFormat:@"file:/%@//%@",imagePath, tmpImageUrl];
+                //注入js
+                NSString *js = [NSString stringWithFormat:@"document.images[0].src='%@'",imagePath];
+                [webView stringByEvaluatingJavaScriptFromString:js];
+            }
         }
     }
     
