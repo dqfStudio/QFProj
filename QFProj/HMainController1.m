@@ -232,7 +232,7 @@
                 [countDownButton startCountDownWithSecond:60];
             }];
             [cell.textField.rightCountDownButton countDownChanging:^NSString *(HCountDownButton *countDownButton, NSUInteger second) {
-                return [NSString stringWithFormat:@"还剩%ld秒",second];
+                return [NSString stringWithFormat:@"还剩%lu秒",(unsigned long)second];
             }];
             [cell.textField.rightCountDownButton countDownFinished:^NSString *(HCountDownButton *countDownButton, NSUInteger second) {
                 return @"重新获取";
