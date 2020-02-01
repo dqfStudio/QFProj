@@ -229,6 +229,7 @@
 		A289DD0423E413C800FC59F1 /* HTextLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DD0323E413C800FC59F1 /* HTextLoopView.m */; };
 		A289DD0723E418D700FC59F1 /* HTupleViewTextLoopApex.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DD0623E418D700FC59F1 /* HTupleViewTextLoopApex.m */; };
 		A289DD0A23E418E200FC59F1 /* HTupleViewTextLoopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DD0923E418E200FC59F1 /* HTupleViewTextLoopCell.m */; };
+		A28BC11E23E5275700CC1ED5 /* HWebImageViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BC11D23E5275700CC1ED5 /* HWebImageViewVC.m */; };
 		A28EF2E821D86DD8002F92ED /* HCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */; };
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
 		A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */; };
@@ -765,6 +766,8 @@
 		A289DD0623E418D700FC59F1 /* HTupleViewTextLoopApex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewTextLoopApex.m; sourceTree = "<group>"; };
 		A289DD0823E418E200FC59F1 /* HTupleViewTextLoopCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewTextLoopCell.h; sourceTree = "<group>"; };
 		A289DD0923E418E200FC59F1 /* HTupleViewTextLoopCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewTextLoopCell.m; sourceTree = "<group>"; };
+		A28BC11C23E5275700CC1ED5 /* HWebImageViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebImageViewVC.h; sourceTree = "<group>"; };
+		A28BC11D23E5275700CC1ED5 /* HWebImageViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebImageViewVC.m; sourceTree = "<group>"; };
 		A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A28EF2E721D86DD8002F92ED /* HCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		A28EF2EA21D86E43002F92ED /* UILabel+HAttributeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeText.h"; sourceTree = "<group>"; };
@@ -1763,6 +1766,8 @@
 				A20E3D1D2321394400E6982B /* UIButton+HFilletLayer.m */,
 				A20E3D19232138AA00E6982B /* UIImageView+HFilletLayer.h */,
 				A20E3D1A232138AA00E6982B /* UIImageView+HFilletLayer.m */,
+				A28BC11C23E5275700CC1ED5 /* HWebImageViewVC.h */,
+				A28BC11D23E5275700CC1ED5 /* HWebImageViewVC.m */,
 			);
 			path = HWebClasses;
 			sourceTree = "<group>";
@@ -2838,6 +2843,7 @@
 				A222AE5122818F7D0013098A /* HTextLine.m in Sources */,
 				15B4DE1C209302BF00773E04 /* HGotoRuntimeSupport.m in Sources */,
 				A2A8EB2D22DB62680049C51B /* HDotView.m in Sources */,
+				A28BC11E23E5275700CC1ED5 /* HWebImageViewVC.m in Sources */,
 				A289DD0423E413C800FC59F1 /* HTextLoopView.m in Sources */,
 				A222AE4A22818F7D0013098A /* HTextView.m in Sources */,
 				15C5727620A982CA0070327C /* NSObject+HAutoFill.m in Sources */,
