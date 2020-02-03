@@ -18,7 +18,7 @@ if(!CGRectEqualToRect(v.frame, _frame)) {\
 
 @class HTableView, HTableBaseCell;
 
-typedef void(^HTableDidSelectCell)(HTableBaseCell *cell, NSIndexPath *idxPath);
+typedef void(^HTableDidSelectCell)(HTableBaseCell *cell, NSIndexPath *indexPath);
 
 @interface HTableBaseCell : UITableViewCell
 //cell所在的table view
