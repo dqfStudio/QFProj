@@ -18,13 +18,13 @@ if(!CGRectEqualToRect(v.frame, _frame)) {\
 
 @class HTableView, HTableBaseCell;
 
-typedef void(^HDidSelectItem)(NSIndexPath *idxPath);
+typedef void(^HTableDidSelectCell)(HTableBaseCell *cell, NSIndexPath *idxPath);
 
 @interface HTableBaseCell : UITableViewCell
 //cell所在的table view
 @property (nonatomic, weak) UITableView *table;
 //选中item的block
-@property (nonatomic, copy) HDidSelectItem didSelectItem;
+@property (nonatomic, copy) HTableDidSelectCell didSelectCell;
 //cell所在的indexPath
 @property (nonatomic) NSIndexPath *indexPath;
 //cell的边距

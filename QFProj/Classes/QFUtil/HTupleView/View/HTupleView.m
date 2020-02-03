@@ -565,8 +565,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     HTupleBaseCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
-    if (cell.didSelectItem) {
-        cell.didSelectItem(indexPath);
+    if (cell.didSelectCell) {
+        cell.didSelectCell(cell, indexPath);
     }else {
         NSString *prefix = [self prefixWithSection:indexPath.section];
         SEL selector = @selector(tupleView:didSelectItemAtIndexPath:);
@@ -677,8 +677,8 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         if (self.signalBlock) self.signalBlock = nil;
         //release all cell
         for (HTupleBaseCell *cell in self.allReuseCells) {
-            if (cell.didSelectItem) {
-                cell.didSelectItem = nil;
+            if (cell.didSelectCell) {
+                cell.didSelectCell = nil;
             }
             if (cell.signalBlock) {
                 cell.signalBlock = nil;

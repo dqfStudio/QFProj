@@ -182,7 +182,7 @@
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setText:@"黑客帝国"];
             
-            cell.didSelectItem = ^(NSIndexPath *idxPath) {
+            cell.didSelectCell = ^(HTupleBaseCell *cell, NSIndexPath *idxPath) {
                 NSLog(@"选中黑客帝国");
             };
         }
