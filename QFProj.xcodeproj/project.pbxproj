@@ -748,6 +748,7 @@
 		A27D00A623E12FA3009D5475 /* HJsonList */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HJsonList; sourceTree = "<group>"; };
 		A27D00AB23E16A08009D5475 /* 活动记实 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "活动记实"; sourceTree = "<group>"; };
 		A2853CF32331D4C3005632BB /* HGeometry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HGeometry.h; sourceTree = "<group>"; };
+		A28701BC23E84BC500F9752A /* HTupleHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleHeader.h; sourceTree = "<group>"; };
 		A289DCE823E3DFD400FC59F1 /* HTupleViewBannerApex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewBannerApex.h; sourceTree = "<group>"; };
 		A289DCE923E3DFD400FC59F1 /* HTupleViewBannerApex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewBannerApex.m; sourceTree = "<group>"; };
 		A289DCEB23E3E31100FC59F1 /* HCyclePlaceholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HCyclePlaceholder@2x.png"; sourceTree = "<group>"; };
@@ -1137,6 +1138,7 @@
 				A2853CF32331D4C3005632BB /* HGeometry.h */,
 				15707EBE20B5675A00493839 /* HTupleSignal.h */,
 				15707EBF20B5675A00493839 /* HTupleSignal.m */,
+				A28701BC23E84BC500F9752A /* HTupleHeader.h */,
 				A208E17622BA305C009A6FDD /* HTupleRefresh.h */,
 				A208E17722BA305C009A6FDD /* HTupleRefresh.m */,
 				A2E8F63C22DB51F500E7C9F2 /* NSIndexPath+HUtil.h */,

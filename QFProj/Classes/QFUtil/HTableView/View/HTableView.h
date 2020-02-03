@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HTupleHeader.h"
 #import "HTableRefresh.h"
 #import "HTableViewCell.h"
 #import "HTableViewApex.h"

@@ -37,14 +37,14 @@
 }
 - (CGSize)tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
-        case 0:
-        case 1:
-        case 2:
+        case HCell0:
+        case HCell1:
+        case HCell2:
             return CGSizeMake(self.tupleView.widthForSection(indexPath.section), 65);
             break;
-        case 3:
-        case 4:
-        case 5: {
+        case HCell3:
+        case HCell4:
+        case HCell5: {
             CGFloat width = self.tupleView.widthForSection(indexPath.section);
             width = [self.tupleView fixSlitWith:width colCount:3 index:indexPath.row-3];
             return CGSizeMake(width, 120);
@@ -58,11 +58,11 @@
 }
 - (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
-        case 3:
+        case HCell3:
             return UIEdgeInsetsMake(10, 10, 10, 5);
-        case 4:
+        case HCell4:
             return UIEdgeInsetsMake(10, 5, 10, 5);
-        case 5:
+        case HCell5:
             return UIEdgeInsetsMake(10, 5, 10, 10);
         default:
             break;
@@ -71,7 +71,7 @@
 }
 - (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
-        case 0: {
+        case HCell0: {
             HTupleViewCellHoriValue4 *cell = itemBlock(nil, HTupleViewCellHoriValue4.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
@@ -100,7 +100,7 @@
             }];
         }
             break;
-        case 1: {
+        case HCell1: {
             HTupleViewCellHoriValue4 *cell = itemBlock(nil, HTupleViewCellHoriValue4.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
@@ -122,7 +122,7 @@
             //[self.tupleView signal:nil indexPath:NSIndexPath.getValue(0, 0)];
         }
             break;
-        case 2: {
+        case HCell2: {
             HTupleViewCellHoriValue4 *cell = itemBlock(nil, HTupleViewCellHoriValue4.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
@@ -139,7 +139,7 @@
             [cell.detailLabel setBackgroundColor:UIColor.yellowColor];
         }
             break;
-        case 3: {
+        case HCell3: {
             HTupleViewCellVertValue1 *cell = itemBlock(nil, HTupleViewCellVertValue1.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
@@ -154,7 +154,7 @@
             [cell.label setText:@"黑客帝国"];
         }
             break;
-        case 4: {
+        case HCell4: {
             HTupleViewCellVertValue1 *cell = itemBlock(nil, HTupleViewCellVertValue1.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
@@ -168,7 +168,7 @@
             [cell.label setText:@"黑客帝国"];
         }
             break;
-        case 5: {
+        case HCell5: {
             HTupleViewCellVertValue1 *cell = itemBlock(nil, HTupleViewCellVertValue1.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
@@ -183,7 +183,7 @@
             [cell.label setText:@"黑客帝国"];
         }
             break;
-        case 6: {
+        case HCell6: {
             HTupleViewCellHoriValue3 *cell = itemBlock(nil, HTupleViewCellHoriValue3.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell setShouldShowSeparator:YES];
@@ -204,7 +204,7 @@
             [cell.accessoryLabel setTextAlignment:NSTextAlignmentCenter];
         }
             break;
-        case 7: {
+        case HCell7: {
             HTupleTextFieldCell *cell = itemBlock(nil, HTupleTextFieldCell.class, nil, YES);
             [cell setBackgroundColor:UIColor.grayColor];
             [cell.textField setBackgroundColor:UIColor.redColor];
