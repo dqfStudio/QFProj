@@ -191,6 +191,32 @@
     }
 }
 
+- (void)vcWillDisappear:(HVCDisappearType)type {
+    if (type == HVCDisappearTypePop || type == HVCDisappearTypeDismiss) {
+        //tupleView default tag 1213141516171819
+        UIView *tupleView = [self.view viewWithTag:1213141516171819];
+        if ([tupleView isKindOfClass:NSClassFromString(@"HTupleView")]) {
+            SEL selector = NSSelectorFromString(@"releaseTupleBlock");
+            if ([tupleView respondsToSelector:selector]) {
+                #pragma clang diagnostic push
+                #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+                [tupleView performSelector:selector];
+                #pragma clang diagnostic pop
+            }
+        }
+        //tableView default tag 1918171615141312
+        UIView *tableView = [self.view viewWithTag:1918171615141312];
+        if ([tableView isKindOfClass:NSClassFromString(@"HTableView")]) {
+            SEL selector = NSSelectorFromString(@"releaseTableBlock");
+            if ([tableView respondsToSelector:selector]) {
+                #pragma clang diagnostic push
+                #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+                [tableView performSelector:selector];
+                #pragma clang diagnostic pop
+            }
+        }
+    }
+}
 #pragma mark - 事件处理
 - (void)back {
 //    if (self.presentedViewController || self.presentingViewController) {

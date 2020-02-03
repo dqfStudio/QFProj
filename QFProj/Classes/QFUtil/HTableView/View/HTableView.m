@@ -14,6 +14,8 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     HTableStyleSplit //分体式设计
 };
 
+#define KDefaultTag         1918171615141312
+
 #define KDefaultPageSize    20
 #define KTableDesignKey     @"table"
 #define KTableExaDesignKey  @"tableExa"
@@ -118,6 +120,9 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 - (void)setup {
     //保存tableView用于全局刷新
     [[HTableAppearance appearance] addTable:self];
+    
+    //设置默认tag
+    self.tag = KDefaultTag;
     
     self.alwaysBounceVertical = YES;
     self.backgroundColor = UIColor.clearColor;
