@@ -544,10 +544,15 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     }
 }
 - (void)tableView:(HTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *prefix = [self prefixWithSection:indexPath.section];
-    SEL selector = @selector(tableView:didSelectRowAtIndexPath:);
-    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
-        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&tableView, &indexPath];
+    HTableBaseCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
+    if (cell.didSelectItem) {
+        cell.didSelectItem(indexPath);
+    }else {
+        NSString *prefix = [self prefixWithSection:indexPath.section];
+        SEL selector = @selector(tableView:didSelectRowAtIndexPath:);
+        if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+            [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&tableView, &indexPath];
+        }
     }
 }
 #pragma mark - release method
@@ -651,7 +656,10 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         if (self.signalBlock) self.signalBlock = nil;
         //release all cell
-        for (HTableBaseApex *cell in self.allReuseCells) {
+        for (HTableBaseCell *cell in self.allReuseCells) {
+            if (cell.didSelectItem) {
+                cell.didSelectItem = nil;
+            }
             if (cell.signalBlock) {
                 cell.signalBlock = nil;
             }

@@ -564,10 +564,15 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     }
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *prefix = [self prefixWithSection:indexPath.section];
-    SEL selector = @selector(tupleView:didSelectItemAtIndexPath:);
-    if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
-        [(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&collectionView, &indexPath];
+    HTupleBaseCell *cell = [self.allReuseCells objectForKey:indexPath.stringValue];
+    if (cell.didSelectItem) {
+        cell.didSelectItem(indexPath);
+    }else {
+        NSString *prefix = [self prefixWithSection:indexPath.section];
+        SEL selector = @selector(tupleView:didSelectItemAtIndexPath:);
+        if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
+            [(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&collectionView, &indexPath];
+        }
     }
 }
 #pragma mark - release method
@@ -672,6 +677,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         if (self.signalBlock) self.signalBlock = nil;
         //release all cell
         for (HTupleBaseCell *cell in self.allReuseCells) {
+            if (cell.didSelectItem) {
+                cell.didSelectItem = nil;
+            }
             if (cell.signalBlock) {
                 cell.signalBlock = nil;
             }

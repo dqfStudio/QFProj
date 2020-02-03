@@ -22,9 +22,13 @@ if(!CGRectEqualToRect(v.frame, _frame)) {\
 
 @class HTupleView, HTupleBaseCell;
 
+typedef void(^HDidSelectItem)(NSIndexPath *idxPath);
+
 @interface HTupleBaseCell : UICollectionViewCell
 //cell所在的tuple view
 @property (nonatomic, weak) UICollectionView *tuple;
+//选中item的block
+@property (nonatomic, copy) HDidSelectItem didSelectItem;
 //cell所在的indexPath
 @property (nonatomic) NSIndexPath *indexPath;
 //cell的边距
