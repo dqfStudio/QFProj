@@ -14,7 +14,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     HTupleStyleSplit //分体式设计
 };
 
-#define KDefaultTag         1213141516171819
+#define KTupleDefaultTag    1213141516
 
 #define KDefaultPageSize    20
 #define KTupleDesignKey     @"tuple"
@@ -128,7 +128,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     [[HTupleAppearance appearance] addTuple:self];
     
     //设置默认tag
-    self.tag = KDefaultTag;
+    self.tag = KTupleDefaultTag;
     
     if (_flowLayout.scrollDirection == UICollectionViewScrollDirectionVertical) {
         [self verticalBounceEnabled];
