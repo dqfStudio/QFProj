@@ -193,8 +193,8 @@
 
 - (void)vcWillDisappear:(HVCDisappearType)type {
     if (type == HVCDisappearTypePop || type == HVCDisappearTypeDismiss) {
-        //tupleView default tag 1213141516171819
-        UIView *tupleView = [self.view viewWithTag:1213141516171819];
+        //tupleView default tag 1213141516
+        UIView *tupleView = [self.view viewWithTag:1213141516];
         if ([tupleView isKindOfClass:NSClassFromString(@"HTupleView")]) {
             SEL selector = NSSelectorFromString(@"releaseTupleBlock");
             if ([tupleView respondsToSelector:selector]) {
@@ -204,8 +204,8 @@
                 #pragma clang diagnostic pop
             }
         }
-        //tableView default tag 1918171615141312
-        UIView *tableView = [self.view viewWithTag:1918171615141312];
+        //tableView default tag 1615141312
+        UIView *tableView = [self.view viewWithTag:1615141312];
         if ([tableView isKindOfClass:NSClassFromString(@"HTableView")]) {
             SEL selector = NSSelectorFromString(@"releaseTableBlock");
             if ([tableView respondsToSelector:selector]) {
