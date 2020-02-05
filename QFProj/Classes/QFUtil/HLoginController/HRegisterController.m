@@ -27,6 +27,14 @@
             return @[@(0)];
         }];
         //方式二
+        /*
+        _tupleView = [HTupleView tupleFrame:^CGRect{
+            return frame;
+        } exclusiveSections:^NSArray * _Nullable{
+            return nil;
+        }];
+        */
+        //方式三
         //_tupleView = [[HTupleView alloc] initWithFrame:frame];
     }
     return _tupleView;
