@@ -217,6 +217,7 @@
 		A274E79623A3BCC20095B162 /* HJsonFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A274E79523A3BCC20095B162 /* HJsonFileManager.m */; };
 		A27D00A723E12FA3009D5475 /* HJsonList in Resources */ = {isa = PBXBuildFile; fileRef = A27D00A623E12FA3009D5475 /* HJsonList */; };
 		A27D00AC23E16A08009D5475 /* 活动记实 in Resources */ = {isa = PBXBuildFile; fileRef = A27D00AB23E16A08009D5475 /* 活动记实 */; };
+		A286250F23EA6CEC00E81781 /* HRegisterController+Normal.m in Sources */ = {isa = PBXBuildFile; fileRef = A286250E23EA6CEC00E81781 /* HRegisterController+Normal.m */; };
 		A289DCEA23E3DFD400FC59F1 /* HTupleViewBannerApex.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DCE923E3DFD400FC59F1 /* HTupleViewBannerApex.m */; };
 		A289DCEC23E3E31100FC59F1 /* HCyclePlaceholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A289DCEB23E3E31100FC59F1 /* HCyclePlaceholder@2x.png */; };
 		A289DCF123E3E31A00FC59F1 /* HCyclePageControlDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A289DCED23E3E31A00FC59F1 /* HCyclePageControlDot@2x.png */; };
@@ -748,6 +749,8 @@
 		A27D00A623E12FA3009D5475 /* HJsonList */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HJsonList; sourceTree = "<group>"; };
 		A27D00AB23E16A08009D5475 /* 活动记实 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "活动记实"; sourceTree = "<group>"; };
 		A2853CF32331D4C3005632BB /* HGeometry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HGeometry.h; sourceTree = "<group>"; };
+		A286250D23EA6CEC00E81781 /* HRegisterController+Normal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HRegisterController+Normal.h"; sourceTree = "<group>"; };
+		A286250E23EA6CEC00E81781 /* HRegisterController+Normal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HRegisterController+Normal.m"; sourceTree = "<group>"; };
 		A28701BC23E84BC500F9752A /* HTupleHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleHeader.h; sourceTree = "<group>"; };
 		A289DCE823E3DFD400FC59F1 /* HTupleViewBannerApex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewBannerApex.h; sourceTree = "<group>"; };
 		A289DCE923E3DFD400FC59F1 /* HTupleViewBannerApex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewBannerApex.m; sourceTree = "<group>"; };
@@ -1632,6 +1635,8 @@
 				A2A8EB4722DD7F950049C51B /* HServiceAuthorizationCell.m */,
 				A2A8EB3D22DC6F300049C51B /* HRegisterController.h */,
 				A2A8EB3E22DC6F300049C51B /* HRegisterController.m */,
+				A286250D23EA6CEC00E81781 /* HRegisterController+Normal.h */,
+				A286250E23EA6CEC00E81781 /* HRegisterController+Normal.m */,
 				A2A8EB4022DC6F820049C51B /* HRegisterController+KS.h */,
 				A2A8EB4122DC6F820049C51B /* HRegisterController+KS.m */,
 				A2A8EB4322DC6F920049C51B /* HRegisterController+SJ.h */,
@@ -2921,6 +2926,7 @@
 				A208D62E22AD373E009A6FDD /* HAttributedString.m in Sources */,
 				15C572A020AEAC340070327C /* UILabel+HState.m in Sources */,
 				A206882F22CA083700661634 /* HWebButtonView.m in Sources */,
+				A286250F23EA6CEC00E81781 /* HRegisterController+Normal.m in Sources */,
 				A2A8EB4522DC6F920049C51B /* HRegisterController+SJ.m in Sources */,
 				A2A8EB3F22DC6F300049C51B /* HRegisterController.m in Sources */,
 				15B4DE032092F96C00773E04 /* NSObject+HUtil.m in Sources */,

@@ -20,11 +20,14 @@
         CGRect frame = UIScreen.bounds;
         frame.origin.y += UIDevice.topBarHeight;
         frame.size.height -= UIDevice.topBarHeight;
+        //方式一
         _tupleView = [HTupleView tupleFrame:^CGRect{
             return frame;
         } exclusiveSections:^NSArray * _Nullable{
             return @[@(0)];
         }];
+        //方式二
+        //_tupleView = [[HTupleView alloc] initWithFrame:frame];
     }
     return _tupleView;
 }
