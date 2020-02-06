@@ -22,7 +22,7 @@ if(!CGRectEqualToRect(v.frame, _frame)) {\
 
 @class HTupleView, HTupleBaseCell;
 
-typedef void(^HTupleDidSelectCell)(HTupleBaseCell *cell, NSIndexPath *indexPath);
+typedef void(^HTupleDidSelectCell)(id cell, NSIndexPath *indexPath);
 
 @interface HTupleBaseCell : UICollectionViewCell
 //cell所在的tuple view

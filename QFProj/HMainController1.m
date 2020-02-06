@@ -182,7 +182,7 @@
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setText:@"黑客帝国"];
             
-            cell.didSelectCell = ^(HTupleBaseCell *cell, NSIndexPath *indexPath) {
+            cell.didSelectCell = ^(HTupleViewCellVertValue1 *cell, NSIndexPath *indexPath) {
                 NSLog(@"选中黑客帝国");
             };
         }
