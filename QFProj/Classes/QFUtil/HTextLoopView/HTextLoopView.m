@@ -42,12 +42,19 @@
         [_tableView setUserInteractionEnabled:NO];
         [_tableView setBackgroundColor:[UIColor clearColor]];
         _tableView.scrollsToTop = NO;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backAndRestart) name:UIApplicationDidBecomeActiveNotification object:nil];
         [self addSubview:_tableView];
     }
     return self;
 }
 
 #pragma mark - priviate method
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+- (void)backAndRestart {
+    [self timer];
+}
 - (void)setInterval:(NSTimeInterval)interval {
     _interval = interval;
     _myTimer = [NSTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(timer) userInfo:nil repeats:YES];

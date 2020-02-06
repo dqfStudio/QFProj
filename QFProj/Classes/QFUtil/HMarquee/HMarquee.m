@@ -106,7 +106,7 @@ typedef NS_ENUM(NSInteger, HMarqueeTapMode) {
 - (void)doSometingBeginning {
     self.layer.masksToBounds = YES;
     self.backgroundColor = self.bgColor;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backAndRestart) name:@"UIApplicationDidBecomeActiveNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backAndRestart) name:UIApplicationDidBecomeActiveNotification object:nil];
     self.middleView = nil;
     _middleView = [[UIView alloc] initWithFrame:self.bounds];
     [_middleView addSubview:self.marqueeLbl];
