@@ -27,33 +27,33 @@
 
 #pragma mark - 网络请求
 
-//- (void)sendGetWithUrl:(NSString *)url
-//              argument:(NSDictionary *)argument
-//               success:(void(^)(id responseObject))success
-//               failure:(void(^)(NSError *error))failure {
-//    [HRequestDAO.new sendGetWithUrl:url argument:argument success:success failure:failure];
-//}
-//- (void)sendPostWithUrl:(NSString *)url
-//               argument:(NSDictionary *)argument
-//                success:(void(^)(id responseObject))success
-//                failure:(void(^)(NSError *error))failure {
-//    [HRequestDAO.new sendPostWithUrl:url argument:argument success:success failure:failure];
-//}
-//
-//#pragma mark - 默认三次重试的网络请求
-//
-//- (void)retryGetWithUrl:(NSString *)url
-//               argument:(NSDictionary *)argument
-//                success:(void(^)(id responseObject))success
-//                failure:(void(^)(NSError *error))failure {
-//    [HRequestDAO.new retryGetWithUrl:url argument:argument success:success failure:failure];
-//}
-//- (void)retryPostWithUrl:(NSString *)url
-//                argument:(NSDictionary *)argument
-//                 success:(void(^)(id responseObject))success
-//                 failure:(void(^)(NSError *error))failure {
-//    [HRequestDAO.new retryPostWithUrl:url argument:argument success:success failure:failure];
-//}
+- (void)sendGetWithUrl:(NSString *)url
+              argument:(NSDictionary *)argument
+               success:(void(^)(id responseObject))success
+               failure:(void(^)(NSError *error))failure {
+    [HRequestDAO.new sendGetWithUrl:url argument:argument success:success failure:failure];
+}
+- (void)sendPostWithUrl:(NSString *)url
+               argument:(NSDictionary *)argument
+                success:(void(^)(id responseObject))success
+                failure:(void(^)(NSError *error))failure {
+    [HRequestDAO.new sendPostWithUrl:url argument:argument success:success failure:failure];
+}
+
+#pragma mark - 默认三次重试的网络请求
+
+- (void)retryGetWithUrl:(NSString *)url
+               argument:(NSDictionary *)argument
+                success:(void(^)(id responseObject))success
+                failure:(void(^)(NSError *error))failure {
+    [HRequestDAO.new retryGetWithUrl:url argument:argument success:success failure:failure];
+}
+- (void)retryPostWithUrl:(NSString *)url
+                argument:(NSDictionary *)argument
+                 success:(void(^)(id responseObject))success
+                 failure:(void(^)(NSError *error))failure {
+    [HRequestDAO.new retryPostWithUrl:url argument:argument success:success failure:failure];
+}
 
 #pragma mark - 查找可用URL
 
