@@ -24,7 +24,7 @@
         _tupleView = [HTupleView tupleFrame:^CGRect{
             return frame;
         } exclusiveSections:^NSArray * _Nullable{
-            return @[@(0)];
+            return @[@0];
         }];
         //方式二
         /*
