@@ -92,7 +92,7 @@
                failure:(void(^)(NSError *error))failure {
     //此处需要根据实际值修改
     NSString *baseUrl = @"";
-    if (baseUrl && url) {
+    if (baseUrl.length > 0 && url.length > 0) {
         if (![url hasPrefix:baseUrl]) {
             url = [baseUrl stringByAppendingString:url];
         }
