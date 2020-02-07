@@ -29,6 +29,8 @@
         [security setValidatesDomainName:NO];
         security.allowInvalidCertificates = YES;
         [YTKNetworkConfig sharedConfig].securityPolicy = security;
+        //此处需要根据实际值修改
+        [YTKNetworkConfig sharedConfig].baseUrl = @"";
     });
 }
 #pragma mark - 基本参数
@@ -90,14 +92,10 @@
               argument:(NSDictionary *)argument
                success:(void(^)(id responseObject))success
                failure:(void(^)(NSError *error))failure {
-    //此处需要根据实际值修改
-    NSString *baseUrl = @"";
+    NSString *baseUrl = [YTKNetworkConfig sharedConfig].baseUrl;
     if (baseUrl.length > 0 && url.length > 0) {
         if (![url hasPrefix:baseUrl]) {
             url = [baseUrl stringByAppendingString:url];
-        }
-        if (![YTKNetworkConfig sharedConfig].baseUrl) {
-            [YTKNetworkConfig sharedConfig].baseUrl = [baseUrl mutableCopy];
         }
         [self performWithUrl:url method:method argument:argument whenSeccsss:^(__kindof YTKBaseRequest * _Nonnull request) {
             [self request:request success:success];
