@@ -22,14 +22,14 @@
     [self.tupleView setDelegate:(id<HTupleViewDelegate>)self];
 }
 
-- (NSInteger)numberOfSectionsInTupleView:(HTupleView *)tupleView {
+- (NSInteger)numberOfSectionsInTupleView {
     return 1;
 }
-- (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)numberOfItemsInSection:(NSInteger)section {
     return 6;
 }
 
-- (CGSize)tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:return CGSizeMake(self.tupleView.width, 60);
         case 1:return CGSizeMake(self.tupleView.width, 60);
@@ -41,7 +41,7 @@
     }
 }
 
-- (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UIEdgeInsets)edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:return UIEdgeInsetsMake(15, 0, 0, 0);
         case 1:return UIEdgeInsetsMake(15, 0, 0, 0);
@@ -53,7 +53,7 @@
     }
 }
 
-- (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
             HTupleTextFieldCell *cell = itemBlock(nil,HTupleTextFieldCell.class, nil, YES);

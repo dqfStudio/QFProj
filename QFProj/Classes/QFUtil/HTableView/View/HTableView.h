@@ -38,23 +38,23 @@ typedef NSArray *_Nullable(^HTableSectionExclusiveBlock)(void);
 
 @protocol HTableViewDelegate <UITableViewDelegate>
 @optional
-- (NSInteger)numberOfSectionsInTableView:(HTableView *)tableView;
-- (NSInteger)tableView:(HTableView *)tableView numberOfRowsInSection:(NSInteger)section;
+- (NSInteger)numberOfSectionsInTableView;
+- (NSInteger)numberOfRowsInSection:(NSInteger)section;
 
-- (CGFloat)tableView:(HTableView *)tableView heightForHeaderInSection:(NSInteger)section;
-- (CGFloat)tableView:(HTableView *)tableView heightForFooterInSection:(NSInteger)section;
-- (CGFloat)tableView:(HTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (CGFloat)heightForHeaderInSection:(NSInteger)section;
+- (CGFloat)heightForFooterInSection:(NSInteger)section;
+- (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 
-- (UIEdgeInsets)tableView:(HTableView *)tableView edgeInsetsForHeaderInSection:(NSInteger)section;
-- (UIEdgeInsets)tableView:(HTableView *)tableView edgeInsetsForFooterInSection:(NSInteger)section;
-- (UIEdgeInsets)tableView:(HTableView *)tableView edgeInsetsForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (UIEdgeInsets)edgeInsetsForHeaderInSection:(NSInteger)section;
+- (UIEdgeInsets)edgeInsetsForFooterInSection:(NSInteger)section;
+- (UIEdgeInsets)edgeInsetsForRowAtIndexPath:(NSIndexPath *)indexPath;
 
-- (void)tableView:(HTableView *)tableView tableHeader:(HTableHeader)headerBlock inSection:(NSInteger)section;
-- (void)tableView:(HTableView *)tableView tableFooter:(HTableFooter)footerBlock inSection:(NSInteger)section;
-- (void)tableView:(HTableView *)tableView tableRow:(HTableRow)rowBlock atIndexPath:(NSIndexPath *)indexPath;
+- (void)tableHeader:(HTableHeader)headerBlock inSection:(NSInteger)section;
+- (void)tableFooter:(HTableFooter)footerBlock inSection:(NSInteger)section;
+- (void)tableRow:(HTableRow)rowBlock atIndexPath:(NSIndexPath *)indexPath;
 
-- (void)tableView:(HTableView *)tableView willDisplayCell:(HTableBaseCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
-- (void)tableView:(HTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)willDisplayCell:(HTableBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (void)didSelectCell:(HTableBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @interface HTableView : UITableView <HTableViewDelegate>

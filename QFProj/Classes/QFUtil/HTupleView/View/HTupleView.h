@@ -44,27 +44,27 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 
 @protocol HTupleViewDelegate <UICollectionViewDelegate>
 @optional
-- (NSInteger)numberOfSectionsInTupleView:(HTupleView *)tupleView;
-- (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section;
+- (NSInteger)numberOfSectionsInTupleView;
+- (NSInteger)numberOfItemsInSection:(NSInteger)section;
 //layout == HCollectionViewFlowLayout
-- (UIColor *)tupleView:(HTupleView *)tupleView colorForSection:(NSInteger)section;
+- (UIColor *)colorForSection:(NSInteger)section;
 
-- (CGSize)tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section;
-- (CGSize)tupleView:(HTupleView *)tupleView sizeForFooterInSection:(NSInteger)section;
-- (CGSize)tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (CGSize)sizeForHeaderInSection:(NSInteger)section;
+- (CGSize)sizeForFooterInSection:(NSInteger)section;
+- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
 
-- (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section;
-- (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section;
-- (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (UIEdgeInsets)edgeInsetsForHeaderInSection:(NSInteger)section;
+- (UIEdgeInsets)edgeInsetsForFooterInSection:(NSInteger)section;
+- (UIEdgeInsets)edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath;
 
-- (UIEdgeInsets)tupleView:(HTupleView *)tupleView insetForSection:(NSInteger)section;
+- (UIEdgeInsets)insetForSection:(NSInteger)section;
 
-- (void)tupleView:(HTupleView *)tupleView tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section;
-- (void)tupleView:(HTupleView *)tupleView tupleFooter:(HTupleFooter)footerBlock inSection:(NSInteger)section;
-- (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath;
+- (void)tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section;
+- (void)tupleFooter:(HTupleFooter)footerBlock inSection:(NSInteger)section;
+- (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath;
 
-- (void)tupleView:(HTupleView *)tupleView willDisplayCell:(HTupleBaseCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath;
-- (void)tupleView:(HTupleView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)willDisplayCell:(HTupleBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (void)didSelectCell:(HTupleBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @interface HTupleView : UICollectionView <HTupleViewDelegate, HCollectionViewDelegateFlowLayout>

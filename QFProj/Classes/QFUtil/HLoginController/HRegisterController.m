@@ -118,19 +118,19 @@
     return tabBar;
 }
 
-- (NSInteger)tupleExa0_tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)tupleExa0_numberOfItemsInSection:(NSInteger)section {
     return 1;
 }
-- (CGSize)tupleExa0_tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(tupleView.width, 10);
+- (CGSize)tupleExa0_sizeForHeaderInSection:(NSInteger)section {
+    return CGSizeMake(self.tupleView.width, 10);
 }
-- (CGSize)tupleExa0_tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(tupleView.width, 55);
+- (CGSize)tupleExa0_sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(self.tupleView.width, 55);
 }
-- (void)tupleExa0_tupleView:(HTupleView *)tupleView tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
+- (void)tupleExa0_tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
     headerBlock(nil, HTupleBaseApex.class, nil, NO);
 }
-- (void)tupleExa0_tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleExa0_tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     HTupleBaseCell *cell = itemBlock(nil, HTupleBaseCell.class, nil, YES);
     YPTabBar *tabBar = [cell viewWithTag:12345];
     if (!tabBar) {

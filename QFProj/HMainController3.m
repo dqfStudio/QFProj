@@ -43,7 +43,7 @@
     [self.tupleView setDelegate:(id<HTupleViewDelegate>)self];
     [self.view addSubview:self.tupleView];
 }
-- (NSInteger)tuple0_numberOfSectionsInTupleView:(HTupleView *)tupleView {
+- (NSInteger)tuple0_numberOfSectionsInTupleView {
     return 3;
 }
 @end

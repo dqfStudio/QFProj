@@ -50,34 +50,34 @@
     [[UIApplication sharedApplication].delegate.window addSubview:self.tupleView];
 }
 
-- (NSInteger)numberOfSectionsInTupleView:(HTupleView *)tupleView {
+- (NSInteger)numberOfSectionsInTupleView {
     return 1;
 }
-- (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)numberOfItemsInSection:(NSInteger)section {
     return 1;
 }
 
-- (CGSize)tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section {
+- (CGSize)sizeForHeaderInSection:(NSInteger)section {
     NSInteger height = KFooterHeight;
     if (UIDevice.isIPhoneX) height += UIDevice.bottomBarHeight;
     return CGSizeMake(self.tupleView.width, self.tupleView.height-KItemHeight*self.numberOfRows-height);
 }
-- (CGSize)tupleView:(HTupleView *)tupleView sizeForFooterInSection:(NSInteger)section {
+- (CGSize)sizeForFooterInSection:(NSInteger)section {
     NSInteger height = KFooterHeight;
     if (UIDevice.isIPhoneX) height += UIDevice.bottomBarHeight;
     return CGSizeMake(self.tupleView.width, height);
 }
-- (CGSize)tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(self.tupleView.width, KItemHeight*self.numberOfRows);
 }
 
-- (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
+- (UIEdgeInsets)edgeInsetsForFooterInSection:(NSInteger)section {
     NSInteger height = 0;
     if (UIDevice.isIPhoneX) height += UIDevice.bottomBarHeight;
     return UIEdgeInsetsMake(10, 0, height, 0);
 }
 
-- (void)tupleView:(HTupleView *)tupleView tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
+- (void)tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
     headerBlock(nil, HTupleButtonApex.class, nil, YES);
 //    HTupleButtonApex *cell = headerBlock(nil, HTupleButtonApex.class, nil, YES);
 //    [cell.buttonView setPressed:^(id sender, id data) {
@@ -85,7 +85,7 @@
 //        [self destroy];
 //    }];
 }
-- (void)tupleView:(HTupleView *)tupleView tupleFooter:(HTupleFooter)footerBlock inSection:(NSInteger)section {
+- (void)tupleFooter:(HTupleFooter)footerBlock inSection:(NSInteger)section {
     HTupleButtonApex *cell = footerBlock(nil, HTupleButtonApex.class, nil, YES);
     [cell.buttonView setBackgroundColor:[UIColor whiteColor]];
     [cell.buttonView setTitleColor:[UIColor blackColor]];
@@ -95,7 +95,7 @@
         [self destroy];
     }];
 }
-- (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     HFormCell *cell = itemBlock(nil, HFormCell.class, nil, YES);
     [cell setModelArr:self.sourceArr];
     

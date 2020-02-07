@@ -44,27 +44,27 @@
     return self;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(HTableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView {
     return 1;
 }
-- (NSInteger)tableView:(HTableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)numberOfRowsInSection:(NSInteger)section {
     return 2;
 }
 
-- (CGFloat)tableView:(HTableView *)tableView heightForHeaderInSection:(NSInteger)section {
+- (CGFloat)heightForHeaderInSection:(NSInteger)section {
     return UIDevice.topBarHeight;
 }
-- (CGFloat)tableView:(HTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 50;
 }
 
-- (void)tableView:(HTableView *)tableView tableHeader:(HTableHeader)headerBlock inSection:(NSInteger)section {
+- (void)tableHeader:(HTableHeader)headerBlock inSection:(NSInteger)section {
     HTableLabelApex *cell = headerBlock(nil, HTableLabelApex.class, nil, YES);
     [cell.label setText:@"debug tool"];
     [cell.label setTextColor:UIColor.blackColor];
     [cell.label setFont:[UIFont systemFontOfSize:17]];
 }
-- (void)tableView:(HTableView *)tableView tableRow:(HTableRow)cellBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tableRow:(HTableRow)cellBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
             HTableCellInitBlock initBlock = ^(id cell) {
@@ -124,7 +124,7 @@
             break;
     }
 }
-- (void)tableView:(HTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.table deselectRowAtIndexPath:indexPath animated:YES];
 }
 @end

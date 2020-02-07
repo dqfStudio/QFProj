@@ -23,19 +23,19 @@
     [self.tupleView setDelegate:self];
 }
 
-- (NSInteger)numberOfSectionsInTupleView:(HTupleView *)tupleView {
+- (NSInteger)numberOfSectionsInTupleView {
     return 1;
 }
-- (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)numberOfItemsInSection:(NSInteger)section {
     return 8;
 }
-- (UIEdgeInsets)tupleView:(HTupleView *)tupleView insetForSection:(NSInteger)section {
+- (UIEdgeInsets)insetForSection:(NSInteger)section {
     return UIEdgeInsetsMake(0, 10, 0, 10);
 }
-- (UIColor *)tupleView:(HTupleView *)tupleView colorForSection:(NSInteger)section {
+- (UIColor *)colorForSection:(NSInteger)section {
     return UIColor.redColor;
 }
-- (CGSize)tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case HCell0:
         case HCell1:
@@ -56,7 +56,7 @@
     }
     return CGSizeMake(self.tupleView.sectionWidth(indexPath.section), 65);
 }
-- (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UIEdgeInsets)edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case HCell3:
             return UIEdgeInsetsMake(10, 10, 10, 5);
@@ -69,7 +69,7 @@
     }
     return UIEdgeInsetsMake(10, 10, 10, 10);
 }
-- (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case HCell0: {
             HTupleViewCellHoriValue4 *cell = itemBlock(nil, HTupleViewCellHoriValue4.class, nil, YES);
@@ -254,7 +254,7 @@
     }
     
 }
-- (void)tupleView:(HTupleView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)didSelectCell:(HTupleBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
 }
 

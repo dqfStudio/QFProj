@@ -13,10 +13,10 @@
 @end
 
 @implementation HRegisterController (KS)
-- (NSInteger)tuple0_numberOfSectionsInTupleView:(HTupleView *)tupleView {
+- (NSInteger)tuple0_numberOfSectionsInTupleView {
     return 3;
 }
-- (NSInteger)tuple0_tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)tuple0_numberOfItemsInSection:(NSInteger)section {
     switch (section) {
         case 1: return 6;
         case 2: return 1;
@@ -25,52 +25,52 @@
     return 0;
 }
 
-- (CGSize)tuple0_tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section {
+- (CGSize)tuple0_sizeForHeaderInSection:(NSInteger)section {
     switch (section) {
-        case 1: return CGSizeMake(tupleView.width, 5);
+        case 1: return CGSizeMake(self.tupleView.width, 5);
         case 2: return CGSizeZero;
         default: return CGSizeZero;
     }
 }
-- (CGSize)tuple0_tupleView:(HTupleView *)tupleView sizeForFooterInSection:(NSInteger)section {
+- (CGSize)tuple0_sizeForFooterInSection:(NSInteger)section {
     switch (section) {
-        case 1: return CGSizeMake(tupleView.width, 15);
+        case 1: return CGSizeMake(self.tupleView.width, 15);
         case 2: return CGSizeZero;
         default:return CGSizeZero;
     }
 }
-- (CGSize)tuple0_tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)tuple0_sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
-        case 1: return CGSizeMake(tupleView.width, 55);
-        case 2: return CGSizeMake(tupleView.width, 55);
+        case 1: return CGSizeMake(self.tupleView.width, 55);
+        case 2: return CGSizeMake(self.tupleView.width, 55);
         default: return CGSizeZero;
     }
 }
 
-- (UIEdgeInsets)tuple0_tupleView:(HTupleView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
+- (UIEdgeInsets)tuple0_edgeInsetsForHeaderInSection:(NSInteger)section {
     return UIEdgeInsetsZero;
 }
-- (UIEdgeInsets)tuple0_tupleView:(HTupleView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
+- (UIEdgeInsets)tuple0_edgeInsetsForFooterInSection:(NSInteger)section {
     return UIEdgeInsetsZero;
 }
-- (UIEdgeInsets)tuple0_tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UIEdgeInsets)tuple0_edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 2: return UIEdgeInsetsMake(0, 60, 0, 60);
         default: return UIEdgeInsetsZero;
     }
 }
 
-- (UIEdgeInsets)tuple0_tupleView:(HTupleView *)tupleView insetForSectionAtIndex:(NSInteger)section {
+- (UIEdgeInsets)tuple0_insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsZero;
 }
 
-- (void)tuple0_tupleView:(HTupleView *)tupleView tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
+- (void)tuple0_tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
     headerBlock(nil, HTupleBaseApex.class, nil, NO);
 }
-- (void)tuple0_tupleView:(HTupleView *)tupleView tupleFooter:(HTupleFooter)footerBlock inSection:(NSInteger)section {
+- (void)tuple0_tupleFooter:(HTupleFooter)footerBlock inSection:(NSInteger)section {
     footerBlock(nil, HTupleBaseApex.class, nil, NO);
 }
-- (void)tuple0_tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tuple0_tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     HTupleTextFieldCell *cell = itemBlock(nil, HTupleTextFieldCell.class, @"tuple0", YES);
     [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
 

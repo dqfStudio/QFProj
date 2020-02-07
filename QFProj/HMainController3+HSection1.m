@@ -10,16 +10,16 @@
 
 @implementation HMainController3 (HSection1)
 
-- (NSInteger)tupleExa1_tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)tupleExa1_numberOfItemsInSection:(NSInteger)section {
     return 1;
 }
-- (CGSize)tupleExa1_tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)tupleExa1_sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(self.tupleView.width, 65);
 }
-- (UIEdgeInsets)tupleExa1_tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UIEdgeInsets)tupleExa1_edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     return UIEdgeInsetsMake(10, 10, 10, 10);
 }
-- (void)tupleExa1_tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleExa1_tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
     [cell setBackgroundColor:UIColor.grayColor];
     [cell setShouldShowSeparator:YES];

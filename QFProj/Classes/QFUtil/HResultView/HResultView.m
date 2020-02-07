@@ -43,18 +43,18 @@
     [self addSubview:self.tupleView];
 }
 
-- (NSInteger)numberOfSectionsInTupleView:(HTupleView *)tupleView {
+- (NSInteger)numberOfSectionsInTupleView {
     return 1;
 }
-- (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)numberOfItemsInSection:(NSInteger)section {
     return 1;
 }
 
-- (CGSize)tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(self.tupleView.width, self.tupleView.height);
 }
 
-- (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UIEdgeInsets)edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat height = 0.f;
     if (!self.hideImage) height += KImageHeight;
     height += KTextHeight;
@@ -66,7 +66,7 @@
     return UIEdgeInsetsMake(tmpMarginTop, self.tupleView.width/2-KImageWidth/2, self.tupleView.height - tmpMarginTop - height, self.tupleView.width/2-KImageWidth/2);
 }
 
-- (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     NSString *prefix = @"image";
     if (self.desc.length > 0) prefix = @"text";
     if (self.detlDesc.length > 0) prefix = @"union";
@@ -146,7 +146,7 @@
 
 }
 
-- (void)tupleView:(HTupleView *)tupleView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (void)didSelectCell:(HTupleBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     if (self.clickedBlock) {
         self.clickedBlock();
     }

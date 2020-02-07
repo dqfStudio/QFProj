@@ -22,19 +22,19 @@
     [self.tableView setDelegate:self];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(HTableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView {
     return 1;
 }
-- (NSInteger)tableView:(HTableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)numberOfRowsInSection:(NSInteger)section {
     return 5;
 }
-- (CGFloat)tableView:(HTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 65;
 }
-- (UIEdgeInsets)tableView:(HTableView *)tableView edgeInsetsForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UIEdgeInsets)edgeInsetsForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UIEdgeInsetsMake(10, 10, 10, 10);
 }
-- (void)tableView:(HTableView *)tableView tableRow:(HTableRow)cellBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tableRow:(HTableRow)cellBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
             HTableViewCellHoriValue4 *cell = cellBlock(nil, HTableViewCellHoriValue4.class, nil, YES);
@@ -163,7 +163,7 @@
     }
     
 }
-- (void)tableView:(HTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 }
 

@@ -10,10 +10,10 @@
 
 @implementation HRegisterController (Normal)
 
-//- (NSInteger)numberOfSectionsInTupleView:(HTupleView *)tupleView {
+//- (NSInteger)numberOfSectionsInTupleView {
 //    return 3;
 //}
-//- (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
+//- (NSInteger)numberOfItemsInSection:(NSInteger)section {
 //    switch (section) {
 //        case 1: return 6;
 //        case 2: return 1;
@@ -22,21 +22,21 @@
 //    return 0;
 //}
 //
-//- (CGSize)tupleView:(HTupleView *)tupleView sizeForHeaderInSection:(NSInteger)section {
+//- (CGSize)sizeForHeaderInSection:(NSInteger)section {
 //    switch (section) {
 //        case 1: return CGSizeMake(tupleView.width, 5);
 //        case 2: return CGSizeZero;
 //        default: return CGSizeZero;
 //    }
 //}
-//- (CGSize)tupleView:(HTupleView *)tupleView sizeForFooterInSection:(NSInteger)section {
+//- (CGSize)sizeForFooterInSection:(NSInteger)section {
 //    switch (section) {
 //        case 1: return CGSizeMake(tupleView.width, 15);
 //        case 2: return CGSizeZero;
 //        default:return CGSizeZero;
 //    }
 //}
-//- (CGSize)tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+//- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
 //    switch (indexPath.section) {
 //        case 1: return CGSizeMake(tupleView.width, 55);
 //        case 2: return CGSizeMake(tupleView.width, 55);
@@ -44,30 +44,30 @@
 //    }
 //}
 //
-//- (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForHeaderInSection:(NSInteger)section {
+//- (UIEdgeInsets)edgeInsetsForHeaderInSection:(NSInteger)section {
 //    return UIEdgeInsetsZero;
 //}
-//- (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForFooterInSection:(NSInteger)section {
+//- (UIEdgeInsets)edgeInsetsForFooterInSection:(NSInteger)section {
 //    return UIEdgeInsetsZero;
 //}
-//- (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+//- (UIEdgeInsets)edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
 //    switch (indexPath.section) {
 //        case 2: return UIEdgeInsetsMake(0, 60, 0, 60);
 //        default: return UIEdgeInsetsZero;
 //    }
 //}
 //
-//- (UIEdgeInsets)tupleView:(HTupleView *)tupleView insetForSectionAtIndex:(NSInteger)section {
+//- (UIEdgeInsets)insetForSectionAtIndex:(NSInteger)section {
 //    return UIEdgeInsetsZero;
 //}
 //
-//- (void)tupleView:(HTupleView *)tupleView tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
+//- (void)tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
 //    headerBlock(nil, HTupleBaseApex.class, nil, NO);
 //}
-//- (void)tupleView:(HTupleView *)tupleView tupleFooter:(HTupleFooter)footerBlock inSection:(NSInteger)section {
+//- (void)tupleFooter:(HTupleFooter)footerBlock inSection:(NSInteger)section {
 //    footerBlock(nil, HTupleBaseApex.class, nil, NO);
 //}
-//- (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+//- (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
 //    HTupleTextFieldCell *cell = itemBlock(nil, HTupleTextFieldCell.class, @"tuple0", YES);
 //    [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
 //

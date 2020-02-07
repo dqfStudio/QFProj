@@ -46,7 +46,7 @@
     self.rowItems = 4;
 }
 
-- (NSInteger)numberOfSectionsInTupleView:(HTupleView *)tupleView {
+- (NSInteger)numberOfSectionsInTupleView {
     NSInteger pages = 1;
     if (self.modelArr) {
 
@@ -63,15 +63,15 @@
     return pages;
 }
 
-- (NSInteger)tupleView:(HTupleView *)tupleView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)numberOfItemsInSection:(NSInteger)section {
     return self.rows*self.rowItems;
 }
 
-- (CGSize)tupleView:(HTupleView *)tupleView sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(self.tupleView.width/self.rowItems-1, self.tupleView.height/self.rows-1);
 }
 
-- (void)tupleView:(HTupleView *)tupleView tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     NSInteger index = indexPath.section*self.rows*self.rowItems + indexPath.row;
     if (index < self.modelArr.count) {
         HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
