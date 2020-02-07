@@ -12,6 +12,10 @@
     NSInteger tryCount; //当前重试次数
     NSInteger tryMax; //最大重试次数
 }
+@property (nonatomic, copy) NSString *url;
+@property (nonatomic, copy) NSDictionary *argument;
+@property (nonatomic, assign) YTKRequestMethod method;
+//block回调
 @property (nonatomic, copy) YTKRequestCompletionBlock successBlock;
 @property (nonatomic, copy) YTKRequestCompletionBlock failureBlock;
 @end

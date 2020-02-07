@@ -12,10 +12,6 @@
 
 @interface HRequestDAO : YTKRequest
 
-@property (nonatomic, copy) NSString *url;
-@property (nonatomic, copy) NSDictionary *argument;
-@property (nonatomic, assign) YTKRequestMethod method;
-
 #pragma mark - 网络请求
 
 - (void)sendGetWithUrl:(NSString *)url
@@ -39,4 +35,5 @@
                 argument:(NSDictionary *)argument
                  success:(void(^)(id responseObject))success
                  failure:(void(^)(NSError *error))failure;
+
 @end
