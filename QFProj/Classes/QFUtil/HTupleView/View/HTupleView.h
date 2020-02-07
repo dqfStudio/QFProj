@@ -134,9 +134,9 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 - (CGFloat)height;
 - (CGSize)size;
 //获取某个section的宽高和大小
-- (CGFloat (^)(NSInteger section))widthForSection;
-- (CGFloat (^)(NSInteger section))heighForSection;
-- (CGSize (^)(NSInteger section))sizeForSection;
+- (CGFloat (^)(NSInteger section))sectionWidth;
+- (CGFloat (^)(NSInteger section))sectionHeigh;
+- (CGSize (^)(NSInteger section))sectionSize;
 //根据传入的个数和序号计算该item的宽度
 - (CGFloat)fixSlitWith:(CGFloat)width colCount:(CGFloat)colCount index:(NSInteger)idx;
 @end

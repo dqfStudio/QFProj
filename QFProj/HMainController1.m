@@ -40,12 +40,12 @@
         case HCell0:
         case HCell1:
         case HCell2:
-            return CGSizeMake(self.tupleView.widthForSection(indexPath.section), 65);
+            return CGSizeMake(self.tupleView.sectionWidth(indexPath.section), 65);
             break;
         case HCell3:
         case HCell4:
         case HCell5: {
-            CGFloat width = self.tupleView.widthForSection(indexPath.section);
+            CGFloat width = self.tupleView.sectionWidth(indexPath.section);
             width = [self.tupleView fixSlitWith:width colCount:3 index:indexPath.row-3];
             return CGSizeMake(width, 120);
         }
@@ -54,7 +54,7 @@
         default:
             break;
     }
-    return CGSizeMake(self.tupleView.widthForSection(indexPath.section), 65);
+    return CGSizeMake(self.tupleView.sectionWidth(indexPath.section), 65);
 }
 - (UIEdgeInsets)tupleView:(HTupleView *)tupleView edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {

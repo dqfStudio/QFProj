@@ -717,7 +717,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 - (CGSize)size {
     return self.frame.size;
 }
-- (CGFloat (^)(NSInteger section))widthForSection {
+- (CGFloat (^)(NSInteger section))sectionWidth {
     return ^CGFloat (NSInteger section) {
         CGFloat width = CGRectGetWidth(self.frame);
         NSString *edgeInsetsString = [self.allSectionInsets objectForKey:@(section).stringValue];
@@ -728,7 +728,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         return width;
     };
 }
-- (CGFloat (^)(NSInteger section))heighForSection {
+- (CGFloat (^)(NSInteger section))sectionHeigh {
     return ^CGFloat (NSInteger section) {
         CGFloat height = CGRectGetHeight(self.frame);
         NSString *edgeInsetsString = [self.allSectionInsets objectForKey:@(section).stringValue];
@@ -739,7 +739,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         return height;
     };
 }
-- (CGSize (^)(NSInteger section))sizeForSection {
+- (CGSize (^)(NSInteger section))sectionSize {
     return ^CGSize (NSInteger section) {
         CGSize size = self.frame.size;
         NSString *edgeInsetsString = [self.allSectionInsets objectForKey:@(section).stringValue];
