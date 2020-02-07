@@ -8,6 +8,7 @@
 
 #import <AFNetworking/AFNetworking.h>
 #import "YTKNetworkPrivate.h"
+#import "YTKNetworkConfig.h"
 #import "YTKRequest.h"
 
 @interface HRequestDAO : YTKRequest

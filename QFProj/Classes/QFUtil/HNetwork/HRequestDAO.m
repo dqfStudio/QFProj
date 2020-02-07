@@ -96,6 +96,9 @@
         if (![url hasPrefix:baseUrl]) {
             url = [baseUrl stringByAppendingString:url];
         }
+        if (![YTKNetworkConfig sharedConfig].baseUrl) {
+            [YTKNetworkConfig sharedConfig].baseUrl = [baseUrl mutableCopy];
+        }
         [self performWithUrl:url method:method argument:argument whenSeccsss:^(__kindof YTKBaseRequest * _Nonnull request) {
             [self request:request success:success];
         } whenFailed:^(__kindof YTKBaseRequest * _Nonnull request) {
