@@ -288,7 +288,6 @@
 		A2A8EBA522E1F80D0049C51B /* HKBArrowLeft@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2A8EB9A22E1F80D0049C51B /* HKBArrowLeft@3x.png */; };
 		A2A8EBA622E1F80D0049C51B /* UIViewController+HEndEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB9B22E1F80D0049C51B /* UIViewController+HEndEdit.m */; };
 		A2A8EBA722E1F80D0049C51B /* UIView+HResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB9C22E1F80D0049C51B /* UIView+HResponder.m */; };
-		A2A8EBAA22E1F9F60049C51B /* HNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EBA922E1F9F60049C51B /* HNetworkConfig.m */; };
 		A2A8EBB722E1FDEE0049C51B /* WebViewJavascriptBridgeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EBAF22E1FDEE0049C51B /* WebViewJavascriptBridgeBase.m */; };
 		A2A8EBB822E1FDEE0049C51B /* WKWebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EBB022E1FDEE0049C51B /* WKWebViewJavascriptBridge.m */; };
 		A2A8EBB922E1FDEE0049C51B /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EBB122E1FDEE0049C51B /* WebViewJavascriptBridge.m */; };
@@ -331,9 +330,6 @@
 		A2E8F54322D72A9800E7C9F2 /* YTKBatchRequestAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F53922D72A9800E7C9F2 /* YTKBatchRequestAgent.m */; };
 		A2E8F54422D72A9800E7C9F2 /* YTKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F53B22D72A9800E7C9F2 /* YTKRequest.m */; };
 		A2E8F54722D72AB700E7C9F2 /* HRequestDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F54622D72AB700E7C9F2 /* HRequestDAO.m */; };
-		A2E8F54A22D73AE600E7C9F2 /* HRequestDAOFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F54922D73AE600E7C9F2 /* HRequestDAOFactory.m */; };
-		A2E8F54D22D73AF500E7C9F2 /* HRequestDAOStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F54C22D73AF500E7C9F2 /* HRequestDAOStrategy.m */; };
-		A2E8F55322D73E4B00E7C9F2 /* HRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F55222D73E4B00E7C9F2 /* HRequest.m */; };
 		A2E8F55622D775A200E7C9F2 /* UIView+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F55522D775A200E7C9F2 /* UIView+HSafeMessy.m */; };
 		A2E8F55A22D8354400E7C9F2 /* HFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F55822D8354400E7C9F2 /* HFileCache.m */; };
 		A2E8F57322D8356300E7C9F2 /* HFileStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F55D22D8356300E7C9F2 /* HFileStorage.m */; };
@@ -862,8 +858,6 @@
 		A2A8EB9D22E1F80D0049C51B /* UIView+HKBToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HKBToolBar.h"; sourceTree = "<group>"; };
 		A2A8EB9E22E1F80D0049C51B /* HKeyboardManager+HToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HKeyboardManager+HToolBar.h"; sourceTree = "<group>"; };
 		A2A8EB9F22E1F80D0049C51B /* HKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKeyboardManager.h; sourceTree = "<group>"; };
-		A2A8EBA822E1F9F60049C51B /* HNetworkConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNetworkConfig.h; sourceTree = "<group>"; };
-		A2A8EBA922E1F9F60049C51B /* HNetworkConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNetworkConfig.m; sourceTree = "<group>"; };
 		A2A8EBAF22E1FDEE0049C51B /* WebViewJavascriptBridgeBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridgeBase.m; sourceTree = "<group>"; };
 		A2A8EBB022E1FDEE0049C51B /* WKWebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewJavascriptBridge.m; sourceTree = "<group>"; };
 		A2A8EBB122E1FDEE0049C51B /* WebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge.m; sourceTree = "<group>"; };
@@ -949,12 +943,6 @@
 		A2E8F53B22D72A9800E7C9F2 /* YTKRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKRequest.m; sourceTree = "<group>"; };
 		A2E8F54522D72AB700E7C9F2 /* HRequestDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRequestDAO.h; sourceTree = "<group>"; };
 		A2E8F54622D72AB700E7C9F2 /* HRequestDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRequestDAO.m; sourceTree = "<group>"; };
-		A2E8F54822D73AE600E7C9F2 /* HRequestDAOFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRequestDAOFactory.h; sourceTree = "<group>"; };
-		A2E8F54922D73AE600E7C9F2 /* HRequestDAOFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRequestDAOFactory.m; sourceTree = "<group>"; };
-		A2E8F54B22D73AF500E7C9F2 /* HRequestDAOStrategy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRequestDAOStrategy.h; sourceTree = "<group>"; };
-		A2E8F54C22D73AF500E7C9F2 /* HRequestDAOStrategy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRequestDAOStrategy.m; sourceTree = "<group>"; };
-		A2E8F55122D73E4B00E7C9F2 /* HRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRequest.h; sourceTree = "<group>"; };
-		A2E8F55222D73E4B00E7C9F2 /* HRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRequest.m; sourceTree = "<group>"; };
 		A2E8F55422D775A200E7C9F2 /* UIView+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HSafeMessy.h"; sourceTree = "<group>"; };
 		A2E8F55522D775A200E7C9F2 /* UIView+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2E8F55822D8354400E7C9F2 /* HFileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFileCache.m; sourceTree = "<group>"; };
@@ -2358,16 +2346,8 @@
 		A2E8F52722D72A9800E7C9F2 /* HNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				A2E8F55122D73E4B00E7C9F2 /* HRequest.h */,
-				A2E8F55222D73E4B00E7C9F2 /* HRequest.m */,
 				A2E8F54522D72AB700E7C9F2 /* HRequestDAO.h */,
 				A2E8F54622D72AB700E7C9F2 /* HRequestDAO.m */,
-				A2A8EBA822E1F9F60049C51B /* HNetworkConfig.h */,
-				A2A8EBA922E1F9F60049C51B /* HNetworkConfig.m */,
-				A2E8F54822D73AE600E7C9F2 /* HRequestDAOFactory.h */,
-				A2E8F54922D73AE600E7C9F2 /* HRequestDAOFactory.m */,
-				A2E8F54B22D73AF500E7C9F2 /* HRequestDAOStrategy.h */,
-				A2E8F54C22D73AF500E7C9F2 /* HRequestDAOStrategy.m */,
 				A2FA53C423D732D100C5F710 /* HNetWorkingManager.h */,
 				A2FA53C523D732D100C5F710 /* HNetWorkingManager.m */,
 				A2E8F52822D72A9800E7C9F2 /* YTKNetwork */,
@@ -2685,7 +2665,6 @@
 				15C5736B20B3DD7B0070327C /* HTupleViewCell.m in Sources */,
 				A20E3CE0231A663300E6982B /* UIAlertController+HUtil.m in Sources */,
 				A227A901233C9F1F005611BA /* HMainController5.m in Sources */,
-				A2E8F54D22D73AF500E7C9F2 /* HRequestDAOStrategy.m in Sources */,
 				15B4DE042092F96C00773E04 /* NSError+HUtil.m in Sources */,
 				A28EF38321D8EC2A002F92ED /* HResultView.m in Sources */,
 				A2E8F54722D72AB700E7C9F2 /* HRequestDAO.m in Sources */,
@@ -2782,7 +2761,6 @@
 				A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */,
 				A24B6577225EE88600B257BB /* HWebviewVC2.m in Sources */,
 				A28EF2E821D86DD8002F92ED /* HCollectionViewFlowLayout.m in Sources */,
-				A2E8F55322D73E4B00E7C9F2 /* HRequest.m in Sources */,
 				A2A8EBB822E1FDEE0049C51B /* WKWebViewJavascriptBridge.m in Sources */,
 				A24B657E225F768000B257BB /* HWebviewVC.m in Sources */,
 				A2079ADB23E2990000AF1BA1 /* HVerifyCodeView.m in Sources */,
@@ -2936,11 +2914,9 @@
 				15E6BB9B2136E7E300EBE794 /* YPTabBar.m in Sources */,
 				A20E3CE4231CC3B400E6982B /* NSObject+HKVO.m in Sources */,
 				A24B659722607E8400B257BB /* SKPSMTPMessage.m in Sources */,
-				A2E8F54A22D73AE600E7C9F2 /* HRequestDAOFactory.m in Sources */,
 				A2E8F52622D2EB6E00E7C9F2 /* HNavigationController.m in Sources */,
 				A26CF7BF2302747C00D73ECD /* NSNull+HSafeUtil.m in Sources */,
 				A289DCFD23E3E6F800FC59F1 /* HTupleViewMarqueeApex.m in Sources */,
-				A2A8EBAA22E1F9F60049C51B /* HNetworkConfig.m in Sources */,
 				A222AE5E22818F7D0013098A /* HTextArchiver.m in Sources */,
 				A265FF732269F70C0093C780 /* HVersionManager.m in Sources */,
 				15C5737420B3DD7B0070327C /* HTupleView.m in Sources */,
