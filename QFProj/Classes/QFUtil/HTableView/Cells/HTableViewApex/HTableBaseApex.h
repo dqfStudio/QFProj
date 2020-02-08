@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HView+HLine.h"
 #import "HTableSignal.h"
 
 #define HLayoutTableApex(v) \
