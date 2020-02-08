@@ -10,6 +10,7 @@
 #import "HCommonDefine.h"
 #import "HCommonBlock.h"
 #import "NSError+HUtil.h"
+#import "UIImageView+HString.h"
 #import "UIImageView+HFilletLayer.h"
 
 @interface HWebImageView : UIImageView
