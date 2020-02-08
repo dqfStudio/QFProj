@@ -22,7 +22,7 @@ static char const * const KRightLineView  = "RightLineView";
 
 - (CGFloat)topLineSize {
     CGFloat size = [[self getAssociatedValueForKey:_cmd] integerValue];
-    if (size == 0) size = 1.0;
+    if (size <= 0) size = 1.0;
     return size;
 }
 - (void)setTopLineSize:(CGFloat)topLineSize {
@@ -31,7 +31,7 @@ static char const * const KRightLineView  = "RightLineView";
 
 - (CGFloat)bottomLineSize {
     CGFloat size = [[self getAssociatedValueForKey:_cmd] integerValue];
-    if (size == 0) size = 1.0;
+    if (size <= 0) size = 1.0;
     return size;
 }
 - (void)setBottomLineSize:(CGFloat)bottomLineSize {
@@ -40,7 +40,7 @@ static char const * const KRightLineView  = "RightLineView";
 
 - (CGFloat)leftLineSize {
     CGFloat size = [[self getAssociatedValueForKey:_cmd] integerValue];
-    if (size == 0) size = 1.0;
+    if (size <= 0) size = 1.0;
     return size;
 }
 - (void)setLeftLineSize:(CGFloat)leftLineSize {
@@ -49,7 +49,7 @@ static char const * const KRightLineView  = "RightLineView";
 
 - (CGFloat)rightLineSize {
     CGFloat size = [[self getAssociatedValueForKey:_cmd] integerValue];
-    if (size == 0) size = 1.0;
+    if (size <= 0) size = 1.0;
     return size;
 }
 - (void)setRightLineSize:(CGFloat)rightLineSize {
