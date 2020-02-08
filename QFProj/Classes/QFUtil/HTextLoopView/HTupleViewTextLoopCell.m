@@ -11,7 +11,7 @@
 @implementation HTupleViewTextLoopCell
 - (HTextLoopView *)textLoopView {
     if (!_textLoopView) {
-        _textLoopView = [HTextLoopView textLoopViewWithFrame:self.bounds dataSource:nil interval:2.0 selectBlock:^(NSString *selectString, NSInteger index) {
+        _textLoopView = [HTextLoopView textLoopViewWithFrame:self.bounds dataSource:self.contentArr interval:2.0 selectBlock:^(NSString *selectString, NSInteger index) {
             if (self.selectedBlock) {
                 self.selectedBlock([selectString copy], index);
             }
