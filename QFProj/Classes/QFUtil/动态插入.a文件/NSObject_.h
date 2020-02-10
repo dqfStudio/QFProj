@@ -9,7 +9,7 @@ void import_NSObject_HHH (void);
 
 //方法一
 /*
- 搜索：other link flags
+ 搜索：other linker flags
  添加 -ObjC 来引用静态库路径
  此时上述 “void import_NSObject_HHH (void);” 这段代码可删掉
 */
