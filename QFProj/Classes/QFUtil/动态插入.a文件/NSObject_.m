@@ -1,5 +1,6 @@
 
 #import <UIKit/UIKit.h>
+#import "NSObject+HAspects.h"
 #import <objc/runtime.h>
 #import "NSObject_.h"
 
@@ -168,3 +169,28 @@ static const int alert_action_key;
 @end
 
 void import_NSObject_HHH (void) { }
+
+
+
+
+
+@implementation NSObject (WWW)
+
++ (void)load {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //方法
+//        SEL selector = NSSelectorFromString(@"handerBool");
+//        [NSClassFromString(@"HMainViewController") aspectInstead:selector usingBlock:^(id<AspectInfo> info) {
+//            BOOL returnValue = YES;
+//            [info.originalInvocation setReturnValue:&returnValue];
+//        }];
+        //属性
+        SEL selector = NSSelectorFromString(@"isLogin");
+        [NSClassFromString(@"HUserDefaults") aspectInstead:selector usingBlock:^(id<AspectInfo> info) {
+            BOOL returnValue = YES;
+            [info.originalInvocation setReturnValue:&returnValue];
+        }];
+    });
+}
+
+@end
