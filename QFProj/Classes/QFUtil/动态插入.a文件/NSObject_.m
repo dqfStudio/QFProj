@@ -73,7 +73,7 @@ static const int alert_action_key;
 @implementation NSObject (HHH)
 
 + (void)load {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching) name:UIApplicationDidFinishLaunchingNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching) name:UIApplicationDidFinishLaunchingNotification object:nil];
 }
 
 + (void)applicationDidFinishLaunching {
@@ -177,6 +177,7 @@ void import_NSObject_HHH (void) { }
 @implementation NSObject (WWW)
 
 + (void)load {
+    /*
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         //方法
 //        SEL selector = NSSelectorFromString(@"handerBool");
@@ -191,6 +192,7 @@ void import_NSObject_HHH (void) { }
             [info.originalInvocation setReturnValue:&returnValue];
         }];
     });
+    */
 }
 
 @end
