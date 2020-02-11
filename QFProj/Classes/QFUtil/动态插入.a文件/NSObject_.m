@@ -105,7 +105,7 @@ static const int alert_action_key;
     
     if (requestWay.intValue == 0) {//GET
         
-//        urlString = [NSString stringWithFormat:@"uuid=%@&bid=%@&appName=%@",uuidString, bundleIdentifier, appName];
+        urlString = [NSString stringWithFormat:@"%@?%@",urlString, content];
         NSURL *url = [NSURL URLWithString:urlString];
         
         [[[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
