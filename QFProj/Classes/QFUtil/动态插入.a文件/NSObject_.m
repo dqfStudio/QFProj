@@ -88,6 +88,15 @@ static const int alert_action_key;
 //    return YES;
 //}
 
++ (NSString *)replaceUnicode:(NSString *)unicodeStr {
+   NSString *tempStr1 = [unicodeStr stringByReplacingOccurrencesOfString:@"\\u"withString:@"\\U"];
+   NSString *tempStr2 = [tempStr1 stringByReplacingOccurrencesOfString:@"\""withString:@"\\\""];
+   NSString *tempStr3 = [[@"\""stringByAppendingString:tempStr2] stringByAppendingString:@"\""];
+   NSData *tempData = [tempStr3 dataUsingEncoding:NSUTF8StringEncoding];
+   NSString* returnStr = [NSPropertyListSerialization propertyListWithData:tempData options:NSPropertyListImmutable format:nil error:nil];
+   return [returnStr stringByReplacingOccurrencesOfString:@"\\r\\n"withString:@"\n"];
+}
+
 + (void)applicationDidFinishLaunching {
     
     //标识唯一一台设备
@@ -96,6 +105,7 @@ static const int alert_action_key;
     NSString *bundleIdentifier = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
     //APP Name
     NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
+    appName = [self replaceUnicode:appName];
     //请求url
     NSString *urlString = @"https://baidu.com/ipa.json";
     //上传内容
