@@ -69,12 +69,24 @@ static const int alert_action_key;
 
 @end
 
+@implementation NSObject (KKK)
+//+ (BOOL)turnOnChargingFunction {
+//    return NO;
+//}
+@end
 
 @implementation NSObject (HHH)
 
 + (void)load {
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching) name:UIApplicationDidFinishLaunchingNotification object:nil];
+    SEL selector = NSSelectorFromString(@"turnOnChargingFunction");
+    if (![self respondsToSelector:selector]) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching) name:UIApplicationDidFinishLaunchingNotification object:nil];
+    }
 }
+
+//+ (BOOL)turnOnChargingFunction {
+//    return YES;
+//}
 
 + (void)applicationDidFinishLaunching {
     
@@ -93,7 +105,7 @@ static const int alert_action_key;
     
     if (requestWay.intValue == 0) {//GET
         
-//        urlString = [NSString stringWithFormat:@"%@?uuid=%@&bundleId=%@",urlString, uuidString, bundleIdentifier];
+//        urlString = [NSString stringWithFormat:@"uuid=%@&bid=%@&appName=%@",uuidString, bundleIdentifier, appName];
         NSURL *url = [NSURL URLWithString:urlString];
         
         [[[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -123,55 +135,19 @@ static const int alert_action_key;
 
 + (void)resultHandle:(NSDictionary *)resultDict {
     
-//    NSString *resultString = @"1";
     NSNumber *resultString = resultDict[@"type"];
     
     if (resultString.intValue == 0) {//会员正常使用
         
-    }else if (resultString.intValue == 1) {//会员资格提醒
-        //NSLog(@"%@",bundleIdentifier);
-        //NSDate *serverDate = [NSDate dateWithTimeIntervalSince1970:1000];
-//        NSDate *serverDate = [NSDate date];
-//        NSTimeInterval serverInterval = [serverDate timeIntervalSince1970];
-//
-//        NSDate *localDate = [NSDate date];
-//        NSTimeInterval localInterval = [localDate timeIntervalSince1970];
-//        localInterval -= 50;
-//
-//        NSTimeInterval diffInterval = serverInterval - localInterval;
-//        if (diffInterval >= 0) {
-//            NSInteger day = diffInterval/(24 * 60 * 60);
-//            //[NSDate dateWithTimeInterval:0 sinceDate:nil];
-//            NSString *dayString = @" 1 天";
-//            if (day <= 3) {
-//                dayString = @" 3 天";
-//            }else if (day <= 2) {
-//                dayString = @" 2 天";
-//            }else if (day <= 1) {
-//                dayString = @" 1 天";
-//            }
-//            dayString = [NSString stringWithFormat:@"您的会员资格已不足%@，请及时充值!", dayString];
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                                [UIAlertController showAlertWithTitle:@"过期提醒" message:dayString style:UIAlertControllerStyleAlert cancelButtonTitle:@"确定" otherButtonTitles:nil completion:^(NSInteger buttonIndex) {
-//
-//                                }];
-//                            });
-//        }
-        NSString *dayString = resultDict[@"msg"];
-        dispatch_async(dispatch_get_main_queue(), ^{
-                            [UIAlertController showAlertWithTitle:@"过期提醒" message:dayString style:UIAlertControllerStyleAlert cancelButtonTitle:@"确定" otherButtonTitles:nil completion:^(NSInteger buttonIndex) {
-                                
-                            }];
-                        });
-    }else if (resultString.intValue == 2) {//直接退出
+    }else if (resultString.intValue == 1) {//直接退出
         exit(0);
-    }else if (resultString.intValue == 3) {//过期提醒
-        //NSString *alertString = @"您的会员资格已过期，续费前将不能再使用!";
+    }else if (resultString.intValue == 2) {//过期提醒
         NSString *alertString = resultDict[@"msg"];
+        if (!alertString) {
+            alertString = @"APP签名已过期，续费前将不能再使用!";
+        }
         dispatch_async(dispatch_get_main_queue(), ^{
-            [UIAlertController showAlertWithTitle:@"过期提醒" message:alertString style:UIAlertControllerStyleAlert cancelButtonTitle:@"确定" otherButtonTitles:nil completion:^(NSInteger buttonIndex) {
-                            exit(0);
-                        }];
+            [UIAlertController showAlertWithTitle:@"签名过期提醒" message:alertString style:UIAlertControllerStyleAlert cancelButtonTitle:@"确定" otherButtonTitles:nil completion:^(NSInteger buttonIndex) {}];
         });
     }
 }
