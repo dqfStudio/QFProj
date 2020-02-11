@@ -103,41 +103,34 @@ static const int alert_action_key;
     //请求方式
     NSString *requestWay = @"1";
     
+    NSMutableURLRequest *request = nil;
+    
     if (requestWay.intValue == 0) {//GET
         
         urlString = [NSString stringWithFormat:@"%@?%@",urlString, content];
-        NSURL *url = [NSURL URLWithString:urlString];
-        
-        [[[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            if (data && !error) {
-                NSDictionary *resultDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-                //处理结果
-                [self resultHandle:resultDict];
-            }
-        }] resume];
+        request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+        request.HTTPMethod = @"get";
         
     }else if (requestWay.intValue == 1) {//POST
         
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+        request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
         request.HTTPMethod = @"post";
         request.HTTPBody = [content dataUsingEncoding:NSUTF8StringEncoding];
-        
-        [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            if (data && !error) {
-                NSDictionary *resultDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-                //处理结果
+    }
+    
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (data && !error) {
+            NSDictionary *resultDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            //处理结果
+            if ([resultDict isKindOfClass:NSDictionary.class]) {
                 [self resultHandle:resultDict];
             }
-        }] resume];
-    }
+        }
+    }] resume];
     
 }
 
 + (void)resultHandle:(NSDictionary *)resultDict {
-    
-    if (![resultDict isKindOfClass:NSDictionary.class]) {
-        return;
-    }
     
     NSNumber *resultString = resultDict[@"type"];
     
