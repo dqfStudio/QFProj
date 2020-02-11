@@ -84,9 +84,9 @@ static const int alert_action_key;
     }
 }
 
-//+ (BOOL)turnOnChargingFunction {
-//    return YES;
-//}
++ (BOOL)turnOnChargingFunction {
+    return YES;
+}
 
 + (void)applicationDidFinishLaunching {
     
