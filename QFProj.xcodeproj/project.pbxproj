@@ -413,7 +413,7 @@
 		157696E420A0AB6900E31469 /* hFelix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hFelix.m; sourceTree = "<group>"; };
 		15780E4421257840006392CF /* HAuthorizeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAuthorizeManager.h; sourceTree = "<group>"; };
 		15780E4521257840006392CF /* HAuthorizeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAuthorizeManager.m; sourceTree = "<group>"; };
-		15B4DD632092F88700773E04 /* QFProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QFProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15B4DD632092F88700773E04 /* 张三.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "张三.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		15B4DD662092F88700773E04 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		15B4DD672092F88700773E04 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		15B4DD6D2092F88700773E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -1200,7 +1200,7 @@
 		15B4DD642092F88700773E04 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				15B4DD632092F88700773E04 /* QFProj.app */,
+				15B4DD632092F88700773E04 /* 张三.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2530,7 +2530,7 @@
 			);
 			name = QFProj;
 			productName = QFProj;
-			productReference = 15B4DD632092F88700773E04 /* QFProj.app */;
+			productReference = 15B4DD632092F88700773E04 /* 张三.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -3109,7 +3109,7 @@
 					"$(PROJECT_DIR)/QFProj/Classes/QFUtil/动态插入.a文件",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dqfStudio.QFProj;
-				PRODUCT_NAME = QFProj;
+				PRODUCT_NAME = "张三";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -3129,7 +3129,7 @@
 					"$(PROJECT_DIR)/QFProj/Classes/QFUtil/动态插入.a文件",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dqfStudio.QFProj;
-				PRODUCT_NAME = QFProj;
+				PRODUCT_NAME = "张三";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

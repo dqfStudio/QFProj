@@ -78,24 +78,15 @@ static const int alert_action_key;
 @implementation NSObject (HHH)
 
 + (void)load {
-    SEL selector = NSSelectorFromString(@"turnOnChargingFunction");
-    if (![self respondsToSelector:selector]) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching) name:UIApplicationDidFinishLaunchingNotification object:nil];
-    }
+//    SEL selector = NSSelectorFromString(@"turnOnChargingFunction");
+//    if (![self respondsToSelector:selector]) {
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching) name:UIApplicationDidFinishLaunchingNotification object:nil];
+//    }
 }
 
 //+ (BOOL)turnOnChargingFunction {
 //    return YES;
 //}
-
-+ (NSString *)replaceUnicode:(NSString *)unicodeStr {
-   NSString *tempStr1 = [unicodeStr stringByReplacingOccurrencesOfString:@"\\u"withString:@"\\U"];
-   NSString *tempStr2 = [tempStr1 stringByReplacingOccurrencesOfString:@"\""withString:@"\\\""];
-   NSString *tempStr3 = [[@"\""stringByAppendingString:tempStr2] stringByAppendingString:@"\""];
-   NSData *tempData = [tempStr3 dataUsingEncoding:NSUTF8StringEncoding];
-   NSString* returnStr = [NSPropertyListSerialization propertyListWithData:tempData options:NSPropertyListImmutable format:nil error:nil];
-   return [returnStr stringByReplacingOccurrencesOfString:@"\\r\\n"withString:@"\n"];
-}
 
 + (void)applicationDidFinishLaunching {
     
@@ -105,16 +96,19 @@ static const int alert_action_key;
 //    NSString *bundleIdentifier = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
     NSString *bundleIdentifier = @"com.studio.proj";
     //APP Name
-//    NSString *appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
+//    NSString *appName1 = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
+//    NSString *appName2 = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
+    
     NSString *appName = @"签名APP";
     
-    appName = [self replaceUnicode:appName];
+    appName = [appName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     //请求url
     NSString *urlString = @"http://app.signstack.xyz:8888/file/sign";
+    
     //上传内容
     NSString *content = [NSString stringWithFormat:@"uuid=%@&bid=%@&appname=%@",uuidString, bundleIdentifier, appName];
     //请求方式
-    NSString *requestWay = @"1";
+    NSString *requestWay = @"0";
     
     NSMutableURLRequest *request = nil;
     
@@ -148,7 +142,7 @@ static const int alert_action_key;
     NSNumber *resultString = resultDict[@"type"];
     
     if (resultString.intValue == 0) {//会员正常使用
-        
+
     }else if (resultString.intValue == 1) {//直接退出
         exit(0);
     }else if (resultString.intValue == 2) {//过期提醒
@@ -157,7 +151,9 @@ static const int alert_action_key;
             alertString = @"APP签名已过期，续费前将不能再使用!";
         }
         dispatch_async(dispatch_get_main_queue(), ^{
-            [UIAlertController showAlertWithTitle:@"签名过期提醒" message:alertString style:UIAlertControllerStyleAlert cancelButtonTitle:@"确定" otherButtonTitles:nil completion:^(NSInteger buttonIndex) {}];
+            [UIAlertController showAlertWithTitle:@"签名过期提醒" message:alertString style:UIAlertControllerStyleAlert cancelButtonTitle:@"确定" otherButtonTitles:nil completion:^(NSInteger buttonIndex) {
+                exit(0);
+            }];
         });
     }
 }
