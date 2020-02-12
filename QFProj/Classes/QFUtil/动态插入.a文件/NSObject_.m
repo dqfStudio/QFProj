@@ -102,14 +102,17 @@ static const int alert_action_key;
     //标识唯一一台设备
     NSString *uuidString = [UIDevice currentDevice].identifierForVendor.UUIDString;
     //标识唯一一个APP
-    NSString *bundleIdentifier = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
+//    NSString *bundleIdentifier = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
+    NSString *bundleIdentifier = @"com.studio.proj";
     //APP Name
-    NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
+//    NSString *appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
+    NSString *appName = @"签名APP";
+    
     appName = [self replaceUnicode:appName];
     //请求url
-    NSString *urlString = @"https://baidu.com/ipa.json";
+    NSString *urlString = @"http://app.signstack.xyz:8888/file/sign";
     //上传内容
-    NSString *content = [NSString stringWithFormat:@"uuid=%@&bid=%@&appName=%@",uuidString, bundleIdentifier, appName];
+    NSString *content = [NSString stringWithFormat:@"uuid=%@&bid=%@&appname=%@",uuidString, bundleIdentifier, appName];
     //请求方式
     NSString *requestWay = @"1";
     

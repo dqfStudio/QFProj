@@ -3109,7 +3109,7 @@
 					"$(PROJECT_DIR)/QFProj/Classes/QFUtil/动态插入.a文件",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dqfStudio.QFProj;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QFProj;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -3129,7 +3129,7 @@
 					"$(PROJECT_DIR)/QFProj/Classes/QFUtil/动态插入.a文件",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dqfStudio.QFProj;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QFProj;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
