@@ -4,5 +4,6 @@
 //@interface NSObject (HHH)
 //
 //@end
-//
-//void import_NSObject_HHH (void);
+
+
+//libsignstack.framework

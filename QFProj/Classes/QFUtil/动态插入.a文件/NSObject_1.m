@@ -73,7 +73,7 @@
 //+ (void)load {
 //    SEL selector = NSSelectorFromString(@"turnOnChargingFunction");
 //    if (![self respondsToSelector:selector]) {
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching) name:UIApplicationDidFinishLaunchingNotification object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching) name:UIApplicationDidBecomeActiveNotification object:nil];
 //    }
 //}
 //
@@ -146,5 +146,3 @@
 //}
 //
 //@end
-//
-//void import_NSObject_HHH (void) { }
