@@ -70,18 +70,12 @@
 
 @implementation NSDictionary (HSafeMessy)
 - (NSArray *)arrayValue {
-    if ([self isKindOfClass:NSDictionary.class]) {
-        return [NSArray arrayWithObject:self];
-    }
-    return nil;
+    return [NSArray arrayWithObject:self];
 }
 @end
 
 @implementation NSArray (HSafeMessy)
 - (NSArray *)arrayValue {
-    if ([self isKindOfClass:NSArray.class]) {
-        return self;
-    }
-    return nil;
+    return self;
 }
 @end
