@@ -340,6 +340,24 @@
     return [self isValidateWithRegex:regex];
 }
 
+- (BOOL)isValidatedLoginUserName {
+    NSString *regex = @"^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,11}$";
+    return [self isValidateWithRegex:regex];
+}
+- (BOOL)isValidatedLoginPassword {
+    NSString *regex = @"[a-zA-Z0-9]{6,12}$";
+    return [self isValidateWithRegex:regex];
+}
+
+- (BOOL)isValidatedRegisterUserName {
+    NSString *regex = @"^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,11}$";
+    return [self isValidateWithRegex:regex];
+}
+- (BOOL)isValidatedRegisterPassword {
+    NSString *regex = @"[a-zA-Z0-9]{6,12}$";
+    return [self isValidateWithRegex:regex];
+}
+
 
 - (BOOL)isEmpty {
     return (self.text.length == 0);

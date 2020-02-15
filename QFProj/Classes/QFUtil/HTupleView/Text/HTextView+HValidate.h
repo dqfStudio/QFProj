@@ -16,6 +16,17 @@ NS_ASSUME_NONNULL_BEGIN
 // 字母、数字或其组合，长度6-12位
 @property (nonatomic, readonly) BOOL isValidatedPassword; //是否有效的密码
 
+// 须是字母与数字的组合，长度6-11位
+@property (nonatomic, readonly) BOOL isValidatedLoginUserName; //是否有效的用户名
+// 字母、数字或其组合，长度6-12位
+@property (nonatomic, readonly) BOOL isValidatedLoginPassword; //是否有效的密码
+
+// 须是字母与数字的组合，长度6-11位
+@property (nonatomic, readonly) BOOL isValidatedRegisterUserName; //是否有效的用户名
+// 字母、数字或其组合，长度6-12位
+@property (nonatomic, readonly) BOOL isValidatedRegisterPassword; //是否有效的密码
+
+
 @property (nonatomic, readonly) BOOL isEmpty; //是否为空
 
 @property (nonatomic, readonly) BOOL isOnlyAlpha; //纯字母
