@@ -31,31 +31,31 @@
 
 - (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
-        case 0:return CGSizeMake(self.tupleView.width, 60);
-        case 1:return CGSizeMake(self.tupleView.width, 60);
-        case 2:return CGSizeMake(self.tupleView.width, 60);
-        case 3:return CGSizeMake(self.tupleView.width, 40);
-        case 4:return CGSizeMake(self.tupleView.width, 45);
-        case 5:return CGSizeMake(self.tupleView.width, 20);
+        case HCell0:return CGSizeMake(self.tupleView.width, 60);
+        case HCell1:return CGSizeMake(self.tupleView.width, 60);
+        case HCell2:return CGSizeMake(self.tupleView.width, 60);
+        case HCell3:return CGSizeMake(self.tupleView.width, 40);
+        case HCell4:return CGSizeMake(self.tupleView.width, 45);
+        case HCell5:return CGSizeMake(self.tupleView.width, 20);
         default:return CGSizeZero;
     }
 }
 
 - (UIEdgeInsets)edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
-        case 0:return UIEdgeInsetsMake(15, 0, 0, 0);
-        case 1:return UIEdgeInsetsMake(15, 0, 0, 0);
-        case 2:return UIEdgeInsetsMake(15, 0, 0, 0);
-        case 3:return UIEdgeInsetsMake(0, 15, 0, 15);
-        case 4:return UIEdgeInsetsMake(0, 15, 0, 15);
-        case 5:return UIEdgeInsetsMake(5, 15, 0, 0);
+        case HCell0:return UIEdgeInsetsMake(15, 0, 0, 0);
+        case HCell1:return UIEdgeInsetsMake(15, 0, 0, 0);
+        case HCell2:return UIEdgeInsetsMake(15, 0, 0, 0);
+        case HCell3:return UIEdgeInsetsMake(0, 15, 0, 15);
+        case HCell4:return UIEdgeInsetsMake(0, 15, 0, 15);
+        case HCell5:return UIEdgeInsetsMake(5, 15, 0, 0);
         default:return UIEdgeInsetsZero;
     }
 }
 
 - (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
-        case 0: {
+        case HCell0: {
             HTupleTextFieldCell *cell = itemBlock(nil,HTupleTextFieldCell.class, nil, YES);
             [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
 
@@ -73,7 +73,7 @@
             }];
         }
             break;
-        case 1: {
+        case HCell1: {
             HTupleTextFieldCell *cell = itemBlock(nil, HTupleTextFieldCell.class, nil, YES);
             [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
 
@@ -90,7 +90,7 @@
             }];
         }
             break;
-        case 2: {
+        case HCell2: {
             HTupleTextFieldCell *cell = itemBlock(nil, HTupleTextFieldCell.class, nil, YES);
             [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
 
@@ -115,11 +115,11 @@
             }];
         }
             break;
-        case 3: {
+        case HCell3: {
             itemBlock(nil, HTupleBaseCell.class, nil, YES);
         }
             break;
-        case 4: {
+        case HCell4: {
             HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
             [cell.buttonView setBackgroundColor:[UIColor colorWithString:@"#CCCCCC"]];
             [cell.buttonView setTitle:@"登录"];
@@ -140,7 +140,7 @@
             }];
         }
             break;
-        case 5: {
+        case HCell5: {
 
             HServiceAuthorizationCell *cell = itemBlock(nil, HServiceAuthorizationCell.class, nil, YES);
 

@@ -15,8 +15,8 @@
 //}
 //- (NSInteger)numberOfItemsInSection:(NSInteger)section {
 //    switch (section) {
-//        case 1: return 6;
-//        case 2: return 1;
+//        case HCell1: return 6;
+//        case HCell2: return 1;
 //        default:break;
 //    }
 //    return 0;
@@ -24,22 +24,22 @@
 //
 //- (CGSize)sizeForHeaderInSection:(NSInteger)section {
 //    switch (section) {
-//        case 1: return CGSizeMake(tupleView.width, 5);
-//        case 2: return CGSizeZero;
+//        case HCell1: return CGSizeMake(tupleView.width, 5);
+//        case HCell2: return CGSizeZero;
 //        default: return CGSizeZero;
 //    }
 //}
 //- (CGSize)sizeForFooterInSection:(NSInteger)section {
 //    switch (section) {
-//        case 1: return CGSizeMake(tupleView.width, 15);
-//        case 2: return CGSizeZero;
+//        case HCell1: return CGSizeMake(tupleView.width, 15);
+//        case HCell2: return CGSizeZero;
 //        default:return CGSizeZero;
 //    }
 //}
 //- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
 //    switch (indexPath.section) {
-//        case 1: return CGSizeMake(tupleView.width, 55);
-//        case 2: return CGSizeMake(tupleView.width, 55);
+//        case HCell1: return CGSizeMake(tupleView.width, 55);
+//        case HCell2: return CGSizeMake(tupleView.width, 55);
 //        default: return CGSizeZero;
 //    }
 //}
@@ -52,7 +52,7 @@
 //}
 //- (UIEdgeInsets)edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
 //    switch (indexPath.section) {
-//        case 2: return UIEdgeInsetsMake(0, 60, 0, 60);
+//        case HCell2: return UIEdgeInsetsMake(0, 60, 0, 60);
 //        default: return UIEdgeInsetsZero;
 //    }
 //}
