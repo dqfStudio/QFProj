@@ -67,3 +67,21 @@
     return NO;
 }
 @end
+
+@implementation NSDictionary (HSafeMessy)
+- (NSArray *)arrayValue {
+    if ([self isKindOfClass:NSDictionary.class]) {
+        return [NSArray arrayWithObject:self];
+    }
+    return nil;
+}
+@end
+
+@implementation NSArray (HSafeMessy)
+- (NSArray *)arrayValue {
+    if ([self isKindOfClass:NSArray.class]) {
+        return self;
+    }
+    return nil;
+}
+@end

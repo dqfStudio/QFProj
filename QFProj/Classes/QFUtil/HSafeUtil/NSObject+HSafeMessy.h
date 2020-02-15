@@ -28,3 +28,11 @@
 - (NSString *)stringValue;
 - (BOOL)isEmpty;
 @end
+
+@interface NSDictionary (HSafeMessy)
+- (NSArray *)arrayValue;
+@end
+
+@interface NSArray (HSafeMessy)
+- (NSArray *)arrayValue;
+@end

@@ -87,21 +87,3 @@
     return [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
 }
 @end
-
-@implementation NSDictionary (HArray)
-- (NSArray *)arrayValue {
-    if ([self isKindOfClass:NSDictionary.class]) {
-        return [NSArray arrayWithObject:self];
-    }
-    return nil;
-}
-@end
-
-@implementation NSArray (HArray)
-- (NSArray *)arrayValue {
-    if ([self isKindOfClass:NSArray.class]) {
-        return self;
-    }
-    return nil;
-}
-@end
