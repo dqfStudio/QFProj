@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface NSNull (HSafeMessy)
++ (NSArray *)arrayValue;
+- (NSArray *)arrayValue;
 + (NSString *)stringValue;
 - (NSString *)stringValue;
 + (NSUInteger)length;

@@ -9,6 +9,12 @@
 #import "NSObject+HSafeMessy.h"
 
 @implementation NSNull (HSafeMessy)
++ (NSArray *)arrayValue {
+    return nil;
+}
+- (NSArray *)arrayValue {
+    return nil;
+}
 + (NSString *)stringValue {
     return @"";
 }
