@@ -44,4 +44,15 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)stringValue;
 @end
 
+@interface NSDictionary (HArray)
+//返回数组对象
+- (NSArray *)arrayValue;
+@end
+
+@interface NSArray (HArray)
+//返回数组对象
+- (NSArray *)arrayValue;
+@end
+
+
 NS_ASSUME_NONNULL_END
