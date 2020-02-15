@@ -17,7 +17,8 @@ typedef void(^HTableCellInitBlock)(id target);
 typedef void(^HTableCellSignalBlock)(id target, HTableSignal *signal);
 
 @interface HTableSignal : NSObject
-@property (nonatomic) id signal;
 @property (nonatomic) NSInteger tag;
-@property (nonatomic) NSString *name;
+@property (nonatomic, copy) id signal;
+@property (nonatomic, weak) id target;
+@property (nonatomic, copy) NSString *name;
 @end

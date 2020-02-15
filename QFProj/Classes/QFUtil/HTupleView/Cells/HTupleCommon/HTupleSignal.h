@@ -18,7 +18,8 @@ typedef void(^HTupleCellInitBlock)(id target);
 typedef void(^HTupleCellSignalBlock)(id target, HTupleSignal *signal);
 
 @interface HTupleSignal : NSObject
-@property (nonatomic) id signal;
 @property (nonatomic) NSInteger tag;
-@property (nonatomic) NSString *name;
+@property (nonatomic, copy) id signal;
+@property (nonatomic, weak) id target;
+@property (nonatomic, copy) NSString *name;
 @end
