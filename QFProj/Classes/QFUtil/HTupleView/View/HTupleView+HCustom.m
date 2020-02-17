@@ -120,10 +120,9 @@
 //}
 //
 //- (nonnull UICollectionViewTransitionLayout *)collectionView:(UICollectionView *)collectionView transitionLayoutForOldLayout:(UICollectionViewLayout *)fromLayout newLayout:(UICollectionViewLayout *)toLayout {
-//    NSString *prefix = @"";
 //    SEL selector = NSSelectorFromString(@"transitionLayoutForOldLayout:newLayout:");
-//    if ([(NSObject *)self.delegate respondsToSelector:selector withPre:prefix]) {
-//        return [(NSObject *)self.delegate performSelector:selector withPre:prefix withMethodArgments:&fromLayout, &toLayout];
+//    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
+//        return [(NSObject *)self.delegate performSelector:selector withMethodArgments:&fromLayout, &toLayout];
 //    }
 //    return UICollectionViewTransitionLayout.new;
 //}
@@ -139,43 +138,41 @@
 //    return NO;
 //}
 //- (BOOL)collectionView:(UICollectionView *)collectionView shouldUpdateFocusInContext:(UICollectionViewFocusUpdateContext *)context {
-//    NSString *prefix = @"";
 //    SEL selector = NSSelectorFromString(@"shouldUpdateFocusInContext:");
-//    if ([(NSObject *)self.delegate respondsToSelector:selector withPre:prefix]) {
-//        return [[(NSObject *)self.delegate performSelector:selector withPre:prefix withMethodArgments:&context] boolValue];
+//    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
+//        return [[(NSObject *)self.delegate performSelector:selector withMethodArgments:&context] boolValue];
 //    }
 //    return NO;
 //}
 //- (void)collectionView:(UICollectionView *)collectionView didUpdateFocusInContext:(UICollectionViewFocusUpdateContext *)context withAnimationCoordinator:(UIFocusAnimationCoordinator *)coordinator {
-//    NSString *prefix = @"";
 //    SEL selector = NSSelectorFromString(@"didUpdateFocusInContext:withAnimationCoordinator:");
-//    if ([(NSObject *)self.delegate respondsToSelector:selector withPre:prefix]) {
-//        [(NSObject *)self.delegate performSelector:selector withPre:prefix withMethodArgments:&context, &coordinator];
+//    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
+//        [(NSObject *)self.delegate performSelector:selector withMethodArgments:&context, &coordinator];
 //    }
 //}
 //- (nullable NSIndexPath *)indexPathForPreferredFocusedViewInCollectionView:(UICollectionView *)collectionView {
-//    NSString *prefix = @"";
 //    SEL selector = NSSelectorFromString(@"indexPathForPreferredFocusedViewInCollectionView");
-//    if ([(NSObject *)self.delegate respondsToSelector:selector withPre:prefix]) {
-//        return [(NSObject *)self.delegate performSelector:selector withPre:prefix];
+//    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
+//        #pragma clang diagnostic push
+//        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+//        return [(NSObject *)self.delegate performSelector:selector];
+//        #pragma clang diagnostic pop
 //    }
 //    return nil;
 //}
 //
 //- (NSIndexPath *)collectionView:(UICollectionView *)collectionView targetIndexPathForMoveFromItemAtIndexPath:(NSIndexPath *)originalIndexPath toProposedIndexPath:(NSIndexPath *)proposedIndexPath {
-//    NSString *prefix = @"";
 //    SEL selector = NSSelectorFromString(@"targetIndexPathForMoveFromItemAtIndexPath:toProposedIndexPath:");
-//    if ([(NSObject *)self.delegate respondsToSelector:selector withPre:prefix]) {
-//        return [(NSObject *)self.delegate performSelector:selector withPre:prefix withMethodArgments:&originalIndexPath, &proposedIndexPath];
+//    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
+//        return [(NSObject *)self.delegate performSelector:selector withMethodArgments:&originalIndexPath, &proposedIndexPath];
 //    }
-//    return NSIndexPath.new;
+//    return originalIndexPath;
 //}
 //
 //- (CGPoint)collectionView:(UICollectionView *)collectionView targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset {
-//    NSString *prefix = @"";
 //    SEL selector = NSSelectorFromString(@"targetIndexPathForMoveFromItemAtIndexPath:toProposedIndexPath:");
-//    if ([(NSObject *)self.delegate respondsToSelector:selector withPre:prefix]) {
-//        return [[(NSObject *)self.delegate performSelector:selector withPre:prefix withMethodArgments:&proposedContentOffset] CGPointValue];
+//    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
+//        return [[(NSObject *)self.delegate performSelector:selector withMethodArgments:&proposedContentOffset] CGPointValue];
 //    }
 //    return CGPointZero;
 //}
@@ -210,10 +207,12 @@
 //}
 //
 //- (void)collectionViewDidEndMultipleSelectionInteraction:(UICollectionView *)collectionView {
-//    NSString *prefix = @"";
 //    SEL selector = NSSelectorFromString(@"collectionViewDidEndMultipleSelectionInteraction");
-//    if ([(NSObject *)self.delegate respondsToSelector:selector withPre:prefix]) {
-//        [(NSObject *)self.delegate performSelector:selector withPre:prefix];
+//    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
+//        #pragma clang diagnostic push
+//        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+//        [(NSObject *)self.delegate performSelector:selector];
+//        #pragma clang diagnostic pop
 //    }
 //}
 //
@@ -228,28 +227,25 @@
 //}
 //
 //- (nullable UITargetedPreview *)collectionView:(UICollectionView *)collectionView previewForHighlightingContextMenuWithConfiguration:(UIContextMenuConfiguration *)configuration API_AVAILABLE(ios(13.0)) {
-//    NSString *prefix = @"";
 //    SEL selector = NSSelectorFromString(@"previewForHighlightingContextMenuWithConfiguration:");
-//    if ([(NSObject *)self.delegate respondsToSelector:selector withPre:prefix]) {
-//        return [(NSObject *)self.delegate performSelector:selector withPre:prefix withMethodArgments:&configuration];
+//    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
+//        return [(NSObject *)self.delegate performSelector:selector withMethodArgments:&configuration];
 //    }
 //    return nil;
 //}
 //
 //- (nullable UITargetedPreview *)collectionView:(UICollectionView *)collectionView previewForDismissingContextMenuWithConfiguration:(UIContextMenuConfiguration *)configuration API_AVAILABLE(ios(13.0)) {
-//    NSString *prefix = @"";
 //    SEL selector = NSSelectorFromString(@"previewForDismissingContextMenuWithConfiguration:");
-//    if ([(NSObject *)self.delegate respondsToSelector:selector withPre:prefix]) {
-//        return [(NSObject *)self.delegate performSelector:selector withPre:prefix withMethodArgments:&configuration];
+//    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
+//        return [(NSObject *)self.delegate performSelector:selector withMethodArgments:&configuration];
 //    }
 //    return nil;
 //}
 //
 //- (void)collectionView:(UICollectionView *)collectionView willPerformPreviewActionForMenuWithConfiguration:(UIContextMenuConfiguration *)configuration animator:(id<UIContextMenuInteractionCommitAnimating>)animator API_AVAILABLE(ios(13.0)) {
-//    NSString *prefix = @"";
 //    SEL selector = NSSelectorFromString(@"willPerformPreviewActionForMenuWithConfiguration:animator:");
-//    if ([(NSObject *)self.delegate respondsToSelector:selector withPre:prefix]) {
-//        [(NSObject *)self.delegate performSelector:selector withPre:prefix withMethodArgments:&configuration, &animator];
+//    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
+//        [(NSObject *)self.delegate performSelector:selector withMethodArgments:&configuration, &animator];
 //    }
 //}
 //
@@ -257,7 +253,7 @@
 //// UIScrollViewDelegate
 //
 //- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    SEL selector = NSSelectorFromString(@"scrollViewDidScroll:");
+//    SEL selector = NSSelectorFromString(@"tupleScrollViewDidScroll:");
 //    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
 //        #pragma clang diagnostic push
 //        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
@@ -266,7 +262,7 @@
 //    }
 //}
 //- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
-//    SEL selector = NSSelectorFromString(@"scrollViewDidZoom:");
+//    SEL selector = NSSelectorFromString(@"tupleScrollViewDidZoom:");
 //    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
 //        #pragma clang diagnostic push
 //        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
@@ -276,7 +272,7 @@
 //}
 //
 //- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-//    SEL selector = NSSelectorFromString(@"scrollViewWillBeginDragging:");
+//    SEL selector = NSSelectorFromString(@"tupleScrollViewWillBeginDragging:");
 //    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
 //        #pragma clang diagnostic push
 //        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
@@ -286,23 +282,21 @@
 //}
 //
 //- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-//    NSString *prefix = @"";
-//    SEL selector = NSSelectorFromString(@"scrollViewWillEndDragging:withVelocity:targetContentOffset:");
-//    if ([(NSObject *)self.delegate respondsToSelector:selector withPre:prefix]) {
-//        [(NSObject *)self.delegate performSelector:selector withPre:prefix withMethodArgments:&scrollView, &velocity, &targetContentOffset];
+//    SEL selector = NSSelectorFromString(@"tupleScrollViewWillEndDragging:withVelocity:targetContentOffset:");
+//    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
+//        [(NSObject *)self.delegate performSelector:selector withMethodArgments:&scrollView, &velocity, &targetContentOffset];
 //    }
 //}
 //
 //- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-//    NSString *prefix = @"";
-//    SEL selector = NSSelectorFromString(@"scrollViewWillEndDragging:willDecelerate:");
-//    if ([(NSObject *)self.delegate respondsToSelector:selector withPre:prefix]) {
-//        [(NSObject *)self.delegate performSelector:selector withPre:prefix withMethodArgments:&scrollView, &decelerate];
+//    SEL selector = NSSelectorFromString(@"tupleScrollViewWillEndDragging:willDecelerate:");
+//    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
+//        [(NSObject *)self.delegate performSelector:selector withMethodArgments:&scrollView, &decelerate];
 //    }
 //}
 //
 //- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-//    SEL selector = NSSelectorFromString(@"scrollViewWillBeginDecelerating:");
+//    SEL selector = NSSelectorFromString(@"tupleScrollViewWillBeginDecelerating:");
 //    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
 //        #pragma clang diagnostic push
 //        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
@@ -311,7 +305,7 @@
 //    }
 //}
 //- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-//    SEL selector = NSSelectorFromString(@"scrollViewDidEndDecelerating:");
+//    SEL selector = NSSelectorFromString(@"tupleScrollViewDidEndDecelerating:");
 //    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
 //        #pragma clang diagnostic push
 //        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
@@ -321,7 +315,7 @@
 //}
 //
 //- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
-//    SEL selector = NSSelectorFromString(@"scrollViewDidEndScrollingAnimation:");
+//    SEL selector = NSSelectorFromString(@"tupleScrollViewDidEndScrollingAnimation:");
 //    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
 //        #pragma clang diagnostic push
 //        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
@@ -331,15 +325,14 @@
 //}
 //
 //- (nullable UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-//    NSString *prefix = @"";
-//    SEL selector = NSSelectorFromString(@"viewForZoomingInScrollView:");
-//    if ([(NSObject *)self.delegate respondsToSelector:selector withPre:prefix]) {
-//        return [(NSObject *)self.delegate performSelector:selector withPre:prefix withMethodArgments:&scrollView];
+//    SEL selector = NSSelectorFromString(@"tupleViewForZoomingInScrollView:");
+//    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
+//        return [(NSObject *)self.delegate performSelector:selector withMethodArgments:&scrollView];
 //    }
 //    return nil;
 //}
 //- (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view {
-//    SEL selector = NSSelectorFromString(@"scrollViewDidScrollToTop:");
+//    SEL selector = NSSelectorFromString(@"tupleScrollViewDidScrollToTop:");
 //    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
 //        #pragma clang diagnostic push
 //        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
@@ -348,23 +341,21 @@
 //    }
 //}
 //- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view atScale:(CGFloat)scale {
-//    NSString *prefix = @"";
-//    SEL selector = NSSelectorFromString(@"scrollViewDidEndZooming:withView:atScale:");
-//    if ([(NSObject *)self.delegate respondsToSelector:selector withPre:prefix]) {
-//        [(NSObject *)self.delegate performSelector:selector withPre:prefix withMethodArgments:&scrollView, &view, &scale];
+//    SEL selector = NSSelectorFromString(@"tupleScrollViewDidEndZooming:withView:atScale:");
+//    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
+//        [(NSObject *)self.delegate performSelector:selector withMethodArgments:&scrollView, &view, &scale];
 //    }
 //}
 //
 //- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
-//    NSString *prefix = @"";
-//    SEL selector = NSSelectorFromString(@"scrollViewShouldScrollToTop:");
-//    if ([(NSObject *)self.delegate respondsToSelector:selector withPre:prefix]) {
-//        return [[(NSObject *)self.delegate performSelector:selector withPre:prefix withMethodArgments:&scrollView] boolValue];
+//    SEL selector = NSSelectorFromString(@"tupleScrollViewShouldScrollToTop:");
+//    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
+//        return [[(NSObject *)self.delegate performSelector:selector withMethodArgments:&scrollView] boolValue];
 //    }
 //    return YES;
 //}
 //- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView {
-//    SEL selector = NSSelectorFromString(@"scrollViewDidScrollToTop:");
+//    SEL selector = NSSelectorFromString(@"tupleScrollViewDidScrollToTop:");
 //    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
 //        #pragma clang diagnostic push
 //        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
@@ -374,7 +365,7 @@
 //}
 //
 //- (void)scrollViewDidChangeAdjustedContentInset:(UIScrollView *)scrollView {
-//    SEL selector = NSSelectorFromString(@"scrollViewDidChangeAdjustedContentInset:");
+//    SEL selector = NSSelectorFromString(@"tupleScrollViewDidChangeAdjustedContentInset:");
 //    if ([(NSObject *)self.delegate respondsToSelector:selector]) {
 //        #pragma clang diagnostic push
 //        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
