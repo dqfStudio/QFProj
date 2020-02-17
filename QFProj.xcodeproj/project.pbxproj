@@ -157,6 +157,7 @@
 		A20E3D3F23278A2500E6982B /* HTupleViewCellHoriValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D3E23278A2500E6982B /* HTupleViewCellHoriValue1.m */; };
 		A20E3D482328AC0B00E6982B /* HTupleViewApexVertValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D472328AC0B00E6982B /* HTupleViewApexVertValue1.m */; };
 		A20E3D4B2328AC1600E6982B /* HTupleViewApexHoriValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D4A2328AC1600E6982B /* HTupleViewApexHoriValue1.m */; };
+		A20F4C2C23FA8C6E00E2A126 /* UINavigationController+HIntercept.m in Sources */ = {isa = PBXBuildFile; fileRef = A20F4C2A23FA8C6E00E2A126 /* UINavigationController+HIntercept.m */; };
 		A219F22F222FB46A00241FD7 /* HIFS.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F22D222FB46A00241FD7 /* HIFS.m */; };
 		A222A6C42279AAAD0013098A /* NSDictionary+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A6C32279AAAD0013098A /* NSDictionary+HUtil.m */; };
 		A222A716227C52430013098A /* UILabel+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A715227C52430013098A /* UILabel+HUtil.m */; };
@@ -634,6 +635,8 @@
 		A20E3D472328AC0B00E6982B /* HTupleViewApexVertValue1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewApexVertValue1.m; sourceTree = "<group>"; };
 		A20E3D492328AC1600E6982B /* HTupleViewApexHoriValue1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewApexHoriValue1.h; sourceTree = "<group>"; };
 		A20E3D4A2328AC1600E6982B /* HTupleViewApexHoriValue1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewApexHoriValue1.m; sourceTree = "<group>"; };
+		A20F4C2A23FA8C6E00E2A126 /* UINavigationController+HIntercept.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+HIntercept.m"; sourceTree = "<group>"; };
+		A20F4C2B23FA8C6E00E2A126 /* UINavigationController+HIntercept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+HIntercept.h"; sourceTree = "<group>"; };
 		A219F22D222FB46A00241FD7 /* HIFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIFS.m; sourceTree = "<group>"; };
 		A219F22E222FB46A00241FD7 /* HIFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIFS.h; sourceTree = "<group>"; };
 		A222A6C22279AAAD0013098A /* NSDictionary+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HUtil.h"; sourceTree = "<group>"; };
@@ -2091,6 +2094,8 @@
 				A28566B323F1438B00552FE7 /* NSObject_.m */,
 				A282036523F3F56E000CD22F /* NSObject_1.h */,
 				A282036423F3F56E000CD22F /* NSObject_1.m */,
+				A20F4C2B23FA8C6E00E2A126 /* UINavigationController+HIntercept.h */,
+				A20F4C2A23FA8C6E00E2A126 /* UINavigationController+HIntercept.m */,
 			);
 			name = "动态插入.a文件";
 			path = "QFUtil/动态插入.a文件";
@@ -2858,6 +2863,7 @@
 				A2A8EBB922E1FDEE0049C51B /* WebViewJavascriptBridge.m in Sources */,
 				A206882022C9FDBD00661634 /* HTableViewApex.m in Sources */,
 				A2E8F53C22D72A9800E7C9F2 /* YTKNetworkConfig.m in Sources */,
+				A20F4C2C23FA8C6E00E2A126 /* UINavigationController+HIntercept.m in Sources */,
 				A208E17822BA305C009A6FDD /* HTupleRefresh.m in Sources */,
 				15F9152920A18CA9000261C4 /* HAspectsCenter.m in Sources */,
 				A222AE5122818F7D0013098A /* HTextLine.m in Sources */,
