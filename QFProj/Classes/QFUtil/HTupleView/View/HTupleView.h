@@ -13,6 +13,7 @@
 #import "HTupleViewApex.h"
 #import "NSIndexPath+HUtil.h"
 #import "NSObject+HSelector.h"
+#import "HTupleViewProtocal.h"
 #import "UIScrollView+HEmptyDataSet.h"
 #import "HCollectionViewFlowLayout.h"
 
@@ -42,7 +43,7 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 - (void)enumerateTuples:(void (^)(void))completion;
 @end
 
-@protocol HTupleViewDelegate <UICollectionViewDelegate>
+@protocol HTupleViewDelegate <HTupleViewProtocal>
 @optional
 - (NSInteger)numberOfSectionsInTupleView;
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;

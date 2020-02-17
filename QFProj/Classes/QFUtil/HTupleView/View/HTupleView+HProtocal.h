@@ -1,5 +1,5 @@
 //
-//  HTupleView+HCustom.h
+//  HTupleView+HProtocal.h
 //  QFProj
 //
 //  Created by wind on 2020/2/17.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HTupleView (HCustom)
+@interface HTupleView (HProtocal)
 
 @end
 
