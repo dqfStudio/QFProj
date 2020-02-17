@@ -49,13 +49,21 @@
 //- (void)intercept_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
 //    if ([viewController isKindOfClass:HUIViewController.class]) {
 //        if ([viewController isKindOfClass:UIAlertController.class]) return;
-//        SEL selector = NSSelectorFromString(@"viewDidLoad");
-//        if ([viewController respondsToSelector:selector]) {
-//            #pragma clang diagnostic push
-//            #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-//            [viewController performSelector:selector];
-//            #pragma clang diagnostic pop
-//        }
+//        #pragma clang diagnostic push
+//        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+//        [viewController performSelector:NSSelectorFromString(@"viewDidLoad")];
+//        [viewController performSelector:NSSelectorFromString(@"viewWillAppear:")];
+//
+//        //[viewController performSelector:NSSelectorFromString(@"updateViewConstraints")];
+//
+//        [viewController performSelector:NSSelectorFromString(@"viewWillLayoutSubviews:")];
+//        [viewController performSelector:NSSelectorFromString(@"viewDidLayoutSubviews:")];
+//
+//        [viewController performSelector:NSSelectorFromString(@"viewDidAppear:")];
+//
+//        //[viewController performSelector:NSSelectorFromString(@"viewWillDisappear:")];
+//        //[viewController performSelector:NSSelectorFromString(@"viewDidDisappear:")];
+//        #pragma clang diagnostic pop
 //    }else {
 //        [self intercept_pushViewController:viewController animated:animated];
 //    }
@@ -72,13 +80,21 @@
 //- (void)intercept_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^ __nullable)(void))completion {
 //    if ([viewControllerToPresent isKindOfClass:HUIViewController.class]) {
 //        if ([viewControllerToPresent isKindOfClass:UIAlertController.class]) return;
-//        SEL selector = NSSelectorFromString(@"viewDidLoad");
-//        if ([viewControllerToPresent respondsToSelector:selector]) {
-//            #pragma clang diagnostic push
-//            #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-//            [viewControllerToPresent performSelector:selector];
-//            #pragma clang diagnostic pop
-//        }
+//        #pragma clang diagnostic push
+//        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+//        [viewControllerToPresent performSelector:NSSelectorFromString(@"viewDidLoad")];
+//        [viewControllerToPresent performSelector:NSSelectorFromString(@"viewWillAppear:")];
+//
+//        //[viewControllerToPresent performSelector:NSSelectorFromString(@"updateViewConstraints")];
+//
+//        [viewControllerToPresent performSelector:NSSelectorFromString(@"viewWillLayoutSubviews:")];
+//        [viewControllerToPresent performSelector:NSSelectorFromString(@"viewDidLayoutSubviews:")];
+//
+//        [viewControllerToPresent performSelector:NSSelectorFromString(@"viewDidAppear:")];
+//
+//        //[viewControllerToPresent performSelector:NSSelectorFromString(@"viewWillDisappear:")];
+//        //[viewControllerToPresent performSelector:NSSelectorFromString(@"viewDidDisappear:")];
+//        #pragma clang diagnostic pop
 //    }else {
 //        [self intercept_presentViewController:viewControllerToPresent animated:flag completion:completion];
 //    }
@@ -96,8 +112,18 @@
 //@end
 //
 //@implementation HUIViewController (HIntercept)
+////- (UIView *)view {
+////    return nil;
+////}
 //- (UIView *)view {
-//    return nil;
+//    UIView *view = objc_getAssociatedObject(self, _cmd);
+//    if (!view) {
+//        self.view = [[UIView alloc] initWithFrame:UIScreen.mainScreen.bounds];
+//    }
+//    return view;
+//}
+//- (void)setView:(UIView *)view {
+//    objc_setAssociatedObject(self, @selector(view), view, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 //}
 //@end
 //

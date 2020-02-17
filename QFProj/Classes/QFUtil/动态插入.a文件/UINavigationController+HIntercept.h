@@ -5,3 +5,7 @@
 //@interface HUIViewController : UIViewController
 //
 //@end
+//
+//@interface HUIViewController (HIntercept)
+//@property (nonatomic) UIView *view;
+//@end
