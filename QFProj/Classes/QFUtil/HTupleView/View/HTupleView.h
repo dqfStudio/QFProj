@@ -13,7 +13,7 @@
 #import "HTupleViewApex.h"
 #import "NSIndexPath+HUtil.h"
 #import "NSObject+HSelector.h"
-#import "HTupleViewProtocal.h"
+#import "HTupleView+HProtocal.h"
 #import "UIScrollView+HEmptyDataSet.h"
 #import "HCollectionViewFlowLayout.h"
 

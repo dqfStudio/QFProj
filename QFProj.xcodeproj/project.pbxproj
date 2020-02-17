@@ -640,7 +640,6 @@
 		A20F4C2B23FA8C6E00E2A126 /* UINavigationController+HIntercept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+HIntercept.h"; sourceTree = "<group>"; };
 		A20F4C2D23FABBC900E2A126 /* HTupleView+HProtocal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HTupleView+HProtocal.h"; sourceTree = "<group>"; };
 		A20F4C2E23FABBC900E2A126 /* HTupleView+HProtocal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HTupleView+HProtocal.m"; sourceTree = "<group>"; };
-		A20F4C3023FAD2CC00E2A126 /* HTupleViewProtocal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewProtocal.h; sourceTree = "<group>"; };
 		A219F22D222FB46A00241FD7 /* HIFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIFS.m; sourceTree = "<group>"; };
 		A219F22E222FB46A00241FD7 /* HIFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIFS.h; sourceTree = "<group>"; };
 		A222A6C22279AAAD0013098A /* NSDictionary+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HUtil.h"; sourceTree = "<group>"; };
@@ -1627,7 +1626,6 @@
 				15B4DD832092F96B00773E04 /* HDebugUtil */,
 				15C5736320B3DD7B0070327C /* HTupleView.h */,
 				15C5736720B3DD7B0070327C /* HTupleView.m */,
-				A20F4C3023FAD2CC00E2A126 /* HTupleViewProtocal.h */,
 				A20F4C2D23FABBC900E2A126 /* HTupleView+HProtocal.h */,
 				A20F4C2E23FABBC900E2A126 /* HTupleView+HProtocal.m */,
 				15C5736220B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.h */,

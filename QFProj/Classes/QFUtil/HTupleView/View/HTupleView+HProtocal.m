@@ -6,7 +6,7 @@
 //  Copyright © 2020 dqfStudio. All rights reserved.
 //
 
-#import "HTupleView+HProtocal.h"
+#import "HTupleView.h"
 
 @implementation HTupleView (HProtocal)
 
