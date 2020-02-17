@@ -158,6 +158,7 @@
 		A20E3D482328AC0B00E6982B /* HTupleViewApexVertValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D472328AC0B00E6982B /* HTupleViewApexVertValue1.m */; };
 		A20E3D4B2328AC1600E6982B /* HTupleViewApexHoriValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D4A2328AC1600E6982B /* HTupleViewApexHoriValue1.m */; };
 		A20F4C2C23FA8C6E00E2A126 /* UINavigationController+HIntercept.m in Sources */ = {isa = PBXBuildFile; fileRef = A20F4C2A23FA8C6E00E2A126 /* UINavigationController+HIntercept.m */; };
+		A20F4C2F23FABBC900E2A126 /* HTupleView+HCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = A20F4C2E23FABBC900E2A126 /* HTupleView+HCustom.m */; };
 		A219F22F222FB46A00241FD7 /* HIFS.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F22D222FB46A00241FD7 /* HIFS.m */; };
 		A222A6C42279AAAD0013098A /* NSDictionary+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A6C32279AAAD0013098A /* NSDictionary+HUtil.m */; };
 		A222A716227C52430013098A /* UILabel+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A715227C52430013098A /* UILabel+HUtil.m */; };
@@ -637,6 +638,8 @@
 		A20E3D4A2328AC1600E6982B /* HTupleViewApexHoriValue1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewApexHoriValue1.m; sourceTree = "<group>"; };
 		A20F4C2A23FA8C6E00E2A126 /* UINavigationController+HIntercept.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+HIntercept.m"; sourceTree = "<group>"; };
 		A20F4C2B23FA8C6E00E2A126 /* UINavigationController+HIntercept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+HIntercept.h"; sourceTree = "<group>"; };
+		A20F4C2D23FABBC900E2A126 /* HTupleView+HCustom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HTupleView+HCustom.h"; sourceTree = "<group>"; };
+		A20F4C2E23FABBC900E2A126 /* HTupleView+HCustom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HTupleView+HCustom.m"; sourceTree = "<group>"; };
 		A219F22D222FB46A00241FD7 /* HIFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIFS.m; sourceTree = "<group>"; };
 		A219F22E222FB46A00241FD7 /* HIFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIFS.h; sourceTree = "<group>"; };
 		A222A6C22279AAAD0013098A /* NSDictionary+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HUtil.h"; sourceTree = "<group>"; };
@@ -1623,6 +1626,8 @@
 				15B4DD832092F96B00773E04 /* HDebugUtil */,
 				15C5736320B3DD7B0070327C /* HTupleView.h */,
 				15C5736720B3DD7B0070327C /* HTupleView.m */,
+				A20F4C2D23FABBC900E2A126 /* HTupleView+HCustom.h */,
+				A20F4C2E23FABBC900E2A126 /* HTupleView+HCustom.m */,
 				15C5736220B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.h */,
 				15C5736520B3DD7B0070327C /* UICollectionViewLeftAlignedLayout.m */,
 				A28EF2E721D86DD8002F92ED /* HCollectionViewFlowLayout.h */,
@@ -2700,6 +2705,7 @@
 				A20E3CE0231A663300E6982B /* UIAlertController+HUtil.m in Sources */,
 				A227A901233C9F1F005611BA /* HMainController5.m in Sources */,
 				15B4DE042092F96C00773E04 /* NSError+HUtil.m in Sources */,
+				A20F4C2F23FABBC900E2A126 /* HTupleView+HCustom.m in Sources */,
 				A28EF38321D8EC2A002F92ED /* HResultView.m in Sources */,
 				A2E8F54722D72AB700E7C9F2 /* HRequestDAO.m in Sources */,
 				157684D220E2157E00D8DC5B /* NSBlockChain.m in Sources */,

@@ -112,6 +112,9 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     }
     return self;
 }
+- (id <HTupleViewDelegate>)delegate {
+    return self.tupleDelegate;
+}
 - (void)setDelegate:(id<HTupleViewDelegate>)delegate {
     self.tupleDelegate = delegate;
 }
