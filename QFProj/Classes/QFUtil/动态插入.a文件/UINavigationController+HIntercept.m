@@ -125,6 +125,30 @@
 //- (void)setView:(UIView *)view {
 //    objc_setAssociatedObject(self, @selector(view), view, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 //}
+////操作过程
+//- (void)fdsfdsaf {
+//    SEL selector1 = NSSelectorFromString(@"tableView:didSelectRowAtIndexPath:");
+//    if ([self respondsToSelector:selector1]) {
+//        for (int i=0; i< 5; i++) {
+//            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+//            #pragma clang diagnostic push
+//            #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+//            [self performSelector:selector1 withObject:nil withObject:indexPath];
+//            #pragma clang diagnostic pop
+//        }
+//    }
+//
+//    SEL selector2 = NSSelectorFromString(@"collectionView:didSelectItemAtIndexPath:");
+//    if ([self respondsToSelector:selector2]) {
+//        for (int i=0; i< 5; i++) {
+//            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+//            #pragma clang diagnostic push
+//            #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+//            [self performSelector:selector2 withObject:nil withObject:indexPath];
+//            #pragma clang diagnostic pop
+//        }
+//    }
+//}
 //@end
 //
 ////该类为要拦截处理的类
