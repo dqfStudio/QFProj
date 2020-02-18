@@ -10,7 +10,7 @@
 #import "YPTabBar.h"
 
 @interface HRegisterController ()
-
+@property (nonatomic) YPTabBar *tabBarView;
 @end
 
 @implementation HRegisterController
@@ -58,64 +58,83 @@
     }
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    CGRect frame = self.view.bounds;
+    frame.origin.y += UIDevice.topBarHeight;
+    frame.size.height -= UIDevice.topBarHeight;
+    _tupleView.frame = frame;
+    
+    if (_tabBarView) {
+        CGRect frame = CGRectZero;
+        frame.origin.x = self.tupleView.width/2-200/2;
+        frame.origin.y = 55/2-35/2;
+        frame.size.width  = 200;
+        frame.size.height = 35;
+        _tabBarView.frame = frame;
+    }
+}
+
 - (YPTabBar *)tabBarView {
-    CGRect frame = CGRectZero;
-    frame.origin.x = self.tupleView.width/2-200/2;
-    frame.origin.y = 55/2-35/2;
-    frame.size.width  = 200;
-    frame.size.height = 35;
-    
-    YPTabBar *tabBar = [[YPTabBar alloc] initWithFrame:frame];
-    [tabBar setCornerRadius:35/2];
-    [tabBar setTag:12345];
-    
-    YPTabItem *item1 = YPTabItem.new;
-    item1.title = @"快速注册";
-    item1.backgroundColor = [UIColor yellowColor];
-    
-    YPTabItem *item2 = YPTabItem.new;
-    item2.title = @"手机注册";
-    item2.backgroundColor = [UIColor whiteColor];
-    
-    @www
-    [tabBar setTabbardSelectedBlock:^(NSInteger idx) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            @sss
-            switch (idx) {
-                case 0: {
-                    item1.backgroundColor = [UIColor yellowColor];
-                    item2.backgroundColor = [UIColor whiteColor];
+    if (!_tabBarView) {
+        CGRect frame = CGRectZero;
+        frame.origin.x = self.tupleView.width/2-200/2;
+        frame.origin.y = 55/2-35/2;
+        frame.size.width  = 200;
+        frame.size.height = 35;
+        
+        _tabBarView = [[YPTabBar alloc] initWithFrame:frame];
+        [_tabBarView setCornerRadius:35/2];
+        [_tabBarView setTag:12345];
+        
+        YPTabItem *item1 = YPTabItem.new;
+        item1.title = @"快速注册";
+        item1.backgroundColor = [UIColor yellowColor];
+        
+        YPTabItem *item2 = YPTabItem.new;
+        item2.title = @"手机注册";
+        item2.backgroundColor = [UIColor whiteColor];
+        
+        @www
+        [_tabBarView setTabbardSelectedBlock:^(NSInteger idx) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                @sss
+                switch (idx) {
+                    case 0: {
+                        item1.backgroundColor = [UIColor yellowColor];
+                        item2.backgroundColor = [UIColor whiteColor];
+                    }
+                        break;
+                    case 1: {
+                        item1.backgroundColor = [UIColor whiteColor];
+                        item2.backgroundColor = [UIColor yellowColor];
+                    }
+                        break;
+                    default:
+                        break;
                 }
-                    break;
-                case 1: {
-                    item1.backgroundColor = [UIColor whiteColor];
-                    item2.backgroundColor = [UIColor yellowColor];
-                }
-                    break;
-                default:
-                    break;
-            }
-            self.tupleView.tupleState = idx;
-        });
-    }];
-    
-    [tabBar setItems:@[item1, item2]];
-    tabBar.itemTitleColor = [UIColor blackColor];
-    tabBar.itemTitleSelectedColor = [UIColor whiteColor];
-    tabBar.itemTitleFont = [UIFont systemFontOfSize:17];
-    tabBar.itemTitleSelectedFont = [UIFont systemFontOfSize:17];
-    tabBar.leadingSpace = 0;
-    tabBar.trailingSpace = 0;
-    
-    tabBar.itemFontChangeFollowContentScroll = YES;
-    tabBar.indicatorScrollFollowContent = YES;
-    tabBar.indicatorColor = [UIColor clearColor];
-    [tabBar setBackgroundColor:[UIColor whiteColor]];
-    
-    [tabBar setSelectedItemIndex:0];
-    
-    [tabBar setScrollEnabledAndItemWidth:frame.size.width/2];
-    return tabBar;
+                self.tupleView.tupleState = idx;
+            });
+        }];
+        
+        [_tabBarView setItems:@[item1, item2]];
+        _tabBarView.itemTitleColor = [UIColor blackColor];
+        _tabBarView.itemTitleSelectedColor = [UIColor whiteColor];
+        _tabBarView.itemTitleFont = [UIFont systemFontOfSize:17];
+        _tabBarView.itemTitleSelectedFont = [UIFont systemFontOfSize:17];
+        _tabBarView.leadingSpace = 0;
+        _tabBarView.trailingSpace = 0;
+        
+        _tabBarView.itemFontChangeFollowContentScroll = YES;
+        _tabBarView.indicatorScrollFollowContent = YES;
+        _tabBarView.indicatorColor = [UIColor clearColor];
+        [_tabBarView setBackgroundColor:[UIColor whiteColor]];
+        
+        [_tabBarView setSelectedItemIndex:0];
+        
+        [_tabBarView setScrollEnabledAndItemWidth:frame.size.width/2];
+    }
+    return _tabBarView;
 }
 
 - (NSInteger)tupleExa0_numberOfItemsInSection:(NSInteger)section {
@@ -134,7 +153,7 @@
     HTupleBaseCell *cell = itemBlock(nil, HTupleBaseCell.class, nil, YES);
     YPTabBar *tabBar = [cell viewWithTag:12345];
     if (!tabBar) {
-        [cell addSubview:[self tabBarView]];
+        [cell addSubview:self.tabBarView];
     }
 }
 

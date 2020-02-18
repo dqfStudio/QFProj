@@ -34,6 +34,14 @@
     }
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    CGRect frame = self.view.bounds;
+    frame.origin.y += UIDevice.topBarHeight;
+    frame.size.height -= UIDevice.topBarHeight;
+    _tupleView.frame = frame;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

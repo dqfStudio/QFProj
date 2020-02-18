@@ -66,6 +66,41 @@ static const CGFloat kTabBarHeight = 50;
     [self.tabBar addBottomBlankViewWithColor:[UIColor whiteColor]];
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    
+    CGFloat contentViewY = 0;
+    CGFloat tabBarY = screenSize.height - kTabBarHeight;
+    tabBarY -= UIDevice.bottomBarHeight;
+    
+    CGFloat contentViewHeight = tabBarY;
+    // 如果parentViewController为UINavigationController及其子类
+    if ([self.parentViewController isKindOfClass:[UINavigationController class]] &&
+        !self.navigationController.navigationBarHidden &&
+        !self.navigationController.navigationBar.hidden) {
+        
+        CGFloat navMaxY = CGRectGetMaxY(self.navigationController.navigationBar.frame);
+        if (!self.navigationController.navigationBar.translucent ||
+            self.edgesForExtendedLayout == UIRectEdgeNone ||
+            self.edgesForExtendedLayout == UIRectEdgeTop) {
+            tabBarY = screenSize.height - kTabBarHeight - navMaxY;
+            contentViewHeight = tabBarY;
+        } else {
+            contentViewY = navMaxY;
+            contentViewHeight = screenSize.height - kTabBarHeight - contentViewY;
+        }
+    }
+    
+    [self setTabBarFrame:CGRectMake(0, tabBarY, screenSize.width, kTabBarHeight)
+        contentViewFrame:CGRectMake(0, contentViewY, screenSize.width, contentViewHeight)];
+    
+    [self.tabBar addTopLineViewWithColor:[UIColor grayColor]];
+    [self.tabBar addBottomBlankViewWithColor:[UIColor whiteColor]];
+
+}
+
 - (void)initViewControllers {
     
     HMainController1 *mainVC1= HMainController1.new;

@@ -475,12 +475,13 @@
 
 #pragma mark - 旋转支持
 - (BOOL)shouldAutorotate {
-    return NO;
+//    return NO;
+    return YES;
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskPortrait;
-    //return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
+//    return UIInterfaceOrientationMaskPortrait;
+    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
 }
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
