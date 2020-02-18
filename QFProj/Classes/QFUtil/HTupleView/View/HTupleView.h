@@ -13,7 +13,6 @@
 #import "HTupleViewApex.h"
 #import "NSIndexPath+HUtil.h"
 #import "NSObject+HSelector.h"
-#import "HTupleView+HProtocal.h"
 #import "UIScrollView+HEmptyDataSet.h"
 #import "HCollectionViewFlowLayout.h"
 
@@ -43,8 +42,9 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 - (void)enumerateTuples:(void (^)(void))completion;
 @end
 
-@protocol HTupleViewDelegate <HTupleViewProtocal>
+@protocol HTupleViewDelegate <NSObject>
 @optional
+// 常用代理方法
 - (NSInteger)numberOfSectionsInTupleView;
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;
 //layout == HCollectionViewFlowLayout
@@ -66,6 +66,81 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 
 - (void)willDisplayCell:(HTupleBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)didSelectCell:(HTupleBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+
+// UICollectionViewDataSource
+- (BOOL)canMoveItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath*)destinationIndexPath;
+
+- (nullable NSArray<NSString *> *)indexTitlesForCollectionView;
+- (NSIndexPath *)indexPathForIndexTitle:(NSString *)title atIndex:(NSInteger)index;
+
+// UICollectionViewDelegate
+- (BOOL)shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)didHighlightItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath;
+- (BOOL)shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+- (BOOL)shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)didDeselectItemAtIndexPath:(NSIndexPath *)indexPath;
+
+- (void)willDisplaySupplementaryView:(UICollectionReusableView *)view forElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath;
+- (void)didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)didEndDisplayingSupplementaryView:(UICollectionReusableView *)view forElementOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath;
+
+- (BOOL)shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (BOOL)canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(nullable id)sender;
+- (void)performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(nullable id)sender;
+
+- (nonnull UICollectionViewTransitionLayout *)transitionLayoutForOldLayout:(UICollectionViewLayout *)fromLayout newLayout:(UICollectionViewLayout *)toLayout;
+
+ // Focus
+- (BOOL)canFocusItemAtIndexPath:(NSIndexPath *)indexPath;
+- (BOOL)shouldUpdateFocusInContext:(UICollectionViewFocusUpdateContext *)context;
+- (void)didUpdateFocusInContext:(UICollectionViewFocusUpdateContext *)context withAnimationCoordinator:(UIFocusAnimationCoordinator *)coordinator;
+- (nullable NSIndexPath *)indexPathForPreferredFocusedViewIn;
+
+- (NSIndexPath *)targetIndexPathForMoveFromItemAtIndexPath:(NSIndexPath *)originalIndexPath toProposedIndexPath:(NSIndexPath *)proposedIndexPath;
+
+- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset;
+
+- (BOOL)shouldSpringLoadItemAtIndexPath:(NSIndexPath *)indexPath withContext:(id<UISpringLoadedInteractionContext>)context API_AVAILABLE(ios(11.0));
+
+- (BOOL)shouldBeginMultipleSelectionInteractionAtIndexPath:(NSIndexPath *)indexPath;
+
+- (void)didBeginMultipleSelectionInteractionAtIndexPath:(NSIndexPath *)indexPath;
+
+- (void)collectionViewDidEndMultipleSelectionInteraction;
+
+- (nullable UIContextMenuConfiguration *)contextMenuConfigurationForItemAtIndexPath:(NSIndexPath *)indexPath point:(CGPoint)point API_AVAILABLE(ios(13.0));
+
+- (nullable UITargetedPreview *)previewForHighlightingContextMenuWithConfiguration:(UIContextMenuConfiguration *)configuration API_AVAILABLE(ios(13.0));
+
+- (nullable UITargetedPreview *)previewForDismissingContextMenuWithConfiguration:(UIContextMenuConfiguration *)configuration API_AVAILABLE(ios(13.0));
+
+- (void)willPerformPreviewActionForMenuWithConfiguration:(UIContextMenuConfiguration *)configuration animator:(id<UIContextMenuInteractionCommitAnimating>)animator API_AVAILABLE(ios(13.0));
+
+// UIScrollViewDelegate
+- (void)tupleScrollViewDidScroll:(UIScrollView *)scrollView;
+- (void)tupleScrollViewDidZoom:(UIScrollView *)scrollView;
+
+- (void)tupleScrollViewWillBeginDragging:(UIScrollView *)scrollView;
+
+- (void)tupleScrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset;
+
+- (void)tupleScrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
+
+- (void)tupleScrollViewWillBeginDecelerating:(UIScrollView *)scrollView;
+- (void)tupleScrollViewDidEndDecelerating:(UIScrollView *)scrollView;
+
+- (void)tupleScrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView;
+
+- (nullable UIView *)tupleViewForZoomingInScrollView:(UIScrollView *)scrollView;
+- (void)tupleScrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view;
+- (void)tupleScrollViewDidEndZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view atScale:(CGFloat)scale;
+
+- (BOOL)tupleScrollViewShouldScrollToTop:(UIScrollView *)scrollView;
+- (void)tupleScrollViewDidScrollToTop:(UIScrollView *)scrollView;
+
+- (void)tupleScrollViewDidChangeAdjustedContentInset:(UIScrollView *)scrollView;
 @end
 
 @interface HTupleView : UICollectionView <HTupleViewDelegate, HCollectionViewDelegateFlowLayout>
@@ -109,10 +184,19 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 - (id)dequeueReusableCellWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx idxPath:(NSIndexPath *)idxPath;
 //release method
 - (void)releaseTupleBlock;
-//private methods
-- (NSString *)tuplePrefix;
-- (NSString *)tupleScrollSplitPrefix;
-- (NSString *)tuplePrefixWithSection:(NSInteger)section;
+//根据传入的row和section获取cell或indexPath
+- (id (^)(NSInteger row, NSInteger section))cell;
+- (id (^)(NSInteger row, NSInteger section))indexPath;
+//获取tupleView的宽高和大小
+- (CGFloat)width;
+- (CGFloat)height;
+- (CGSize)size;
+//获取某个section的宽高和大小
+- (CGFloat (^)(NSInteger section))sectionWidth;
+- (CGFloat (^)(NSInteger section))sectionHeigh;
+- (CGSize (^)(NSInteger section))sectionSize;
+//根据传入的个数和序号计算该item的宽度
+- (CGFloat)fixSlitWith:(CGFloat)width colCount:(CGFloat)colCount index:(NSInteger)idx;
 @end
 
 /// 信号机制分类
@@ -133,19 +217,6 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 - (void)signal:(HTupleSignal *_Nullable)signal footerSection:(NSInteger)section;
 //释放所有信号block
 - (void)releaseAllSignal;
-//根据传入的row和section获取cell或indexPath
-- (id (^)(NSInteger row, NSInteger section))cell;
-- (id (^)(NSInteger row, NSInteger section))indexPath;
-//获取tupleView的宽高和大小
-- (CGFloat)width;
-- (CGFloat)height;
-- (CGSize)size;
-//获取某个section的宽高和大小
-- (CGFloat (^)(NSInteger section))sectionWidth;
-- (CGFloat (^)(NSInteger section))sectionHeigh;
-- (CGSize (^)(NSInteger section))sectionSize;
-//根据传入的个数和序号计算该item的宽度
-- (CGFloat)fixSlitWith:(CGFloat)width colCount:(CGFloat)colCount index:(NSInteger)idx;
 @end
 
 /// split设计数据存储分类
