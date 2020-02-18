@@ -82,9 +82,9 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 - (BOOL)shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath;
 - (void)didDeselectItemAtIndexPath:(NSIndexPath *)indexPath;
 
-- (void)willDisplaySupplementaryView:(UICollectionReusableView *)view forElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath;
-- (void)didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath;
-- (void)didEndDisplayingSupplementaryView:(UICollectionReusableView *)view forElementOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath;
+- (void)willDisplaySupplementaryView:(HTupleBaseApex *)view forElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath;
+- (void)didEndDisplayingCell:(HTupleBaseCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)didEndDisplayingSupplementaryView:(HTupleBaseApex *)view forElementOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath;
 
 - (BOOL)shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath;
 - (BOOL)canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(nullable id)sender;
