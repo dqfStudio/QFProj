@@ -411,7 +411,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 - (NSString *)tupleScrollSplitPrefix {
     NSString *prefix = @"";
     if (self.tupleStyle == HTupleStyleSplit) {
-        if (![self.scrollSplitArray containsObject:@(self.tupleState)]) {
+        if ([self.scrollSplitArray containsObject:@(self.tupleState)]) {
             prefix = [KTupleDesignKey stringByAppendingFormat:@"%@_", @(self.tupleState)];
         }
     }
