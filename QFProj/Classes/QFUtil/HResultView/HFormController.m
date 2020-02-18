@@ -40,7 +40,7 @@
         CGRect frame = [UIScreen mainScreen].bounds;
         _tupleView = [[HTupleView alloc] initWithFrame:frame];
         [_tupleView setScrollEnabled:NO];
-        [_tupleView setDelegate:(id<HTupleViewDelegate>)self];
+        [_tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
     }
     return _tupleView;
 }

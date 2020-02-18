@@ -40,7 +40,7 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.leftNaviButton setHidden:YES];
     [self setTitle:@"第三页"];
-    [self.tupleView setDelegate:(id<HTupleViewDelegate>)self];
+    [self.tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
     [self.view addSubview:self.tupleView];
 }
 - (NSInteger)tuple0_numberOfSectionsInTupleView {

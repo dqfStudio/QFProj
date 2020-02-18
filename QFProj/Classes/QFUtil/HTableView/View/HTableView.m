@@ -306,7 +306,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     [self.allReuseHeaders setObject:cell forKey:@(section).stringValue];
     //调用代理方法
     UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-    NSString *prefix = [self prefixWithSection:section];
+    NSString *prefix = [self tuplePrefixWithSection:section];
     SEL selector = @selector(edgeInsetsForHeaderInSection:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         edgeInsets = [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&section] UIEdgeInsetsValue];
@@ -349,7 +349,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     [self.allReuseFooters setObject:cell forKey:@(section).stringValue];
     //调用代理方法
     UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-    NSString *prefix = [self prefixWithSection:section];
+    NSString *prefix = [self tuplePrefixWithSection:section];
     SEL selector = @selector(edgeInsetsForFooterInSection:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         edgeInsets = [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&section] UIEdgeInsetsValue];
@@ -391,7 +391,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     [self.allReuseCells setObject:cell forKey:idxPath.stringValue];
     //调用代理方法
     UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-    NSString *prefix = [self prefixWithSection:idxPath.section];
+    NSString *prefix = [self tuplePrefixWithSection:idxPath.section];
     SEL selector = @selector(edgeInsetsForRowAtIndexPath:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         edgeInsets = [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&idxPath] UIEdgeInsetsValue];
@@ -403,7 +403,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     return cell;
 }
 #pragma mark - UITableViewDatasource & delegate
-- (NSString *)prefixWithSection:(NSInteger)section {
+- (NSString *)tuplePrefixWithSection:(NSInteger)section {
     NSString *prefix = @"";
     if (self.tableStyle == HTableStyleSplit) {
         if ([self.sectionPaths containsObject:@(section)]) {
@@ -439,7 +439,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSString *prefix = [self prefixWithSection:section];
+    NSString *prefix = [self tuplePrefixWithSection:section];
     SEL selector = @selector(numberOfRowsInSection:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&section] integerValue];
@@ -447,7 +447,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     return 0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    NSString *prefix = [self prefixWithSection:section];
+    NSString *prefix = [self tuplePrefixWithSection:section];
     SEL selector = @selector(heightForHeaderInSection:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&section] floatValue];
@@ -455,7 +455,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     return 0.f;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    NSString *prefix = [self prefixWithSection:section];
+    NSString *prefix = [self tuplePrefixWithSection:section];
     SEL selector = @selector(heightForFooterInSection:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&section] floatValue];
@@ -463,7 +463,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     return 0.f;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *prefix = [self prefixWithSection:indexPath.section];
+    NSString *prefix = [self tuplePrefixWithSection:indexPath.section];
     SEL selector = @selector(heightForRowAtIndexPath:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath] floatValue];
@@ -473,7 +473,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     //调用代理方法
-    NSString *prefix = [self prefixWithSection:section];
+    NSString *prefix = [self tuplePrefixWithSection:section];
     SEL selector = @selector(tableHeader:inSection:);
     HTableHeader headerBlock = ^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
         return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
@@ -491,7 +491,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     //调用代理方法
-    NSString *prefix = [self prefixWithSection:section];
+    NSString *prefix = [self tuplePrefixWithSection:section];
     SEL selector = @selector(tableFooter:inSection:);
     HTableFooter footerBlock = ^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
         return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
@@ -509,7 +509,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //调用代理方法
-    NSString *prefix = [self prefixWithSection:indexPath.section];
+    NSString *prefix = [self tuplePrefixWithSection:indexPath.section];
     SEL selector = @selector(tableRow:atIndexPath:);
     HTableRow cellBlock = ^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
         return [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
@@ -534,7 +534,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 //            [cell setLayoutMargins:self.separatorInset];
 //        }
 //    }
-    NSString *prefix = [self prefixWithSection:indexPath.section];
+    NSString *prefix = [self tuplePrefixWithSection:indexPath.section];
     SEL selector = @selector(willDisplayCell:atIndexPath:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&cell, &indexPath];
@@ -545,7 +545,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     if (cell.didSelectCell) {
         cell.didSelectCell(cell, indexPath);
     }else {
-        NSString *prefix = [self prefixWithSection:indexPath.section];
+        NSString *prefix = [self tuplePrefixWithSection:indexPath.section];
         SEL selector = @selector(didSelectCell:atIndexPath:);
         if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
             [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&cell, &indexPath];

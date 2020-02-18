@@ -10,8 +10,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol HTupleViewProtocal <UICollectionViewDelegate>
+@protocol HTupleViewProtocal <NSObject>
 @optional
+
+// UICollectionViewDataSource
+- (BOOL)canMoveItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath*)destinationIndexPath;
+
+- (nullable NSArray<NSString *> *)indexTitlesForCollectionView;
+- (NSIndexPath *)indexPathForIndexTitle:(NSString *)title atIndex:(NSInteger)index;
 
 // UICollectionViewDelegate
 - (BOOL)shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath;
@@ -47,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)didBeginMultipleSelectionInteractionAtIndexPath:(NSIndexPath *)indexPath;
 
-- (void)collectionViewDidEndMultipleSelectionInteraction:(UICollectionView *)collectionView;
+- (void)collectionViewDidEndMultipleSelectionInteraction;
 
 - (nullable UIContextMenuConfiguration *)contextMenuConfigurationForItemAtIndexPath:(NSIndexPath *)indexPath point:(CGPoint)point API_AVAILABLE(ios(13.0));
 
@@ -82,6 +89,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)tupleScrollViewDidScrollToTop:(UIScrollView *)scrollView;
 
 - (void)tupleScrollViewDidChangeAdjustedContentInset:(UIScrollView *)scrollView;
+
 @end
 
 NS_ASSUME_NONNULL_END

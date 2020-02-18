@@ -69,7 +69,7 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 @end
 
 @interface HTupleView : UICollectionView <HTupleViewDelegate, HCollectionViewDelegateFlowLayout>
-@property (nonatomic, weak, nullable) id <HTupleViewDelegate> delegate;
+@property (nonatomic, weak, nullable) id <HTupleViewDelegate> tupleDelegate;
 
 @property (nonatomic, assign) NSUInteger pageNo;    // page number, default 1
 @property (nonatomic, assign) NSUInteger pageSize;  // page size, default 20
@@ -83,6 +83,8 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 
 @property (nonatomic, copy, nullable) NSString *releaseTupleKey; //设置释放的key值
 @property (nonatomic, copy, nullable) NSString *reloadTupleKey; //设置reload的key值
+
+@property (nonatomic, copy, nullable) NSArray *scrollSplitArray; //滚动代理方法的合体设计
 //禁止调用初始化话方法init和new
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
@@ -107,6 +109,10 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 - (id)dequeueReusableCellWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx idxPath:(NSIndexPath *)idxPath;
 //release method
 - (void)releaseTupleBlock;
+//private methods
+- (NSString *)tuplePrefix;
+- (NSString *)tupleScrollSplitPrefix;
+- (NSString *)tuplePrefixWithSection:(NSInteger)section;
 @end
 
 /// 信号机制分类

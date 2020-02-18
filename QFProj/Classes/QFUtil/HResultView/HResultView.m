@@ -34,7 +34,7 @@
     if (!_tupleView) {
         _tupleView = [[HTupleView alloc] initWithFrame:self.bounds];
         [_tupleView setScrollEnabled:NO];
-        [_tupleView setDelegate:(id<HTupleViewDelegate>)self];
+        [_tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
     }
     return _tupleView;
 }

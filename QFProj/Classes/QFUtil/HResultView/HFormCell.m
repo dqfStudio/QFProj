@@ -29,7 +29,7 @@
         _tupleView = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleDirectionHorizontal];
         [_tupleView setBackgroundColor:[UIColor whiteColor]];
         [_tupleView setPagingEnabled:YES];
-        [_tupleView setDelegate:(id<HTupleViewDelegate>)self];
+        [_tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
         // 设置默认参数
         [self setup];
         [self addSubview:_tupleView];
