@@ -159,7 +159,7 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 @property (nonatomic, copy, nullable) NSString *releaseTupleKey; //设置释放的key值
 @property (nonatomic, copy, nullable) NSString *reloadTupleKey; //设置reload的key值
 
-@property (nonatomic, copy, nullable) NSArray *scrollSplitArray; //滚动代理方法的合体设计
+@property (nonatomic, copy, nullable) NSArray *scrollSplitArray; //滚动代理方法的分体设计
 //禁止调用初始化话方法init和new
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
