@@ -1,5 +1,5 @@
 //
-//  HRequestDAO.h
+//  HNetworkDAO.h
 //  HProjectModel1
 //
 //  Created by dqf on 2019/1/25.
@@ -10,7 +10,7 @@
 #import "YTKNetworkPrivate.h"
 #import "YTKRequest.h"
 
-@interface HRequestDAO : YTKRequest
+@interface HNetworkDAO : YTKRequest
 
 #pragma mark - 网络请求
 

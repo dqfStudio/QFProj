@@ -160,10 +160,10 @@
 //        [self back];
 //        [[NSNotificationCenter defaultCenter] postNotificationName:@"KMenuSelectedIndexNotify" object:@(0)];
 //    };
-//    [[HNetWorkingManager shareManager] sendHTTPDataWithBaseURL:HEADBASEINURL andAppendURL:kLogin RequestWay:kPOST withParamters:self.loginDict withToken:nil success:^(BOOL isSuccess, id responseObject) {
+//    [[HNetworkManager shareManager] sendHTTPDataWithBaseURL:HEADBASEINURL andAppendURL:kLogin RequestWay:kPOST withParamters:self.loginDict withToken:nil success:^(BOOL isSuccess, id responseObject) {
 //        //查询一次用户信息.补全登录返回用户信息不全的问题
 //        if ([responseObject[@"status"] isEqualToString:@"ok"]) {
-//            [[HNetWorkingManager shareManager] queryUserInfo:^(NSString *error) {
+//            [[HNetworkManager shareManager] queryUserInfo:^(NSString *error) {
 //                if (!error) {
 //                    HLoginBlock();
 //                }else {
@@ -201,7 +201,7 @@
 
 //- (void)request {
 //    if (baseURL) {
-//        HRequestDAO *requestDAO = [[HRequestDAO alloc] initWithUrl:url info:parameters];
+//        HNetworkDAO *requestDAO = [[HNetworkDAO alloc] initWithUrl:url info:parameters];
 //        [requestDAO startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
 //            NSDictionary *responseDict = request.responseJSONObject;
 //            success(YES, responseDict);
@@ -442,7 +442,7 @@
 //     }];
 //
 //    if (baseURL) {
-//        HRequestDAO *requestDAO = [[HRequestDAO alloc] initWithUrl:url info:parameters];
+//        HNetworkDAO *requestDAO = [[HNetworkDAO alloc] initWithUrl:url info:parameters];
 //        [requestDAO startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
 //            NSDictionary *responseDict = request.responseJSONObject;
 //            success(YES, responseDict);

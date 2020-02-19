@@ -334,7 +334,7 @@
 		A2E8F54222D72A9800E7C9F2 /* YTKChainRequestAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F53822D72A9800E7C9F2 /* YTKChainRequestAgent.m */; };
 		A2E8F54322D72A9800E7C9F2 /* YTKBatchRequestAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F53922D72A9800E7C9F2 /* YTKBatchRequestAgent.m */; };
 		A2E8F54422D72A9800E7C9F2 /* YTKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F53B22D72A9800E7C9F2 /* YTKRequest.m */; };
-		A2E8F54722D72AB700E7C9F2 /* HRequestDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F54622D72AB700E7C9F2 /* HRequestDAO.m */; };
+		A2E8F54722D72AB700E7C9F2 /* HNetworkDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F54622D72AB700E7C9F2 /* HNetworkDAO.m */; };
 		A2E8F55622D775A200E7C9F2 /* UIView+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F55522D775A200E7C9F2 /* UIView+HSafeMessy.m */; };
 		A2E8F55A22D8354400E7C9F2 /* HFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F55822D8354400E7C9F2 /* HFileCache.m */; };
 		A2E8F57322D8356300E7C9F2 /* HFileStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F55D22D8356300E7C9F2 /* HFileStorage.m */; };
@@ -350,7 +350,7 @@
 		A2ED9C1222314BA100C9D050 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1022314BA100C9D050 /* SimplePing.m */; };
 		A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1122314BA100C9D050 /* HPingTester.m */; };
 		A2ED9C1722314CAC00C9D050 /* HKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A2ED9C1622314CAC00C9D050 /* HKeyChainStore.m */; };
-		A2FA53C623D732D100C5F710 /* HNetWorkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FA53C523D732D100C5F710 /* HNetWorkingManager.m */; };
+		A2FA53C623D732D100C5F710 /* HNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FA53C523D732D100C5F710 /* HNetworkManager.m */; };
 		A2FF719D2317BADF00522223 /* hvc_back_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2FF719C2317BADF00522223 /* hvc_back_icon@3x.png */; };
 		A4759710217EC61D00AAAEA9 /* HUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A475970F217EC61C00AAAEA9 /* HUserDefaults.m */; };
 /* End PBXBuildFile section */
@@ -956,8 +956,8 @@
 		A2E8F53922D72A9800E7C9F2 /* YTKBatchRequestAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKBatchRequestAgent.m; sourceTree = "<group>"; };
 		A2E8F53A22D72A9800E7C9F2 /* YTKNetworkPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKNetworkPrivate.h; sourceTree = "<group>"; };
 		A2E8F53B22D72A9800E7C9F2 /* YTKRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKRequest.m; sourceTree = "<group>"; };
-		A2E8F54522D72AB700E7C9F2 /* HRequestDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRequestDAO.h; sourceTree = "<group>"; };
-		A2E8F54622D72AB700E7C9F2 /* HRequestDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRequestDAO.m; sourceTree = "<group>"; };
+		A2E8F54522D72AB700E7C9F2 /* HNetworkDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNetworkDAO.h; sourceTree = "<group>"; };
+		A2E8F54622D72AB700E7C9F2 /* HNetworkDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNetworkDAO.m; sourceTree = "<group>"; };
 		A2E8F55422D775A200E7C9F2 /* UIView+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HSafeMessy.h"; sourceTree = "<group>"; };
 		A2E8F55522D775A200E7C9F2 /* UIView+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2E8F55822D8354400E7C9F2 /* HFileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFileCache.m; sourceTree = "<group>"; };
@@ -988,8 +988,8 @@
 		A2ED9C1122314BA100C9D050 /* HPingTester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPingTester.m; sourceTree = "<group>"; };
 		A2ED9C1522314CAC00C9D050 /* HKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKeyChainStore.h; sourceTree = "<group>"; };
 		A2ED9C1622314CAC00C9D050 /* HKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKeyChainStore.m; sourceTree = "<group>"; };
-		A2FA53C423D732D100C5F710 /* HNetWorkingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNetWorkingManager.h; sourceTree = "<group>"; };
-		A2FA53C523D732D100C5F710 /* HNetWorkingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNetWorkingManager.m; sourceTree = "<group>"; };
+		A2FA53C423D732D100C5F710 /* HNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNetworkManager.h; sourceTree = "<group>"; };
+		A2FA53C523D732D100C5F710 /* HNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNetworkManager.m; sourceTree = "<group>"; };
 		A2FF719C2317BADF00522223 /* hvc_back_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hvc_back_icon@3x.png"; sourceTree = "<group>"; };
 		A475970E217EC61C00AAAEA9 /* HUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUserDefaults.h; sourceTree = "<group>"; };
 		A475970F217EC61C00AAAEA9 /* HUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUserDefaults.m; sourceTree = "<group>"; };
@@ -2380,10 +2380,10 @@
 		A2E8F52722D72A9800E7C9F2 /* HNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				A2E8F54522D72AB700E7C9F2 /* HRequestDAO.h */,
-				A2E8F54622D72AB700E7C9F2 /* HRequestDAO.m */,
-				A2FA53C423D732D100C5F710 /* HNetWorkingManager.h */,
-				A2FA53C523D732D100C5F710 /* HNetWorkingManager.m */,
+				A2E8F54522D72AB700E7C9F2 /* HNetworkDAO.h */,
+				A2E8F54622D72AB700E7C9F2 /* HNetworkDAO.m */,
+				A2FA53C423D732D100C5F710 /* HNetworkManager.h */,
+				A2FA53C523D732D100C5F710 /* HNetworkManager.m */,
 				A2E8F52822D72A9800E7C9F2 /* YTKNetwork */,
 			);
 			name = HNetwork;
@@ -2701,7 +2701,7 @@
 				A227A901233C9F1F005611BA /* HMainController5.m in Sources */,
 				15B4DE042092F96C00773E04 /* NSError+HUtil.m in Sources */,
 				A28EF38321D8EC2A002F92ED /* HResultView.m in Sources */,
-				A2E8F54722D72AB700E7C9F2 /* HRequestDAO.m in Sources */,
+				A2E8F54722D72AB700E7C9F2 /* HNetworkDAO.m in Sources */,
 				157684D220E2157E00D8DC5B /* NSBlockChain.m in Sources */,
 				A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */,
 				15B4DDF82092F96C00773E04 /* UIImage+Util.m in Sources */,
@@ -2753,7 +2753,7 @@
 				A2E8F55A22D8354400E7C9F2 /* HFileCache.m in Sources */,
 				A2E8F57622D8356300E7C9F2 /* HValueTransformerFactory.m in Sources */,
 				A2E8F57422D8356300E7C9F2 /* NSURL+HExtendedFileAttributes.m in Sources */,
-				A2FA53C623D732D100C5F710 /* HNetWorkingManager.m in Sources */,
+				A2FA53C623D732D100C5F710 /* HNetworkManager.m in Sources */,
 				A222AE4E22818F7D0013098A /* HTextMagnifier.m in Sources */,
 				A265FF6F2269F6280093C780 /* HHostUrlManager.m in Sources */,
 				A222AE6022818F7D0013098A /* HTextRunDelegate.m in Sources */,

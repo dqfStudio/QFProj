@@ -1,23 +1,23 @@
 //
-//  HNetWorkingManager.m
+//  HNetworkManager.m
 //  QFProj
 //
 //  Created by wind on 2020/1/21.
 //  Copyright © 2020 dqfStudio. All rights reserved.
 //
 
-#import "HNetWorkingManager.h"
+#import "HNetworkManager.h"
 #import "HPingTester.h"
 
-@interface HNetWorkingManager ()
+@interface HNetworkManager ()
 @property (nonatomic, strong) NSArray *originUrls;
 @property (nonatomic, copy)   void (^handler)(NSString *);
 @end
 
-@implementation HNetWorkingManager
+@implementation HNetworkManager
 
 + (instancetype)shareManager {
-    static HNetWorkingManager *share = nil;
+    static HNetworkManager *share = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         share = [[self alloc] init];
@@ -31,13 +31,13 @@
               argument:(NSDictionary *)argument
                success:(void(^)(id responseObject))success
                failure:(void(^)(NSError *error))failure {
-    [HRequestDAO.new sendGetWithUrl:url argument:argument success:success failure:failure];
+    [HNetworkDAO.new sendGetWithUrl:url argument:argument success:success failure:failure];
 }
 - (void)sendPostWithUrl:(NSString *)url
                argument:(NSDictionary *)argument
                 success:(void(^)(id responseObject))success
                 failure:(void(^)(NSError *error))failure {
-    [HRequestDAO.new sendPostWithUrl:url argument:argument success:success failure:failure];
+    [HNetworkDAO.new sendPostWithUrl:url argument:argument success:success failure:failure];
 }
 
 #pragma mark - 默认三次重试的网络请求
@@ -46,13 +46,13 @@
                argument:(NSDictionary *)argument
                 success:(void(^)(id responseObject))success
                 failure:(void(^)(NSError *error))failure {
-    [HRequestDAO.new retryGetWithUrl:url argument:argument success:success failure:failure];
+    [HNetworkDAO.new retryGetWithUrl:url argument:argument success:success failure:failure];
 }
 - (void)retryPostWithUrl:(NSString *)url
                 argument:(NSDictionary *)argument
                  success:(void(^)(id responseObject))success
                  failure:(void(^)(NSError *error))failure {
-    [HRequestDAO.new retryPostWithUrl:url argument:argument success:success failure:failure];
+    [HNetworkDAO.new retryPostWithUrl:url argument:argument success:success failure:failure];
 }
 
 #pragma mark - 查找可用URL

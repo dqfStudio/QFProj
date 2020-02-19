@@ -1,14 +1,14 @@
 //
-//  HRequestDAO.m
+//  HNetworkDAO.m
 //  HProjectModel1
 //
 //  Created by dqf on 2019/1/25.
 //  Copyright © 2019年 dqf. All rights reserved.
 //
 
-#import "HRequestDAO.h"
+#import "HNetworkDAO.h"
 
-@interface HRequestDAO () {
+@interface HNetworkDAO () {
     NSInteger tryCount; //当前重试次数
     NSInteger tryMax; //最大重试次数
 }
@@ -20,7 +20,7 @@
 @property (nonatomic, copy) YTKRequestCompletionBlock failureBlock;
 @end
 
-@implementation HRequestDAO
+@implementation HNetworkDAO
 + (void)initialize {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

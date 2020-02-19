@@ -1,5 +1,5 @@
 //
-//  HNetWorkingManager.h
+//  HNetworkManager.h
 //  QFProj
 //
 //  Created by wind on 2020/1/21.
@@ -7,9 +7,9 @@
 //
 
 #import <AFNetworking/AFNetworking.h>
-#import "HRequestDAO.h"
+#import "HNetworkDAO.h"
 
-@interface HNetWorkingManager : AFHTTPSessionManager
+@interface HNetworkManager : AFHTTPSessionManager
 
 + (instancetype)shareManager;
 
