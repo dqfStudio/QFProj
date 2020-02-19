@@ -118,7 +118,7 @@
         return currentItemAttributes;
     }
 
-    NSIndexPath* previousIndexPath = [NSIndexPath indexPathForItem:indexPath.item-1 inSection:indexPath.section];
+    NSIndexPath *previousIndexPath = [NSIndexPath indexPathForItem:indexPath.item-1 inSection:indexPath.section];
     CGRect previousFrame = [self layoutAttributesForItemAtIndexPath:previousIndexPath].frame;
 
     CGRect currentFrame = currentItemAttributes.frame;

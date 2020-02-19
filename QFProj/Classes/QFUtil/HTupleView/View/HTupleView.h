@@ -69,7 +69,7 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 
 // UICollectionViewDataSource
 - (BOOL)canMoveItemAtIndexPath:(NSIndexPath *)indexPath;
-- (void)moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath*)destinationIndexPath;
+- (void)moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath;
 
 - (nullable NSArray<NSString *> *)indexTitlesForCollectionView;
 - (NSIndexPath *)indexPathForIndexTitle:(NSString *)title atIndex:(NSInteger)index;

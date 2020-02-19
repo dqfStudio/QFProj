@@ -601,7 +601,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     }
     return NO;
 }
-- (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath*)destinationIndexPath {
+- (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     NSString *prefix = [self tuplePrefix];
     SEL selector = NSSelectorFromString(@"moveItemAtIndexPath:toIndexPath:");
     if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
