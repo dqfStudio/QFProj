@@ -61,9 +61,7 @@
 }
 
 + (NSString *)defaultsUserId {
-    NSString *userName = [HUserDefaults defaults].userName;
-    userName = [userName uppercaseString];
-    return userName;
+    return [HUserDefaults defaults].userName.uppercaseString;
 }
 
 //初始化数据
