@@ -57,14 +57,10 @@
 #pragma mark - 上下左右边角
 #pragma mark -
 
-/**
- *  设置圆角
- */
+//设置圆角
 @property (nonatomic) CGFloat cornerRadius;
 
-/**
- *  设置边框宽度和颜色
- */
+//设置边框宽度和颜色
 - (void)setBoarderWith:(CGFloat)width color:(UIColor *)color;
 
 //设置视图上边角幅度
@@ -81,10 +77,10 @@
 #pragma mark - 上下左右边线
 #pragma mark -
 
-@property (nonatomic) UIView *topLine;
-@property (nonatomic) UIView *leftLine;
-@property (nonatomic) UIView *bottomLine;
-@property (nonatomic) UIView *rightLine;
+@property (nonatomic, readonly) UIView *topLine;
+@property (nonatomic, readonly) UIView *leftLine;
+@property (nonatomic, readonly) UIView *bottomLine;
+@property (nonatomic, readonly) UIView *rightLine;
 
 - (void)addTopLineWithSize:(CGFloat)size color:(UIColor *)color paddingLeft:(CGFloat)left paddingRight:(CGFloat)right;
 - (void)addBottomLineWithSize:(CGFloat)size color:(UIColor *)color paddingLeft:(CGFloat)left paddingRight:(CGFloat)right;

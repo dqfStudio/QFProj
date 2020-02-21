@@ -130,18 +130,19 @@ static char const * const KRightLineView  = "KRightLineView";
 #pragma mark - 上下左右边角
 #pragma mark -
 
-- (void)setBoarderWith:(CGFloat)width color:(UIColor *)color {
-    self.layer.borderWidth = width;
-    self.layer.borderColor = color.CGColor;
+//设置圆角
+- (CGFloat)cornerRadius {
+    return self.layer.cornerRadius;
 }
-
 - (void)setCornerRadius:(CGFloat)cornerRadius {
     self.clipsToBounds = YES;
     self.layer.cornerRadius = cornerRadius;
 }
 
-- (CGFloat)cornerRadius {
-    return self.layer.cornerRadius;
+//设置边框宽度和颜色
+- (void)setBoarderWith:(CGFloat)width color:(UIColor *)color {
+    self.layer.borderWidth = width;
+    self.layer.borderColor = color.CGColor;
 }
 
 //设置视图上边角幅度
@@ -192,9 +193,6 @@ static char const * const KRightLineView  = "KRightLineView";
     }
     return lineView;
 }
-- (void)setTopLine:(UIView *)topLine {
-    objc_setAssociatedObject(self, KTopLineViewKey, topLine, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
 
 - (UIView *)bottomLine {
     UIView *lineView = objc_getAssociatedObject(self, KBottomLineView);
@@ -206,9 +204,6 @@ static char const * const KRightLineView  = "KRightLineView";
         objc_setAssociatedObject(self, KBottomLineView, lineView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     return lineView;
-}
-- (void)setBottomLine:(UIView *)bottomLine {
-    objc_setAssociatedObject(self, KBottomLineView, bottomLine, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 
@@ -224,9 +219,6 @@ static char const * const KRightLineView  = "KRightLineView";
     }
     return lineView;
 }
-- (void)setLeftLine:(UIView *)leftLine {
-    objc_setAssociatedObject(self, KLeftLineView, leftLine, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
 
 - (UIView *)rightLine {
     UIView *lineView = objc_getAssociatedObject(self, KRightLineView);
@@ -238,9 +230,6 @@ static char const * const KRightLineView  = "KRightLineView";
         objc_setAssociatedObject(self, KRightLineView, lineView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     return lineView;
-}
-- (void)setRightLine:(UIView *)rightLine {
-    objc_setAssociatedObject(self, KRightLineView, rightLine, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 
