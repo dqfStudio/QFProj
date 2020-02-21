@@ -3,7 +3,7 @@
 //  MeTa
 //
 //  Created by dqf on 2017/8/29.
-//  Copyright © 2017年 hisun. All rights reserved.
+//  Copyright © 2017年 dqf. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -14,6 +14,7 @@
 @interface UIView (HUtil)
 
 #pragma mark - Init
+#pragma mark -
 
 /**
  *  根据nib name返回UIView
@@ -26,6 +27,7 @@
 + (instancetype)viewFromNib;
 
 #pragma mark - Frame
+#pragma mark -
 
 @property (nonatomic, readwrite) CGFloat h_x;
 @property (nonatomic, readwrite) CGFloat h_y;
@@ -52,38 +54,23 @@
 @property (nonatomic, readonly)  CGFloat  h_maxX;
 @property (nonatomic, readonly)  CGFloat  h_maxY;
 
-- (void)fitScreenWidth;
-- (void)fitScreenHeight;
+#pragma mark - 上下左右边线
+#pragma mark -
 
-- (void)fitSuperX;
-- (void)fitSuperY;
+@property (nonatomic) UIView *topLine;
+@property (nonatomic) UIView *leftLine;
+@property (nonatomic) UIView *bottomLine;
+@property (nonatomic) UIView *rightLine;
 
-- (void)fitSuperWidth;
-- (void)fitSuperHeight;
+- (void)addTopLineWithSize:(CGFloat)size color:(UIColor *)color paddingLeft:(CGFloat)left paddingRight:(CGFloat)right;
+- (void)addBottomLineWithSize:(CGFloat)size color:(UIColor *)color paddingLeft:(CGFloat)left paddingRight:(CGFloat)right;
 
-- (void)fitSuperOrigin;
-- (void)fitSuperSize;
-- (void)fitSuperFrame;
-
-/**
- *  根据传入的width来水平居中
- */
-- (void)horizontalCenterWithWidth:(CGFloat)width;
-
-/**
- *  根据传入的height来竖直居中
- */
-- (void)verticalCenterWithHeight:(CGFloat)height;
-
-- (void)verticalCenterInSuperView;
-- (void)horizontalCenterInSuperView;
+- (void)addLeftLineWithSize:(CGFloat)size color:(UIColor *)color paddingTop:(CGFloat)top paddingBottom:(CGFloat)bottom;
+- (void)addRightLineWithSize:(CGFloat)size color:(UIColor *)color paddingTop:(CGFloat)top paddingBottom:(CGFloat)bottom;
 
 #pragma mark - Tap Gesture
+#pragma mark -
 
-/**
- *  添加点击事件，多次调用会持有多个UITapGestureRecognizer对象
- */
-//- (UITapGestureRecognizer *)setSingleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *recognizer))block;
 /**
  *  添加双击事件
  */
@@ -95,73 +82,37 @@
 - (UITapGestureRecognizer *)addSingleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *recognizer))block;
 - (UITapGestureRecognizer *)addSingleTapGestureTarget:(id)target action:(SEL)action;
 
-#pragma mark - Top and bottom line
+#pragma mark - 上下左右边角
+#pragma mark -
 
 /**
- *  添加一个SubLayer
+ *  设置圆角
  */
-- (CALayer *)addSubLayerWithFrame:(CGRect)frame color:(UIColor *)color;
-
-/**
- *  设置UIView的顶部和底部边线，一般用在设置界面
- */
-
-@property (nonatomic, strong) CALayer *topLineLayer;
-@property (nonatomic, strong) CALayer *bottomLineLayer;
-
-- (void)setTopFillLineWithColor:(UIColor *)color;
-- (void)setTopLineWithColor:(UIColor *)color paddingLeft:(CGFloat)paddingLeft paddingRight:(CGFloat)paddingRight;
-- (void)setBottomFillLineWithColor:(UIColor *)color;
-- (void)setBottomLineWithColor:(UIColor *)color paddingLeft:(CGFloat)paddingLeft paddingRight:(CGFloat)paddingRight;
-- (void)setTopAndBottomLineWithColor:(UIColor *)color;
-
-/**
- *  设置UIView的顶部和底部边线，一般用在设置界面，当界面采用AutoLayout时使用
- */
-- (UIView *)setTopLineViewWithColor:(UIColor *)color paddingLeft:(CGFloat)left paddingRight:(CGFloat)right;
-- (UIView *)setBottomLineViewWithColor:(UIColor *)color paddingLeft:(CGFloat)left paddingRight:(CGFloat)right;
-- (UIView *)addSubviewWithColor:(UIColor *)color frame:(CGRect)frame;
-
-#pragma mark - other
-
-@property (nonatomic, strong) id userInfo;
-
-/**
- *  返回它所在的ViewController
- */
-- (UIViewController *)viewController;
+@property (nonatomic) CGFloat cornerRadius;
 
 /**
  *  设置边框宽度和颜色
  */
 - (void)setBoarderWith:(CGFloat)width color:(UIColor *)color;
 
-/**
- *  设置圆角
- */
-@property (nonatomic, assign) CGFloat cornerRadius;
-
-/**
- *  主要用于UITableView，UIScrollView，UICollectionView等列表类的View，
- *  在数据为空时，显示一个提示性的图像和文字
- */
-- (void)setTipsViewWithImageName:(NSString *)imageName
-                            text:(NSString *)text
-                       textColor:(UIColor *)textColor;
-- (void)removeTipsView;
-
-
 //设置视图上边角幅度
-- (void)setCornerRadiiOnTop:(CGFloat)radii;
+- (void)addTopCorner:(CGFloat)radii;
 //设置视图下边角幅度
-- (void)setCornerRadiiOnBottom:(CGFloat)radii;
+- (void)addBottomCorner:(CGFloat)radii;
 //设置指定角的角幅度
-- (void)setGivenCorner:(UIRectCorner)corners cornerRadii:(CGFloat)radii;
+- (void)addCorner:(UIRectCorner)corners radii:(CGFloat)radii;
 //设置视图所有角幅度
-- (void)setAllCornerRadii:(CGFloat)radii;
+- (void)addAllCorner:(CGFloat)radii;
 //去掉视图所有角幅度
 - (void)setNoneCorner;
 
+#pragma mark - other
+#pragma mark -
+
+/**
+ *  返回它所在的ViewController
+ */
+- (UIViewController *)viewController;
 
 /**
  *  生成快照图像
@@ -177,6 +128,7 @@
 @end
 
 #pragma mark - autoresize easy
+#pragma mark -
 
 #define ALWAYS_FULL(view) view.autoresizingMask = (UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth)
 #define ALWAYS_BOTTOM(view) view.autoresizingMask = (UIViewAutoresizingFlexibleTopMargin)

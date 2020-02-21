@@ -3,7 +3,7 @@
 //  MeTa
 //
 //  Created by dqf on 2017/8/29.
-//  Copyright © 2017年 hisun. All rights reserved.
+//  Copyright © 2017年 dqf. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
