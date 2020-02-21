@@ -54,6 +54,30 @@
 @property (nonatomic, readonly)  CGFloat  h_maxX;
 @property (nonatomic, readonly)  CGFloat  h_maxY;
 
+#pragma mark - 上下左右边角
+#pragma mark -
+
+/**
+ *  设置圆角
+ */
+@property (nonatomic) CGFloat cornerRadius;
+
+/**
+ *  设置边框宽度和颜色
+ */
+- (void)setBoarderWith:(CGFloat)width color:(UIColor *)color;
+
+//设置视图上边角幅度
+- (void)setTopCorner:(CGFloat)radii;
+//设置视图下边角幅度
+- (void)setBottomCorner:(CGFloat)radii;
+//设置指定角的角幅度
+- (void)setCorner:(UIRectCorner)corners radii:(CGFloat)radii;
+//设置视图所有角幅度
+- (void)setAllCorner:(CGFloat)radii;
+//去掉视图所有角幅度
+- (void)setNoneCorner;
+
 #pragma mark - 上下左右边线
 #pragma mark -
 
@@ -81,30 +105,6 @@
  */
 - (UITapGestureRecognizer *)addSingleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *recognizer))block;
 - (UITapGestureRecognizer *)addSingleTapGestureTarget:(id)target action:(SEL)action;
-
-#pragma mark - 上下左右边角
-#pragma mark -
-
-/**
- *  设置圆角
- */
-@property (nonatomic) CGFloat cornerRadius;
-
-/**
- *  设置边框宽度和颜色
- */
-- (void)setBoarderWith:(CGFloat)width color:(UIColor *)color;
-
-//设置视图上边角幅度
-- (void)setTopCorner:(CGFloat)radii;
-//设置视图下边角幅度
-- (void)setBottomCorner:(CGFloat)radii;
-//设置指定角的角幅度
-- (void)setCorner:(UIRectCorner)corners radii:(CGFloat)radii;
-//设置视图所有角幅度
-- (void)setAllCorner:(CGFloat)radii;
-//去掉视图所有角幅度
-- (void)setNoneCorner;
 
 #pragma mark - other
 #pragma mark -

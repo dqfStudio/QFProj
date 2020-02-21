@@ -127,6 +127,57 @@ static char const * const KRightLineView  = "RightLineView";
     return CGRectGetMaxY(self.frame);
 }
 
+#pragma mark - 上下左右边角
+#pragma mark -
+
+- (void)setBoarderWith:(CGFloat)width color:(UIColor *)color {
+    self.layer.borderWidth = width;
+    self.layer.borderColor = color.CGColor;
+}
+
+- (void)setCornerRadius:(CGFloat)cornerRadius {
+    self.clipsToBounds = YES;
+    self.layer.cornerRadius = cornerRadius;
+}
+
+- (CGFloat)cornerRadius {
+    return self.layer.cornerRadius;
+}
+
+//设置视图上边角幅度
+- (void)setTopCorner:(CGFloat)radii {
+    [self setCorner:(UIRectCornerTopLeft|UIRectCornerTopRight) radii:radii];
+}
+//设置视图下边角幅度
+- (void)setBottomCorner:(CGFloat)radii {
+    [self setCorner:(UIRectCornerBottomLeft|UIRectCornerBottomRight) radii:radii];
+}
+//设置指定角的角幅度
+- (void)setCorner:(UIRectCorner)corners radii:(CGFloat)radii {
+    UIBezierPath *maskPath = nil;
+    maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds
+                                     byRoundingCorners:corners
+                                           cornerRadii:CGSizeMake(radii, radii)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = self.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.layer.mask = maskLayer;
+}
+//设置视图所有角幅度
+- (void)setAllCorner:(CGFloat)radii {
+    UIBezierPath *maskPath = nil;
+    maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds
+                                          cornerRadius:radii];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = self.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.layer.mask = maskLayer;
+}
+//去掉视图所有角幅度
+- (void)setNoneCorner {
+    self.layer.mask = nil;
+}
+
 #pragma mark - 上下左右边线
 #pragma mark -
 
@@ -258,57 +309,6 @@ static char const * const KRightLineView  = "RightLineView";
     UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:target action:action];
     [self addGestureRecognizer:recognizer];
     return recognizer;
-}
-
-#pragma mark - 上下左右边角
-#pragma mark -
-
-- (void)setBoarderWith:(CGFloat)width color:(UIColor *)color {
-    self.layer.borderWidth = width;
-    self.layer.borderColor = color.CGColor;
-}
-
-- (void)setCornerRadius:(CGFloat)cornerRadius {
-    self.clipsToBounds = YES;
-    self.layer.cornerRadius = cornerRadius;
-}
-
-- (CGFloat)cornerRadius {
-    return self.layer.cornerRadius;
-}
-
-//设置视图上边角幅度
-- (void)setTopCorner:(CGFloat)radii {
-    [self setCorner:(UIRectCornerTopLeft|UIRectCornerTopRight) radii:radii];
-}
-//设置视图下边角幅度
-- (void)setBottomCorner:(CGFloat)radii {
-    [self setCorner:(UIRectCornerBottomLeft|UIRectCornerBottomRight) radii:radii];
-}
-//设置指定角的角幅度
-- (void)setCorner:(UIRectCorner)corners radii:(CGFloat)radii {
-    UIBezierPath *maskPath = nil;
-    maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds
-                                     byRoundingCorners:corners
-                                           cornerRadii:CGSizeMake(radii, radii)];
-    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-    maskLayer.frame = self.bounds;
-    maskLayer.path = maskPath.CGPath;
-    self.layer.mask = maskLayer;
-}
-//设置视图所有角幅度
-- (void)setAllCorner:(CGFloat)radii {
-    UIBezierPath *maskPath = nil;
-    maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds
-                                          cornerRadius:radii];
-    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-    maskLayer.frame = self.bounds;
-    maskLayer.path = maskPath.CGPath;
-    self.layer.mask = maskLayer;
-}
-//去掉视图所有角幅度
-- (void)setNoneCorner {
-    self.layer.mask = nil;
 }
 
 #pragma mark - other
