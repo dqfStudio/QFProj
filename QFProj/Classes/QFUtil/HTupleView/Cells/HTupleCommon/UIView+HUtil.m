@@ -278,15 +278,15 @@ static char const * const KRightLineView  = "RightLineView";
 }
 
 //设置视图上边角幅度
-- (void)addTopCorner:(CGFloat)radii {
-    [self addCorner:(UIRectCornerTopLeft|UIRectCornerTopRight) radii:radii];
+- (void)setTopCorner:(CGFloat)radii {
+    [self setCorner:(UIRectCornerTopLeft|UIRectCornerTopRight) radii:radii];
 }
 //设置视图下边角幅度
-- (void)addBottomCorner:(CGFloat)radii {
-    [self addCorner:(UIRectCornerBottomLeft|UIRectCornerBottomRight) radii:radii];
+- (void)setBottomCorner:(CGFloat)radii {
+    [self setCorner:(UIRectCornerBottomLeft|UIRectCornerBottomRight) radii:radii];
 }
 //设置指定角的角幅度
-- (void)addCorner:(UIRectCorner)corners radii:(CGFloat)radii {
+- (void)setCorner:(UIRectCorner)corners radii:(CGFloat)radii {
     UIBezierPath *maskPath = nil;
     maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds
                                      byRoundingCorners:corners
@@ -297,7 +297,7 @@ static char const * const KRightLineView  = "RightLineView";
     self.layer.mask = maskLayer;
 }
 //设置视图所有角幅度
-- (void)addAllCorner:(CGFloat)radii {
+- (void)setAllCorner:(CGFloat)radii {
     UIBezierPath *maskPath = nil;
     maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds
                                           cornerRadius:radii];

@@ -96,13 +96,13 @@
 - (void)setBoarderWith:(CGFloat)width color:(UIColor *)color;
 
 //设置视图上边角幅度
-- (void)addTopCorner:(CGFloat)radii;
+- (void)setTopCorner:(CGFloat)radii;
 //设置视图下边角幅度
-- (void)addBottomCorner:(CGFloat)radii;
+- (void)setBottomCorner:(CGFloat)radii;
 //设置指定角的角幅度
-- (void)addCorner:(UIRectCorner)corners radii:(CGFloat)radii;
+- (void)setCorner:(UIRectCorner)corners radii:(CGFloat)radii;
 //设置视图所有角幅度
-- (void)addAllCorner:(CGFloat)radii;
+- (void)setAllCorner:(CGFloat)radii;
 //去掉视图所有角幅度
 - (void)setNoneCorner;
 
