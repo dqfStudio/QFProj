@@ -1,6 +1,6 @@
 //
 //  HGameViewController.h
-//  HProjectModel1
+//  QFProj
 //
 //  Created by txkj_jordan on 2019/4/10.
 //  Copyright © 2019年 dqf. All rights reserved.

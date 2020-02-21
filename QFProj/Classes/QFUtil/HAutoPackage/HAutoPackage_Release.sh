@@ -77,10 +77,10 @@ function modifyConfigFile () {
     echo $fileData > HProjectDRConfig.xcconfig
 
 #    #修改DEBUG的文件
-#    ifs=$IFS; fileData=$(cat Pods-HProjectModel1.debug.xcconfig)
+#    ifs=$IFS; fileData=$(cat Pods-QFProj.debug.xcconfig)
 #    #echo $fileData
 #    fileData=${fileData//$oldVersion/$newVersion}
-#    echo $fileData > Pods-HProjectModel1.debug.xcconfig
+#    echo $fileData > Pods-QFProj.debug.xcconfig
 
 }
 
@@ -200,7 +200,7 @@ HAutoPackage="HAutoPackage"
 
 #去掉字符串中的空格
 filePath=`echo "${filePath}" |sed s/${HAutoPackage}//g`
-#podPath=${filePath}"Pods/Target Support Files/Pods-HProjectModel1/"
+#podPath=${filePath}"Pods/Target Support Files/Pods-QFProj/"
 
 
 #进入相关目录,根据顺序调用相关函数
@@ -240,11 +240,11 @@ packagePath="/Users/"${user}"/Desktop/"${packageName}"/"
 
 
 #打包
-xcodebuild clean -workspace HProjectModel1.xcworkspace -scheme HProjectModel1 -configuration Release
+xcodebuild clean -workspace QFProj.xcworkspace -scheme QFProj -configuration Release
 
 
-xcarchivePath=${packagePath}"HProjectModel1.xcarchive"
-xcodebuild archive -workspace HProjectModel1.xcworkspace -scheme HProjectModel1 -configuration Release -archivePath $xcarchivePath
+xcarchivePath=${packagePath}"QFProj.xcarchive"
+xcodebuild archive -workspace QFProj.xcworkspace -scheme QFProj -configuration Release -archivePath $xcarchivePath
 
 
 xcodebuild  -exportArchive -archivePath $xcarchivePath -exportPath $packagePath -exportOptionsPlist $optionsPlistPath
@@ -262,7 +262,7 @@ cd $packagePath
 
 summaryPlistFile="DistributionSummary.plist"
 optionsPlistFile="ExportOptions.plist"
-xcarchiveFile="HProjectModel1.xcarchive"
+xcarchiveFile="QFProj.xcarchive"
 logFile="Packaging.log"
 ipaFile=${packageName}".ipa"
 
@@ -272,5 +272,5 @@ rm -f $summaryPlistFile
 rm -f $optionsPlistFile
 rm -rf $xcarchiveFile
 rm -f $logFile
-mv "HProjectModel1.ipa" $ipaFile
+mv "QFProj.ipa" $ipaFile
 
