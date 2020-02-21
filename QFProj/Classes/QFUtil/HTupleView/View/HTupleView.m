@@ -72,8 +72,6 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 
 @implementation HTupleView
 
-@dynamic delegate;
-
 #pragma mark - init methods
 #pragma mark -
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -635,7 +633,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
         return [[(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath] boolValue];
     }
-    return NO;
+    return YES;
 }
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     NSString *prefix = [self tuplePrefixWithSection:indexPath.section];
