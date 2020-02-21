@@ -16,7 +16,7 @@ static const void *userInfoAddress = &userInfoAddress;
 static char const * const KTopLineViewKey = "KTopLineViewKey";
 static char const * const KBottomLineView = "KBottomLineView";
 static char const * const KLeftLineView   = "KLeftLineView";
-static char const * const KRightLineView  = "RightLineView";
+static char const * const KRightLineView  = "KRightLineView";
 
 #define KLineDefaultColor [UIColor colorWithRed:233/255.0 green:233/255.0 blue:233/255.0 alpha:1.0]
 
