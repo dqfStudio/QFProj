@@ -85,11 +85,13 @@
 //    }];
 }
 - (void)setIsLogin:(BOOL)isLogin {
-    _isLogin = isLogin;
-    if (_isLogin) {
-        [self saveUser];
-    }else {
-        [self removeUser];
+    if (_isLogin != isLogin) {
+        _isLogin = isLogin;
+        if (_isLogin) {
+            [self saveUser];
+        }else {
+            [self removeUser];
+        }
     }
 }
 
