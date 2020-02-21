@@ -2,7 +2,7 @@
 //  HPayWebviewVC.h
 //  HProjectModel1
 //
-//  Created by txkj_mac on 2018/10/3.
+//  Created by dqf on 2018/10/3.
 //  Copyright © 2018年 dqf. All rights reserved.
 //
 

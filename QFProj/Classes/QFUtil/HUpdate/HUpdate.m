@@ -2,7 +2,7 @@
 //  HUpdate.m
 //  TestProject
 //
-//  Created by txkj_mac on 2018/11/5.
+//  Created by dqf on 2018/11/5.
 //  Copyright © 2018年 dqf. All rights reserved.
 //
 
