@@ -31,6 +31,8 @@
         [YTKNetworkConfig sharedConfig].securityPolicy = security;
         //此处需要根据实际值修改
         [YTKNetworkConfig sharedConfig].baseUrl = @"";
+        //配置数据处理类型
+        [[YTKNetworkAgent sharedAgent] setValue:[NSSet setWithObjects:@"application/json", @"text/plain", @"text/javascript", @"text/json",@"text/html",@"text/css", nil] forKeyPath:@"_manager.responseSerializer.acceptableContentTypes"];
     });
 }
 #pragma mark - 基本参数
