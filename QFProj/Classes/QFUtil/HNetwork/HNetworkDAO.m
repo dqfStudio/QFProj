@@ -26,7 +26,7 @@
     dispatch_once(&onceToken, ^{
         //https 允许无效证书访问
         AFSecurityPolicy *security = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
-        [security setValidatesDomainName:NO];
+        security.validatesDomainName = NO;
         security.allowInvalidCertificates = YES;
         [YTKNetworkConfig sharedConfig].securityPolicy = security;
         //此处需要根据实际值修改
