@@ -73,7 +73,7 @@
 }
 
 - (void)wakeup {
-    [UIAlertController showAlertWithTitle:self.title message:self.msg style:UIAlertControllerStyleAlert  cancelButtonTitle:self.cancelTitle otherButtonTitles:self.buttonTitles completion:^(NSInteger buttonIndex) {
+    [UIAlertController showAlertWithTitle:self.title message:self.msg style:UIAlertControllerStyleAlert cancelButtonTitle:self.cancelTitle otherButtonTitles:self.buttonTitles completion:^(NSInteger buttonIndex) {
         if (self.buttonBlock) {
             self.buttonBlock(buttonIndex);
         }
