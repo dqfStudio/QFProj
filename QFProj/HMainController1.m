@@ -119,7 +119,7 @@
             }];
             
             //发送信号
-            //[self.tupleView signal:nil indexPath:NSIndexPath.getValue(0, 0)];
+            //[self.tupleView signal:nil toRow:0 inSection:0];
         }
             break;
         case HCell2: {
