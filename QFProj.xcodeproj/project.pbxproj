@@ -193,6 +193,25 @@
 		A2296D5C228A626B0081A479 /* HSFSafariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2296D5B228A626B0081A479 /* HSFSafariViewController.m */; };
 		A22F7864230D595A00AAB902 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22F7863230D595900AAB902 /* UIKit.framework */; };
 		A22F7866230D599C00AAB902 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22F7865230D599C00AAB902 /* Foundation.framework */; };
+		A22FA07E2400D1CE00B75C1C /* AppDelegate+WindowService.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA07D2400D1CE00B75C1C /* AppDelegate+WindowService.m */; };
+		A22FA0812400D49C00B75C1C /* AppDelegate+ConfigerService.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA0802400D49C00B75C1C /* AppDelegate+ConfigerService.m */; };
+		A22FA0842400D50500B75C1C /* AppDelegate+NotifyService.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA0832400D50500B75C1C /* AppDelegate+NotifyService.m */; };
+		A22FA0872400D52B00B75C1C /* AppDelegate+SoundService.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA0862400D52B00B75C1C /* AppDelegate+SoundService.m */; };
+		A22FA16F2400DD6200B75C1C /* HKBKeyboardReturnKeyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA14E2400DD6200B75C1C /* HKBKeyboardReturnKeyHandler.m */; };
+		A22FA1702400DD6200B75C1C /* HKBKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A22FA1532400DD6200B75C1C /* HKBKeyboardManager.bundle */; };
+		A22FA1712400DD6200B75C1C /* HKBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA1552400DD6200B75C1C /* HKBTextView.m */; };
+		A22FA1722400DD6200B75C1C /* HKBKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA1582400DD6200B75C1C /* HKBKeyboardManager.m */; };
+		A22FA1732400DD6200B75C1C /* HKBToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA15A2400DD6200B75C1C /* HKBToolbar.m */; };
+		A22FA1742400DD6200B75C1C /* HKBPreviousNextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA15C2400DD6200B75C1C /* HKBPreviousNextView.m */; };
+		A22FA1752400DD6200B75C1C /* HKBBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA15E2400DD6200B75C1C /* HKBBarButtonItem.m */; };
+		A22FA1762400DD6200B75C1C /* HKBTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA1602400DD6200B75C1C /* HKBTitleBarButtonItem.m */; };
+		A22FA1772400DD6200B75C1C /* HKBUIView+HKBKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA1622400DD6200B75C1C /* HKBUIView+HKBKeyboardToolbar.m */; };
+		A22FA1782400DD6200B75C1C /* HKBUIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA1662400DD6200B75C1C /* HKBUIViewController+Additions.m */; };
+		A22FA1792400DD6200B75C1C /* HKBUIScrollView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA16A2400DD6200B75C1C /* HKBUIScrollView+Additions.m */; };
+		A22FA17A2400DD6200B75C1C /* HKBUIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA16C2400DD6200B75C1C /* HKBUIView+Hierarchy.m */; };
+		A22FA17B2400DD6200B75C1C /* HKBUITextFieldView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA16D2400DD6200B75C1C /* HKBUITextFieldView+Additions.m */; };
+		A22FA17C2400DD6200B75C1C /* HKBNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA16E2400DD6200B75C1C /* HKBNSArray+Sort.m */; };
+		A22FA17F2400DFC900B75C1C /* AppDelegate+UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA17E2400DFC900B75C1C /* AppDelegate+UserService.m */; };
 		A24B6560225EE08900B257BB /* HUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = A24B655F225EE08900B257BB /* HUpdate.m */; };
 		A24B6566225EE0EE00B257BB /* HAutoPackage_Release.sh in Resources */ = {isa = PBXBuildFile; fileRef = A24B6562225EE0EE00B257BB /* HAutoPackage_Release.sh */; };
 		A24B6568225EE0EE00B257BB /* README.H.md in Resources */ = {isa = PBXBuildFile; fileRef = A24B6564225EE0EE00B257BB /* README.H.md */; };
@@ -284,14 +303,6 @@
 		A2A8EB5222DDD99D0049C51B /* UIViewController+HLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB5122DDD99D0049C51B /* UIViewController+HLeaks.m */; };
 		A2A8EB5522DDD9B90049C51B /* UINavigationController+HLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB5422DDD9B90049C51B /* UINavigationController+HLeaks.m */; };
 		A2A8EB6522DF01390049C51B /* UIViewController+HDisappear.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB6322DF01380049C51B /* UIViewController+HDisappear.m */; };
-		A2A8EBA022E1F80D0049C51B /* HKeyboardManager+HToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB9322E1F80C0049C51B /* HKeyboardManager+HToolBar.m */; };
-		A2A8EBA122E1F80D0049C51B /* UIView+HKBToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB9422E1F80C0049C51B /* UIView+HKBToolBar.m */; };
-		A2A8EBA222E1F80D0049C51B /* HKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB9622E1F80D0049C51B /* HKeyboardManager.m */; };
-		A2A8EBA322E1F80D0049C51B /* NSArray+HSort.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB9722E1F80D0049C51B /* NSArray+HSort.m */; };
-		A2A8EBA422E1F80D0049C51B /* HKBArrowRight@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2A8EB9922E1F80D0049C51B /* HKBArrowRight@3x.png */; };
-		A2A8EBA522E1F80D0049C51B /* HKBArrowLeft@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2A8EB9A22E1F80D0049C51B /* HKBArrowLeft@3x.png */; };
-		A2A8EBA622E1F80D0049C51B /* UIViewController+HEndEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB9B22E1F80D0049C51B /* UIViewController+HEndEdit.m */; };
-		A2A8EBA722E1F80D0049C51B /* UIView+HResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB9C22E1F80D0049C51B /* UIView+HResponder.m */; };
 		A2A8EBB722E1FDEE0049C51B /* WebViewJavascriptBridgeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EBAF22E1FDEE0049C51B /* WebViewJavascriptBridgeBase.m */; };
 		A2A8EBB822E1FDEE0049C51B /* WKWebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EBB022E1FDEE0049C51B /* WKWebViewJavascriptBridge.m */; };
 		A2A8EBB922E1FDEE0049C51B /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EBB122E1FDEE0049C51B /* WebViewJavascriptBridge.m */; };
@@ -703,6 +714,45 @@
 		A2296D5B228A626B0081A479 /* HSFSafariViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFSafariViewController.m; sourceTree = "<group>"; };
 		A22F7863230D595900AAB902 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A22F7865230D599C00AAB902 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A22FA07C2400D1CE00B75C1C /* AppDelegate+WindowService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+WindowService.h"; sourceTree = "<group>"; };
+		A22FA07D2400D1CE00B75C1C /* AppDelegate+WindowService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+WindowService.m"; sourceTree = "<group>"; };
+		A22FA07F2400D49C00B75C1C /* AppDelegate+ConfigerService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+ConfigerService.h"; sourceTree = "<group>"; };
+		A22FA0802400D49C00B75C1C /* AppDelegate+ConfigerService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ConfigerService.m"; sourceTree = "<group>"; };
+		A22FA0822400D50500B75C1C /* AppDelegate+NotifyService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+NotifyService.h"; sourceTree = "<group>"; };
+		A22FA0832400D50500B75C1C /* AppDelegate+NotifyService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+NotifyService.m"; sourceTree = "<group>"; };
+		A22FA0852400D52B00B75C1C /* AppDelegate+SoundService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+SoundService.h"; sourceTree = "<group>"; };
+		A22FA0862400D52B00B75C1C /* AppDelegate+SoundService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+SoundService.m"; sourceTree = "<group>"; };
+		A22FA14D2400DD6200B75C1C /* HKBKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKBKeyboardManager.h; sourceTree = "<group>"; };
+		A22FA14E2400DD6200B75C1C /* HKBKeyboardReturnKeyHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKBKeyboardReturnKeyHandler.m; sourceTree = "<group>"; };
+		A22FA1502400DD6200B75C1C /* HKBKeyboardManagerConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKBKeyboardManagerConstants.h; sourceTree = "<group>"; };
+		A22FA1512400DD6200B75C1C /* HKBKeyboardManagerConstantsInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKBKeyboardManagerConstantsInternal.h; sourceTree = "<group>"; };
+		A22FA1532400DD6200B75C1C /* HKBKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HKBKeyboardManager.bundle; sourceTree = "<group>"; };
+		A22FA1552400DD6200B75C1C /* HKBTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKBTextView.m; sourceTree = "<group>"; };
+		A22FA1562400DD6200B75C1C /* HKBTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKBTextView.h; sourceTree = "<group>"; };
+		A22FA1572400DD6200B75C1C /* HKBKeyboardReturnKeyHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKBKeyboardReturnKeyHandler.h; sourceTree = "<group>"; };
+		A22FA1582400DD6200B75C1C /* HKBKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKBKeyboardManager.m; sourceTree = "<group>"; };
+		A22FA15A2400DD6200B75C1C /* HKBToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKBToolbar.m; sourceTree = "<group>"; };
+		A22FA15B2400DD6200B75C1C /* HKBTitleBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKBTitleBarButtonItem.h; sourceTree = "<group>"; };
+		A22FA15C2400DD6200B75C1C /* HKBPreviousNextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKBPreviousNextView.m; sourceTree = "<group>"; };
+		A22FA15D2400DD6200B75C1C /* HKBUIView+HKBKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HKBUIView+HKBKeyboardToolbar.h"; sourceTree = "<group>"; };
+		A22FA15E2400DD6200B75C1C /* HKBBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKBBarButtonItem.m; sourceTree = "<group>"; };
+		A22FA15F2400DD6200B75C1C /* HKBPreviousNextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKBPreviousNextView.h; sourceTree = "<group>"; };
+		A22FA1602400DD6200B75C1C /* HKBTitleBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKBTitleBarButtonItem.m; sourceTree = "<group>"; };
+		A22FA1612400DD6200B75C1C /* HKBToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKBToolbar.h; sourceTree = "<group>"; };
+		A22FA1622400DD6200B75C1C /* HKBUIView+HKBKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HKBUIView+HKBKeyboardToolbar.m"; sourceTree = "<group>"; };
+		A22FA1632400DD6200B75C1C /* HKBBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKBBarButtonItem.h; sourceTree = "<group>"; };
+		A22FA1652400DD6200B75C1C /* HKBUIScrollView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HKBUIScrollView+Additions.h"; sourceTree = "<group>"; };
+		A22FA1662400DD6200B75C1C /* HKBUIViewController+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HKBUIViewController+Additions.m"; sourceTree = "<group>"; };
+		A22FA1672400DD6200B75C1C /* HKBUITextFieldView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HKBUITextFieldView+Additions.h"; sourceTree = "<group>"; };
+		A22FA1682400DD6200B75C1C /* HKBUIView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HKBUIView+Hierarchy.h"; sourceTree = "<group>"; };
+		A22FA1692400DD6200B75C1C /* HKBNSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HKBNSArray+Sort.h"; sourceTree = "<group>"; };
+		A22FA16A2400DD6200B75C1C /* HKBUIScrollView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HKBUIScrollView+Additions.m"; sourceTree = "<group>"; };
+		A22FA16B2400DD6200B75C1C /* HKBUIViewController+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HKBUIViewController+Additions.h"; sourceTree = "<group>"; };
+		A22FA16C2400DD6200B75C1C /* HKBUIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HKBUIView+Hierarchy.m"; sourceTree = "<group>"; };
+		A22FA16D2400DD6200B75C1C /* HKBUITextFieldView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HKBUITextFieldView+Additions.m"; sourceTree = "<group>"; };
+		A22FA16E2400DD6200B75C1C /* HKBNSArray+Sort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HKBNSArray+Sort.m"; sourceTree = "<group>"; };
+		A22FA17D2400DFC900B75C1C /* AppDelegate+UserService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+UserService.h"; sourceTree = "<group>"; };
+		A22FA17E2400DFC900B75C1C /* AppDelegate+UserService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+UserService.m"; sourceTree = "<group>"; };
 		A24B655E225EE08900B257BB /* HUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUpdate.h; sourceTree = "<group>"; };
 		A24B655F225EE08900B257BB /* HUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUpdate.m; sourceTree = "<group>"; };
 		A24B6562225EE0EE00B257BB /* HAutoPackage_Release.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = HAutoPackage_Release.sh; sourceTree = "<group>"; };
@@ -856,20 +906,6 @@
 		A2A8EB5422DDD9B90049C51B /* UINavigationController+HLeaks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+HLeaks.m"; sourceTree = "<group>"; };
 		A2A8EB6322DF01380049C51B /* UIViewController+HDisappear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HDisappear.m"; sourceTree = "<group>"; };
 		A2A8EB6422DF01380049C51B /* UIViewController+HDisappear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HDisappear.h"; sourceTree = "<group>"; };
-		A2A8EB9122E1F80C0049C51B /* NSArray+HSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+HSort.h"; sourceTree = "<group>"; };
-		A2A8EB9222E1F80C0049C51B /* UIViewController+HEndEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HEndEdit.h"; sourceTree = "<group>"; };
-		A2A8EB9322E1F80C0049C51B /* HKeyboardManager+HToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HKeyboardManager+HToolBar.m"; sourceTree = "<group>"; };
-		A2A8EB9422E1F80C0049C51B /* UIView+HKBToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HKBToolBar.m"; sourceTree = "<group>"; };
-		A2A8EB9522E1F80D0049C51B /* UIView+HResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HResponder.h"; sourceTree = "<group>"; };
-		A2A8EB9622E1F80D0049C51B /* HKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKeyboardManager.m; sourceTree = "<group>"; };
-		A2A8EB9722E1F80D0049C51B /* NSArray+HSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+HSort.m"; sourceTree = "<group>"; };
-		A2A8EB9922E1F80D0049C51B /* HKBArrowRight@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HKBArrowRight@3x.png"; sourceTree = "<group>"; };
-		A2A8EB9A22E1F80D0049C51B /* HKBArrowLeft@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HKBArrowLeft@3x.png"; sourceTree = "<group>"; };
-		A2A8EB9B22E1F80D0049C51B /* UIViewController+HEndEdit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HEndEdit.m"; sourceTree = "<group>"; };
-		A2A8EB9C22E1F80D0049C51B /* UIView+HResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HResponder.m"; sourceTree = "<group>"; };
-		A2A8EB9D22E1F80D0049C51B /* UIView+HKBToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HKBToolBar.h"; sourceTree = "<group>"; };
-		A2A8EB9E22E1F80D0049C51B /* HKeyboardManager+HToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HKeyboardManager+HToolBar.h"; sourceTree = "<group>"; };
-		A2A8EB9F22E1F80D0049C51B /* HKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKeyboardManager.h; sourceTree = "<group>"; };
 		A2A8EBAF22E1FDEE0049C51B /* WebViewJavascriptBridgeBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridgeBase.m; sourceTree = "<group>"; };
 		A2A8EBB022E1FDEE0049C51B /* WKWebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewJavascriptBridge.m; sourceTree = "<group>"; };
 		A2A8EBB122E1FDEE0049C51B /* WebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge.m; sourceTree = "<group>"; };
@@ -1213,6 +1249,16 @@
 			children = (
 				15B4DD662092F88700773E04 /* AppDelegate.h */,
 				15B4DD672092F88700773E04 /* AppDelegate.m */,
+				A22FA07C2400D1CE00B75C1C /* AppDelegate+WindowService.h */,
+				A22FA07D2400D1CE00B75C1C /* AppDelegate+WindowService.m */,
+				A22FA07F2400D49C00B75C1C /* AppDelegate+ConfigerService.h */,
+				A22FA0802400D49C00B75C1C /* AppDelegate+ConfigerService.m */,
+				A22FA0822400D50500B75C1C /* AppDelegate+NotifyService.h */,
+				A22FA0832400D50500B75C1C /* AppDelegate+NotifyService.m */,
+				A22FA0852400D52B00B75C1C /* AppDelegate+SoundService.h */,
+				A22FA0862400D52B00B75C1C /* AppDelegate+SoundService.m */,
+				A22FA17D2400DFC900B75C1C /* AppDelegate+UserService.h */,
+				A22FA17E2400DFC900B75C1C /* AppDelegate+UserService.m */,
 				A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */,
 				15B4DD6F2092F88700773E04 /* Assets.xcassets */,
 				15B4DD7D2092F96B00773E04 /* Classes */,
@@ -1249,6 +1295,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A22FA14C2400DD6200B75C1C /* HKBKeyboardManager */,
 				A28566B123F1436F00552FE7 /* 动态插入.a文件 */,
 				A289DCFE23E4135800FC59F1 /* HTextLoopView */,
 				A27D00AA23E169F2009D5475 /* 活动记实 */,
@@ -1259,7 +1306,6 @@
 				A2A8EBF222E4A17D0049C51B /* HFPickerView */,
 				A2A8EBCD22E427FA0049C51B /* HMonitor */,
 				A2A8EBAE22E1FDEE0049C51B /* WebViewJavascriptBridge */,
-				A2A8EB9022E1F80C0049C51B /* HKeyboardManager */,
 				A2A8EB4C22DDD9690049C51B /* HLeaks */,
 				A2A8EB3622DB65A90049C51B /* HDrawerViewController */,
 				A2A8EB1B22DB62670049C51B /* HCycleScrollView */,
@@ -1928,6 +1974,83 @@
 			path = HSelector;
 			sourceTree = "<group>";
 		};
+		A22FA14C2400DD6200B75C1C /* HKBKeyboardManager */ = {
+			isa = PBXGroup;
+			children = (
+				A22FA14D2400DD6200B75C1C /* HKBKeyboardManager.h */,
+				A22FA14E2400DD6200B75C1C /* HKBKeyboardReturnKeyHandler.m */,
+				A22FA14F2400DD6200B75C1C /* Constants */,
+				A22FA1522400DD6200B75C1C /* Resources */,
+				A22FA1542400DD6200B75C1C /* HKBTextView */,
+				A22FA1572400DD6200B75C1C /* HKBKeyboardReturnKeyHandler.h */,
+				A22FA1582400DD6200B75C1C /* HKBKeyboardManager.m */,
+				A22FA1592400DD6200B75C1C /* HKBToolbar */,
+				A22FA1642400DD6200B75C1C /* Categories */,
+			);
+			name = HKBKeyboardManager;
+			path = QFUtil/HKBKeyboardManager;
+			sourceTree = "<group>";
+		};
+		A22FA14F2400DD6200B75C1C /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A22FA1502400DD6200B75C1C /* HKBKeyboardManagerConstants.h */,
+				A22FA1512400DD6200B75C1C /* HKBKeyboardManagerConstantsInternal.h */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		A22FA1522400DD6200B75C1C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A22FA1532400DD6200B75C1C /* HKBKeyboardManager.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A22FA1542400DD6200B75C1C /* HKBTextView */ = {
+			isa = PBXGroup;
+			children = (
+				A22FA1552400DD6200B75C1C /* HKBTextView.m */,
+				A22FA1562400DD6200B75C1C /* HKBTextView.h */,
+			);
+			path = HKBTextView;
+			sourceTree = "<group>";
+		};
+		A22FA1592400DD6200B75C1C /* HKBToolbar */ = {
+			isa = PBXGroup;
+			children = (
+				A22FA15A2400DD6200B75C1C /* HKBToolbar.m */,
+				A22FA15B2400DD6200B75C1C /* HKBTitleBarButtonItem.h */,
+				A22FA15C2400DD6200B75C1C /* HKBPreviousNextView.m */,
+				A22FA15D2400DD6200B75C1C /* HKBUIView+HKBKeyboardToolbar.h */,
+				A22FA15E2400DD6200B75C1C /* HKBBarButtonItem.m */,
+				A22FA15F2400DD6200B75C1C /* HKBPreviousNextView.h */,
+				A22FA1602400DD6200B75C1C /* HKBTitleBarButtonItem.m */,
+				A22FA1612400DD6200B75C1C /* HKBToolbar.h */,
+				A22FA1622400DD6200B75C1C /* HKBUIView+HKBKeyboardToolbar.m */,
+				A22FA1632400DD6200B75C1C /* HKBBarButtonItem.h */,
+			);
+			path = HKBToolbar;
+			sourceTree = "<group>";
+		};
+		A22FA1642400DD6200B75C1C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				A22FA1652400DD6200B75C1C /* HKBUIScrollView+Additions.h */,
+				A22FA1662400DD6200B75C1C /* HKBUIViewController+Additions.m */,
+				A22FA1672400DD6200B75C1C /* HKBUITextFieldView+Additions.h */,
+				A22FA1682400DD6200B75C1C /* HKBUIView+Hierarchy.h */,
+				A22FA1692400DD6200B75C1C /* HKBNSArray+Sort.h */,
+				A22FA16A2400DD6200B75C1C /* HKBUIScrollView+Additions.m */,
+				A22FA16B2400DD6200B75C1C /* HKBUIViewController+Additions.h */,
+				A22FA16C2400DD6200B75C1C /* HKBUIView+Hierarchy.m */,
+				A22FA16D2400DD6200B75C1C /* HKBUITextFieldView+Additions.m */,
+				A22FA16E2400DD6200B75C1C /* HKBNSArray+Sort.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		A24B655D225EE08900B257BB /* HUpdate */ = {
 			isa = PBXGroup;
 			children = (
@@ -2272,36 +2395,6 @@
 			path = QFUtil/HLeaks;
 			sourceTree = "<group>";
 		};
-		A2A8EB9022E1F80C0049C51B /* HKeyboardManager */ = {
-			isa = PBXGroup;
-			children = (
-				A2A8EB9822E1F80D0049C51B /* HKBResource */,
-				A2A8EB9F22E1F80D0049C51B /* HKeyboardManager.h */,
-				A2A8EB9622E1F80D0049C51B /* HKeyboardManager.m */,
-				A2A8EB9E22E1F80D0049C51B /* HKeyboardManager+HToolBar.h */,
-				A2A8EB9322E1F80C0049C51B /* HKeyboardManager+HToolBar.m */,
-				A2A8EB9122E1F80C0049C51B /* NSArray+HSort.h */,
-				A2A8EB9722E1F80D0049C51B /* NSArray+HSort.m */,
-				A2A8EB9D22E1F80D0049C51B /* UIView+HKBToolBar.h */,
-				A2A8EB9422E1F80C0049C51B /* UIView+HKBToolBar.m */,
-				A2A8EB9522E1F80D0049C51B /* UIView+HResponder.h */,
-				A2A8EB9C22E1F80D0049C51B /* UIView+HResponder.m */,
-				A2A8EB9222E1F80C0049C51B /* UIViewController+HEndEdit.h */,
-				A2A8EB9B22E1F80D0049C51B /* UIViewController+HEndEdit.m */,
-			);
-			name = HKeyboardManager;
-			path = QFUtil/HKeyboardManager;
-			sourceTree = "<group>";
-		};
-		A2A8EB9822E1F80D0049C51B /* HKBResource */ = {
-			isa = PBXGroup;
-			children = (
-				A2A8EB9922E1F80D0049C51B /* HKBArrowRight@3x.png */,
-				A2A8EB9A22E1F80D0049C51B /* HKBArrowLeft@3x.png */,
-			);
-			path = HKBResource;
-			sourceTree = "<group>";
-		};
 		A2A8EBAE22E1FDEE0049C51B /* WebViewJavascriptBridge */ = {
 			isa = PBXGroup;
 			children = (
@@ -2579,14 +2672,12 @@
 				A28EF38C21D8ECBE002F92ED /* icon_no_network@3x.png in Resources */,
 				A28EF3AA21D8ECC9002F92ED /* loading_new_5@2x.png in Resources */,
 				A28EF3A321D8ECC9002F92ED /* loading_new_4@2x.png in Resources */,
-				A2A8EBA422E1F80D0049C51B /* HKBArrowRight@3x.png in Resources */,
 				A20E3D162320F6E200E6982B /* icon_tuple_xx_white@3x.png in Resources */,
 				A20E3CF4231E9A3900E6982B /* registet_checkbox_icon_h@2x.png in Resources */,
 				A24B6566225EE0EE00B257BB /* HAutoPackage_Release.sh in Resources */,
 				A28EF3A921D8ECC9002F92ED /* loading_new_7@2x.png in Resources */,
 				A28EF3AC21D8ECC9002F92ED /* loading_new_3@2x.png in Resources */,
 				A24B6568225EE0EE00B257BB /* README.H.md in Resources */,
-				A2A8EBA522E1F80D0049C51B /* HKBArrowLeft@3x.png in Resources */,
 				A20E3D182320F6E200E6982B /* icon_tuple_xx_white@2x.png in Resources */,
 				A28EF3A821D8ECC9002F92ED /* loading_new_2@2x.png in Resources */,
 				A20E3CF7231E9A3900E6982B /* login_eye_icon_h@2x.png in Resources */,
@@ -2640,6 +2731,7 @@
 				A20E3D10231FE8FC00E6982B /* di_index_h@3x.png in Resources */,
 				A27D00AC23E16A08009D5475 /* 活动记实 in Resources */,
 				A28EF3AD21D8ECC9002F92ED /* loading_new_12@2x.png in Resources */,
+				A22FA1702400DD6200B75C1C /* HKBKeyboardManager.bundle in Resources */,
 				A28EF38B21D8ECBE002F92ED /* icon_no_network@2x.png in Resources */,
 				15B4DD6E2092F88700773E04 /* Main.storyboard in Resources */,
 			);
@@ -2706,6 +2798,7 @@
 				A2E8F54122D72A9800E7C9F2 /* YTKNetworkAgent.m in Sources */,
 				153F081620E28CA000C74850 /* HNumericValidator.m in Sources */,
 				A222AE5422818F7D0013098A /* HLabel.m in Sources */,
+				A22FA1782400DD6200B75C1C /* HKBUIViewController+Additions.m in Sources */,
 				15B4DDE92092F96C00773E04 /* HDebugUtil.m in Sources */,
 				A273940B22A7FF44009676C1 /* HTableView.m in Sources */,
 				15B4DE0D2092F96C00773E04 /* NSObject+HSafeNotify.m in Sources */,
@@ -2719,7 +2812,6 @@
 				A2A8EB4F22DDD9690049C51B /* UIView+HLeaks.m in Sources */,
 				A222AE5C22818F7D0013098A /* NSAttributedString+HText.m in Sources */,
 				A2E8F57922D8356300E7C9F2 /* HCacheTimer.m in Sources */,
-				A2A8EBA222E1F80D0049C51B /* HKeyboardManager.m in Sources */,
 				A206881E22C9FDBD00661634 /* HTableSignal.m in Sources */,
 				A2296D59228A62080081A479 /* HGameViewController.m in Sources */,
 				15B4DDF92092F96C00773E04 /* UIScreen+HUtil.m in Sources */,
@@ -2729,13 +2821,14 @@
 				A24B6581225F7A7500B257BB /* HPayWebviewVC.m in Sources */,
 				150C7CB721199D9000A05347 /* UIView+HPrinter.m in Sources */,
 				15464B7720A2C26300CDD27E /* HTestManager.m in Sources */,
+				A22FA0872400D52B00B75C1C /* AppDelegate+SoundService.m in Sources */,
+				A22FA16F2400DD6200B75C1C /* HKBKeyboardReturnKeyHandler.m in Sources */,
 				A2E8F54322D72A9800E7C9F2 /* YTKBatchRequestAgent.m in Sources */,
 				A2E8F53D22D72A9800E7C9F2 /* YTKChainRequest.m in Sources */,
 				15038EA820CC0C6A00A16FC9 /* HSwitchLanguage.m in Sources */,
 				A24B659522607E8400B257BB /* NSStream+SKPSMTPExtensions.m in Sources */,
 				A2E8F57322D8356300E7C9F2 /* HFileStorage.m in Sources */,
 				A2A8EBF522E4A17D0049C51B /* HFPickerView.m in Sources */,
-				A2A8EBA022E1F80D0049C51B /* HKeyboardManager+HToolBar.m in Sources */,
 				15B4DDED2092F96C00773E04 /* UIView+HImage.m in Sources */,
 				A20E3D332326891900E6982B /* HTupleViewCellVertValue1.m in Sources */,
 				A2A8EB3022DB62680049C51B /* HCycleScrollView.m in Sources */,
@@ -2748,6 +2841,7 @@
 				A2E8F55A22D8354400E7C9F2 /* HFileCache.m in Sources */,
 				A2E8F57622D8356300E7C9F2 /* HValueTransformerFactory.m in Sources */,
 				A2E8F57422D8356300E7C9F2 /* NSURL+HExtendedFileAttributes.m in Sources */,
+				A22FA1742400DD6200B75C1C /* HKBPreviousNextView.m in Sources */,
 				A2FA53C623D732D100C5F710 /* HNetworkManager.m in Sources */,
 				A222AE4E22818F7D0013098A /* HTextMagnifier.m in Sources */,
 				A265FF6F2269F6280093C780 /* HHostUrlManager.m in Sources */,
@@ -2762,11 +2856,15 @@
 				A2C8C89F239BE5E000C15AE9 /* HLabel+HUtil.m in Sources */,
 				A2B3708F23D01C6600B20DBF /* HPresentAnimation.m in Sources */,
 				A20E3CE1231A663300E6982B /* UIView+HAlert.m in Sources */,
+				A22FA1752400DD6200B75C1C /* HKBBarButtonItem.m in Sources */,
+				A22FA1772400DD6200B75C1C /* HKBUIView+HKBKeyboardToolbar.m in Sources */,
+				A22FA17F2400DFC900B75C1C /* AppDelegate+UserService.m in Sources */,
 				A20E3D04231FE0C800E6982B /* HMainController3.m in Sources */,
 				A28EF3C421DA1DFE002F92ED /* HFormCell.m in Sources */,
 				A2A8EB6522DF01390049C51B /* UIViewController+HDisappear.m in Sources */,
 				1547B891210C4E09009E0374 /* UICollectionView+HTracking.m in Sources */,
 				A24B659622607E8400B257BB /* HEmailManager.m in Sources */,
+				A22FA17C2400DD6200B75C1C /* HKBNSArray+Sort.m in Sources */,
 				15E6BB9C2136E7E300EBE794 /* YPTabBarController.m in Sources */,
 				15B4DDF62092F96C00773E04 /* UIApplication+HUtil.m in Sources */,
 				A222A716227C52430013098A /* UILabel+HUtil.m in Sources */,
@@ -2778,6 +2876,7 @@
 				1547855D211599CE00DC9EAE /* HRegularExpression.m in Sources */,
 				A2A8EBD322E427FA0049C51B /* HMonitor.m in Sources */,
 				A22851FF228D48C100961A86 /* NSObject+HSelector.m in Sources */,
+				A22FA1762400DD6200B75C1C /* HKBTitleBarButtonItem.m in Sources */,
 				15C5736820B3DD7B0070327C /* HTupleBaseCell.m in Sources */,
 				15B4DE0C2092F96C00773E04 /* NSTimer+HSafeUtil.m in Sources */,
 				A222AE5822818F7D0013098A /* HTextAsyncLayer.m in Sources */,
@@ -2808,17 +2907,21 @@
 				1547B88E210C4E09009E0374 /* UIViewController+HTracking.m in Sources */,
 				15B4DE062092F96C00773E04 /* NSObject+HBlockSEL.m in Sources */,
 				A208E18122BA40A2009A6FDD /* UIScrollView+HEmptyDataSetExa.m in Sources */,
+				A22FA1732400DD6200B75C1C /* HKBToolbar.m in Sources */,
 				A222AE5F22818F7D0013098A /* HTextParser.m in Sources */,
 				A2E8F53E22D72A9800E7C9F2 /* YTKNetworkPrivate.m in Sources */,
+				A22FA17A2400DD6200B75C1C /* HKBUIView+Hierarchy.m in Sources */,
 				15C5731E20B3B1900070327C /* HSimilarity.m in Sources */,
 				15B4DE052092F96C00773E04 /* HHexUtil.m in Sources */,
 				A2296D5C228A626B0081A479 /* HSFSafariViewController.m in Sources */,
 				A2E8F54022D72A9800E7C9F2 /* YTKBatchRequest.m in Sources */,
 				A2A8EB4222DC6F820049C51B /* HRegisterController+KS.m in Sources */,
 				15B4DE0E2092F96C00773E04 /* NSDictionary+HSafeUtil.m in Sources */,
+				A22FA1712400DD6200B75C1C /* HKBTextView.m in Sources */,
 				A20E3CD7231A662B00E6982B /* HAlertView.m in Sources */,
 				A2A8EBBE22E3FDB40049C51B /* HWebview.m in Sources */,
 				15B4DE2A2093034700773E04 /* HClassManager.m in Sources */,
+				A22FA17B2400DD6200B75C1C /* HKBUITextFieldView+Additions.m in Sources */,
 				A289DD0A23E418E200FC59F1 /* HTupleViewTextLoopCell.m in Sources */,
 				15B4DE1D209302BF00773E04 /* HGoTo.m in Sources */,
 				1510794520F99ABB00860D1C /* NSObject+HExclusive.m in Sources */,
@@ -2833,7 +2936,6 @@
 				A2A8EB2B22DB62680049C51B /* HCollectionViewCell.m in Sources */,
 				15B4DDEE2092F96C00773E04 /* UIViewController+HBackHandler.m in Sources */,
 				A222AE5222818F7D0013098A /* HTextKeyboardManager.m in Sources */,
-				A2A8EBA622E1F80D0049C51B /* UIViewController+HEndEdit.m in Sources */,
 				15B4DE022092F96C00773E04 /* NSUserDefaults+HUtil.m in Sources */,
 				A2A8EB3122DB62680049C51B /* UIView+HExtension.m in Sources */,
 				A2E8F57B22D8356300E7C9F2 /* HCache.m in Sources */,
@@ -2855,9 +2957,11 @@
 				150DE9902126AE50004B9E77 /* HAnalogNetworkManager.m in Sources */,
 				A20E3D01231FE0C000E6982B /* HMainController2.m in Sources */,
 				A2A8EBB922E1FDEE0049C51B /* WebViewJavascriptBridge.m in Sources */,
+				A22FA1792400DD6200B75C1C /* HKBUIScrollView+Additions.m in Sources */,
 				A206882022C9FDBD00661634 /* HTableViewApex.m in Sources */,
 				A2E8F53C22D72A9800E7C9F2 /* YTKNetworkConfig.m in Sources */,
 				A20F4C2C23FA8C6E00E2A126 /* UINavigationController+HIntercept.m in Sources */,
+				A22FA0812400D49C00B75C1C /* AppDelegate+ConfigerService.m in Sources */,
 				A208E17822BA305C009A6FDD /* HTupleRefresh.m in Sources */,
 				15F9152920A18CA9000261C4 /* HAspectsCenter.m in Sources */,
 				A222AE5122818F7D0013098A /* HTextLine.m in Sources */,
@@ -2873,7 +2977,6 @@
 				A28A023C23EEDA77000556A2 /* UIImageView+HString.m in Sources */,
 				153F081320E28CA000C74850 /* HAlphaValidator.m in Sources */,
 				A2E8F54222D72A9800E7C9F2 /* YTKChainRequestAgent.m in Sources */,
-				A2A8EBA722E1F80D0049C51B /* UIView+HResponder.m in Sources */,
 				A20E3CFB231FDF4D00E6982B /* HMenuController.m in Sources */,
 				A222AE5622818F7D0013098A /* UIView+HText.m in Sources */,
 				A2E8F57822D8356300E7C9F2 /* HCachePrivate.m in Sources */,
@@ -2897,6 +3000,7 @@
 				A289DCF723E3E3E900FC59F1 /* HTupleViewBannerCell.m in Sources */,
 				15E6BB992136E7E300EBE794 /* UIScrollView+YPTab.m in Sources */,
 				A250DF182400101A009F5E47 /* UIView+HUtil.m in Sources */,
+				A22FA0842400D50500B75C1C /* AppDelegate+NotifyService.m in Sources */,
 				15B4DDF52092F96C00773E04 /* UINavigationController+HUtil.m in Sources */,
 				A2A8EBD222E427FA0049C51B /* HMonitorControl.m in Sources */,
 				A20E3D07231FE0D100E6982B /* HMainController4.m in Sources */,
@@ -2926,18 +3030,18 @@
 				A222AE5B22818F7D0013098A /* HTextWeakProxy.m in Sources */,
 				15B4DD682092F88700773E04 /* AppDelegate.m in Sources */,
 				A28566B423F1438B00552FE7 /* NSObject_.m in Sources */,
+				A22FA1722400DD6200B75C1C /* HKBKeyboardManager.m in Sources */,
 				A219F22F222FB46A00241FD7 /* HIFS.m in Sources */,
 				A222AE6522828E5C0013098A /* HTextField.m in Sources */,
 				A20E3D482328AC0B00E6982B /* HTupleViewApexVertValue1.m in Sources */,
 				A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */,
 				157696EB20A0AB6900E31469 /* hFelix.m in Sources */,
 				A206882822CA081400661634 /* HViewController.m in Sources */,
-				A2A8EBA322E1F80D0049C51B /* NSArray+HSort.m in Sources */,
 				A24B659822607E8400B257BB /* NSData+Base64Additions.m in Sources */,
-				A2A8EBA122E1F80D0049C51B /* UIView+HKBToolBar.m in Sources */,
 				A208D62E22AD373E009A6FDD /* HAttributedString.m in Sources */,
 				15C572A020AEAC340070327C /* UILabel+HState.m in Sources */,
 				A206882F22CA083700661634 /* HWebButtonView.m in Sources */,
+				A22FA07E2400D1CE00B75C1C /* AppDelegate+WindowService.m in Sources */,
 				A286250F23EA6CEC00E81781 /* HRegisterController+Normal.m in Sources */,
 				A2A8EB4522DC6F920049C51B /* HRegisterController+SJ.m in Sources */,
 				A2A8EB3F22DC6F300049C51B /* HRegisterController.m in Sources */,
