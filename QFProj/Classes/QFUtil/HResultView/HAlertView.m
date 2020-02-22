@@ -22,7 +22,7 @@
 
 - (void)wakeup {
     UIWindow *window = [[UIApplication sharedApplication].windows firstObject];
-    HProgressHUD* hud = [HProgressHUD showHUDAddedTo:window animated:YES];
+    HProgressHUD *hud = [HProgressHUD showHUDAddedTo:window animated:YES];
     hud.mode = HProgressHUDModeText;
     hud.labelText = self.desc;
     hud.margin = 10.f;
