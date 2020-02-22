@@ -33,6 +33,11 @@
         [YTKNetworkConfig sharedConfig].baseUrl = @"";
         //配置数据处理类型
         [[YTKNetworkAgent sharedAgent] setValue:[NSSet setWithObjects:@"application/json", @"text/plain", @"text/javascript", @"text/json",@"text/html",@"text/css", nil] forKeyPath:@"_manager.responseSerializer.acceptableContentTypes"];
+        //删除nullValues
+        AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializer];
+        serializer.removesKeysWithNullValues = YES;
+        serializer.acceptableStatusCodes = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(100, 500)];
+        [[YTKNetworkAgent sharedAgent] setValue:serializer forKey:@"_jsonResponseSerializer"];
     });
 }
 #pragma mark - 基本参数
