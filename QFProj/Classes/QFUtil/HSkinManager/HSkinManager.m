@@ -10,7 +10,7 @@
 
 @implementation HSkinManager
 
-#pragma --mark naviBar
+#pragma mark - naviBar
 //导航栏背景颜色
 + (UIColor *)naviBarColor {
     return nil;
@@ -124,7 +124,7 @@
     return nil;
 }
 
-#pragma --mark tabbar
+#pragma mark - tabbar
 //tabBar背景色
 + (UIColor *)tabBarColor {
     return nil;
@@ -174,7 +174,7 @@
     return nil;
 }
 
-#pragma --mark view controller
+#pragma mark - view controller
 //View controller背景颜色
 + (UIColor *)vcViewColor {
     return nil;
@@ -192,7 +192,7 @@
     return nil;
 }
 
-#pragma --mark view color
+#pragma mark - view color
 // view border color 颜色
 + (UIColor *)viewBorderColor {
     return nil;
@@ -244,7 +244,7 @@
     return nil;
 }
 
-#pragma --mark tuple view
+#pragma mark - tuple view
 //tuple view背景色
 + (UIColor *)tupleColor {
     return nil;
@@ -342,7 +342,7 @@
     return nil;
 }
 
-#pragma --mark table view
+#pragma mark - table view
 //table view背景色
 + (UIColor *)tableColor {
     return nil;
@@ -440,7 +440,7 @@
     return nil;
 }
 
-#pragma --mark label
+#pragma mark - label
 //label背景色
 + (UIColor *)labelColor {
     return nil;
@@ -509,7 +509,7 @@
     return nil;
 }
 
-#pragma --mark button
+#pragma mark - button
 //button背景色
 + (UIColor *)buttonColor {
     return nil;
@@ -595,7 +595,7 @@
     return nil;
 }
 
-#pragma --mark textfield
+#pragma mark - textfield
 //textField背景色
 + (UIColor *)textFieldColor {
     return nil;
@@ -651,7 +651,7 @@
 
 @implementation HSkinManager2
 
-#pragma --mark view color
+#pragma mark - view color
 //View背景颜色
 + (UIColor *)viewColor {
     return nil;
@@ -703,7 +703,7 @@
     return nil;
 }
 
-#pragma --mark text color
+#pragma mark - text color
 //text normal 颜色
 + (UIColor *)textNormalColor {
     return nil;
@@ -760,7 +760,7 @@
 
 @implementation HSkinManager3
 
-#pragma --mark view color
+#pragma mark - view color
 // view 颜色
 + (UIColor *)viewColor {
     return nil;
@@ -802,7 +802,7 @@
     return nil;
 }
 
-#pragma --mark text color
+#pragma mark - text color
 // text 颜色
 + (UIColor *)textColor {
     return nil;

@@ -331,7 +331,7 @@
 //                     }];
 //}
 
-//#pragma --mark 崩溃日志收集
+//#pragma mark - 崩溃日志收集
 //
 ////获取当前控制器信息
 //- (NSString *)currentVCInfo {

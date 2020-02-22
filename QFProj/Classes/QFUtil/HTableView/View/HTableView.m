@@ -73,7 +73,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 
 @dynamic delegate;
 
-#pragma --mark init
+#pragma mark - init
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -146,7 +146,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     super.delegate = self;
     super.dataSource = self;
 }
-#pragma --mark bounce
+#pragma mark - bounce
 - (void)horizontalBounceEnabled {
     self.bounces = YES;
     self.alwaysBounceHorizontal = YES;
@@ -165,7 +165,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 - (void)bounceDisenable {
     self.bounces = NO;
 }
-#pragma --mark other methods
+#pragma mark - other methods
 //屏蔽系统UITableViewCell的间隔线style
 - (void)setSeparatorStyle:(UITableViewCellSeparatorStyle)separatorStyle {
     super.separatorStyle = UITableViewCellSeparatorStyleNone;

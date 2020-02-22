@@ -147,7 +147,24 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     super.dataSource = self;
 }
 
-#pragma --mark bounce
+#pragma mark - header & footer 是否悬停
+#pragma mark -
+
+- (BOOL)sectionHeadersPinToVisibleBounds {
+    return _flowLayout.sectionHeadersPinToVisibleBounds;
+}
+- (void)setSectionHeadersPinToVisibleBounds:(BOOL)sectionHeadersPinToVisibleBounds {
+    _flowLayout.sectionHeadersPinToVisibleBounds = sectionHeadersPinToVisibleBounds;
+}
+
+- (BOOL)sectionFootersPinToVisibleBounds {
+    return _flowLayout.sectionFootersPinToVisibleBounds;
+}
+- (void)setSectionFootersPinToVisibleBounds:(BOOL)sectionFootersPinToVisibleBounds {
+    _flowLayout.sectionFootersPinToVisibleBounds = sectionFootersPinToVisibleBounds;
+}
+
+#pragma mark - bounce
 #pragma mark -
 - (void)horizontalBounceEnabled {
     self.bounces = YES;

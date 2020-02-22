@@ -156,6 +156,9 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 @property (nonatomic, copy, nullable) HTupleRefreshBlock  refreshBlock;   // block to refresh data
 @property (nonatomic, copy, nullable) HTupleLoadMoreBlock loadMoreBlock;  // block to load more data
 
+@property (nonatomic, assign) BOOL sectionHeadersPinToVisibleBounds; //header是否悬停, default is NO
+@property (nonatomic, assign) BOOL sectionFootersPinToVisibleBounds; //footer是否悬停, default is NO
+
 @property (nonatomic, copy, nullable) NSString *releaseTupleKey; //设置释放的key值
 @property (nonatomic, copy, nullable) NSString *reloadTupleKey; //设置reload的key值
 

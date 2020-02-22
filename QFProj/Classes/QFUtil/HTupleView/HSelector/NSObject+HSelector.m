@@ -16,7 +16,7 @@
     return [self respondsToSelector:selector];
 }
 
-#pragma --mark 执行实例方法
+#pragma mark - 执行实例方法
 
 - (id)performSelector:(SEL)aSelector withPre:(NSString *)pre {
     NSString *selectorString = [NSString stringWithFormat:@"%@%@",pre,NSStringFromSelector(aSelector)];
@@ -190,7 +190,7 @@
     return [self signature:signature invocation:invocation];
 }
 
-#pragma --mark 执行类方法
+#pragma mark - 执行类方法
 
 + (id)performClassSelector:(SEL)aSelector withObjects:(NSArray *)objects {
     

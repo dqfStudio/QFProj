@@ -11,7 +11,7 @@
 
 @interface HSkinManager : NSObject
 
-#pragma --mark naviBar
+#pragma mark - naviBar
 //导航栏背景颜色
 + (UIColor *)naviBarColor;
 + (UIColor *)naviBarDetailColor;
@@ -55,7 +55,7 @@
 + (UIColor *)naviBarSeparatorExtra1Color;
 + (UIColor *)naviBarSeparatorExtra2Color;
 
-#pragma --mark tabbar
+#pragma mark - tabbar
 //tabBar背景色
 + (UIColor *)tabBarColor;
 + (UIColor *)tabBarDetailColor;
@@ -75,7 +75,7 @@
 + (UIColor *)tabBarTitleSelectedExtra1Color;
 + (UIColor *)tabBarTitleSelectedExtra2Color;
 
-#pragma --mark view controller
+#pragma mark - view controller
 //View controller背景颜色
 + (UIColor *)vcViewColor;
 + (UIColor *)vcViewDetailColor;
@@ -83,7 +83,7 @@
 + (UIColor *)vcViewExtra1Color;
 + (UIColor *)vcViewExtra2Color;
 
-#pragma --mark view color
+#pragma mark - view color
 // view border color 颜色
 + (UIColor *)viewBorderColor;
 + (UIColor *)viewBorderDetailColor;
@@ -105,7 +105,7 @@
 + (UIColor *)viewLineExtra1Color;
 + (UIColor *)viewLineExtra2Color;
 
-#pragma --mark tuple view
+#pragma mark - tuple view
 //tuple view背景色
 + (UIColor *)tupleColor;
 + (UIColor *)tupleDetailColor;
@@ -143,7 +143,7 @@
 + (UIColor *)tupleCellSeparatorExtra1Color;
 + (UIColor *)tupleCellSeparatorExtra2Color;
 
-#pragma --mark table view
+#pragma mark - table view
 //table view背景色
 + (UIColor *)tableColor;
 + (UIColor *)tableDetailColor;
@@ -181,7 +181,7 @@
 + (UIColor *)tableCellSeparatorExtra1Color;
 + (UIColor *)tableCellSeparatorExtra2Color;
 
-#pragma --mark label
+#pragma mark - label
 //label背景色
 + (UIColor *)labelColor;
 + (UIColor *)labelDetailColor;
@@ -210,7 +210,7 @@
 + (UIColor *)labelHighlightedExtra1Color;
 + (UIColor *)labelHighlightedExtra2Color;
 
-#pragma --mark button
+#pragma mark - button
 //button背景色
 + (UIColor *)buttonColor;
 + (UIColor *)buttonDetailColor;
@@ -246,7 +246,7 @@
 + (UIColor *)buttonHighlightedExtra1Color;
 + (UIColor *)buttonHighlightedExtra2Color;
 
-#pragma --mark textfield
+#pragma mark - textfield
 //textField背景色
 + (UIColor *)textFieldColor;
 + (UIColor *)textFieldDetailColor;
@@ -272,7 +272,7 @@
 
 @interface HSkinManager2 : NSObject
 
-#pragma --mark view color
+#pragma mark - view color
 // view 背景颜色
 + (UIColor *)viewColor;
 + (UIColor *)viewDetailColor;
@@ -294,7 +294,7 @@
 + (UIColor *)viewLineExtra1Color;
 + (UIColor *)viewLineExtra2Color;
 
-#pragma --mark text color
+#pragma mark - text color
 //text normal 颜色
 + (UIColor *)textNormalColor;
 + (UIColor *)textNormalDetailColor;
@@ -320,7 +320,7 @@
 
 @interface HSkinManager3 : NSObject
 
-#pragma --mark view color
+#pragma mark - view color
 // view 颜色
 + (UIColor *)viewColor;
 + (UIColor *)viewDarkColor;
@@ -338,7 +338,7 @@
 + (UIColor *)viewDarkExtra1Color;
 + (UIColor *)viewLightExtra1Color;
 
-#pragma --mark text color
+#pragma mark - text color
 // text 颜色
 + (UIColor *)textColor;
 + (UIColor *)textDarkColor;
