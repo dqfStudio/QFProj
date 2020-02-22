@@ -25,7 +25,7 @@
 #pragma mark - Public
 - (void)addFullScreenPopBlackListItem:(UIViewController *)viewController {
     if (!viewController) {
-        return ;
+        return;
     }
     [self.blackList addObject:viewController];
 }
