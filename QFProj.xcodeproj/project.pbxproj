@@ -41,8 +41,7 @@
 		15B4DD702092F88700773E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15B4DD6F2092F88700773E04 /* Assets.xcassets */; };
 		15B4DD732092F88700773E04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B4DD712092F88700773E04 /* LaunchScreen.storyboard */; };
 		15B4DD762092F88700773E04 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD752092F88700773E04 /* main.m */; };
-		15B4DDE82092F96C00773E04 /* AppDelegate+HDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD852092F96B00773E04 /* AppDelegate+HDebug.m */; };
-		15B4DDE92092F96C00773E04 /* HDebugUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD882092F96B00773E04 /* HDebugUtil.m */; };
+		15B4DDE82092F96C00773E04 /* AppDelegate+DebugService.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD852092F96B00773E04 /* AppDelegate+DebugService.m */; };
 		15B4DDEA2092F96C00773E04 /* HDebugView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD892092F96B00773E04 /* HDebugView.m */; };
 		15B4DDEC2092F96C00773E04 /* HLaunchImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15B4DD8E2092F96B00773E04 /* HLaunchImage.jpg */; };
 		15B4DDEE2092F96C00773E04 /* UIViewController+HBackHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD952092F96B00773E04 /* UIViewController+HBackHandler.m */; };
@@ -429,12 +428,10 @@
 		15B4DD722092F88700773E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15B4DD742092F88700773E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15B4DD752092F88700773E04 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		15B4DD852092F96B00773E04 /* AppDelegate+HDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+HDebug.m"; sourceTree = "<group>"; };
+		15B4DD852092F96B00773E04 /* AppDelegate+DebugService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+DebugService.m"; sourceTree = "<group>"; };
 		15B4DD862092F96B00773E04 /* HDebugView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDebugView.h; sourceTree = "<group>"; };
-		15B4DD882092F96B00773E04 /* HDebugUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDebugUtil.m; sourceTree = "<group>"; };
 		15B4DD892092F96B00773E04 /* HDebugView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDebugView.m; sourceTree = "<group>"; };
-		15B4DD8A2092F96B00773E04 /* AppDelegate+HDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+HDebug.h"; sourceTree = "<group>"; };
-		15B4DD8B2092F96B00773E04 /* HDebugUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDebugUtil.h; sourceTree = "<group>"; };
+		15B4DD8A2092F96B00773E04 /* AppDelegate+DebugService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+DebugService.h"; sourceTree = "<group>"; };
 		15B4DD8E2092F96B00773E04 /* HLaunchImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HLaunchImage.jpg; sourceTree = "<group>"; };
 		15B4DD912092F96B00773E04 /* UINavigationController+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+HUtil.h"; sourceTree = "<group>"; };
 		15B4DD922092F96B00773E04 /* UIGestureRecognizer+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+HUtil.h"; sourceTree = "<group>"; };
@@ -1363,10 +1360,8 @@
 		15B4DD842092F96B00773E04 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				15B4DD8A2092F96B00773E04 /* AppDelegate+HDebug.h */,
-				15B4DD852092F96B00773E04 /* AppDelegate+HDebug.m */,
-				15B4DD8B2092F96B00773E04 /* HDebugUtil.h */,
-				15B4DD882092F96B00773E04 /* HDebugUtil.m */,
+				15B4DD8A2092F96B00773E04 /* AppDelegate+DebugService.h */,
+				15B4DD852092F96B00773E04 /* AppDelegate+DebugService.m */,
 				15B4DD862092F96B00773E04 /* HDebugView.h */,
 				15B4DD892092F96B00773E04 /* HDebugView.m */,
 				15E56519212E599C003A63E5 /* HHostSegmentCell.h */,
@@ -2779,7 +2774,6 @@
 				153F081620E28CA000C74850 /* HNumericValidator.m in Sources */,
 				A222AE5422818F7D0013098A /* HLabel.m in Sources */,
 				A22FA1782400DD6200B75C1C /* HKBUIViewController+Additions.m in Sources */,
-				15B4DDE92092F96C00773E04 /* HDebugUtil.m in Sources */,
 				A273940B22A7FF44009676C1 /* HTableView.m in Sources */,
 				A2A17DA62276DB1E003FED58 /* NSMutableAttributedString+HUtil.m in Sources */,
 				A2A8EB2F22DB62680049C51B /* HAnimatedDotView.m in Sources */,
@@ -2872,7 +2866,7 @@
 				A24B657E225F768000B257BB /* HWebviewVC.m in Sources */,
 				A2079ADB23E2990000AF1BA1 /* HVerifyCodeView.m in Sources */,
 				15B4DDFB2092F96C00773E04 /* UIColor+HUtil.m in Sources */,
-				15B4DDE82092F96C00773E04 /* AppDelegate+HDebug.m in Sources */,
+				15B4DDE82092F96C00773E04 /* AppDelegate+DebugService.m in Sources */,
 				15112C6A210574DB00842FE4 /* UIAlertController+HError.m in Sources */,
 				15B4DDEA2092F96C00773E04 /* HDebugView.m in Sources */,
 				A289DD0723E418D700FC59F1 /* HTupleViewTextLoopApex.m in Sources */,
