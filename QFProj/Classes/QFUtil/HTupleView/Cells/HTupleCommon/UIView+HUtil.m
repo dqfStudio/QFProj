@@ -374,74 +374,10 @@ static char const * const KRightLineView  = "KRightLineView";
 - (void)adaptScreenWidthWithType:(HAdaptScreenWidthType)type exceptViews:(NSArray<Class> *)exceptViews {
 
     if (![self isExceptViewClassWithClassArray:exceptViews]) {
-     
-        // 是否要对约束进行等比例
-        BOOL adaptConstraint = ((type & HAdaptScreenWidthTypeConstraint) || type == HAdaptScreenWidthTypeAll);
-        
-        // 是否要对frameHeight等比例
-        BOOL adaptFrameHeight = ((type & HAdaptScreenWidthTypeFrameHeight) || type == HAdaptScreenWidthTypeAll);
-        
-        // 是否要对frameSize等比例
-        BOOL adaptFrameSize = ((type & HAdaptScreenWidthTypeFrameSize) || type == HAdaptScreenWidthTypeAll);
-        
-        // 是否对字体大小进行等比例
-        BOOL adaptFontSize = ((type & HAdaptScreenWidthTypeFontSize) || type == HAdaptScreenWidthTypeAll);
-        
-        // 是否对圆角大小进行等比例
-        BOOL adaptCornerRadius = ((type & HAdaptScreenWidthTypeCornerRadius) || type == HAdaptScreenWidthTypeAll);
-        
-        // 约束
-        if (adaptConstraint) {
-            [self.constraints enumerateObjectsUsingBlock:^(__kindof NSLayoutConstraint * _Nonnull subConstraint, NSUInteger idx, BOOL * _Nonnull stop) {
-                subConstraint.constant = HAdaptWidth(subConstraint.constant);
-            }];
-        }
-        
-        // frameHeight
-        if (adaptFrameHeight) {
-            CGRect frame = self.frame;
-            frame.size.height = HAdaptWidth(frame.size.width);
-            self.frame = frame;
-        }
-        
-        // frameSize
-        if (adaptFrameSize) {
-            CGRect frame = self.frame;
-            frame.size.width = HAdaptWidth(frame.size.width);
-            frame.size.height = HAdaptWidth(frame.size.width);
-            self.frame = frame;
-        }
-        
-        // 字体大小
-        if (adaptFontSize) {
-            
-            if ([self isKindOfClass:[UILabel class]] && ![self isKindOfClass:NSClassFromString(@"UIButtonLabel")]) {
-                UILabel *label = (UILabel *)self;
-                label.font = [UIFont systemFontOfSize:HAdaptWidth(label.font.pointSize)];
-            }
-            else if ([self isKindOfClass:[UITextField class]]) {
-                UITextField *textField = (UITextField *)self;
-                textField.font = [UIFont systemFontOfSize:HAdaptWidth(textField.font.pointSize)];
-            }
-            else  if ([self isKindOfClass:[UIButton class]]) {
-                UIButton *button = (UIButton *)self;
-                button.titleLabel.font = [UIFont systemFontOfSize:HAdaptWidth(button.titleLabel.font.pointSize)];
-            }
-            else  if ([self isKindOfClass:[UITextView class]]) {
-                UITextView *textView = (UITextView *)self;
-                textView.font = [UIFont systemFontOfSize:HAdaptWidth(textView.font.pointSize)];
-            }
-        }
-        
-        // 圆角
-        if (adaptCornerRadius) {
-            if (self.layer.cornerRadius) {
-                self.layer.cornerRadius = HAdaptWidth(self.layer.cornerRadius);
-            }
-        }
-        
+        // 对View自身进行适配
+        [self adaptScreenWidthWithType:type];
+        // 对子view进行适配
         [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull subView, NSUInteger idx, BOOL * _Nonnull stop) {
-            // 继续对子view操作
             [subView adaptScreenWidthWithType:type exceptViews:exceptViews];
         }];
     }
