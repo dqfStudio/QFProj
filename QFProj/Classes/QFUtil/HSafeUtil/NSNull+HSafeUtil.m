@@ -19,14 +19,13 @@
     //look up method signature
     NSMethodSignature *signature = [super methodSignatureForSelector:selector];
     if (!signature) {
-        for (Class someClass in @[
-            [NSMutableArray class],
-            [NSMutableDictionary class],
-            [NSMutableString class],
-            [NSNumber class],
-            [NSDate class],
-            [NSData class]
-        ]) {
+        NSArray *classArray = @[[NSMutableArray class],
+                               [NSMutableDictionary class],
+                               [NSMutableString class],
+                               [NSNumber class],
+                               [NSDate class],
+                               [NSData class]];
+        for (Class someClass in classArray) {
             @try {
                 if ([someClass instancesRespondToSelector:selector]) {
                     signature = [someClass instanceMethodSignatureForSelector:selector];
