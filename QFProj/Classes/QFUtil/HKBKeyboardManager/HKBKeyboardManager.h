@@ -1,6 +1,5 @@
 //
 // HKBKeyboardManager.h
-// https://github.com/hackiftekhar/HKBKeyboardManager
 // Copyright (c) 2013-16 Iftekhar Qurashi.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -63,7 +62,7 @@ extern NSInteger const kHKBPreviousNextButtonToolbarTag;
 
 
 /**
- Codeless drop-in universal library allows to prevent issues of keyboard sliding up and cover UITextField/UITextView. Neither need to write any code nor any setup required and much more. A generic version of KeyboardManagement. https://developer.apple.com/library/ios/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html
+ Codeless drop-in universal library allows to prevent issues of keyboard sliding up and cover UITextField/UITextView. Neither need to write any code nor any setup required and much more. A generic version of KeyboardManagement.
  */
 @interface HKBKeyboardManager : NSObject
 

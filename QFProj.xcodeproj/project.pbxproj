@@ -1977,15 +1977,15 @@
 		A22FA14C2400DD6200B75C1C /* HKBKeyboardManager */ = {
 			isa = PBXGroup;
 			children = (
-				A22FA14D2400DD6200B75C1C /* HKBKeyboardManager.h */,
-				A22FA14E2400DD6200B75C1C /* HKBKeyboardReturnKeyHandler.m */,
-				A22FA14F2400DD6200B75C1C /* Constants */,
-				A22FA1522400DD6200B75C1C /* Resources */,
-				A22FA1542400DD6200B75C1C /* HKBTextView */,
-				A22FA1572400DD6200B75C1C /* HKBKeyboardReturnKeyHandler.h */,
-				A22FA1582400DD6200B75C1C /* HKBKeyboardManager.m */,
-				A22FA1592400DD6200B75C1C /* HKBToolbar */,
 				A22FA1642400DD6200B75C1C /* Categories */,
+				A22FA14F2400DD6200B75C1C /* Constants */,
+				A22FA14D2400DD6200B75C1C /* HKBKeyboardManager.h */,
+				A22FA1582400DD6200B75C1C /* HKBKeyboardManager.m */,
+				A22FA1572400DD6200B75C1C /* HKBKeyboardReturnKeyHandler.h */,
+				A22FA14E2400DD6200B75C1C /* HKBKeyboardReturnKeyHandler.m */,
+				A22FA1542400DD6200B75C1C /* HKBTextView */,
+				A22FA1592400DD6200B75C1C /* HKBToolbar */,
+				A22FA1522400DD6200B75C1C /* Resources */,
 			);
 			name = HKBKeyboardManager;
 			path = QFUtil/HKBKeyboardManager;
