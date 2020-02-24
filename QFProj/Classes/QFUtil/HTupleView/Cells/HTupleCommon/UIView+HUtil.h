@@ -8,8 +8,24 @@
 
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
+#import "UIDevice+HUtil.h"
 #import "UIScreen+HUtil.h"
 #import "UIGestureRecognizer+HUtil.h"
+
+// 基准屏幕宽度
+#define HRefereWidth  375.0
+
+// 以屏幕宽度为固定比例关系，来计算对应的值。假设：基准屏幕宽度375，floatV=10；当前屏幕宽度为750时，那么返回的值为20
+#define HAdaptWidth(floatValue) (floatValue*UIScreen.width/HRefereWidth)
+
+typedef NS_ENUM(NSInteger, HAdaptScreenWidthType) {
+    HAdaptScreenWidthTypeConstraint = 1<<0, /* 对约束的constant等比例 */
+    HAdaptScreenWidthTypeFrameHeight = 1<<1, /* 对frameHeight等比例 */
+    HAdaptScreenWidthTypeFrameSize = 1<<2, /* 对frameSize等比例 */
+    HAdaptScreenWidthTypeFontSize = 1<<3, /* 对字体等比例 */
+    HAdaptScreenWidthTypeCornerRadius = 1<<4, /* 对圆角等比例 */
+    HAdaptScreenWidthTypeAll = 1<<5 /* 对现有支持的属性等比例 */
+};
 
 @interface UIView (HUtil)
 
@@ -101,6 +117,19 @@
  */
 - (UITapGestureRecognizer *)addSingleTapGestureWithBlock:(void (^)(UITapGestureRecognizer *recognizer))block;
 - (UITapGestureRecognizer *)addSingleTapGestureTarget:(id)target action:(SEL)action;
+
+#pragma mark - adapt screen
+#pragma mark -
+
+/**
+ 遍历当前view对象的subviews和constraints，对目标进行等比例换算
+ 
+ @param type 想要和基准屏幕等比例换算的属性类型
+ @param exceptViews 需要对哪些类进行例外
+ */
+- (void)adaptScreenWidthWithType:(HAdaptScreenWidthType)type exceptViews:(NSArray<Class> *)exceptViews;
+
+- (void)adaptScreenWidthWithType:(HAdaptScreenWidthType)type;
 
 #pragma mark - other
 #pragma mark -
