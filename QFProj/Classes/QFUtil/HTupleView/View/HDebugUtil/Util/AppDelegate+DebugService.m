@@ -24,7 +24,10 @@
     return [UIApplication sharedApplication].delegate.window;
 }
 - (CGRect)originFrame {
-    return CGRectMake(0, -CGRectGetHeight(self.screenFrame), CGRectGetWidth(self.screenFrame), CGRectGetHeight(self.screenFrame));
+    return CGRectMake(0,
+                      -CGRectGetHeight(self.screenFrame),
+                      CGRectGetWidth(self.screenFrame),
+                      CGRectGetHeight(self.screenFrame));
 }
 - (CGRect)newFrame {
     return self.screenFrame;
