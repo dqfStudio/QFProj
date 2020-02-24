@@ -45,7 +45,6 @@
 		15B4DDE92092F96C00773E04 /* HDebugUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD882092F96B00773E04 /* HDebugUtil.m */; };
 		15B4DDEA2092F96C00773E04 /* HDebugView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD892092F96B00773E04 /* HDebugView.m */; };
 		15B4DDEC2092F96C00773E04 /* HLaunchImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15B4DD8E2092F96B00773E04 /* HLaunchImage.jpg */; };
-		15B4DDED2092F96C00773E04 /* UIView+HImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD932092F96B00773E04 /* UIView+HImage.m */; };
 		15B4DDEE2092F96C00773E04 /* UIViewController+HBackHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD952092F96B00773E04 /* UIViewController+HBackHandler.m */; };
 		15B4DDF42092F96C00773E04 /* UIGestureRecognizer+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDA32092F96B00773E04 /* UIGestureRecognizer+HUtil.m */; };
 		15B4DDF52092F96C00773E04 /* UINavigationController+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDA42092F96B00773E04 /* UINavigationController+HUtil.m */; };
@@ -441,7 +440,6 @@
 		15B4DD8E2092F96B00773E04 /* HLaunchImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HLaunchImage.jpg; sourceTree = "<group>"; };
 		15B4DD912092F96B00773E04 /* UINavigationController+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+HUtil.h"; sourceTree = "<group>"; };
 		15B4DD922092F96B00773E04 /* UIGestureRecognizer+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+HUtil.h"; sourceTree = "<group>"; };
-		15B4DD932092F96B00773E04 /* UIView+HImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HImage.m"; sourceTree = "<group>"; };
 		15B4DD952092F96B00773E04 /* UIViewController+HBackHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HBackHandler.m"; sourceTree = "<group>"; };
 		15B4DD962092F96B00773E04 /* UIScreen+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+HUtil.h"; sourceTree = "<group>"; };
 		15B4DD982092F96B00773E04 /* UIImage+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Util.h"; sourceTree = "<group>"; };
@@ -449,7 +447,6 @@
 		15B4DD9A2092F96B00773E04 /* UIDevice+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+HUtil.h"; sourceTree = "<group>"; };
 		15B4DD9D2092F96B00773E04 /* UIColor+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HUtil.h"; sourceTree = "<group>"; };
 		15B4DDA02092F96B00773E04 /* UIViewController+HBackHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HBackHandler.h"; sourceTree = "<group>"; };
-		15B4DDA22092F96B00773E04 /* UIView+HImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HImage.h"; sourceTree = "<group>"; };
 		15B4DDA32092F96B00773E04 /* UIGestureRecognizer+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+HUtil.m"; sourceTree = "<group>"; };
 		15B4DDA42092F96B00773E04 /* UINavigationController+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+HUtil.m"; sourceTree = "<group>"; };
 		15B4DDA72092F96B00773E04 /* UIApplication+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+HUtil.m"; sourceTree = "<group>"; };
@@ -1425,8 +1422,6 @@
 				15B4DDA42092F96B00773E04 /* UINavigationController+HUtil.m */,
 				15B4DD962092F96B00773E04 /* UIScreen+HUtil.h */,
 				15B4DDAB2092F96B00773E04 /* UIScreen+HUtil.m */,
-				15B4DDA22092F96B00773E04 /* UIView+HImage.h */,
-				15B4DD932092F96B00773E04 /* UIView+HImage.m */,
 				15B4DDA02092F96B00773E04 /* UIViewController+HBackHandler.h */,
 				15B4DD952092F96B00773E04 /* UIViewController+HBackHandler.m */,
 			);
@@ -2824,7 +2819,6 @@
 				A24B659522607E8400B257BB /* NSStream+SKPSMTPExtensions.m in Sources */,
 				A2E8F57322D8356300E7C9F2 /* HFileStorage.m in Sources */,
 				A2A8EBF522E4A17D0049C51B /* HFPickerView.m in Sources */,
-				15B4DDED2092F96C00773E04 /* UIView+HImage.m in Sources */,
 				A20E3D332326891900E6982B /* HTupleViewCellVertValue1.m in Sources */,
 				A2A8EB3022DB62680049C51B /* HCycleScrollView.m in Sources */,
 				A206882222C9FDBD00661634 /* HTableViewCell.m in Sources */,
