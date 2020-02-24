@@ -342,7 +342,6 @@
 		A2E8F54322D72A9800E7C9F2 /* YTKBatchRequestAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F53922D72A9800E7C9F2 /* YTKBatchRequestAgent.m */; };
 		A2E8F54422D72A9800E7C9F2 /* YTKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F53B22D72A9800E7C9F2 /* YTKRequest.m */; };
 		A2E8F54722D72AB700E7C9F2 /* HNetworkDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F54622D72AB700E7C9F2 /* HNetworkDAO.m */; };
-		A2E8F55622D775A200E7C9F2 /* UIView+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F55522D775A200E7C9F2 /* UIView+HSafeMessy.m */; };
 		A2E8F55A22D8354400E7C9F2 /* HFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F55822D8354400E7C9F2 /* HFileCache.m */; };
 		A2E8F57322D8356300E7C9F2 /* HFileStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F55D22D8356300E7C9F2 /* HFileStorage.m */; };
 		A2E8F57422D8356300E7C9F2 /* NSURL+HExtendedFileAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F56022D8356300E7C9F2 /* NSURL+HExtendedFileAttributes.m */; };
@@ -982,8 +981,6 @@
 		A2E8F53B22D72A9800E7C9F2 /* YTKRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKRequest.m; sourceTree = "<group>"; };
 		A2E8F54522D72AB700E7C9F2 /* HNetworkDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNetworkDAO.h; sourceTree = "<group>"; };
 		A2E8F54622D72AB700E7C9F2 /* HNetworkDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNetworkDAO.m; sourceTree = "<group>"; };
-		A2E8F55422D775A200E7C9F2 /* UIView+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HSafeMessy.h"; sourceTree = "<group>"; };
-		A2E8F55522D775A200E7C9F2 /* UIView+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2E8F55822D8354400E7C9F2 /* HFileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFileCache.m; sourceTree = "<group>"; };
 		A2E8F55922D8354400E7C9F2 /* HFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFileCache.h; sourceTree = "<group>"; };
 		A2E8F55D22D8356300E7C9F2 /* HFileStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFileStorage.m; sourceTree = "<group>"; };
@@ -1499,8 +1496,6 @@
 				15B4DDDE2092F96B00773E04 /* NSDictionary+HSafeUtil.m */,
 				A2DC22B622424F2F00E540BE /* NSObject+HSafeMessy.h */,
 				A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */,
-				A2E8F55422D775A200E7C9F2 /* UIView+HSafeMessy.h */,
-				A2E8F55522D775A200E7C9F2 /* UIView+HSafeMessy.m */,
 				15B4DDD92092F96B00773E04 /* NSObject+HSwizzleUtil.h */,
 				15B4DDE42092F96B00773E04 /* NSObject+HSwizzleUtil.m */,
 				15B4DDE22092F96B00773E04 /* NSString+HSafeUtil.h */,
@@ -3044,7 +3039,6 @@
 				15464B7820A2C26300CDD27E /* HTestVC-DQF.m in Sources */,
 				A20E3D1E2321394400E6982B /* UIButton+HFilletLayer.m in Sources */,
 				A2E8F57722D8356300E7C9F2 /* HValueTransformer.m in Sources */,
-				A2E8F55622D775A200E7C9F2 /* UIView+HSafeMessy.m in Sources */,
 				15B4DE292093034700773E04 /* NSObject+annotation.m in Sources */,
 				A2E8F54422D72A9800E7C9F2 /* YTKRequest.m in Sources */,
 				A2B2453123C75F7D0073DEDF /* HSkinManager.m in Sources */,
