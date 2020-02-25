@@ -58,7 +58,6 @@
     HDebugView *debugView = objc_getAssociatedObject(self, _cmd);
     if (!debugView) {
         debugView = [[HDebugView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        //[debugView.lineView addTarget:self action:@selector(hideDebugView) forControlEvents:UIControlEventTouchUpInside];
         objc_setAssociatedObject(self, @selector(debugView), debugView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     return debugView;

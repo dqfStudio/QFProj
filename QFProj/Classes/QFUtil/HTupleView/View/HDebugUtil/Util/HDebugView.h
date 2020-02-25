@@ -12,5 +12,5 @@
 #import "HCommonDefine.h"
 
 @interface HDebugView : UIControl
-@property (nonatomic) UIControl *lineView;
+
 @end

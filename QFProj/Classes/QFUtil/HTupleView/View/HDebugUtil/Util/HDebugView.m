@@ -21,7 +21,7 @@
 @implementation HDebugView
 - (HTableView *)table {
     if (!_table) {
-        _table = [[HTableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame)-40)];
+        _table = [[HTableView alloc] initWithFrame:self.bounds];
         [_table setDelegate:(id<HTableViewDelegate>)self];
     }
     return _table;
@@ -33,13 +33,7 @@
         [imgView setFrame:self.frame];
         [imgView setImage:[UIImage imageNamed:@"HLaunchImage.jpg"]];
         [self addSubview:imgView];
-        
         [self addSubview:self.table];
-        
-        _lineView = [[UIControl alloc] init];
-        [_lineView setFrame:CGRectMake(0, CGRectGetHeight(self.frame)-40, CGRectGetWidth(self.frame), 40)];
-        [_lineView setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
-        [self addSubview:_lineView];
     }
     return self;
 }

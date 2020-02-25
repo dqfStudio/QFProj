@@ -20,6 +20,7 @@
         _segment = [[UISegmentedControl alloc] initWithItems:array];
         _segment.tintColor = [UIColor whiteColor];
         [_segment addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
+        _segment.selectedSegmentIndex = 0;
     }
     return _segment;
 }
