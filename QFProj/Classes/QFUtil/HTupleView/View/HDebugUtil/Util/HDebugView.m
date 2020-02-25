@@ -42,7 +42,7 @@
     return 1;
 }
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
-    return 2;
+    return 1;
 }
 
 - (CGSize)sizeForHeaderInSection:(NSInteger)section {
@@ -69,33 +69,6 @@
 - (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
             case 0: {
-                HTupleCellInitBlock initBlock = ^(id cell) {
-                    NSInteger index = [[NSUserDefaults standardUserDefaults] integerForKey:KHostURLModelKey];
-                    if (index >= 0) [cell setSelectedIndex:index];
-                };
-                HHostSegmentCell *cell = itemBlock(initBlock, HHostSegmentCell.class, nil, YES);
-                [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
-                [cell.label setText:@"是否打开调试工具"];
-                [cell.label setTextColor:UIColor.whiteColor];
-                [cell setShouldShowSeparator:YES];
-                [cell setSegmentBlock:^(NSInteger index) {
-                    switch (index) {
-                        case 0:
-                            [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:KHostURLModelKey];
-                            [[NSUserDefaults standardUserDefaults] synchronize];
-                            break;
-                        case 1:
-                            [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:KHostURLModelKey];
-                            [[NSUserDefaults standardUserDefaults] synchronize];
-                            break;
-
-                        default:
-                            break;
-                    }
-                }];
-            }
-                break;
-            case 1: {
                 HHostSegmentCell *cell = itemBlock(nil, HHostSegmentCell.class, nil, YES);
                 [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
                 [cell.label setText:@"是否打开调试工具"];
@@ -114,6 +87,10 @@
                             break;
                     }
                 }];
+            }
+                break;
+            case 1: {
+                
             }
                 break;
             default:

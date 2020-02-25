@@ -16,7 +16,7 @@
 
 - (UISegmentedControl *)segment {
     if (!_segment) {
-        NSArray *array = [NSArray arrayWithObjects:@"debug",@"release", nil];
+        NSArray *array = [NSArray arrayWithObjects:@"关闭",@"开启", nil];
         _segment = [[UISegmentedControl alloc] initWithItems:array];
         _segment.tintColor = [UIColor whiteColor];
         _segment.backgroundColor = UIColor.grayColor;
