@@ -19,6 +19,7 @@
         NSArray *array = [NSArray arrayWithObjects:@"debug",@"release", nil];
         _segment = [[UISegmentedControl alloc] initWithItems:array];
         _segment.tintColor = [UIColor whiteColor];
+        _segment.backgroundColor = UIColor.grayColor;
         [_segment addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
         _segment.selectedSegmentIndex = 0;
     }
@@ -40,13 +41,13 @@
 }
 
 - (void)initUI {
-    [self addSubview:self.segment];
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    [self.layoutView addSubview:self.segment];
 }
 
 - (void)relayoutSubviews {
+    [super relayoutSubviews];
     CGRect frame1 = [self layoutViewBounds];
-    CGRect frame2 = CGRectMake(15, 5, CGRectGetWidth(frame1)-30, CGRectGetHeight(frame1)-10);
+    CGRect frame2 = CGRectMake(CGRectGetWidth(frame1)-130-10, 5, 130, CGRectGetHeight(frame1)-10);
     if(!CGRectEqualToRect(self.segment.frame, frame2)) {
         [self.segment setFrame:frame2];
     }

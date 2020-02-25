@@ -15,16 +15,16 @@
 #endif
 
 @interface HDebugView ()
-@property (nonatomic) HTableView *table;
+@property (nonatomic) HTupleView *tuple;
 @end
 
 @implementation HDebugView
-- (HTableView *)table {
-    if (!_table) {
-        _table = [[HTableView alloc] initWithFrame:self.bounds];
-        [_table setDelegate:(id<HTableViewDelegate>)self];
+- (HTupleView *)tuple {
+    if (!_tuple) {
+        _tuple = [[HTupleView alloc] initWithFrame:self.bounds];
+        [_tuple setTupleDelegate:(id<HTupleViewDelegate>)self];
     }
-    return _table;
+    return _tuple;
 }
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -33,92 +33,106 @@
         [imgView setFrame:self.frame];
         [imgView setImage:[UIImage imageNamed:@"HLaunchImage.jpg"]];
         [self addSubview:imgView];
-        [self addSubview:self.table];
+        [self addSubview:self.tuple];
     }
     return self;
 }
 
-- (NSInteger)numberOfSectionsInTableView {
+- (NSInteger)numberOfSectionsInTupleView {
     return 1;
 }
-- (NSInteger)numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)numberOfItemsInSection:(NSInteger)section {
     return 2;
 }
 
-- (CGFloat)heightForHeaderInSection:(NSInteger)section {
-    return UIDevice.topBarHeight;
+- (CGSize)sizeForHeaderInSection:(NSInteger)section {
+    return CGSizeMake(UIScreen.width, UIDevice.topBarHeight);
 }
-- (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50;
+- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(UIScreen.width, 50);
 }
 
-- (void)tableHeader:(HTableHeader)headerBlock inSection:(NSInteger)section {
-    HTableLabelApex *cell = headerBlock(nil, HTableLabelApex.class, nil, YES);
-    [cell.label setText:@"debug tool"];
+- (UIEdgeInsets)edgeInsetsForHeaderInSection:(NSInteger)section {
+    return UIEdgeInsetsMake(UIDevice.statusBarHeight, 0, 0, 0);
+}
+- (UIEdgeInsets)edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return UIEdgeInsetsMake(0, 10, 0, 0);
+}
+- (void)tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
+    HTupleLabelApex *cell = headerBlock(nil, HTupleLabelApex.class, nil, YES);
+    cell.backgroundColor = UIColor.whiteColor;
+    [cell.label setText:@"DEBUG TOOL"];
     [cell.label setTextColor:UIColor.blackColor];
     [cell.label setFont:[UIFont systemFontOfSize:17]];
+    cell.label.textAlignment = NSTextAlignmentCenter;
 }
-- (void)tableRow:(HTableRow)cellBlock atIndexPath:(NSIndexPath *)indexPath {
+- (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
-        case 0: {
-            HTableCellInitBlock initBlock = ^(id cell) {
-                NSInteger index = [[NSUserDefaults standardUserDefaults] integerForKey:KHostURLModelKey];
-                if (index >= 0) [cell setSelectedIndex:index];
-            };
-            HHostSegmentCell *cell = cellBlock(initBlock, HHostSegmentCell.class, nil, YES);
-            [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
-            [cell setShouldShowSeparator:YES];
-            [cell setSegmentBlock:^(NSInteger index) {
-                switch (index) {
-                    case 0:
-                        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:KHostURLModelKey];
-                        [[NSUserDefaults standardUserDefaults] synchronize];
-                        break;
-                    case 1:
-                        [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:KHostURLModelKey];
-                        [[NSUserDefaults standardUserDefaults] synchronize];
-                        break;
+            case 0: {
+                HTableCellInitBlock initBlock = ^(id cell) {
+                    NSInteger index = [[NSUserDefaults standardUserDefaults] integerForKey:KHostURLModelKey];
+                    if (index >= 0) [cell setSelectedIndex:index];
+                };
+                HHostSegmentCell *cell = itemBlock(initBlock, HHostSegmentCell.class, nil, YES);
+                [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
+                [cell.label setText:@"是否打开调试工具"];
+                [cell.label setTextColor:UIColor.whiteColor];
+                [cell setShouldShowSeparator:YES];
+                [cell setSegmentBlock:^(NSInteger index) {
+                    switch (index) {
+                        case 0:
+                            [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:KHostURLModelKey];
+                            [[NSUserDefaults standardUserDefaults] synchronize];
+                            break;
+                        case 1:
+                            [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:KHostURLModelKey];
+                            [[NSUserDefaults standardUserDefaults] synchronize];
+                            break;
 
-                    default:
-                        break;
-                }
-            }];
-        }
-            break;
-        case 1: {
-            HTableCellInitBlock initBlock = ^(id cell) {
-                NSInteger index = [[NSUserDefaults standardUserDefaults] integerForKey:KHostURLModelKey];
-                if (index >= 0) [cell setSelectedIndex:index];
-            };
-            HHostSegmentCell *cell = cellBlock(initBlock, HHostSegmentCell.class, nil, YES);
-            [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
-            [cell setShouldShowSeparator:YES];
-            [cell setSegmentBlock:^(NSInteger index) {
-                switch (index) {
-                    case 0: {
-#ifdef DEBUG
-                        [[FLEXManager sharedManager] showExplorer];
-#endif
+                        default:
+                            break;
                     }
-                        break;
-                    case 1: {
-#ifdef DEBUG
-                        [[FLEXManager sharedManager] hideExplorer];
-#endif
-                    }
-                        break;
+                }];
+            }
+                break;
+            case 1: {
+                HTableCellInitBlock initBlock = ^(id cell) {
+                    NSInteger index = [[NSUserDefaults standardUserDefaults] integerForKey:KHostURLModelKey];
+                    if (index >= 0) [cell setSelectedIndex:index];
+                };
+                HHostSegmentCell *cell = itemBlock(initBlock, HHostSegmentCell.class, nil, YES);
+                [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
+                [cell.label setText:@"是否打开调试工具"];
+                [cell.label setTextColor:UIColor.whiteColor];
+                [cell setShouldShowSeparator:YES];
+                [cell setSegmentBlock:^(NSInteger index) {
+                    switch (index) {
+                        case 0: {
+    #ifdef DEBUG
+                            [[FLEXManager sharedManager] showExplorer];
+    #endif
+                        }
+                            break;
+                        case 1: {
+    #ifdef DEBUG
+                            [[FLEXManager sharedManager] hideExplorer];
+    #endif
+                        }
+                            break;
 
-                    default:
-                        break;
-                }
-            }];
+                        default:
+                            break;
+                    }
+                }];
+            }
+                break;
+            default:
+                break;
         }
-            break;
-        default:
-            break;
-    }
 }
-- (void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.table deselectRowAtIndexPath:indexPath animated:YES];
+
+- (void)didSelectCell:(HTupleBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    [self.tuple deselectItemAtIndexPath:indexPath animated:YES];
 }
+
 @end
