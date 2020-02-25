@@ -234,6 +234,8 @@
 		A27D00A723E12FA3009D5475 /* HJsonList in Resources */ = {isa = PBXBuildFile; fileRef = A27D00A623E12FA3009D5475 /* HJsonList */; };
 		A27D00AC23E16A08009D5475 /* 活动记实 in Resources */ = {isa = PBXBuildFile; fileRef = A27D00AB23E16A08009D5475 /* 活动记实 */; };
 		A282036623F3F56E000CD22F /* NSObject_1.m in Sources */ = {isa = PBXBuildFile; fileRef = A282036423F3F56E000CD22F /* NSObject_1.m */; };
+		A283B5C42404C3DD004FC031 /* JhtFloatingBallIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A283B5C32404C3DD004FC031 /* JhtFloatingBallIcon.png */; };
+		A283B5C62404C3E3004FC031 /* JhtFloatingBall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A283B5C52404C3E3004FC031 /* JhtFloatingBall.framework */; };
 		A28566B423F1438B00552FE7 /* NSObject_.m in Sources */ = {isa = PBXBuildFile; fileRef = A28566B323F1438B00552FE7 /* NSObject_.m */; };
 		A286250F23EA6CEC00E81781 /* HRegisterController+Normal.m in Sources */ = {isa = PBXBuildFile; fileRef = A286250E23EA6CEC00E81781 /* HRegisterController+Normal.m */; };
 		A289DCEA23E3DFD400FC59F1 /* HTupleViewBannerApex.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DCE923E3DFD400FC59F1 /* HTupleViewBannerApex.m */; };
@@ -789,6 +791,8 @@
 		A27D00AB23E16A08009D5475 /* 活动记实 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "活动记实"; sourceTree = "<group>"; };
 		A282036423F3F56E000CD22F /* NSObject_1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObject_1.m; sourceTree = "<group>"; };
 		A282036523F3F56E000CD22F /* NSObject_1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObject_1.h; sourceTree = "<group>"; };
+		A283B5C32404C3DD004FC031 /* JhtFloatingBallIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JhtFloatingBallIcon.png; sourceTree = "<group>"; };
+		A283B5C52404C3E3004FC031 /* JhtFloatingBall.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JhtFloatingBall.framework; sourceTree = "<group>"; };
 		A2853CF32331D4C3005632BB /* HGeometry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HGeometry.h; sourceTree = "<group>"; };
 		A28566B223F1438B00552FE7 /* NSObject_.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObject_.h; sourceTree = "<group>"; };
 		A28566B323F1438B00552FE7 /* NSObject_.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObject_.m; sourceTree = "<group>"; };
@@ -1020,6 +1024,7 @@
 			files = (
 				171E540C3ECD9B640D790516 /* libPods-QFProj.a in Frameworks */,
 				A22F7866230D599C00AAB902 /* Foundation.framework in Frameworks */,
+				A283B5C62404C3E3004FC031 /* JhtFloatingBall.framework in Frameworks */,
 				A22F7864230D595A00AAB902 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1366,6 +1371,7 @@
 				15B4DD892092F96B00773E04 /* HDebugView.m */,
 				15E56519212E599C003A63E5 /* HHostSegmentCell.h */,
 				15E5651C212E5D77003A63E5 /* HHostSegmentCell.m */,
+				A283B5C52404C3E3004FC031 /* JhtFloatingBall.framework */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1373,6 +1379,7 @@
 		15B4DD8D2092F96B00773E04 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				A283B5C32404C3DD004FC031 /* JhtFloatingBallIcon.png */,
 				15B4DD8E2092F96B00773E04 /* HLaunchImage.jpg */,
 			);
 			path = Resource;
@@ -2702,6 +2709,7 @@
 				A206882922CA081400661634 /* hvc_back_icon@2x.png in Resources */,
 				A28EF3A621D8ECC9002F92ED /* loading_new_13@2x.png in Resources */,
 				A28EF3A721D8ECC9002F92ED /* loading_new_1@2x.png in Resources */,
+				A283B5C42404C3DD004FC031 /* JhtFloatingBallIcon.png in Resources */,
 				15B4DD702092F88700773E04 /* Assets.xcassets in Resources */,
 				A20E3D10231FE8FC00E6982B /* di_index_h@3x.png in Resources */,
 				A27D00AC23E16A08009D5475 /* 活动记实 in Resources */,
@@ -3182,6 +3190,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2TEVVN5W68;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/QFProj/Classes/QFUtil/HTupleView/View/HDebugUtil/Util",
+				);
 				INFOPLIST_FILE = QFProj/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -3203,6 +3215,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2TEVVN5W68;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/QFProj/Classes/QFUtil/HTupleView/View/HDebugUtil/Util",
+				);
 				INFOPLIST_FILE = QFProj/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

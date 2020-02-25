@@ -11,15 +11,34 @@
 
 @implementation AppDelegate (DebugService)
 #if DEBUG
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [super touchesBegan:touches withEvent:event];
-    CGPoint location = [[[event allTouches] anyObject] locationInView:self.window];
-    CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
-    if (CGRectContainsPoint(statusBarFrame, location)) {
-        [self showDebugView];
-    }
-}
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+//    [super touchesBegan:touches withEvent:event];
+//    CGPoint location = [[[event allTouches] anyObject] locationInView:self.window];
+//    CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
+//    if (CGRectContainsPoint(statusBarFrame, location)) {
+//        [self showDebugView];
+//    }
+//}
 #endif
+- (void)loadfolatingball {
+    #if DEBUG
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.rootView addSubview:self.folatingball];
+    });
+    #endif
+}
+- (JhtFloatingBall *)folatingball {
+    JhtFloatingBall *folatingball = objc_getAssociatedObject(self, _cmd);
+    if (!folatingball) {
+        UIImage *suspendedBallImage = [UIImage imageNamed:@"JhtFloatingBallIcon"];
+        folatingball = [[JhtFloatingBall alloc] initWithFrame:CGRectMake(UIScreen.width-65, UIDevice.topBarHeight+20, 65, 65)];
+        folatingball.image = suspendedBallImage;
+        folatingball.stayAlpha = 0.6;
+        folatingball.delegate = self;
+        objc_setAssociatedObject(self, @selector(folatingball), folatingball, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return folatingball;
+}
 - (UIWindow *)rootView {
     return [UIApplication sharedApplication].delegate.window;
 }
@@ -39,7 +58,7 @@
     HDebugView *debugView = objc_getAssociatedObject(self, _cmd);
     if (!debugView) {
         debugView = [[HDebugView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        [debugView.lineView addTarget:self action:@selector(hideDebugView) forControlEvents:UIControlEventTouchUpInside];
+        //[debugView.lineView addTarget:self action:@selector(hideDebugView) forControlEvents:UIControlEventTouchUpInside];
         objc_setAssociatedObject(self, @selector(debugView), debugView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     return debugView;
@@ -60,10 +79,16 @@
         [UIView animateWithDuration:0.3 animations:^{
             [self.debugView setFrame:self.newFrame];
             [self.rootView addSubview:self.debugView];
+            [self.rootView bringSubviewToFront:self.folatingball];
         }];
     }else {
         [self hideDebugView];
     }
+}
+
+#pragma mark - JhtFloatingBallDelegate
+- (void)tapFloatingBall {
+    [self showDebugView];
 }
 
 @end

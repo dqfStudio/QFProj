@@ -8,7 +8,10 @@
 
 #import "AppDelegate.h"
 #import "HDebugView.h"
+#import <JhtFloatingBall/JhtFloatingBall.h>
 
-@interface AppDelegate (DebugService)
+@interface AppDelegate (DebugService) <JhtFloatingBallDelegate>
 @property (nonatomic, readonly) HDebugView *debugView;
+@property (nonatomic, readonly) JhtFloatingBall *folatingball;
+- (void)loadfolatingball;
 @end

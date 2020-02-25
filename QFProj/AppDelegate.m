@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AppDelegate+DebugService.h"
 #import "HMenuController.h"
 
 @interface AppDelegate ()
@@ -18,6 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [self loadfolatingball];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     HNavigationController *navController = [[HNavigationController alloc] initWithRootViewController:HMenuController.new];
     self.window.rootViewController = navController;
