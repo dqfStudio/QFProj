@@ -41,7 +41,7 @@
 }
 
 - (void)initUI {
-    [self.layoutView addSubview:self.segment];
+    [self addSubview:self.segment];
 }
 
 - (void)relayoutSubviews {

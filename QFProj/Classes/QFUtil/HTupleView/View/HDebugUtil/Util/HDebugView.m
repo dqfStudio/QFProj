@@ -69,7 +69,7 @@
 - (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
             case 0: {
-                HTableCellInitBlock initBlock = ^(id cell) {
+                HTupleCellInitBlock initBlock = ^(id cell) {
                     NSInteger index = [[NSUserDefaults standardUserDefaults] integerForKey:KHostURLModelKey];
                     if (index >= 0) [cell setSelectedIndex:index];
                 };
@@ -96,28 +96,18 @@
             }
                 break;
             case 1: {
-                HTableCellInitBlock initBlock = ^(id cell) {
-                    NSInteger index = [[NSUserDefaults standardUserDefaults] integerForKey:KHostURLModelKey];
-                    if (index >= 0) [cell setSelectedIndex:index];
-                };
-                HHostSegmentCell *cell = itemBlock(initBlock, HHostSegmentCell.class, nil, YES);
+                HHostSegmentCell *cell = itemBlock(nil, HHostSegmentCell.class, nil, YES);
                 [cell setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.35]];
                 [cell.label setText:@"是否打开调试工具"];
                 [cell.label setTextColor:UIColor.whiteColor];
                 [cell setShouldShowSeparator:YES];
                 [cell setSegmentBlock:^(NSInteger index) {
                     switch (index) {
-                        case 0: {
-    #ifdef DEBUG
-                            [[FLEXManager sharedManager] showExplorer];
-    #endif
-                        }
-                            break;
-                        case 1: {
-    #ifdef DEBUG
+                        case 0:
                             [[FLEXManager sharedManager] hideExplorer];
-    #endif
-                        }
+                            break;
+                        case 1:
+                            [[FLEXManager sharedManager] showExplorer];
                             break;
 
                         default:
