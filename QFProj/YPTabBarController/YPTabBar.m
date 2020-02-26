@@ -35,9 +35,6 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
 @property (nonatomic, assign) CGFloat indicatorWidthFixTitleAdditional;
 @property (nonatomic, assign) CGFloat indicatorWidth;
 
-// TabItem选中切换时，是否显示动画
-@property (nonatomic, assign) BOOL indicatorSwitchAnimated;
-
 // Item是否匹配title的文字宽度
 @property (nonatomic, assign) BOOL itemFitTextWidth;
 
@@ -48,12 +45,6 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
 @property (nonatomic, assign) CGFloat itemWidth;
 @property (nonatomic, assign) CGFloat itemHeight;
 @property (nonatomic, assign) CGFloat itemMinWidth;
-
-// item的内容水平居中时，image与顶部的距离
-@property (nonatomic, assign) CGFloat itemContentHorizontalCenterVerticalOffset;
-
-// item的内容水平居中时，title与image的距离
-@property (nonatomic, assign) CGFloat itemContentHorizontalCenterSpacing;
 
 // 数字样式的badge相关属性
 @property (nonatomic, assign) CGFloat numberBadgeMarginTop;
@@ -156,7 +147,16 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
         item.titleSelectedColor = self.itemTitleSelectedColor;
         item.titleFont = self.itemTitleFont;
         
-        [item setContentHorizontalCenterWithVerticalOffset:5 spacing:5];
+        if (self.itemImageColor) {
+            item.imageColor = self.itemImageColor;
+        }
+        if (self.itemImageSelectedColor) {
+            item.imageSelectedColor = self.itemImageSelectedColor;
+        }
+        
+        if ([item imageForState:UIControlStateNormal]) {
+            [item setContentHorizontalCenterAndMarginTop:5 spacing:5];
+        }
         
         item.badgeTitleFont = self.badgeTitleFont;
         item.badgeTitleColor = self.badgeTitleColor;
@@ -301,53 +301,60 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
 }
 
 - (void)setSelectedItemIndex:(NSUInteger)selectedItemIndex {
+    [self setSelectedItemIndex:selectedItemIndex animated:self.indicatorSwitchAnimated callDelegate:YES];
+}
+
+- (void)setSelectedItemIndex:(NSUInteger)selectedItemIndex animated:(BOOL)animated {
+    [self setSelectedItemIndex:selectedItemIndex animated:animated callDelegate:YES];
+}
+
+- (void)setSelectedItemIndex:(NSUInteger)selectedItemIndex animated:(BOOL)animated callDelegate:(BOOL)callDelegate {
     if (selectedItemIndex == _selectedItemIndex ||
         selectedItemIndex >= self.items.count ||
         self.items.count == 0) {
-        if (selectedItemIndex == _selectedItemIndex) {
-            if (self.delegate && [self.delegate respondsToSelector:@selector(yp_tabBar:reSelectedTabAtIndex:)]) {
+            if (selectedItemIndex == _selectedItemIndex) {
                 [self.delegate yp_tabBar:self reSelectedTabAtIndex:selectedItemIndex];
             }
+            return;
         }
-        return;
-    }
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(yp_tabBar:shouldSelectItemAtIndex:)]) {
+    if (callDelegate && self.delegate && [self.delegate respondsToSelector:@selector(yp_tabBar:shouldSelectItemAtIndex:)]) {
         BOOL should = [self.delegate yp_tabBar:self shouldSelectItemAtIndex:selectedItemIndex];
         if (!should) {
             return;
         }
     }
-    if (self.delegate && [self.delegate respondsToSelector:@selector(yp_tabBar:willSelectItemAtIndex:)]) {
+    if (callDelegate && self.delegate && [self.delegate respondsToSelector:@selector(yp_tabBar:willSelectItemAtIndex:)]) {
         [self.delegate yp_tabBar:self willSelectItemAtIndex:selectedItemIndex];
     }
     
     if (_selectedItemIndex != NSNotFound) {
         YPTabItem *oldSelectedItem = self.items[_selectedItemIndex];
         oldSelectedItem.selected = NO;
-        if (self.itemFontChangeFollowContentScroll) {
-            // 如果支持字体平滑渐变切换，则设置item的scale
-            oldSelectedItem.transform = CGAffineTransformMakeScale(self.itemTitleUnselectedFontScale,
-                                                                   self.itemTitleUnselectedFontScale);
-        } else {
-            // 如果支持字体平滑渐变切换，则直接设置字体
-            oldSelectedItem.titleFont = self.itemTitleFont;
+        if (self.itemTitleSelectedFont) {
+            if (self.itemFontChangeFollowContentScroll) {
+                // 如果支持字体平滑渐变切换，则设置item的scale
+                oldSelectedItem.transform = CGAffineTransformMakeScale(self.itemTitleUnselectedFontScale,
+                                                                       self.itemTitleUnselectedFontScale);
+                oldSelectedItem.titleFont = [self.itemTitleFont fontWithSize:self.itemTitleSelectedFont.pointSize];
+            } else {
+                oldSelectedItem.titleFont = self.itemTitleFont;
+            }
         }
     }
     
     YPTabItem *newSelectedItem = self.items[selectedItemIndex];
     newSelectedItem.selected = YES;
-    if (self.itemFontChangeFollowContentScroll) {
-        // 如果支持字体平滑渐变切换，则设置item的scale
-        newSelectedItem.transform = CGAffineTransformMakeScale(1, 1);
-    } else {
-        // 如果支持字体平滑渐变切换，则直接设置字体
-        if (self.itemTitleSelectedFont) {
-            newSelectedItem.titleFont = self.itemTitleSelectedFont;
+    
+    if (self.itemTitleSelectedFont) {
+        if (self.itemFontChangeFollowContentScroll) {
+            // 如果支持字体平滑渐变切换，则设置item的scale
+            newSelectedItem.transform = CGAffineTransformMakeScale(1, 1);
         }
+        newSelectedItem.titleFont = self.itemTitleSelectedFont;
     }
     
-    if (self.indicatorSwitchAnimated && _selectedItemIndex != NSNotFound) {
+    if (animated && _selectedItemIndex != NSNotFound) {
         [UIView animateWithDuration:0.25f animations:^{
             [self updateIndicatorFrameWithIndex:selectedItemIndex];
         }];
@@ -360,9 +367,10 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
     // 如果tabbar支持滚动，将选中的item放到tabbar的中央
     [self setSelectedItemCenter];
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(yp_tabBar:didSelectedItemAtIndex:)]) {
+    if (callDelegate && self.delegate && [self.delegate respondsToSelector:@selector(yp_tabBar:didSelectedItemAtIndex:)]) {
         [self.delegate yp_tabBar:self didSelectedItemAtIndex:selectedItemIndex];
     }
+    
     if (self.tabbardSelectedBlock) {
         self.tabbardSelectedBlock(selectedItemIndex);
     }
@@ -465,7 +473,6 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
     [self updateItemsFrame];
     
     self.specialItemHandler = handler;
-    self.clipsToBounds = NO;
 }
 
 #pragma mark - indicator
@@ -592,6 +599,16 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
     [self updateItemsScaleIfNeeded];
 }
 
+- (void)setItemImageColor:(UIColor *)itemImageColor {
+    _itemImageColor = itemImageColor;
+    [self.items makeObjectsPerformSelector:@selector(setImageColor:) withObject:itemImageColor];
+}
+
+- (void)setItemImageSelectedColor:(UIColor *)itemImageSelectedColor {
+    _itemImageSelectedColor = itemImageSelectedColor;
+    [self.items makeObjectsPerformSelector:@selector(setImageSelectedColor:) withObject:itemImageSelectedColor];
+}
+
 - (void)setItemFontChangeFollowContentScroll:(BOOL)itemFontChangeFollowContentScroll {
     _itemFontChangeFollowContentScroll = itemFontChangeFollowContentScroll;
     [self updateItemsScaleIfNeeded];
@@ -601,9 +618,13 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
     if (self.itemTitleSelectedFont &&
         self.itemFontChangeFollowContentScroll &&
         self.itemTitleSelectedFont.pointSize != self.itemTitleFont.pointSize) {
-        [self.items makeObjectsPerformSelector:@selector(setTitleFont:) withObject:self.itemTitleSelectedFont];
+        UIFont *normalFont = [self.itemTitleFont fontWithSize:self.itemTitleSelectedFont.pointSize];
+        
         for (YPTabItem *item in self.items) {
-            if (!item.selected) {
+            if (item.selected) {
+                item.titleFont = self.itemTitleSelectedFont;
+            } else {
+                item.titleFont = normalFont;
                 item.transform = CGAffineTransformMakeScale(self.itemTitleUnselectedFontScale,
                                                             self.itemTitleUnselectedFontScale);
             }
@@ -616,21 +637,17 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
 - (void)setItemContentHorizontalCenter:(BOOL)itemContentHorizontalCenter {
     _itemContentHorizontalCenter = itemContentHorizontalCenter;
     if (itemContentHorizontalCenter) {
-        [self setItemContentHorizontalCenterWithVerticalOffset:5 spacing:5];
+        [self setItemContentHorizontalCenterAndMarginTop:5 spacing:5];
     } else {
-        self.itemContentHorizontalCenterVerticalOffset = 0;
-        self.itemContentHorizontalCenterSpacing = 0;
         [self.items makeObjectsPerformSelector:@selector(setContentHorizontalCenter:) withObject:@(NO)];
     }
 }
 
-- (void)setItemContentHorizontalCenterWithVerticalOffset:(CGFloat)verticalOffset
-                                                 spacing:(CGFloat)spacing {
+- (void)setItemContentHorizontalCenterAndMarginTop:(CGFloat)marginTop
+                                           spacing:(CGFloat)spacing {
     _itemContentHorizontalCenter = YES;
-    self.itemContentHorizontalCenterVerticalOffset = verticalOffset;
-    self.itemContentHorizontalCenterSpacing = spacing;
     for (YPTabItem *item in self.items) {
-        [item setContentHorizontalCenterWithVerticalOffset:verticalOffset spacing:spacing];
+        [item setContentHorizontalCenterAndMarginTop:marginTop spacing:spacing];
     }
 }
 

@@ -147,7 +147,7 @@ static const CGFloat kTabBarHeight = 50;
     specialItem.backgroundColor = [UIColor clearColor];
     specialItem.titleFont = [UIFont systemFontOfSize:14];
     
-    [specialItem setContentHorizontalCenterWithVerticalOffset:13 spacing:10];
+    [specialItem setContentHorizontalCenterAndMarginTop:13 spacing:10];
     // 设置其size，如果不设置，则默认为与其他item一样
     specialItem.size = CGSizeMake([UIScreen width]/7, 80);
     

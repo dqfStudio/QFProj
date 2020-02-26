@@ -14,36 +14,31 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        Class class = [self class];
         
-        SEL originalSelector = @selector(setContentSize:);
-        SEL swizzledSelector = @selector(yp_setContentSize:);
+        NSString *methodName = [NSString stringWithFormat:@"%@%@%@%@", @"_", @"notify", @"Did", @"Scroll"];
+        SEL originalSel = NSSelectorFromString(methodName);
+        SEL swizzledSel = @selector(yp_didScroll);
         
-        Method originalMethod = class_getInstanceMethod(class, originalSelector);
-        Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
+        Method originalMethod = class_getInstanceMethod(self, originalSel);
+        Method swizzledMethod = class_getInstanceMethod(self, swizzledSel);
         
-        BOOL success = class_addMethod(class, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));
-        if (success) {
-            class_replaceMethod(class, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
-        } else {
-            method_exchangeImplementations(originalMethod, swizzledMethod);
-        }
+        method_exchangeImplementations(originalMethod, swizzledMethod);
     });
 }
 
-- (void)yp_setContentSize:(CGSize)contentSize {
-    if (contentSize.height < self.minContentSizeHeight) {
-        contentSize = CGSizeMake(contentSize.width, self.minContentSizeHeight);
+- (void)yp_didScroll {
+    if (self.yp_didScrollHandler) {
+        self.yp_didScrollHandler(self);
     }
-    [self yp_setContentSize:contentSize];
+    [self yp_didScroll];
 }
 
-- (CGFloat)minContentSizeHeight {
-    return [objc_getAssociatedObject(self, _cmd) floatValue];
+- (void)setYp_didScrollHandler:(void (^)(UIScrollView *))yp_didScrollHandler {
+    objc_setAssociatedObject(self, @selector(yp_didScrollHandler), yp_didScrollHandler, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
-- (void)setMinContentSizeHeight:(CGFloat)minContentSizeHeight {
-    objc_setAssociatedObject(self, @selector(minContentSizeHeight), @(minContentSizeHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void (^)(UIScrollView *))yp_didScrollHandler {
+    return objc_getAssociatedObject(self, _cmd);
 }
 
 @end

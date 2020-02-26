@@ -250,6 +250,7 @@
 		A289DD0423E413C800FC59F1 /* HTextLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DD0323E413C800FC59F1 /* HTextLoopView.m */; };
 		A289DD0723E418D700FC59F1 /* HTupleViewTextLoopApex.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DD0623E418D700FC59F1 /* HTupleViewTextLoopApex.m */; };
 		A289DD0A23E418E200FC59F1 /* HTupleViewTextLoopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DD0923E418E200FC59F1 /* HTupleViewTextLoopCell.m */; };
+		A289F5032406578D007A7AE3 /* YPContainerTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A289F5002406578D007A7AE3 /* YPContainerTableView.m */; };
 		A28A023C23EEDA77000556A2 /* UIImageView+HString.m in Sources */ = {isa = PBXBuildFile; fileRef = A28A023B23EEDA77000556A2 /* UIImageView+HString.m */; };
 		A28BC11E23E5275700CC1ED5 /* HWebImageViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BC11D23E5275700CC1ED5 /* HWebImageViewVC.m */; };
 		A28BC12223E5317C00CC1ED5 /* HWebImageViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = A28BC12123E5317C00CC1ED5 /* HWebImageViewHtml.html */; };
@@ -818,6 +819,9 @@
 		A289DD0623E418D700FC59F1 /* HTupleViewTextLoopApex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewTextLoopApex.m; sourceTree = "<group>"; };
 		A289DD0823E418E200FC59F1 /* HTupleViewTextLoopCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewTextLoopCell.h; sourceTree = "<group>"; };
 		A289DD0923E418E200FC59F1 /* HTupleViewTextLoopCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewTextLoopCell.m; sourceTree = "<group>"; };
+		A289F5002406578D007A7AE3 /* YPContainerTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPContainerTableView.m; sourceTree = "<group>"; };
+		A289F5012406578D007A7AE3 /* YPTabBarControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPTabBarControllerProtocol.h; sourceTree = "<group>"; };
+		A289F5022406578D007A7AE3 /* YPContainerTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPContainerTableView.h; sourceTree = "<group>"; };
 		A28A023A23EEDA77000556A2 /* UIImageView+HString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+HString.h"; sourceTree = "<group>"; };
 		A28A023B23EEDA77000556A2 /* UIImageView+HString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+HString.m"; sourceTree = "<group>"; };
 		A28BC11C23E5275700CC1ED5 /* HWebImageViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebImageViewVC.h; sourceTree = "<group>"; };
@@ -1682,12 +1686,15 @@
 				15E6BB8E2136E7E200EBE794 /* UIScrollView+YPTab.m */,
 				15E6BB8F2136E7E200EBE794 /* UIViewController+YPTab.h */,
 				15E6BB902136E7E200EBE794 /* UIViewController+YPTab.m */,
+				A289F5022406578D007A7AE3 /* YPContainerTableView.h */,
+				A289F5002406578D007A7AE3 /* YPContainerTableView.m */,
 				15E6BB912136E7E200EBE794 /* YPTabBar.h */,
 				15E6BB922136E7E200EBE794 /* YPTabBar.m */,
 				A28EF2EE21D8763A002F92ED /* YPTabBar+HSubView.h */,
 				A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */,
 				15E6BB932136E7E200EBE794 /* YPTabBarController.h */,
 				15E6BB942136E7E200EBE794 /* YPTabBarController.m */,
+				A289F5012406578D007A7AE3 /* YPTabBarControllerProtocol.h */,
 				15E6BB952136E7E200EBE794 /* YPTabContentView.h */,
 				15E6BB962136E7E200EBE794 /* YPTabContentView.m */,
 				15E6BB972136E7E200EBE794 /* YPTabItem.h */,
@@ -2766,6 +2773,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A289F5032406578D007A7AE3 /* YPContainerTableView.m in Sources */,
 				15C5736B20B3DD7B0070327C /* HTupleViewCell.m in Sources */,
 				A20E3CE0231A663300E6982B /* UIAlertController+HUtil.m in Sources */,
 				A227A901233C9F1F005611BA /* HMainController5.m in Sources */,

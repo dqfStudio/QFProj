@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YPTabBarControllerProtocol.h"
 
 @class YPTabItem;
-@class YPTabBarController;
 
 @interface UIViewController (YPTab)
 
 @property (nonatomic, strong, readonly) YPTabItem *yp_tabItem;
-@property (nonatomic, strong, readonly) YPTabBarController *yp_tabBarController;
+@property (nonatomic, strong, readonly) id<YPTabBarControllerProtocol> yp_tabBarController;
 
 @property (nonatomic, copy) NSString *yp_tabItemTitle; // tabItem的标题
 @property (nonatomic, strong) UIImage *yp_tabItemImage; // tabItem的图像
@@ -36,12 +36,7 @@
  *  返回用于显示的View，默认是self.view
  *  当设置headerView的时候，需要把scrollView或者tableView返回
  */
-- (UIView *)yp_displayView;
-
-/**
- *  返回是否开启最小ContentHeight
- */
-- (BOOL)yp_disableMinContentHeight;
+- (UIScrollView *)yp_scrollView;
 
 /**
  *  废弃，用yp_tabItemDidSelected:替换

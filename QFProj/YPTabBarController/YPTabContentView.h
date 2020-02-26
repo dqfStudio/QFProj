@@ -10,6 +10,12 @@
 #import "YPTabBar.h"
 #import "YPTabItem.h"
 #import "UIViewController+YPTab.h"
+#import "YPContainerTableView.h"
+
+typedef NS_ENUM(NSInteger, YPTabHeaderStyle) {
+    YPTabHeaderStyleStretch,
+    YPTabHeaderStyleFollow
+};
 
 @class YPTabContentView;
 
@@ -85,21 +91,23 @@
 @property (nonatomic, assign) BOOL interceptRightSlideGuetureInFirstPage;
 @property (nonatomic, assign) BOOL interceptLeftSlideGuetureInLastPage;
 
+@property (nonatomic, strong) YPContainerTableView *containerTableView;
+
 /**
  *  设置HeaderView
  *  @param headerView UIView
- *  @param needStretch 内容视图向下滚动时，headerView是否拉伸
+ *  @param style 头部拉伸样式
  *  @param headerHeight headerView的默认高度
  *  @param tabBarHeight tabBar的高度
- *  @param contentViewHeight 内容视图的高度
  *  @param tabBarStopOnTopHeight 当内容视图向上滚动时，TabBar停止移动的位置
+ *  @param frame 整个界面的frame，一般来说是[UIScreen mainScreen].bounds
  */
 - (void)setHeaderView:(UIView *)headerView
-          needStretch:(BOOL)needStretch
+                style:(YPTabHeaderStyle)style
          headerHeight:(CGFloat)headerHeight
          tabBarHeight:(CGFloat)tabBarHeight
-    contentViewHeight:(CGFloat)contentViewHeight
-tabBarStopOnTopHeight:(CGFloat)tabBarStopOnTopHeight;
+tabBarStopOnTopHeight:(CGFloat)tabBarStopOnTopHeight
+                frame:(CGRect)frame;
 
 /**
  *  设置内容视图支持滑动切换，以及点击item切换时是否有动画
@@ -120,6 +128,11 @@ tabBarStopOnTopHeight:(CGFloat)tabBarStopOnTopHeight;
  *  获取被选中的ViewController
  */
 - (UIViewController *)selectedController;
+
+/**
+ *  管理内容视图的ScrollView
+ */
+- (UIScrollView *)containerScrollView;
 
 @end
 

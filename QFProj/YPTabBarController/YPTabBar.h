@@ -61,6 +61,9 @@ typedef void(^HTabbardSelectedBlock)(NSInteger idx);
 @property (nonatomic, strong) UIFont  *itemTitleFont;               // 标题字体
 @property (nonatomic, strong) UIFont  *itemTitleSelectedFont;       // 选中时标题的字体
 
+@property (nonatomic, strong) UIColor *itemImageColor;
+@property (nonatomic, strong) UIColor *itemImageSelectedColor;
+
 @property (nonatomic, strong) UIColor *badgeBackgroundColor;        // Badge背景颜色
 @property (nonatomic, strong) UIImage *badgeBackgroundImage;        // Badge背景图像
 @property (nonatomic, strong) UIColor *badgeTitleColor;             // Badge标题颜色
@@ -93,6 +96,11 @@ typedef void(^HTabbardSelectedBlock)(NSInteger idx);
  */
 @property (nonatomic, assign, getter = isItemContentHorizontalCenter) BOOL itemContentHorizontalCenter;
 
+/**
+ *  TabItem选中切换时，指示器是否有动画
+ */
+@property (nonatomic, assign) BOOL indicatorSwitchAnimated;
+
 @property (nonatomic, weak) id<YPTabBarDelegate> delegate;
 
 /**
@@ -104,6 +112,20 @@ typedef void(^HTabbardSelectedBlock)(NSInteger idx);
  *  根据titles创建item
  */
 - (void)setTitles:(NSArray <NSString *> *)titles;
+
+- (void)setSelectedItemIndex:(NSUInteger)selectedItemIndex
+                    animated:(BOOL)animated;
+
+/**
+ *  设置选中的index
+ *
+ *  @param selectedItemIndex 选中的index
+ *  @param animated          指示器是否有动画
+ *  @param callDelegate      是否调用代理方法
+ */
+- (void)setSelectedItemIndex:(NSUInteger)selectedItemIndex
+                    animated:(BOOL)animated
+                callDelegate:(BOOL)callDelegate;
 
 /**
  *  设置tabBar为竖向且支持滚动，tabItem的高度根据tabBar高度和leadingSpace、trailingSpace属性计算
@@ -178,11 +200,11 @@ typedef void(^HTabbardSelectedBlock)(NSInteger idx);
 /**
  *  将tabItem的image和title设置为居中，并且调整其在竖直方向的位置
  *
- *  @param verticalOffset  竖直方向的偏移量
- *  @param spacing         image和title的距离
+ *  @param marginTop  与顶部的距离
+ *  @param spacing    image和title的距离
  */
-- (void)setItemContentHorizontalCenterWithVerticalOffset:(CGFloat)verticalOffset
-                                                 spacing:(CGFloat)spacing;
+- (void)setItemContentHorizontalCenterAndMarginTop:(CGFloat)marginTop
+                                           spacing:(CGFloat)spacing;
 
 /**
  *  设置数字Badge的位置与大小。
