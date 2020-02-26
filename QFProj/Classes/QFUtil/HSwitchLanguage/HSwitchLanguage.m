@@ -23,15 +23,15 @@ _Pragma("clang diagnostic pop") \
 [[HSwitchLanguage share].currentBundle localizedStringForKey:(key) value:@"" table:(tbl)]
 
 @interface UIView (HLanguage)
-@property (nonatomic) NSString *textKey;
+@property (nonatomic) NSString *languageKey;
 @end
 
 @implementation UIView (HLanguage)
-- (NSString *)textKey {
+- (NSString *)languageKey {
     return objc_getAssociatedObject(self, _cmd);
 }
-- (void)setTextKey:(NSString *)textKey {
-    objc_setAssociatedObject(self, @selector(textKey), textKey, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setLanguageKey:(NSString *)languageKey {
+    objc_setAssociatedObject(self, @selector(languageKey), languageKey, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 @end
 
@@ -107,7 +107,7 @@ _Pragma("clang diagnostic pop") \
                 UIView *view = anObject;
                 SEL selector = NSSelectorFromString(@"skin_setText:");
                 if ([view respondsToSelector:selector]) {
-                    NSString *aKey = view.textKey;
+                    NSString *aKey = view.languageKey;
                     NSString *tbl = KSKinTable;
                     NSString *content = KHLocalizedStringFromTable(aKey, tbl);
                     KHSuppressPerformSelectorLeakWarning([view performSelector:selector withObject:content];);
@@ -142,7 +142,7 @@ _Pragma("clang diagnostic pop") \
         if (content) {
             //保存文字颜色
             UIColor *color = self.textColor;
-            [self setTextKey:aKey];
+            [self setLanguageKey:aKey];
             //此处文字颜色会被更改掉
             [self skin_setText:content];
             //重新设置保存的文字颜色
@@ -179,7 +179,7 @@ _Pragma("clang diagnostic pop") \
         if (content) {
             //保存文字颜色
             UIColor *color = self.textColor;
-            [self setTextKey:aKey];
+            [self setLanguageKey:aKey];
             //此处文字颜色会被更改掉
             [self skin_setText:content];
             //重新设置保存的文字颜色
@@ -211,7 +211,7 @@ _Pragma("clang diagnostic pop") \
         if (content) {
             //保存文字颜色
             UIColor *color = self.textColor;
-            [self setTextKey:aKey];
+            [self setLanguageKey:aKey];
             //此处文字颜色会被更改掉
             [self skin_setText:content];
             //重新设置保存的文字颜色
