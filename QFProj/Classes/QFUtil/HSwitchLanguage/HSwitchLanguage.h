@@ -24,8 +24,8 @@
 @property (nonatomic, readonly) NSBundle *currentBundle; //当前语言资源文件
 @property (nonatomic, readonly) NSString *userLanguage; //获取当前语言
 
-+ (HSwitchLanguage *)share;
-
-- (void)setUserlanguage:(NSString *)language completion:(void (^)(void))completion;//设置当前语言
++ (HSwitchLanguage *)share; //单例
+- (void)setDefaultLanguage:(NSString *)language; //设置默认语言
+- (void)setUserlanguage:(NSString *)language completion:(void (^)(void))completion; //设置当前语言
 
 @end

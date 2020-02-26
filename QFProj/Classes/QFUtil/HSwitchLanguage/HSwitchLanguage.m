@@ -63,7 +63,8 @@ _Pragma("clang diagnostic pop") \
         NSString *aKey = NSStringFromClass(self.class);
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         NSString *currentLanguage = [userDefaults valueForKey:aKey];
-        if(!currentLanguage){
+        /*
+        if (!currentLanguage) {
             currentLanguage = KLanguageBase;
             [userDefaults setValue:currentLanguage forKey:aKey];
             [userDefaults synchronize];
@@ -71,6 +72,12 @@ _Pragma("clang diagnostic pop") \
         //获取文件路径
         NSString *path = [[NSBundle mainBundle] pathForResource:currentLanguage ofType:@"lproj"];
         _currentBundle = [NSBundle bundleWithPath:path];
+        */
+        if (currentLanguage) {
+            //获取文件路径
+            NSString *path = [[NSBundle mainBundle] pathForResource:currentLanguage ofType:@"lproj"];
+            _currentBundle = [NSBundle bundleWithPath:path];
+        }
     }
     return _currentBundle;
 }
@@ -78,6 +85,12 @@ _Pragma("clang diagnostic pop") \
 - (NSString *)userLanguage {
     NSString *aKey = NSStringFromClass(self.class);
     return [[NSUserDefaults standardUserDefaults] valueForKey:aKey];
+}
+//设置默认语言
+- (void)setDefaultLanguage:(NSString *)language {
+    NSString *aKey = NSStringFromClass(self.class);
+    [[NSUserDefaults standardUserDefaults] setValue:language forKey:aKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 //设置语言
 - (void)setUserlanguage:(NSString *)language completion:(void (^)(void))completion {
