@@ -134,7 +134,7 @@ _Pragma("clang diagnostic pop") \
 }
 @end
 
-@implementation UILabel (HLanguage)
+@implementation HLabel (HLanguage)
 + (void)load {
     [super load];
     static dispatch_once_t onceToken;
@@ -171,7 +171,7 @@ _Pragma("clang diagnostic pop") \
 }
 @end
 
-@implementation HLabel (HLanguage)
+@implementation UILabel (HLanguage)
 + (void)load {
     [super load];
     static dispatch_once_t onceToken;
@@ -217,7 +217,12 @@ _Pragma("clang diagnostic pop") \
     });
 }
 - (void)skin_setText:(NSString *)text {
-    NSString *aKey = text;
+    NSString *aKey = nil;
+    if ([text isKindOfClass:NSString.class]) {
+        aKey = text;
+    }else if ([text isKindOfClass:NSNumber.class]) {
+        aKey = [NSString stringWithFormat:@"%@", text];
+    }
     if (aKey) {
         NSString *table = KSKinTable;
         NSString *content = KHLocalizedStringFromTable(aKey, table);
