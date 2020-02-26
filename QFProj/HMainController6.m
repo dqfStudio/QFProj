@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.leftNaviButton setHidden:YES];
-    [self.tableView setDelegate:self];
+    [self.tableView setTableDelegate:(id<HTableViewDelegate>)self];
 }
 
 - (NSInteger)numberOfSectionsInTableView {

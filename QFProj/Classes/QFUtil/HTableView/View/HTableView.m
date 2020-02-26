@@ -56,14 +56,12 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 
 @interface HTableView () <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, weak, nullable) id <HTableViewDelegate> tableDelegate;
-
 @property (nonatomic) HTableStyle tableStyle;
 
 @property (nonatomic) NSMutableSet *allReuseIdentifiers;
 @property (nonatomic) NSMapTable   *allReuseCells;
-@property (nonatomic) NSMapTable   *allReuseHeaders;
-@property (nonatomic) NSMapTable   *allReuseFooters;
+@property (nonatomic) NSMutableDictionary   *allReuseHeaders;
+@property (nonatomic) NSMutableDictionary   *allReuseFooters;
 
 @property (nonatomic, copy) NSArray <NSNumber *> *sectionPaths;
 
@@ -71,9 +69,8 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 
 @implementation HTableView
 
-@dynamic delegate;
-
-#pragma mark - init
+#pragma mark - init methods
+#pragma mark -
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -107,10 +104,6 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     }
     return self;
 }
-- (void)setDelegate:(id<HTableViewDelegate>)delegate {
-    self.tableDelegate = delegate;
-}
-- (void)setDataSource:(id<UITableViewDataSource>)dataSource {}
 - (void)setFrame:(CGRect)frame {
     if(!CGRectEqualToRect(frame, self.frame)) {
         [super setFrame:frame];
@@ -140,13 +133,15 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     
     _allReuseIdentifiers = [NSMutableSet new];
     _allReuseCells   = [NSMapTable strongToWeakObjectsMapTable];
-    _allReuseHeaders = [NSMapTable strongToWeakObjectsMapTable];
-    _allReuseFooters = [NSMapTable strongToWeakObjectsMapTable];
+    _allReuseHeaders = [NSMutableDictionary new];
+    _allReuseFooters = [NSMutableDictionary new];
     self.tableFooterView = [UIView new];
     super.delegate = self;
     super.dataSource = self;
 }
+
 #pragma mark - bounce
+#pragma mark -
 - (void)horizontalBounceEnabled {
     self.bounces = YES;
     self.alwaysBounceHorizontal = YES;
@@ -165,7 +160,9 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 - (void)bounceDisenable {
     self.bounces = NO;
 }
-#pragma mark - other methods
+
+#pragma mark - 间隔线
+#pragma mark -
 //屏蔽系统UITableViewCell的间隔线style
 - (void)setSeparatorStyle:(UITableViewCellSeparatorStyle)separatorStyle {
     super.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -178,6 +175,8 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 //        [super setLayoutMargins:separatorInset];
 //    }
 //}
+#pragma mark - refresh methods
+#pragma mark -
 - (NSUInteger)pageNo {
     if (_pageNo <= 0) {
         return 1;
@@ -273,7 +272,9 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
 #pragma mark - register class
+#pragma mark -
 - (id)dequeueReusableHeaderWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx section:(NSInteger)section {
     UITableViewHeaderFooterView *cell = nil;
     NSString *identifier = NSStringFromClass(cls);
@@ -312,7 +313,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     tmpCell.size = CGSizeMake(self.frame.size.width, height);
     //调用代理方法
     UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-    NSString *prefix = [self tuplePrefixWithSection:section];
+    NSString *prefix = [self tablePrefixWithSection:section];
     SEL selector = @selector(edgeInsetsForHeaderInSection:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         edgeInsets = [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&section] UIEdgeInsetsValue];
@@ -361,7 +362,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     tmpCell.size = CGSizeMake(self.frame.size.width, height);
     //调用代理方法
     UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-    NSString *prefix = [self tuplePrefixWithSection:section];
+    NSString *prefix = [self tablePrefixWithSection:section];
     SEL selector = @selector(edgeInsetsForFooterInSection:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         edgeInsets = [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&section] UIEdgeInsetsValue];
@@ -403,7 +404,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     [self.allReuseCells setObject:cell forKey:idxPath.stringValue];
     //调用代理方法
     UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
-    NSString *prefix = [self tuplePrefixWithSection:idxPath.section];
+    NSString *prefix = [self tablePrefixWithSection:idxPath.section];
     SEL selector = @selector(edgeInsetsForRowAtIndexPath:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         edgeInsets = [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&idxPath] UIEdgeInsetsValue];
@@ -414,8 +415,26 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     }
     return cell;
 }
-#pragma mark - UITableViewDatasource & delegate
-- (NSString *)tuplePrefixWithSection:(NSInteger)section {
+
+#pragma mark - 获取prefix方法
+#pragma mark -
+- (NSString *)tablePrefix {
+    NSString *prefix = @"";
+    if (self.tableStyle == HTableStyleSplit) {
+        prefix = [KTableDesignKey stringByAppendingFormat:@"%@_", @(self.tableState)];
+    }
+    return prefix;
+}
+- (NSString *)tableScrollSplitPrefix {
+    NSString *prefix = @"";
+    if (self.tableStyle == HTableStyleSplit) {
+        if ([self.scrollSplitArray containsObject:@(self.tableState)]) {
+            prefix = [KTableDesignKey stringByAppendingFormat:@"%@_", @(self.tableState)];
+        }
+    }
+    return prefix;
+}
+- (NSString *)tablePrefixWithSection:(NSInteger)section {
     NSString *prefix = @"";
     if (self.tableStyle == HTableStyleSplit) {
         if ([self.sectionPaths containsObject:@(section)]) {
@@ -427,10 +446,13 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     }
     return prefix;
 }
-- (NSInteger)numberOfSectionsInTableView {
+
+#pragma mark - 常用代理方法
+#pragma mark -
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    NSString *prefix = [self tablePrefix];
     switch (self.tableStyle) {
         case HTableStyleDefault: {
-            NSString *prefix = @"";
             SEL selector = @selector(numberOfSectionsInTableView);
             if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
                 return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix] integerValue];
@@ -438,7 +460,6 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
         }
             break;
         case HTableStyleSplit: {
-            NSString *prefix = [KTableDesignKey stringByAppendingFormat:@"%@_", @(self.tableState)];
             SEL selector = @selector(numberOfSectionsInTableView);
             if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
                 return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix] integerValue];
@@ -451,7 +472,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSString *prefix = [self tuplePrefixWithSection:section];
+    NSString *prefix = [self tablePrefixWithSection:section];
     SEL selector = @selector(numberOfRowsInSection:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&section] integerValue];
@@ -459,7 +480,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     return 0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    NSString *prefix = [self tuplePrefixWithSection:section];
+    NSString *prefix = [self tablePrefixWithSection:section];
     SEL selector = @selector(heightForHeaderInSection:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&section] floatValue];
@@ -467,7 +488,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     return 0.f;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    NSString *prefix = [self tuplePrefixWithSection:section];
+    NSString *prefix = [self tablePrefixWithSection:section];
     SEL selector = @selector(heightForFooterInSection:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&section] floatValue];
@@ -475,7 +496,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     return 0.f;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *prefix = [self tuplePrefixWithSection:indexPath.section];
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
     SEL selector = @selector(heightForRowAtIndexPath:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath] floatValue];
@@ -485,16 +506,16 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     //调用代理方法
-    __block HTableBaseApex *cell = nil;
-    NSString *prefix = [self tuplePrefixWithSection:section];
+    NSString *prefix = [self tablePrefixWithSection:section];
     SEL selector = @selector(tableHeader:inSection:);
     HTableHeader headerBlock = ^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-        cell = [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
-        return cell;
+        return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
     };
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&headerBlock, &section];
     }
+    //调用cell
+    HTableBaseApex *cell = [self.allReuseHeaders objectForKey:@(section).stringValue];
     //更新布局
     if ([cell respondsToSelector:@selector(relayoutSubviews)]) {
         [cell relayoutSubviews];
@@ -503,16 +524,16 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     //调用代理方法
-    __block HTableBaseApex *cell = nil;
-    NSString *prefix = [self tuplePrefixWithSection:section];
+    NSString *prefix = [self tablePrefixWithSection:section];
     SEL selector = @selector(tableFooter:inSection:);
     HTableFooter footerBlock = ^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-        cell = [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
-        return cell;
+        return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
     };
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&footerBlock, &section];
     }
+    //调用cell
+    HTableBaseApex *cell = [self.allReuseFooters objectForKey:@(section).stringValue];
     //更新布局
     if ([cell respondsToSelector:@selector(relayoutSubviews)]) {
         [cell relayoutSubviews];
@@ -521,7 +542,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //调用代理方法
-    NSString *prefix = [self tuplePrefixWithSection:indexPath.section];
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
     SEL selector = @selector(tableRow:atIndexPath:);
     HTableRow cellBlock = ^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
         return [self dequeueReusableCellWithClass:cls iblk:iblk pre:pre idx:idx idxPath:indexPath];
@@ -546,7 +567,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 //            [cell setLayoutMargins:self.separatorInset];
 //        }
 //    }
-    NSString *prefix = [self tuplePrefixWithSection:indexPath.section];
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
     SEL selector = @selector(willDisplayCell:atIndexPath:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&cell, &indexPath];
@@ -557,19 +578,572 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     if (cell.didSelectCell) {
         cell.didSelectCell(cell, indexPath);
     }else {
-        NSString *prefix = [self tuplePrefixWithSection:indexPath.section];
+        NSString *prefix = [self tablePrefixWithSection:indexPath.section];
         SEL selector = @selector(didSelectCell:atIndexPath:);
         if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
             [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&cell, &indexPath];
         }
     }
 }
+
+#pragma mark - UITableViewDataSource
+#pragma mark -
+- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString *prefix = [self tablePrefixWithSection:section];
+    SEL selector = @selector(titleForHeaderInSection:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&section];
+    }
+    return nil;
+}
+- (nullable NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    NSString *prefix = [self tablePrefixWithSection:section];
+    SEL selector = @selector(titleForFooterInSection:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&section];
+    }
+    return nil;
+}
+
+// Editing
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(canEditRowAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath] boolValue];
+    }
+    return YES;
+}
+
+// Moving/reordering
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(canMoveRowAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath] boolValue];
+    }
+    return NO;
+}
+
+// Index
+- (nullable NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    NSString *prefix = [self tablePrefix];
+    SEL selector = @selector(sectionIndexTitlesForTableView);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix];
+    }
+    return nil;
+}
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+    NSString *prefix = [self tablePrefix];
+    SEL selector = @selector(sectionForSectionIndexTitle:atIndex:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&title, &index] floatValue];
+    }
+    return 0;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(commitEditingStyle:forRowAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&editingStyle, &indexPath];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    NSString *prefix = [self tablePrefix];
+    SEL selector = @selector(moveRowAtIndexPath:toIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&sourceIndexPath, &destinationIndexPath];
+    }
+}
+
+#pragma mark - UITableViewDelegate
+#pragma mark -
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    NSString *prefix = [self tablePrefixWithSection:section];
+    SEL selector = @selector(willDisplayHeaderView:forSection:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&view, &section];
+    }
+}
+- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section {
+    NSString *prefix = [self tablePrefixWithSection:section];
+    SEL selector = @selector(willDisplayFooterView:forSection:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&view, &section];
+    }
+}
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(didEndDisplayingCell:forRowAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&cell, &indexPath];
+    }
+}
+- (void)tableView:(UITableView *)tableView didEndDisplayingHeaderView:(UIView *)view forSection:(NSInteger)section {
+    NSString *prefix = [self tablePrefixWithSection:section];
+    SEL selector = @selector(didEndDisplayingHeaderView:forSection:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&view, &section];
+    }
+}
+- (void)tableView:(UITableView *)tableView didEndDisplayingFooterView:(UIView *)view forSection:(NSInteger)section {
+    NSString *prefix = [self tablePrefixWithSection:section];
+    SEL selector = @selector(didEndDisplayingFooterView:forSection:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&view, &section];
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(estimatedHeightForRowAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath] floatValue];
+    }
+    return 44.f;
+}
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section {
+    NSString *prefix = [self tablePrefixWithSection:section];
+    SEL selector = @selector(estimatedHeightForHeaderInSection:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&section] floatValue];
+    }
+    return 44.f;
+}
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section {
+    NSString *prefix = [self tablePrefixWithSection:section];
+    SEL selector = @selector(estimatedHeightForFooterInSection:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&section] floatValue];
+    }
+    return 44.f;
+}
+
+// Accessories (disclosures).
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(accessoryButtonTappedForRowWithIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath];
+    }
+}
+
+// Selection
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(shouldHighlightRowAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath] boolValue];
+    }
+    return YES;
+}
+- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(didHighlightRowAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath];
+    }
+}
+- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(didUnhighlightRowAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath];
+    }
+}
+
+//- (nullable NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+//    SEL selector = @selector(willSelectRowAtIndexPath:);
+//    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+//        return [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath];
+//    }
+//    return nil;
+//}
+//- (nullable NSIndexPath *)tableView:(UITableView *)tableView willDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+//    SEL selector = @selector(willDeselectRowAtIndexPath:);
+//    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+//        return [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath];
+//    }
+//    return nil;
+//}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(didDeselectRowAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath];
+    }
+}
+
+// Editing
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(editingStyleForRowAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath] intValue];
+    }
+    return UITableViewCellEditingStyleNone;
+}
+- (nullable NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(titleForDeleteConfirmationButtonForRowAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath];
+    }
+    return nil;
+}
+
+- (nullable NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(editActionsForRowAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath];
+    }
+    return nil;
+}
+
+// Swipe actions
+- (nullable UISwipeActionsConfiguration *)tableView:(UITableView *)tableView leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath API_AVAILABLE(ios(11.0)){
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(leadingSwipeActionsConfigurationForRowAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath];
+    }
+    return nil;
+}
+- (nullable UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath API_AVAILABLE(ios(11.0)){
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(trailingSwipeActionsConfigurationForRowAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath];
+    }
+    return nil;
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(shouldIndentWhileEditingRowAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath];
+    }
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(willBeginEditingRowAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath];
+    }
+}
+- (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(nullable NSIndexPath *)indexPath {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(didEndEditingRowAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath];
+    }
+}
+
+// Moving/reordering
+- (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
+    NSString *prefix = [self tablePrefix];
+    SEL selector = @selector(targetIndexPathForMoveFromRowAtIndexPath:toProposedIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&sourceIndexPath, &proposedDestinationIndexPath];
+    }
+    return nil;
+}
+
+// Indentation
+- (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(indentationLevelForRowAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath] integerValue];
+    }
+    return 0;
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(shouldShowMenuForRowAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath] boolValue];
+    }
+    return NO;
+}
+- (BOOL)tableView:(UITableView *)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(nullable id)sender {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(canPerformAction:forRowAtIndexPath:withSender:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&action, &indexPath, &sender] boolValue];
+    }
+    return NO;
+}
+- (void)tableView:(UITableView *)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(nullable id)sender {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(performAction:forRowAtIndexPath:withSender:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&action, &indexPath, &sender];
+    }
+}
+
+// Focus
+- (BOOL)tableView:(UITableView *)tableView canFocusRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(canFocusRowAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath] boolValue];
+    }
+    return NO;
+}
+- (BOOL)tableView:(UITableView *)tableView shouldUpdateFocusInContext:(UITableViewFocusUpdateContext *)context {
+    NSString *prefix = [self tablePrefix];
+    SEL selector = @selector(shouldUpdateFocusInContext:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&context] boolValue];
+    }
+    return NO;
+}
+- (void)tableView:(UITableView *)tableView didUpdateFocusInContext:(UITableViewFocusUpdateContext *)context withAnimationCoordinator:(UIFocusAnimationCoordinator *)coordinator {
+    NSString *prefix = [self tablePrefix];
+    SEL selector = @selector(didUpdateFocusInContext:withAnimationCoordinator:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&context];
+    }
+}
+- (nullable NSIndexPath *)indexPathForPreferredFocusedViewInTableView:(UITableView *)tableView {
+    NSString *prefix = [self tablePrefix];
+    SEL selector = @selector(indexPathForPreferredFocusedViewInTableView);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix];
+    }
+    return nil;
+}
+
+// Spring Loading
+- (BOOL)tableView:(UITableView *)tableView shouldSpringLoadRowAtIndexPath:(NSIndexPath *)indexPath withContext:(id<UISpringLoadedInteractionContext>)context API_AVAILABLE(ios(11.0)){
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(shouldSpringLoadRowAtIndexPath:withContext:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath, &context] boolValue];
+    }
+    return NO;
+}
+
+// Multiple Selection
+- (BOOL)tableView:(UITableView *)tableView shouldBeginMultipleSelectionInteractionAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(shouldBeginMultipleSelectionInteractionAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath] boolValue];
+    }
+    return NO;
+}
+
+- (void)tableView:(UITableView *)tableView didBeginMultipleSelectionInteractionAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(didBeginMultipleSelectionInteractionAtIndexPath:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath];
+    }
+}
+
+- (void)tableViewDidEndMultipleSelectionInteraction:(UITableView *)tableView {
+    NSString *prefix = [self tablePrefix];
+    SEL selector = @selector(tableViewDidEndMultipleSelectionInteraction);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix];
+    }
+}
+
+- (nullable UIContextMenuConfiguration *)tableView:(UITableView *)tableView contextMenuConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath point:(CGPoint)point API_AVAILABLE(ios(13.0)){
+    NSString *prefix = [self tablePrefixWithSection:indexPath.section];
+    SEL selector = @selector(contextMenuConfigurationForRowAtIndexPath:point:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath, &point];
+    }
+    return nil;
+}
+
+- (nullable UITargetedPreview *)tableView:(UITableView *)tableView previewForHighlightingContextMenuWithConfiguration:(UIContextMenuConfiguration *)configuration API_AVAILABLE(ios(13.0)){
+    NSString *prefix = [self tablePrefix];
+    SEL selector = @selector(previewForHighlightingContextMenuWithConfiguration:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&configuration];
+    }
+    return nil;
+}
+
+- (nullable UITargetedPreview *)tableView:(UITableView *)tableView previewForDismissingContextMenuWithConfiguration:(UIContextMenuConfiguration *)configuration API_AVAILABLE(ios(13.0)){
+    NSString *prefix = [self tablePrefix];
+    SEL selector = @selector(previewForDismissingContextMenuWithConfiguration:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&configuration];
+    }
+    return nil;
+}
+
+- (void)tableView:(UITableView *)tableView willPerformPreviewActionForMenuWithConfiguration:(UIContextMenuConfiguration *)configuration animator:(id<UIContextMenuInteractionCommitAnimating>)animator API_AVAILABLE(ios(13.0)){
+    NSString *prefix = [self tablePrefix];
+    SEL selector = @selector(willPerformPreviewActionForMenuWithConfiguration:animator:);
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&configuration, &animator];
+    }
+}
+
+#pragma mark - UIScrollViewDelegate
+#pragma mark -
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSString *prefix = [self tableScrollSplitPrefix];
+    SEL selector = NSSelectorFromString(@"tableScrollViewDidScroll:");
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [(NSObject *)self.tableDelegate performSelector:selector withObject:scrollView];
+        #pragma clang diagnostic pop
+    }
+}
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
+    NSString *prefix = [self tableScrollSplitPrefix];
+    SEL selector = NSSelectorFromString(@"tableScrollViewDidZoom:");
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [(NSObject *)self.tableDelegate performSelector:selector withObject:scrollView];
+        #pragma clang diagnostic pop
+    }
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    NSString *prefix = [self tableScrollSplitPrefix];
+    SEL selector = NSSelectorFromString(@"tableScrollViewWillBeginDragging:");
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [(NSObject *)self.tableDelegate performSelector:selector withObject:scrollView];
+        #pragma clang diagnostic pop
+    }
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    NSString *prefix = [self tableScrollSplitPrefix];
+    SEL selector = NSSelectorFromString(@"tableScrollViewWillEndDragging:withVelocity:targetContentOffset:");
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withMethodArgments:&scrollView, &velocity, &targetContentOffset];
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    NSString *prefix = [self tableScrollSplitPrefix];
+    SEL selector = NSSelectorFromString(@"tableScrollViewWillEndDragging:willDecelerate:");
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withMethodArgments:&scrollView, &decelerate];
+    }
+}
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+    NSString *prefix = [self tableScrollSplitPrefix];
+    SEL selector = NSSelectorFromString(@"tableScrollViewWillBeginDecelerating:");
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [(NSObject *)self.tableDelegate performSelector:selector withObject:scrollView];
+        #pragma clang diagnostic pop
+    }
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSString *prefix = [self tableScrollSplitPrefix];
+    SEL selector = NSSelectorFromString(@"tableScrollViewDidEndDecelerating:");
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [(NSObject *)self.tableDelegate performSelector:selector withObject:scrollView];
+        #pragma clang diagnostic pop
+    }
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    NSString *prefix = [self tableScrollSplitPrefix];
+    SEL selector = NSSelectorFromString(@"tableScrollViewDidEndScrollingAnimation:");
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [(NSObject *)self.tableDelegate performSelector:selector withObject:scrollView];
+        #pragma clang diagnostic pop
+    }
+}
+
+- (nullable UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    NSString *prefix = [self tableScrollSplitPrefix];
+    SEL selector = NSSelectorFromString(@"tableViewForZoomingInScrollView:");
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [(NSObject *)self.tableDelegate performSelector:selector withMethodArgments:&scrollView];
+    }
+    return nil;
+}
+- (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view {
+    NSString *prefix = [self tableScrollSplitPrefix];
+    SEL selector = NSSelectorFromString(@"tableScrollViewDidScrollToTop:");
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [(NSObject *)self.tableDelegate performSelector:selector withObject:scrollView withObject:view];
+        #pragma clang diagnostic pop
+    }
+}
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view atScale:(CGFloat)scale {
+    NSString *prefix = [self tableScrollSplitPrefix];
+    SEL selector = NSSelectorFromString(@"tableScrollViewDidEndZooming:withView:atScale:");
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        [(NSObject *)self.tableDelegate performSelector:selector withMethodArgments:&scrollView, &view, &scale];
+    }
+}
+
+- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
+    NSString *prefix = [self tableScrollSplitPrefix];
+    SEL selector = NSSelectorFromString(@"tableScrollViewShouldScrollToTop:");
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        return [[(NSObject *)self.tableDelegate performSelector:selector withMethodArgments:&scrollView] boolValue];
+    }
+    return YES;
+}
+- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView {
+    NSString *prefix = [self tableScrollSplitPrefix];
+    SEL selector = NSSelectorFromString(@"tableScrollViewDidScrollToTop:");
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [(NSObject *)self.tableDelegate performSelector:selector withObject:scrollView];
+        #pragma clang diagnostic pop
+    }
+}
+
+- (void)scrollViewDidChangeAdjustedContentInset:(UIScrollView *)scrollView {
+    NSString *prefix = [self tableScrollSplitPrefix];
+    SEL selector = NSSelectorFromString(@"tableScrollViewDidChangeAdjustedContentInset:");
+    if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [(NSObject *)self.tableDelegate performSelector:selector withObject:scrollView];
+        #pragma clang diagnostic pop
+    }
+}
+
 #pragma mark - release method
 - (void)releaseTableBlock {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         
         [self releaseAllSignal];
         [self clearTableState];
+        
+        [self.allReuseHeaders removeAllObjects];
+        [self.allReuseFooters removeAllObjects];
         
         if (self.tableDelegate) self.tableDelegate = nil;
         if (self.refreshBlock) self.refreshBlock = nil;

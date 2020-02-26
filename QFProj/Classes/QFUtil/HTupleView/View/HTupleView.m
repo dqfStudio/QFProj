@@ -282,6 +282,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
 #pragma mark - register class
 #pragma mark -
 - (id)dequeueReusableHeaderWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx idxPath:(NSIndexPath *)idxPath {
@@ -414,6 +415,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     }
     return cell;
 }
+
 #pragma mark - 获取prefix方法
 #pragma mark -
 - (NSString *)tuplePrefix {
@@ -444,6 +446,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     }
     return prefix;
 }
+
 #pragma mark - 常用代理方法
 #pragma mark -
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -606,6 +609,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         }
     }
 }
+
 #pragma mark - UICollectionViewDataSource
 #pragma mark -
 - (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
