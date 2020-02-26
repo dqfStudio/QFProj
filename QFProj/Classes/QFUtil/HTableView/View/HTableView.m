@@ -284,14 +284,19 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     }
     if (pre) identifier = [identifier stringByAppendingString:pre];
     if (idx) identifier = [identifier stringByAppendingString:@(section).stringValue];
+    
+    CGFloat height = [self tableView:self heightForHeaderInSection:section];
+    
     if (![self.allReuseIdentifiers containsObject:identifier]) {
         [self.allReuseIdentifiers addObject:identifier];
         [self registerClass:cls forHeaderFooterViewReuseIdentifier:identifier];
         cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+        [self.allReuseHeaders setObject:cell forKey:@(section).stringValue];
         HTableBaseApex *tmpCell = (HTableBaseApex *)cell;
         tmpCell.table = self;
         tmpCell.section = section;
         tmpCell.isHeader = YES;
+        tmpCell.height = height;
         //init method
         if (iblk) {
             HTableCellInitBlock initHeaderBlock = iblk;
@@ -300,10 +305,11 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
             }
         }
     }else {
-        cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+        cell = [self.allReuseHeaders objectForKey:@(section).stringValue];
     }
-    //保存cell
-    [self.allReuseHeaders setObject:cell forKey:@(section).stringValue];
+    //设置高度
+    HTableBaseApex *tmpCell = (HTableBaseApex *)cell;
+    tmpCell.height = height;
     //调用代理方法
     UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
     NSString *prefix = [self tuplePrefixWithSection:section];
@@ -327,14 +333,19 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     }
     if (pre) identifier = [identifier stringByAppendingString:pre];
     if (idx) identifier = [identifier stringByAppendingString:@(section).stringValue];
+    
+    CGFloat height = [self tableView:self heightForFooterInSection:section];
+    
     if (![self.allReuseIdentifiers containsObject:identifier]) {
         [self.allReuseIdentifiers addObject:identifier];
         [self registerClass:cls forHeaderFooterViewReuseIdentifier:identifier];
         cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+        [self.allReuseFooters setObject:cell forKey:@(section).stringValue];
         HTableBaseApex *tmpCell = (HTableBaseApex *)cell;
         tmpCell.table = self;
         tmpCell.section = section;
         tmpCell.isHeader = NO;
+        tmpCell.height = height;
         //init method
         if (iblk) {
             HTableCellInitBlock initFooterBlock = iblk;
@@ -343,10 +354,11 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
             }
         }
     }else {
-        cell = [self dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+        cell = [self.allReuseFooters objectForKey:@(section).stringValue];
     }
-    //保存cell
-    [self.allReuseFooters setObject:cell forKey:@(section).stringValue];
+    //设置高度
+    HTableBaseApex *tmpCell = (HTableBaseApex *)cell;
+    tmpCell.height = height;
     //调用代理方法
     UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
     NSString *prefix = [self tuplePrefixWithSection:section];
@@ -473,16 +485,16 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     //调用代理方法
+    __block HTableBaseApex *cell = nil;
     NSString *prefix = [self tuplePrefixWithSection:section];
     SEL selector = @selector(tableHeader:inSection:);
     HTableHeader headerBlock = ^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-        return [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
+        cell = [self dequeueReusableHeaderWithClass:cls iblk:iblk pre:pre idx:idx section:section];
+        return cell;
     };
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&headerBlock, &section];
     }
-    //调用cell
-    HTableBaseApex *cell = [self.allReuseHeaders objectForKey:@(section).stringValue];
     //更新布局
     if ([cell respondsToSelector:@selector(relayoutSubviews)]) {
         [cell relayoutSubviews];
@@ -491,16 +503,16 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     //调用代理方法
+    __block HTableBaseApex *cell = nil;
     NSString *prefix = [self tuplePrefixWithSection:section];
     SEL selector = @selector(tableFooter:inSection:);
     HTableFooter footerBlock = ^id(id iblk, __unsafe_unretained Class cls, id pre, bool idx) {
-        return [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
+        cell = [self dequeueReusableFooterWithClass:cls iblk:iblk pre:pre idx:idx section:section];
+        return cell;
     };
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
         [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&footerBlock, &section];
     }
-    //调用cell
-    HTableBaseApex *cell = [self.allReuseFooters objectForKey:@(section).stringValue];
     //更新布局
     if ([cell respondsToSelector:@selector(relayoutSubviews)]) {
         [cell relayoutSubviews];

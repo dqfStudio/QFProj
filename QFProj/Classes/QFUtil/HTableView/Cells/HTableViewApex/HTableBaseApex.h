@@ -25,6 +25,8 @@ if(!CGRectEqualToRect(v.frame, _frame)) {\
 @property (nonatomic) BOOL isHeader;
 //cell所在的section
 @property (nonatomic) NSInteger section;
+//cell的高度
+@property (nonatomic) NSInteger height;
 //cell的边距
 @property (nonatomic) UIEdgeInsets edgeInsets;
 //用于加载在contentView上的布局视图
@@ -40,7 +42,6 @@ if(!CGRectEqualToRect(v.frame, _frame)) {\
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
 - (instancetype)initWithCoder:(NSCoder *)coder NS_UNAVAILABLE;
-- (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier NS_UNAVAILABLE;
 //layoutView的frame和bounds
 - (CGRect)layoutViewFrame;
 - (CGRect)layoutViewBounds;
