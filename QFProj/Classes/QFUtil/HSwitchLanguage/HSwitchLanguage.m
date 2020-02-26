@@ -9,7 +9,7 @@
 #import "HSwitchLanguage.h"
 #import <objc/runtime.h>
 
-#define SuppressPerformSelectorLeakWarning(Stuff) \
+#define KHSuppressPerformSelectorLeakWarning(Stuff) \
 do { \
 _Pragma("clang diagnostic push") \
 _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
@@ -17,16 +17,16 @@ Stuff; \
 _Pragma("clang diagnostic pop") \
 } while (0)
 
-#define HLocalizedString(key) \
-[[HSwitchLanguage currentBundle] localizedStringForKey:(key) value:@"" table:nil]
-#define HLocalizedStringFromTable(key, tbl) \
-[[HSwitchLanguage currentBundle] localizedStringForKey:(key) value:@"" table:(tbl)]
+#define KHLocalizedString(key) \
+[[HSwitchLanguage share].currentBundle localizedStringForKey:(key) value:@"" table:nil]
+#define KHLocalizedStringFromTable(key, tbl) \
+[[HSwitchLanguage share].currentBundle localizedStringForKey:(key) value:@"" table:(tbl)]
 
-@interface UIView (UISkin)
+@interface UIView (HLanguage)
 @property (nonatomic) NSString *textKey;
 @end
 
-@implementation UIView (UISkin)
+@implementation UIView (HLanguage)
 - (NSString *)textKey {
     return objc_getAssociatedObject(self, _cmd);
 }
@@ -35,163 +35,10 @@ _Pragma("clang diagnostic pop") \
 }
 @end
 
-@interface _HSkin : NSObject
-@property (nonatomic) NSHashTable *hashTable;
-+ (_HSkin *)share;
-- (void)addObject:(id)anObject;
-- (void)enumerateOperation:(void (^)(void))completion;
-@end
-
-@implementation _HSkin
-- (NSHashTable *)hashTable {
-    if (!_hashTable) {
-        _hashTable = [NSHashTable weakObjectsHashTable];
-    }
-    return _hashTable;
+@interface HSwitchLanguage () {
+    NSBundle *_currentBundle;
+    NSHashTable *_hashTable;
 }
-+ (_HSkin *)share {
-    static _HSkin *shareInstance = nil;
-    static dispatch_once_t predicate;
-    dispatch_once(&predicate, ^{
-        shareInstance = [[self alloc] init];
-    });
-    return shareInstance;
-}
-- (void)addObject:(id)anObject {
-    [self.hashTable addObject:anObject];
-}
-- (void)enumerateOperation:(void (^)(void))completion {
-    syncAtMain(^{
-        NSArray *allObjects = [[self.hashTable objectEnumerator] allObjects];
-        //倒序执行
-        for (NSUInteger i=allObjects.count-1; i>=0; i--) {
-            id anObject = allObjects[i];
-            if ([anObject isKindOfClass:UILabel.class] || [anObject isKindOfClass:UITextView.class]) {
-                UIView *view = anObject;
-                SEL selector = NSSelectorFromString(@"skin_setText:");
-                if ([view respondsToSelector:selector]) {
-                    NSString *aKey = view.textKey;
-                    NSString *tbl = KSKinTable;
-                    NSString *content = HLocalizedStringFromTable(aKey, tbl);
-                    SuppressPerformSelectorLeakWarning([view performSelector:selector withObject:content];);
-                }
-            }
-        }
-        if (completion) {
-            completion();
-        }
-    });
-}
-@end
-
-@implementation UILabel (HSkin)
-+ (void)load {
-    [super load];
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self methodSwizzleWithOrigSEL:@selector(setText:) overrideSEL:@selector(skin_setText:)];
-    });
-}
-- (void)skin_setText:(NSString *)text {
-    NSString *aKey = nil;
-    if ([text isKindOfClass:NSString.class]) {
-        aKey = text;
-    }else if ([text isKindOfClass:NSNumber.class]) {
-        aKey = [NSString stringWithFormat:@"%@", text];
-    }
-    if (aKey) {
-        NSString *table = KSKinTable;
-        NSString *content = HLocalizedStringFromTable(aKey, table);
-        if (content) {
-            //保存文字颜色
-            UIColor *color = self.textColor;
-            [self setTextKey:aKey];
-            //此处文字颜色会被更改掉
-            [self skin_setText:content];
-            //重新设置保存的文字颜色
-            [self setTextColor:color];
-            
-            [[_HSkin share] addObject:self];
-        }else {
-            [self skin_setText:aKey];
-        }
-    }else {
-        [self skin_setText:aKey];
-    }
-}
-@end
-
-@implementation HLabel (HSkin)
-+ (void)load {
-    [super load];
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self methodSwizzleWithOrigSEL:@selector(setText:) overrideSEL:@selector(skin_setText:)];
-    });
-}
-- (void)skin_setText:(NSString *)text {
-    NSString *aKey = nil;
-    if ([text isKindOfClass:NSString.class]) {
-        aKey = text;
-    }else if ([text isKindOfClass:NSNumber.class]) {
-        aKey = [NSString stringWithFormat:@"%@", text];
-    }
-    if (aKey) {
-        NSString *table = KSKinTable;
-        NSString *content = HLocalizedStringFromTable(aKey, table);
-        if (content) {
-            //保存文字颜色
-            UIColor *color = self.textColor;
-            [self setTextKey:aKey];
-            //此处文字颜色会被更改掉
-            [self skin_setText:content];
-            //重新设置保存的文字颜色
-            [self setTextColor:color];
-            
-            [[_HSkin share] addObject:self];
-        }else {
-            [self skin_setText:aKey];
-        }
-    }else {
-        [self skin_setText:aKey];
-    }
-}
-@end
-
-@implementation UITextView (HSkin)
-+ (void)load {
-    [super load];
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self methodSwizzleWithOrigSEL:@selector(setText:) overrideSEL:@selector(skin_setText:)];
-    });
-}
-- (void)skin_setText:(NSString *)text {
-    NSString *aKey = text;
-    if (aKey) {
-        NSString *table = KSKinTable;
-        NSString *content = HLocalizedStringFromTable(aKey, table);
-        if (content) {
-            //保存文字颜色
-            UIColor *color = self.textColor;
-            [self setTextKey:aKey];
-            //此处文字颜色会被更改掉
-            [self skin_setText:content];
-            //重新设置保存的文字颜色
-            [self setTextColor:color];
-            
-            [[_HSkin share] addObject:self];
-        }else {
-            [self skin_setText:aKey];
-        }
-    }else {
-        [self skin_setText:aKey];
-    }
-}
-@end
-
-@interface HSwitchLanguage ()
-@property (nonatomic) NSBundle *currentBundle;
 @end
 
 @implementation HSwitchLanguage
@@ -203,6 +50,14 @@ _Pragma("clang diagnostic pop") \
     });
     return shareInstance;
 }
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _hashTable = [NSHashTable weakObjectsHashTable];
+    }
+    return self;
+}
+//当前语言资源文件
 - (NSBundle *)currentBundle {
     if (!_currentBundle) {
         NSString *aKey = NSStringFromClass(self.class);
@@ -219,16 +74,13 @@ _Pragma("clang diagnostic pop") \
     }
     return _currentBundle;
 }
-+ (NSBundle *)currentBundle {
-    return [HSwitchLanguage share].currentBundle;
-}
 //获取当前语言
-+ (NSString *)userLanguage {
+- (NSString *)userLanguage {
     NSString *aKey = NSStringFromClass(self.class);
     return [[NSUserDefaults standardUserDefaults] valueForKey:aKey];
 }
 //设置语言
-+ (void)setUserlanguage:(NSString *)language completion:(void (^)(void))completion {
+- (void)setUserlanguage:(NSString *)language completion:(void (^)(void))completion {
     NSString *aKey = NSStringFromClass(self.class);
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *currentLanguage = [userDefaults valueForKey:aKey];
@@ -238,8 +90,140 @@ _Pragma("clang diagnostic pop") \
         [userDefaults synchronize];
         
         NSString *path = [[NSBundle mainBundle] pathForResource:language ofType:@"lproj" ];
-        [HSwitchLanguage share].currentBundle = [NSBundle bundleWithPath:path];
-        [[_HSkin share] enumerateOperation:completion];
+        _currentBundle = [NSBundle bundleWithPath:path];
+        [[HSwitchLanguage share] enumerateOperation:completion];
+    }
+}
+- (void)addObject:(id)anObject {
+    [_hashTable addObject:anObject];
+}
+- (void)enumerateOperation:(void (^)(void))completion {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSArray *allObjects = [[self->_hashTable objectEnumerator] allObjects];
+        //倒序执行
+        for (NSUInteger i=allObjects.count-1; i>=0; i--) {
+            id anObject = allObjects[i];
+            if ([anObject isKindOfClass:UILabel.class] || [anObject isKindOfClass:UITextView.class]) {
+                UIView *view = anObject;
+                SEL selector = NSSelectorFromString(@"skin_setText:");
+                if ([view respondsToSelector:selector]) {
+                    NSString *aKey = view.textKey;
+                    NSString *tbl = KSKinTable;
+                    NSString *content = KHLocalizedStringFromTable(aKey, tbl);
+                    KHSuppressPerformSelectorLeakWarning([view performSelector:selector withObject:content];);
+                }
+            }
+        }
+        if (completion) {
+            completion();
+        }
+    });
+}
+@end
+
+@implementation UILabel (HLanguage)
++ (void)load {
+    [super load];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self methodSwizzleWithOrigSEL:@selector(setText:) overrideSEL:@selector(skin_setText:)];
+    });
+}
+- (void)skin_setText:(NSString *)text {
+    NSString *aKey = nil;
+    if ([text isKindOfClass:NSString.class]) {
+        aKey = text;
+    }else if ([text isKindOfClass:NSNumber.class]) {
+        aKey = [NSString stringWithFormat:@"%@", text];
+    }
+    if (aKey) {
+        NSString *table = KSKinTable;
+        NSString *content = KHLocalizedStringFromTable(aKey, table);
+        if (content) {
+            //保存文字颜色
+            UIColor *color = self.textColor;
+            [self setTextKey:aKey];
+            //此处文字颜色会被更改掉
+            [self skin_setText:content];
+            //重新设置保存的文字颜色
+            [self setTextColor:color];
+            
+            [[HSwitchLanguage share] addObject:self];
+        }else {
+            [self skin_setText:aKey];
+        }
+    }else {
+        [self skin_setText:aKey];
     }
 }
 @end
+
+@implementation HLabel (HLanguage)
++ (void)load {
+    [super load];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self methodSwizzleWithOrigSEL:@selector(setText:) overrideSEL:@selector(skin_setText:)];
+    });
+}
+- (void)skin_setText:(NSString *)text {
+    NSString *aKey = nil;
+    if ([text isKindOfClass:NSString.class]) {
+        aKey = text;
+    }else if ([text isKindOfClass:NSNumber.class]) {
+        aKey = [NSString stringWithFormat:@"%@", text];
+    }
+    if (aKey) {
+        NSString *table = KSKinTable;
+        NSString *content = KHLocalizedStringFromTable(aKey, table);
+        if (content) {
+            //保存文字颜色
+            UIColor *color = self.textColor;
+            [self setTextKey:aKey];
+            //此处文字颜色会被更改掉
+            [self skin_setText:content];
+            //重新设置保存的文字颜色
+            [self setTextColor:color];
+            
+            [[HSwitchLanguage share] addObject:self];
+        }else {
+            [self skin_setText:aKey];
+        }
+    }else {
+        [self skin_setText:aKey];
+    }
+}
+@end
+
+@implementation UITextView (HLanguage)
++ (void)load {
+    [super load];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self methodSwizzleWithOrigSEL:@selector(setText:) overrideSEL:@selector(skin_setText:)];
+    });
+}
+- (void)skin_setText:(NSString *)text {
+    NSString *aKey = text;
+    if (aKey) {
+        NSString *table = KSKinTable;
+        NSString *content = KHLocalizedStringFromTable(aKey, table);
+        if (content) {
+            //保存文字颜色
+            UIColor *color = self.textColor;
+            [self setTextKey:aKey];
+            //此处文字颜色会被更改掉
+            [self skin_setText:content];
+            //重新设置保存的文字颜色
+            [self setTextColor:color];
+            
+            [[HSwitchLanguage share] addObject:self];
+        }else {
+            [self skin_setText:aKey];
+        }
+    }else {
+        [self skin_setText:aKey];
+    }
+}
+@end
+
