@@ -296,7 +296,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
         tmpCell.table = self;
         tmpCell.section = section;
         tmpCell.isHeader = YES;
-        tmpCell.height = height;
+        tmpCell.size = CGSizeMake(self.frame.size.width, height);
         //init method
         if (iblk) {
             HTableCellInitBlock initHeaderBlock = iblk;
@@ -309,7 +309,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     }
     //设置高度
     HTableBaseApex *tmpCell = (HTableBaseApex *)cell;
-    tmpCell.height = height;
+    tmpCell.size = CGSizeMake(self.frame.size.width, height);
     //调用代理方法
     UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
     NSString *prefix = [self tuplePrefixWithSection:section];
@@ -345,7 +345,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
         tmpCell.table = self;
         tmpCell.section = section;
         tmpCell.isHeader = NO;
-        tmpCell.height = height;
+        tmpCell.size = CGSizeMake(self.frame.size.width, height);
         //init method
         if (iblk) {
             HTableCellInitBlock initFooterBlock = iblk;
@@ -358,7 +358,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     }
     //设置高度
     HTableBaseApex *tmpCell = (HTableBaseApex *)cell;
-    tmpCell.height = height;
+    tmpCell.size = CGSizeMake(self.frame.size.width, height);
     //调用代理方法
     UIEdgeInsets edgeInsets = UIEdgeInsetsZero;
     NSString *prefix = [self tuplePrefixWithSection:section];

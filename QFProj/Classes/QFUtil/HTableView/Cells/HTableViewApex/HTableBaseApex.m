@@ -93,8 +93,7 @@
 
 - (CGRect)layoutViewFrame {
     CGRect frame = self.bounds;
-    frame.size.width = self.table.frame.size.width;
-    frame.size.height = self.height;
+    frame.size = self.size;
     
     frame.origin.x += _edgeInsets.left;
     frame.origin.y += _edgeInsets.top;

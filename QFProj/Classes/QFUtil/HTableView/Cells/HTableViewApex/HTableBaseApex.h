@@ -25,8 +25,8 @@ if(!CGRectEqualToRect(v.frame, _frame)) {\
 @property (nonatomic) BOOL isHeader;
 //cell所在的section
 @property (nonatomic) NSInteger section;
-//cell的高度
-@property (nonatomic) NSInteger height;
+//cell的大小
+@property (nonatomic) CGSize size;
 //cell的边距
 @property (nonatomic) UIEdgeInsets edgeInsets;
 //用于加载在contentView上的布局视图
