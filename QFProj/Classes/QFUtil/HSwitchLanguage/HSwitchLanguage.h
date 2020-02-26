@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NSObject+HSwizzleUtil.h"
 #import "HGCDUtil.h"
+#import "HLabel.h"
 
 #define KLanguageBase  @"zh-Hans"   //默认语言，这里默认为汉语
 #define KLanguageEN    @"en"        //英语

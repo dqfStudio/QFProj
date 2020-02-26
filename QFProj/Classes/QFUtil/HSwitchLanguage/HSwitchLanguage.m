@@ -121,6 +121,43 @@ _Pragma("clang diagnostic pop") \
 }
 @end
 
+@implementation HLabel (HSkin)
++ (void)load {
+    [super load];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self methodSwizzleWithOrigSEL:@selector(setText:) overrideSEL:@selector(skin_setText:)];
+    });
+}
+- (void)skin_setText:(NSString *)text {
+    NSString *aKey = nil;
+    if ([text isKindOfClass:NSString.class]) {
+        aKey = text;
+    }else if ([text isKindOfClass:NSNumber.class]) {
+        aKey = [NSString stringWithFormat:@"%@", text];
+    }
+    if (aKey) {
+        NSString *table = KSKinTable;
+        NSString *content = HLocalizedStringFromTable(aKey, table);
+        if (content) {
+            //保存文字颜色
+            UIColor *color = self.textColor;
+            [self setTextKey:aKey];
+            //此处文字颜色会被更改掉
+            [self skin_setText:content];
+            //重新设置保存的文字颜色
+            [self setTextColor:color];
+            
+            [[_HSkin share] addObject:self];
+        }else {
+            [self skin_setText:aKey];
+        }
+    }else {
+        [self skin_setText:aKey];
+    }
+}
+@end
+
 @implementation UITextView (HSkin)
 + (void)load {
     [super load];
