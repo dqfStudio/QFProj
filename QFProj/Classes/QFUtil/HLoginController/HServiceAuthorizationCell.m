@@ -17,8 +17,8 @@
 - (NSMutableAttributedString *)attributedString {
     if (!_attributedString) {
         _buttonView = [[HWebButtonView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
-        [_buttonView setImage:[UIImage imageNamed:@"registet_checkbox_icon"] forState:UIControlStateNormal];
-        [_buttonView setImage:[UIImage imageNamed:@"registet_checkbox_icon_h"] forState:UIControlStateSelected];
+        [_buttonView setImage:[UIImage imageNamed:@"register_checkbox_icon"] forState:UIControlStateNormal];
+        [_buttonView setImage:[UIImage imageNamed:@"register_checkbox_icon_h"] forState:UIControlStateSelected];
         [_buttonView setSelected:!_buttonView.isSelected];
         [_buttonView setPressed:^(HWebButtonView *buttonView, id data) {
             [buttonView setSelected:!buttonView.isSelected];
