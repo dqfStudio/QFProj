@@ -299,8 +299,8 @@
                 [UIView animateWithDuration:0.25 animations:^{
                     self.topBar.hidden = NO;
                     CGRect frame = self.view.frame;
-                    frame.origin.y += UIDevice.topBarHeight;
-                    frame.size.height -= UIDevice.topBarHeight;
+                    frame.origin.y += UIScreen.topBarHeight;
+                    frame.size.height -= UIScreen.topBarHeight;
                     [self.wkWebview setFrame:frame];
                 }];
             }

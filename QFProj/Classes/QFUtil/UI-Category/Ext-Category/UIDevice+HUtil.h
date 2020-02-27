@@ -10,14 +10,6 @@
 
 @interface UIDevice (HUtil)
 
-/// 判断设备是否为iphoneX系列
-@property (nonatomic, class, readonly) BOOL isIPhoneX;
-
-@property (nonatomic, class, readonly) CGFloat statusBarHeight;
-@property (nonatomic, class, readonly) CGFloat naviBarHeight;
-@property (nonatomic, class, readonly) CGFloat topBarHeight;
-@property (nonatomic, class, readonly) CGFloat bottomBarHeight;
-
 /// 判断设备是否为iPad/iPad mini.
 @property (nonatomic, readonly) BOOL isPad;
 

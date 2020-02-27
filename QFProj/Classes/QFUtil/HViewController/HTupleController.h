@@ -7,7 +7,7 @@
 //
 
 #import "HViewController.h"
-#import "UIDevice+HUtil.h"
+#import "UIScreen+HUtil.h"
 #import "HTupleView.h"
 
 @interface HTupleController : HViewController <HTupleViewDelegate>

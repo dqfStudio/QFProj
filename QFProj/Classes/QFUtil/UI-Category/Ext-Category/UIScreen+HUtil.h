@@ -17,4 +17,10 @@
 + (CGFloat)height;
 + (CGFloat)width;
 + (CGFloat)onePixel;
+/// 判断设备是否为iphoneX系列
++ (BOOL)isIPhoneX;
++ (CGFloat)statusBarHeight;
++ (CGFloat)naviBarHeight;
++ (CGFloat)topBarHeight;
++ (CGFloat)bottomBarHeight;
 @end

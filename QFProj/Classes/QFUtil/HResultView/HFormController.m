@@ -7,7 +7,7 @@
 //
 
 #import "HFormController.h"
-#import "UIDevice+HUtil.h"
+#import "UIScreen+HUtil.h"
 #import "HTupleView.h"
 
 #define KItemHeight     80
@@ -59,12 +59,12 @@
 
 - (CGSize)sizeForHeaderInSection:(NSInteger)section {
     NSInteger height = KFooterHeight;
-    if (UIDevice.isIPhoneX) height += UIDevice.bottomBarHeight;
+    if (UIScreen.isIPhoneX) height += UIScreen.bottomBarHeight;
     return CGSizeMake(self.tupleView.width, self.tupleView.height-KItemHeight*self.numberOfRows-height);
 }
 - (CGSize)sizeForFooterInSection:(NSInteger)section {
     NSInteger height = KFooterHeight;
-    if (UIDevice.isIPhoneX) height += UIDevice.bottomBarHeight;
+    if (UIScreen.isIPhoneX) height += UIScreen.bottomBarHeight;
     return CGSizeMake(self.tupleView.width, height);
 }
 - (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -73,7 +73,7 @@
 
 - (UIEdgeInsets)edgeInsetsForFooterInSection:(NSInteger)section {
     NSInteger height = 0;
-    if (UIDevice.isIPhoneX) height += UIDevice.bottomBarHeight;
+    if (UIScreen.isIPhoneX) height += UIScreen.bottomBarHeight;
     return UIEdgeInsetsMake(10, 0, height, 0);
 }
 

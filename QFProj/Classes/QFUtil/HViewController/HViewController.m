@@ -89,7 +89,7 @@
     self.modalPresentationStyle = UIModalPresentationFullScreen;
     //只有statusBar没有系统导航栏的情况下,statusBar背景色是透明的需要自定义的导航栏多增加一点高度来伪造statusBar的背景
     if (![self prefersStatusBarHidden] && ![self prefersNavigationBarHidden]) {
-        _statusBarPadding = UIDevice.statusBarHeight;
+        _statusBarPadding = UIScreen.statusBarHeight;
     }
 }
 + (HVCAppearance *)appearance {
@@ -247,26 +247,26 @@
         //[_topBar setAdjustsImageWhenHighlighted:NO];
         //没有系统导航栏的时候,status背景色是透明的,用自定义导航栏去伪造一个status背景区域
         if([self prefersNavigationBarHidden]) {
-            _topBar.frame = CGRectMake(0, _statusBarPadding, self.view.h_width, UIDevice.naviBarHeight);
+            _topBar.frame = CGRectMake(0, _statusBarPadding, self.view.h_width, UIScreen.naviBarHeight);
         }else {
-            _topBar.frame = CGRectMake(0, 0, self.view.h_width, UIDevice.naviBarHeight + _statusBarPadding);
-            _topBar.bounds = CGRectMake(0, -_statusBarPadding, self.view.h_width, UIDevice.naviBarHeight + _statusBarPadding);
+            _topBar.frame = CGRectMake(0, 0, self.view.h_width, UIScreen.naviBarHeight + _statusBarPadding);
+            _topBar.bounds = CGRectMake(0, -_statusBarPadding, self.view.h_width, UIScreen.naviBarHeight + _statusBarPadding);
         }
         _topBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         _topBarLine = [[UIView alloc] init];
-        _topBarLine.frame = CGRectMake(0, UIDevice.naviBarHeight - 1, _topBar.h_width, 1);
+        _topBarLine.frame = CGRectMake(0, UIScreen.naviBarHeight - 1, _topBar.h_width, 1);
         [_topBar addSubview:_topBarLine];
         _topBarLine.hidden = [self prefersTopBarLineHidden];
     }
     return _topBar;
 }
 - (CGFloat)topBarHeight {
-    return ([self prefersStatusBarHidden]?0:UIDevice.statusBarHeight) + ([self prefersNavigationBarHidden]?0:UIDevice.naviBarHeight);
+    return ([self prefersStatusBarHidden]?0:UIScreen.statusBarHeight) + ([self prefersNavigationBarHidden]?0:UIScreen.naviBarHeight);
 }
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.frame = CGRectMake(54, 0, self.view.h_width - 54 * 2, UIDevice.naviBarHeight);
+        _titleLabel.frame = CGRectMake(54, 0, self.view.h_width - 54 * 2, UIScreen.naviBarHeight);
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.font = [UIFont systemFontOfSize:18];
@@ -279,7 +279,7 @@
     if (!_leftNaviButton) {
         _leftNaviButton = [[HWebButtonView alloc] init];
         _leftNaviButton.backgroundColor = nil;
-        _leftNaviButton.frame = CGRectMake(10, 0, UIDevice.naviBarHeight, UIDevice.naviBarHeight);
+        _leftNaviButton.frame = CGRectMake(10, 0, UIScreen.naviBarHeight, UIScreen.naviBarHeight);
         [_leftNaviButton.titleLabel setFont:[UIFont systemFontOfSize:16]];
         _leftNaviButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         @weakify(self)
@@ -298,7 +298,7 @@
         _rightNaviButton = [[HWebButtonView alloc] init];
         _rightNaviButton.backgroundColor = nil;
         [_rightNaviButton.titleLabel setFont:[UIFont systemFontOfSize:16]];
-        _rightNaviButton.frame = CGRectMake(self.topBar.h_width - UIDevice.naviBarHeight - 10, 0, UIDevice.naviBarHeight, UIDevice.naviBarHeight);
+        _rightNaviButton.frame = CGRectMake(self.topBar.h_width - UIScreen.naviBarHeight - 10, 0, UIScreen.naviBarHeight, UIScreen.naviBarHeight);
         _rightNaviButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
         _rightNaviButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         @weakify(self)
@@ -315,24 +315,24 @@
 - (void)resetTopbarFrame {
     _statusBarPadding = 0.f;
     if (![self prefersStatusBarHidden] && ![self prefersNavigationBarHidden]) {
-        _statusBarPadding = UIDevice.statusBarHeight;
+        _statusBarPadding = UIScreen.statusBarHeight;
     }
     //reset topBar
     if([self prefersNavigationBarHidden]) {
-        _topBar.frame = CGRectMake(0, _statusBarPadding, self.view.h_width, UIDevice.naviBarHeight);
+        _topBar.frame = CGRectMake(0, _statusBarPadding, self.view.h_width, UIScreen.naviBarHeight);
     }else {
-        _topBar.frame = CGRectMake(0, 0, self.view.h_width, UIDevice.naviBarHeight + _statusBarPadding);
-        _topBar.bounds = CGRectMake(0, -_statusBarPadding, self.view.h_width, UIDevice.naviBarHeight + _statusBarPadding);
+        _topBar.frame = CGRectMake(0, 0, self.view.h_width, UIScreen.naviBarHeight + _statusBarPadding);
+        _topBar.bounds = CGRectMake(0, -_statusBarPadding, self.view.h_width, UIScreen.naviBarHeight + _statusBarPadding);
     }
     //reset topBar line
-    _topBarLine.frame = CGRectMake(0, UIDevice.naviBarHeight - 1, _topBar.h_width, 1);
+    _topBarLine.frame = CGRectMake(0, UIScreen.naviBarHeight - 1, _topBar.h_width, 1);
     //reset right button
     _rightNaviButton.frame = CGRectMake(_topBar.h_width - _rightNaviButton.h_width - 10, _rightNaviButton.h_y, _rightNaviButton.h_width, _rightNaviButton.h_height);
     //reset title label
     if (_rightNaviButton) {
-        _titleLabel.frame = CGRectMake(_leftNaviButton.h_maxX, 0, _rightNaviButton.h_minX - _leftNaviButton.h_maxX, UIDevice.naviBarHeight);
+        _titleLabel.frame = CGRectMake(_leftNaviButton.h_maxX, 0, _rightNaviButton.h_minX - _leftNaviButton.h_maxX, UIScreen.naviBarHeight);
     }else {
-        _titleLabel.frame = CGRectMake(_leftNaviButton.h_maxX, 0, self.view.h_width - _leftNaviButton.h_maxX - 10, UIDevice.naviBarHeight);
+        _titleLabel.frame = CGRectMake(_leftNaviButton.h_maxX, 0, self.view.h_width - _leftNaviButton.h_maxX - 10, UIScreen.naviBarHeight);
     }
 }
 

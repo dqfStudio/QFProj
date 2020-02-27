@@ -34,7 +34,7 @@ static const CGFloat kTabBarHeight = 50;
     
     CGFloat contentViewY = 0;
     CGFloat tabBarY = screenSize.height - kTabBarHeight;
-    tabBarY -= UIDevice.bottomBarHeight;
+    tabBarY -= UIScreen.bottomBarHeight;
     
     CGFloat contentViewHeight = tabBarY;
     // 如果parentViewController为UINavigationController及其子类
@@ -73,7 +73,7 @@ static const CGFloat kTabBarHeight = 50;
     
     CGFloat contentViewY = 0;
     CGFloat tabBarY = screenSize.height - kTabBarHeight;
-    tabBarY -= UIDevice.bottomBarHeight;
+    tabBarY -= UIScreen.bottomBarHeight;
     
     CGFloat contentViewHeight = tabBarY;
     // 如果parentViewController为UINavigationController及其子类

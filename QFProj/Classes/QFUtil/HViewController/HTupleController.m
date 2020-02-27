@@ -24,8 +24,8 @@
     _autoLayout = YES;
     _topExtendedLayout = YES;
     _bottomExtendedHeight = 0.f;
-    if (UIDevice.isIPhoneX) {
-        _extendedInset = UIEdgeInsetsMake(0, 0, UIDevice.bottomBarHeight, 0);
+    if (UIScreen.isIPhoneX) {
+        _extendedInset = UIEdgeInsetsMake(0, 0, UIScreen.bottomBarHeight, 0);
     }
     [self.view addSubview:self.tupleView];
 }
@@ -39,8 +39,8 @@
     if (_autoLayout) {//默认为YES
         CGRect frame = self.view.bounds;
         if (_topExtendedLayout) {//默认为YES
-            frame.origin.y += UIDevice.topBarHeight;
-            frame.size.height -= UIDevice.topBarHeight;
+            frame.origin.y += UIScreen.topBarHeight;
+            frame.size.height -= UIScreen.topBarHeight;
         }
         frame.size.height -= _bottomExtendedHeight;
         [_tupleView setFrame:frame];

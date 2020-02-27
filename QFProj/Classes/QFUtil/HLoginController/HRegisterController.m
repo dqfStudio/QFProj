@@ -18,8 +18,8 @@
 - (HTupleView *)tupleView {
     if (!_tupleView) {
         CGRect frame = UIScreen.bounds;
-        frame.origin.y += UIDevice.topBarHeight;
-        frame.size.height -= UIDevice.topBarHeight;
+        frame.origin.y += UIScreen.topBarHeight;
+        frame.size.height -= UIScreen.topBarHeight;
         //方式一
         _tupleView = [HTupleView tupleFrame:^CGRect{
             return frame;
@@ -61,8 +61,8 @@
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     CGRect frame = self.view.bounds;
-    frame.origin.y += UIDevice.topBarHeight;
-    frame.size.height -= UIDevice.topBarHeight;
+    frame.origin.y += UIScreen.topBarHeight;
+    frame.size.height -= UIScreen.topBarHeight;
     _tupleView.frame = frame;
     
     if (_tabBarView) {

@@ -28,7 +28,7 @@ static const CGFloat kTabBarHeight = 50;
     
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
 
-    [self setTabBarFrame:CGRectMake(0, UIDevice.topBarHeight, screenSize.width, kTabBarHeight)
+    [self setTabBarFrame:CGRectMake(0, UIScreen.topBarHeight, screenSize.width, kTabBarHeight)
         contentViewFrame:CGRectMake(0, kTabBarHeight, screenSize.width, screenSize.height - kTabBarHeight)];
 
     self.tabBar.itemTitleColor = [UIColor blackColor];

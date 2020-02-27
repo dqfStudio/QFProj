@@ -12,7 +12,7 @@
 #import "HWebButtonView.h"
 #import "NSObject+HUtil.h"
 #import "UIColor+HUtil.h"
-#import "UIDevice+HUtil.h"
+#import "UIScreen+HUtil.h"
 #import "UIApplication+HUtil.h"
 #import "NSObject+HSwizzleUtil.h"
 #import "HNavigationController.h"

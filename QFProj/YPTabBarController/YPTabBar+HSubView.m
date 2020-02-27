@@ -39,10 +39,10 @@
 }
 //添加空白适配
 - (void)addBottomBlankViewWithColor:(UIColor *)color {
-    if (UIDevice.isIPhoneX) {
+    if (UIScreen.isIPhoneX) {
         CGRect frame = self.bounds;
         frame.origin.y = frame.size.height;
-        frame.size.height = UIDevice.bottomBarHeight;
+        frame.size.height = UIScreen.bottomBarHeight;
         UIView *bottomView = [self viewWithTag:30303030];
         if (!bottomView) {
             bottomView = [[UIView alloc] initWithFrame:frame];

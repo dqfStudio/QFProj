@@ -46,14 +46,14 @@
 }
 
 - (CGSize)sizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(UIScreen.width, UIDevice.topBarHeight);
+    return CGSizeMake(UIScreen.width, UIScreen.topBarHeight);
 }
 - (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(UIScreen.width, 50);
 }
 
 - (UIEdgeInsets)edgeInsetsForHeaderInSection:(NSInteger)section {
-    return UIEdgeInsetsMake(UIDevice.statusBarHeight, 0, 0, 0);
+    return UIEdgeInsetsMake(UIScreen.statusBarHeight, 0, 0, 0);
 }
 - (UIEdgeInsets)edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     return UIEdgeInsetsMake(0, 10, 0, 0);

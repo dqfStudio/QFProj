@@ -7,7 +7,7 @@
 //
 
 #import "HViewController.h"
-#import "UIDevice+HUtil.h"
+#import "UIScreen+HUtil.h"
 #import "HTableView.h"
 
 @interface HTableController : HViewController <HTableViewDelegate>

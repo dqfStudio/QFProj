@@ -16,6 +16,7 @@
 #import "UIApplication+HUtil.h"
 #import "UIColor+HUtil.h"
 #import "UIDevice+HUtil.h"
+#import "UIScreen+HUtil.h"
 #import "UIGestureRecognizer+HUtil.h"
 #import "UIImage+Util.h"
 #import "UILabel+HState.h"
