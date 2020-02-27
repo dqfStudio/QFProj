@@ -43,7 +43,6 @@
 		15B4DDE82092F96C00773E04 /* AppDelegate+DebugService.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD852092F96B00773E04 /* AppDelegate+DebugService.m */; };
 		15B4DDEA2092F96C00773E04 /* HDebugView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD892092F96B00773E04 /* HDebugView.m */; };
 		15B4DDEC2092F96C00773E04 /* HLaunchImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15B4DD8E2092F96B00773E04 /* HLaunchImage.jpg */; };
-		15B4DDEE2092F96C00773E04 /* UIViewController+HBackHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD952092F96B00773E04 /* UIViewController+HBackHandler.m */; };
 		15B4DDF42092F96C00773E04 /* UIGestureRecognizer+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDA32092F96B00773E04 /* UIGestureRecognizer+HUtil.m */; };
 		15B4DDF62092F96C00773E04 /* UIApplication+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDA72092F96B00773E04 /* UIApplication+HUtil.m */; };
 		15B4DDF72092F96C00773E04 /* UIDevice+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDA82092F96B00773E04 /* UIDevice+HUtil.m */; };
@@ -431,13 +430,11 @@
 		15B4DD8A2092F96B00773E04 /* AppDelegate+DebugService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+DebugService.h"; sourceTree = "<group>"; };
 		15B4DD8E2092F96B00773E04 /* HLaunchImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HLaunchImage.jpg; sourceTree = "<group>"; };
 		15B4DD922092F96B00773E04 /* UIGestureRecognizer+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+HUtil.h"; sourceTree = "<group>"; };
-		15B4DD952092F96B00773E04 /* UIViewController+HBackHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HBackHandler.m"; sourceTree = "<group>"; };
 		15B4DD962092F96B00773E04 /* UIScreen+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+HUtil.h"; sourceTree = "<group>"; };
 		15B4DD982092F96B00773E04 /* UIImage+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Util.h"; sourceTree = "<group>"; };
 		15B4DD992092F96B00773E04 /* UIApplication+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+HUtil.h"; sourceTree = "<group>"; };
 		15B4DD9A2092F96B00773E04 /* UIDevice+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+HUtil.h"; sourceTree = "<group>"; };
 		15B4DD9D2092F96B00773E04 /* UIColor+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HUtil.h"; sourceTree = "<group>"; };
-		15B4DDA02092F96B00773E04 /* UIViewController+HBackHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HBackHandler.h"; sourceTree = "<group>"; };
 		15B4DDA32092F96B00773E04 /* UIGestureRecognizer+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+HUtil.m"; sourceTree = "<group>"; };
 		15B4DDA72092F96B00773E04 /* UIApplication+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+HUtil.m"; sourceTree = "<group>"; };
 		15B4DDA82092F96B00773E04 /* UIDevice+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+HUtil.m"; sourceTree = "<group>"; };
@@ -1406,8 +1403,6 @@
 				15C5729E20AEAC340070327C /* UILabel+HState.m */,
 				15B4DD962092F96B00773E04 /* UIScreen+HUtil.h */,
 				15B4DDAB2092F96B00773E04 /* UIScreen+HUtil.m */,
-				15B4DDA02092F96B00773E04 /* UIViewController+HBackHandler.h */,
-				15B4DD952092F96B00773E04 /* UIViewController+HBackHandler.m */,
 			);
 			path = "Ext-Category";
 			sourceTree = "<group>";
@@ -2900,7 +2895,6 @@
 				A2E8F63E22DB51F500E7C9F2 /* NSIndexPath+HUtil.m in Sources */,
 				15C5729320AE51B30070327C /* HSort.m in Sources */,
 				A2A8EB2B22DB62680049C51B /* HCollectionViewCell.m in Sources */,
-				15B4DDEE2092F96C00773E04 /* UIViewController+HBackHandler.m in Sources */,
 				A222AE5222818F7D0013098A /* HTextKeyboardManager.m in Sources */,
 				15B4DE022092F96C00773E04 /* NSUserDefaults+HUtil.m in Sources */,
 				A2A8EB3122DB62680049C51B /* UIView+HExtension.m in Sources */,

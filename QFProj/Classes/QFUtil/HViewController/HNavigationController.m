@@ -7,6 +7,7 @@
 //
 
 #import "HNavigationController.h"
+#import <objc/runtime.h>
 
 @interface HNavigationController () <UIGestureRecognizerDelegate>
 @property(nonatomic, strong) NSMutableArray *blackList;
@@ -146,5 +147,34 @@
 - (void)pushViewController:(UIViewController *)viewController param:(NSDictionary *)dict animated:(BOOL)animated {
     if (dict) [viewController autoFill:dict map:nil exclusive:NO isDepSearch:YES];
     [self pushViewController:viewController animated:animated];
+}
+@end
+
+@implementation UIViewController (HBackHandler)
+
+@end
+
+@implementation UINavigationController (HBackHandler)
+- (BOOL)navigationBar:(UINavigationBar *)navigationBar shouldPopItem:(UINavigationItem *)item {
+    if([self.viewControllers count] < [navigationBar.items count]) return YES;
+    BOOL shouldPop = YES;
+    UIViewController *vc = [self topViewController];
+    if([vc respondsToSelector:@selector(navigationShouldPopOnBackButton)]) {
+        shouldPop = [vc navigationShouldPopOnBackButton];
+    }
+    if(shouldPop) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self popViewControllerAnimated:YES];
+        });
+    }else {
+        for(UIView *subview in [navigationBar subviews]) {
+            if(subview.alpha < 1.f) {
+                [UIView animateWithDuration:.25 animations:^{
+                    subview.alpha = 1.f;
+                }];
+            }
+        }
+    }
+    return NO;
 }
 @end

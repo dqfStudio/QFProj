@@ -11,6 +11,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol HBackHandlerProtocol <NSObject>
+@optional
+// Override this method in UIViewController derived class to handle 'Back' button click
+- (BOOL)navigationShouldPopOnBackButton;
+@end
+
 @interface HNavigationController : UINavigationController
 - (void)addFullScreenPopBlackListItem:(UIViewController *)viewController;
 - (void)removeFromFullScreenPopBlackList:(UIViewController *)viewController;
@@ -24,6 +30,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UINavigationController (HJumper)
 - (void)pushViewController:(UIViewController *)viewController param:(NSDictionary *_Nullable)dict animated:(BOOL)animated;
+@end
+
+@interface UIViewController (HBackHandler) <HBackHandlerProtocol>
+
 @end
 
 
