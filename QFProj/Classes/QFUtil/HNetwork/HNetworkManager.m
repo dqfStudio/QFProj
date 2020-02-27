@@ -31,13 +31,13 @@
               argument:(NSDictionary *)argument
                success:(void(^)(id responseObject))success
                failure:(void(^)(NSError *error))failure {
-    [HNetworkDAO.new sendGetWithUrl:url argument:argument success:success failure:failure];
+    [HNetworkDAO sendGetWithUrl:url argument:argument success:success failure:failure];
 }
 - (void)sendPostWithUrl:(NSString *)url
                argument:(NSDictionary *)argument
                 success:(void(^)(id responseObject))success
                 failure:(void(^)(NSError *error))failure {
-    [HNetworkDAO.new sendPostWithUrl:url argument:argument success:success failure:failure];
+    [HNetworkDAO sendPostWithUrl:url argument:argument success:success failure:failure];
 }
 
 #pragma mark - 默认三次重试的网络请求
@@ -46,13 +46,13 @@
                argument:(NSDictionary *)argument
                 success:(void(^)(id responseObject))success
                 failure:(void(^)(NSError *error))failure {
-    [HNetworkDAO.new retryGetWithUrl:url argument:argument success:success failure:failure];
+    [HNetworkDAO retryGetWithUrl:url argument:argument success:success failure:failure];
 }
 - (void)retryPostWithUrl:(NSString *)url
                 argument:(NSDictionary *)argument
                  success:(void(^)(id responseObject))success
                  failure:(void(^)(NSError *error))failure {
-    [HNetworkDAO.new retryPostWithUrl:url argument:argument success:success failure:failure];
+    [HNetworkDAO retryPostWithUrl:url argument:argument success:success failure:failure];
 }
 
 #pragma mark - 查找可用URL

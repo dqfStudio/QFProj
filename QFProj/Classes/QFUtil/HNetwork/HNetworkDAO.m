@@ -8,10 +8,10 @@
 
 #import "HNetworkDAO.h"
 
-@interface HNetworkDAO () {
-    NSInteger tryCount; //当前重试次数
-    NSInteger tryMax; //最大重试次数
-}
+@interface HNetworkDAO ()
+@property (nonatomic, assign) NSInteger tryCount; //当前重试次数
+@property (nonatomic, assign) NSInteger tryMax; //最大重试次数
+//url参数
 @property (nonatomic, copy) NSString *url;
 @property (nonatomic, copy) NSDictionary *argument;
 @property (nonatomic, assign) YTKRequestMethod method;
@@ -84,8 +84,8 @@
     }
 }
 - (void)requestFailed:(__kindof YTKBaseRequest *)request {
-    ++tryCount;
-    if (tryCount < tryMax) {
+    ++_tryCount;
+    if (_tryCount < _tryMax) {
         [self performSelector:@selector(retry) withObject:nil afterDelay:0.25];
     }else if (self.failureBlock) {
         self.failureBlock(request);
@@ -159,32 +159,34 @@
 }
 #pragma mark - 网络请求
 #pragma mark -
-- (void)sendGetWithUrl:(NSString *)url
++ (void)sendGetWithUrl:(NSString *)url
               argument:(NSDictionary *)argument
                success:(void(^)(id responseObject))success
                failure:(void(^)(NSError *error))failure {
-    [self performWithUrl:url method:YTKRequestMethodGET argument:argument success:success failure:failure];
+    [HNetworkDAO.new performWithUrl:url method:YTKRequestMethodGET argument:argument success:success failure:failure];
 }
-- (void)sendPostWithUrl:(NSString *)url
++ (void)sendPostWithUrl:(NSString *)url
                argument:(NSDictionary *)argument
                 success:(void(^)(id responseObject))success
                 failure:(void(^)(NSError *error))failure {
-    [self performWithUrl:url method:YTKRequestMethodPOST argument:argument success:success failure:failure];
+    [HNetworkDAO.new performWithUrl:url method:YTKRequestMethodPOST argument:argument success:success failure:failure];
 }
 #pragma mark - 默认三次重试的网络请求
 #pragma mark -
-- (void)retryGetWithUrl:(NSString *)url
++ (void)retryGetWithUrl:(NSString *)url
                argument:(NSDictionary *)argument
                 success:(void(^)(id responseObject))success
                 failure:(void(^)(NSError *error))failure {
-    tryMax = 3;
-    [self performWithUrl:url method:YTKRequestMethodGET argument:argument success:success failure:failure];
+    HNetworkDAO *networkDAO = HNetworkDAO.new;
+    networkDAO.tryMax = 3;
+    [networkDAO performWithUrl:url method:YTKRequestMethodGET argument:argument success:success failure:failure];
 }
-- (void)retryPostWithUrl:(NSString *)url
++ (void)retryPostWithUrl:(NSString *)url
                 argument:(NSDictionary *)argument
                  success:(void(^)(id responseObject))success
                  failure:(void(^)(NSError *error))failure {
-    tryMax = 3;
-    [self performWithUrl:url method:YTKRequestMethodPOST argument:argument success:success failure:failure];
+    HNetworkDAO *networkDAO = HNetworkDAO.new;
+    networkDAO.tryMax = 3;
+    [networkDAO performWithUrl:url method:YTKRequestMethodPOST argument:argument success:success failure:failure];
 }
 @end
