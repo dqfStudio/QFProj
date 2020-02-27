@@ -72,5 +72,12 @@ static const int alert_action_key;
     }
 }
 
++ (void)showAlertWithMessage:(nullable NSString *)message cancel:(void (^)(void))block {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨提醒" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) { if (block) block(); }];
+    [alertController addAction:cancel];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alertController animated:YES completion:nil];
+}
+
 @end
 

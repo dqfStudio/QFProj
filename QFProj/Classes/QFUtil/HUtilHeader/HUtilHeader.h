@@ -13,7 +13,6 @@
 #import <Foundation/Foundation.h>
 
 //Ext-Category
-#import "UIAlertController+HError.h"
 #import "UIApplication+HUtil.h"
 #import "AppDelegate+HUtil.h"
 #import "UIColor+HUtil.h"

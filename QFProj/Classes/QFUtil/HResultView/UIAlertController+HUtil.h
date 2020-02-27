@@ -17,5 +17,7 @@
        otherButtonTitles:(NSArray *)otherButtonTitles
               completion:(void (^)(NSInteger buttonIndex))completion;
 
++ (void)showAlertWithMessage:(NSString *)message cancel:(void (^)(void))block;
+
 @end
 
