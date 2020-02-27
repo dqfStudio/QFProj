@@ -10,17 +10,28 @@
 
 @implementation HAnalogNetworkManager
 
-+ (instancetype)shareInstance {
-    static HAnalogNetworkManager *instance;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instance = [[self alloc] init];
++ (instancetype)shareManager {
+    static HAnalogNetworkManager *share = nil;
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        share = [[self alloc] init];
     });
-    return instance;
+    return share;
 }
 
-- (void)getDataWithClass:(Class)cls success:(HNetworkSuccessBlock)success failure:(HNetworkFailureBlock)failure {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+#pragma mark - 根据类填充
+
+- (void)sendGetWithClass:(Class)cls success:(void(^)(id responseObject))success failure:(void(^)(NSError *error))failure {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (success) {
+            success([cls autoFill]);
+        }else if (failure) {
+            failure(NSError.new);
+        }
+    });
+}
+- (void)sendPostWithClass:(Class)cls success:(void(^)(id responseObject))success failure:(void(^)(NSError *error))failure {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if (success) {
             success([cls autoFill]);
         }else if (failure) {
@@ -29,8 +40,19 @@
     });
 }
 
-- (void)getDataWithDict:(NSDictionary *)dict success:(HNetworkSuccessBlock)success failure:(HNetworkFailureBlock)failure {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+#pragma mark - 根据字典填充
+
+- (void)sendGetWithDict:(NSDictionary *)dict success:(void(^)(id responseObject))success failure:(void(^)(NSError *error))failure {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (success) {
+            success(dict);
+        }else if (failure) {
+            failure(NSError.new);
+        }
+    });
+}
+- (void)sendPostWithDict:(NSDictionary *)dict success:(void(^)(id responseObject))success failure:(void(^)(NSError *error))failure {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if (success) {
             success(dict);
         }else if (failure) {
