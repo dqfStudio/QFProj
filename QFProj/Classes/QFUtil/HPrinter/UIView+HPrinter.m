@@ -17,10 +17,10 @@
 - (void)addString:(NSString *)aString withView:(UIView *)view {
     SEL selector = NSSelectorFromString(@"addSubview:");
     if ([self respondsToSelector:selector]) {
-_Pragma("clang diagnostic push")
-_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"")
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
         [self performSelector:selector withObject:view];
-_Pragma("clang diagnostic pop")
+#pragma clang diagnostic pop
         [[HPrinterManager share] setObject:aString forKey:[NSString stringWithFormat:@"%p", view]];
     }
 }
