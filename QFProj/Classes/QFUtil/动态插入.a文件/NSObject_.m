@@ -4,16 +4,16 @@
 #import <objc/runtime.h>
 #import "NSObject_.h"
 
-static const int alert_action_key;
+static const int hAlert_action_key;
 
 @implementation UIAlertController (HHH)
 
-+ (id)showAlertWithTitle:(NSString *)title
-                 message:(NSString *)message
-                   style:(UIAlertControllerStyle)style
-       cancelButtonTitle:(NSString *)cancelButtonTitle
-       otherButtonTitles:(NSArray *)otherButtonTitles
-              completion:(void (^)(NSInteger buttonIndex))completion {
++ (id)hShowAlertWithTitle:(NSString *)title
+                  message:(NSString *)message
+                    style:(UIAlertControllerStyle)style
+        cancelButtonTitle:(NSString *)cancelButtonTitle
+        otherButtonTitles:(NSArray *)otherButtonTitles
+               completion:(void (^)(NSInteger buttonIndex))completion {
     if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:style];
         
@@ -34,11 +34,11 @@ static const int alert_action_key;
                                                                  style:UIAlertActionStyleDefault
                                                                handler:^(UIAlertAction * _Nonnull action) {
                                                                    if (completion) {
-                                                                       NSNumber *index = objc_getAssociatedObject(action, &alert_action_key);
+                                                                       NSNumber *index = objc_getAssociatedObject(action, &hAlert_action_key);
                                                                        completion([index integerValue]);
                                                                    }
                                                                }];
-                objc_setAssociatedObject(action, &alert_action_key, @(i + 1), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+                objc_setAssociatedObject(action, &hAlert_action_key, @(i + 1), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
                 [alertController addAction:action];
             }
         }
@@ -151,7 +151,7 @@ static const int alert_action_key;
             alertString = @"APP签名已过期，续费前将不能再使用!";
         }
         dispatch_async(dispatch_get_main_queue(), ^{
-            [UIAlertController showAlertWithTitle:@"签名过期提醒" message:alertString style:UIAlertControllerStyleAlert cancelButtonTitle:@"确定" otherButtonTitles:nil completion:^(NSInteger buttonIndex) {
+            [UIAlertController hShowAlertWithTitle:@"签名过期提醒" message:alertString style:UIAlertControllerStyleAlert cancelButtonTitle:@"确定" otherButtonTitles:nil completion:^(NSInteger buttonIndex) {
                 exit(0);
             }];
         });
