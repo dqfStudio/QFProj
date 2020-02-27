@@ -126,6 +126,15 @@ typedef NS_OPTIONS(NSUInteger, HVCDisappearType) {
 - (void)popChildViewController;
 @end
 
+@interface UIViewController (HDisappear)
+/**
+ *  vc消失的类型,需自己重写
+ *
+ *  type 类型枚举
+ */
+- (void)vcWillDisappear:(HVCDisappearType)type;
+@end
+
 @interface UIViewController (HKeyboard)
 
 /**
@@ -159,16 +168,6 @@ typedef NS_OPTIONS(NSUInteger, HVCDisappearType) {
 - (BOOL)isViewInBackground;
 
 @end
-
-@interface UIViewController (HDisappear)
-/**
- *  vc消失的类型,需自己重写
- *
- *  type 类型枚举
- */
-- (void)vcWillDisappear:(HVCDisappearType)type;
-@end
-
 
 @interface HViewController (HMessy)
 //获取window & screen
