@@ -7,11 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "HNetworkManager.h"
+#import "UIAlertController+HUtil.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AppDelegate (UserService)
-
+- (void)exitAccountAction:(void(^)(void))completion;
 @end
 
 NS_ASSUME_NONNULL_END
