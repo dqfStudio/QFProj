@@ -76,7 +76,6 @@ DYNAMIC(selectedBackgroundColor,setSelectedBackgroundColor,UIColor*)
 - (BOOL)isSelected {
     return self.labelState = UILabelStateSelected ? YES : NO;
 }
-
 - (void)setSelected:(BOOL)selected {
     if (!self.isSelecting) {
         @synchronized(self) {
