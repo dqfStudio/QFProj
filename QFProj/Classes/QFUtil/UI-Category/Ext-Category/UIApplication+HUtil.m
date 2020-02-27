@@ -107,7 +107,7 @@
     return [[NSLocale preferredLanguages] objectAtIndex:0];
 }
 
-+ (YPNetworkStatus)networkStatusFromStateBar {
++ (HNetworkStatus)networkStatusFromStateBar {
     // 状态栏是由当前app控制的，首先获取当前app
     UIApplication *app = [UIApplication sharedApplication];
     NSArray *children = [[[app valueForKeyPath:@"statusBar"] valueForKeyPath:@"foregroundView"] subviews];
@@ -117,7 +117,7 @@
             return [[child valueForKeyPath:@"dataNetworkType"] integerValue];
         }
     }
-    return YPNetworkStatusUnknown;
+    return HNetworkStatusUnknown;
 }
 
 + (BOOL)isPirated {

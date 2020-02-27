@@ -11,14 +11,14 @@
 #import "AppDelegate.h"
 #import "UIColor+HUtil.h"
 
-typedef NS_ENUM(NSInteger, YPNetworkStatus) {
-    YPNetworkStatusUnknown          = -1,
-    YPNetworkStatusNotReachable     = 0,
-    YPNetworkStatusReachableVia2G   = 1,
-    YPNetworkStatusReachableVia3G   = 2,
-    YPNetworkStatusReachableVia4G   = 3,
-    YPNetworkStatusReachableViaLTE  = 4,
-    YPNetworkStatusReachableViaWiFi = 5,
+typedef NS_ENUM(NSInteger, HNetworkStatus) {
+    HNetworkStatusUnknown          = -1,
+    HNetworkStatusNotReachable     = 0,
+    HNetworkStatusReachableVia2G   = 1,
+    HNetworkStatusReachableVia3G   = 2,
+    HNetworkStatusReachableVia4G   = 3,
+    HNetworkStatusReachableViaLTE  = 4,
+    HNetworkStatusReachableViaWiFi = 5,
 };
 
 @interface UIApplication (HUtil)
@@ -85,7 +85,7 @@ typedef NS_ENUM(NSInteger, YPNetworkStatus) {
 /**
  *  根据app状态栏获取网络状态
  */
-+ (YPNetworkStatus)networkStatusFromStateBar;
++ (HNetworkStatus)networkStatusFromStateBar;
 
 /**
  *  判断程序是否为从AppStore安装
