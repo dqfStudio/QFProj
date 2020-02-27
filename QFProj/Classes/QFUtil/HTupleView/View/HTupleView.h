@@ -242,4 +242,21 @@ typedef NSArray *_Nullable(^HTupleSectionExclusiveBlock)(void);
 - (void)clearTupleState;
 @end
 
+/// MJRefresh之外自定义刷新分类
+@interface HTupleView (HRefresh)
+@property (nonatomic, assign) NSUInteger hPageNo;    // page number, default 1
+@property (nonatomic, assign) NSUInteger hPageSize;  // page size, default 20
+@property (nonatomic, assign) NSUInteger hTotalNo;  // total number.
+
+@property (nonatomic, assign) HTupleRefreshHeaderStyle hRefreshHeaderStyle; //refresh header style
+@property (nonatomic, assign) HTupleRefreshFooterStyle hRefreshFooterStyle; //load more footer style
+
+@property (nonatomic, copy, nullable) HTupleRefreshBlock  hRefreshBlock;   // block to refresh data
+@property (nonatomic, copy, nullable) HTupleLoadMoreBlock hLoadMoreBlock;  // block to load more data
+//block refresh & loadMore
+- (void)hBeginRefreshing:(void (^)(void))completion;
+- (void)hEndRefreshing:(void (^)(void))completion;
+- (void)hEndLoadMore:(void (^)(void))completion;
+@end
+
 NS_ASSUME_NONNULL_END

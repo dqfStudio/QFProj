@@ -19,6 +19,6 @@ typedef NS_ENUM(NSInteger, HTableRefreshFooterStyle) {
 };
 
 @interface HTableRefresh : NSObject
-+ (MJRefreshHeader *)refreshHeaderWithStyle:(HTableRefreshHeaderStyle)style andBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock;
-+ (MJRefreshFooter *)refreshFooterWithStyle:(HTableRefreshFooterStyle)style andBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock;
++ (id)refreshHeaderWithStyle:(HTableRefreshHeaderStyle)style andBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock;
++ (id)refreshFooterWithStyle:(HTableRefreshFooterStyle)style andBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock;
 @end

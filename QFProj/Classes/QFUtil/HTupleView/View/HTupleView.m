@@ -1279,3 +1279,102 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     }
 }
 @end
+
+@implementation HTupleView (HRefresh)
+- (NSUInteger)hPageNo {
+    NSInteger pageNo = [[self getAssociatedValueForKey:_cmd] integerValue];
+    if (pageNo <= 0) {
+        return 1;
+    }
+    return pageNo;
+}
+- (void)setHPageNo:(NSUInteger)hPageNo {
+    [self setAssociateValue:@(hPageNo) withKey:@selector(hPageNo)];
+}
+- (NSUInteger)hPageSize {
+    NSInteger pageSize = [[self getAssociatedValueForKey:_cmd] integerValue];
+    if (pageSize <= 0) {
+        return KDefaultPageSize;
+    }
+    return pageSize;
+}
+- (void)setHPageSize:(NSUInteger)hPageSize {
+    [self setAssociateValue:@(hPageSize) withKey:@selector(hPageSize)];
+}
+- (NSUInteger)hTotalNo {
+    NSInteger totalNo = [[self getAssociatedValueForKey:_cmd] integerValue];
+    if (totalNo <= 0) {
+        return MAXFLOAT;
+    }
+    return totalNo;
+}
+- (void)setHTotalNo:(NSUInteger)hTotalNo {
+    [self setAssociateValue:@(hTotalNo) withKey:@selector(hTotalNo)];
+}
+- (HTupleRefreshHeaderStyle)hRefreshHeaderStyle {
+    return [[self getAssociatedValueForKey:_cmd] integerValue];
+}
+- (void)setHRefreshHeaderStyle:(HTupleRefreshHeaderStyle)hRefreshHeaderStyle {
+    [self setAssociateValue:@(hRefreshHeaderStyle) withKey:@selector(hRefreshHeaderStyle)];
+}
+- (HTupleRefreshFooterStyle)hRefreshFooterStyle {
+    return [[self getAssociatedValueForKey:_cmd] integerValue];
+}
+- (void)setHRefreshFooterStyle:(HTupleRefreshFooterStyle)hRefreshFooterStyle {
+    [self setAssociateValue:@(hRefreshFooterStyle) withKey:@selector(hRefreshFooterStyle)];
+}
+- (void)hBeginRefreshing:(void (^)(void))completion {
+    if (self.hRefreshBlock) {
+        [self setHPageNo:1];
+        // MJRefresh控件需要根据实际情况替换
+        [self.mj_header beginRefreshingWithCompletionBlock:completion];
+    }
+}
+- (void)hEndRefreshing:(void (^)(void))completion {
+    // MJRefresh控件需要根据实际情况替换
+    [self.mj_header endRefreshingWithCompletionBlock:completion];
+}
+- (void)hEndLoadMore:(void (^)(void))completion {
+    // MJRefresh控件需要根据实际情况替换
+    [self.mj_footer endRefreshingWithCompletionBlock:completion];
+}
+- (HTupleRefreshBlock)hRefreshBlock {
+    return [self getAssociatedValueForKey:_cmd];
+}
+- (void)setHRefreshBlock:(HTupleRefreshBlock)hRefreshBlock {
+    [self setAssociateValue:hRefreshBlock withKey:@selector(hRefreshBlock)];
+    if (hRefreshBlock) {
+        @www
+        // MJRefresh控件需要根据实际情况替换
+        self.mj_header = [HTupleRefresh hRefreshHeaderWithStyle:self.hRefreshHeaderStyle andBlock:^{
+            @sss
+            [self setHPageNo:1];
+            self.hRefreshBlock();
+        }];
+    }else {
+        self.mj_header = nil;
+    }
+}
+- (HTupleLoadMoreBlock)hLoadMoreBlock {
+    return [self getAssociatedValueForKey:_cmd];
+}
+- (void)setHLoadMoreBlock:(HTupleLoadMoreBlock)hLoadMoreBlock {
+    [self setAssociateValue:hLoadMoreBlock withKey:@selector(hLoadMoreBlock)];
+    if (hLoadMoreBlock) {
+        [self setHPageNo:1];
+        @www
+        // MJRefresh控件需要根据实际情况替换
+        self.mj_footer = [HTupleRefresh hRefreshFooterWithStyle:self.hRefreshFooterStyle andBlock:^{
+            @sss
+            self.hPageNo += 1;
+            if (self.hPageSize*self.hPageNo < self.hTotalNo) {
+                self.hLoadMoreBlock();
+            }else {
+                [self.mj_footer endRefreshing];
+            }
+        }];
+    }else {
+        self.mj_footer = nil;
+    }
+}
+@end

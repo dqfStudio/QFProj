@@ -9,7 +9,7 @@
 #import "HTableRefresh.h"
 
 @implementation HTableRefresh
-+ (MJRefreshHeader *)refreshHeaderWithStyle:(HTableRefreshHeaderStyle)style andBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock {
++ (id)refreshHeaderWithStyle:(HTableRefreshHeaderStyle)style andBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock {
     switch (style) {
         case HTableRefreshHeaderStyleGray: {
             MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:refreshingBlock];
@@ -40,7 +40,7 @@
             break;
     }
 }
-+ (MJRefreshFooter *)refreshFooterWithStyle:(HTableRefreshFooterStyle)style andBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock {
++ (id)refreshFooterWithStyle:(HTableRefreshFooterStyle)style andBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock {
     switch (style) {
         case HTableRefreshFooterStyle1: {
             MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:refreshingBlock];
