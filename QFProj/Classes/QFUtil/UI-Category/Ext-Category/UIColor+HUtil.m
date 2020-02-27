@@ -128,7 +128,7 @@
 }
 
 /*是否是浅色 YES 是浅色， NO是深色**/
-- (BOOL)isLighterColor{
+- (BOOL)isLighterColor {
     CGFloat r=0, g=0, b=0, a=0;
       if ([self respondsToSelector:@selector(getRed:green:blue:alpha:)]) {
           [self getRed:&r green:&g blue:&b alpha:&a];
@@ -147,7 +147,7 @@
 }
 
 /*是否是浅色 YES 是浅色， NO是深色**/
-+ (BOOL)isLighterColorWithColor:(UIColor *)color{
++ (BOOL)isLighterColorWithColor:(UIColor *)color {
     return [color isLighterColor];
 }
 @end
