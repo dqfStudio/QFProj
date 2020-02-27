@@ -20,11 +20,13 @@
 @end
 
 @interface NSNumber (HSafeMessy)
+- (NSArray *)arrayValue;
 - (NSUInteger)length;
 - (BOOL)isEmpty;
 @end
 
 @interface NSString (HSafeMessy)
+- (NSArray *)arrayValue;
 - (NSString *)stringValue;
 - (BOOL)isEmpty;
 @end

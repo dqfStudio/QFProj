@@ -36,6 +36,9 @@
 @end
 
 @implementation NSNumber (HSafeMessy)
+- (NSArray *)arrayValue {
+    return nil;
+}
 - (NSUInteger)length {
     return self.stringValue.length;
 }
@@ -56,6 +59,9 @@
 @end
 
 @implementation NSString (HSafeMessy)
+- (NSArray *)arrayValue {
+    return nil;
+}
 - (NSString *)stringValue {
     return self;
 }
