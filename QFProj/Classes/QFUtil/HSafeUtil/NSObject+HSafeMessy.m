@@ -93,10 +93,28 @@
 - (NSDictionary *)dictionaryValue {
     return self;
 }
+- (NSUInteger)length {
+    return self.count;
+}
+- (BOOL)isEmpty {
+    if (self.count == 0) {
+        return YES;
+    }
+    return NO;
+}
 @end
 
 @implementation NSArray (HSafeMessy)
 - (NSArray *)arrayValue {
     return self;
+}
+- (NSUInteger)length {
+    return self.count;
+}
+- (BOOL)isEmpty {
+    if (self.count == 0) {
+        return YES;
+    }
+    return NO;
 }
 @end

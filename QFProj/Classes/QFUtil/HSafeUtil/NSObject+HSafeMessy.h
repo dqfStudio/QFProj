@@ -38,8 +38,12 @@
 @interface NSDictionary (HSafeMessy)
 - (NSArray *)arrayValue;
 - (NSDictionary *)dictionaryValue;
+- (NSUInteger)length;
+- (BOOL)isEmpty;
 @end
 
 @interface NSArray (HSafeMessy)
 - (NSArray *)arrayValue;
+- (NSUInteger)length;
+- (BOOL)isEmpty;
 @end
