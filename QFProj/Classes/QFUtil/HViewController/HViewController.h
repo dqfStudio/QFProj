@@ -15,8 +15,14 @@
 #import "UIDevice+HUtil.h"
 #import "UIApplication+HUtil.h"
 #import "NSObject+HSwizzleUtil.h"
-#import "UIViewController+HDisappear.h"
 #import "HNavigationController.h"
+
+typedef NS_OPTIONS(NSUInteger, HVCDisappearType) {
+    HVCDisappearTypeOther = 0,
+    HVCDisappearTypePush,
+    HVCDisappearTypePop,
+    HVCDisappearTypeDismiss
+};
 
 @interface HVCAppearance : NSObject
 @property (nonatomic) UIColor *barColor;
@@ -152,6 +158,15 @@
  */
 - (BOOL)isViewInBackground;
 
+@end
+
+@interface UIViewController (HDisappear)
+/**
+ *  vc消失的类型,需自己重写
+ *
+ *  type 类型枚举
+ */
+- (void)vcWillDisappear:(HVCDisappearType)type;
 @end
 
 

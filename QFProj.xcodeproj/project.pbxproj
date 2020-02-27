@@ -299,7 +299,6 @@
 		A2A8EB4F22DDD9690049C51B /* UIView+HLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB4D22DDD9690049C51B /* UIView+HLeaks.m */; };
 		A2A8EB5222DDD99D0049C51B /* UIViewController+HLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB5122DDD99D0049C51B /* UIViewController+HLeaks.m */; };
 		A2A8EB5522DDD9B90049C51B /* UINavigationController+HLeaks.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB5422DDD9B90049C51B /* UINavigationController+HLeaks.m */; };
-		A2A8EB6522DF01390049C51B /* UIViewController+HDisappear.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB6322DF01380049C51B /* UIViewController+HDisappear.m */; };
 		A2A8EBB722E1FDEE0049C51B /* WebViewJavascriptBridgeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EBAF22E1FDEE0049C51B /* WebViewJavascriptBridgeBase.m */; };
 		A2A8EBB822E1FDEE0049C51B /* WKWebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EBB022E1FDEE0049C51B /* WKWebViewJavascriptBridge.m */; };
 		A2A8EBB922E1FDEE0049C51B /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EBB122E1FDEE0049C51B /* WebViewJavascriptBridge.m */; };
@@ -892,8 +891,6 @@
 		A2A8EB5122DDD99D0049C51B /* UIViewController+HLeaks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HLeaks.m"; sourceTree = "<group>"; };
 		A2A8EB5322DDD9B90049C51B /* UINavigationController+HLeaks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+HLeaks.h"; sourceTree = "<group>"; };
 		A2A8EB5422DDD9B90049C51B /* UINavigationController+HLeaks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+HLeaks.m"; sourceTree = "<group>"; };
-		A2A8EB6322DF01380049C51B /* UIViewController+HDisappear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HDisappear.m"; sourceTree = "<group>"; };
-		A2A8EB6422DF01380049C51B /* UIViewController+HDisappear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HDisappear.h"; sourceTree = "<group>"; };
 		A2A8EBAF22E1FDEE0049C51B /* WebViewJavascriptBridgeBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridgeBase.m; sourceTree = "<group>"; };
 		A2A8EBB022E1FDEE0049C51B /* WKWebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewJavascriptBridge.m; sourceTree = "<group>"; };
 		A2A8EBB122E1FDEE0049C51B /* WebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge.m; sourceTree = "<group>"; };
@@ -1770,8 +1767,6 @@
 				A2FF719C2317BADF00522223 /* hvc_back_icon@3x.png */,
 				A206882622CA081400661634 /* HViewController.h */,
 				A206882522CA081400661634 /* HViewController.m */,
-				A2A8EB6422DF01380049C51B /* UIViewController+HDisappear.h */,
-				A2A8EB6322DF01380049C51B /* UIViewController+HDisappear.m */,
 				A2E8F51E22D2300D00E7C9F2 /* HTableController.h */,
 				A2E8F51F22D2300D00E7C9F2 /* HTableController.m */,
 				A2E8F51B22D229A500E7C9F2 /* HTupleController.h */,
@@ -2834,7 +2829,6 @@
 				A22FA17F2400DFC900B75C1C /* AppDelegate+UserService.m in Sources */,
 				A20E3D04231FE0C800E6982B /* HMainController3.m in Sources */,
 				A28EF3C421DA1DFE002F92ED /* HFormCell.m in Sources */,
-				A2A8EB6522DF01390049C51B /* UIViewController+HDisappear.m in Sources */,
 				1547B891210C4E09009E0374 /* UICollectionView+HTracking.m in Sources */,
 				A24B659622607E8400B257BB /* HEmailManager.m in Sources */,
 				A22FA17C2400DD6200B75C1C /* HKBNSArray+Sort.m in Sources */,
