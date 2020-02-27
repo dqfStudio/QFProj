@@ -15,7 +15,7 @@
     AVAudioPlayer *audioPlayer = objc_getAssociatedObject(self, _cmd);
     if (!audioPlayer) {
         NSError *error;
-        audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[[NSBundle mainBundle]URLForResource:@"music.mp3" withExtension:nil]  error:&error];
+        audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"music.mp3" withExtension:nil] error:&error];
          if (error == nil) {
              audioPlayer.numberOfLoops = -1;
              [audioPlayer prepareToPlay];
