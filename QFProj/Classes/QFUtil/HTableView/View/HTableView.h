@@ -90,15 +90,15 @@ typedef NSArray *_Nullable(^HTableSectionExclusiveBlock)(void);
 - (void)accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath;
 
 // Selection
-- (BOOL)shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath API_AVAILABLE(ios(6.0));
-- (void)didHighlightRowAtIndexPath:(NSIndexPath *)indexPath API_AVAILABLE(ios(6.0));
-- (void)didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath API_AVAILABLE(ios(6.0));
+- (BOOL)shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)didHighlightRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath;
 
 //- (nullable NSIndexPath *)willSelectRowAtIndexPath:(NSIndexPath *)indexPath;
-//- (nullable NSIndexPath *)willDeselectRowAtIndexPath:(NSIndexPath *)indexPath API_AVAILABLE(ios(3.0));
+//- (nullable NSIndexPath *)willDeselectRowAtIndexPath:(NSIndexPath *)indexPath;
 
 - (void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
-- (void)didDeselectRowAtIndexPath:(NSIndexPath *)indexPath API_AVAILABLE(ios(3.0));
+- (void)didDeselectRowAtIndexPath:(NSIndexPath *)indexPath;
 
 // Editing
 - (UITableViewCellEditingStyle)editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath;
