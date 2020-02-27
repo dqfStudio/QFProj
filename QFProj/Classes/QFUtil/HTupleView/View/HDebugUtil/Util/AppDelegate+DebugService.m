@@ -31,7 +31,7 @@
     JhtFloatingBall *folatingball = objc_getAssociatedObject(self, _cmd);
     if (!folatingball) {
         UIImage *suspendedBallImage = [UIImage imageNamed:@"JhtFloatingBallIcon"];
-        folatingball = [[JhtFloatingBall alloc] initWithFrame:CGRectMake(UIScreen.width-65, UIDevice.topBarHeight+20, 65, 65)];
+        folatingball = [[JhtFloatingBall alloc] initWithFrame:CGRectMake(UIScreen.width-65, UIScreen.height/2-65/2, 65, 65)];
         folatingball.image = suspendedBallImage;
         folatingball.stayAlpha = 0.6;
         folatingball.delegate = self;
