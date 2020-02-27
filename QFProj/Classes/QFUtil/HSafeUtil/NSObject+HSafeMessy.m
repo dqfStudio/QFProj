@@ -22,10 +22,10 @@
     return nil;
 }
 + (NSString *)stringValue {
-    return @"";
+    return nil;
 }
 - (NSString *)stringValue {
-    return @"";
+    return nil;
 }
 + (NSUInteger)length {
     return 0;
@@ -93,6 +93,9 @@
 - (NSDictionary *)dictionaryValue {
     return self;
 }
+- (NSString *)stringValue {
+    return nil;
+}
 - (NSUInteger)length {
     return self.count;
 }
@@ -107,6 +110,9 @@
 @implementation NSArray (HSafeMessy)
 - (NSArray *)arrayValue {
     return self;
+}
+- (NSString *)stringValue {
+    return nil;
 }
 - (NSUInteger)length {
     return self.count;
