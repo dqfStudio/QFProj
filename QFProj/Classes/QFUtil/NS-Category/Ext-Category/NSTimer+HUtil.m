@@ -14,7 +14,7 @@
 
 + (NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)interval times:(NSTimeInterval)times block:(void (^)(NSTimer *timer))block {
     __block NSTimeInterval count = 0;
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:interval repeats:YES block:^(NSTimer * _Nonnull timer) {
+    NSTimer *timer = [NSTimer h_scheduledTimerWithTimeInterval:interval repeats:YES block:^(NSTimer * _Nonnull timer) {
         count += interval;
         if (count < interval * times) {
             if (block) block(timer);
@@ -29,7 +29,7 @@
 
 + (NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)interval times:(NSTimeInterval)times block:(void (^)(NSTimer *timer))block completion:(void (^)(void))completion {
     __block NSTimeInterval count = 0;
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:interval repeats:YES block:^(NSTimer * _Nonnull timer) {
+    NSTimer *timer = [NSTimer h_scheduledTimerWithTimeInterval:interval repeats:YES block:^(NSTimer * _Nonnull timer) {
         count += interval;
         if (count <= interval * times) {
             if (block) block(timer);
@@ -48,7 +48,7 @@
 
 + (NSTimer *)scheduledTimerImmediatelyWithTimeInterval:(NSTimeInterval)interval times:(NSTimeInterval)times block:(void (^)(NSTimer *timer))block {
     __block NSTimeInterval count = 0;
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:interval repeats:YES block:^(NSTimer * _Nonnull timer) {
+    NSTimer *timer = [NSTimer h_scheduledTimerWithTimeInterval:interval repeats:YES block:^(NSTimer * _Nonnull timer) {
         count += interval;
         if (count < interval * times) {
             if (block) block(timer);
@@ -71,7 +71,7 @@
 
 + (NSTimer *)scheduledTimerImmediatelyWithTimeInterval:(NSTimeInterval)interval times:(NSTimeInterval)times block:(void (^)(NSTimer *timer))block completion:(void (^)(void))completion {
     __block NSTimeInterval count = 0;
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:interval repeats:YES block:^(NSTimer * _Nonnull timer) {
+    NSTimer *timer = [NSTimer h_scheduledTimerWithTimeInterval:interval repeats:YES block:^(NSTimer * _Nonnull timer) {
         count += interval;
         if (count <= interval * times) {
             if (block) block(timer);
@@ -81,12 +81,44 @@
             timer = nil;
         }
     }];
+    
     //先调用一次
     if (block) {
         count += interval;
         block(timer);
     }
     return timer;
+}
+
++ (NSTimer *)h_scheduledTimerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats block:(void(^)(NSTimer * _Nonnull timer))block {
+    if (@available(iOS 10.0, *)) {
+        return [NSTimer scheduledTimerWithTimeInterval:interval repeats:repeats block:block];
+    }else {
+        return [self scheduledTimerWithTimeInterval:interval
+                                             target:self
+                                           selector:@selector(h_blockInvoke:)
+                                           userInfo:[block copy]
+                                            repeats:repeats];
+    }
+}
+
++ (void)h_blockInvoke:(NSTimer *)timer {
+    void(^block)(NSTimer * _Nonnull timer) = timer.userInfo;
+    if (block != NULL) {
+        block(timer);
+    }
+}
+
+//恢复
+- (void)resume {
+    if (![self isValid]) return;
+    [self setFireDate:[NSDate date]];
+}
+
+//暂停
+- (void)pause {
+    if (![self isValid]) return;
+    [self setFireDate:[NSDate distantFuture]];
 }
 
 @end

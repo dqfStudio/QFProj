@@ -117,8 +117,12 @@ if ([NSThread isMainThread]) {\
     NSString *confirmTitle = @"设置";
     NSString *cancelTitle = @"取消";
     dispatch_block_t gosetting = ^{
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:^(BOOL success) {
-        }];
+        if (@available(iOS 10.0, *)) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:^(BOOL success) {
+            }];
+        } else {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+        }
     };
     switch (authorizationType) {
         case AuthorizationTypePhotoLibrary: {//没有相册权限

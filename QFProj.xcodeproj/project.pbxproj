@@ -62,7 +62,6 @@
 		15B4DE062092F96C00773E04 /* NSObject+HBlockSEL.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDC72092F96B00773E04 /* NSObject+HBlockSEL.m */; };
 		15B4DE072092F96C00773E04 /* NSString+HChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDCA2092F96B00773E04 /* NSString+HChain.m */; };
 		15B4DE0B2092F96C00773E04 /* NSString+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDDB2092F96B00773E04 /* NSString+HSafeUtil.m */; };
-		15B4DE0C2092F96C00773E04 /* NSTimer+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDDC2092F96B00773E04 /* NSTimer+HSafeUtil.m */; };
 		15B4DE0E2092F96C00773E04 /* NSDictionary+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDDE2092F96B00773E04 /* NSDictionary+HSafeUtil.m */; };
 		15B4DE112092F96C00773E04 /* NSArray+HSafeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDE32092F96B00773E04 /* NSArray+HSafeUtil.m */; };
 		15B4DE122092F96C00773E04 /* NSObject+HSwizzleUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDE42092F96B00773E04 /* NSObject+HSwizzleUtil.m */; };
@@ -474,9 +473,7 @@
 		15B4DDD92092F96B00773E04 /* NSObject+HSwizzleUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSwizzleUtil.h"; sourceTree = "<group>"; };
 		15B4DDDA2092F96B00773E04 /* NSArray+HSafeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+HSafeUtil.h"; sourceTree = "<group>"; };
 		15B4DDDB2092F96B00773E04 /* NSString+HSafeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HSafeUtil.m"; sourceTree = "<group>"; };
-		15B4DDDC2092F96B00773E04 /* NSTimer+HSafeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+HSafeUtil.m"; sourceTree = "<group>"; };
 		15B4DDDE2092F96B00773E04 /* NSDictionary+HSafeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+HSafeUtil.m"; sourceTree = "<group>"; };
-		15B4DDE12092F96B00773E04 /* NSTimer+HSafeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+HSafeUtil.h"; sourceTree = "<group>"; };
 		15B4DDE22092F96B00773E04 /* NSString+HSafeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HSafeUtil.h"; sourceTree = "<group>"; };
 		15B4DDE32092F96B00773E04 /* NSArray+HSafeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+HSafeUtil.m"; sourceTree = "<group>"; };
 		15B4DDE42092F96B00773E04 /* NSObject+HSwizzleUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSwizzleUtil.m"; sourceTree = "<group>"; };
@@ -1506,8 +1503,6 @@
 				15B4DDE42092F96B00773E04 /* NSObject+HSwizzleUtil.m */,
 				15B4DDE22092F96B00773E04 /* NSString+HSafeUtil.h */,
 				15B4DDDB2092F96B00773E04 /* NSString+HSafeUtil.m */,
-				15B4DDE12092F96B00773E04 /* NSTimer+HSafeUtil.h */,
-				15B4DDDC2092F96B00773E04 /* NSTimer+HSafeUtil.m */,
 				15B4DDD82092F96B00773E04 /* UIControl+HSafeUtil.h */,
 				15B4DDE52092F96B00773E04 /* UIControl+HSafeUtil.m */,
 				A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */,
@@ -2866,7 +2861,6 @@
 				A22851FF228D48C100961A86 /* NSObject+HSelector.m in Sources */,
 				A22FA1762400DD6200B75C1C /* HKBTitleBarButtonItem.m in Sources */,
 				15C5736820B3DD7B0070327C /* HTupleBaseCell.m in Sources */,
-				15B4DE0C2092F96C00773E04 /* NSTimer+HSafeUtil.m in Sources */,
 				A222AE5822818F7D0013098A /* HTextAsyncLayer.m in Sources */,
 				15B4DE002092F96C00773E04 /* NSDate+HUtil.m in Sources */,
 				15B4DDFE2092F96C00773E04 /* NSString+HUtil.m in Sources */,
@@ -3203,7 +3197,7 @@
 					"$(PROJECT_DIR)/QFProj/Classes/QFUtil/HTupleView/View/HDebugUtil/Util",
 				);
 				INFOPLIST_FILE = QFProj/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3228,7 +3222,7 @@
 					"$(PROJECT_DIR)/QFProj/Classes/QFUtil/HTupleView/View/HDebugUtil/Util",
 				);
 				INFOPLIST_FILE = QFProj/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
