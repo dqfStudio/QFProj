@@ -20,7 +20,7 @@ if ([NSThread isMainThread]) {\
 }
 
 @interface HAuthorizeManager()<CLLocationManagerDelegate>
-@property (nonatomic)CLLocationManager *locationManager;
+@property (nonatomic) CLLocationManager *locationManager;
 @end
 
 @implementation HAuthorizeManager
