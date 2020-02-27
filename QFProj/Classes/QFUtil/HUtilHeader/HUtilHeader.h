@@ -20,7 +20,6 @@
 #import "UIImage+Util.h"
 #import "UILabel+HState.h"
 #import "UILabel+HUtil.h"
-#import "UINavigationController+HUtil.h"
 #import "UIScreen+HUtil.h"
 #import "UIView+HImage.h"
 #import "UIView+HUtil.h"

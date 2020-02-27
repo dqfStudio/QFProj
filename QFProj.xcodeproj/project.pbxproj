@@ -45,7 +45,6 @@
 		15B4DDEC2092F96C00773E04 /* HLaunchImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15B4DD8E2092F96B00773E04 /* HLaunchImage.jpg */; };
 		15B4DDEE2092F96C00773E04 /* UIViewController+HBackHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD952092F96B00773E04 /* UIViewController+HBackHandler.m */; };
 		15B4DDF42092F96C00773E04 /* UIGestureRecognizer+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDA32092F96B00773E04 /* UIGestureRecognizer+HUtil.m */; };
-		15B4DDF52092F96C00773E04 /* UINavigationController+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDA42092F96B00773E04 /* UINavigationController+HUtil.m */; };
 		15B4DDF62092F96C00773E04 /* UIApplication+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDA72092F96B00773E04 /* UIApplication+HUtil.m */; };
 		15B4DDF72092F96C00773E04 /* UIDevice+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDA82092F96B00773E04 /* UIDevice+HUtil.m */; };
 		15B4DDF82092F96C00773E04 /* UIImage+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DDA92092F96B00773E04 /* UIImage+Util.m */; };
@@ -432,7 +431,6 @@
 		15B4DD892092F96B00773E04 /* HDebugView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDebugView.m; sourceTree = "<group>"; };
 		15B4DD8A2092F96B00773E04 /* AppDelegate+DebugService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+DebugService.h"; sourceTree = "<group>"; };
 		15B4DD8E2092F96B00773E04 /* HLaunchImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HLaunchImage.jpg; sourceTree = "<group>"; };
-		15B4DD912092F96B00773E04 /* UINavigationController+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+HUtil.h"; sourceTree = "<group>"; };
 		15B4DD922092F96B00773E04 /* UIGestureRecognizer+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+HUtil.h"; sourceTree = "<group>"; };
 		15B4DD952092F96B00773E04 /* UIViewController+HBackHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HBackHandler.m"; sourceTree = "<group>"; };
 		15B4DD962092F96B00773E04 /* UIScreen+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+HUtil.h"; sourceTree = "<group>"; };
@@ -442,7 +440,6 @@
 		15B4DD9D2092F96B00773E04 /* UIColor+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HUtil.h"; sourceTree = "<group>"; };
 		15B4DDA02092F96B00773E04 /* UIViewController+HBackHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HBackHandler.h"; sourceTree = "<group>"; };
 		15B4DDA32092F96B00773E04 /* UIGestureRecognizer+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+HUtil.m"; sourceTree = "<group>"; };
-		15B4DDA42092F96B00773E04 /* UINavigationController+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+HUtil.m"; sourceTree = "<group>"; };
 		15B4DDA72092F96B00773E04 /* UIApplication+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+HUtil.m"; sourceTree = "<group>"; };
 		15B4DDA82092F96B00773E04 /* UIDevice+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+HUtil.m"; sourceTree = "<group>"; };
 		15B4DDA92092F96B00773E04 /* UIImage+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Util.m"; sourceTree = "<group>"; };
@@ -1410,8 +1407,6 @@
 				A222A715227C52430013098A /* UILabel+HUtil.m */,
 				15C5729F20AEAC340070327C /* UILabel+HState.h */,
 				15C5729E20AEAC340070327C /* UILabel+HState.m */,
-				15B4DD912092F96B00773E04 /* UINavigationController+HUtil.h */,
-				15B4DDA42092F96B00773E04 /* UINavigationController+HUtil.m */,
 				15B4DD962092F96B00773E04 /* UIScreen+HUtil.h */,
 				15B4DDAB2092F96B00773E04 /* UIScreen+HUtil.m */,
 				15B4DDA02092F96B00773E04 /* UIViewController+HBackHandler.h */,
@@ -2977,7 +2972,6 @@
 				15E6BB992136E7E300EBE794 /* UIScrollView+YPTab.m in Sources */,
 				A250DF182400101A009F5E47 /* UIView+HUtil.m in Sources */,
 				A22FA0842400D50500B75C1C /* AppDelegate+NotifyService.m in Sources */,
-				15B4DDF52092F96C00773E04 /* UINavigationController+HUtil.m in Sources */,
 				A2A8EBD222E427FA0049C51B /* HMonitorControl.m in Sources */,
 				A20E3D07231FE0D100E6982B /* HMainController4.m in Sources */,
 				A28EF3B521D9C9A2002F92ED /* HWaitingView.m in Sources */,

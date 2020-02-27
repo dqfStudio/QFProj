@@ -22,6 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UINavigationController (HJumper)
 - (void)pushViewController:(UIViewController *)viewController param:(NSDictionary *_Nullable)dict animated:(BOOL)animated;
+- (BOOL)popToViewControllerOfClass:(Class)klass animated:(BOOL)animated;
+- (void)replaceTopViewController:(UIViewController *)vc animated:(BOOL)animated;
 @end
+
 
 NS_ASSUME_NONNULL_END
