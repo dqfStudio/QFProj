@@ -1,15 +1,15 @@
 //
-//  AppDelegate+HUtil.m
+//  AppDelegate+RotateService.m
 //  QFProj
 //
-//  Created by dqf on 2019/7/5.
-//  Copyright © 2019 dqfStudio. All rights reserved.
+//  Created by wind on 2020/2/27.
+//  Copyright © 2020 dqfStudio. All rights reserved.
 //
 
-#import "AppDelegate+HUtil.h"
+#import "AppDelegate+RotateService.h"
 #import <objc/runtime.h>
 
-@implementation AppDelegate (HUtil)
+@implementation AppDelegate (RotateService)
 + (BOOL)shouldAutorotate {
     return [objc_getAssociatedObject(self, _cmd) boolValue];
 }

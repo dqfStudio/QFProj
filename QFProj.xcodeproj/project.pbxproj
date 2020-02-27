@@ -236,6 +236,7 @@
 		A283B5C62404C3E3004FC031 /* JhtFloatingBall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A283B5C52404C3E3004FC031 /* JhtFloatingBall.framework */; };
 		A28566B423F1438B00552FE7 /* NSObject_.m in Sources */ = {isa = PBXBuildFile; fileRef = A28566B323F1438B00552FE7 /* NSObject_.m */; };
 		A286250F23EA6CEC00E81781 /* HRegisterController+Normal.m in Sources */ = {isa = PBXBuildFile; fileRef = A286250E23EA6CEC00E81781 /* HRegisterController+Normal.m */; };
+		A28836DD2407A6C300626D47 /* AppDelegate+RotateService.m in Sources */ = {isa = PBXBuildFile; fileRef = A28836DC2407A6C300626D47 /* AppDelegate+RotateService.m */; };
 		A289DCEA23E3DFD400FC59F1 /* HTupleViewBannerApex.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DCE923E3DFD400FC59F1 /* HTupleViewBannerApex.m */; };
 		A289DCEC23E3E31100FC59F1 /* HCyclePlaceholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A289DCEB23E3E31100FC59F1 /* HCyclePlaceholder@2x.png */; };
 		A289DCF123E3E31A00FC59F1 /* HCyclePageControlDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A289DCED23E3E31A00FC59F1 /* HCyclePageControlDot@2x.png */; };
@@ -327,7 +328,6 @@
 		A2DC22BE2242994800E540BE /* NSObject+HForwarding.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */; };
 		A2E8F50822CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50622CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png */; };
 		A2E8F50922CCDCAA00E7C9F2 /* icon_tuple_nodata@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50722CCDCAA00E7C9F2 /* icon_tuple_nodata@2x.png */; };
-		A2E8F51A22CF925700E7C9F2 /* AppDelegate+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F51922CF925700E7C9F2 /* AppDelegate+HUtil.m */; };
 		A2E8F51D22D229A500E7C9F2 /* HTupleController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F51C22D229A500E7C9F2 /* HTupleController.m */; };
 		A2E8F52022D2300D00E7C9F2 /* HTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F51F22D2300D00E7C9F2 /* HTableController.m */; };
 		A2E8F52322D2EB5A00E7C9F2 /* HTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E8F52222D2EB5A00E7C9F2 /* HTabBarController.m */; };
@@ -794,6 +794,8 @@
 		A286250D23EA6CEC00E81781 /* HRegisterController+Normal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HRegisterController+Normal.h"; sourceTree = "<group>"; };
 		A286250E23EA6CEC00E81781 /* HRegisterController+Normal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HRegisterController+Normal.m"; sourceTree = "<group>"; };
 		A28701BC23E84BC500F9752A /* HTupleHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleHeader.h; sourceTree = "<group>"; };
+		A28836DB2407A6C300626D47 /* AppDelegate+RotateService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+RotateService.h"; sourceTree = "<group>"; };
+		A28836DC2407A6C300626D47 /* AppDelegate+RotateService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+RotateService.m"; sourceTree = "<group>"; };
 		A289DCE823E3DFD400FC59F1 /* HTupleViewBannerApex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewBannerApex.h; sourceTree = "<group>"; };
 		A289DCE923E3DFD400FC59F1 /* HTupleViewBannerApex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewBannerApex.m; sourceTree = "<group>"; };
 		A289DCEB23E3E31100FC59F1 /* HCyclePlaceholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HCyclePlaceholder@2x.png"; sourceTree = "<group>"; };
@@ -949,8 +951,6 @@
 		A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HForwarding.m"; sourceTree = "<group>"; };
 		A2E8F50622CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_nodata@3x.png"; sourceTree = "<group>"; };
 		A2E8F50722CCDCAA00E7C9F2 /* icon_tuple_nodata@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_nodata@2x.png"; sourceTree = "<group>"; };
-		A2E8F51822CF925700E7C9F2 /* AppDelegate+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+HUtil.h"; sourceTree = "<group>"; };
-		A2E8F51922CF925700E7C9F2 /* AppDelegate+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+HUtil.m"; sourceTree = "<group>"; };
 		A2E8F51B22D229A500E7C9F2 /* HTupleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleController.h; sourceTree = "<group>"; };
 		A2E8F51C22D229A500E7C9F2 /* HTupleController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleController.m; sourceTree = "<group>"; };
 		A2E8F51E22D2300D00E7C9F2 /* HTableController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTableController.h; sourceTree = "<group>"; };
@@ -1247,6 +1247,8 @@
 				A22FA0862400D52B00B75C1C /* AppDelegate+SoundService.m */,
 				A22FA17D2400DFC900B75C1C /* AppDelegate+UserService.h */,
 				A22FA17E2400DFC900B75C1C /* AppDelegate+UserService.m */,
+				A28836DB2407A6C300626D47 /* AppDelegate+RotateService.h */,
+				A28836DC2407A6C300626D47 /* AppDelegate+RotateService.m */,
 				A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */,
 				15B4DD6F2092F88700773E04 /* Assets.xcassets */,
 				15B4DD7D2092F96B00773E04 /* Classes */,
@@ -1396,8 +1398,6 @@
 			children = (
 				15B4DD992092F96B00773E04 /* UIApplication+HUtil.h */,
 				15B4DDA72092F96B00773E04 /* UIApplication+HUtil.m */,
-				A2E8F51822CF925700E7C9F2 /* AppDelegate+HUtil.h */,
-				A2E8F51922CF925700E7C9F2 /* AppDelegate+HUtil.m */,
 				15B4DD9D2092F96B00773E04 /* UIColor+HUtil.h */,
 				15B4DDAD2092F96B00773E04 /* UIColor+HUtil.m */,
 				15B4DD9A2092F96B00773E04 /* UIDevice+HUtil.h */,
@@ -2905,6 +2905,7 @@
 				A222AE5922818F7D0013098A /* HTextUtilities.m in Sources */,
 				150C7CB4211996E800A05347 /* HPrinterManager.m in Sources */,
 				A2C2B21A235EB0B70041AAB5 /* HTableViewApexVertValue1.m in Sources */,
+				A28836DD2407A6C300626D47 /* AppDelegate+RotateService.m in Sources */,
 				153F081420E28CA000C74850 /* HEmailValidator.m in Sources */,
 				A2A8EB3922DB65A90049C51B /* HDrawerViewController.m in Sources */,
 				A2E8F63E22DB51F500E7C9F2 /* NSIndexPath+HUtil.m in Sources */,
@@ -3022,7 +3023,6 @@
 				A2A8EB3F22DC6F300049C51B /* HRegisterController.m in Sources */,
 				15B4DE032092F96C00773E04 /* NSObject+HUtil.m in Sources */,
 				A255229623BAFFFE00A18D7D /* HSkinManager+HUtil.m in Sources */,
-				A2E8F51A22CF925700E7C9F2 /* AppDelegate+HUtil.m in Sources */,
 				A2A8EB5522DDD9B90049C51B /* UINavigationController+HLeaks.m in Sources */,
 				15E6BB9B2136E7E300EBE794 /* YPTabBar.m in Sources */,
 				A20E3CE4231CC3B400E6982B /* NSObject+HKVO.m in Sources */,

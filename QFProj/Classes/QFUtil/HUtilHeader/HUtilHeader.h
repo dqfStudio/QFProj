@@ -14,7 +14,6 @@
 
 //Ext-Category
 #import "UIApplication+HUtil.h"
-#import "AppDelegate+HUtil.h"
 #import "UIColor+HUtil.h"
 #import "UIDevice+HUtil.h"
 #import "UIGestureRecognizer+HUtil.h"
