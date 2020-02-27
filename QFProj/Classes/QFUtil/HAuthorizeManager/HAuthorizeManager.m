@@ -19,7 +19,7 @@ if ([NSThread isMainThread]) {\
     dispatch_async(dispatch_get_main_queue(), block);\
 }
 
-@interface HAuthorizeManager()<CLLocationManagerDelegate>
+@interface HAuthorizeManager() <CLLocationManagerDelegate>
 @property (nonatomic) CLLocationManager *locationManager;
 @end
 

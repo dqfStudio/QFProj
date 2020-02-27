@@ -7,20 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger){
+typedef NS_ENUM(NSInteger, AuthorizationType) {
     AuthorizationTypeCamera,       //相机
     AuthorizationTypeAudio,        //麦克风
     AuthorizationTypeLocation,     //位置
     AuthorizationTypePhotoLibrary, //相册
-    AuthorizationTypeContacts,     //通讯录
-} AuthorizationType;
+    AuthorizationTypeContacts      //通讯录
+};
 
-typedef NS_ENUM(NSInteger){
+typedef NS_ENUM(NSInteger, AuthorizationStatus) {
     AuthorizationStatusAuthorized,
-    AuthorizationStatusDenied,
-} AuthorizationStatus;
+    AuthorizationStatusDenied
+};
 
 typedef void(^AuthorizationCompletionBlock)(AuthorizationStatus status);
 
