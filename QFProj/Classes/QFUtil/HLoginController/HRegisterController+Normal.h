@@ -2,7 +2,7 @@
 //  HRegisterController+Normal.h
 //  QFProj
 //
-//  Created by wind on 2020/2/5.
+//  Created by dqf on 2020/2/5.
 //  Copyright © 2020 dqfStudio. All rights reserved.
 //
 

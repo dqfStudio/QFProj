@@ -2,7 +2,7 @@
 //  HWebImageViewVC.h
 //  QFProj
 //
-//  Created by wind on 2020/2/1.
+//  Created by dqf on 2020/2/1.
 //  Copyright © 2020 dqfStudio. All rights reserved.
 //
 

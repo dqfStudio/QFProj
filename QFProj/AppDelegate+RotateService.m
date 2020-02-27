@@ -2,7 +2,7 @@
 //  AppDelegate+RotateService.m
 //  QFProj
 //
-//  Created by wind on 2020/2/27.
+//  Created by dqf on 2020/2/27.
 //  Copyright © 2020 dqfStudio. All rights reserved.
 //
 

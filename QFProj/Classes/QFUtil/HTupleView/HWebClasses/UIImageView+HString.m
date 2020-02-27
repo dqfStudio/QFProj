@@ -2,7 +2,7 @@
 //  UIImageView+HString.m
 //  QFProj
 //
-//  Created by wind on 2020/2/8.
+//  Created by dqf on 2020/2/8.
 //  Copyright © 2020 dqfStudio. All rights reserved.
 //
 

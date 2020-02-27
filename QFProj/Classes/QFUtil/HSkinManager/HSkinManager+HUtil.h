@@ -2,7 +2,7 @@
 //  HSkinManager+HUtil.h
 //  QFProj
 //
-//  Created by wind on 2019/12/31.
+//  Created by dqf on 2019/12/31.
 //  Copyright © 2019 dqfStudio. All rights reserved.
 //
 
