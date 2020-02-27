@@ -15,6 +15,12 @@
 - (NSArray *)arrayValue {
     return nil;
 }
++ (NSDictionary *)dictionaryValue {
+    return nil;
+}
+- (NSDictionary *)dictionaryValue {
+    return nil;
+}
 + (NSString *)stringValue {
     return @"";
 }
@@ -37,6 +43,9 @@
 
 @implementation NSNumber (HSafeMessy)
 - (NSArray *)arrayValue {
+    return nil;
+}
+- (NSDictionary *)dictionaryValue {
     return nil;
 }
 - (NSUInteger)length {
@@ -62,6 +71,9 @@
 - (NSArray *)arrayValue {
     return nil;
 }
+- (NSDictionary *)dictionaryValue {
+    return nil;
+}
 - (NSString *)stringValue {
     return self;
 }
@@ -77,6 +89,9 @@
 @implementation NSDictionary (HSafeMessy)
 - (NSArray *)arrayValue {
     return [NSArray arrayWithObject:self];
+}
+- (NSDictionary *)dictionaryValue {
+    return self;
 }
 @end
 

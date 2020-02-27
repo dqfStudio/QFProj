@@ -11,6 +11,8 @@
 @interface NSNull (HSafeMessy)
 + (NSArray *)arrayValue;
 - (NSArray *)arrayValue;
++ (NSDictionary *)dictionaryValue;
+- (NSDictionary *)dictionaryValue;
 + (NSString *)stringValue;
 - (NSString *)stringValue;
 + (NSUInteger)length;
@@ -21,18 +23,21 @@
 
 @interface NSNumber (HSafeMessy)
 - (NSArray *)arrayValue;
+- (NSDictionary *)dictionaryValue;
 - (NSUInteger)length;
 - (BOOL)isEmpty;
 @end
 
 @interface NSString (HSafeMessy)
 - (NSArray *)arrayValue;
+- (NSDictionary *)dictionaryValue;
 - (NSString *)stringValue;
 - (BOOL)isEmpty;
 @end
 
 @interface NSDictionary (HSafeMessy)
 - (NSArray *)arrayValue;
+- (NSDictionary *)dictionaryValue;
 @end
 
 @interface NSArray (HSafeMessy)
