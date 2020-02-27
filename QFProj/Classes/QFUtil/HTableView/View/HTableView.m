@@ -1136,6 +1136,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 }
 
 #pragma mark - release method
+#pragma mark -
 - (void)releaseTableBlock {
     dispatch_async(dispatch_queue_create(0, 0), ^{
         
@@ -1150,6 +1151,28 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
         if (self.loadMoreBlock) self.loadMoreBlock = nil;
         
     });
+}
+
+#pragma mark - other methods
+#pragma mark -
+- (id (^)(NSInteger row, NSInteger section))cell {
+    return ^id (NSInteger row, NSInteger section) {
+        return [self.allReuseCells objectForKey:NSIndexPath.stringValue(row, section)];
+    };
+}
+- (id (^)(NSInteger row, NSInteger section))indexPath {
+    return ^id (NSInteger row, NSInteger section) {
+        return [NSIndexPath indexPathForRow:row inSection:section];
+    };
+}
+- (CGFloat)width {
+    return CGRectGetWidth(self.frame);
+}
+- (CGFloat)height {
+    return CGRectGetHeight(self.frame);
+}
+- (CGSize)size {
+    return self.frame.size;
 }
 @end
 
@@ -1260,25 +1283,6 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
             }
         }
     });
-}
-- (id (^)(NSInteger row, NSInteger section))cell {
-    return ^id (NSInteger row, NSInteger section) {
-        return [self.allReuseCells objectForKey:NSIndexPath.stringValue(row, section)];
-    };
-}
-- (id (^)(NSInteger row, NSInteger section))indexPath {
-    return ^id (NSInteger row, NSInteger section) {
-        return [NSIndexPath indexPathForRow:row inSection:section];
-    };
-}
-- (CGFloat)width {
-    return CGRectGetWidth(self.frame);
-}
-- (CGFloat)height {
-    return CGRectGetHeight(self.frame);
-}
-- (CGSize)size {
-    return self.frame.size;
 }
 @end
 

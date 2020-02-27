@@ -213,6 +213,13 @@ typedef NSArray *_Nullable(^HTableSectionExclusiveBlock)(void);
 - (id)dequeueReusableCellWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx idxPath:(NSIndexPath *)idxPath;
 //release method
 - (void)releaseTableBlock;
+//根据传入的row和section获取cell或indexPath
+- (id (^)(NSInteger row, NSInteger section))cell;
+- (id (^)(NSInteger row, NSInteger section))indexPath;
+//获取tableView的宽高和大小
+- (CGFloat)width;
+- (CGFloat)height;
+- (CGSize)size;
 @end
 
 /// 信号机制分类
@@ -233,13 +240,6 @@ typedef NSArray *_Nullable(^HTableSectionExclusiveBlock)(void);
 - (void)signal:(HTableSignal *_Nullable)signal footerSection:(NSInteger)section;
 //释放所有信号block
 - (void)releaseAllSignal;
-//根据传入的row和section获取cell或indexPath
-- (id (^)(NSInteger row, NSInteger section))cell;
-- (id (^)(NSInteger row, NSInteger section))indexPath;
-//获取tableView的宽高和大小
-- (CGFloat)width;
-- (CGFloat)height;
-- (CGSize)size;
 @end
 
 /// split设计数据存储分类
