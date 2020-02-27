@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSObject+HUtil.h"
 #import "NSObject+HSwizzleUtil.h"
 
 @interface UIViewController (HTracking)

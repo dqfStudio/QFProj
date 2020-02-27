@@ -18,10 +18,14 @@
 }
 - (void)tracking_viewWillAppear:(BOOL)animated {
     [self tracking_viewWillAppear:animated];
-    printf("HPrinting-->你现已进入%s\n", NSStringFromClass(self.class).UTF8String);
+    if (![self isSystemClass:self.class]) {
+        printf("HPrinting-->你现已进入%s\n", NSStringFromClass(self.class).UTF8String);
+    }
 }
 - (void)tracking_viewWillDisappear:(BOOL)animated {
     [self tracking_viewWillDisappear:animated];
-    printf("HPrinting-->你现已退出%s\n", NSStringFromClass(self.class).UTF8String);
+    if (![self isSystemClass:self.class]) {
+        printf("HPrinting-->你现已退出%s\n", NSStringFromClass(self.class).UTF8String);
+    }
 }
 @end
