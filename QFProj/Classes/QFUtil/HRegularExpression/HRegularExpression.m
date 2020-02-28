@@ -86,6 +86,15 @@
         //替换
         //$1}else if ($2) {
         
+        
+        //查找函数参数中的空格，去掉“:”前后空格；去掉reportStyle之前的空格
+        /*
+         initWithReportStyle : (KSAppleReportStyle ) reportStyle
+         */
+        //[ ]*:[ ]*\((.*)\)[ ]*
+        //替换
+        //:($1)
+        
     }
     return self;
 }
