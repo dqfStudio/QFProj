@@ -238,10 +238,27 @@
 }
 
 -  (void)test:(NSString *)test test22:(NSString *)test2 test3:(NSString *)test3  {
-    NSLog(@"ff");
-    NSLog(@"ff");
-    NSLog(@"ff");
-    NSLog(@"ff");
+    
+    //查找case
+    /*
+     case 3:
+     {
+     */
+    //([ ]*)case[ ]*(.*)[ ]*:[ ]*\n[ ]*\{
+    //替换
+    //$1case $2: {
+    
+    
+    //查找case
+    /*
+     case 3:
+     
+     {
+     */
+    //([ ]*)case[ ]*(.*)[ ]*:[ ]*\n[ ]*\n[ ]*\{
+    //替换
+    //$1case $2: {
+    
 }
 
 - (void)fsf {
