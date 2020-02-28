@@ -100,6 +100,16 @@
         //$1}else if $2 {
         
         
+        //查找else if语句，如
+        /*
+         }
+         else if([type isEqual:@KSCrashExcType_CPPException])
+         {
+         */
+        //(.*)\}[ ]*\n[ ]*else[ ]*if[ ]*\((.*)\)[ ]*\n[ ]*\{[ ]*
+        //替换
+        //$1}else if ($2) {
+        
         
         //查找if语句，如
         /*
@@ -128,16 +138,6 @@
         //替换
         //$1}else {
         
-        
-        //查找else if语句，如
-        /*
-         }
-         else if([type isEqual:@KSCrashExcType_CPPException])
-         {
-         */
-        //(.*)\}[ ]*\n[ ]*else[ ]*if[ ]*\((.*)\)[ ]*\n[ ]*\{[ ]*
-        //替换
-        //$1}else if ($2) {
         
         
         //查找函数参数中的空格，去掉“:”前后空格；去掉reportStyle之前的空格
