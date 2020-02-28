@@ -64,7 +64,7 @@ extern NSString *const SRHTTPResponseErrorKey;
 @property (nonatomic, weak) id <SRWebSocketDelegate> delegate;
 
 @property (nonatomic, readonly) SRReadyState readyState;
-@property (nonatomic, readonly, retain) NSURL *url;
+@property (nonatomic, readonly, strong) NSURL *url;
 
 
 @property (nonatomic, readonly) CFHTTPMessageRef receivedHTTPHeaders;
@@ -141,7 +141,7 @@ extern NSString *const SRHTTPResponseErrorKey;
 
 @interface NSMutableURLRequest (SRCertificateAdditions)
 
-@property (nonatomic, retain) NSArray *SR_SSLPinnedCertificates;
+@property (nonatomic, strong) NSArray *SR_SSLPinnedCertificates;
 
 @end
 

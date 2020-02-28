@@ -43,9 +43,9 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
 
 @interface SKPSMTPMessage ()
 
-@property(nonatomic, retain) NSMutableString *inputString;
-@property(retain) NSTimer *connectTimer;
-@property(retain) NSTimer *watchdogTimer;
+@property(nonatomic, strong) NSMutableString *inputString;
+@property(strong) NSTimer *connectTimer;
+@property(strong) NSTimer *watchdogTimer;
 
 - (void)parseBuffer;
 - (BOOL)sendParts;

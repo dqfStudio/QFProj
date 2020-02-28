@@ -180,6 +180,9 @@
     //替换，注意")"后面有个空格
     //@property (nonatomic, strong, nullable)
     
+    //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*copy[ ]*,[ ]*nullable[ ]*\)[ ]*
+    //替换，注意")"后面有个空格
+    //@property (nonatomic, copy, nullable)
     
     //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*nullable[ ]*\)[ ]*
     //替换，注意")"后面有个空格
@@ -217,10 +220,19 @@
     //替换，注意")"后面有个空格
     //@property (nonatomic, weak)
     
-    
     //[ ]*@property[ ]*\([ ]*weak[ ]*,[ ]*nonatomic[ ]*\)[ ]*
     //替换，注意")"后面有个空格
     //@property (nonatomic, weak)
+    
+    
+    
+    //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*readwrite[ ]*\)[ ]*
+    //替换，注意")"后面有个空格
+    //@property (nonatomic, readwrite)
+    
+    //[ ]*@property[ ]*\([ ]*readwrite[ ]*,[ ]*nonatomic[ ]*\)[ ]*
+    //替换，注意")"后面有个空格
+    //@property (nonatomic, readwrite)
     
     
 }

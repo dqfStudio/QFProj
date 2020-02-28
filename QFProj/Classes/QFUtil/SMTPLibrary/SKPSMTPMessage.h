@@ -116,21 +116,21 @@ extern NSString *kSKPSMTPPartContentTransferEncodingKey;
     NSTimer *watchdogTimer;
 }
 
-@property(nonatomic, retain) NSString *login;
-@property(nonatomic, retain) NSString *pass;
-@property(nonatomic, retain) NSString *relayHost;
+@property(nonatomic, strong) NSString *login;
+@property(nonatomic, strong) NSString *pass;
+@property(nonatomic, strong) NSString *relayHost;
 
-@property(nonatomic, retain) NSArray *relayPorts;
+@property(nonatomic, strong) NSArray *relayPorts;
 @property(nonatomic, assign) BOOL requiresAuth;
 @property(nonatomic, assign) BOOL wantsSecure;
 @property(nonatomic, assign) BOOL validateSSLChain;
 
-@property(nonatomic, retain) NSString *subject;
-@property(nonatomic, retain) NSString *fromEmail;
-@property(nonatomic, retain) NSString *toEmail;
-@property(nonatomic, retain) NSString *ccEmail;
-@property(nonatomic, retain) NSString *bccEmail;
-@property(nonatomic, retain) NSArray *parts;
+@property(nonatomic, strong) NSString *subject;
+@property(nonatomic, strong) NSString *fromEmail;
+@property(nonatomic, strong) NSString *toEmail;
+@property(nonatomic, strong) NSString *ccEmail;
+@property(nonatomic, strong) NSString *bccEmail;
+@property(nonatomic, strong) NSArray *parts;
 
 @property(nonatomic, assign) NSTimeInterval connectTimeout;
 
