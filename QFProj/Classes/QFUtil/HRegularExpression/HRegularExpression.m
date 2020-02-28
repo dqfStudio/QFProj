@@ -29,6 +29,15 @@
         
 //        addSubview:$1;
 //        [[HPrinterManager share] setObject:[NSString stringWithFormat:@"function:%s line:%d", __FUNCTION__, __LINE__] forKey:[NSString stringWithFormat:@"%p", [HPrinterManager share].view]];
+        
+        //查找所有方法
+        //(\n[ ]*[-+]+[ ]*[()].*\{)
+        //方法里面添加一个打印信息
+        /*
+        $1
+        NSLog(@"");
+        */
+        
     }
     return self;
 }
