@@ -161,10 +161,58 @@
 }
 
 -  (void)test:(NSString *)test test2:(NSString *)test2 {
-    NSLog(@"ff");
-    NSLog(@"ff");
-    NSLog(@"ff");
-    NSLog(@"ff");
+    
+    //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*strong[ ]*\)[ ]*
+    //替换，注意")"后面有个空格
+    //@property (nonatomic, strong)
+    
+    
+    //[ ]*@property[ ]*\([ ]*strong[ ]*,[ ]*nonatomic[ ]*\)[ ]*
+    //替换，注意")"后面有个空格
+    //@property (nonatomic, strong)
+    
+    
+    //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*strong[ ]*,[ ]*nullable[ ]*\)[ ]*
+    //替换，注意")"后面有个空格
+    //@property (nonatomic, strong, nullable)
+    
+    
+    
+    
+    //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*assign[ ]*\)[ ]*
+    //替换，注意")"后面有个空格
+    //@property (nonatomic, assign)
+    
+    
+    //[ ]*@property[ ]*\([ ]*assign[ ]*,[ ]*nonatomic[ ]*\)[ ]*
+    //替换，注意")"后面有个空格
+    //@property (nonatomic, assign)
+    
+    
+    
+    
+    //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*copy[ ]*\)[ ]*
+    //替换，注意")"后面有个空格
+    //@property (nonatomic, copy)
+    
+    
+    //[ ]*@property[ ]*\([ ]*copy[ ]*,[ ]*nonatomic[ ]*\)[ ]*
+    //替换，注意")"后面有个空格
+    //@property (nonatomic, copy)
+    
+    
+    
+    
+    //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*weak[ ]*\)[ ]*
+    //替换，注意")"后面有个空格
+    //@property (nonatomic, weak)
+    
+    
+    //[ ]*@property[ ]*\([ ]*weak[ ]*,[ ]*nonatomic[ ]*\)[ ]*
+    //替换，注意")"后面有个空格
+    //@property (nonatomic, weak)
+    
+    
 }
 
 -  (void)test:(NSString *)test test22:(NSString *)test2 test3:(NSString *)test3  {
