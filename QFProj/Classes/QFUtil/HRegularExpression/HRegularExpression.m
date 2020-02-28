@@ -268,6 +268,16 @@
 
 -  (void)test:(NSString *)test test22:(NSString *)test2 test3:(NSString *)test3  {
     
+    //查找switch
+    /*
+     case 3:
+     {
+     */
+    //([ ]*)switch[ ]*(.*)[ ]*\n[ ]*\{
+    //替换
+    //$1switch $2 {
+    
+    
     //查找case
     /*
      case 3:
