@@ -75,6 +75,17 @@
         //替换
         //$1}else {
         
+        
+        //查找else if语句，如
+        /*
+         }
+         else if([type isEqual:@KSCrashExcType_CPPException])
+         {
+         */
+        //(.*)\}[ ]*\n[ ]*else[ ]*if[ ]*\((.*)\)[ ]*\n[ ]*\{[ ]*
+        //替换
+        //$1}else if ($2) {
+        
     }
     return self;
 }
