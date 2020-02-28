@@ -101,7 +101,7 @@
         
         
         
-        //查找f语句，如
+        //查找if语句，如
         /*
          if([type isEqual:@KSCrashExcType_CPPException]){
          */
