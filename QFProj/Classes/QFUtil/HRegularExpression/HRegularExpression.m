@@ -31,11 +31,11 @@
 //        [[HPrinterManager share] setObject:[NSString stringWithFormat:@"function:%s line:%d", __FUNCTION__, __LINE__] forKey:[NSString stringWithFormat:@"%p", [HPrinterManager share].view]];
         
         //查找所有方法
-        //(\n[ ]*[-+]+[ ]*[()].*\{)
-        //方法里面添加一个打印信息
+        //(\n[ ]*[-+]+[ ]*[()].*\{[ ]*\n)
+        //方法里面添加一个打印信息, 此处需要注意”NSLog(@"");“后台还有换行符
         /*
-        $1
-        NSLog(@"");
+        $1    NSLog(@"");
+
         */
         
     }
