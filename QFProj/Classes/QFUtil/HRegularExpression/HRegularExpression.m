@@ -95,6 +95,26 @@
         //替换
         //:($1)
         
+        
+        //查找函数参数中的空格，去掉“:”前后空格；去掉reportStyle前后的空格，去掉括号中的空格
+        //此方法不用于括号中带*的，如(NSDictionary *) report，括号中的空格不会被干掉
+        /*
+         initWithReportStyle : (KSAppleReportStyle ) reportStyle
+         */
+        //[ ]*:[ ]*\([ ]*([\S]*)[ ]*\)[ ]*
+        //替换
+        //:($1)
+        
+        
+        //查找函数参数中的空格，去掉“:”前后空格；去掉NSString前后的空格，调整*前后空格
+        //此方法主要用于括号中带*的
+        /*
+         toCompactUUID:(NSString*)uuid
+         */
+        //[ ]*:[ ]*\([ ]*([\S]*)[ ]*\*[ ]*\)[ ]*
+        //替换
+        //:($1 *)
+        
     }
     return self;
 }
