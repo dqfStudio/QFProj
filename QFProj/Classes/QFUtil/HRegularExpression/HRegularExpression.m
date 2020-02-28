@@ -30,6 +30,9 @@
 //        addSubview:$1;
 //        [[HPrinterManager share] setObject:[NSString stringWithFormat:@"function:%s line:%d", __FUNCTION__, __LINE__] forKey:[NSString stringWithFormat:@"%p", [HPrinterManager share].view]];
         
+        
+        
+        
         //查找所有方法
         //(\n[ ]*[-+]+[ ]*[()].*\{[ ]*\n)
         //方法里面添加一个打印信息, 此处需要注意”NSLog(@"");“后台还有换行符
@@ -57,6 +60,49 @@
         //(\n[ ]*[-+]+[ ]*[(]+[^()]*[)]+[^\\\n/ ]*)[^ ]*\{
         //替换
         //$1 {
+        
+        
+        
+        
+        
+        
+        //查找函数参数中的空格，去掉“:”前后空格；去掉reportStyle之前的空格
+        /*
+         initWithReportStyle : (KSAppleReportStyle ) reportStyle
+         */
+        //[ ]*:[ ]*\((.*)\)[ ]*
+        //替换
+        //:($1)
+        
+        
+        //查找函数参数中的空格，去掉“:”前后空格；去掉reportStyle前后的空格，去掉括号中的空格
+        //此方法不用于括号中带*的，如(NSDictionary *) report，括号中的空格不会被干掉
+        /*
+         initWithReportStyle : (KSAppleReportStyle ) reportStyle
+         */
+        //[ ]*:[ ]*\([ ]*([\S]*)[ ]*\)[ ]*
+        //替换
+        //:($1)
+        
+        
+        //查找函数参数中的空格，去掉“:”前后空格；去掉NSString前后的空格，调整*前后空格
+        //此方法主要用于括号中带*的
+        /*
+         toCompactUUID:(NSString*)uuid
+         */
+        //[ ]*:[ ]*\([ ]*([\S]*)[ ]*\*[ ]*\)[ ]*
+        //替换
+        //:($1 *)
+        
+        
+        //查找所有类似" NSString* "这样的
+        //([ ]*)([a-zA-Z]+)[ ]*\*[ ]*
+        //替换
+        //$1$2 *
+        
+        
+        
+        
         
         
         //查找if语句隔行{
@@ -138,44 +184,7 @@
         //替换
         //$1}else {
         
-        
-        
-        //查找函数参数中的空格，去掉“:”前后空格；去掉reportStyle之前的空格
-        /*
-         initWithReportStyle : (KSAppleReportStyle ) reportStyle
-         */
-        //[ ]*:[ ]*\((.*)\)[ ]*
-        //替换
-        //:($1)
-        
-        
-        //查找函数参数中的空格，去掉“:”前后空格；去掉reportStyle前后的空格，去掉括号中的空格
-        //此方法不用于括号中带*的，如(NSDictionary *) report，括号中的空格不会被干掉
-        /*
-         initWithReportStyle : (KSAppleReportStyle ) reportStyle
-         */
-        //[ ]*:[ ]*\([ ]*([\S]*)[ ]*\)[ ]*
-        //替换
-        //:($1)
-        
-        
-        //查找函数参数中的空格，去掉“:”前后空格；去掉NSString前后的空格，调整*前后空格
-        //此方法主要用于括号中带*的
-        /*
-         toCompactUUID:(NSString*)uuid
-         */
-        //[ ]*:[ ]*\([ ]*([\S]*)[ ]*\*[ ]*\)[ ]*
-        //替换
-        //:($1 *)
-        
-        
-        //查找所有类似" NSString* "这样的
-        //([ ]*)([a-zA-Z]+)[ ]*\*[ ]*
-        //替换
-        //$1$2 *
-        
-        
-        
+
     }
     return self;
 }
