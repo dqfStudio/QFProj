@@ -172,9 +172,19 @@
     //@property (nonatomic, strong)
     
     
+    
+    
+    
+    
     //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*strong[ ]*,[ ]*nullable[ ]*\)[ ]*
     //替换，注意")"后面有个空格
     //@property (nonatomic, strong, nullable)
+    
+    
+    //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*nullable[ ]*\)[ ]*
+    //替换，注意")"后面有个空格
+    //@property (nonatomic, nullable)
+    
     
     
     
