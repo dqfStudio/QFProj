@@ -100,6 +100,26 @@
         //$1}else if $2 {
         
         
+        
+        //查找f语句，如
+        /*
+         if([type isEqual:@KSCrashExcType_CPPException]){
+         */
+        //([ ]*)if[ ]*\((.*)\)[ ]*\{
+        //替换
+        //$1if ($2) {
+        
+        
+        //查找else if语句，如
+        /*
+         else if([type isEqual:@KSCrashExcType_CPPException]){
+         */
+        //([ ]*)else[ ]*if[ ]*\((.*)\)[ ]*\{
+        //替换
+        //$1else if ($2) {
+        
+        
+        
         //查找else语句，如
         /*
          }else {
