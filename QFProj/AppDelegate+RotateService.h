@@ -17,6 +17,5 @@ typedef NS_ENUM(NSInteger, UIDeviceOrientationStyle) {
 };
 
 @interface AppDelegate (RotateService)
-@property (nonatomic, class) BOOL shouldAutorotate;
 @property (nonatomic, class) UIDeviceOrientationStyle orientationStyle; //旋转方向
 @end
