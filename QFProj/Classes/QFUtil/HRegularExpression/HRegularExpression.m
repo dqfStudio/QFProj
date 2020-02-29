@@ -290,6 +290,37 @@
     //"@property (nonatomic, readwrite) "
     
     
+    
+    //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*assign[ ]*,[ ]*readonly[ ]*\)[ ]*
+    //替换，注意")"后面有个空格
+    //"@property (nonatomic, assign, readonly) "
+    
+    //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*readonly[ ]*,[ ]*assign[ ]*\)[ ]*
+    //替换，注意")"后面有个空格
+    //"@property (nonatomic, assign, readonly) "
+    
+    
+    
+    //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*strong[ ]*,[ ]*readonly[ ]*\)[ ]*
+    //替换，注意")"后面有个空格
+    //"@property (nonatomic, strong, readonly) "
+    
+    //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*readonly[ ]*,[ ]*strong[ ]*\)[ ]*
+    //替换，注意")"后面有个空格
+    //"@property (nonatomic, strong, readonly) "
+
+    
+    
+    //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*readonly[ ]*\)[ ]*
+    //替换，注意")"后面有个空格
+    //"@property (nonatomic, readonly) "
+    
+    //[ ]*@property[ ]*\([ ]*readonly[ ]*,[ ]*nonatomic[ ]*\)[ ]*
+    //替换，注意")"后面有个空格
+    //"@property (nonatomic, readonly) "
+    
+    
+    
     //[ ]*@property[ ]*\([ ]*nonatomic[ ]*\)[ ]*
     //替换，注意")"后面有个空格
     //"@property (nonatomic) "
