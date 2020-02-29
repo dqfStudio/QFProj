@@ -283,6 +283,11 @@
     //"@property (nonatomic, readwrite) "
     
     
+    //[ ]*@property[ ]*\([ ]*nonatomic[ ]*\)[ ]*
+    //替换，注意")"后面有个空格
+    //"@property (nonatomic) "
+    
+    
 }
 
 -  (void)test:(NSString *)test test22:(NSString *)test2 test3:(NSString *)test3  {
