@@ -212,12 +212,12 @@
     
     //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*strong[ ]*\)[ ]*
     //替换，注意")"后面有个空格
-    //@property (nonatomic, strong)
+    //"@property (nonatomic, strong) "
     
     
     //[ ]*@property[ ]*\([ ]*strong[ ]*,[ ]*nonatomic[ ]*\)[ ]*
     //替换，注意")"后面有个空格
-    //@property (nonatomic, strong)
+    //"@property (nonatomic, strong) "
     
     
     
@@ -226,15 +226,15 @@
     
     //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*strong[ ]*,[ ]*nullable[ ]*\)[ ]*
     //替换，注意")"后面有个空格
-    //@property (nonatomic, strong, nullable)
+    //"@property (nonatomic, strong, nullable) "
     
     //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*copy[ ]*,[ ]*nullable[ ]*\)[ ]*
     //替换，注意")"后面有个空格
-    //@property (nonatomic, copy, nullable)
+    //"@property (nonatomic, copy, nullable) "
     
     //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*nullable[ ]*\)[ ]*
     //替换，注意")"后面有个空格
-    //@property (nonatomic, nullable)
+    //"@property (nonatomic, nullable) "
     
     
     
@@ -242,45 +242,45 @@
     
     //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*assign[ ]*\)[ ]*
     //替换，注意")"后面有个空格
-    //@property (nonatomic, assign)
+    //"@property (nonatomic, assign) "
     
     
     //[ ]*@property[ ]*\([ ]*assign[ ]*,[ ]*nonatomic[ ]*\)[ ]*
     //替换，注意")"后面有个空格
-    //@property (nonatomic, assign)
+    //"@property (nonatomic, assign) "
     
     
     
     
     //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*copy[ ]*\)[ ]*
     //替换，注意")"后面有个空格
-    //@property (nonatomic, copy)
+    //"@property (nonatomic, copy) "
     
     
     //[ ]*@property[ ]*\([ ]*copy[ ]*,[ ]*nonatomic[ ]*\)[ ]*
     //替换，注意")"后面有个空格
-    //@property (nonatomic, copy)
+    //"@property (nonatomic, copy) "
     
     
     
     
     //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*weak[ ]*\)[ ]*
     //替换，注意")"后面有个空格
-    //@property (nonatomic, weak)
+    //@"property (nonatomic, weak) "
     
     //[ ]*@property[ ]*\([ ]*weak[ ]*,[ ]*nonatomic[ ]*\)[ ]*
     //替换，注意")"后面有个空格
-    //@property (nonatomic, weak)
+    //"@property (nonatomic, weak) "
     
     
     
     //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*readwrite[ ]*\)[ ]*
     //替换，注意")"后面有个空格
-    //@property (nonatomic, readwrite)
+    //"@property (nonatomic, readwrite) "
     
     //[ ]*@property[ ]*\([ ]*readwrite[ ]*,[ ]*nonatomic[ ]*\)[ ]*
     //替换，注意")"后面有个空格
-    //@property (nonatomic, readwrite)
+    //"@property (nonatomic, readwrite) "
     
     
 }
