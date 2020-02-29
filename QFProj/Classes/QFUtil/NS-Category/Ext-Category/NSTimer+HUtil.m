@@ -91,15 +91,18 @@
 }
 
 + (NSTimer *)h_scheduledTimerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats block:(void(^)(NSTimer * _Nonnull timer))block {
+    NSTimer *timer = nil;
     if (@available(iOS 10.0, *)) {
-        return [NSTimer scheduledTimerWithTimeInterval:interval repeats:repeats block:block];
+        timer = [NSTimer scheduledTimerWithTimeInterval:interval repeats:repeats block:block];
     }else {
-        return [self scheduledTimerWithTimeInterval:interval
-                                             target:self
-                                           selector:@selector(h_blockInvoke:)
-                                           userInfo:[block copy]
-                                            repeats:repeats];
+        timer = [self scheduledTimerWithTimeInterval:interval
+                                              target:self
+                                            selector:@selector(h_blockInvoke:)
+                                            userInfo:[block copy]
+                                             repeats:repeats];
     }
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    return timer;
 }
 
 + (void)h_blockInvoke:(NSTimer *)timer {
