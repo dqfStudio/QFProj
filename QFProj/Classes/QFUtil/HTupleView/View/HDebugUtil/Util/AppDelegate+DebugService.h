@@ -13,5 +13,5 @@
 @interface AppDelegate (DebugService) <JhtFloatingBallDelegate>
 @property (nonatomic, readonly) HDebugView *debugView;
 @property (nonatomic, readonly) JhtFloatingBall *folatingball;
-- (void)loadfolatingball;
+- (void)loadFolatingball;
 @end
