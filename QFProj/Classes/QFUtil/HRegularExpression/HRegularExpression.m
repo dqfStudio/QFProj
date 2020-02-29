@@ -266,7 +266,7 @@
     
     //[ ]*@property[ ]*\([ ]*nonatomic[ ]*,[ ]*weak[ ]*\)[ ]*
     //替换，注意")"后面有个空格
-    //@"property (nonatomic, weak) "
+    //"@property (nonatomic, weak) "
     
     //[ ]*@property[ ]*\([ ]*weak[ ]*,[ ]*nonatomic[ ]*\)[ ]*
     //替换，注意")"后面有个空格
