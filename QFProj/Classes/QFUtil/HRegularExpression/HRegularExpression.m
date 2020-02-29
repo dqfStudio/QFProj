@@ -345,9 +345,48 @@ $1    break;
      }
          break;
      */
-    //([ ]*)case[ ]*(.*)[ ]*:[ ]*\{[ ]*\n[ ]*(.*)[ ]*\n[ ]*\}[ ]*\n[ ]*break[ ]*;[ ]*
+    //([ ]*)case[ ]*(.*)[ ]*:[ ]*\{[ ]*\n[ ]*return[ ]*(.*)[ ]*\n[ ]*\}[ ]*\n[ ]*break[ ]*;[ ]*
     //替换
-    //$1case $2: $3
+    //$1case $2:return $3
+    
+    
+    
+    //查找case
+    /*
+     case 2: {
+         makeRect.origin.x = CGRectGetWidth(self.frame)/2.0f;
+     }
+         break;
+     */
+    //([ ]*)case[ ]*(.*)[ ]*:[ ]*\{[ ]*\n[ ]*((?:(?!return).)*)[ ]*\n[ ]*\}[ ]*\n[ ]*break[ ]*;[ ]*
+    //替换
+    //$1case $2: $3 break;
+    
+    
+    
+    //查找case
+    /*
+     case 2:
+         return 0;
+         break;
+     */
+    //([ ]*)case[ ]*(.*)[ ]*:[ ]*\n[ ]*return[ ]*(.*)[ ]*\n[ ]*break[ ]*;[ ]*
+    //替换
+    //$1case $2: return $3
+    
+    
+    
+    //查找case
+    /*
+     case 2:
+         makeRect.origin.x = CGRectGetWidth(self.frame)/2.0f;
+         break;
+     */
+    //([ ]*)case[ ]*(.*)[ ]*:[ ]*\n[ ]*((?:(?!return).)*)[ ]*\n[ ]*break[ ]*;[ ]*
+    //替换
+    //$1case $2: $3 break;
+    
+    
     
     
 }
