@@ -22,7 +22,7 @@ static const int gesture_block_key;
 
 @implementation UIGestureRecognizerBlockTarget
 
-- (id)initWithBlock:(void (^)(id sender))block{
+- (id)initWithBlock:(void (^)(id sender))block {
     self = [super init];
     if (self) {
         self.block = block;

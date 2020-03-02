@@ -179,7 +179,7 @@ static void *const HKNotificationSemaphoreKey = "HKNotificationSemaphoreKey";
     dispatch_semaphore_signal(notificationSemaphore);
 }
 
-- (void)h_postNotificationWithName:(NSString *)name userInfo:(NSDictionary *)userInfo{
+- (void)h_postNotificationWithName:(NSString *)name userInfo:(NSDictionary *)userInfo {
     [[NSNotificationCenter defaultCenter] postNotificationName:name object:nil userInfo:userInfo];
 }
 
