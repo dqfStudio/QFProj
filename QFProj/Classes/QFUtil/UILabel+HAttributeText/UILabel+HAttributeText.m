@@ -463,7 +463,7 @@
 - (NSString *)getStringWithRange:(NSRange)range {
     NSMutableString *string = [NSMutableString string];
     
-    for (int i = 0; i < range.length ; i++) {
+    for (int i = 0; i < range.length; i++) {
         
         [string appendString:@" "];
     }

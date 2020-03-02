@@ -33,7 +33,7 @@
     NSInteger index = 0;
     id ks[cnt];
     id objs[cnt];
-    for (NSInteger i = 0; i < cnt ; ++i) {
+    for (NSInteger i = 0; i < cnt; ++i) {
         if (keys[i] && objects[i]) {
             ks[index] = keys[i];
             objs[index] = objects[i];

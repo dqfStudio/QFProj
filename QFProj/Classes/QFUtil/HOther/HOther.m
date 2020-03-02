@@ -281,7 +281,7 @@
 //            if ([urlStr rangeOfString:pay].location != NSNotFound) {
 //                [[UIApplication sharedApplication] openURL:requestURL options:@{UIApplicationOpenURLOptionUniversalLinksOnly: @NO} completionHandler:nil];
 //                decisionHandler(WKNavigationActionPolicyCancel);
-//                return ;
+//                return;
 //            }
 //        }
 //    }

@@ -550,8 +550,7 @@
         if ([textFieldView isKindOfClass:[UITextField class]]) {
             UITextField *textField = (UITextField *)textFieldView;
             textField.returnKeyType = modal.originalReturnKeyType;
-            textField.delegate = modal.textFieldDelegate
-            ;
+            textField.delegate = modal.textFieldDelegate;
         }
         else if ([textFieldView isKindOfClass:[UITextView class]]) {
             UITextView *textView = (UITextView *)textFieldView;

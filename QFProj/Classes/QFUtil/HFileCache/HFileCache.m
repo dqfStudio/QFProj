@@ -283,7 +283,7 @@
         //2.if no cache size just return
         if (self.maxCacheSize < 0) {
             if (finish) finish(self);
-            return ;
+            return;
         }
         //2.if over the max size, clear by FIFO strategy
         long long cacheSize = [self _getSize];

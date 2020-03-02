@@ -46,7 +46,7 @@
 }
 
 + (id)allocWithZone:(struct _NSZone *)zone {
-    return [HMultiWebSocketManager shareManager] ;
+    return [HMultiWebSocketManager shareManager];
 }
 
 - (id)copyWithZone:(struct _NSZone *)zone {

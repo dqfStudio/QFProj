@@ -179,7 +179,7 @@
 - (void)dependenceInset {
     [self hclassManager_scanProtocals:^(NSString *ppname, NSString *protocalString) {
         Protocol *po = NSProtocolFromString(protocalString);
-        if (!po) return ;
+        if (!po) return;
         
         id obj = [HClassManager getObjectOfProtocal:po];
         [obj dependenceInset];

@@ -40,7 +40,7 @@ typedef enum HSimilarityType {
     a[ArrSize] = 0;
     b[ArrSize] = 0;
     CGPoint point;
-    for (i = 0 ; i < cursize; i++) {//计算a的灰度
+    for (i = 0; i < cursize; i++) {//计算a的灰度
         for (j = 0; j < cursize; j++) {
             point.x = i;
             point.y = j;
@@ -50,7 +50,7 @@ typedef enum HSimilarityType {
         }
     }
     a[ArrSize] /= (ArrSize - 1);//灰度平均值
-    for (i = 0 ; i < cursize; i++) {//计算b的灰度
+    for (i = 0; i < cursize; i++) {//计算b的灰度
         for (j = 0; j < cursize; j++) {
             point.x = i;
             point.y = j;
@@ -60,13 +60,13 @@ typedef enum HSimilarityType {
         }
     }
     b[ArrSize] /= (ArrSize - 1);//灰度平均值
-    for (i = 0 ; i < ArrSize ; i++)//灰度分布计算
+    for (i = 0; i < ArrSize; i++)//灰度分布计算
     {
         a[i] = (a[i] < a[ArrSize] ? 0 : 1);
         b[i] = (b[i] < b[ArrSize] ? 0 : 1);
     }
     ArrSize -= 1;
-    for (i = 0 ; i < ArrSize ; i++)
+    for (i = 0; i < ArrSize; i++)
     {
         sum += (a[i] == b[i] ? 1 : 0);
     }
@@ -94,10 +94,10 @@ unsigned int ToGrey(unsigned int rgb) {
     RGB = R = G = B = 0x00000000;
     CGFloat r,g,b,a;
     [color getRed:&r green:&g blue:&b alpha:&a];
-    R = r *256 ;
-    G = g *256 ;
-    B = b *256 ;
-    RGB = (R << 16) | (G << 8) | B ;
+    R = r *256;
+    G = g *256;
+    B = b *256;
+    RGB = (R << 16) | (G << 8) | B;
     return RGB;
 }
 

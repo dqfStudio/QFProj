@@ -183,7 +183,7 @@ void myRunLoopObserver(CFRunLoopObserverRef observer, CFRunLoopActivity activity
     char **strs = backtrace_symbols(callstack, frames);
     int i;
     _backtrace = [NSMutableArray arrayWithCapacity:frames];
-    for ( i = 0 ; i < frames ; i++ ) {
+    for ( i = 0; i < frames; i++ ) {
         [_backtrace addObject:[NSString stringWithUTF8String:strs[i]]];
     }
     free(strs);

@@ -614,7 +614,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		//Gradient center
 		CGPoint gradCenter= CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
 		//Gradient radius
-		float gradRadius = MIN(self.bounds.size.width , self.bounds.size.height) ;
+		float gradRadius = MIN(self.bounds.size.width , self.bounds.size.height);
 		//Gradient draw
 		CGContextDrawRadialGradient (context, gradient, gradCenter,
 									 0, gradCenter, gradRadius,
