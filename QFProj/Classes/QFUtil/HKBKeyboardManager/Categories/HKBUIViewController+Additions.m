@@ -28,12 +28,12 @@
 @implementation UIViewController (Additions)
 
 -(void)setHKBLayoutGuideConstraint:(NSLayoutConstraint *)HKBLayoutGuideConstraint
-{
+ {
     objc_setAssociatedObject(self, @selector(HKBLayoutGuideConstraint), HKBLayoutGuideConstraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 -(NSLayoutConstraint *)HKBLayoutGuideConstraint
-{
+ {
     return objc_getAssociatedObject(self, @selector(HKBLayoutGuideConstraint));
 }
 
