@@ -65,7 +65,7 @@
     float pX, pY;
     for (int i = 0; i < text.length; i++){
         
-        pX = arc4random() % width + rect.size.width / text.length * i;
+        pX = arc4random() % width + rect.size.width / text.length *i;
         pY = arc4random() % height;
         point = CGPointMake(pX, pY);
         unichar c = [text characterAtIndex:i];

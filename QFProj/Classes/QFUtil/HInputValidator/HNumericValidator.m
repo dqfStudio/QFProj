@@ -24,10 +24,8 @@
 
     // if there is not a single match
     // then return an error and NO
-    if (numberOfMatches == 0)
-    {
-        if (error != nil)
-        {
+    if (numberOfMatches == 0) {
+        if (error != nil) {
             NSString *description = NSLocalizedString(@"Input Validation Failed", @"");
             NSString *reason = NSLocalizedString(@"The input can only contain numerical values", @"");
 
@@ -51,7 +49,7 @@
 - (BOOL)input:(UITextField *)input inRange:(NSRange)range error:(NSError **)error {
 
     //去掉两端的空格和换行符号
-    NSString  *inputText = [input.text mutableCopy];
+    NSString *inputText = [input.text mutableCopy];
     inputText = [inputText stringByTrimmingCharactersInSet:
                  [NSCharacterSet whitespaceAndNewlineCharacterSet]];
     [input setText:inputText];
@@ -61,8 +59,7 @@
         return YES;
     }else {
 
-        if (error != nil)
-        {
+        if (error != nil) {
             NSString *str = [NSString stringWithFormat:@"The length of the input needs to be between %lu-%lu",(unsigned long)range.location,(unsigned long)range.length];
 
             NSString *description = NSLocalizedString(@"Input Validation Failed", @"");

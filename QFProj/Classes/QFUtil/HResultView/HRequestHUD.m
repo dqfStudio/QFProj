@@ -34,7 +34,7 @@
     frame.size.height += _tupleHeaderSize.height+_imageSize.height;
     frame.size.height += _titleHeaderSize.height+_titleSize.height;
     frame.size.height += _subTitleHeaderSize.height+_subTitleSize.height;
-    if(!CGRectEqualToRect(frame, self.frame)) {
+    if (!CGRectEqualToRect(frame, self.frame)) {
         [_requestTuple setFrame:frame];
     }
     [_requestTuple reloadData];

@@ -74,7 +74,7 @@
 ////                return 1;
 ////            } items:^CGFloat(NSInteger section) {
 ////                return 3;
-////            } color:^UIColor * _Nullable(NSInteger section) {
+////            } color:^UIColor *_Nullable(NSInteger section) {
 ////                return nil;
 ////            } inset:^UIEdgeInsets(NSInteger section) {
 ////                return UIEdgeInsetsZero;
@@ -89,11 +89,11 @@
 ////                [cell setBackgroundColor:UIColor.redColor];
 ////            }];
 ////
-////            [cell.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+////            [cell.tupleView itemWithSize:^CGSize(NSIndexPath *_Nonnull indexPath) {
 ////                return CGSizeMake(CGRectGetWidth(frame)-CGRectGetHeight(frame), CGRectGetHeight(frame)/3);
-////            } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
+////            } edgeInsets:^UIEdgeInsets(NSIndexPath *_Nonnull indexPath) {
 ////                return UIEdgeInsetsMake(0, 10, 0, 0);
-////            } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+////            } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath *_Nonnull indexPath) {
 ////                HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
 ////                switch (indexPath.row) {
 ////                    case 0: {
@@ -127,7 +127,7 @@
 ////                return 1;
 ////            } items:^CGFloat(NSInteger section) {
 ////                return 2;
-////            } color:^UIColor * _Nullable(NSInteger section) {
+////            } color:^UIColor *_Nullable(NSInteger section) {
 ////                return nil;
 ////            } inset:^UIEdgeInsets(NSInteger section) {
 ////                return UIEdgeInsetsZero;
@@ -151,11 +151,11 @@
 ////                [cell setBackgroundColor:UIColor.greenColor];
 ////            }];
 ////
-////            [cell.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+////            [cell.tupleView itemWithSize:^CGSize(NSIndexPath *_Nonnull indexPath) {
 ////                return CGSizeMake(CGRectGetWidth(frame)-CGRectGetHeight(frame)*2, CGRectGetHeight(frame)/2);
-////            } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
+////            } edgeInsets:^UIEdgeInsets(NSIndexPath *_Nonnull indexPath) {
 ////                return UIEdgeInsetsMake(0, 10, 0, 10);
-////            } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+////            } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath *_Nonnull indexPath) {
 ////                HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
 ////                switch (indexPath.row) {
 ////                    case 0: {
@@ -188,7 +188,7 @@
 ////                    return 2;
 ////                }
 ////                return 1;
-////            } color:^UIColor * _Nullable(NSInteger section) {
+////            } color:^UIColor *_Nullable(NSInteger section) {
 ////                return nil;
 ////            } inset:^UIEdgeInsets(NSInteger section) {
 ////                return UIEdgeInsetsZero;
@@ -203,21 +203,21 @@
 ////                [cell setBackgroundColor:UIColor.redColor];
 ////            }];
 ////
-////            [cell.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+////            [cell.tupleView itemWithSize:^CGSize(NSIndexPath *_Nonnull indexPath) {
 ////                if (indexPath.section == 0) {
 ////                    return CGSizeMake(CGRectGetWidth(frame)-CGRectGetHeight(frame)*3-10, CGRectGetHeight(frame)/2);
 ////                }else {
 ////                    return CGSizeMake(CGRectGetHeight(frame)+10, CGRectGetHeight(frame));
 ////                }
 ////                return CGSizeZero;
-////            } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
+////            } edgeInsets:^UIEdgeInsets(NSIndexPath *_Nonnull indexPath) {
 ////                if (indexPath.section == 0) {
 ////                    return UIEdgeInsetsMake(0, 10, 0, 10);
 ////                }else {
 ////                    return UIEdgeInsetsMake(0, 10, 0, 0);
 ////                }
 ////                return UIEdgeInsetsZero;
-////            } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+////            } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath *_Nonnull indexPath) {
 ////                if (indexPath.section == 0) {
 ////                    HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
 ////                    switch (indexPath.row) {
@@ -250,13 +250,13 @@
 ////                return 1;
 ////            } items:^CGFloat(NSInteger section) {
 ////                return 2;
-////            } color:^UIColor * _Nullable(NSInteger section) {
+////            } color:^UIColor *_Nullable(NSInteger section) {
 ////                return nil;
 ////            } inset:^UIEdgeInsets(NSInteger section) {
 ////                return UIEdgeInsetsZero;
 ////            }];
 ////
-////            [cell.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+////            [cell.tupleView itemWithSize:^CGSize(NSIndexPath *_Nonnull indexPath) {
 ////                switch (indexPath.row) {
 ////                    case 0:
 ////                        return CGSizeMake(CGRectGetWidth(frame), CGRectGetHeight(frame)-20);
@@ -269,9 +269,9 @@
 ////                        break;
 ////                }
 ////                return CGSizeZero;
-////            } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
+////            } edgeInsets:^UIEdgeInsets(NSIndexPath *_Nonnull indexPath) {
 ////                return UIEdgeInsetsZero;
-////            } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+////            } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath *_Nonnull indexPath) {
 ////                switch (indexPath.row) {
 ////                    case 0: {
 ////                        HTupleImageCell *cell = itemBlock(nil, HTupleImageCell.class, nil, YES);
@@ -301,13 +301,13 @@
 ////                return 1;
 ////            } items:^CGFloat(NSInteger section) {
 ////                return 2;
-////            } color:^UIColor * _Nullable(NSInteger section) {
+////            } color:^UIColor *_Nullable(NSInteger section) {
 ////                return nil;
 ////            } inset:^UIEdgeInsets(NSInteger section) {
 ////                return UIEdgeInsetsZero;
 ////            }];
 ////
-////            [cell.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+////            [cell.tupleView itemWithSize:^CGSize(NSIndexPath *_Nonnull indexPath) {
 ////                switch (indexPath.row) {
 ////                    case 0:
 ////                        return CGSizeMake(CGRectGetWidth(frame), CGRectGetHeight(frame)-20);
@@ -320,9 +320,9 @@
 ////                        break;
 ////                }
 ////                return CGSizeZero;
-////            } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
+////            } edgeInsets:^UIEdgeInsets(NSIndexPath *_Nonnull indexPath) {
 ////                return UIEdgeInsetsZero;
-////            } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+////            } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath *_Nonnull indexPath) {
 ////                switch (indexPath.row) {
 ////                    case 0: {
 ////                        HTupleImageCell *cell = itemBlock(nil, HTupleImageCell.class, nil, YES);
@@ -353,13 +353,13 @@
 ////                return 1;
 ////            } items:^CGFloat(NSInteger section) {
 ////                return 2;
-////            } color:^UIColor * _Nullable(NSInteger section) {
+////            } color:^UIColor *_Nullable(NSInteger section) {
 ////                return nil;
 ////            } inset:^UIEdgeInsets(NSInteger section) {
 ////                return UIEdgeInsetsZero;
 ////            }];
 ////
-////            [cell.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+////            [cell.tupleView itemWithSize:^CGSize(NSIndexPath *_Nonnull indexPath) {
 ////                switch (indexPath.row) {
 ////                    case 0:
 ////                        return CGSizeMake(CGRectGetWidth(frame), CGRectGetHeight(frame)-20);
@@ -372,9 +372,9 @@
 ////                        break;
 ////                }
 ////                return CGSizeZero;
-////            } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
+////            } edgeInsets:^UIEdgeInsets(NSIndexPath *_Nonnull indexPath) {
 ////                return UIEdgeInsetsZero;
-////            } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+////            } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath *_Nonnull indexPath) {
 ////                switch (indexPath.row) {
 ////                    case 0: {
 ////                        HTupleImageCell *cell = itemBlock(nil, HTupleImageCell.class, nil, YES);
@@ -403,15 +403,15 @@
 ////                return 1;
 ////            } items:^CGFloat(NSInteger section) {
 ////                return 3;
-////            } color:^UIColor * _Nullable(NSInteger section) {
+////            } color:^UIColor *_Nullable(NSInteger section) {
 ////                return nil;
 ////            } inset:^UIEdgeInsets(NSInteger section) {
 ////                return UIEdgeInsetsZero;
 ////            }];
 ////
-////            [cell.tupleView itemWithSize:^CGSize(NSIndexPath * _Nonnull indexPath) {
+////            [cell.tupleView itemWithSize:^CGSize(NSIndexPath *_Nonnull indexPath) {
 ////                return CGSizeMake(CGRectGetWidth(frame)/3, CGRectGetHeight(frame));
-////            } edgeInsets:^UIEdgeInsets(NSIndexPath * _Nonnull indexPath) {
+////            } edgeInsets:^UIEdgeInsets(NSIndexPath *_Nonnull indexPath) {
 ////                switch (indexPath.row) {
 ////                    case 0:
 ////                        return UIEdgeInsetsMake(0, 0, 0, 20/3);
@@ -424,7 +424,7 @@
 ////                        break;
 ////                }
 ////                return UIEdgeInsetsZero;
-////            } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath * _Nonnull indexPath) {
+////            } tupleItem:^(HTupleItem  _Nonnull itemBlock, NSIndexPath *_Nonnull indexPath) {
 ////                HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
 ////                switch (indexPath.row) {
 ////                    case 0: {

@@ -58,8 +58,8 @@ typedef void(^HTabbardSelectedBlock)(NSInteger idx);
 
 @property (nonatomic, strong) UIColor *itemTitleColor;              // 标题颜色
 @property (nonatomic, strong) UIColor *itemTitleSelectedColor;      // 选中时标题的颜色
-@property (nonatomic, strong) UIFont  *itemTitleFont;               // 标题字体
-@property (nonatomic, strong) UIFont  *itemTitleSelectedFont;       // 选中时标题的字体
+@property (nonatomic, strong) UIFont *itemTitleFont;               // 标题字体
+@property (nonatomic, strong) UIFont *itemTitleSelectedFont;       // 选中时标题的字体
 
 @property (nonatomic, strong) UIColor *itemImageColor;
 @property (nonatomic, strong) UIColor *itemImageSelectedColor;
@@ -67,7 +67,7 @@ typedef void(^HTabbardSelectedBlock)(NSInteger idx);
 @property (nonatomic, strong) UIColor *badgeBackgroundColor;        // Badge背景颜色
 @property (nonatomic, strong) UIImage *badgeBackgroundImage;        // Badge背景图像
 @property (nonatomic, strong) UIColor *badgeTitleColor;             // Badge标题颜色
-@property (nonatomic, strong) UIFont  *badgeTitleFont;              // Badge标题字体
+@property (nonatomic, strong) UIFont *badgeTitleFont;              // Badge标题字体
 
 @property (nonatomic, assign) CGFloat leadingSpace;                 // 第一个item与左边或者上边的距离
 @property (nonatomic, assign) CGFloat trailingSpace;                // 最后一个item与右边或者下边的距离

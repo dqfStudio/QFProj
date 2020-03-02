@@ -49,7 +49,7 @@
 }
 - (void)timerStart:(NSTimer *)theTimer {
      double deltaTime = [[NSDate date] timeIntervalSinceDate:_startDate];
-     _second = _totalSecond - (NSInteger)(deltaTime+0.5) ;
+     _second = _totalSecond- (NSInteger)(deltaTime+0.5) ;
     
     if (_second <= 0.0) {
         [self stopCountDown];

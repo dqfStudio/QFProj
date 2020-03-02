@@ -156,7 +156,7 @@ extern NSString *const HCacheAttributeMetadataKey;
  */
 - (void)setCleanupTimerEnabled:(BOOL)enabled;
 
-/*! Cleanup disk cache asynchronously. For more info see HDiskCache - (void)cleanup.
+/*! Cleanup disk cache asynchronously. For more info see HDiskCache- (void)cleanup.
  */
 - (void)cleanupDiskCache;
 

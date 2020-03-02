@@ -67,7 +67,7 @@
         if (self.currentRowIndex >= self.dataSource.count) {
             self.currentRowIndex = 0;
         }
-        [self.tableView setContentOffset:CGPointMake(0, self.currentRowIndex*self.tableView.rowHeight) animated:YES];
+        [self.tableView setContentOffset:CGPointMake(0, self.currentRowIndex *self.tableView.rowHeight) animated:YES];
     });
 }
 

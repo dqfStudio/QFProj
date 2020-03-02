@@ -88,13 +88,13 @@
     if (_textVerticalAlignment == HTextVerticalAlignmentCenter) {
         if (_layout.container.isVerticalForm) {
             point.x = -(self.bounds.size.width - boundingSize.width) * 0.5;
-        } else {
+        }else {
             point.y = (self.bounds.size.height - boundingSize.height) * 0.5;
         }
     } else if (_textVerticalAlignment == HTextVerticalAlignmentBottom) {
         if (_layout.container.isVerticalForm) {
             point.x = -(self.bounds.size.width - boundingSize.width);
-        } else {
+        }else {
             point.y = (self.bounds.size.height - boundingSize.height);
         }
     }

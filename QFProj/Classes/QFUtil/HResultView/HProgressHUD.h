@@ -386,12 +386,12 @@ typedef void (^HProgressHUDCompletionBlock)(void);
 /** 
  * Font to be used for the main label. Set this property if the default is not adequate. 
  */
-@property (H_STRONG) UIFont* labelFont;
+@property (H_STRONG) UIFont *labelFont;
 
 /** 
  * Font to be used for the details label. Set this property if the default is not adequate. 
  */
-@property (H_STRONG) UIFont* detailsLabelFont;
+@property (H_STRONG) UIFont *detailsLabelFont;
 
 /** 
  * The progress of the progress indicator, from 0.0 to 1.0. Defaults to 0.0. 

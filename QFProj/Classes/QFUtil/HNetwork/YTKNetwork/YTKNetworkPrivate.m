@@ -47,11 +47,11 @@ void YTKLog(NSString *format, ...) {
 + (BOOL)validateJSON:(id)json withValidator:(id)jsonValidator {
     if ([json isKindOfClass:[NSDictionary class]] &&
         [jsonValidator isKindOfClass:[NSDictionary class]]) {
-        NSDictionary * dict = json;
-        NSDictionary * validator = jsonValidator;
+        NSDictionary *dict = json;
+        NSDictionary *validator = jsonValidator;
         BOOL result = YES;
-        NSEnumerator * enumerator = [validator keyEnumerator];
-        NSString * key;
+        NSEnumerator *enumerator = [validator keyEnumerator];
+        NSString *key;
         while ((key = [enumerator nextObject]) != nil) {
             id value = dict[key];
             id format = validator[key];
@@ -61,7 +61,7 @@ void YTKLog(NSString *format, ...) {
                 if (!result) {
                     break;
                 }
-            } else {
+            }else {
                 if ([value isKindOfClass:format] == NO &&
                     [value isKindOfClass:[NSNull class]] == NO) {
                     result = NO;
@@ -72,10 +72,10 @@ void YTKLog(NSString *format, ...) {
         return result;
     } else if ([json isKindOfClass:[NSArray class]] &&
                [jsonValidator isKindOfClass:[NSArray class]]) {
-        NSArray * validatorArray = (NSArray *)jsonValidator;
+        NSArray *validatorArray = (NSArray *)jsonValidator;
         if (validatorArray.count > 0) {
-            NSArray * array = json;
-            NSDictionary * validator = jsonValidator[0];
+            NSArray *array = json;
+            NSDictionary *validator = jsonValidator[0];
             for (id item in array) {
                 BOOL result = [self validateJSON:item withValidator:validator];
                 if (!result) {
@@ -86,7 +86,7 @@ void YTKLog(NSString *format, ...) {
         return YES;
     } else if ([json isKindOfClass:jsonValidator]) {
         return YES;
-    } else {
+    }else {
         return NO;
     }
 }
@@ -108,7 +108,7 @@ void YTKLog(NSString *format, ...) {
     unsigned char outputBuffer[CC_MD5_DIGEST_LENGTH];
     CC_MD5(value, (CC_LONG)strlen(value), outputBuffer);
 
-    NSMutableString *outputString = [[NSMutableString alloc] initWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+    NSMutableString *outputString = [[NSMutableString alloc] initWithCapacity:CC_MD5_DIGEST_LENGTH *2];
     for(NSInteger count = 0; count < CC_MD5_DIGEST_LENGTH; count++){
         [outputString appendFormat:@"%02x", outputBuffer[count]];
     }

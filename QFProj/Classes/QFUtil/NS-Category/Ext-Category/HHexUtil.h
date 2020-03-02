@@ -17,7 +17,7 @@
 + (NSString *)hexStrToString:(NSString *)hexString;
 
 // 十六进制转二进制
-+(NSString *)getBinaryByhex:(NSString *)hex;
++ (NSString *)getBinaryByhex:(NSString *)hex;
 
 //十进制转十六进制
 + (NSString *)toHexString:(uint16_t)value;

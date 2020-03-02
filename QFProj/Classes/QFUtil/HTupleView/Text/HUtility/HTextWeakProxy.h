@@ -22,12 +22,12 @@ NS_ASSUME_NONNULL_BEGIN
         NSTimer *_timer;
      }
      
-     - (void)initTimer {
+- (void)initTimer {
         HTextWeakProxy *proxy = [HTextWeakProxy proxyWithTarget:self];
         _timer = [NSTimer timerWithTimeInterval:0.1 target:proxy selector:@selector(tick:) userInfo:nil repeats:YES];
      }
      
-     - (void)tick:(NSTimer *)timer {...}
+- (void)tick:(NSTimer *)timer {...}
      @end
  */
 @interface HTextWeakProxy : NSProxy

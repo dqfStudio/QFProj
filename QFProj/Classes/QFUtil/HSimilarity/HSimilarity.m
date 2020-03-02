@@ -32,7 +32,7 @@ typedef enum HSimilarityType {
 }
 - (Similarity)getSimilarityValueWithType:(HSimilarityType)type {
     int cursize = (type == HSimilaritySize1 ? KImageSize1 : KImageSize2);
-    int ArrSize = cursize * cursize + 1,a[ArrSize],b[ArrSize],i,j,grey,sum = 0;
+    int ArrSize = cursize *cursize + 1,a[ArrSize],b[ArrSize],i,j,grey,sum = 0;
     CGSize size = {cursize,cursize};
     UIImage *image1 = [self reSizeImage:self.image1 toSize:size];
     UIImage *image2 = [self reSizeImage:self.image2 toSize:size];
@@ -45,7 +45,7 @@ typedef enum HSimilarityType {
             point.x = i;
             point.y = j;
             grey = ToGrey([self UIcolorToRGB:[self colorAtPixel:point image:image1]]);
-            a[cursize * i + j] = grey;
+            a[cursize *i + j] = grey;
             a[ArrSize] += grey;
         }
     }
@@ -55,7 +55,7 @@ typedef enum HSimilarityType {
             point.x = i;
             point.y = j;
             grey = ToGrey([self UIcolorToRGB:[self colorAtPixel:point image:image2]]);
-            b[cursize * i + j] = grey;
+            b[cursize *i + j] = grey;
             b[ArrSize] += grey;
         }
     }
@@ -71,7 +71,7 @@ typedef enum HSimilarityType {
         sum += (a[i] == b[i] ? 1 : 0);
     }
     
-    return sum * 1.0 / ArrSize;
+    return sum *1.0 / ArrSize;
 }
 
 - (UIImage *)reSizeImage:(UIImage *)image toSize:(CGSize)reSize {
@@ -86,7 +86,7 @@ unsigned int ToGrey(unsigned int rgb) {
     unsigned int blue   = (rgb & 0x000000FF) >> 0;
     unsigned int green  = (rgb & 0x0000FF00) >> 8;
     unsigned int red    = (rgb & 0x00FF0000) >> 16;
-    return ( red * 38 +  green * 75 +  blue * 15 )>>7;
+    return ( red *38 +  green *75 +  blue *15 )>>7;
 }
 
 - (unsigned int)UIcolorToRGB:(UIColor *)color {
@@ -94,9 +94,9 @@ unsigned int ToGrey(unsigned int rgb) {
     RGB = R = G = B = 0x00000000;
     CGFloat r,g,b,a;
     [color getRed:&r green:&g blue:&b alpha:&a];
-    R = r * 256 ;
-    G = g * 256 ;
-    B = b * 256 ;
+    R = r *256 ;
+    G = g *256 ;
+    B = b *256 ;
     RGB = (R << 16) | (G << 8) | B ;
     return RGB;
 }
@@ -113,7 +113,7 @@ unsigned int ToGrey(unsigned int rgb) {
     NSUInteger  width   = image.size.width;
     NSUInteger  height  = image.size.height;
     int bytesPerPixel   = 4;
-    int bytesPerRow     = bytesPerPixel * 1;
+    int bytesPerRow     = bytesPerPixel *1;
     NSUInteger bitsPerComponent = 8;
     unsigned char pixelData[4] = { 0, 0, 0, 0 };
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
@@ -123,7 +123,7 @@ unsigned int ToGrey(unsigned int rgb) {
     CGContextSetBlendMode(context, kCGBlendModeCopy);
     
     // Draw the pixel we are interested in onto the bitmap context
-    CGContextTranslateCTM(context, -pointX, pointY-(CGFloat)height);
+    CGContextTranslateCTM(context, -pointX, pointY- (CGFloat)height);
     CGContextDrawImage(context, CGRectMake(0.0f, 0.0f, (CGFloat)width, (CGFloat)height), cgImage);
     CGContextRelease(context);
     // Convert color values [0..255] to floats [0.0..1.0]

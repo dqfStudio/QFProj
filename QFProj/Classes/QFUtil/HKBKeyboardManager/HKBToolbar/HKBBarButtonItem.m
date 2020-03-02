@@ -27,13 +27,12 @@
 
 @implementation HKBBarButtonItem
 
-+(void)initialize
-{
++ (void)initialize {
     [super initialize];
 
     HKBBarButtonItem *appearanceProxy = [self appearance];
 
-    NSArray <NSNumber*> *states = @[@(UIControlStateNormal),@(UIControlStateHighlighted),@(UIControlStateDisabled),@(UIControlStateSelected),@(UIControlStateApplication),@(UIControlStateReserved)];
+    NSArray <NSNumber *> *states = @[@(UIControlStateNormal),@(UIControlStateHighlighted),@(UIControlStateDisabled),@(UIControlStateSelected),@(UIControlStateApplication),@(UIControlStateReserved)];
     
     for (NSNumber *state in states)
     {
@@ -50,8 +49,7 @@
     [appearanceProxy setBackButtonBackgroundVerticalPositionAdjustment:0 forBarMetrics:UIBarMetricsDefault];
 }
 
--(void)setTintColor:(UIColor *)tintColor
-{
+- (void)setTintColor:(UIColor *)tintColor {
     [super setTintColor:tintColor];
     
     //titleTextAttributes tweak is to overcome an issue comes with iOS11 where appearanceProxy set for NSForegroundColorAttributeName and bar button texts start appearing in appearance proxy color
@@ -62,12 +60,10 @@
     [self setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
 }
 
-- (instancetype)initWithBarButtonSystemItem:(UIBarButtonSystemItem)systemItem target:(nullable id)target action:(nullable SEL)action
-{
+- (instancetype)initWithBarButtonSystemItem:(UIBarButtonSystemItem)systemItem target:(nullable id)target action:(nullable SEL)action {
     self = [super initWithBarButtonSystemItem:systemItem target:target action:action];
     
-    if (self)
-    {
+    if (self) {
         _isSystemItem = YES;
     }
     
@@ -75,12 +71,10 @@
 }
 
 
--(void)setTarget:(nullable id)target action:(nullable SEL)action
-{
+- (void)setTarget:(nullable id)target action:(nullable SEL)action {
     NSInvocation *invocation = nil;
     
-    if (target && action)
-    {
+    if (target && action) {
         invocation = [NSInvocation invocationWithMethodSignature:[target methodSignatureForSelector:action]];
         invocation.target = target;
         invocation.selector = action;
@@ -89,8 +83,7 @@
     self.invocation = invocation;
 }
 
--(void)dealloc
-{
+- (void)dealloc {
     self.target = nil;
     self.invocation.target = nil;
     self.invocation = nil;

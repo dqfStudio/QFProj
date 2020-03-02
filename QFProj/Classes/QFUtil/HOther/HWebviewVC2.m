@@ -47,7 +47,7 @@
     
 //    [HProgressHUD showLoadingWithStatus:@"加载中..."];
     
-    if(self.htmlFile.length > 0){
+    if (self.htmlFile.length > 0) {
         NSString *basePath = [[NSBundle mainBundle] bundlePath];
         NSURL *baseUrl = [NSURL fileURLWithPath:basePath isDirectory: YES];
         NSString *indexPath = [NSString stringWithFormat:@"%@/%@", basePath,self.htmlFile];

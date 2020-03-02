@@ -119,7 +119,7 @@
 //    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨提示" message:message preferredStyle:UIAlertControllerStyleAlert];
 //    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"我知道了"
 //                                                           style:UIAlertActionStyleCancel
-//                                                         handler:^(UIAlertAction * _Nonnull action) {}];
+//                                                         handler:^(UIAlertAction *_Nonnull action) {}];
 //    [alertController addAction:cancelAction];
 //    UIViewController *rootController = [UIApplication sharedApplication].delegate.window.rootViewController;
 //    [rootController presentViewController:alertController animated:YES completion:nil];
@@ -167,7 +167,7 @@
                 [(UIScrollView *)view setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
             }
         }
-    }else{
+    }else {
         SuppressWdeprecatedDeclarationsWarning(
             self.automaticallyAdjustsScrollViewInsets = NO;
         );
@@ -246,7 +246,7 @@
         //_topBar = [[UIButton alloc] init];
         //[_topBar setAdjustsImageWhenHighlighted:NO];
         //没有系统导航栏的时候,status背景色是透明的,用自定义导航栏去伪造一个status背景区域
-        if([self prefersNavigationBarHidden]) {
+        if ([self prefersNavigationBarHidden]) {
             _topBar.frame = CGRectMake(0, _statusBarPadding, self.view.h_width, UIScreen.naviBarHeight);
         }else {
             _topBar.frame = CGRectMake(0, 0, self.view.h_width, UIScreen.naviBarHeight + _statusBarPadding);
@@ -318,7 +318,7 @@
         _statusBarPadding = UIScreen.statusBarHeight;
     }
     //reset topBar
-    if([self prefersNavigationBarHidden]) {
+    if ([self prefersNavigationBarHidden]) {
         _topBar.frame = CGRectMake(0, _statusBarPadding, self.view.h_width, UIScreen.naviBarHeight);
     }else {
         _topBar.frame = CGRectMake(0, 0, self.view.h_width, UIScreen.naviBarHeight + _statusBarPadding);
@@ -633,7 +633,7 @@
         return;
     }
     NSDictionary *userInfo = [notification userInfo];
-    NSValue* aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect keyboardRect = [aValue CGRectValue];
     
     NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
@@ -648,7 +648,7 @@
         return;
     }
     NSDictionary *userInfo = [notification userInfo];
-    NSValue* aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect keyboardRect = [aValue CGRectValue];
     
     NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];

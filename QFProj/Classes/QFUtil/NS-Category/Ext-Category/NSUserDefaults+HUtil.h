@@ -16,8 +16,8 @@
 + (nullable instancetype)theUserDefaults;
 + (nullable instancetype)theStandardDefaults;
 
-+ (void)saveUserDefaults:(void (^_Nullable)(NSUserDefaults * _Nullable theUserDefaults))block;
-+ (void)saveStandardDefaults:(void (^_Nullable)(NSUserDefaults * _Nullable theStandardDefaults))block;
++ (void)saveUserDefaults:(void (^_Nullable)(NSUserDefaults *_Nullable theUserDefaults))block;
++ (void)saveStandardDefaults:(void (^_Nullable)(NSUserDefaults *_Nullable theStandardDefaults))block;
 
 + (void)setAPPFirstLaunch;
 + (BOOL)isAPPFirstLaunch;

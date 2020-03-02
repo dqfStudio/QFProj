@@ -19,10 +19,10 @@
     // Do any additional setup after loading the view.
     #pragma clang diagnostic push
     #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    if([self respondsToSelector:NSSelectorFromString(@"_showingLinkPreview:")]){
+    if ([self respondsToSelector:NSSelectorFromString(@"_showingLinkPreview:")]) {
         [self performSelector:NSSelectorFromString(@"_setShowingLinkPreviewWithMinimalUI:") withObject:[NSNumber numberWithBool:NO]];
     }
-    if([self respondsToSelector:NSSelectorFromString(@"_setShowingLinkPreview:")]){
+    if ([self respondsToSelector:NSSelectorFromString(@"_setShowingLinkPreview:")]) {
         [self performSelector:NSSelectorFromString(@"_setShowingLinkPreview:") withObject:[NSNumber numberWithBool:NO]];
     }
     #pragma clang diagnostic pop
@@ -37,7 +37,7 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (void)loadURL:(NSURL *)URL{
+- (void)loadURL:(NSURL *)URL {
     [self setValue:URL forKey:@"initialURL"];
     #pragma clang diagnostic push
     #pragma clang diagnostic ignored "-Warc-performSelector-leaks"

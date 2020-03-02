@@ -155,8 +155,8 @@
 
 #pragma mark - 私有方式
 #pragma mark -
-- (void)presentedViewController:(UIViewController*)viewController animation:(HPresentAnimation *)animation {
-    if(animation) {
+- (void)presentedViewController:(UIViewController *)viewController animation:(HPresentAnimation *)animation {
+    if (animation) {
         self.presentAnimation = animation;
         viewController.modalPresentationStyle = UIModalPresentationCustom; //设置目标vc的动画为自定义
         viewController.transitioningDelegate = animation; //设置动画管理代理类
@@ -177,8 +177,8 @@
     animation.transitionCompletion = completion;
     self.pushAnimation = animation;
     UINavigationController *navigationVC = nil;
-    if([self isKindOfClass:UINavigationController.class]) {
-        navigationVC = (UINavigationController*)self;
+    if ([self isKindOfClass:UINavigationController.class]) {
+        navigationVC = (UINavigationController *)self;
     }else {
         navigationVC = viewController.navigationController;
     }

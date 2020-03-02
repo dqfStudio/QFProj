@@ -61,10 +61,10 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 @property (nonatomic) HTupleStyle tupleStyle;
 
 @property (nonatomic) NSMutableSet *allReuseIdentifiers;
-@property (nonatomic) NSMapTable   *allSectionInsets;
-@property (nonatomic) NSMapTable   *allReuseCells;
-@property (nonatomic) NSMapTable   *allReuseHeaders;
-@property (nonatomic) NSMapTable   *allReuseFooters;
+@property (nonatomic) NSMapTable *allSectionInsets;
+@property (nonatomic) NSMapTable *allReuseCells;
+@property (nonatomic) NSMapTable *allReuseHeaders;
+@property (nonatomic) NSMapTable *allReuseFooters;
 
 @property (nonatomic, copy) NSArray <NSNumber *> *sectionPaths;
 
@@ -112,7 +112,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 }
 - (void)setFrame:(CGRect)frame {
     frame = UIRectIntegral(frame);
-    if(!CGRectEqualToRect(frame, self.frame)) {
+    if (!CGRectEqualToRect(frame, self.frame)) {
         [super setFrame:frame];
         [self reloadData];
     }
@@ -239,7 +239,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         self.mj_footer = [HTupleRefresh refreshFooterWithStyle:_refreshFooterStyle andBlock:^{
             @sss
             self.pageNo += 1;
-            if (self.pageSize*self.pageNo < self.totalNo) {
+            if (self.pageSize *self.pageNo < self.totalNo) {
                 self->_loadMoreBlock();
             }else {
                 [self.mj_footer endRefreshing];
@@ -804,7 +804,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     return CGPointZero;
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSpringLoadItemAtIndexPath:(NSIndexPath *)indexPath withContext:(id<UISpringLoadedInteractionContext>)context API_AVAILABLE(ios(11.0)) {
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSpringLoadItemAtIndexPath:(NSIndexPath *)indexPath withContext:(id<UISpringLoadedInteractionContext>)context API_AVAILABLE(ios(11.0)){
     NSString *prefix = [self tuplePrefixWithSection:indexPath.section];
     SEL selector = NSSelectorFromString(@"shouldSpringLoadItemAtIndexPath:withContext:");
     if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
@@ -850,7 +850,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     return nil;
 }
 
-- (nullable UITargetedPreview *)collectionView:(UICollectionView *)collectionView previewForHighlightingContextMenuWithConfiguration:(UIContextMenuConfiguration *)configuration API_AVAILABLE(ios(13.0)) {
+- (nullable UITargetedPreview *)collectionView:(UICollectionView *)collectionView previewForHighlightingContextMenuWithConfiguration:(UIContextMenuConfiguration *)configuration API_AVAILABLE(ios(13.0)){
     NSString *prefix = [self tuplePrefix];
     SEL selector = NSSelectorFromString(@"previewForHighlightingContextMenuWithConfiguration:");
     if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
@@ -859,7 +859,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     return nil;
 }
 
-- (nullable UITargetedPreview *)collectionView:(UICollectionView *)collectionView previewForDismissingContextMenuWithConfiguration:(UIContextMenuConfiguration *)configuration API_AVAILABLE(ios(13.0)) {
+- (nullable UITargetedPreview *)collectionView:(UICollectionView *)collectionView previewForDismissingContextMenuWithConfiguration:(UIContextMenuConfiguration *)configuration API_AVAILABLE(ios(13.0)){
     NSString *prefix = [self tuplePrefix];
     SEL selector = NSSelectorFromString(@"previewForDismissingContextMenuWithConfiguration:");
     if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
@@ -868,7 +868,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     return nil;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView willPerformPreviewActionForMenuWithConfiguration:(UIContextMenuConfiguration *)configuration animator:(id<UIContextMenuInteractionCommitAnimating>)animator API_AVAILABLE(ios(13.0)) {
+- (void)collectionView:(UICollectionView *)collectionView willPerformPreviewActionForMenuWithConfiguration:(UIContextMenuConfiguration *)configuration animator:(id<UIContextMenuInteractionCommitAnimating>)animator API_AVAILABLE(ios(13.0)){
     NSString *prefix = [self tuplePrefix];
     SEL selector = NSSelectorFromString(@"willPerformPreviewActionForMenuWithConfiguration:animator:");
     if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
@@ -1089,7 +1089,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     CGFloat realItemWidth = floor(itemWidth);
     CGFloat idxCount = colCount-1;
     if (idx == idxCount) {
-        realItemWidth = width-realItemWidth*idxCount;
+        realItemWidth = width-realItemWidth *idxCount;
     }
     return realItemWidth;
 }
@@ -1367,7 +1367,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
         self.mj_footer = [HTupleRefresh hRefreshFooterWithStyle:self.hRefreshFooterStyle andBlock:^{
             @sss
             self.hPageNo += 1;
-            if (self.hPageSize*self.hPageNo < self.hTotalNo) {
+            if (self.hPageSize *self.hPageNo < self.hTotalNo) {
                 self.hLoadMoreBlock();
             }else {
                 [self.mj_footer endRefreshing];

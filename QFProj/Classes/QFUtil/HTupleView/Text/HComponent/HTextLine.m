@@ -44,11 +44,11 @@
                 CGPoint pos;
                 CTRunGetPositions(run, CFRangeMake(0, 1), &pos);
                 _firstGlyphPos = pos.x;
-            } else {
+            }else {
                 _firstGlyphPos = 0;
             }
             _trailingWhitespaceWidth = CTLineGetTrailingWhitespaceWidth(_CTLine);
-        } else {
+        }else {
             _lineWidth = _ascent = _descent = _leading = _firstGlyphPos = _trailingWhitespaceWidth = 0;
             _range = NSMakeRange(0, 0);
         }
@@ -65,7 +65,7 @@
     if (_vertical) {
         _bounds = CGRectMake(_position.x - _descent, _position.y, _ascent + _descent, _lineWidth);
         _bounds.origin.y += _firstGlyphPos;
-    } else {
+    }else {
         _bounds = CGRectMake(_position.x, _position.y - _ascent, _lineWidth, _ascent + _descent);
         _bounds.origin.x += _firstGlyphPos;
     }
@@ -99,7 +99,7 @@
                 HTEXT_SWAP(runPosition.x, runPosition.y);
                 runPosition.y = _position.y + runPosition.y;
                 runTypoBounds = CGRectMake(_position.x + runPosition.x - descent, runPosition.y , ascent + descent, runWidth);
-            } else {
+            }else {
                 runPosition.x += _position.x;
                 runPosition.y = _position.y - runPosition.y;
                 runTypoBounds = CGRectMake(runPosition.x, runPosition.y - ascent, runWidth, ascent + descent);

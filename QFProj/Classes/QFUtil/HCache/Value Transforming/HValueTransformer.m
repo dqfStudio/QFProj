@@ -81,7 +81,7 @@ NSString *const HValueTransformerUIImageName = @"HValueTransformerUIImageName";
 - (id)reverseTransfomedValue:(NSData *)data {
     if (self.allowsImageDecompression) {
         return [HCacheImageDecoder decompressedImageWithData:data];
-    } else {
+    }else {
         return [[UIImage alloc] initWithData:data scale:[UIScreen mainScreen].scale];
     }
 }

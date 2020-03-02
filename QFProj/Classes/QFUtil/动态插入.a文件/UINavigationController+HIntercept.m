@@ -4,7 +4,7 @@
 //
 //void HInterceptSwizzleInstanceMethod(Class cls, SEL origSEL, SEL overrideSEL) {
 //    if (!cls) return;
-//    /* if current class not exist selector, then get super*/
+//    /* if current class not exist selector, then get super */
 //    Method originalMethod = class_getInstanceMethod(cls, origSEL);
 //    Method swizzledMethod = class_getInstanceMethod(cls, overrideSEL);
 //

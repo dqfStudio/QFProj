@@ -48,7 +48,7 @@ static const CGFloat kTabBarHeight = 50;
             self.edgesForExtendedLayout == UIRectEdgeTop) {
             tabBarY = screenSize.height - kTabBarHeight - navMaxY;
             contentViewHeight = tabBarY;
-        } else {
+        }else {
             contentViewY = navMaxY;
             contentViewHeight = screenSize.height - kTabBarHeight - contentViewY;
         }
@@ -87,7 +87,7 @@ static const CGFloat kTabBarHeight = 50;
             self.edgesForExtendedLayout == UIRectEdgeTop) {
             tabBarY = screenSize.height - kTabBarHeight - navMaxY;
             contentViewHeight = tabBarY;
-        } else {
+        }else {
             contentViewY = navMaxY;
             contentViewHeight = screenSize.height - kTabBarHeight - contentViewY;
         }

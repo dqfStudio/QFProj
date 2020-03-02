@@ -41,7 +41,7 @@ static CFTypeID CTRubyAnnotationTypeID() {
     dispatch_once(&onceToken, ^{
         if ((long)CTRubyAnnotationGetTypeID + 1 > 1) { //avoid compiler optimization
             typeID = CTRunDelegateGetTypeID();
-        } else {
+        }else {
             typeID = kCFNotFound;
         }
     });
@@ -221,7 +221,7 @@ static CFTypeID CTRubyAnnotationTypeID() {
     return self;
 }
 
-- (id)unarchiver:(NSKeyedUnarchiver *)unarchiver didDecodeObject:(id) NS_RELEASES_ARGUMENT object NS_RETURNS_RETAINED {
+- (id)unarchiver:(NSKeyedUnarchiver *)unarchiver didDecodeObject:(id)NS_RELEASES_ARGUMENT object NS_RETURNS_RETAINED {
     if ([object class] == [HTextRunDelegate class]) {
         HTextRunDelegate *runDelegate = object;
         CTRunDelegateRef ct = runDelegate.CTRunDelegate;
@@ -235,7 +235,7 @@ static CFTypeID CTRubyAnnotationTypeID() {
             id ctObj = (__bridge id)(ct);
             if (ct) CFRelease(ct);
             return ctObj;
-        } else {
+        }else {
             return object;
         }
     } else if ([object class] == [_HCGColor class]) {

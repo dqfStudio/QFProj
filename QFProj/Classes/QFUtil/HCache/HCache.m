@@ -347,7 +347,7 @@ static NSString *const HCacheAttributeValueTransformerNameKey = @"_h_cache_value
     HValueTransformerUIImage *transformer = [self.valueTransfomerFactory valueTransformerForName:HValueTransformerUIImageName];
     if ([transformer isKindOfClass:[HValueTransformerUIImage class]]) {
         transformer.allowsImageDecompression = allowsImageDecompression;
-    } else {
+    }else {
         NSLog(@"Failed to set allowsImageDecompression. %@", self);
     }
 }
@@ -431,7 +431,7 @@ static NSString *const HCacheAttributeValueTransformerNameKey = @"_h_cache_value
                     completion(object, key);
                 });
             }
-        } else {
+        }else {
             [weakSelf _firstCachedObjectForKeys:keys completion:completion];
         }
     }];

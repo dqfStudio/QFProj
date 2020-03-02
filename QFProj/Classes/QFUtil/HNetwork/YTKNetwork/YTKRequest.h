@@ -60,7 +60,7 @@ NS_ENUM(NSInteger) {
 ///  @param error If an error occurred causing cache loading failed, an error object will be passed, otherwise NULL.
 ///
 ///  @return Whether cache is successfully loaded.
-- (BOOL)loadCacheWithError:(NSError * __autoreleasing *)error;
+- (BOOL)loadCacheWithError:(NSError *__autoreleasing *)error;
 
 ///  Start request without reading local cache even if it exists. Use this to update local cache.
 - (void)startWithoutCache;

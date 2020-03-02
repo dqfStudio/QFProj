@@ -78,7 +78,7 @@ typedef void (^HAlertButtonBlock)(NSInteger buttonIndex);
 @property (nonatomic) NSString *msg;
 
 @property (nonatomic) NSString *cancelTitle;
-@property (nonatomic) NSArray  *buttonTitles;
+@property (nonatomic) NSArray *buttonTitles;
 @property (nonatomic,copy) HAlertButtonBlock buttonBlock;
 
 @end
@@ -93,7 +93,7 @@ typedef void (^HAlertButtonBlock)(NSInteger buttonIndex);
 @property (nonatomic) NSString *msg;
 
 @property (nonatomic) NSString *cancelTitle;
-@property (nonatomic) NSArray  *buttonTitles;
+@property (nonatomic) NSArray *buttonTitles;
 @property (nonatomic,copy) HAlertButtonBlock buttonBlock;
 
 @end

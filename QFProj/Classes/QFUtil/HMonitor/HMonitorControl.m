@@ -178,7 +178,7 @@ void myRunLoopObserver(CFRunLoopObserverRef observer, CFRunLoopActivity activity
 }
 
 - (void)logStack {
-    void* callstack[128];
+    void *callstack[128];
     int frames = backtrace(callstack, 128);
     char **strs = backtrace_symbols(callstack, frames);
     int i;

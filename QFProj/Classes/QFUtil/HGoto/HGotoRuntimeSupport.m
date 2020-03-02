@@ -53,7 +53,7 @@
             NSAssert(NO, @"can not get property attr : %@",p);
             return nil;
         }
-        const char* attr = property_getAttributes(pp_t);
+        const char *attr = property_getAttributes(pp_t);
         //T@"Test",&,N,V_c"
         //Ti,N,V_a
         //T@"NSNumber<HEOptional>",&,N,V_z

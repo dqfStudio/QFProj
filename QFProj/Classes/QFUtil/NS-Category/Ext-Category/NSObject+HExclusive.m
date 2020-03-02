@@ -25,12 +25,12 @@
 - (void)setExclusiveSet:(NSMutableSet *)exclusiveSet {
     objc_setAssociatedObject(self, @selector(exclusiveSet), exclusiveSet, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (void)exclusive:(NSString * _Nonnull)exc delay:(NSTimeInterval)interval block:(void (^)(void))block {
+- (void)exclusive:(NSString *_Nonnull)exc delay:(NSTimeInterval)interval block:(void (^)(void))block {
     NSString *excString = [NSString stringWithFormat:@"%p%@", self, exc];
     if (![self.exclusiveSet containsObject:excString]) {
         [self.exclusiveSet addObject:excString];
         if (interval > 0) {
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(interval * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(interval *NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 if ([self.exclusiveSet containsObject:excString]) {
                     [self.exclusiveSet removeObject:excString];
                 }
@@ -39,7 +39,7 @@
         block();
     }
 }
-- (void)removeExclusive:(NSString * _Nonnull)exc {
+- (void)removeExclusive:(NSString *_Nonnull)exc {
     NSString *excString = [NSString stringWithFormat:@"%p%@", self, exc];
     if ([self.exclusiveSet containsObject:excString]) {
         [self.exclusiveSet removeObject:excString];

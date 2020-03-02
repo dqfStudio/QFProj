@@ -34,7 +34,7 @@
 }
 
 - (NSUInteger)hash {
-    return _offset * 2 + (_affinity == HTextAffinityForward ? 1 : 0);
+    return _offset *2 + (_affinity == HTextAffinityForward ? 1 : 0);
 }
 
 - (BOOL)isEqual:(HTextPosition *)object {

@@ -74,7 +74,7 @@
 
 - (id)objectAtIndexedSubscript:(NSInteger)index {
     @synchronized(self) {
-        if(index >= 0 && index < self._allKeys.count) {
+        if (index >= 0 && index < self._allKeys.count) {
             id object = self._allValues[index];
             NSString *key = self._allKeys[index];
             return [NSDictionary dictionaryWithObject:object forKey:key];

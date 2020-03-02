@@ -192,7 +192,7 @@ static int _HTextKeyboardViewFrameObserverKey;
                 if (!kbWindows) kbWindows = [NSMutableArray new];
                 [kbWindows addObject:window];
             }
-        } else {
+        }else {
             // UIRemoteKeyboardWindow
             if (windowName.length == 22 &&
                 [windowName hasPrefix:@"UI"] &&
@@ -244,7 +244,7 @@ static int _HTextKeyboardViewFrameObserverKey;
     UIWindow *window = keyboard.window;
     if (window) {
         frame = [window convertRect:keyboard.frame toWindow:nil];
-    } else {
+    }else {
         frame = keyboard.frame;
     }
     return frame;
@@ -286,7 +286,7 @@ static int _HTextKeyboardViewFrameObserverKey;
         if (windowName.length != 19) return nil;
         if (![windowName hasPrefix:@"UI"]) return nil;
         if (![windowName hasSuffix:@"TextEffectsWindow"]) return nil;
-    } else {
+    }else {
         // UIRemoteKeyboardWindow
         if (windowName.length != 22) return nil;
         if (![windowName hasPrefix:@"UI"]) return nil;
@@ -303,7 +303,7 @@ static int _HTextKeyboardViewFrameObserverKey;
             if (![viewName hasSuffix:@"PeripheralHostView"]) continue;
             return view;
         }
-    } else {
+    }else {
         // UIInputSetContainerView
         for (UIView *view in window.subviews) {
             NSString *viewName = NSStringFromClass(view.class);
@@ -354,7 +354,7 @@ static int _HTextKeyboardViewFrameObserverKey;
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(_notifyAllObservers) object:nil];
     if (duration == 0) {
         [self performSelector:@selector(_notifyAllObservers) withObject:nil afterDelay:0 inModes:@[NSRunLoopCommonModes]];
-    } else {
+    }else {
         [self _notifyAllObservers];
     }
 }
@@ -388,7 +388,7 @@ static int _HTextKeyboardViewFrameObserverKey;
     UIWindow *window = keyboard.window;
     if (window) {
         _observedToFrame = [window convertRect:keyboard.frame toWindow:nil];
-    } else {
+    }else {
         _observedToFrame = keyboard.frame;
     }
     _hasObservedChange = YES;
@@ -439,27 +439,31 @@ static int _HTextKeyboardViewFrameObserverKey;
                         if (CGRectGetMaxY(trans.toFrame) != window.frame.size.height) {
                             trans.toFrame.origin.y -= trans.toFrame.size.height;
                         }
-                    } break;
+                    }
+                        break;
                     case UIInterfaceOrientationPortraitUpsideDown: {
                         if (CGRectGetMinY(trans.toFrame) != 0) {
                             trans.toFrame.origin.y += trans.toFrame.size.height;
                         }
-                    } break;
+                    }
+                        break;
                     case UIInterfaceOrientationLandscapeLeft: {
                         if (CGRectGetMaxX(trans.toFrame) != window.frame.size.width) {
                             trans.toFrame.origin.x -= trans.toFrame.size.width;
                         }
-                    } break;
+                    }
+                        break;
                     case UIInterfaceOrientationLandscapeRight: {
                         if (CGRectGetMinX(trans.toFrame) != 0) {
                             trans.toFrame.origin.x += trans.toFrame.size.width;
                         }
-                    } break;
+                    }
+                        break;
                     default: break;
                 }
             }
         }
-    } else {
+    }else {
         trans.toFrame = _observedToFrame;
     }
     
@@ -497,7 +501,7 @@ static int _HTextKeyboardViewFrameObserverKey;
     if (!mainWindow) { // no window ?!
         if (view) {
             [view convertRect:rect fromView:nil];
-        } else {
+        }else {
             return rect;
         }
     }

@@ -119,12 +119,12 @@ static dispatch_queue_t HLabelGetReleaseQueue() {
         CGSize containerSize = container.size;
         if (!container.verticalForm) {
             containerSize.height = HTextContainerMaxSize.height;
-        } else {
+        }else {
             containerSize.width = HTextContainerMaxSize.width;
         }
         container.size = containerSize;
         return [HTextLayout layoutWithContainer:container text:layout.text];
-    } else {
+    }else {
         return nil;
     }
 }
@@ -250,7 +250,7 @@ static dispatch_queue_t HLabelGetReleaseQueue() {
             point.x += (self.bounds.size.width - boundingSize.width);
         }
         return point;
-    } else {
+    }else {
         if (_textVerticalAlignment == HTextVerticalAlignmentCenter) {
             point.y -= (self.bounds.size.height - boundingSize.height) * 0.5;
         } else if (_textVerticalAlignment == HTextVerticalAlignmentBottom) {
@@ -274,7 +274,7 @@ static dispatch_queue_t HLabelGetReleaseQueue() {
             }
         }
         return point;
-    } else {
+    }else {
         if (boundingSize.height < self.bounds.size.height) {
             if (_textVerticalAlignment == HTextVerticalAlignmentCenter) {
                 point.y += (self.bounds.size.height - boundingSize.height) * 0.5;
@@ -318,16 +318,19 @@ static dispatch_queue_t HLabelGetReleaseQueue() {
         switch (_innerContainer.truncationType) {
             case HTextTruncationTypeStart: {
                 _lineBreakMode = NSLineBreakByTruncatingHead;
-            } break;
+            }
+                break;
             case HTextTruncationTypeEnd: {
                 _lineBreakMode = NSLineBreakByTruncatingTail;
-            } break;
+            }
+                break;
             case HTextTruncationTypeMiddle: {
                 _lineBreakMode = NSLineBreakByTruncatingMiddle;
-            } break;
+            }
+                break;
             default:break;
         }
-    } else {
+    }else {
         _lineBreakMode = _innerText.h_lineBreakMode;
     }
 }
@@ -472,7 +475,7 @@ static dispatch_queue_t HLabelGetReleaseQueue() {
             if (layout.truncatedLine == nil) {
                 contains = YES;
             }
-        } else {
+        }else {
             if (layout.rowCount <= layout.container.maximumNumberOfRows) {
                 contains = YES;
             }
@@ -484,7 +487,7 @@ static dispatch_queue_t HLabelGetReleaseQueue() {
     
     if (!_verticalForm) {
         size.height = HTextContainerMaxSize.height;
-    } else {
+    }else {
         size.width = HTextContainerMaxSize.width;
     }
     
@@ -513,7 +516,7 @@ static dispatch_queue_t HLabelGetReleaseQueue() {
     HTextContainer *innerContainer = [aDecoder decodeObjectForKey:@"innerContainer"];
     if (innerContainer) {
         _innerContainer = innerContainer;
-    } else {
+    }else {
         _innerContainer.size = self.bounds.size;
     }
     [self _updateOuterContainerProperties];
@@ -542,7 +545,7 @@ static dispatch_queue_t HLabelGetReleaseQueue() {
         _state.touchMoved = NO;
         [self _startLongPressTimer];
         if (_highlight) [self _showHighlightAnimated:NO];
-    } else {
+    }else {
         _state.trackingTouch = NO;
         _state.swallowTouch = NO;
         _state.touchMoved = NO;
@@ -564,7 +567,7 @@ static dispatch_queue_t HLabelGetReleaseQueue() {
             CGFloat moveV = point.y - _touchBeganPoint.y;
             if (fabs(moveH) > fabs(moveV)) {
                 if (fabs(moveH) > kLongPressAllowableMovement) _state.touchMoved = YES;
-            } else {
+            }else {
                 if (fabs(moveV) > kLongPressAllowableMovement) _state.touchMoved = YES;
             }
             if (_state.touchMoved) {
@@ -575,7 +578,7 @@ static dispatch_queue_t HLabelGetReleaseQueue() {
             HTextHighlight *highlight = [self _getHighlightAtPoint:point range:NULL];
             if (highlight == _highlight) {
                 [self _showHighlightAnimated:_fadeOnHighlight];
-            } else {
+            }else {
                 [self _hideHighlightAnimated:_fadeOnHighlight];
             }
         }
@@ -650,12 +653,14 @@ static dispatch_queue_t HLabelGetReleaseQueue() {
             case NSLineBreakByCharWrapping:
             case NSLineBreakByClipping: {
                 _innerText.h_lineBreakMode = _lineBreakMode;
-            } break;
+            }
+                break;
             case NSLineBreakByTruncatingHead:
             case NSLineBreakByTruncatingTail:
             case NSLineBreakByTruncatingMiddle: {
                 _innerText.h_lineBreakMode = NSLineBreakByWordWrapping;
-            } break;
+            }
+                break;
             default: break;
         }
     }
@@ -779,19 +784,23 @@ static dispatch_queue_t HLabelGetReleaseQueue() {
         case NSLineBreakByClipping: {
             _innerContainer.truncationType = HTextTruncationTypeNone;
             _innerText.h_lineBreakMode = lineBreakMode;
-        } break;
+        }
+            break;
         case NSLineBreakByTruncatingHead:{
             _innerContainer.truncationType = HTextTruncationTypeStart;
             _innerText.h_lineBreakMode = NSLineBreakByWordWrapping;
-        } break;
+        }
+            break;
         case NSLineBreakByTruncatingTail:{
             _innerContainer.truncationType = HTextTruncationTypeEnd;
             _innerText.h_lineBreakMode = NSLineBreakByWordWrapping;
-        } break;
+        }
+            break;
         case NSLineBreakByTruncatingMiddle: {
             _innerContainer.truncationType = HTextTruncationTypeMiddle;
             _innerText.h_lineBreakMode = NSLineBreakByWordWrapping;
-        } break;
+        }
+            break;
         default: break;
     }
     if (_innerText.length && !_ignoreCommonProperties) {
@@ -853,15 +862,17 @@ static dispatch_queue_t HLabelGetReleaseQueue() {
             case NSLineBreakByCharWrapping:
             case NSLineBreakByClipping: {
                 _innerText.h_lineBreakMode = _lineBreakMode;
-            } break;
+            }
+                break;
             case NSLineBreakByTruncatingHead:
             case NSLineBreakByTruncatingTail:
             case NSLineBreakByTruncatingMiddle: {
                 _innerText.h_lineBreakMode = NSLineBreakByWordWrapping;
-            } break;
+            }
+                break;
             default: break;
         }
-    } else {
+    }else {
         _innerText = [NSMutableAttributedString new];
     }
     [_textParser parseText:_innerText selectedRange:NULL];
@@ -973,7 +984,7 @@ static dispatch_queue_t HLabelGetReleaseQueue() {
     if (_ignoreCommonProperties) {
         _innerText = (NSMutableAttributedString *)textLayout.text;
         _innerContainer = textLayout.container.copy;
-    } else {
+    }else {
         _innerText = textLayout.text.mutableCopy;
         if (!_innerText) {
             _innerText = [NSMutableAttributedString new];
@@ -1030,7 +1041,7 @@ static dispatch_queue_t HLabelGetReleaseQueue() {
         containerSize.height = HTextContainerMaxSize.height;
         containerSize.width = _preferredMaxLayoutWidth;
         if (containerSize.width == 0) containerSize.width = self.bounds.size.width;
-    } else {
+    }else {
         containerSize.width = HTextContainerMaxSize.width;
         containerSize.height = _preferredMaxLayoutWidth;
         if (containerSize.height == 0) containerSize.height = self.bounds.size.height;
@@ -1119,13 +1130,13 @@ static dispatch_queue_t HLabelGetReleaseQueue() {
         if (verticalAlignment == HTextVerticalAlignmentCenter) {
             if (drawLayout.container.isVerticalForm) {
                 point.x = -(size.width - boundingSize.width) * 0.5;
-            } else {
+            }else {
                 point.y = (size.height - boundingSize.height) * 0.5;
             }
         } else if (verticalAlignment == HTextVerticalAlignmentBottom) {
             if (drawLayout.container.isVerticalForm) {
                 point.x = -(size.width - boundingSize.width);
-            } else {
+            }else {
                 point.y = (size.height - boundingSize.height);
             }
         }
@@ -1169,13 +1180,13 @@ static dispatch_queue_t HLabelGetReleaseQueue() {
         if (verticalAlignment == HTextVerticalAlignmentCenter) {
             if (drawLayout.container.isVerticalForm) {
                 point.x = -(size.width - boundingSize.width) * 0.5;
-            } else {
+            }else {
                 point.y = (size.height - boundingSize.height) * 0.5;
             }
         } else if (verticalAlignment == HTextVerticalAlignmentBottom) {
             if (drawLayout.container.isVerticalForm) {
                 point.x = -(size.width - boundingSize.width);
-            } else {
+            }else {
                 point.y = (size.height - boundingSize.height);
             }
         }
@@ -1235,11 +1246,11 @@ static dispatch_queue_t HLabelGetReleaseQueue() {
         font = [UIFont systemFontOfSize:font.pointSize];
     } else if ([fontName.lowercaseString isEqualToString:@"system bold"]) {
         font = [UIFont boldSystemFontOfSize:font.pointSize];
-    } else {
+    }else {
         if ([self fontIsBold_:font] && ([fontName.lowercaseString rangeOfString:@"bold"].location == NSNotFound)) {
             font = [UIFont fontWithName:fontName size:font.pointSize];
             font = [self boldFont_:font];
-        } else {
+        }else {
             font = [UIFont fontWithName:fontName size:font.pointSize];
         }
     }
@@ -1258,7 +1269,7 @@ static dispatch_queue_t HLabelGetReleaseQueue() {
     if ([self fontIsBold_:font] == fontBold) return;
     if (fontBold) {
         font = [self boldFont_:font];
-    } else {
+    }else {
         font = [self normalFont_:font];
     }
     if (font) self.font = font;
@@ -1292,7 +1303,7 @@ static dispatch_queue_t HLabelGetReleaseQueue() {
 - (void)setDebugEnabled_:(BOOL)enabled {
     if (!enabled) {
         self.debugOption = nil;
-    } else {
+    }else {
         HTextDebugOption *debugOption = [HTextDebugOption new];
         debugOption.baselineColor = [UIColor redColor];
         debugOption.CTFrameBorderColor = [UIColor redColor];

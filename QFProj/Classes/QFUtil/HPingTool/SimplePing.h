@@ -50,7 +50,7 @@ typedef NS_ENUM(NSInteger, SimplePingAddressStyle) {
 /*! A copy of the value passed to `-initWithHostName:`.
  */
 
-@property (nonatomic, copy, readonly) NSString * hostName;
+@property (nonatomic, copy, readonly) NSString *hostName;
 
 /*! The delegate for this object.
  *  \details Delegate callbacks are schedule in the default run loop mode of the run loop of the
@@ -71,7 +71,7 @@ typedef NS_ENUM(NSInteger, SimplePingAddressStyle) {
  *      `-simplePing:didStartWithAddress:` is called.
  */
 
-@property (nonatomic, copy, readonly, nullable) NSData * hostAddress;
+@property (nonatomic, copy, readonly, nullable) NSData *hostAddress;
 
 /*! The address family for `hostAddress`, or `AF_UNSPEC` if that's nil.
  */
@@ -232,7 +232,7 @@ typedef NS_ENUM(NSInteger, SimplePingAddressStyle) {
 
 @end
 
-#pragma mark * ICMP On-The-Wire Format
+#pragma mark *ICMP On-The-Wire Format
 
 /*! Describes the on-the-wire header format for an ICMP ping.
  *  \details This defines the header structure of ping packets on the wire.  Both IPv4 and

@@ -22,7 +22,7 @@ static NSString *const HCollectionViewSectionColor = @"com.dqf.HCollectionElemen
 @interface HCollectionReusableView : UICollectionReusableView
 @end
 @implementation HCollectionReusableView
-- (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes{
+- (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
     [super applyLayoutAttributes:layoutAttributes];
     HCollectionViewLayoutAttributes *attr = (HCollectionViewLayoutAttributes *)layoutAttributes;
     if (attr.backgroundColor && [attr.backgroundColor isKindOfClass:UIColor.class]) {
@@ -58,7 +58,7 @@ static NSString *const HCollectionViewSectionColor = @"com.dqf.HCollectionElemen
         NSInteger numberOfItems = [self.collectionView numberOfItemsInSection:section];
         if (numberOfItems > 0) {
             UICollectionViewLayoutAttributes *firstAttr = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
-            UICollectionViewLayoutAttributes *lastAttr = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForRow:(numberOfItems - 1) inSection:section]];
+            UICollectionViewLayoutAttributes *lastAttr = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForRow:(numberOfItems - 1)inSection:section]];
             
             UIEdgeInsets sectionInset = self.sectionInset;
             if ([delegate respondsToSelector:@selector(collectionView:layout:insetForSectionAtIndex:)]) {
@@ -127,7 +127,7 @@ static NSString *const HCollectionViewSectionColor = @"com.dqf.HCollectionElemen
         NSInteger origin = CGRectGetMaxX(prevLayoutAttributes.frame);
         //如果当前一个cell的最右边加上我们想要的间距加上当前cell的宽度依然在contentSize中，我们改变当前cell的原点位置
         //不加这个判断的后果是，UICollectionView只显示一行，原因是下面所有cell的x值都被加到第一行最后一个元素的后面了
-        if(origin + maximumSpacing + currentLayoutAttributes.frame.size.width < self.collectionViewContentSize.width) {
+        if (origin + maximumSpacing + currentLayoutAttributes.frame.size.width < self.collectionViewContentSize.width) {
             CGRect frame = currentLayoutAttributes.frame;
             frame.origin.x = origin + maximumSpacing;
             currentLayoutAttributes.frame = frame;
@@ -153,7 +153,7 @@ static NSString *const HCollectionViewSectionColor = @"com.dqf.HCollectionElemen
 //        NSInteger origin = CGRectGetMaxX(prevLayoutAttributes.frame);
 //        //如果当前一个cell的最右边加上我们想要的间距加上当前cell的宽度依然在contentSize中，我们改变当前cell的原点位置
 //        //不加这个判断的后果是，UICollectionView只显示一行，原因是下面所有cell的x值都被加到第一行最后一个元素的后面了
-//        if(origin + maximumSpacing + currentLayoutAttributes.frame.size.width < self.collectionViewContentSize.width) {
+//        if (origin + maximumSpacing + currentLayoutAttributes.frame.size.width < self.collectionViewContentSize.width) {
 //           CGRect frame = currentLayoutAttributes.frame;
 //           frame.origin.x = origin + maximumSpacing;
 //           currentLayoutAttributes.frame = frame;

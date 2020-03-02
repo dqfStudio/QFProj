@@ -371,12 +371,12 @@ static __strong NSData *CRLFCRLF;
 
 - (void)open {
     assert(_url);
-    NSAssert(_readyState == SR_CONNECTING, @"Cannot call -(void)open on SRWebSocket more than once");
+    NSAssert(_readyState == SR_CONNECTING, @"Cannot call- (void)open on SRWebSocket more than once");
 
     _selfRetain = self;
 
     if (_urlRequest.timeoutInterval > 0) {
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, _urlRequest.timeoutInterval * NSEC_PER_SEC);
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, _urlRequest.timeoutInterval *NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             if (self.readyState == SR_CONNECTING)
                 [self _failWithError:[NSError errorWithDomain:@"com.squareup.SocketRocket" code:504 userInfo:@{NSLocalizedDescriptionKey: @"Timeout Connecting to Server"}]];
@@ -430,7 +430,7 @@ static __strong NSData *CRLFCRLF;
         return;
     }
     
-    if(![self _checkHandshake:_receivedHTTPHeaders]) {
+    if (![self _checkHandshake:_receivedHTTPHeaders]) {
         [self _failWithError:[NSError errorWithDomain:SRWebSocketErrorDomain code:2133 userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"Invalid Sec-WebSocket-Accept response"] forKey:NSLocalizedDescriptionKey]]];
         return;
     }
@@ -499,9 +499,9 @@ static __strong NSData *CRLFCRLF;
     assert([_secKey length] == 24);
 
     // Apply cookies if any have been provided
-    NSDictionary * cookies = [NSHTTPCookie requestHeaderFieldsWithCookies:[self requestCookies]];
-    for (NSString * cookieKey in cookies) {
-        NSString * cookieValue = [cookies objectForKey:cookieKey];
+    NSDictionary *cookies = [NSHTTPCookie requestHeaderFieldsWithCookies:[self requestCookies]];
+    for (NSString *cookieKey in cookies) {
+        NSString *cookieValue = [cookies objectForKey:cookieKey];
         if ([cookieKey length] && [cookieValue length]) {
             CFHTTPMessageSetHeaderFieldValue(request, (__bridge CFStringRef)cookieKey, (__bridge CFStringRef)cookieValue);
         }
@@ -703,7 +703,7 @@ static __strong NSData *CRLFCRLF;
             
             NSUInteger usedLength = 0;
             
-            BOOL success = [reason getBytes:(char *)mutablePayload.mutableBytes + sizeof(uint16_t) maxLength:payload.length - sizeof(uint16_t) usedLength:&usedLength encoding:NSUTF8StringEncoding options:NSStringEncodingConversionExternalRepresentation range:NSMakeRange(0, reason.length) remainingRange:&remainingRange];
+            BOOL success = [reason getBytes:(char *)mutablePayload.mutableBytes + sizeof(uint16_t) maxLength:payload.length - sizeof(uint16_t) usedLength:&usedLength encoding:NSUTF8StringEncoding options:NSStringEncodingConversionExternalRepresentation range:NSMakeRange(0, reason.length)remainingRange:&remainingRange];
             #pragma unused (success)
             
             assert(success);
@@ -978,7 +978,7 @@ static inline BOOL closeCodeIsValid(int closeCode) {
         }
     }else {
         assert(frame_header.payload_length <= SIZE_T_MAX);
-        [self _addConsumerWithDataLength:(size_t)frame_header.payload_length callback:^(SRWebSocket *self, NSData *newData) {
+        [self _addConsumerWithDataLength:(size_t)frame_header.payload_length callback:^(SRWebSocket *self, NSData *newData){
             if (isControlFrame) {
                 [self _handleFrameWithData:newData opCode:frame_header.opcode];
             }else {
@@ -1197,7 +1197,7 @@ static const uint8_t SRPayloadLenMask   = 0x7F;
         
         // Cleanup NSStream delegate's in the same RunLoop used by the streams themselves:
         // This way we'll prevent race conditions between handleEvent and SRWebsocket's dealloc
-        NSTimer *timer = [NSTimer timerWithTimeInterval:(0.0f) target:self selector:@selector(_cleanupSelfReference:) userInfo:nil repeats:NO];
+        NSTimer *timer = [NSTimer timerWithTimeInterval:(0.0f)target:self selector:@selector(_cleanupSelfReference:)userInfo:nil repeats:NO];
         [[NSRunLoop SR_networkRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
     }
 }
@@ -1358,7 +1358,7 @@ static const char CRLFCRLFBytes[] = {'\r', '\n', '\r', '\n'};
     return didWork;
 }
 
--(void)_pumpScanner {
+- (void)_pumpScanner {
     [self assertOnWorkQueue];
     
     if (!_isPumping) {
@@ -1552,7 +1552,6 @@ static const size_t SRFrameHeaderOverhead = 32;
                         }
                     });
                 }
-                
                 break;
             }
                 
@@ -1725,7 +1724,7 @@ static inline int32_t validate_dispatch_data_partial_string(NSData *data) {
 
     int32_t size = (int32_t)[data length];
 
-    const void * contents = [data bytes];
+    const void *contents = [data bytes];
     const uint8_t *str = (const uint8_t *)contents;
     
     UChar32 codepoint = 1;

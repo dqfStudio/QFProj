@@ -33,22 +33,18 @@
 
 @implementation NSData (Base64Additions)
 
-+(id)decodeBase64ForString:(NSString *)decodeString
-{
++ (id)decodeBase64ForString:(NSString *)decodeString {
     NSData *decodeBuffer = nil;
     // Must be 7-bit clean!
     NSData *tmpData = [decodeString dataUsingEncoding:NSASCIIStringEncoding];
     
     size_t estSize = EstimateBas64DecodedDataSize([tmpData length]);
-    uint8_t* outBuffer = calloc(estSize, sizeof(uint8_t));
+    uint8_t *outBuffer = calloc(estSize, sizeof(uint8_t));
     
     size_t outBufferLength = estSize;
-    if (Base64DecodeData([tmpData bytes], [tmpData length], outBuffer, &outBufferLength))
-    {
+    if (Base64DecodeData([tmpData bytes], [tmpData length], outBuffer, &outBufferLength)) {
         decodeBuffer = [NSData dataWithBytesNoCopy:outBuffer length:outBufferLength freeWhenDone:YES];
-    }
-    else
-    {
+    }else {
         free(outBuffer);
         [NSException raise:@"NSData+Base64AdditionsException" format:@"Unable to decode data!"];
     }
@@ -56,13 +52,11 @@
     return decodeBuffer;
 }
 
-+(id)decodeWebSafeBase64ForString:(NSString *)decodeString
-{
++ (id)decodeWebSafeBase64ForString:(NSString *)decodeString {
     return [NSData decodeBase64ForString:[[decodeString stringByReplacingOccurrencesOfString:@"-" withString:@"+"] stringByReplacingOccurrencesOfString:@"_" withString:@"/"]];
 }
 
--(NSString *)encodeBase64ForData
-{
+- (NSString *)encodeBase64ForData {
     NSString *encodedString = nil;
     
     // Make sure this is nul-terminated.
@@ -70,12 +64,9 @@
     char *outBuffer = calloc(outBufferEstLength, sizeof(char));
     
     size_t outBufferLength = outBufferEstLength;
-    if (Base64EncodeData([self bytes], [self length], outBuffer, &outBufferLength, FALSE))
-    {
+    if (Base64EncodeData([self bytes], [self length], outBuffer, &outBufferLength, FALSE)) {
         encodedString = [NSString stringWithCString:outBuffer encoding:NSASCIIStringEncoding];
-    }
-    else
-    {
+    }else {
         [NSException raise:@"NSData+Base64AdditionsException" format:@"Unable to encode data!"];
     }
     
@@ -84,13 +75,11 @@
     return encodedString;
 }
                                     
--(NSString *)encodeWebSafeBase64ForData
-{
+- (NSString *)encodeWebSafeBase64ForData {
     return [[[self encodeBase64ForData] stringByReplacingOccurrencesOfString:@"+" withString:@"-"] stringByReplacingOccurrencesOfString:@"/" withString:@"_"];
 }
                                     
--(NSString *)encodeWrappedBase64ForData
-{
+- (NSString *)encodeWrappedBase64ForData {
     NSString *encodedString = nil;
     
     // Make sure this is nul-terminated.
@@ -98,12 +87,9 @@
     char *outBuffer = calloc(outBufferEstLength, sizeof(char));
     
     size_t outBufferLength = outBufferEstLength;
-    if (Base64EncodeData([self bytes], [self length], outBuffer, &outBufferLength, TRUE))
-    {
+    if (Base64EncodeData([self bytes], [self length], outBuffer, &outBufferLength, TRUE)) {
         encodedString = [NSString stringWithCString:outBuffer encoding:NSASCIIStringEncoding];
-    }
-    else
-    {
+    }else {
         [NSException raise:@"NSData+Base64AdditionsException" format:@"Unable to encode data!"];
     }
     

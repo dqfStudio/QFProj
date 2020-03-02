@@ -32,7 +32,7 @@
 
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
 	#define MB_MULTILINE_TEXTSIZE(text, font, maxSize, mode) [text length] > 0 ? [text \
-		boundingRectWithSize:maxSize options:(NSStringDrawingUsesLineFragmentOrigin) \
+		boundingRectWithSize:maxSize options:(NSStringDrawingUsesLineFragmentOrigin)\
 		attributes:@{NSFontAttributeName:font} context:nil].size : CGSizeZero;
 #else
 	#define MB_MULTILINE_TEXTSIZE(text, font, maxSize, mode) [text length] > 0 ? [text \
@@ -263,7 +263,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	if (self.minShowTime > 0.0 && showStarted) {
 		NSTimeInterval interv = [[NSDate date] timeIntervalSinceDate:showStarted];
 		if (interv < self.minShowTime) {
-			self.minShowTimer = [NSTimer scheduledTimerWithTimeInterval:(self.minShowTime - interv) target:self 
+			self.minShowTimer = [NSTimer scheduledTimerWithTimeInterval:(self.minShowTime - interv)target:self 
 								selector:@selector(handleMinShowTimer:) userInfo:nil repeats:NO];
 			return;
 		} 
@@ -352,7 +352,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	self.showStarted = nil;
 }
 
-- (void)animationFinished:(NSString *)animationID finished:(BOOL)finished context:(void*)context {
+- (void)animationFinished:(NSString *)animationID finished:(BOOL)finished context:(void *)context {
 	[self done];
 }
 
@@ -625,7 +625,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
     // Set background rect color
     if (self.color) {
         CGContextSetFillColorWithColor(context, self.color.CGColor);
-    } else {
+    }else {
         CGContextSetGrayFillColor(context, 0.0f, self.opacity);
     }
 
@@ -670,7 +670,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	if (![NSThread isMainThread]) {
 		[self performSelectorOnMainThread:@selector(updateUIForKeypath:) withObject:keyPath waitUntilDone:NO];
-	} else {
+    }else {
 		[self updateUIForKeypath:keyPath];
 	}
 }
@@ -714,7 +714,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		return;
 	} else if ([superview isKindOfClass:[UIWindow class]]) {
 		[self setTransformForCurrentOrientation:YES];
-	} else {
+    }else {
 		self.bounds = self.superview.bounds;
 		[self setNeedsDisplay];
 	}
@@ -734,7 +734,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		else { radians = (CGFloat)M_PI_2; }
 		// Window coordinates differ!
 		self.bounds = CGRectMake(0, 0, self.bounds.size.height, self.bounds.size.width);
-	} else {
+    }else {
 		if (orientation == UIInterfaceOrientationPortraitUpsideDown) { radians = (CGFloat)M_PI; } 
 		else { radians = 0; }
 	}
@@ -808,11 +808,11 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		UIBezierPath *processPath = [UIBezierPath bezierPath];
 		processPath.lineCapStyle = kCGLineCapRound;
 		processPath.lineWidth = lineWidth;
-		endAngle = (self.progress * 2 * (float)M_PI) + startAngle;
+		endAngle = (self.progress *2 * (float)M_PI) + startAngle;
 		[processPath addArcWithCenter:center radius:radius startAngle:startAngle endAngle:endAngle clockwise:YES];
 		[_progressTintColor set];
 		[processPath stroke];
-	} else {
+    }else {
 		// Draw background
 		[_progressTintColor setStroke];
 		[_backgroundTintColor setFill];
@@ -823,7 +823,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		CGPoint center = CGPointMake(allRect.size.width / 2, allRect.size.height / 2);
 		CGFloat radius = (allRect.size.width - 4) / 2;
 		CGFloat startAngle = - ((float)M_PI / 2); // 90 degrees
-		CGFloat endAngle = (self.progress * 2 * (float)M_PI) + startAngle;
+		CGFloat endAngle = (self.progress *2 * (float)M_PI) + startAngle;
 		CGContextSetRGBFillColor(context, 1.0f, 1.0f, 1.0f, 1.0f); // white
 		CGContextMoveToPoint(context, center.x, center.y);
 		CGContextAddArc(context, center.x, center.y, radius, startAngle, endAngle, 0);
@@ -923,7 +923,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	// setup to draw progress color
 	CGContextSetFillColorWithColor(context, [_progressColor CGColor]);
 	radius = radius - 2;
-	float amount = self.progress * rect.size.width;
+	float amount = self.progress *rect.size.width;
 	
 	// if progress is in the middle area
 	if (amount >= radius + 4 && amount <= (rect.size.width - radius - 4)) {

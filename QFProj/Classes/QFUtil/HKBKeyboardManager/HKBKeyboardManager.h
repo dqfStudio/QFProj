@@ -76,7 +76,7 @@ extern NSInteger const kHKBPreviousNextButtonToolbarTag;
 + (nonnull instancetype)sharedManager;
 
 /**
- Enable/disable managing distance between keyboard and textField. Default is YES(Enabled when class loads in `+(void)load` method).
+ Enable/disable managing distance between keyboard and textField. Default is YES(Enabled when class loads in `+ (void)load` method).
  */
 @property(nonatomic, assign, getter = isEnabled) BOOL enable;
 
@@ -204,7 +204,7 @@ extern NSInteger const kHKBPreviousNextButtonToolbarTag;
 @property(nonatomic, assign) BOOL shouldResignOnTouchOutside;
 
 /** TapGesture to resign keyboard on view's touch. It's a readonly property and exposed only for adding/removing dependencies if your added gesture does have collision with this one */
-@property(nonnull, nonatomic, strong, readonly) UITapGestureRecognizer  *resignFirstResponderGesture;
+@property(nonnull, nonatomic, strong, readonly) UITapGestureRecognizer *resignFirstResponderGesture;
 
 /**
  Resigns currently first responder field.
@@ -303,10 +303,10 @@ extern NSInteger const kHKBPreviousNextButtonToolbarTag;
  @param didBeginEditingNotificationName This should be identical to UITextViewTextDidBeginEditingNotification
  @param didEndEditingNotificationName This should be identical to UITextViewTextDidEndEditingNotification
  */
--(void)registerTextFieldViewClass:(nonnull Class)aClass
+- (void)registerTextFieldViewClass:(nonnull Class)aClass
   didBeginEditingNotificationName:(nonnull NSString *)didBeginEditingNotificationName
     didEndEditingNotificationName:(nonnull NSString *)didEndEditingNotificationName;
--(void)unregisterTextFieldViewClass:(nonnull Class)aClass
+- (void)unregisterTextFieldViewClass:(nonnull Class)aClass
     didBeginEditingNotificationName:(nonnull NSString *)didBeginEditingNotificationName
       didEndEditingNotificationName:(nonnull NSString *)didEndEditingNotificationName;
 
@@ -319,8 +319,8 @@ extern NSInteger const kHKBPreviousNextButtonToolbarTag;
 /**
  @warning Use these methods to completely enable/disable notifications registered by library internally. Please keep in mind that library is totally dependent on NSNotification of UITextField, UITextField, Keyboard etc. If you do unregisterAllNotifications then library will not work at all. You should only use below methods if you want to completedly disable all library functions. You should use below methods at your own risk.
  */
--(void)registerAllNotifications;
--(void)unregisterAllNotifications;
+- (void)registerAllNotifications;
+- (void)unregisterAllNotifications;
 
 ///----------------------------------------
 /// @name Must not be used for subclassing.

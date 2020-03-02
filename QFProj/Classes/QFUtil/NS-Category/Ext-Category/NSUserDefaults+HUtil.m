@@ -15,7 +15,7 @@
 
 @implementation NSUserDefaults (HUtil)
 + (void)setUserDefaultsId:(NSString *)aString {
-    [NSUserDefaults saveStandardDefaults:^(NSUserDefaults * _Nullable theStandardDefaults) {
+    [NSUserDefaults saveStandardDefaults:^(NSUserDefaults *_Nullable theStandardDefaults) {
         [theStandardDefaults setObject:aString forKey:KUserDefaultsKey];
     }];
 }
@@ -49,7 +49,7 @@
     }
 }
 + (void)setAPPFirstLaunch {
-    [NSUserDefaults saveStandardDefaults:^(NSUserDefaults * _Nullable theStandardDefaults) {
+    [NSUserDefaults saveStandardDefaults:^(NSUserDefaults *_Nullable theStandardDefaults) {
         [theStandardDefaults setBool:YES forKey:KFirstLaunchKey];
     }];
 }
@@ -57,7 +57,7 @@
     return [[NSUserDefaults standardUserDefaults] boolForKey:KFirstLaunchKey];
 }
 + (void)setUserFirstLaunch {
-    [NSUserDefaults saveUserDefaults:^(NSUserDefaults * _Nullable theUserDefaults) {
+    [NSUserDefaults saveUserDefaults:^(NSUserDefaults *_Nullable theUserDefaults) {
         [theUserDefaults setBool:YES forKey:KUserFirstLaunchKey];
     }];
 }
@@ -67,12 +67,12 @@
     return NO;
 }
 + (void)setUserLogin {
-    [NSUserDefaults saveUserDefaults:^(NSUserDefaults * _Nullable theUserDefaults) {
+    [NSUserDefaults saveUserDefaults:^(NSUserDefaults *_Nullable theUserDefaults) {
         [theUserDefaults setBool:YES forKey:KUserLoginKey];
     }];
 }
 + (void)setUserLogout {
-    [NSUserDefaults saveUserDefaults:^(NSUserDefaults * _Nullable theUserDefaults) {
+    [NSUserDefaults saveUserDefaults:^(NSUserDefaults *_Nullable theUserDefaults) {
         [theUserDefaults setBool:NO forKey:KUserLoginKey];
     }];
 }

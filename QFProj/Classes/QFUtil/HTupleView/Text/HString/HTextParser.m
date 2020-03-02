@@ -31,9 +31,9 @@
     NSRegularExpression *_regexH1;              ///< header\n====
     NSRegularExpression *_regexH2;              ///< header\n----
     NSRegularExpression *_regexBreakline;       ///< ******
-    NSRegularExpression *_regexEmphasis;        ///< *text*  _text_
-    NSRegularExpression *_regexStrong;          ///< **text**
-    NSRegularExpression *_regexStrongEmphasis;  ///< ***text*** ___text___
+    NSRegularExpression *_regexEmphasis;        ///< *text *_text_
+    NSRegularExpression *_regexStrong;          ///< **text **
+    NSRegularExpression *_regexStrongEmphasis;  ///< ***text *** ___text___
     NSRegularExpression *_regexUnderline;       ///< __text__
     NSRegularExpression *_regexStrikethrough;   ///< ~~text~~
     NSRegularExpression *_regexInlineCode;      ///< `text`
@@ -52,9 +52,9 @@
     _regexH1 = HRegexp("^[^=\\n][^\\n]*\\n=+$", NSRegularExpressionAnchorsMatchLines);
     _regexH2 = HRegexp("^[^-\\n][^\\n]*\\n-+$", NSRegularExpressionAnchorsMatchLines);
     _regexBreakline = HRegexp("^[ \\t]*([*-])[ \\t]*((\\1)[ \\t]*){2,}[ \\t]*$", NSRegularExpressionAnchorsMatchLines);
-    _regexEmphasis = HRegexp("((?<!\\*)\\*(?=[^ \\t*])(.+?)(?<=[^ \\t*])\\*(?!\\*)|(?<!_)_(?=[^ \\t_])(.+?)(?<=[^ \\t_])_(?!_))", 0);
-    _regexStrong = HRegexp("(?<!\\*)\\*{2}(?=[^ \\t*])(.+?)(?<=[^ \\t*])\\*{2}(?!\\*)", 0);
-    _regexStrongEmphasis =  HRegexp("((?<!\\*)\\*{3}(?=[^ \\t*])(.+?)(?<=[^ \\t*])\\*{3}(?!\\*)|(?<!_)_{3}(?=[^ \\t_])(.+?)(?<=[^ \\t_])_{3}(?!_))", 0);
+    _regexEmphasis = HRegexp("((?<!\\*)\\*(?=[^ \\t *])(.+?)(?<=[^ \\t *])\\*(?!\\*)|(?<!_)_(?=[^ \\t_])(.+?)(?<=[^ \\t_])_(?!_))", 0);
+    _regexStrong = HRegexp("(?<!\\*)\\*{2}(?=[^ \\t *])(.+?)(?<=[^ \\t *])\\*{2}(?!\\*)", 0);
+    _regexStrongEmphasis =  HRegexp("((?<!\\*)\\*{3}(?=[^ \\t *])(.+?)(?<=[^ \\t *])\\*{3}(?!\\*)|(?<!_)_{3}(?=[^ \\t_])(.+?)(?<=[^ \\t_])_{3}(?!_))", 0);
     _regexUnderline = HRegexp("(?<!_)__(?=[^ \\t_])(.+?)(?<=[^ \\t_])\\__(?!_)", 0);
     _regexStrikethrough = HRegexp("(?<!~)~~(?=[^ \\t~])(.+?)(?<=[^ \\t~])\\~~(?!~)", 0);
     _regexInlineCode = HRegexp("(?<!`)(`{1,3})([^`\n]+?)\\1(?!`)", 0);
@@ -62,7 +62,7 @@
     _regexLinkRefer = HRegexp("^[ \\t]*\\[[^\\[\\]]\\]:", NSRegularExpressionAnchorsMatchLines);
     _regexList = HRegexp("^[ \\t]*([*+-]|\\d+[.])[ \\t]+", NSRegularExpressionAnchorsMatchLines);
     _regexBlockQuote = HRegexp("^[ \\t]*>[ \\t>]*", NSRegularExpressionAnchorsMatchLines);
-    _regexCodeBlock = HRegexp("(^\\s*$\\n)((( {4}|\\t).*(\\n|\\z))|(^\\s*$\\n))+", NSRegularExpressionAnchorsMatchLines);
+    _regexCodeBlock = HRegexp("(^\\s *$\\n)((( {4}|\\t).*(\\n|\\z))|(^\\s *$\\n))+", NSRegularExpressionAnchorsMatchLines);
     _regexNotEmptyLine = HRegexp("^[ \\t]*[^ \\t]+[ \\t]*$", NSRegularExpressionAnchorsMatchLines);
 #undef HRegexp
 }
@@ -137,7 +137,7 @@
     _border.strokeWidth = HTextCGFloatFromPixel(1);
 }
 
-- (NSUInteger)lenghOfBeginWhiteInString:(NSString *)str withRange:(NSRange)range{
+- (NSUInteger)lenghOfBeginWhiteInString:(NSString *)str withRange:(NSRange)range {
     for (NSUInteger i = 0; i < range.length; i++) {
         unichar c = [str characterAtIndex:i + range.location];
         if (c != ' ' && c != '\t' && c != '\n') return i;
@@ -145,7 +145,7 @@
     return str.length;
 }
 
-- (NSUInteger)lenghOfEndWhiteInString:(NSString *)str withRange:(NSRange)range{
+- (NSUInteger)lenghOfEndWhiteInString:(NSString *)str withRange:(NSRange)range {
     for (NSInteger i = range.length - 1; i >= 0; i--) {
         unichar c = [str characterAtIndex:i + range.location];
         if (c != ' ' && c != '\t' && c != '\n') return range.length - i;
@@ -153,7 +153,7 @@
     return str.length;
 }
 
-- (NSUInteger)lenghOfBeginChar:(unichar)c inString:(NSString *)str withRange:(NSRange)range{
+- (NSUInteger)lenghOfBeginChar:(unichar)c inString:(NSString *)str withRange:(NSRange)range {
     for (NSUInteger i = 0; i < range.length; i++) {
         if ([str characterAtIndex:i + range.location] != c) return i;
     }
@@ -323,7 +323,7 @@ dispatch_semaphore_signal(_lock);
          _mapper = emoticonMapper.copy;
          if (_mapper.count == 0) {
              _regex = nil;
-         } else {
+         }else {
              NSMutableString *pattern = @"(".mutableCopy;
              NSArray *allKeys = _mapper.allKeys;
              NSCharacterSet *charset = [NSCharacterSet characterSetWithCharactersInString:@"$^?+*.,#|{}[]()\\"];

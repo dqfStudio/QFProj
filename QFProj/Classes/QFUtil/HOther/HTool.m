@@ -18,7 +18,7 @@
     if ([number isKindOfClass:NSNumber.class]) {
         content = [number stringValue];
     }
-    if([content isEqualToString:@"--"] || [content isEqualToString:@"维护中"] || [content isEqualToString:@"加载中..."]){
+    if ([content isEqualToString:@"--"] || [content isEqualToString:@"维护中"] || [content isEqualToString:@"加载中..."]) {
         return content;
     }
     content = [content stringByReplacingOccurrencesOfString:@"," withString:@""];
@@ -34,7 +34,7 @@
         formatter.numberStyle  = kCFNumberFormatterDecimalStyle;
         
         return [formatter stringFromNumber:number];
-    }else{
+    }else {
         return @"0.00";
     }
 }
@@ -65,17 +65,17 @@
     return currentDateStr;
 }
 + (NSString *)getLastDaysWith:(NSInteger)days {
-    NSDate * date = [NSDate date];
-    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSTimeInterval time = days * 24 * 60 * 60;
+    NSTimeInterval time = days *24 * 60 * 60;
     NSDate *lastWeek = [date dateByAddingTimeInterval:-time];
     NSString *startDate =  [dateFormatter stringFromDate:lastWeek];
     return  startDate;
 }
 + (NSString *)getLastDayDate {
-    NSDate * date = [NSDate date];
-    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSTimeInterval time = 1 * 24 * 60 * 60;
     NSDate *lastWeek = [date dateByAddingTimeInterval:-time];
@@ -83,8 +83,8 @@
     return  startDate;
 }
 + (NSString *)getLastThreeDayDate {
-    NSDate * date = [NSDate date];
-    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSTimeInterval time = 3 * 24 * 60 * 60;
     NSDate *lastWeek = [date dateByAddingTimeInterval:-time];
@@ -92,8 +92,8 @@
     return  startDate;
 }
 + (NSString *)getLastWeekDate {
-    NSDate * date = [NSDate date];
-    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSTimeInterval time = 7 * 24 * 60 * 60;
     NSDate *lastWeek = [date dateByAddingTimeInterval:-time];
@@ -101,8 +101,8 @@
     return  startDate;
 }
 + (NSString *)getLastTwoWeekDate {
-    NSDate * date = [NSDate date];
-    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSTimeInterval time = 14 * 24 * 60 * 60;
     NSDate *lastWeek = [date dateByAddingTimeInterval:-time];
@@ -160,8 +160,7 @@
     return [weekdays objectAtIndex:theComponents.weekday];
 }
 
-+ (NSString *)getCountdownTimeStr:(NSTimeInterval)interval
-{
++ (NSString *)getCountdownTimeStr:(NSTimeInterval)interval {
     NSInteger days = interval / (24 * 60 * 60);
     NSInteger hours = ((NSInteger)interval % (24 * 60 * 60)) / (60 * 60);
     NSInteger minuts = (((NSInteger)interval % (24 * 60 * 60)) % (60 * 60)) / 60;

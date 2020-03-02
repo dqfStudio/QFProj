@@ -74,15 +74,15 @@
 //A不等于0
 #define F_NOT_EQUAL_ZERO(A) (!(F_EQUAL_ZERO(A)))
 //A == B
-#define F_EQUAL(A, B) ((fabs((A) - (B))) < FLT_EPSILON)
+#define F_EQUAL(A, B) ((fabs((A)- (B))) < FLT_EPSILON)
 //A != B
 #define F_NOT_EQUAL(A, B) (!(F_EQUAL(A, B)))
 //A > B
-#define F_GREATER_THAN(A, B) ((A) - (B) > FLT_EPSILON && F_NOT_EQUAL(A, B))
+#define F_GREATER_THAN(A, B) ((A)- (B)> FLT_EPSILON && F_NOT_EQUAL(A, B))
 //A >= B
 #define F_GREATER_OR_EQUAL_THAN(A, B) (F_GREATER_THAN(A, B) || F_EQUAL(A,B))
 //A < B
-#define F_LESS_THAN(A, B) ((A) - (B) < FLT_EPSILON && F_NOT_EQUAL(A, B))
+#define F_LESS_THAN(A, B) ((A)- (B)< FLT_EPSILON && F_NOT_EQUAL(A, B))
 //A <= B
 #define F_LESS_OR_EQUAL_THAN(A, B) (F_LESS_THAN(A, B) || F_EQUAL(A, B))
 
@@ -107,6 +107,6 @@
 
 //由角度获取弧度 有弧度获取角度
 #define degreeToRadians(x) (M_PI *(x)/180.0)
-#define radianToDegrees(radian) (radian*180.0)/(M_PI)
+#define radianToDegrees(radian) (radian *180.0)/(M_PI)
 
 #endif /* HCommonDefine_h */

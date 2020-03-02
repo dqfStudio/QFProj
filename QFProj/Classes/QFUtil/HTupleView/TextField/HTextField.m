@@ -176,10 +176,10 @@
     if (placeholder.length > 0) {
         NSMutableAttributedString *placeholderString = [[NSMutableAttributedString alloc] initWithString:placeholder];
         NSRange range = NSMakeRange(0, placeholder.length);
-        if(self.placeholderFont) {//字体
+        if (self.placeholderFont) {//字体
             [placeholderString addAttribute:NSFontAttributeName value:self.placeholderFont range:range];
         }
-        if(self.placeholderColor) {//颜色
+        if (self.placeholderColor) {//颜色
             [placeholderString addAttribute:NSForegroundColorAttributeName value:self.placeholderColor range:range];
         }
         self.attributedPlaceholder = placeholderString;
@@ -259,7 +259,7 @@
 }
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
     if (self.forbidPaste) {
-        if([UIMenuController sharedMenuController]) {
+        if ([UIMenuController sharedMenuController]) {
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 [[UIMenuController sharedMenuController] setMenuVisible:NO animated:NO];
             }];
@@ -408,7 +408,7 @@
     
     NSString *CT = @"(^1(33|53|77|8[019]|99)\\d{8}$)|(^1700\\d{7}$)";
     
-    if([self isValidateWithRegex:MOBILE] || [self isValidateWithRegex:CM] || [self isValidateWithRegex:CU] || [self isValidateWithRegex:CT]) {
+    if ([self isValidateWithRegex:MOBILE] || [self isValidateWithRegex:CM] || [self isValidateWithRegex:CU] || [self isValidateWithRegex:CT]) {
         return YES;
     }else {
         return NO;

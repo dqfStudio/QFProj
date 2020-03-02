@@ -60,7 +60,7 @@
 - (CGSize)sizeForHeaderInSection:(NSInteger)section {
     NSInteger height = KFooterHeight;
     if (UIScreen.isIPhoneX) height += UIScreen.bottomBarHeight;
-    return CGSizeMake(self.tupleView.width, self.tupleView.height-KItemHeight*self.numberOfRows-height);
+    return CGSizeMake(self.tupleView.width, self.tupleView.height-KItemHeight *self.numberOfRows-height);
 }
 - (CGSize)sizeForFooterInSection:(NSInteger)section {
     NSInteger height = KFooterHeight;
@@ -68,7 +68,7 @@
     return CGSizeMake(self.tupleView.width, height);
 }
 - (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(self.tupleView.width, KItemHeight*self.numberOfRows);
+    return CGSizeMake(self.tupleView.width, KItemHeight *self.numberOfRows);
 }
 
 - (UIEdgeInsets)edgeInsetsForFooterInSection:(NSInteger)section {

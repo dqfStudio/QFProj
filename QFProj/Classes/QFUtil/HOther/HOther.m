@@ -32,7 +32,7 @@
 //        NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
 //        [sessionConfiguration setRequestCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
 //        NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
-//        [[session dataTaskWithURL:[NSURL URLWithString:kFilePath] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//        [[session dataTaskWithURL:[NSURL URLWithString:kFilePath] completionHandler:^(NSData *_Nullable data, NSURLResponse *_Nullable response, NSError *_Nullable error) {
 //
 //            __block NSDictionary *resultDict = nil;
 //
@@ -86,7 +86,7 @@
 //            //此处为硬编码，发包的时候可适当关注对比一下与服务端的配置是否一致
 //            [self loadLocalData];
 //
-//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f *NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //                [self checkLuckyDrawStatus];
 //                [self loadData];
 //                [self loadSowingMapData];
@@ -202,17 +202,17 @@
 //- (void)request {
 //    if (baseURL) {
 //        HNetworkDAO *requestDAO = [[HNetworkDAO alloc] initWithUrl:url info:parameters];
-//        [requestDAO startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+//        [requestDAO startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest *_Nonnull request) {
 //            NSDictionary *responseDict = request.responseJSONObject;
 //            success(YES, responseDict);
-//        } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+//        } failure:^(__kindof YTKBaseRequest *_Nonnull request) {
 //            NSString *description = @"服务器离家出走中，请稍后再试!";
 //            NSString *domain = @"HURLErrorDomain";
 //            NSInteger code = -1000;
 //            NSError *error = [NSError errorWithDomain:domain code:code userInfo:@{NSLocalizedDescriptionKey : description}];
 //            failure(error);
 //        }];
-//    } else {
+//    }else {
 //        success(NO, nil);
 //    }
 //}
@@ -352,14 +352,14 @@
 //            if ([selectVC2 isKindOfClass:[UINavigationController class]]) {
 //                UINavigationController *nav = (UINavigationController *)selectVC2;
 //                currentVC = nav.viewControllers.firstObject;
-//            }else{
+//            }else {
 //                currentVC = selectVC2;
 //            }
-//        }else{
+//        }else {
 //            currentVC = selectVC;
 //        }
 //        selectIndex = [NSString stringWithFormat:@"%lu",index];
-//    }else{
+//    }else {
 //        currentVC = visibleVC;
 //    }
 //    return  [NSString stringWithFormat:@"__%@__%@__%@",currentVC.titleLabel.text,NSStringFromClass([currentVC class]),selectIndex];
@@ -395,13 +395,13 @@
 //- (void)sendHTTPDataWithBaseURL:(NSString *)baseURL andAppendURL:(NSString *)url RequestWay:(NSString *)way
 //                  withParamters:(NSDictionary *)parameters
 //                      withToken:(NSString *)token
-//                        success:(void(^) (BOOL isSuccess, id responseObject))success
-//                        failure:(void(^) (NSError *error))failure {
+//                        success:(void(^)(BOOL isSuccess, id responseObject))success
+//                        failure:(void(^)(NSError *error))failure {
 //
 //
 //    AFHTTPSessionManager *sessionManager = [[YTKNetworkAgent sharedAgent] manager];
 //    __block AFHTTPSessionManager *sessionManagerBlock = sessionManager;
-//    [sessionManager setTaskWillPerformHTTPRedirectionBlock:^NSURLRequest * _Nonnull(NSURLSession * _Nonnull session, NSURLSessionTask * _Nonnull task, NSURLResponse * _Nonnull response, NSURLRequest * _Nonnull request)
+//    [sessionManager setTaskWillPerformHTTPRedirectionBlock:^NSURLRequest *_Nonnull(NSURLSession *_Nonnull session, NSURLSessionTask *_Nonnull task, NSURLResponse *_Nonnull response, NSURLRequest *_Nonnull request)
 //     {
 //         //这里可以重新修改重新向后的请求方式和参数。
 //         if (request) {
@@ -443,10 +443,10 @@
 //
 //    if (baseURL) {
 //        HNetworkDAO *requestDAO = [[HNetworkDAO alloc] initWithUrl:url info:parameters];
-//        [requestDAO startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+//        [requestDAO startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest *_Nonnull request) {
 //            NSDictionary *responseDict = request.responseJSONObject;
 //            success(YES, responseDict);
-//        } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+//        } failure:^(__kindof YTKBaseRequest *_Nonnull request) {
 //            NSString *description = @"服务器离家出走中，请稍后再试!";
 //            NSString *domain = @"HURLErrorDomain";
 //            NSInteger code = -1000;
@@ -454,7 +454,7 @@
 //            failure(error);
 //        }];
 //
-//    } else {
+//    }else {
 //        success(NO, nil);
 //    }
 //

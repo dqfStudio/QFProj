@@ -81,11 +81,11 @@
         return;
     }
     
-    if (self.superview && ![self isSystemClass:self.superview.class]){
+    if (self.superview && ![self isSystemClass:self.superview.class]) {
         printf("HPrinting-->super[1]ClassName-->%s\n", NSStringFromClass(self.superview.class).UTF8String);
-    }else if (self.superview.superview && ![self isSystemClass:self.superview.superview.class]){
+    }else if (self.superview.superview && ![self isSystemClass:self.superview.superview.class]) {
         printf("HPrinting-->super[2]ClassName-->%s\n", NSStringFromClass(self.superview.superview.class).UTF8String);
-    }else if (self.superview.superview.superview && ![self isSystemClass:self.superview.superview.superview.class]){
+    }else if (self.superview.superview.superview && ![self isSystemClass:self.superview.superview.superview.class]) {
         printf("HPrinting-->super[3]ClassName-->%s\n", NSStringFromClass(self.superview.superview.superview.class).UTF8String);
     }
     [self logVC];

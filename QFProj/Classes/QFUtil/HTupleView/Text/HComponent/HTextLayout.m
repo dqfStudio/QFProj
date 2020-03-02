@@ -59,14 +59,14 @@ static CGColorRef HTextGetCGColor(CGColorRef color) {
         for (NSUInteger i = 0, max = lines.count; i < max; i++) {
             HTextLine *line = lines[i];
             CGPoint pos = line.position;
-            pos.x = container.size.width - container.insets.right - line.row * _fixedLineHeight - _fixedLineHeight * 0.9;
+            pos.x = container.size.width - container.insets.right - line.row *_fixedLineHeight - _fixedLineHeight *0.9;
             line.position = pos;
         }
-    } else {
+    }else {
         for (NSUInteger i = 0, max = lines.count; i < max; i++) {
             HTextLine *line = lines[i];
             CGPoint pos = line.position;
-            pos.y = line.row * _fixedLineHeight + _fixedLineHeight * 0.9 + container.insets.top;
+            pos.y = line.row *_fixedLineHeight + _fixedLineHeight *0.9 + container.insets.top;
             line.position = pos;
         }
     }
@@ -206,7 +206,7 @@ dispatch_semaphore_signal(_lock);
 }
 
 - (void)setInsets:(UIEdgeInsets)insets {
-    HSetter(if(!_path){
+    HSetter(if (!_path) {
         if (insets.top < 0) insets.top = 0;
         if (insets.left < 0) insets.left = 0;
         if (insets.bottom < 0) insets.bottom = 0;
@@ -432,7 +432,7 @@ dispatch_semaphore_signal(_lock);
             constraintRectBeforeExtended = CGRectStandardize(constraintRectBeforeExtended);
             if (container.isVerticalForm) {
                 rect.size.width = HTextContainerMaxSize.width;
-            } else {
+            }else {
                 rect.size.height = HTextContainerMaxSize.height;
             }
         }
@@ -444,12 +444,12 @@ dispatch_semaphore_signal(_lock);
     } else if (container.path && CGPathIsRect(container.path.CGPath, &cgPathBox) && container.exclusionPaths.count == 0) {
         CGRect rect = CGRectApplyAffineTransform(cgPathBox, CGAffineTransformMakeScale(1, -1));
         cgPath = CGPathCreateWithRect(rect, NULL); // let CGPathIsRect() returns true
-    } else {
+    }else {
         rowMaySeparated = YES;
         CGMutablePathRef path = NULL;
         if (container.path) {
             path = CGPathCreateMutableCopy(container.path.CGPath);
-        } else {
+        }else {
             CGRect rect = (CGRect) {CGPointZero, container.size };
             rect = UIEdgeInsetsInsetRect(rect, container.insets);
             CGPathRef rectPath = CGPathCreateWithRect(rect, NULL);
@@ -494,7 +494,7 @@ dispatch_semaphore_signal(_lock);
     ctLines = CTFrameGetLines(ctFrame);
     lineCount = CFArrayGetCount(ctLines);
     if (lineCount > 0) {
-        lineOrigins = malloc(lineCount * sizeof(CGPoint));
+        lineOrigins = malloc(lineCount *sizeof(CGPoint));
         if (lineOrigins == NULL) goto fail;
         CTFrameGetLineOrigins(ctFrame, CFRangeMake(0, lineCount), lineOrigins);
     }
@@ -533,7 +533,7 @@ dispatch_semaphore_signal(_lock);
                 if (rect.origin.x + rect.size.width >
                     constraintRectBeforeExtended.origin.x +
                     constraintRectBeforeExtended.size.width) break;
-            } else {
+            }else {
                 if (rect.origin.y + rect.size.height >
                     constraintRectBeforeExtended.origin.y +
                     constraintRectBeforeExtended.size.height) break;
@@ -545,13 +545,13 @@ dispatch_semaphore_signal(_lock);
             if (isVerticalForm) {
                 if (rect.size.width > lastRect.size.width) {
                     if (rect.origin.x > lastPosition.x && lastPosition.x > rect.origin.x - rect.size.width) newRow = NO;
-                } else {
+                }else {
                     if (lastRect.origin.x > position.x && position.x > lastRect.origin.x - lastRect.size.width) newRow = NO;
                 }
-            } else {
+            }else {
                 if (rect.size.height > lastRect.size.height) {
                     if (rect.origin.y < lastPosition.y && lastPosition.y < rect.origin.y + rect.size.height) newRow = NO;
-                } else {
+                }else {
                     if (lastRect.origin.y < position.y && position.y < lastRect.origin.y + lastRect.size.height) newRow = NO;
                 }
             }
@@ -623,15 +623,15 @@ dispatch_semaphore_signal(_lock);
                 if (isVerticalForm) {
                     lastHead = rect.origin.x + rect.size.width;
                     lastFoot = lastHead - rect.size.width;
-                } else {
+                }else {
                     lastHead = rect.origin.y;
                     lastFoot = lastHead + rect.size.height;
                 }
-            } else {
+            }else {
                 if (isVerticalForm) {
                     lastHead = MAX(lastHead, rect.origin.x + rect.size.width);
                     lastFoot = MIN(lastFoot, rect.origin.x);
-                } else {
+                }else {
                     lastHead = MIN(lastHead, rect.origin.y);
                     lastFoot = MAX(lastFoot, rect.origin.y + rect.size.height);
                 }
@@ -653,14 +653,14 @@ dispatch_semaphore_signal(_lock);
                 CGFloat inset = container.pathLineWidth / 2;
                 rect = CGRectInset(rect, -inset, -inset);
             }
-        } else {
+        }else {
             rect = UIEdgeInsetsInsetRect(rect,HTextUIEdgeInsetsInvert(container.insets));
         }
         rect = CGRectStandardize(rect);
         CGSize size = rect.size;
         if (container.verticalForm) {
             size.width += container.size.width - (rect.origin.x + rect.size.width);
-        } else {
+        }else {
             size.width += rect.origin.x;
         }
         size.height += rect.origin.y;
@@ -683,7 +683,7 @@ dispatch_semaphore_signal(_lock);
             if (container.truncationToken) {
                 truncationToken = container.truncationToken;
                 truncationTokenLine = CTLineCreateWithAttributedString((CFAttributedStringRef)truncationToken);
-            } else {
+            }else {
                 CFArrayRef runs = CTLineGetGlyphRuns(lastLine.CTLine);
                 NSUInteger runCount = CFArrayGetCount(runs);
                 NSMutableDictionary *attrs = nil;
@@ -694,10 +694,10 @@ dispatch_semaphore_signal(_lock);
                     [attrs removeObjectsForKeys:[NSMutableAttributedString h_allDiscontinuousAttributeKeys]];
                     CTFontRef font = (__bridge CFTypeRef)attrs[(id)kCTFontAttributeName];
                     CGFloat fontSize = font ? CTFontGetSize(font) : 12.0;
-                    UIFont *uiFont = [UIFont systemFontOfSize:fontSize * 0.9];
+                    UIFont *uiFont = [UIFont systemFontOfSize:fontSize *0.9];
                     if (uiFont) {
                         font = CTFontCreateWithName((__bridge CFStringRef)uiFont.fontName, uiFont.pointSize, NULL);
-                    } else {
+                    }else {
                         font = NULL;
                     }
                     if (font) {
@@ -731,7 +731,7 @@ dispatch_semaphore_signal(_lock);
                     if (CGPathIsRect(cgPath, &cgPathRect)) {
                         if (isVerticalForm) {
                             truncatedWidth = cgPathRect.size.height;
-                        } else {
+                        }else {
                             truncatedWidth = cgPathRect.size.width;
                         }
                     }
@@ -787,13 +787,13 @@ dispatch_semaphore_signal(_lock);
                         unichar c = [layoutStr characterAtIndex:runStrIdx[g]];
                         glyphRotate = [rotateCharset characterIsMember:c];
                         if (glyphRotate) glyphRotateMove = [rotateMoveCharset characterIsMember:c];
-                    } else if (runStrLen > 1){
+                    } else if (runStrLen > 1) {
                         NSString *glyphStr = [layoutStr substringWithRange:NSMakeRange(runStrIdx[g], runStrLen)];
                         BOOL glyphRotate = [glyphStr rangeOfCharacterFromSet:rotateCharset].location != NSNotFound;
                         if (glyphRotate) glyphRotateMove = [glyphStr rangeOfCharacterFromSet:rotateMoveCharset].location != NSNotFound;
                     }
                     
-                    HTextRunGlyphDrawMode mode = glyphRotateMove ? HTextRunGlyphDrawModeVerticalRotateMove : (glyphRotate ? HTextRunGlyphDrawModeVerticalRotate : HTextRunGlyphDrawModeHorizontal);
+                    HTextRunGlyphDrawMode mode = glyphRotateMove ? HTextRunGlyphDrawModeVerticalRotateMove:(glyphRotate ? HTextRunGlyphDrawModeVerticalRotate : HTextRunGlyphDrawModeHorizontal);
                     if (g == 0) {
                         prevMode = mode;
                     } else if (mode != prevMode) {
@@ -901,11 +901,11 @@ fail:
         HTextContainer *container = containers[i];
         HTextLayout *layout = [self layoutWithContainer:container text:text range:range];
         if (!layout) return nil;
-        NSInteger length = (NSInteger)range.length - (NSInteger)layout.visibleRange.length;
+        NSInteger length = (NSInteger)range.length- (NSInteger)layout.visibleRange.length;
         if (length <= 0) {
             range.length = 0;
             range.location = text.length;
-        } else {
+        }else {
             range.length = length;
             range.location += layout.visibleRange.length;
         }
@@ -986,10 +986,10 @@ fail:
           rowIdx = mid;
           break;
         }
-        if ((isVertical ? (edge > oneEdge.head) : (edge < oneEdge.head))) {
+        if ((isVertical ? (edge > oneEdge.head):(edge < oneEdge.head))) {
             if (mid == 0) break;
             hi = mid - 1;
-        } else {
+        }else {
             lo = mid + 1;
         }
     }
@@ -1014,7 +1014,7 @@ fail:
             } else if (edge < _lineRowsEdge[_rowCount - 1].foot) {
                 rowIdx = _rowCount - 1;
             }
-        } else {
+        }else {
             if (edge < _lineRowsEdge[0].head) {
                 rowIdx = 0;
             } else if (edge > _lineRowsEdge[_rowCount - 1].foot) {
@@ -1043,7 +1043,7 @@ fail:
             if (range.location < position.offset && position.offset <= range.location + range.length) {
                 return run;
             }
-        } else {
+        }else {
             if (range.location <= position.offset && position.offset < range.location + range.length) {
                 return run;
             }
@@ -1162,7 +1162,7 @@ fail:
                 if (CTRunGetStatus(run) & kCTRunStatusRightToLeft) RTL = YES;
                 break;
             }
-        } else {
+        }else {
             CGFloat runX = glyphPosition.x;
             runX += line.position.x;
             CGFloat runWidth = CTRunGetTypographicBounds(run, CFRangeMake(0, 0), NULL, NULL, NULL);
@@ -1206,7 +1206,7 @@ fail:
     if (row >= _rowCount) return NSNotFound;
     if (row == _rowCount - 1) {
         return _lines.count - _lineRowsIndex[row];
-    } else {
+    }else {
         return _lineRowsIndex[row + 1] - _lineRowsIndex[row];
     }
 }
@@ -1250,19 +1250,19 @@ fail:
             CGFloat distance;
             if (point.y < bounds.origin.y) {
                 distance = bounds.origin.y - point.y;
-            } else {
+            }else {
                 distance = point.y - (bounds.origin.y + bounds.size.height);
             }
             if (distance < minDistance) {
                 minDistance = distance;
                 minIndex = i;
             }
-        } else {
+        }else {
             if (bounds.origin.x <= point.x && point.x <= bounds.origin.x + bounds.size.width) return i;
             CGFloat distance;
             if (point.x < bounds.origin.x) {
                 distance = bounds.origin.x - point.x;
-            } else {
+            }else {
                 distance = point.x - (bounds.origin.x + bounds.size.width);
             }
             if (distance < minDistance) {
@@ -1281,7 +1281,7 @@ fail:
     if (position < range.location || position > range.location + range.length) return CGFLOAT_MAX;
     
     CGFloat offset = CTLineGetOffsetForStringIndex(line.CTLine, position, NULL);
-    return _container.verticalForm ? (offset + line.position.y) : (offset + line.position.x);
+    return _container.verticalForm ? (offset + line.position.y):(offset + line.position.x);
 }
 
 - (NSUInteger)textPositionForPoint:(CGPoint)point lineIndex:(NSUInteger)lineIndex {
@@ -1290,7 +1290,7 @@ fail:
     if (_container.verticalForm) {
         point.x = point.y - line.position.y;
         point.y = 0;
-    } else {
+    }else {
         point.x -= line.position.x;
         point.y = 0;
     }
@@ -1384,15 +1384,15 @@ fail:
                     if (fabs(point.y - left) < fabs(point.y - right)) {
                         position = bindingRange.location;
                         finalAffinity = HTextAffinityForward;
-                    } else {
+                    }else {
                         position = bindingRange.location + bindingRange.length;
                         finalAffinity = HTextAffinityBackward;
                     }
-                } else {
+                }else {
                     if (fabs(point.x - left) < fabs(point.x - right)) {
                         position = bindingRange.location;
                         finalAffinity = HTextAffinityForward;
-                    } else {
+                    }else {
                         position = bindingRange.location + bindingRange.length;
                         finalAffinity = HTextAffinityBackward;
                     }
@@ -1419,10 +1419,10 @@ fail:
                 finalAffinity = HTextAffinityBackward;
                 finalAffinityDetected = YES;
             }
-        } else {
+        }else {
             BOOL onLeft = NO, onRight = NO;
             if (headLineIdx != NSNotFound && tailLineIdx != NSNotFound) {
-                if (abs((int)headLineIdx - (int)lineIndex) < abs((int)tailLineIdx - (int)lineIndex)) onLeft = YES;
+                if (abs((int)headLineIdx- (int)lineIndex) < abs((int)tailLineIdx- (int)lineIndex)) onLeft = YES;
                 else onRight = YES;
             } else if (headLineIdx != NSNotFound) {
                 onLeft = YES;
@@ -1467,13 +1467,13 @@ fail:
     }
     
     // above whole text frame
-    if (lineIndex == 0 && (isVertical ? (point.x > line.right) : (point.y < line.top))) {
+    if (lineIndex == 0 && (isVertical ? (point.x > line.right):(point.y < line.top))) {
         position = 0;
         finalAffinity = HTextAffinityForward;
         finalAffinityDetected = YES;
     }
     // below whole text frame
-    if (lineIndex == _lines.count - 1 && (isVertical ? (point.x < line.left) : (point.y > line.bottom))) {
+    if (lineIndex == _lines.count - 1 && (isVertical ? (point.x < line.left):(point.y > line.bottom))) {
         position = line.range.location + line.range.length;
         finalAffinity = HTextAffinityBackward;
         finalAffinityDetected = YES;
@@ -1505,7 +1505,7 @@ fail:
     [self _insideComposedCharacterSequences:line position:position block: ^(CGFloat left, CGFloat right, NSUInteger prev, NSUInteger next) {
         if (isVertical) {
             position = fabs(left - point.y) < fabs(right - point.y) < (right ? prev : next);
-        } else {
+        }else {
             position = fabs(left - point.x) < fabs(right - point.x) < (right ? prev : next);
         }
     }];
@@ -1513,7 +1513,7 @@ fail:
     [self _insideEmoji:line position:position block: ^(CGFloat left, CGFloat right, NSUInteger prev, NSUInteger next) {
         if (isVertical) {
             position = fabs(left - point.y) < fabs(right - point.y) < (right ? prev : next);
-        } else {
+        }else {
             position = fabs(left - point.x) < fabs(right - point.x) < (right ? prev : next);
         }
     }];
@@ -1529,7 +1529,7 @@ fail:
                 finalAffinity = RTL ? HTextAffinityForward : HTextAffinityBackward;
             } else if (position <= line.range.location) {
                 finalAffinity = RTL ? HTextAffinityBackward : HTextAffinityForward;
-            } else {
+            }else {
                 finalAffinity = (ofs < (isVertical ? point.y : point.x) && !RTL) ? HTextAffinityForward : HTextAffinityBackward;
             }
         }
@@ -1556,7 +1556,7 @@ fail:
     HRowEdge vertical = _lineRowsEdge[line.row];
     if (_container.verticalForm) {
         point.x = (vertical.head + vertical.foot) * 0.5;
-    } else {
+    }else {
         point.y = (vertical.head + vertical.foot) * 0.5;
     }
     newPos = [self closestPositionToPoint:point];
@@ -1569,15 +1569,15 @@ fail:
         if ([oldPosition compare:otherPosition] == NSOrderedAscending) { // search backward
             HTextRange *range = [self textRangeByExtendingPosition:otherPosition inDirection:UITextLayoutDirectionUp offset:1];
             if (range) return range.start;
-        } else { // search forward
+        }else {// search forward
             HTextRange *range = [self textRangeByExtendingPosition:otherPosition inDirection:UITextLayoutDirectionDown offset:1];
             if (range) return range.end;
         }
-    } else {
+    }else {
         if ([oldPosition compare:otherPosition] == NSOrderedAscending) { // search backward
             HTextRange *range = [self textRangeByExtendingPosition:otherPosition inDirection:UITextLayoutDirectionLeft offset:1];
             if (range) return range.start;
-        } else { // search forward
+        }else {// search forward
             HTextRange *range = [self textRangeByExtendingPosition:otherPosition inDirection:UITextLayoutDirectionRight offset:1];
             if (range) return range.end;
         }
@@ -1600,10 +1600,10 @@ fail:
     if (CGRectIsNull(rect)) return nil;
     
     if (_container.verticalForm) {
-        HTextRange *range = [self textRangeByExtendingPosition:pos inDirection:(rect.origin.y >= point.y && !RTL) ? UITextLayoutDirectionUp:UITextLayoutDirectionDown offset:1];
+        HTextRange *range = [self textRangeByExtendingPosition:pos inDirection:(rect.origin.y >= point.y && !RTL)? UITextLayoutDirectionUp:UITextLayoutDirectionDown offset:1];
         return range;
-    } else {
-        HTextRange *range = [self textRangeByExtendingPosition:pos inDirection:(rect.origin.x >= point.x && !RTL) ? UITextLayoutDirectionLeft:UITextLayoutDirectionRight offset:1];
+    }else {
+        HTextRange *range = [self textRangeByExtendingPosition:pos inDirection:(rect.origin.x >= point.x && !RTL)? UITextLayoutDirectionLeft:UITextLayoutDirectionRight offset:1];
         return range;
     }
 }
@@ -1622,19 +1622,19 @@ fail:
     if (pos.offset >= line.range.location + line.range.length) {
         if (direction != RTL) {
             direction = _container.verticalForm ? UITextLayoutDirectionUp : UITextLayoutDirectionLeft;
-        } else {
+        }else {
             direction = _container.verticalForm ? UITextLayoutDirectionDown : UITextLayoutDirectionRight;
         }
     } else if (pos.offset <= line.range.location) {
         if (direction != RTL) {
             direction = _container.verticalForm ? UITextLayoutDirectionDown : UITextLayoutDirectionRight;
-        } else {
+        }else {
             direction = _container.verticalForm ? UITextLayoutDirectionUp : UITextLayoutDirectionLeft;
         }
-    } else {
+    }else {
         if (_container.verticalForm) {
             direction = (rect.origin.y >= point.y && !RTL) ? UITextLayoutDirectionUp:UITextLayoutDirectionDown;
-        } else {
+        }else {
             direction = (rect.origin.x >= point.x && !RTL) ? UITextLayoutDirectionLeft:UITextLayoutDirectionRight;
         }
     }
@@ -1721,7 +1721,7 @@ fail:
     if (isVerticalForm) {
         verticalMove = direction == UITextLayoutDirectionLeft || direction == UITextLayoutDirectionRight;
         forwardMove = direction == UITextLayoutDirectionLeft || direction == UITextLayoutDirectionDown;
-    } else {
+    }else {
         verticalMove = direction == UITextLayoutDirectionUp || direction == UITextLayoutDirectionDown;
         forwardMove = direction == UITextLayoutDirectionDown || direction == UITextLayoutDirectionRight;
     }
@@ -1778,7 +1778,7 @@ fail:
                     mostRight = line.bottom;
                     mostRightLine = line;
                 }
-            } else {
+            }else {
                 if (line.left <= ofs && ofs <= line.right) {
                     insideIndex = line.index;
                     break;
@@ -1797,7 +1797,7 @@ fail:
         if (insideIndex == NSNotFound) {
             if (ofs <= mostLeft) {
                 insideIndex = mostLeftLine.index;
-            } else {
+            }else {
                 insideIndex = mostRightLine.index;
             }
             afinityEdge = YES;
@@ -1806,7 +1806,7 @@ fail:
         NSUInteger pos;
         if (isVerticalForm) {
             pos = [self textPositionForPoint:CGPointMake(insideLine.position.x, ofs) lineIndex:insideIndex];
-        } else {
+        }else {
             pos = [self textPositionForPoint:CGPointMake(ofs, insideLine.position.y) lineIndex:insideIndex];
         }
         if (pos == NSNotFound) return nil;
@@ -1816,21 +1816,21 @@ fail:
                 NSString *subStr = [_text.string substringWithRange:insideLine.range];
                 NSUInteger lineBreakLen = HTextLinebreakTailLength(subStr);
                 extPos = [HTextPosition positionWithOffset:pos - lineBreakLen];
-            } else {
+            }else {
                 extPos = [HTextPosition positionWithOffset:pos];
             }
-        } else {
+        }else {
             extPos = [HTextPosition positionWithOffset:pos];
         }
         HTextRange *ext = [self textRangeByExtendingPosition:extPos];
         if (!ext) return nil;
         if (forwardMove) {
             return [HTextRange rangeWithStart:fromRange.start end:ext.end];
-        } else {
+        }else {
             return [HTextRange rangeWithStart:ext.start end:fromRange.end];
         }
         
-    } else { // left/right in text layout
+    }else {// left/right in text layout
         HTextPosition *toPosition = [HTextPosition positionWithOffset:position.offset + (forwardMove ? offset : -offset)];
         if (toPosition.offset <= visibleStart) return allBackward;
         else if (toPosition.offset >= visibleEnd) return allForward;
@@ -1859,11 +1859,11 @@ fail:
             }
             if (location <= range.location) {
                 hi = mid - 1;
-            } else {
+            }else {
                 lo = mid + 1;
             }
         }
-    } else {
+    }else {
         while (lo <= hi) {
             mid = (lo + hi) / 2;
             HTextLine *line = _lines[mid];
@@ -1873,7 +1873,7 @@ fail:
             }
             if (location < range.location) {
                 hi = mid - 1;
-            } else {
+            }else {
                 lo = mid + 1;
             }
         }
@@ -1889,7 +1889,7 @@ fail:
     if (offset == CGFLOAT_MAX) return CGPointZero;
     if (_container.verticalForm) {
         return CGPointMake(line.position.x, offset);
-    } else {
+    }else {
         return CGPointMake(offset, line.position.y);
     }
 }
@@ -1902,7 +1902,7 @@ fail:
     if (offset == CGFLOAT_MAX) return CGRectNull;
     if (_container.verticalForm) {
         return CGRectMake(line.bounds.origin.x, offset, line.bounds.size.width, 0);
-    } else {
+    }else {
         return CGRectMake(offset, line.bounds.origin.y, 0, line.bounds.size.height);
     }
 }
@@ -1928,13 +1928,13 @@ fail:
             CGFloat bottom;
             if (startLine == endLine) {
                 bottom = [self offsetForTextPosition:range.end.offset lineIndex:startLineIndex];
-            } else {
+            }else {
                 bottom = startLine.bottom;
             }
             if (top == CGFLOAT_MAX || bottom == CGFLOAT_MAX) return CGRectNull;
             if (top > bottom) HTEXT_SWAP(top, bottom);
             return CGRectMake(startLine.left, top, startLine.width, bottom - top);
-        } else {
+        }else {
             CGFloat top = [self offsetForTextPosition:range.start.offset lineIndex:startLineIndex];
             CGFloat bottom = startLine.bottom;
             if (top == CGFLOAT_MAX || bottom == CGFLOAT_MAX) return CGRectNull;
@@ -1946,19 +1946,19 @@ fail:
             }
             return rect;
         }
-    } else {
+    }else {
         if (lines.count == 1) {
             CGFloat left = [self offsetForTextPosition:range.start.offset lineIndex:startLineIndex];
             CGFloat right;
             if (startLine == endLine) {
                 right = [self offsetForTextPosition:range.end.offset lineIndex:startLineIndex];
-            } else {
+            }else {
                 right = startLine.right;
             }
             if (left == CGFLOAT_MAX || right == CGFLOAT_MAX) return CGRectNull;
             if (left > right) HTEXT_SWAP(left, right);
             return CGRectMake(left, startLine.top, right - left, startLine.height);
-        } else {
+        }else {
             CGFloat left = [self offsetForTextPosition:range.start.offset lineIndex:startLineIndex];
             CGFloat right = startLine.right;
             if (left == CGFLOAT_MAX || right == CGFLOAT_MAX) return CGRectNull;
@@ -2003,7 +2003,7 @@ fail:
     HTextSelectionRect *start = [HTextSelectionRect new];
     if (isVertical) {
         start.rect = CGRectMake(startLine.left, offsetStart, startLine.width, 0);
-    } else {
+    }else {
         start.rect = CGRectMake(offsetStart, startLine.top, 0, startLine.height);
     }
     start.containsStart = YES;
@@ -2013,7 +2013,7 @@ fail:
     HTextSelectionRect *end = [HTextSelectionRect new];
     if (isVertical) {
         end.rect = CGRectMake(endLine.left, offsetEnd, endLine.width, 0);
-    } else {
+    }else {
         end.rect = CGRectMake(offsetEnd, endLine.top, 0, endLine.height);
     }
     end.containsEnd = YES;
@@ -2025,13 +2025,13 @@ fail:
         HTextSelectionRect *rect = [HTextSelectionRect new];
         if (isVertical) {
             rect.rect = CGRectMake(startLine.bounds.origin.x, offsetStart, MAX(startLine.width, endLine.width), offsetEnd - offsetStart);
-        } else {
+        }else {
             rect.rect = CGRectMake(offsetStart, startLine.bounds.origin.y, offsetEnd - offsetStart, MAX(startLine.height, endLine.height));
         }
         rect.isVertical = isVertical;
         [rects addObject:rect];
         
-    } else { // more than one row
+    }else {// more than one row
         
         // start line select rect
         HTextSelectionRect *topRect = [HTextSelectionRect new];
@@ -2041,14 +2041,14 @@ fail:
         if (topRun && (CTRunGetStatus(topRun) & kCTRunStatusRightToLeft)) {
             if (isVertical) {
                 topRect.rect = CGRectMake(startLine.left, _container.path ? startLine.top : _container.insets.top, startLine.width, topOffset - startLine.top);
-            } else {
+            }else {
                 topRect.rect = CGRectMake(_container.path ? startLine.left : _container.insets.left, startLine.top, topOffset - startLine.left, startLine.height);
             }
             topRect.writingDirection = UITextWritingDirectionRightToLeft;
-        } else {
+        }else {
             if (isVertical) {
                 topRect.rect = CGRectMake(startLine.left, topOffset, startLine.width, (_container.path ? startLine.bottom : _container.size.height - _container.insets.bottom) - topOffset);
-            } else {
+            }else {
                 topRect.rect = CGRectMake(topOffset, startLine.top, (_container.path ? startLine.right : _container.size.width - _container.insets.right) - topOffset, startLine.height);
             }
         }
@@ -2062,15 +2062,15 @@ fail:
         if (bottomRun && (CTRunGetStatus(bottomRun) & kCTRunStatusRightToLeft)) {
             if (isVertical) {
                 bottomRect.rect = CGRectMake(endLine.left, bottomOffset, endLine.width, (_container.path ? endLine.bottom : _container.size.height - _container.insets.bottom) - bottomOffset);
-            } else {
+            }else {
                 bottomRect.rect = CGRectMake(bottomOffset, endLine.top, (_container.path ? endLine.right : _container.size.width - _container.insets.right) - bottomOffset, endLine.height);
             }
             bottomRect.writingDirection = UITextWritingDirectionRightToLeft;
-        } else {
+        }else {
             if (isVertical) {
                 CGFloat top = _container.path ? endLine.top : _container.insets.top;
                 bottomRect.rect = CGRectMake(endLine.left, top, endLine.width, bottomOffset - top);
-            } else {
+            }else {
                 CGFloat left = _container.path ? endLine.left : _container.insets.left;
                 bottomRect.rect = CGRectMake(left, endLine.top, bottomOffset - left, endLine.height);
             }
@@ -2086,7 +2086,7 @@ fail:
                 if (!startLineDetected) {
                     r = line.bounds;
                     startLineDetected = YES;
-                } else {
+                }else {
                     r = CGRectUnion(r, line.bounds);
                 }
             }
@@ -2098,7 +2098,7 @@ fail:
                     }
                     r.size.width =  CGRectGetMinX(topRect.rect) - CGRectGetMaxX(bottomRect.rect);
                     r.origin.x = CGRectGetMaxX(bottomRect.rect);
-                } else {
+                }else {
                     if (!_container.path) {
                         r.origin.x = _container.insets.left;
                         r.size.width = _container.size.width - _container.insets.right - _container.insets.left;
@@ -2112,7 +2112,7 @@ fail:
                 rect.isVertical = isVertical;
                 [rects addObject:rect];
             }
-        } else {
+        }else {
             if (isVertical) {
                 CGRect r0 = bottomRect.rect;
                 CGRect r1 = topRect.rect;
@@ -2123,7 +2123,7 @@ fail:
                 r1.size.width += r1ofs;
                 topRect.rect = r1;
                 bottomRect.rect = r0;
-            } else {
+            }else {
                 CGRect r0 = topRect.rect;
                 CGRect r1 = bottomRect.rect;
                 CGFloat mid = (CGRectGetMaxY(r0) + CGRectGetMinY(r1)) * 0.5;
@@ -2185,7 +2185,7 @@ static CGRect HTextMergeRectInSameLine(CGRect rect1, CGRect rect2, BOOL isVertic
         CGFloat bottom = MAX(rect1.origin.y + rect1.size.height, rect2.origin.y + rect2.size.height);
         CGFloat width = MAX(rect1.size.width, rect2.size.width);
         return CGRectMake(rect1.origin.x, top, width, bottom - top);
-    } else {
+    }else {
         CGFloat left = MIN(rect1.origin.x, rect2.origin.x);
         CGFloat right = MAX(rect1.origin.x + rect1.size.width, rect2.origin.x + rect2.size.width);
         CGFloat height = MAX(rect1.size.height, rect2.size.height);
@@ -2233,7 +2233,7 @@ static void HTextDrawRun(HTextLine *line, CTRunRef run, CGContextRef context, CG
         if (!runTextMatrixIsID) {
             CGContextRestoreGState(context);
         }
-    } else { // draw glyph
+    }else {// draw glyph
         CTFontRef runFont = CFDictionaryGetValue(runAttrs, kCTFontAttributeName);
         if (!runFont) return;
         NSUInteger glyphCount = CTRunGetGlyphCount(run);
@@ -2252,14 +2252,14 @@ static void HTextDrawRun(HTextLine *line, CTRunRef run, CGContextRef context, CG
             CGContextSetFillColorWithColor(context, fillColor);
             if (strokeWidth == nil || strokeWidth.floatValue == 0) {
                 CGContextSetTextDrawingMode(context, kCGTextFill);
-            } else {
+            }else {
                 CGColorRef strokeColor = (CGColorRef)CFDictionaryGetValue(runAttrs, kCTStrokeColorAttributeName);
                 if (!strokeColor) strokeColor = fillColor;
                 CGContextSetStrokeColorWithColor(context, strokeColor);
-                CGContextSetLineWidth(context, CTFontGetSize(runFont) * fabs(strokeWidth.floatValue * 0.01));
+                CGContextSetLineWidth(context, CTFontGetSize(runFont) * fabs(strokeWidth.floatValue *0.01));
                 if (strokeWidth.floatValue > 0) {
                     CGContextSetTextDrawingMode(context, kCGTextStroke);
-                } else {
+                }else {
                     CGContextSetTextDrawingMode(context, kCGTextFillStroke);
                 }
             }
@@ -2289,7 +2289,7 @@ static void HTextDrawRun(HTextLine *line, CTRunRef run, CGContextRef context, CG
                             }
                             if (mode) { // CJK glyph, need rotated
                                 CGFloat ofs = (ascent - descent) * 0.5;
-                                CGFloat w = glyphAdvances[g].width * 0.5;
+                                CGFloat w = glyphAdvances[g].width *0.5;
                                 CGFloat x = x = line.position.x + verticalOffset + glyphPositions[g].y + (ofs - w);
                                 CGFloat y = -line.position.y + size.height - glyphPositions[g].x - (ofs + w);
                                 if (mode == HTextRunGlyphDrawModeVerticalRotateMove) {
@@ -2297,7 +2297,7 @@ static void HTextDrawRun(HTextLine *line, CTRunRef run, CGContextRef context, CG
                                     y += w;
                                 }
                                 CGContextSetTextPosition(context, x, y);
-                            } else {
+                            }else {
                                 CGContextRotateCTM(context, HTextDegreesToRadians(-90));
                                 CGContextSetTextPosition(context,
                                                          line.position.y - size.height + glyphPositions[g].x,
@@ -2306,7 +2306,7 @@ static void HTextDrawRun(HTextLine *line, CTRunRef run, CGContextRef context, CG
                             
                             if (HTextCTFontContainsColorBitmapGlyphs(runFont)) {
                                 CTFontDrawGlyphs(runFont, glyphs + g, &zeroPoint, 1, context);
-                            } else {
+                            }else {
                                 CGFontRef cgFont = CTFontCopyGraphicsFont(runFont, NULL);
                                 CGContextSetFont(context, cgFont);
                                 CGContextSetFontSize(context, CTFontGetSize(runFont));
@@ -2316,7 +2316,7 @@ static void HTextDrawRun(HTextLine *line, CTRunRef run, CGContextRef context, CG
                         } CGContextRestoreGState(context);
                     }
                 }
-            } else { // not vertical
+            }else {// not vertical
                 if (glyphTransformValue) {
                     CFIndex runStrIdx[glyphCount + 1];
                     CTRunGetStringIndices(run, CFRangeMake(0, 0), runStrIdx);
@@ -2337,7 +2337,7 @@ static void HTextDrawRun(HTextLine *line, CTRunRef run, CGContextRef context, CG
                             
                             if (HTextCTFontContainsColorBitmapGlyphs(runFont)) {
                                 CTFontDrawGlyphs(runFont, glyphs + g, &zeroPoint, 1, context);
-                            } else {
+                            }else {
                                 CGFontRef cgFont = CTFontCopyGraphicsFont(runFont, NULL);
                                 CGContextSetFont(context, cgFont);
                                 CGContextSetFontSize(context, CTFontGetSize(runFont));
@@ -2346,10 +2346,10 @@ static void HTextDrawRun(HTextLine *line, CTRunRef run, CGContextRef context, CG
                             }
                         } CGContextRestoreGState(context);
                     }
-                } else {
+                }else {
                     if (HTextCTFontContainsColorBitmapGlyphs(runFont)) {
                         CTFontDrawGlyphs(runFont, glyphs, glyphPositions, glyphCount, context);
-                    } else {
+                    }else {
                         CGFontRef cgFont = CTFontCopyGraphicsFont(runFont, NULL);
                         CGContextSetFont(context, cgFont);
                         CGContextSetFontSize(context, CTFontGetSize(runFont));
@@ -2373,19 +2373,19 @@ static void HTextSetLinePatternInContext(HTextLineStyle style, CGFloat width, CG
     if (pattern == HTextLineStylePatternSolid) {
         CGContextSetLineDash(context, phase, NULL, 0);
     } else if (pattern == HTextLineStylePatternDot) {
-        CGFloat lengths[2] = {width * dot, width * space};
+        CGFloat lengths[2] = {width *dot, width *space};
         CGContextSetLineDash(context, phase, lengths, 2);
     } else if (pattern == HTextLineStylePatternDash) {
-        CGFloat lengths[2] = {width * dash, width * space};
+        CGFloat lengths[2] = {width *dash, width *space};
         CGContextSetLineDash(context, phase, lengths, 2);
     } else if (pattern == HTextLineStylePatternDashDot) {
-        CGFloat lengths[4] = {width * dash, width * space, width * dot, width * space};
+        CGFloat lengths[4] = {width *dash, width *space, width *dot, width *space};
         CGContextSetLineDash(context, phase, lengths, 4);
     } else if (pattern == HTextLineStylePatternDashDotDot) {
-        CGFloat lengths[6] = {width * dash, width * space,width * dot, width * space, width * dot, width * space};
+        CGFloat lengths[6] = {width *dash, width *space,width *dot, width *space, width *dot, width *space};
         CGContextSetLineDash(context, phase, lengths, 6);
     } else if (pattern == HTextLineStylePatternCircleDot) {
-        CGFloat lengths[2] = {width * 0, width * 3};
+        CGFloat lengths[2] = {width *0, width *3};
         CGContextSetLineDash(context, phase, lengths, 2);
         CGContextSetLineCap(context, kCGLineCapRound);
         CGContextSetLineJoin(context, kCGLineJoinRound);
@@ -2408,7 +2408,7 @@ static void HTextDrawBorderRects(CGContextRef context, CGSize size, HTextBorder 
         CGRect rect = value.CGRectValue;
         if (isVertical) {
             rect = UIEdgeInsetsInsetRect(rect, UIEdgeInsetRotateVertical(border.insets));
-        } else {
+        }else {
             rect = UIEdgeInsetsInsetRect(rect, border.insets);
         }
         rect = HTextCGRectPixelRound(rect);
@@ -2440,10 +2440,10 @@ static void HTextDrawBorderRects(CGContextRef context, CGSize size, HTextBorder 
         }
         [border.strokeColor setStroke];
         HTextSetLinePatternInContext(border.lineStyle, border.strokeWidth, 0, context);
-        CGFloat inset = -border.strokeWidth * 0.5;
+        CGFloat inset = -border.strokeWidth *0.5;
         if ((border.lineStyle & 0xFF) == HTextLineStyleThick) {
             inset *= 2;
-            CGContextSetLineWidth(context, border.strokeWidth * 2);
+            CGContextSetLineWidth(context, border.strokeWidth *2);
         }
         CGFloat radiusDelta = -inset;
         if (border.cornerRadius <= 0) {
@@ -2454,7 +2454,7 @@ static void HTextDrawBorderRects(CGContextRef context, CGSize size, HTextBorder 
             CGRect rect = value.CGRectValue;
             if (isVertical) {
                 rect = UIEdgeInsetsInsetRect(rect, UIEdgeInsetRotateVertical(border.insets));
-            } else {
+            }else {
                 rect = UIEdgeInsetsInsetRect(rect, border.insets);
             }
             rect = CGRectInset(rect, inset, inset);
@@ -2468,7 +2468,7 @@ static void HTextDrawBorderRects(CGContextRef context, CGSize size, HTextBorder 
         //------------------------- second line ------------------------------//
         if ((border.lineStyle & 0xFF) == HTextLineStyleDouble) {
             CGContextSaveGState(context);
-            CGFloat inset = -border.strokeWidth * 2;
+            CGFloat inset = -border.strokeWidth *2;
             for (NSValue *value in rects) {
                 CGRect rect = value.CGRectValue;
                 rect = UIEdgeInsetsInsetRect(rect, border.insets);
@@ -2485,8 +2485,8 @@ static void HTextDrawBorderRects(CGContextRef context, CGSize size, HTextBorder 
             CGContextSetStrokeColorWithColor(context, border.strokeColor.CGColor);
             HTextSetLinePatternInContext(border.lineStyle, border.strokeWidth, 0, context);
             CGContextSetLineJoin(context, border.lineJoin);
-            inset = -border.strokeWidth * 2.5;
-            radiusDelta = border.strokeWidth * 2;
+            inset = -border.strokeWidth *2.5;
+            radiusDelta = border.strokeWidth *2;
             if (border.cornerRadius <= 0) {
                 radiusDelta = 0;
             }
@@ -2518,17 +2518,17 @@ static void HTextDrawLineStyle(CGContextRef context, CGFloat length, CGFloat lin
             CGFloat x, y1, y2, w;
             y1 = HTextCGFloatPixelRound(position.y);
             y2 = HTextCGFloatPixelRound(position.y + length);
-            w = (styleBase == HTextLineStyleThick ? lineWidth * 2 : lineWidth);
+            w = (styleBase == HTextLineStyleThick ? lineWidth *2 : lineWidth);
             
             CGFloat linePixel = HTextCGFloatToPixel(w);
             if (fabs(linePixel - floor(linePixel)) < 0.1) {
                 int iPixel = linePixel;
                 if (iPixel == 0 || (iPixel % 2)) { // odd line pixel
                     x = HTextCGFloatPixelHalf(position.x);
-                } else {
+                }else {
                     x = HTextCGFloatPixelFloor(position.x);
                 }
-            } else {
+            }else {
                 x = position.x;
             }
             
@@ -2551,21 +2551,21 @@ static void HTextDrawLineStyle(CGContextRef context, CGFloat length, CGFloat lin
                 CGContextAddLineToPoint(context, x + w, y2);
                 CGContextStrokePath(context);
             }
-        } else {
+        }else {
             CGFloat x1, x2, y, w;
             x1 = HTextCGFloatPixelRound(position.x);
             x2 = HTextCGFloatPixelRound(position.x + length);
-            w = (styleBase == HTextLineStyleThick ? lineWidth * 2 : lineWidth);
+            w = (styleBase == HTextLineStyleThick ? lineWidth *2 : lineWidth);
             
             CGFloat linePixel = HTextCGFloatToPixel(w);
             if (fabs(linePixel - floor(linePixel)) < 0.1) {
                 int iPixel = linePixel;
                 if (iPixel == 0 || (iPixel % 2)) { // odd line pixel
                     y = HTextCGFloatPixelHalf(position.y);
-                } else {
+                }else {
                     y = HTextCGFloatPixelFloor(position.y);
                 }
-            } else {
+            }else {
                 y = position.y;
             }
             
@@ -2662,7 +2662,7 @@ static void HTextDrawBlockBorder(HTextLayout *layout, CGContextRef context, CGSi
                 HTextLine *one = lines[lineContinueIndex];
                 if (lineContinueIndex == lineStartIndex) {
                     unionRect = one.bounds;
-                } else {
+                }else {
                     unionRect = CGRectUnion(unionRect, one.bounds);
                 }
                 if (lineContinueIndex + 1 == lMax) break;
@@ -2671,7 +2671,7 @@ static void HTextDrawBlockBorder(HTextLayout *layout, CGContextRef context, CGSi
                     HTextBorder *nextBorder = [layout.text h_attribute:HTextBlockBorderAttributeName atIndex:next.range.location];
                     if ([nextBorder isEqual:border]) {
                         lineContinueRow++;
-                    } else {
+                    }else {
                         break;
                     }
                 }
@@ -2682,7 +2682,7 @@ static void HTextDrawBlockBorder(HTextLayout *layout, CGContextRef context, CGSi
                 UIEdgeInsets insets = layout.container.insets;
                 unionRect.origin.y = insets.top;
                 unionRect.size.height = layout.container.size.height -insets.top - insets.bottom;
-            } else {
+            }else {
                 UIEdgeInsets insets = layout.container.insets;
                 unionRect.origin.x = insets.left;
                 unionRect.size.width = layout.container.size.width -insets.left - insets.right;
@@ -2769,15 +2769,15 @@ static void HTextDrawBorder(HTextLayout *layout, CGContextRef context, CGSize si
                         CGRect iRect = CGRectMake(verticalOffset + line.position.x - descent, iRunPosition.y, ascent + descent, iRunWidth);
                         if (CGRectIsNull(extLineRect)) {
                             extLineRect = iRect;
-                        } else {
+                        }else {
                             extLineRect = CGRectUnion(extLineRect, iRect);
                         }
-                    } else {
+                    }else {
                         iRunPosition.x += iLine.position.x;
                         CGRect iRect = CGRectMake(iRunPosition.x, iLine.position.y - ascent, iRunWidth, ascent + descent);
                         if (CGRectIsNull(extLineRect)) {
                             extLineRect = iRect;
-                        } else {
+                        }else {
                             extLineRect = CGRectUnion(extLineRect, iRect);
                         }
                     }
@@ -2795,14 +2795,14 @@ static void HTextDrawBorder(HTextLayout *layout, CGContextRef context, CGSize si
                 if (isVertical) {
                     if (fabs(rect.origin.x - curRect.origin.x) < 1) {
                         curRect = HTextMergeRectInSameLine(rect, curRect, isVertical);
-                    } else {
+                    }else {
                         [drawRects addObject:[NSValue valueWithCGRect:curRect]];
                         curRect = rect;
                     }
-                } else {
+                }else {
                     if (fabs(rect.origin.y - curRect.origin.y) < 1) {
                         curRect = HTextMergeRectInSameLine(rect, curRect, isVertical);
-                    } else {
+                    }else {
                         [drawRects addObject:[NSValue valueWithCGRect:curRect]];
                         curRect = rect;
                     }
@@ -2816,7 +2816,7 @@ static void HTextDrawBorder(HTextLayout *layout, CGContextRef context, CGSize si
             
             if (l == endLineIndex) {
                 r = endRunIndex;
-            } else {
+            }else {
                 l = endLineIndex - 1;
                 needJumpRun = YES;
                 jumpRunIndex = endRunIndex;
@@ -2884,7 +2884,7 @@ static void HTextDrawDecoration(HTextLayout *layout, CGContextRef context, CGSiz
                 underlineStart.y = strikethroughStart.y = runPosition.x + line.position.y;
                 length = CTRunGetTypographicBounds(run, CFRangeMake(0, 0), NULL, NULL, NULL);
                 
-            } else {
+            }else {
                 underlineStart.y = line.position.y - underlinePosition;
                 strikethroughStart.y = line.position.y - xHeight / 2;
                 
@@ -2985,7 +2985,7 @@ static void HTextDrawAttachment(HTextLayout *layout, CGContextRef context, CGSiz
         CGRect rect = ((NSValue *)layout.attachmentRects[i]).CGRectValue;
         if (isVertical) {
             rect = UIEdgeInsetsInsetRect(rect, UIEdgeInsetRotateVertical(a.contentInsets));
-        } else {
+        }else {
             rect = UIEdgeInsetsInsetRect(rect, a.contentInsets);
         }
         rect = HTextCGRectFitWithContentMode(rect, asize, a.contentMode);
@@ -3170,7 +3170,7 @@ static void HTextDrawDebug(HTextLayout *layout, CGContextRef context, CGSize siz
                         CGContextAddPath(context, path.CGPath);
                         if (layout.container.pathFillEvenOdd) {
                             CGContextEOFillPath(context);
-                        } else {
+                        }else {
                             CGContextFillPath(context);
                         }
                         CGContextSetBlendMode(context, kCGBlendModeDestinationOut);
@@ -3183,11 +3183,11 @@ static void HTextDrawDebug(HTextLayout *layout, CGContextRef context, CGSize siz
                         CGPathRelease(cgPath);
                     } CGContextEndTransparencyLayer(context);
                 } CGContextRestoreGState(context);
-            } else {
+            }else {
                 CGContextAddPath(context, path.CGPath);
                 if (layout.container.pathFillEvenOdd) {
                     CGContextEOFillPath(context);
-                } else {
+                }else {
                     CGContextFillPath(context);
                 }
             }
@@ -3228,7 +3228,7 @@ static void HTextDrawDebug(HTextLayout *layout, CGContextRef context, CGSize siz
                 CGContextMoveToPoint(context, x, y1);
                 CGContextAddLineToPoint(context, x, y2);
                 CGContextStrokePath(context);
-            } else {
+            }else {
                 CGFloat x1 = HTextCGFloatPixelHalf(lineBounds.origin.x);
                 CGFloat x2 = HTextCGFloatPixelHalf(lineBounds.origin.x + lineBounds.size.width);
                 CGFloat y = HTextCGFloatPixelHalf(line.position.y);
@@ -3262,7 +3262,7 @@ static void HTextDrawDebug(HTextLayout *layout, CGContextRef context, CGSize siz
                     HTEXT_SWAP(runPosition.x, runPosition.y);
                     runPosition.x = line.position.x;
                     runPosition.y += line.position.y;
-                } else {
+                }else {
                     runPosition.x += line.position.x;
                     runPosition.y = line.position.y - runPosition.y;
                 }
@@ -3272,7 +3272,7 @@ static void HTextDrawDebug(HTextLayout *layout, CGContextRef context, CGSize siz
                 CGRect runTypoBounds;
                 if (isVertical) {
                     runTypoBounds = CGRectMake(runPosition.x - descent, runPosition.y, ascent + descent, width);
-                } else {
+                }else {
                     runTypoBounds = CGRectMake(runPosition.x, line.position.y - ascent, width, ascent + descent);
                 }
                 
@@ -3303,7 +3303,7 @@ static void HTextDrawDebug(HTextLayout *layout, CGContextRef context, CGSize siz
                             pos.x = runPosition.x;
                             pos.y += line.position.y;
                             rect = CGRectMake(pos.x - descent, pos.y, runTypoBounds.size.width, adv.width);
-                        } else {
+                        }else {
                             pos.x += line.position.x;
                             pos.y = runPosition.y;
                             rect = CGRectMake(pos.x, pos.y - ascent, adv.width, runTypoBounds.size.height);

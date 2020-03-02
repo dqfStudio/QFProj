@@ -24,9 +24,9 @@ typedef NSDictionary WVJBMessage;
 
 
 @property (weak, nonatomic) id <WebViewJavascriptBridgeBaseDelegate> delegate;
-@property (strong, nonatomic) NSMutableArray* startupMessageQueue;
-@property (strong, nonatomic) NSMutableDictionary* responseCallbacks;
-@property (strong, nonatomic) NSMutableDictionary* messageHandlers;
+@property (strong, nonatomic) NSMutableArray *startupMessageQueue;
+@property (strong, nonatomic) NSMutableDictionary *responseCallbacks;
+@property (strong, nonatomic) NSMutableDictionary *messageHandlers;
 @property (strong, nonatomic) WVJBHandler messageHandler;
 
 + (void)enableLogging;

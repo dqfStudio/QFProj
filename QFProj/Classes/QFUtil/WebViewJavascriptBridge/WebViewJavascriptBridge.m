@@ -19,7 +19,7 @@
 #endif
 
 @implementation WebViewJavascriptBridge {
-    WVJB_WEAK WVJB_WEBVIEW_TYPE* _webView;
+    WVJB_WEAK WVJB_WEBVIEW_TYPE *_webView;
     WVJB_WEAK id _webViewDelegate;
     long _uniqueId;
     WebViewJavascriptBridgeBase *_base;
@@ -45,7 +45,7 @@
     }
 #endif
     if ([webView isKindOfClass:[WVJB_WEBVIEW_TYPE class]]) {
-        WebViewJavascriptBridge* bridge = [[self alloc] init];
+        WebViewJavascriptBridge *bridge = [[self alloc] init];
         [bridge _platformSpecificSetup:webView];
         return bridge;
     }
@@ -100,7 +100,7 @@
     _webViewDelegate = nil;
 }
 
-- (NSString *) _evaluateJavascript:(NSString *)javascriptCommand {
+- (NSString *)_evaluateJavascript:(NSString *)javascriptCommand {
     return [_webView stringByEvaluatingJavaScriptFromString:javascriptCommand];
 }
 
@@ -108,14 +108,14 @@
 /* Platform specific internals: OSX
  **********************************/
 
-- (void) _platformSpecificSetup:(WVJB_WEBVIEW_TYPE *)webView {
+- (void)_platformSpecificSetup:(WVJB_WEBVIEW_TYPE *)webView {
     _webView = webView;
     _webView.policyDelegate = self;
     _base = [[WebViewJavascriptBridgeBase alloc] init];
     _base.delegate = self;
 }
 
-- (void) _platformSpecificDealloc {
+- (void)_platformSpecificDealloc {
     _webView.policyDelegate = nil;
 }
 
@@ -129,13 +129,13 @@
         } else if ([_base isQueueMessageURL:url]) {
             NSString *messageQueueString = [self _evaluateJavascript:[_base webViewJavascriptFetchQueyCommand]];
             [_base flushMessageQueue:messageQueueString];
-        } else {
+        }else {
             [_base logUnkownMessage:url];
         }
         [listener ignore];
     } else if (_webViewDelegate && [_webViewDelegate respondsToSelector:@selector(webView:decidePolicyForNavigationAction:request:frame:decisionListener:)]) {
         [_webViewDelegate webView:webView decidePolicyForNavigationAction:actionInformation request:request frame:frame decisionListener:listener];
-    } else {
+    }else {
         [listener use];
     }
 }
@@ -146,21 +146,21 @@
 /* Platform specific internals: iOS
  **********************************/
 
-- (void) _platformSpecificSetup:(WVJB_WEBVIEW_TYPE *)webView {
+- (void)_platformSpecificSetup:(WVJB_WEBVIEW_TYPE *)webView {
     _webView = webView;
     _webView.delegate = self;
     _base = [[WebViewJavascriptBridgeBase alloc] init];
     _base.delegate = self;
 }
 
-- (void) _platformSpecificDealloc {
+- (void)_platformSpecificDealloc {
     _webView.delegate = nil;
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     if (webView != _webView) { return; }
     
-    __strong WVJB_WEBVIEW_DELEGATE_TYPE* strongDelegate = _webViewDelegate;
+    __strong WVJB_WEBVIEW_DELEGATE_TYPE *strongDelegate = _webViewDelegate;
     if (strongDelegate && [strongDelegate respondsToSelector:@selector(webViewDidFinishLoad:)]) {
         [strongDelegate webViewDidFinishLoad:webView];
     }
@@ -169,7 +169,7 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     if (webView != _webView) { return; }
     
-    __strong WVJB_WEBVIEW_DELEGATE_TYPE* strongDelegate = _webViewDelegate;
+    __strong WVJB_WEBVIEW_DELEGATE_TYPE *strongDelegate = _webViewDelegate;
     if (strongDelegate && [strongDelegate respondsToSelector:@selector(webView:didFailLoadWithError:)]) {
         [strongDelegate webView:webView didFailLoadWithError:error];
     }
@@ -179,20 +179,20 @@
     if (webView != _webView) { return YES; }
     
     NSURL *url = [request URL];
-    __strong WVJB_WEBVIEW_DELEGATE_TYPE* strongDelegate = _webViewDelegate;
+    __strong WVJB_WEBVIEW_DELEGATE_TYPE *strongDelegate = _webViewDelegate;
     if ([_base isWebViewJavascriptBridgeURL:url]) {
         if ([_base isBridgeLoadedURL:url]) {
             [_base injectJavascriptFile];
         } else if ([_base isQueueMessageURL:url]) {
             NSString *messageQueueString = [self _evaluateJavascript:[_base webViewJavascriptFetchQueyCommand]];
             [_base flushMessageQueue:messageQueueString];
-        } else {
+        }else {
             [_base logUnkownMessage:url];
         }
         return NO;
     } else if (strongDelegate && [strongDelegate respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) {
         return [strongDelegate webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
-    } else {
+    }else {
         return YES;
     }
 }
@@ -200,7 +200,7 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     if (webView != _webView) { return; }
     
-    __strong WVJB_WEBVIEW_DELEGATE_TYPE* strongDelegate = _webViewDelegate;
+    __strong WVJB_WEBVIEW_DELEGATE_TYPE *strongDelegate = _webViewDelegate;
     if (strongDelegate && [strongDelegate respondsToSelector:@selector(webViewDidStartLoad:)]) {
         [strongDelegate webViewDidStartLoad:webView];
     }

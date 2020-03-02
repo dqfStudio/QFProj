@@ -69,8 +69,8 @@ extern NSString *kSKPSMTPPartContentTransferEncodingKey;
 @protocol SKPSMTPMessageDelegate
 @required
 
--(void)messageSent:(SKPSMTPMessage *)message;
--(void)messageFailed:(SKPSMTPMessage *)message error:(NSError *)error;
+- (void)messageSent:(SKPSMTPMessage *)message;
+- (void)messageFailed:(SKPSMTPMessage *)message error:(NSError *)error;
 
 @end
 

@@ -74,8 +74,8 @@ extern const CGSize HTextContainerMaxSize;
 /// Path line width. Default is 0;
 @property CGFloat pathLineWidth;
 
-/// YES:(PathFillEvenOdd) Text is filled in the area that would be painted if the path were given to CGContextEOFillPath.
-/// NO: (PathFillWindingNumber) Text is fill in the area that would be painted if the path were given to CGContextFillPath.
+/// YES:(PathFillEvenOdd)Text is filled in the area that would be painted if the path were given to CGContextEOFillPath.
+/// NO:(PathFillWindingNumber)Text is fill in the area that would be painted if the path were given to CGContextFillPath.
 /// Default is YES;
 @property (getter=isPathFillEvenOdd) BOOL pathFillEvenOdd;
 
@@ -128,7 +128,7 @@ extern const CGSize HTextContainerMaxSize;
  All the property in this class is readonly, and should not be changed.
  The methods in this class is thread-safe (except some of the draw methods).
  
- example: (layout with a circle exclusion path)
+ example:(layout with a circle exclusion path)
  
      ┌──────────────────────────┐  <------ container
      │ [--------Line0--------]  │  <- Row0

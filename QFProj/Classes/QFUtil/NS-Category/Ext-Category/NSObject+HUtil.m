@@ -54,7 +54,7 @@
         for (NSString *key in properties) {
             id value = [self valueForKey:key];
             if (value && value != [NSNull null]) {
-                if([NSObject isSerializationObject:value]) {
+                if ([NSObject isSerializationObject:value]) {
                     [dict setValue:value forKey:key];
                 }else {
                     [dict setValue:[value serialization] forKey:key];
@@ -67,15 +67,15 @@
 }
 
 + (BOOL)isSerializationObject:(id)object {
-    if([object isKindOfClass:[NSString class]]) {
+    if ([object isKindOfClass:[NSString class]]) {
         return YES;
-    }else if([object isKindOfClass:[NSNumber class]]) {
+    }else if ([object isKindOfClass:[NSNumber class]]) {
         return YES;
-    }else if([object isKindOfClass:[NSArray class]]) {
+    }else if ([object isKindOfClass:[NSArray class]]) {
         return YES;
-    }else if([object isKindOfClass:[NSDictionary class]]) {
+    }else if ([object isKindOfClass:[NSDictionary class]]) {
         return YES;
-    }else if([object isKindOfClass:[NSNull class]]) {
+    }else if ([object isKindOfClass:[NSNull class]]) {
         return YES;
     }
     else return NO;
@@ -178,7 +178,7 @@
 + (void)methodSwizzleWithClass:(Class)c origSEL:(SEL)origSEL overrideSEL:(SEL)overrideSEL {
     Method origMethod = class_getInstanceMethod(c, origSEL);
     Method overrideMethod= class_getInstanceMethod(c, overrideSEL);
-    if(class_addMethod(c, origSEL, method_getImplementation(overrideMethod),method_getTypeEncoding(overrideMethod))) {
+    if (class_addMethod(c, origSEL, method_getImplementation(overrideMethod),method_getTypeEncoding(overrideMethod))) {
         class_replaceMethod(c,overrideSEL, method_getImplementation(origMethod), method_getTypeEncoding(origMethod));
     }else {
         method_exchangeImplementations(origMethod,overrideMethod);
@@ -188,11 +188,11 @@
 //特定匹配符
 - (id)extendInvoke1:(NSString *)invokeString withPre:(NSString *)preTag withMethodArgments:(void *)firstParameter, ... {
     //deal the type and function name
-    NSArray * clsArr = [invokeString componentsSeparatedByString:@" "];
+    NSArray *clsArr = [invokeString componentsSeparatedByString:@" "];
     BOOL isClassMethod = [[invokeString substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"+"];
-    NSString * clsStr = [clsArr[0] substringFromIndex:2];
-    NSString * methodString = clsArr[1];
-    NSString * methodName = [clsArr[1] substringToIndex:methodString.length-1];
+    NSString *clsStr = [clsArr[0] substringFromIndex:2];
+    NSString *methodString = clsArr[1];
+    NSString *methodName = [clsArr[1] substringToIndex:methodString.length-1];
     NSUInteger kuohaoLocation = [clsStr rangeOfString:@"("].location;
     if (kuohaoLocation != NSNotFound) {
         clsStr = [clsStr substringToIndex:kuohaoLocation];
@@ -208,11 +208,11 @@
         Method method = methods[i];
         SEL selector = method_getName(method);
         NSString *name = NSStringFromSelector(selector);
-        NSString * nMethodName = [NSString stringWithFormat:@"%@%@",preTag,methodName];
+        NSString *nMethodName = [NSString stringWithFormat:@"%@%@",preTag,methodName];
         
         if ([name hasSuffix:nMethodName]) {
-            NSMethodSignature * sig = [cls instanceMethodSignatureForSelector:selector];
-            NSInvocation * invocation = [NSInvocation invocationWithMethodSignature:sig];
+            NSMethodSignature *sig = [cls instanceMethodSignatureForSelector:selector];
+            NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:sig];
             [invocation setTarget:self];
             [invocation setSelector:selector];
             //if it has params
@@ -221,7 +221,7 @@
                 va_list arg_ptr;
                 va_start(arg_ptr, firstParameter);
                 for (NSUInteger i = 3; i < sig.numberOfArguments; i++) {
-                    void * parameter = va_arg(arg_ptr, void *);
+                    void *parameter = va_arg(arg_ptr, void *);
                     [invocation setArgument:parameter atIndex:i];
                 }
                 va_end(arg_ptr);
@@ -244,11 +244,11 @@
 //通用匹配符
 - (void)extendInvoke2:(NSString *)invokeString withPre:(NSString *)preTag withMethodArgments:(void *)firstParameter, ... {
     //deal the type and function name
-    NSArray * clsArr = [invokeString componentsSeparatedByString:@" "];
+    NSArray *clsArr = [invokeString componentsSeparatedByString:@" "];
     BOOL isClassMethod = [[invokeString substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"+"];
-    NSString * clsStr = [clsArr[0] substringFromIndex:2];
-    NSString * methodString = clsArr[1];
-    NSString * methodName = [clsArr[1] substringToIndex:methodString.length-1];
+    NSString *clsStr = [clsArr[0] substringFromIndex:2];
+    NSString *methodString = clsArr[1];
+    NSString *methodName = [clsArr[1] substringToIndex:methodString.length-1];
     NSUInteger kuohaoLocation = [clsStr rangeOfString:@"("].location;
     if (kuohaoLocation != NSNotFound) {
         clsStr = [clsStr substringToIndex:kuohaoLocation];
@@ -266,8 +266,8 @@
         NSString *nMethodName = [NSString stringWithFormat:@"_%@",methodName];
         
         if ([name hasSuffix:nMethodName]) {
-            NSMethodSignature * sig = [cls instanceMethodSignatureForSelector:selector];
-            NSInvocation * invocation = [NSInvocation invocationWithMethodSignature:sig];
+            NSMethodSignature *sig = [cls instanceMethodSignatureForSelector:selector];
+            NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:sig];
             [invocation setTarget:self];
             [invocation setSelector:selector];
             //if it has params
@@ -276,7 +276,7 @@
                 va_list arg_ptr;
                 va_start(arg_ptr, firstParameter);
                 for (NSUInteger i = 3; i < sig.numberOfArguments; i++) {
-                    void * parameter = va_arg(arg_ptr, void *);
+                    void *parameter = va_arg(arg_ptr, void *);
                     [invocation setArgument:parameter atIndex:i];
                 }
                 va_end(arg_ptr);

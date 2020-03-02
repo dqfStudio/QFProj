@@ -50,7 +50,7 @@
     if (!view) {
         if ([self isKindOfClass:[UIWindow class]]) {
             return [((UIWindow *)self) convertPoint:point toWindow:nil];
-        } else {
+        }else {
             return [self convertPoint:point toView:nil];
         }
     }
@@ -68,7 +68,7 @@
     if (!view) {
         if ([self isKindOfClass:[UIWindow class]]) {
             return [((UIWindow *)self) convertPoint:point fromWindow:nil];
-        } else {
+        }else {
             return [self convertPoint:point fromView:nil];
         }
     }
@@ -86,7 +86,7 @@
     if (!view) {
         if ([self isKindOfClass:[UIWindow class]]) {
             return [((UIWindow *)self) convertRect:rect toWindow:nil];
-        } else {
+        }else {
             return [self convertRect:rect toView:nil];
         }
     }
@@ -105,7 +105,7 @@
     if (!view) {
         if ([self isKindOfClass:[UIWindow class]]) {
             return [((UIWindow *)self) convertRect:rect fromWindow:nil];
-        } else {
+        }else {
             return [self convertRect:rect fromView:nil];
         }
     }

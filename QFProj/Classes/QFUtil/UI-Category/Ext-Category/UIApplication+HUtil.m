@@ -91,10 +91,10 @@
         viewOrientation = @"Landscape";
     }
     NSString *launchImageName = nil;
-    NSArray* imagesDict = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"UILaunchImages"];
+    NSArray *imagesDict = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"UILaunchImages"];
     
     CGSize viewSize = [UIScreen mainScreen].bounds.size;
-    for (NSDictionary* dict in imagesDict) {
+    for (NSDictionary *dict in imagesDict) {
         CGSize imageSize = CGSizeFromString(dict[@"UILaunchImageSize"]);
         if (CGSizeEqualToSize(imageSize, viewSize) && [viewOrientation isEqualToString:dict[@"UILaunchImageOrientation"]]) {
             launchImageName = dict[@"UILaunchImageName"];
@@ -186,7 +186,7 @@
 + (void)setStatusBarStyleWithColor:(UIColor *)color {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    if([color isLighterColor]) {
+    if ([color isLighterColor]) {
         #ifdef __IPHONE_13_0
             if (@available(iOS 13.0, *)) {
                 [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDarkContent];

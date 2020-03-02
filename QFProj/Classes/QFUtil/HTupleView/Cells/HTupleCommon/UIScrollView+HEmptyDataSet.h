@@ -84,7 +84,7 @@
  *
  *  @return image animation
  */
-- (CAAnimation *) imageAnimationForEmptyDataSet:(UIScrollView *) scrollView;
+- (CAAnimation *)imageAnimationForEmptyDataSet:(UIScrollView *)scrollView;
 
 /**
  Asks the data source for the title to be used for the specified button state.

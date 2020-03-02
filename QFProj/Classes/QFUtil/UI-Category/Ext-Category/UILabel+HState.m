@@ -11,7 +11,7 @@
 
 #ifndef DYNAMIC
 #define DYNAMIC(_getter_, _setter_, _type_) \
-- (void)_setter_ : (_type_)object { \
+- (void)_setter_:(_type_)object { \
 objc_setAssociatedObject(self, _cmd, object, OBJC_ASSOCIATION_RETAIN_NONATOMIC); \
 } \
 - (_type_)_getter_ { \
@@ -44,20 +44,20 @@ return objc_getAssociatedObject(self, @selector(_setter_:)); \
 
 @implementation UILabel (HState)
 
-DYNAMIC(normalText,setNormalText,NSString*)
-DYNAMIC(selectedText,setSelectedText,NSString*)
+DYNAMIC(normalText,setNormalText,NSString *)
+DYNAMIC(selectedText,setSelectedText,NSString *)
 
-DYNAMIC(normalColor,setNormalColor,UIColor*)
-DYNAMIC(selectedColor,setSelectedColor,UIColor*)
+DYNAMIC(normalColor,setNormalColor,UIColor *)
+DYNAMIC(selectedColor,setSelectedColor,UIColor *)
 
-DYNAMIC(normalFont,setNormalFont,UIFont*)
-DYNAMIC(selectedFont,setSelectedFont,UIFont*)
+DYNAMIC(normalFont,setNormalFont,UIFont *)
+DYNAMIC(selectedFont,setSelectedFont,UIFont *)
 
-DYNAMIC(normalAttributedText,setNormalAttributedText,NSAttributedString*)
-DYNAMIC(selectedAttributedText,setSelectedAttributedText,NSAttributedString*)
+DYNAMIC(normalAttributedText,setNormalAttributedText,NSAttributedString *)
+DYNAMIC(selectedAttributedText,setSelectedAttributedText,NSAttributedString *)
 
-DYNAMIC(normalBackgroundColor,setNormalBackgroundColor,UIColor*)
-DYNAMIC(selectedBackgroundColor,setSelectedBackgroundColor,UIColor*)
+DYNAMIC(normalBackgroundColor,setNormalBackgroundColor,UIColor *)
+DYNAMIC(selectedBackgroundColor,setSelectedBackgroundColor,UIColor *)
 
 - (UILabelState)labelState {
     return [[self getAssociatedValueForKey:_cmd] integerValue];
@@ -97,27 +97,27 @@ DYNAMIC(selectedBackgroundColor,setSelectedBackgroundColor,UIColor*)
 }
 
 - (void)setText:(NSString *)text forState:(UILabelState)state {
-    state ? (self.selectedText = text) : (self.normalText = text);
+    state ? (self.selectedText = text):(self.normalText = text);
     self.text = self.isSelected ? self.selectedText : self.normalText;
 }
 
 - (void)setTextColor:(nullable UIColor *)color forState:(UILabelState)state {
-    state ? (self.selectedColor = color) : (self.normalColor = color);
+    state ? (self.selectedColor = color):(self.normalColor = color);
     self.textColor = self.isSelected ? self.selectedColor : self.normalColor;
 }
 
 - (void)setFont:(nullable UIFont *)font forState:(UILabelState)state {
-    state ? (self.selectedFont = font) : (self.normalFont = font);
+    state ? (self.selectedFont = font):(self.normalFont = font);
     self.font = self.isSelected ? self.selectedFont : self.normalFont;
 }
 
 - (void)setAttributedText:(NSAttributedString *)attributedText forState:(UILabelState)state {
-    state ? (self.selectedAttributedText = attributedText) : (self.normalAttributedText = attributedText);
+    state ? (self.selectedAttributedText = attributedText):(self.normalAttributedText = attributedText);
     self.attributedText = self.isSelected ? self.selectedAttributedText : self.normalAttributedText;
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor forState:(UILabelState)state {
-    state ? (self.selectedBackgroundColor = backgroundColor) : (self.normalBackgroundColor = backgroundColor);
+    state ? (self.selectedBackgroundColor = backgroundColor):(self.normalBackgroundColor = backgroundColor);
     self.backgroundColor = self.isSelected ? self.selectedBackgroundColor : self.normalBackgroundColor;
 }
 

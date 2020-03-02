@@ -101,7 +101,7 @@
     [self.pingItems addObject:item];
     
     _beginDate = [NSDate date];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(self.timeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(self.timeout *NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if ([self.pingItems containsObject:item]) {
             //NSLog(@"hostname:%@, 超时---->", _hostName);
             [self.pingItems removeObject:item];
@@ -120,7 +120,7 @@
 
 - (void)simplePing:(SimplePing *)pinger didReceivePingResponsePacket:(NSData *)packet sequenceNumber:(uint16_t)sequenceNumber {
     float delayTime = [[NSDate date] timeIntervalSinceDate:_beginDate] * 1000;
-    [self.pingItems enumerateObjectsUsingBlock:^(HPingItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.pingItems enumerateObjectsUsingBlock:^(HPingItem *_Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
         if (obj.sequence == sequenceNumber) {
             [self.pingItems removeObject:obj];
         }

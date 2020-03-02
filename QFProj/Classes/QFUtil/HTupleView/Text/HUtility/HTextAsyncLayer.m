@@ -27,7 +27,7 @@ static dispatch_queue_t HTextAsyncLayerGetDisplayQueue() {
                 dispatch_queue_attr_t attr = dispatch_queue_attr_make_with_qos_class(DISPATCH_QUEUE_SERIAL, QOS_CLASS_USER_INITIATED, 0);
                 queues[i] = dispatch_queue_create("com.ibireme.text.render", attr);
             }
-        } else {
+        }else {
             for (NSUInteger i = 0; i < queueCount; i++) {
                 queues[i] = dispatch_queue_create("com.ibireme.text.render", DISPATCH_QUEUE_SERIAL);
                 dispatch_set_target_queue(queues[i], dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0));
@@ -87,7 +87,7 @@ static dispatch_queue_t HTextAsyncLayerGetReleaseQueue() {
 + (id)defaultValueForKey:(NSString *)key {
     if ([key isEqualToString:@"displaysAsynchronously"]) {
         return @(YES);
-    } else {
+    }else {
         return [super defaultValueForKey:key];
     }
 }
@@ -166,12 +166,12 @@ static dispatch_queue_t HTextAsyncLayerGetReleaseQueue() {
                 CGContextSaveGState(context); {
                     if (!backgroundColor || CGColorGetAlpha(backgroundColor) < 1) {
                         CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
-                        CGContextAddRect(context, CGRectMake(0, 0, size.width * scale, size.height * scale));
+                        CGContextAddRect(context, CGRectMake(0, 0, size.width *scale, size.height *scale));
                         CGContextFillPath(context);
                     }
                     if (backgroundColor) {
                         CGContextSetFillColorWithColor(context, backgroundColor);
-                        CGContextAddRect(context, CGRectMake(0, 0, size.width * scale, size.height * scale));
+                        CGContextAddRect(context, CGRectMake(0, 0, size.width *scale, size.height *scale));
                         CGContextFillPath(context);
                     }
                 } CGContextRestoreGState(context);
@@ -196,13 +196,13 @@ static dispatch_queue_t HTextAsyncLayerGetReleaseQueue() {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (isCancelled()) {
                     if (task.didDisplay) task.didDisplay(self, NO);
-                } else {
+                }else {
                     self.contents = (__bridge id)(image.CGImage);
                     if (task.didDisplay) task.didDisplay(self, YES);
                 }
             });
         });
-    } else {
+    }else {
         [_sentinel increase];
         if (task.willDisplay) task.willDisplay(self);
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, self.contentsScale);

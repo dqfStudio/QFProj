@@ -68,7 +68,7 @@
             presentedView.alpha = 1.0f;
             presentedView.transform = CGAffineTransformIdentity;
         } completion:^(BOOL finished) {
-            if(finished){
+            if (finished) {
                 [transitionContext completeTransition:YES];
             }
         }];
@@ -77,7 +77,7 @@
         [UIView animateWithDuration:duration animations:^{
             presentedView.transform = CGAffineTransformIdentity;
         } completion:^(BOOL finished) {
-            if(finished){
+            if (finished) {
                 [transitionContext completeTransition:YES];
             }
         }];
@@ -96,16 +96,16 @@
             presentedView.alpha = 0.0f;
             presentedView.transform = CGAffineTransformMakeScale(0.00001, 0.00001);
         } completion:^(BOOL finished) {
-            if(finished){
+            if (finished) {
                 [presentedView removeFromSuperview];
                 [transitionContext completeTransition:YES];
             }
         }];
-    }else if (self.presetType == HTransitionStyleSheet){
+    }else if (self.presetType == HTransitionStyleSheet) {
         [UIView animateWithDuration:duration animations:^{
             presentedView.transform = CGAffineTransformMakeTranslation(0, weakSelf.contentSize.height);
         } completion:^(BOOL finished) {
-            if(finished){
+            if (finished) {
                 [presentedView removeFromSuperview];
                 [transitionContext completeTransition:YES];
             }

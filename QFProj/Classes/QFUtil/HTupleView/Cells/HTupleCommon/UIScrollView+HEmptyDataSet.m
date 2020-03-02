@@ -46,9 +46,9 @@
 
 #pragma mark - UIScrollView+EmptyDataSet
 
-static char const * const kHEmptyDataSetSource =     "emptyDataSetSource";
-static char const * const kHEmptyDataSetDelegate =   "emptyDataSetDelegate";
-static char const * const kHEmptyDataSetView =       "emptyDataSetView";
+static char const *const kHEmptyDataSetSource =     "emptyDataSetSource";
+static char const *const kHEmptyDataSetDelegate =   "emptyDataSetDelegate";
+static char const *const kHEmptyDataSetView =       "emptyDataSetView";
 
 #define kHEmptyImageViewAnimationKey @"com.dzn.emptyDataSet.imageViewAnimation"
 
@@ -502,8 +502,7 @@ static char const * const kHEmptyDataSetView =       "emptyDataSetView";
         self.scrollEnabled = [self h_isScrollAllowed];
         
         // Configure image view animation
-        if ([self h_isImageViewAnimateAllowed])
-        {
+        if ([self h_isImageViewAnimateAllowed]) {
             CAAnimation *animation = [self h_imageAnimation];
             
             if (animation) {
@@ -891,7 +890,7 @@ Class h_baseClassToSwizzleForTarget(id target) {
             [subviewStrings addObject:@"titleLabel"];
             views[[subviewStrings lastObject]] = _titleLabel;
             
-            [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(padding@750)-[titleLabel(>=0)]-(padding@750)-|"
+            [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|- (padding@750)-[titleLabel(>=0)]- (padding@750)-|"
                                                                                      options:0 metrics:metrics views:views]];
         }
         // or removes from its superview
@@ -906,7 +905,7 @@ Class h_baseClassToSwizzleForTarget(id target) {
             [subviewStrings addObject:@"detailLabel"];
             views[[subviewStrings lastObject]] = _detailLabel;
             
-            [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(padding@750)-[detailLabel(>=0)]-(padding@750)-|"
+            [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|- (padding@750)-[detailLabel(>=0)]- (padding@750)-|"
                                                                                      options:0 metrics:metrics views:views]];
         }
         // or removes from its superview
@@ -921,7 +920,7 @@ Class h_baseClassToSwizzleForTarget(id target) {
             [subviewStrings addObject:@"button"];
             views[[subviewStrings lastObject]] = _button;
             
-            [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(padding@750)-[button(>=0)]-(padding@750)-|"
+            [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|- (padding@750)-[button(>=0)]- (padding@750)-|"
                                                                                      options:0 metrics:metrics views:views]];
         }
         // or removes from its superview
@@ -940,7 +939,7 @@ Class h_baseClassToSwizzleForTarget(id target) {
             [verticalFormat appendFormat:@"[%@]", string];
             
             if (i < subviewStrings.count-1) {
-                [verticalFormat appendFormat:@"-(%.f@750)-", verticalSpace];
+                [verticalFormat appendFormat:@"- (%.f@750)-", verticalSpace];
             }
         }
         

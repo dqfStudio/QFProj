@@ -116,8 +116,8 @@ static double _HDeviceSystemVersion() {
                 CGFloat size = CTFontGetSize(CTFont);
                 if (!name) {
                     font = nil;
-                } else {
-                    font = [UIFont fontWithName:(__bridge NSString *)(name) size:size];
+                }else {
+                    font = [UIFont fontWithName:(__bridge NSString *)(name)size:size];
                     CFRelease(name);
                 }
             }
@@ -147,7 +147,7 @@ static double _HDeviceSystemVersion() {
     if (color && ![color isKindOfClass:[UIColor class]]) {
         if (CFGetTypeID((__bridge CFTypeRef)(color)) == CGColorGetTypeID()) {
             color = [UIColor colorWithCGColor:(__bridge CGColorRef)(color)];
-        } else {
+        }else {
             color = nil;
         }
     }
@@ -542,7 +542,7 @@ return style. _attr_;
         HTextBackedString *backed = value;
         if (backed && backed.string) {
             [result appendString:backed.string];
-        } else {
+        }else {
             [result appendString:[string substringWithRange:range]];
         }
     }];
@@ -594,17 +594,19 @@ return style. _attr_;
                 delegate.descent = 0;
                 delegate.ascent = attachmentSize.height;
             }
-        } break;
+        }
+            break;
         case HTextVerticalAlignmentCenter: {
             CGFloat fontHeight = font.ascender - font.descender;
-            CGFloat yOffset = font.ascender - fontHeight * 0.5;
-            delegate.ascent = attachmentSize.height * 0.5 + yOffset;
+            CGFloat yOffset = font.ascender - fontHeight *0.5;
+            delegate.ascent = attachmentSize.height *0.5 + yOffset;
             delegate.descent = attachmentSize.height - delegate.ascent;
             if (delegate.descent < 0) {
                 delegate.descent = 0;
                 delegate.ascent = attachmentSize.height;
             }
-        } break;
+        }
+            break;
         case HTextVerticalAlignmentBottom: {
             delegate.ascent = attachmentSize.height + font.descender;
             delegate.descent = -font.descender;
@@ -612,11 +614,13 @@ return style. _attr_;
                 delegate.ascent = 0;
                 delegate.descent = attachmentSize.height;
             }
-        } break;
+        }
+            break;
         default: {
             delegate.ascent = attachmentSize.height;
             delegate.descent = 0;
-        } break;
+        }
+            break;
     }
     
     CTRunDelegateRef delegateRef = delegate.CTRunDelegate;
@@ -659,7 +663,7 @@ return style. _attr_;
         view.image = image;
         view.contentMode = UIViewContentModeScaleAspectFit;
         attachment.content = view;
-    } else {
+    }else {
         attachment.content = image;
     }
     
@@ -682,7 +686,7 @@ return style. _attr_;
     [self enumerateAttributesInRange:self.h_rangeOfAll options:NSAttributedStringEnumerationLongestEffectiveRangeNotRequired usingBlock:^(NSDictionary *attrs, NSRange range, BOOL *stop) {
         if (range.location == 0) {
             firstAttrs = attrs;
-        } else {
+        }else {
             if (firstAttrs.count != attrs.count) {
                 shared = NO;
                 *stop = YES;
@@ -1102,10 +1106,10 @@ return style. _attr_;
                       if (value. _attr_ == _attr_) return; \
                       if ([value isKindOfClass:[NSMutableParagraphStyle class]]) { \
                           style = (id)value; \
-                      } else { \
+                      }else {\
                           style = value.mutableCopy; \
                       } \
-                  } else { \
+                  }else {\
                       if ([NSParagraphStyle defaultParagraphStyle]. _attr_ == _attr_) return; \
                       style = [NSParagraphStyle defaultParagraphStyle].mutableCopy; \
                   } \
@@ -1347,7 +1351,7 @@ return style. _attr_;
         UniChar *chars = NULL;
         chars = (void *)CFStringGetCharactersPtr(cfStr);
         if (!chars) {
-            chars = malloc(str.length * sizeof(UniChar));
+            chars = malloc(str.length *sizeof(UniChar));
             if (chars) {
                 needFree = YES;
                 CFStringGetCharacters(cfStr, CFRangeMake(0, str.length), chars);
@@ -1355,7 +1359,7 @@ return style. _attr_;
         }
         if (!chars) { // fail to get unichar..
             containsJoiner = YES;
-        } else {
+        }else {
             for (int i = 0, max = (int)str.length; i < max; i++) {
                 if (chars[i] == 0x200D) { // 'ZERO WIDTH JOINER' (U+200D)
                     containsJoiner = YES;

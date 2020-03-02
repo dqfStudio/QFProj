@@ -15,7 +15,7 @@ static NSInteger const AlphaCode         = 1002;
 static NSInteger const NumericCode       = 1003;
 static NSInteger const AlphaNumericCode  = 1004;
 
-static NSString * const HInputValidationErrorDomain = @"HInputValidationErrorDomain";
+static NSString *const HInputValidationErrorDomain = @"HInputValidationErrorDomain";
 
 
 #endif /* HInputHeader_h */

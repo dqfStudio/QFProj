@@ -41,8 +41,7 @@
 
 @implementation UIView (HKB_UIView_Hierarchy)
 
--(UIViewController*)viewContainingController
-{
+- (UIViewController *)viewContainingController {
     UIResponder *nextResponder =  self;
     
     do
@@ -50,21 +49,19 @@
         nextResponder = [nextResponder nextResponder];
 
         if ([nextResponder isKindOfClass:[UIViewController class]])
-            return (UIViewController*)nextResponder;
+            return (UIViewController *)nextResponder;
 
     } while (nextResponder);
 
     return nil;
 }
 
--(UIViewController *)topMostController
-{
-    NSMutableArray<UIViewController*> *controllersHierarchy = [[NSMutableArray alloc] init];
+- (UIViewController *)topMostController {
+    NSMutableArray<UIViewController *> *controllersHierarchy = [[NSMutableArray alloc] init];
     
     UIViewController *topController = self.window.rootViewController;
     
-    if (topController)
-    {
+    if (topController) {
         [controllersHierarchy addObject:topController];
     }
     
@@ -80,7 +77,7 @@
     {
         do
         {
-            matchController = (UIViewController*)[matchController nextResponder];
+            matchController = (UIViewController *)[matchController nextResponder];
             
         } while (matchController && [matchController isKindOfClass:[UIViewController class]] == NO);
     }
@@ -88,14 +85,12 @@
     return matchController;
 }
 
--(UIViewController *)parentContainerViewController
-{
+- (UIViewController *)parentContainerViewController {
     UIViewController *matchController = [self viewContainingController];
     
     UIViewController *parentContainerViewController = nil;
     
-    if (matchController.navigationController)
-    {
+    if (matchController.navigationController) {
         UINavigationController *navController = matchController.navigationController;
         
         while (navController.navigationController) {
@@ -115,28 +110,19 @@
             parentParentController = parentController.parentViewController;
         }
 
-        if (navController == parentController)
-        {
+        if (navController == parentController) {
             parentContainerViewController = navController.topViewController;
-        }
-        else
-        {
+        }else {
             parentContainerViewController = parentController;
         }
     }
-    else if (matchController.tabBarController)
-    {
-        if ([matchController.tabBarController.selectedViewController isKindOfClass:[UINavigationController class]])
-        {
-            parentContainerViewController = [(UINavigationController*)matchController.tabBarController.selectedViewController topViewController];
-        }
-        else
-        {
+    else if (matchController.tabBarController) {
+        if ([matchController.tabBarController.selectedViewController isKindOfClass:[UINavigationController class]]) {
+            parentContainerViewController = [(UINavigationController *)matchController.tabBarController.selectedViewController topViewController];
+        }else {
             parentContainerViewController = matchController.tabBarController.selectedViewController;
         }
-    }
-    else
-    {
+    }else {
         UIViewController *matchParentController = matchController.parentViewController;
 
         while (matchParentController &&
@@ -156,17 +142,14 @@
     return finalController;
 }
 
--(UIView*)superviewOfClassType:(Class)classType
-{
+- (UIView *)superviewOfClassType:(Class)classType {
     UIView *superview = self.superview;
     
     while (superview)
     {
-        if ([superview isKindOfClass:classType])
-        {
+        if ([superview isKindOfClass:classType]) {
             //If it's UIScrollView, then validating for special cases
-            if ([superview isKindOfClass:[UIScrollView class]])
-            {
+            if ([superview isKindOfClass:[UIScrollView class]]) {
                 NSString *classNameString = NSStringFromClass([superview class]);
 
                 //  If it's not UITableViewWrapperView class, this is internal class which is actually manage in UITableview. The speciality of this class is that it's superview is UITableView.
@@ -178,9 +161,7 @@
                 {
                     return superview;
                 }
-            }
-            else
-            {
+            }else {
                 return superview;
             }
         }
@@ -191,34 +172,29 @@
     return nil;
 }
 
--(BOOL)_HKBcanBecomeFirstResponder
-{
+- (BOOL)_HKBcanBecomeFirstResponder {
     BOOL _HKBcanBecomeFirstResponder = NO;
     
-    if ([self isKindOfClass:[UITextField class]])
-    {
-        _HKBcanBecomeFirstResponder = [(UITextField*)self isEnabled];
+    if ([self isKindOfClass:[UITextField class]]) {
+        _HKBcanBecomeFirstResponder = [(UITextField *)self isEnabled];
     }
-    else if ([self isKindOfClass:[UITextView class]])
-    {
-        _HKBcanBecomeFirstResponder = [(UITextView*)self isEditable];
+    else if ([self isKindOfClass:[UITextView class]]) {
+        _HKBcanBecomeFirstResponder = [(UITextView *)self isEditable];
     }
 
-    if (_HKBcanBecomeFirstResponder == YES)
-    {
+    if (_HKBcanBecomeFirstResponder == YES) {
         _HKBcanBecomeFirstResponder = ([self isUserInteractionEnabled] && ![self isHidden] && [self alpha]!=0.0 && ![self isAlertViewTextField]  && !self.textFieldSearchBar);
     }
     
     return _HKBcanBecomeFirstResponder;
 }
 
-- (NSArray<UIView*>*)responderSiblings
-{
+- (NSArray<UIView *> *)responderSiblings {
     //	Getting all siblings
-    NSArray<UIView*> *siblings = self.superview.subviews;
+    NSArray<UIView *> *siblings = self.superview.subviews;
     
     //Array of (UITextField/UITextView's).
-    NSMutableArray<UIView*> *tempTextFields = [[NSMutableArray alloc] init];
+    NSMutableArray<UIView *> *tempTextFields = [[NSMutableArray alloc] init];
     
     for (UIView *textField in siblings)
         if ((textField == self || textField.ignoreSwitchingByNextPrevious == NO) && [textField _HKBcanBecomeFirstResponder])
@@ -227,21 +203,18 @@
     return tempTextFields;
 }
 
-- (NSArray<UIView*>*)deepResponderViews
-{
-    NSMutableArray<UIView*> *textFields = [[NSMutableArray alloc] init];
+- (NSArray<UIView *> *)deepResponderViews {
+    NSMutableArray<UIView *> *textFields = [[NSMutableArray alloc] init];
     
     for (UIView *textField in self.subviews)
     {
-        if ((textField == self || textField.ignoreSwitchingByNextPrevious == NO) && [textField _HKBcanBecomeFirstResponder])
-        {
+        if ((textField == self || textField.ignoreSwitchingByNextPrevious == NO) && [textField _HKBcanBecomeFirstResponder]) {
             [textFields addObject:textField];
         }
         
         //Sometimes there are hidden or disabled views and textField inside them still recorded, so we added some more validations here (Bug ID: #458)
         //Uncommented else (Bug ID: #625)
-        if (textField.subviews.count && [textField isUserInteractionEnabled] && ![textField isHidden] && [textField alpha]!=0.0)
-        {
+        if (textField.subviews.count && [textField isUserInteractionEnabled] && ![textField isHidden] && [textField alpha]!=0.0) {
             [textFields addObjectsFromArray:[textField deepResponderViews]];
         }
     }
@@ -272,10 +245,8 @@
     return textFields;
 }
 
--(CGAffineTransform)convertTransformToView:(UIView*)toView
-{
-    if (toView == nil)
-    {
+- (CGAffineTransform)convertTransformToView:(UIView *)toView {
+    if (toView == nil) {
         toView = self.window;
     }
     
@@ -303,20 +274,17 @@
 }
 
 
-- (NSInteger)depth
-{
+- (NSInteger)depth {
     NSInteger depth = 0;
     
-    if ([self superview])
-    {
+    if ([self superview]) {
         depth = [[self superview] depth] + 1;
     }
     
     return depth;
 }
 
-- (NSString *)subHierarchy
-{
+- (NSString *)subHierarchy {
     NSMutableString *debugInfo = [[NSMutableString alloc] initWithString:@"\n"];
     NSInteger depth = [self depth];
     
@@ -332,16 +300,12 @@
     return debugInfo;
 }
 
-- (NSString *)superHierarchy
-{
+- (NSString *)superHierarchy {
     NSMutableString *debugInfo = [[NSMutableString alloc] init];
 
-    if (self.superview)
-    {
+    if (self.superview) {
         [debugInfo appendString:[self.superview superHierarchy]];
-    }
-    else
-    {
+    }else {
         [debugInfo appendString:@"\n"];
     }
     
@@ -356,35 +320,30 @@
     return debugInfo;
 }
 
--(NSString *)debugHierarchy
-{
+- (NSString *)debugHierarchy {
     NSMutableString *debugInfo = [[NSMutableString alloc] init];
 
-    [debugInfo appendFormat:@"%@: ( %.0f, %.0f, %.0f, %.0f )",NSStringFromClass([self class]), CGRectGetMinX(self.frame), CGRectGetMinY(self.frame), CGRectGetWidth(self.frame), CGRectGetHeight(self.frame)];
+    [debugInfo appendFormat:@"%@:( %.0f, %.0f, %.0f, %.0f )",NSStringFromClass([self class]), CGRectGetMinX(self.frame), CGRectGetMinY(self.frame), CGRectGetWidth(self.frame), CGRectGetHeight(self.frame)];
     
-    if ([self isKindOfClass:[UIScrollView class]])
-    {
-        UIScrollView *scrollView = (UIScrollView*)self;
-        [debugInfo appendFormat:@"%@: ( %.0f, %.0f )",NSStringFromSelector(@selector(contentSize)),scrollView.contentSize.width,scrollView.contentSize.height];
+    if ([self isKindOfClass:[UIScrollView class]]) {
+        UIScrollView *scrollView = (UIScrollView *)self;
+        [debugInfo appendFormat:@"%@:( %.0f, %.0f )",NSStringFromSelector(@selector(contentSize)),scrollView.contentSize.width,scrollView.contentSize.height];
     }
     
-    if (CGAffineTransformEqualToTransform(self.transform, CGAffineTransformIdentity) == false)
-    {
+    if (CGAffineTransformEqualToTransform(self.transform, CGAffineTransformIdentity) == false) {
         [debugInfo appendFormat:@"%@: %@",NSStringFromSelector(@selector(transform)),NSStringFromCGAffineTransform(self.transform)];
     }
     
     return debugInfo;
 }
 
--(UISearchBar *)textFieldSearchBar
-{
+- (UISearchBar *)textFieldSearchBar {
     UIResponder *searchBar = [self nextResponder];
     
     while (searchBar)
     {
-        if ([searchBar isKindOfClass:[UISearchBar class]])
-        {
-            return (UISearchBar*)searchBar;
+        if ([searchBar isKindOfClass:[UISearchBar class]]) {
+            return (UISearchBar *)searchBar;
         }
         else if ([searchBar isKindOfClass:[UIViewController class]])    //If found viewcontroller but still not found UISearchBar then it's not the search bar textfield
         {
@@ -397,15 +356,13 @@
     return nil;
 }
 
--(BOOL)isAlertViewTextField
-{
+- (BOOL)isAlertViewTextField {
     UIResponder *alertViewController = [self viewContainingController];
     
     BOOL isAlertViewTextField = NO;
     while (alertViewController && isAlertViewTextField == NO)
     {
-        if ([alertViewController isKindOfClass:[UIAlertController class]])
-        {
+        if ([alertViewController isKindOfClass:[UIAlertController class]]) {
             isAlertViewTextField = YES;
             break;
         }
@@ -420,8 +377,7 @@
 
 @implementation UIViewController (HKB_UIView_Hierarchy)
 
--(nullable UIViewController*)parentHKBContainerViewController
-{
+-(nullable UIViewController *)parentHKBContainerViewController {
     return self;
 }
 
@@ -429,8 +385,7 @@
 
 @implementation NSObject (HKB_Logging)
 
--(NSString *)_HKBDescription
-{
+- (NSString *)_HKBDescription {
     return [NSString stringWithFormat:@"<%@ %p>",NSStringFromClass([self class]),self];
 }
 

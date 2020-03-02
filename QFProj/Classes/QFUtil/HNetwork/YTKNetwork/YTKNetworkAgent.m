@@ -117,13 +117,13 @@
     if ([request useCDN]) {
         if ([request cdnUrl].length > 0) {
             baseUrl = [request cdnUrl];
-        } else {
+        }else {
             baseUrl = [_config cdnUrl];
         }
-    } else {
+    }else {
         if ([request baseUrl].length > 0) {
             baseUrl = [request baseUrl];
-        } else {
+        }else {
             baseUrl = [_config baseUrl];
         }
     }
@@ -166,7 +166,7 @@
     return requestSerializer;
 }
 
-- (NSURLSessionTask *)sessionTaskForRequest:(YTKBaseRequest *)request error:(NSError * _Nullable __autoreleasing *)error {
+- (NSURLSessionTask *)sessionTaskForRequest:(YTKBaseRequest *)request error:(NSError *_Nullable __autoreleasing *)error {
     YTKRequestMethod method = [request requestMethod];
     NSString *url = [self buildRequestUrl:request];
     id param = request.requestArgument;
@@ -177,7 +177,7 @@
         case YTKRequestMethodGET:
             if (request.resumableDownloadPath) {
                 return [self downloadTaskWithDownloadPath:request.resumableDownloadPath requestSerializer:requestSerializer URLString:url parameters:param progress:request.resumableDownloadProgressBlock error:error];
-            } else {
+            }else {
                 return [self dataTaskWithHTTPMethod:@"GET" requestSerializer:requestSerializer URLString:url parameters:param error:error];
             }
         case YTKRequestMethodPOST:
@@ -196,16 +196,16 @@
 - (void)addRequest:(YTKBaseRequest *)request {
     NSParameterAssert(request != nil);
 
-    NSError * __autoreleasing requestSerializationError = nil;
+    NSError *__autoreleasing requestSerializationError = nil;
 
     NSURLRequest *customUrlRequest= [request buildCustomUrlRequest];
     if (customUrlRequest) {
         __block NSURLSessionDataTask *dataTask = nil;
-        dataTask = [_manager dataTaskWithRequest:customUrlRequest completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        dataTask = [_manager dataTaskWithRequest:customUrlRequest completionHandler:^(NSURLResponse *_Nonnull response, id  _Nullable responseObject, NSError *_Nullable error) {
             [self handleRequestResult:dataTask responseObject:responseObject error:error];
         }];
         request.requestTask = dataTask;
-    } else {
+    }else {
         request.requestTask = [self sessionTaskForRequest:request error:&requestSerializationError];
     }
 
@@ -227,7 +227,7 @@
                 request.requestTask.priority = NSURLSessionTaskPriorityLow;
                 break;
             case YTKRequestPriorityDefault:
-                /*!!fall through*/
+                /*!!fall through */
             default:
                 request.requestTask.priority = NSURLSessionTaskPriorityDefault;
                 break;
@@ -249,7 +249,7 @@
             NSURL *localUrl = [self incompleteDownloadTempPathForDownloadPath:request.resumableDownloadPath];
             [resumeData writeToURL:localUrl atomically:YES];
         }];
-    } else {
+    }else {
         [request.requestTask cancel];
     }
 
@@ -274,7 +274,7 @@
     }
 }
 
-- (BOOL)validateResult:(YTKBaseRequest *)request error:(NSError * _Nullable __autoreleasing *)error {
+- (BOOL)validateResult:(YTKBaseRequest *)request error:(NSError *_Nullable __autoreleasing *)error {
     BOOL result = [request statusCodeValidator];
     if (!result) {
         if (error) {
@@ -312,8 +312,8 @@
 
     YTKLog(@"Finished Request: %@", NSStringFromClass([request class]));
 
-    NSError * __autoreleasing serializationError = nil;
-    NSError * __autoreleasing validationError = nil;
+    NSError *__autoreleasing serializationError = nil;
+    NSError *__autoreleasing validationError = nil;
 
     NSError *requestError = nil;
     BOOL succeed = NO;
@@ -342,14 +342,14 @@
     } else if (serializationError) {
         succeed = NO;
         requestError = serializationError;
-    } else {
+    }else {
         succeed = [self validateResult:request error:&validationError];
         requestError = validationError;
     }
 
     if (succeed) {
         [self requestDidSucceedWithRequest:request];
-    } else {
+    }else {
         [self requestDidFailWithRequest:request error:requestError];
     }
 
@@ -436,7 +436,7 @@
                                requestSerializer:(AFHTTPRequestSerializer *)requestSerializer
                                        URLString:(NSString *)URLString
                                       parameters:(id)parameters
-                                           error:(NSError * _Nullable __autoreleasing *)error {
+                                           error:(NSError *_Nullable __autoreleasing *)error {
     return [self dataTaskWithHTTPMethod:method requestSerializer:requestSerializer URLString:URLString parameters:parameters constructingBodyWithBlock:nil error:error];
 }
 
@@ -445,18 +445,18 @@
                                        URLString:(NSString *)URLString
                                       parameters:(id)parameters
                        constructingBodyWithBlock:(nullable void (^)(id <AFMultipartFormData> formData))block
-                                           error:(NSError * _Nullable __autoreleasing *)error {
+                                           error:(NSError *_Nullable __autoreleasing *)error {
     NSMutableURLRequest *request = nil;
 
     if (block) {
         request = [requestSerializer multipartFormRequestWithMethod:method URLString:URLString parameters:parameters constructingBodyWithBlock:block error:error];
-    } else {
+    }else {
         request = [requestSerializer requestWithMethod:method URLString:URLString parameters:parameters error:error];
     }
 
     __block NSURLSessionDataTask *dataTask = nil;
     dataTask = [_manager dataTaskWithRequest:request
-                           completionHandler:^(NSURLResponse * __unused response, id responseObject, NSError *_error) {
+                           completionHandler:^(NSURLResponse *__unused response, id responseObject, NSError *_error) {
                                [self handleRequestResult:dataTask responseObject:responseObject error:_error];
                            }];
 
@@ -468,13 +468,13 @@
                                                  URLString:(NSString *)URLString
                                                 parameters:(id)parameters
                                                   progress:(nullable void (^)(NSProgress *downloadProgress))downloadProgressBlock
-                                                     error:(NSError * _Nullable __autoreleasing *)error {
+                                                     error:(NSError *_Nullable __autoreleasing *)error {
     // add parameters to URL;
     NSMutableURLRequest *urlRequest = [requestSerializer requestWithMethod:@"GET" URLString:URLString parameters:parameters error:error];
 
     NSString *downloadTargetPath;
     BOOL isDirectory;
-    if(![[NSFileManager defaultManager] fileExistsAtPath:downloadPath isDirectory:&isDirectory]) {
+    if (![[NSFileManager defaultManager] fileExistsAtPath:downloadPath isDirectory:&isDirectory]) {
         isDirectory = NO;
     }
     // If targetPath is a directory, use the file name we got from the urlRequest.
@@ -482,7 +482,7 @@
     if (isDirectory) {
         NSString *fileName = [urlRequest.URL lastPathComponent];
         downloadTargetPath = [NSString pathWithComponents:@[downloadPath, fileName]];
-    } else {
+    }else {
         downloadTargetPath = downloadPath;
     }
 
@@ -505,10 +505,10 @@
     // Even though we try to validate the resumeData, this may still fail and raise excecption.
     if (canBeResumed) {
         @try {
-            downloadTask = [_manager downloadTaskWithResumeData:data progress:downloadProgressBlock destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+            downloadTask = [_manager downloadTaskWithResumeData:data progress:downloadProgressBlock destination:^NSURL *_Nonnull(NSURL *_Nonnull targetPath, NSURLResponse *_Nonnull response) {
                 return [NSURL fileURLWithPath:downloadTargetPath isDirectory:NO];
             } completionHandler:
-                            ^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+                            ^(NSURLResponse *_Nonnull response, NSURL *_Nullable filePath, NSError *_Nullable error) {
                                 [self handleRequestResult:downloadTask responseObject:filePath error:error];
                             }];
             resumeSucceeded = YES;
@@ -518,10 +518,10 @@
         }
     }
     if (!resumeSucceeded) {
-        downloadTask = [_manager downloadTaskWithRequest:urlRequest progress:downloadProgressBlock destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+        downloadTask = [_manager downloadTaskWithRequest:urlRequest progress:downloadProgressBlock destination:^NSURL *_Nonnull(NSURL *_Nonnull targetPath, NSURLResponse *_Nonnull response) {
             return [NSURL fileURLWithPath:downloadTargetPath isDirectory:NO];
         } completionHandler:
-                        ^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+                        ^(NSURLResponse *_Nonnull response, NSURL *_Nullable filePath, NSError *_Nullable error) {
                             [self handleRequestResult:downloadTask responseObject:filePath error:error];
                         }];
     }
@@ -540,7 +540,7 @@
     }
 
     NSError *error = nil;
-    if(![fileManager createDirectoryAtPath:cacheFolder withIntermediateDirectories:YES attributes:nil error:&error]) {
+    if (![fileManager createDirectoryAtPath:cacheFolder withIntermediateDirectories:YES attributes:nil error:&error]) {
         YTKLog(@"Failed to create cache directory at %@", cacheFolder);
         cacheFolder = nil;
     }

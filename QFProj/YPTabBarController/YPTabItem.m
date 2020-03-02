@@ -100,7 +100,7 @@
         
         CGFloat left = (self.frame.size.width - titleSize.width) / 2 - imageSize.width;
         self.titleEdgeInsets = UIEdgeInsetsMake(self.marginTop + imageSize.width + self.spacing, left, 0, 0);
-    } else {
+    }else {
         self.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         self.imageEdgeInsets = UIEdgeInsetsZero;
@@ -117,7 +117,7 @@
         if (self.imageSelectedColor) {
             self.imageView.tintColor = self.imageSelectedColor;
         }
-    } else {
+    }else {
         if (self.imageColor) {
             self.imageView.tintColor = self.imageColor;
         }
@@ -255,7 +255,7 @@
     if (self.badgeStyle == YPTabItemBadgeStyleNumber) {
         if (self.badge == 0) {
             self.badgeButton.hidden = YES;
-        } else {
+        }else {
             NSString *badgeStr = @(self.badge).stringValue;
             if (self.badge > 99) {
                 badgeStr = @"99+";

@@ -10,9 +10,9 @@
 
 @interface NSBlock : NSObject
 @property (nonatomic) NSInteger index;
-@property (nonatomic) NSString  *dateCreated;
-@property (nonatomic) NSString  *previousHash;
-@property (nonatomic) NSString  *hashString;
+@property (nonatomic) NSString *dateCreated;
+@property (nonatomic) NSString *previousHash;
+@property (nonatomic) NSString *hashString;
 @property (nonatomic) NSInteger nonce;
 @end
 

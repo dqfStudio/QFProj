@@ -33,7 +33,7 @@
 @property (nonatomic) UIEdgeInsets leftInsets;
 @property (nonatomic) UIEdgeInsets rightInsets;
 
-@property (nonatomic) UIFont  *placeholderFont;
+@property (nonatomic) UIFont *placeholderFont;
 @property (nonatomic) UIColor *placeholderColor;
 
 @property (nonatomic) NSInteger maxInput;//最大输入限制，小于等于0表示不限制，默认为0

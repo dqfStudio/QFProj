@@ -131,7 +131,7 @@
         [self.bridge registerHandler:@"exitGame" handler:^(id data, WVJBResponseCallback responseCallback) {
             [self back];
         }];
-    } else {
+    }else {
 //        if (![UIDevice currentDevice].generatesDeviceOrientationNotifications) {
 //            [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
 //        }
@@ -166,10 +166,10 @@
 
 #pragma mark -- WKUIDelegate
 // 显示一个按钮。点击后调用completionHandler回调
-- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
+- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message message:nil preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction *_Nonnull action) {
         
         completionHandler();
     }]];
@@ -177,14 +177,14 @@
 }
 
 // 显示两个按钮，通过completionHandler回调判断用户点击的确定还是取消按钮
-- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completionHandler{
+- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completionHandler {
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message message:nil preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
         
         completionHandler(YES);
     }]];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *_Nonnull action) {
         
         completionHandler(NO);
     }]];
@@ -193,13 +193,13 @@
 }
 
 // 显示一个带有输入框和一个确定按钮的，通过completionHandler回调用户输入的内容
-- (void)webView:(WKWebView *)webView runJavaScriptTextInputPanelWithPrompt:(NSString *)prompt defaultText:(NSString *)defaultText initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSString * _Nullable))completionHandler{
+- (void)webView:(WKWebView *)webView runJavaScriptTextInputPanelWithPrompt:(NSString *)prompt defaultText:(NSString *)defaultText initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSString *_Nullable))completionHandler {
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *_Nonnull textField) {
         
     }];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
         
         completionHandler(alertController.textFields.lastObject.text);
     }]];
@@ -242,7 +242,7 @@
 }
 
 // 根据客户端受到的服务器响应头以及response相关信息来决定是否可以跳转
-- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler{
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
 //    self.urlStr = navigationResponse.response.URL.absoluteString;
 //    NSLog(@"当前跳转地址：%@", _urlStr);
 //    if ([self.urlStr isEqualToString:HEADH5BASEINURL]) {
@@ -257,8 +257,8 @@
 }
 
 //需要响应身份验证时调用 同样在block中需要传入用户身份凭证
-- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * _Nullable credential))completionHandler {
-    NSURLCredential* newCredential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *_Nullable credential))completionHandler {
+    NSURLCredential *newCredential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
     if ([[[challenge protectionSpace]authenticationMethod] isEqualToString:@"NSURLAuthenticationMethodServerTrust"]) {
         SecTrustRef serverTrust = challenge.protectionSpace.serverTrust;
         CFDataRef exceptions = SecTrustCopyExceptions(serverTrust);
@@ -315,10 +315,8 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     
     //加载进度值
-    if ([keyPath isEqualToString:@"estimatedProgress"])
-    {
-        if (object == self.wkWebview)
-        {
+    if ([keyPath isEqualToString:@"estimatedProgress"]) {
+        if (object == self.wkWebview) {
 //            NSLog(@"== webview progress  %f", self.wkWebview.estimatedProgress);
             
 //            [HProgressHUD dismiss];
@@ -327,8 +325,7 @@
             
                 [self.progress setAlpha:1.0f];
                 [self.progress setProgress:self.wkWebview.estimatedProgress animated:YES];
-                if(self.wkWebview.estimatedProgress >= 1.0f)
-                {
+                if (self.wkWebview.estimatedProgress >= 1.0f) {
                     [UIView animateWithDuration:0.5f
                                           delay:0.3f
                                         options:UIViewAnimationOptionCurveEaseOut
@@ -348,24 +345,19 @@
 //                    }
 //                }
             }
-        }
-        else
-        {
+        }else {
             [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
         }
     }
     //网页title
-    else if ([keyPath isEqualToString:@"title"])
-    {
+    else if ([keyPath isEqualToString:@"title"]) {
 //        NSLog(@"== webview title  %@", self.wkWebview.title);
 //        if ([self.gameType isEqualToString:@"CQJ"]) {
 //            if ([self.wkWebview.title isEqualToString:@"Game Lobby"]) {
 //                _lobbyBtn.hidden = YES;
 //            }
 //        }
-    }
-    else
-    {
+    }else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
@@ -376,13 +368,13 @@
  
  @param fullscreen 是否全屏（横屏时 即为全屏）
  */
-- (void)setNewOrientation:(BOOL)fullscreen{
+- (void)setNewOrientation:(BOOL)fullscreen {
     if (fullscreen) {
         NSNumber *resetOrientationTarget = [NSNumber numberWithInt:UIInterfaceOrientationUnknown];
         [[UIDevice currentDevice] setValue:resetOrientationTarget forKey:@"orientation"];
         NSNumber *orientationTarget = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeRight];
         [[UIDevice currentDevice] setValue:orientationTarget forKey:@"orientation"];
-    }else{
+    }else {
         NSNumber *resetOrientationTarget = [NSNumber numberWithInt:UIInterfaceOrientationUnknown];
         [[UIDevice currentDevice] setValue:resetOrientationTarget forKey:@"orientation"];
         NSNumber *orientationTarget = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
@@ -413,7 +405,7 @@
         _wkWebview.navigationDelegate = self;
         if (@available(iOS 11.0, *)) {
             _wkWebview.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        } else {
+        }else {
             // Fallback on earlier versions
         }
         

@@ -11,7 +11,7 @@
 #import <objc/message.h>
 
 #if DEBUG
-const char* leaksKey;
+const char *leaksKey;
 
 @implementation UIViewController (HLeaks)
 + (void)load {

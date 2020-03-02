@@ -61,7 +61,7 @@ static void runloopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActi
 }
 
 - (void)registerObserver {
-    CFRunLoopObserverContext context = {0, (__bridge void*)self, NULL, NULL};
+    CFRunLoopObserverContext context = {0, (__bridge void *)self, NULL, NULL};
     _observer = CFRunLoopObserverCreate(kCFAllocatorDefault, kCFRunLoopAllActivities, YES, 0, &runloopObserverCallBack, &context);
     CFRunLoopAddObserver(CFRunLoopGetMain(), _observer, kCFRunLoopCommonModes);
 
@@ -84,7 +84,7 @@ static void runloopObserverCallBack(CFRunLoopObserverRef observer, CFRunLoopActi
 }
 
 - (void)logStack {
-    void* callstack[128];
+    void *callstack[128];
     int frame = backtrace(callstack, 128);
     char **strs = backtrace_symbols(callstack, frame);
     backTrace = [NSMutableArray arrayWithCapacity:frame];

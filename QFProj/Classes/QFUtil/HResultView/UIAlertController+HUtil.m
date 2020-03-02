@@ -25,7 +25,7 @@ static const int alert_action_key;
         if (cancelButtonTitle) {
             UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:cancelButtonTitle
                                                                    style:UIAlertActionStyleCancel
-                                                                 handler:^(UIAlertAction * _Nonnull action) {
+                                                                 handler:^(UIAlertAction *_Nonnull action) {
                                                                      if (completion) {
                                                                          completion(0);
                                                                      }
@@ -37,7 +37,7 @@ static const int alert_action_key;
             for (int i = 0; i < otherButtonTitles.count; i++) {
                 UIAlertAction *action = [UIAlertAction actionWithTitle:otherButtonTitles[i]
                                                                  style:UIAlertActionStyleDefault
-                                                               handler:^(UIAlertAction * _Nonnull action) {
+                                                               handler:^(UIAlertAction *_Nonnull action) {
                                                                    if (completion) {
                                                                        NSNumber *index = objc_getAssociatedObject(action, &alert_action_key);
                                                                        completion([index integerValue]);
@@ -52,7 +52,7 @@ static const int alert_action_key;
            [rootController presentViewController:alertController animated:YES completion:nil];
         });
         return alertController;
-    } else {
+    }else {
         /*
          UIAlertView *alert = [[UIAlertView alloc] init];
          alert.title = title;
@@ -74,7 +74,7 @@ static const int alert_action_key;
 
 + (void)showAlertWithMessage:(nullable NSString *)message cancel:(void (^)(void))block {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨提醒" message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) { if (block) block(); }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *_Nonnull action) { if (block) block(); }];
     [alertController addAction:cancel];
     [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alertController animated:YES completion:nil];
 }

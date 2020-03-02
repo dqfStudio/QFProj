@@ -114,9 +114,9 @@ typedef NS_ENUM(NSUInteger, HKBEnableMode) {
  ------------------------------------------------------------
  When switching focus from UITextView to another UITextView
  ------------------------------------------------------------
- - UITextViewTextDidEndEditingNotification : (UITextView1)
+ - UITextViewTextDidEndEditingNotification:(UITextView1)
  - UIKeyboardWillShowNotification
- - UITextViewTextDidBeginEditingNotification : (UITextView2)
+ - UITextViewTextDidBeginEditingNotification:(UITextView2)
  - UIKeyboardDidShowNotification
  
  ------------------------------------------------------------

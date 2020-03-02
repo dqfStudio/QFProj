@@ -13,7 +13,7 @@
 // 基准屏幕宽度
 #define kRefereWidth 375.0
 // 以屏幕宽度为固定比例关系，来计算对应的值。假设：基准屏幕宽度375，floatV=10；当前屏幕宽度为750时，那么返回的值为20
-#define AdaptW(floatValue) (floatValue*[[UIScreen mainScreen] bounds].size.width/kRefereWidth)
+#define AdaptW(floatValue) (floatValue *[[UIScreen mainScreen] bounds].size.width/kRefereWidth)
 
 static CGFloat const kScreenshotImageOriginalLeft = -150.f;
 static CGFloat const kDefaultVisibleMenuWidth = 300.f;
@@ -90,7 +90,7 @@ static CGFloat const kDefaultVisibleMenuWidth = 300.f;
     self.blackMaskView.alpha = alpha;
     
     CGFloat aa = ABS(kScreenshotImageOriginalLeft) / self.visibleMenuWidth;
-    CGFloat y = x * aa;
+    CGFloat y = x *aa;
     
     CGRect rect = self.menuViewController.view.frame;
     
@@ -197,7 +197,7 @@ static CGFloat const kDefaultVisibleMenuWidth = 300.f;
             self.moving = NO;
             [self sendMenuDidAppearNotification];
         }];
-    } else {
+    }else {
         [UIView animateWithDuration:0.2 animations:^{
             [self moveViewWithX:0];
         } completion:^(BOOL finished) {
@@ -226,7 +226,7 @@ static CGFloat const kDefaultVisibleMenuWidth = 300.f;
     
     if (_canDragMenu) {
         [self.mainViewController.view addGestureRecognizer:self.pan];
-    } else {
+    }else {
         [self.mainViewController.view removeGestureRecognizer:self.pan];
     }
 }

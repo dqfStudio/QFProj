@@ -22,7 +22,7 @@
 
 + (HEmailManager *)shareInstance {
     static dispatch_once_t onceToken;
-    static HEmailManager * emailManager;
+    static HEmailManager *emailManager;
     dispatch_once(&onceToken, ^{
         emailManager = [[HEmailManager alloc] init];
     });

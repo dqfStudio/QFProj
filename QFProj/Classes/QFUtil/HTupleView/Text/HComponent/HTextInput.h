@@ -36,7 +36,7 @@ typedef NS_ENUM(NSInteger, HTextAffinity) {
 @property (nonatomic, readonly) HTextAffinity affinity;
 
 + (instancetype)positionWithOffset:(NSInteger)offset;
-+ (instancetype)positionWithOffset:(NSInteger)offset affinity:(HTextAffinity) affinity;
++ (instancetype)positionWithOffset:(NSInteger)offset affinity:(HTextAffinity)affinity;
 
 - (NSComparisonResult)compare:(id)otherPosition;
 
@@ -57,7 +57,7 @@ typedef NS_ENUM(NSInteger, HTextAffinity) {
 @property (nonatomic, readonly, getter=isEmpty) BOOL empty;
 
 + (instancetype)rangeWithRange:(NSRange)range;
-+ (instancetype)rangeWithRange:(NSRange)range affinity:(HTextAffinity) affinity;
++ (instancetype)rangeWithRange:(NSRange)range affinity:(HTextAffinity)affinity;
 + (instancetype)rangeWithStart:(HTextPosition *)start end:(HTextPosition *)end;
 + (instancetype)defaultRange; ///< <{0,0} Forward>
 

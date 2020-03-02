@@ -51,10 +51,10 @@
     if (self.modelArr) {
 
         NSInteger items = self.modelArr.count;
-        NSInteger tmpItems = self.rows*self.rowItems;
+        NSInteger tmpItems = self.rows *self.rowItems;
 
         pages = items/tmpItems;
-        tmpItems = pages*tmpItems;
+        tmpItems = pages *tmpItems;
 
         if (tmpItems != items) {
             pages += 1;
@@ -64,7 +64,7 @@
 }
 
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
-    return self.rows*self.rowItems;
+    return self.rows *self.rowItems;
 }
 
 - (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -72,7 +72,7 @@
 }
 
 - (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    NSInteger index = indexPath.section*self.rows*self.rowItems + indexPath.row;
+    NSInteger index = indexPath.section *self.rows *self.rowItems + indexPath.row;
     if (index < self.modelArr.count) {
         HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
         [cell.buttonView setTitleColor:[UIColor blackColor]];

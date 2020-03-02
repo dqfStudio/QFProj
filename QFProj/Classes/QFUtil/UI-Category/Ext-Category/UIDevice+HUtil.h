@@ -21,11 +21,11 @@
 
 /// 设备型号，例如："iPhone6,1" "iPad4,6"
 /// @see http://theiphonewiki.com/wiki/Models
-@property (nonatomic, readonly) NSString * _Nonnull machineModel;
+@property (nonatomic, readonly) NSString *_Nonnull machineModel;
 
 /// 设备型号名称，例如："iPhone 5s" "iPad mini 2"
 /// @see http://theiphonewiki.com/wiki/Models
-@property (nonatomic, readonly) NSString * _Nonnull machineModelName;
+@property (nonatomic, readonly) NSString *_Nonnull machineModelName;
 
 #pragma mark - Disk Space
 

@@ -55,8 +55,7 @@
     for (UICollectionViewLayoutAttributes *attributes in originalAttributes) {
         if (!attributes.representedElementKind) {
             
-            if (currentSection != attributes.indexPath.section)
-            {
+            if (currentSection != attributes.indexPath.section) {
                 ymaxIsNotSet = YES;
                 [self setYInArr:tmpAttrArr y:ymin];
                 currentSection = attributes.indexPath.section;
@@ -64,20 +63,16 @@
             
             UICollectionViewLayoutAttributes *att = [self layoutAttributesForItemAtIndexPath:attributes.indexPath];
             
-            if (ymaxIsNotSet)
-            {
+            if (ymaxIsNotSet) {
                 [tmpAttrArr addObject:att];
                 ymax = att.frame.origin.y + att.frame.size.height;
                 ymin = att.frame.origin.y;
                 ymaxIsNotSet = NO;
             }
-            else if (att.frame.origin.y < ymax)
-            {
+            else if (att.frame.origin.y < ymax) {
                 [tmpAttrArr addObject:att];
                 ymin = MIN(ymin, att.frame.origin.y);
-            }
-            else
-            {
+            }else {
                 [self setYInArr:tmpAttrArr y:ymin];
                 
                 [tmpAttrArr addObject:att];
@@ -88,9 +83,7 @@
             
             
             [updatedAttributes addObject:att];
-        }
-        else
-        {
+        }else {
             [updatedAttributes addObject:attributes];
         }
     }
@@ -107,7 +100,7 @@
     [tmpAttrArr removeAllObjects];
 }
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewLayoutAttributes* currentItemAttributes = [[super layoutAttributesForItemAtIndexPath:indexPath] copy];
+    UICollectionViewLayoutAttributes *currentItemAttributes = [[super layoutAttributesForItemAtIndexPath:indexPath] copy];
     UIEdgeInsets sectionInset = [self evaluatedSectionInsetForItemAtIndex:indexPath.section];
 
     BOOL isFirstItemInSection = indexPath.item == 0;
@@ -150,7 +143,7 @@
         id<UICollectionViewDelegateLeftAlignedLayout> delegate = (id<UICollectionViewDelegateLeftAlignedLayout>)self.collectionView.delegate;
 
         return [delegate collectionView:self.collectionView layout:self minimumInteritemSpacingForSectionAtIndex:sectionIndex];
-    } else {
+    }else {
         return self.minimumInteritemSpacing;
     }
 }
@@ -160,7 +153,7 @@
         id<UICollectionViewDelegateLeftAlignedLayout> delegate = (id<UICollectionViewDelegateLeftAlignedLayout>)self.collectionView.delegate;
 
         return [delegate collectionView:self.collectionView layout:self insetForSectionAtIndex:index];
-    } else {
+    }else {
         return self.sectionInset;
     }
 }

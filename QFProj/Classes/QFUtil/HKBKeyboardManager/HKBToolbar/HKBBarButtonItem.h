@@ -41,7 +41,7 @@
  @param target Target object.
  @param action Target Selector.
  */
--(void)setTarget:(nullable id)target action:(nullable SEL)action;
+- (void)setTarget:(nullable id)target action:(nullable SEL)action;
 
 /**
  Customized Invocation to be called when button is pressed. invocation is internally created using setTarget:action: method.

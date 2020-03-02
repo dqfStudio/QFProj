@@ -8,8 +8,8 @@
 
 #import "HFPickerView.h"
 
-#define KHRect(x, y, w, h)  CGRectMake([UIScreen mainScreen].bounds.size.width * x, [UIScreen mainScreen].bounds.size.height * y, [UIScreen mainScreen].bounds.size.width * w,  [UIScreen mainScreen].bounds.size.height * h)
-#define KHFont(f) [UIFont systemFontOfSize:[UIScreen mainScreen].bounds.size.width * f]
+#define KHRect(x, y, w, h)  CGRectMake([UIScreen mainScreen].bounds.size.width *x, [UIScreen mainScreen].bounds.size.height *y, [UIScreen mainScreen].bounds.size.width *w,  [UIScreen mainScreen].bounds.size.height *h)
+#define KHFont(f) [UIFont systemFontOfSize:[UIScreen mainScreen].bounds.size.width *f]
 #define KHColorAlpha(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 #define KHMainBackColor [UIColor colorWithRed:240/255.0 green:239/255.0 blue:245/255.0 alpha:1]
 #define KHBlueColor [UIColor colorWithRed:0/255.0 green:122/255.0 blue:255/255.0 alpha:1]
@@ -137,7 +137,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellTableIndentifier = @"cellTableIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellTableIndentifier];
-    if(!cell) {
+    if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellTableIndentifier];
     }
     NSString *content = self.array[indexPath.row];

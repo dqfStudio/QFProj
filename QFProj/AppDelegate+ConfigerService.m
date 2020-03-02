@@ -65,7 +65,7 @@
         NSString *urlStr = @"";
         NSURLSession *session;
         session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:nil delegateQueue:[NSOperationQueue currentQueue]];
-        [[session dataTaskWithURL:[NSURL URLWithString:urlStr] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        [[session dataTaskWithURL:[NSURL URLWithString:urlStr] completionHandler:^(NSData *_Nullable data, NSURLResponse *_Nullable response, NSError *_Nullable error) {
 //            __block NSDictionary *resultDict = nil;
 //
 //            void (^HJsonConfigBlock)(void) = ^(void) {
@@ -106,8 +106,8 @@
             //此处为硬编码，发包的时候可适当关注对比一下与服务端的配置是否一致
             [self loadLocalData];
         
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                if(block){
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f *NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                if (block) {
                     block(YES);
                 }
             });

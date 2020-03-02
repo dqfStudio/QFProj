@@ -190,7 +190,8 @@
                         if (strlen(str) > 0) {
                             address = [NSString stringWithUTF8String:str];
                         }
-                    } break;
+                    }
+                        break;
                         
                     case AF_INET6: { // IPv6
                         char str[INET6_ADDRSTRLEN] = {0};

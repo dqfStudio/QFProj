@@ -14,7 +14,7 @@
 
 
 #ifndef HTEXT_CLAMP // return the clamped value
-#define HTEXT_CLAMP(_x_, _low_, _high_)  (((_x_) > (_high_)) ? (_high_) : (((_x_) < (_low_)) ? (_low_) : (_x_)))
+#define HTEXT_CLAMP(_x_, _low_, _high_)  (((_x_) > (_high_)) ? (_high_):(((_x_)< (_low_)) ? (_low_):(_x_)))
 #endif
 
 #ifndef HTEXT_SWAP // swap two value
@@ -56,12 +56,12 @@ static inline BOOL HTextIsLinebreakChar(unichar c) {
  @param str A string
  @return YES or NO.
  */
-static inline BOOL HTextIsLinebreakString(NSString * _Nullable str) {
+static inline BOOL HTextIsLinebreakString(NSString *_Nullable str) {
     if (str.length > 2 || str.length == 0) return NO;
     if (str.length == 1) {
         unichar c = [str characterAtIndex:0];
         return HTextIsLinebreakChar(c);
-    } else {
+    }else {
         return ([str characterAtIndex:0] == '\r') && ([str characterAtIndex:1] == '\n');
     }
 }
@@ -72,19 +72,19 @@ static inline BOOL HTextIsLinebreakString(NSString * _Nullable str) {
  @param str  A string.
  @return The length of the tail line break: 0, 1 or 2.
  */
-static inline NSUInteger HTextLinebreakTailLength(NSString * _Nullable str) {
+static inline NSUInteger HTextLinebreakTailLength(NSString *_Nullable str) {
     if (str.length >= 2) {
         unichar c2 = [str characterAtIndex:str.length - 1];
         if (HTextIsLinebreakChar(c2)) {
             unichar c1 = [str characterAtIndex:str.length - 2];
             if (c1 == '\r' && c2 == '\n') return 2;
             else return 1;
-        } else {
+        }else {
             return 0;
         }
     } else if (str.length == 1) {
         return HTextIsLinebreakChar([str characterAtIndex:0]) ? 1 : 0;
-    } else {
+    }else {
         return 0;
     }
 }
@@ -183,7 +183,7 @@ static inline CGFloat HTextEmojiGetAscentWithFontSize(CGFloat fontSize) {
         return 1.25 * fontSize;
     } else if (16 <= fontSize && fontSize <= 24) {
         return 0.5 * fontSize + 12;
-    } else {
+    }else {
         return fontSize;
     }
 }
@@ -200,7 +200,7 @@ static inline CGFloat HTextEmojiGetDescentWithFontSize(CGFloat fontSize) {
         return 0.390625 * fontSize;
     } else if (16 <= fontSize && fontSize <= 24) {
         return 0.15625 * fontSize + 3.75;
-    } else {
+    }else {
         return 0.3125 * fontSize;
     }
     return 0;
@@ -221,7 +221,7 @@ static inline CGRect HTextEmojiGetGlyphBoundingRectWithFontSize(CGFloat fontSize
         rect.origin.y = -0.2525 * fontSize;
     } else if (16 <= fontSize && fontSize <= 24) {
         rect.origin.y = 0.1225 * fontSize -6;
-    } else {
+    }else {
         rect.origin.y = -0.1275 * fontSize;
     }
     return rect;
@@ -244,12 +244,12 @@ NSCharacterSet *HTextVerticalFormRotateAndMoveCharacterSet(void);
 
 /// Convert degrees to radians.
 static inline CGFloat HTextDegreesToRadians(CGFloat degrees) {
-    return degrees * M_PI / 180;
+    return degrees *M_PI / 180;
 }
 
 /// Convert radians to degrees.
 static inline CGFloat HTextRadiansToDegrees(CGFloat radians) {
-    return radians * 180 / M_PI;
+    return radians *180 / M_PI;
 }
 
 
@@ -262,12 +262,12 @@ static inline CGFloat HTextCGAffineTransformGetRotation(CGAffineTransform transf
 
 /// Get the transform's scale.x
 static inline CGFloat HTextCGAffineTransformGetScaleX(CGAffineTransform transform) {
-    return  sqrt(transform.a * transform.a + transform.c * transform.c);
+    return  sqrt(transform.a *transform.a + transform.c *transform.c);
 }
 
 /// Get the transform's scale.y
 static inline CGFloat HTextCGAffineTransformGetScaleY(CGAffineTransform transform) {
-    return sqrt(transform.b * transform.b + transform.d * transform.d);
+    return sqrt(transform.b *transform.b + transform.d *transform.d);
 }
 
 /// Get the transform's translate.x
@@ -335,7 +335,7 @@ static inline CGPoint HTextCGRectGetCenter(CGRect rect) {
 static inline CGFloat HTextCGRectGetArea(CGRect rect) {
     if (CGRectIsNull(rect)) return 0;
     rect = CGRectStandardize(rect);
-    return rect.size.width * rect.size.height;
+    return rect.size.width *rect.size.height;
 }
 
 /// Returns the distance between two points.
@@ -350,12 +350,12 @@ static inline CGFloat HTextCGPointGetDistanceToRect(CGPoint p, CGRect r) {
     CGFloat distV, distH;
     if (CGRectGetMinY(r) <= p.y && p.y <= CGRectGetMaxY(r)) {
         distV = 0;
-    } else {
+    }else {
         distV = p.y < CGRectGetMinY(r) ? CGRectGetMinY(r) - p.y : p.y - CGRectGetMaxY(r);
     }
     if (CGRectGetMinX(r) <= p.x && p.x <= CGRectGetMaxX(r)) {
         distH = 0;
-    } else {
+    }else {
         distH = p.x < CGRectGetMinX(r) ? CGRectGetMinX(r) - p.x : p.x - CGRectGetMaxX(r);
     }
     return MAX(distV, distH);
@@ -370,7 +370,7 @@ CGSize HTextScreenSize(void);
 
 /// Convert point to pixel.
 static inline CGFloat HTextCGFloatToPixel(CGFloat value) {
-    return value * HTextScreenScale();
+    return value *HTextScreenScale();
 }
 
 /// Convert pixel to point.
@@ -381,53 +381,53 @@ static inline CGFloat HTextCGFloatFromPixel(CGFloat value) {
 /// floor point value for pixel-aligned
 static inline CGFloat HTextCGFloatPixelFloor(CGFloat value) {
     CGFloat scale = HTextScreenScale();
-    return floor(value * scale) / scale;
+    return floor(value *scale) / scale;
 }
 
 /// round point value for pixel-aligned
 static inline CGFloat HTextCGFloatPixelRound(CGFloat value) {
     CGFloat scale = HTextScreenScale();
-    return round(value * scale) / scale;
+    return round(value *scale) / scale;
 }
 
 /// ceil point value for pixel-aligned
 static inline CGFloat HTextCGFloatPixelCeil(CGFloat value) {
     CGFloat scale = HTextScreenScale();
-    return ceil(value * scale) / scale;
+    return ceil(value *scale) / scale;
 }
 
 /// round point value to .5 pixel for path stroke (odd pixel line width pixel-aligned)
 static inline CGFloat HTextCGFloatPixelHalf(CGFloat value) {
     CGFloat scale = HTextScreenScale();
-    return (floor(value * scale) + 0.5) / scale;
+    return (floor(value *scale) + 0.5) / scale;
 }
 
 /// floor point value for pixel-aligned
 static inline CGPoint HTextCGPointPixelFloor(CGPoint point) {
     CGFloat scale = HTextScreenScale();
-    return CGPointMake(floor(point.x * scale) / scale,
-                       floor(point.y * scale) / scale);
+    return CGPointMake(floor(point.x *scale) / scale,
+                       floor(point.y *scale) / scale);
 }
 
 /// round point value for pixel-aligned
 static inline CGPoint HTextCGPointPixelRound(CGPoint point) {
     CGFloat scale = HTextScreenScale();
-    return CGPointMake(round(point.x * scale) / scale,
-                       round(point.y * scale) / scale);
+    return CGPointMake(round(point.x *scale) / scale,
+                       round(point.y *scale) / scale);
 }
 
 /// ceil point value for pixel-aligned
 static inline CGPoint HTextCGPointPixelCeil(CGPoint point) {
     CGFloat scale = HTextScreenScale();
-    return CGPointMake(ceil(point.x * scale) / scale,
-                       ceil(point.y * scale) / scale);
+    return CGPointMake(ceil(point.x *scale) / scale,
+                       ceil(point.y *scale) / scale);
 }
 
 /// round point value to .5 pixel for path stroke (odd pixel line width pixel-aligned)
 static inline CGPoint HTextCGPointPixelHalf(CGPoint point) {
     CGFloat scale = HTextScreenScale();
-    return CGPointMake((floor(point.x * scale) + 0.5) / scale,
-                       (floor(point.y * scale) + 0.5) / scale);
+    return CGPointMake((floor(point.x *scale) + 0.5) / scale,
+                       (floor(point.y *scale) + 0.5) / scale);
 }
 
 
@@ -435,29 +435,29 @@ static inline CGPoint HTextCGPointPixelHalf(CGPoint point) {
 /// floor point value for pixel-aligned
 static inline CGSize HTextCGSizePixelFloor(CGSize size) {
     CGFloat scale = HTextScreenScale();
-    return CGSizeMake(floor(size.width * scale) / scale,
-                      floor(size.height * scale) / scale);
+    return CGSizeMake(floor(size.width *scale) / scale,
+                      floor(size.height *scale) / scale);
 }
 
 /// round point value for pixel-aligned
 static inline CGSize HTextCGSizePixelRound(CGSize size) {
     CGFloat scale = HTextScreenScale();
-    return CGSizeMake(round(size.width * scale) / scale,
-                      round(size.height * scale) / scale);
+    return CGSizeMake(round(size.width *scale) / scale,
+                      round(size.height *scale) / scale);
 }
 
 /// ceil point value for pixel-aligned
 static inline CGSize HTextCGSizePixelCeil(CGSize size) {
     CGFloat scale = HTextScreenScale();
-    return CGSizeMake(ceil(size.width * scale) / scale,
-                      ceil(size.height * scale) / scale);
+    return CGSizeMake(ceil(size.width *scale) / scale,
+                      ceil(size.height *scale) / scale);
 }
 
 /// round point value to .5 pixel for path stroke (odd pixel line width pixel-aligned)
 static inline CGSize HTextCGSizePixelHalf(CGSize size) {
     CGFloat scale = HTextScreenScale();
-    return CGSizeMake((floor(size.width * scale) + 0.5) / scale,
-                      (floor(size.height * scale) + 0.5) / scale);
+    return CGSizeMake((floor(size.width *scale) + 0.5) / scale,
+                      (floor(size.height *scale) + 0.5) / scale);
 }
 
 
@@ -519,17 +519,17 @@ static inline UIEdgeInsets HTextUIEdgeInsetPixelCeil(UIEdgeInsets insets) {
 
 
 
-static inline UIFont * _Nullable HTextFontWithBold(UIFont *font) {
+static inline UIFont *_Nullable HTextFontWithBold(UIFont *font) {
     if (![font respondsToSelector:@selector(fontDescriptor)]) return font;
     return [UIFont fontWithDescriptor:[font.fontDescriptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold] size:font.pointSize];
 }
 
-static inline UIFont * _Nullable HTextFontWithItalic(UIFont *font) {
+static inline UIFont *_Nullable HTextFontWithItalic(UIFont *font) {
     if (![font respondsToSelector:@selector(fontDescriptor)]) return font;
     return [UIFont fontWithDescriptor:[font.fontDescriptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitItalic] size:font.pointSize];
 }
 
-static inline UIFont * _Nullable HTextFontWithBoldItalic(UIFont *font) {
+static inline UIFont *_Nullable HTextFontWithBoldItalic(UIFont *font) {
     if (![font respondsToSelector:@selector(fontDescriptor)]) return font;
     return [UIFont fontWithDescriptor:[font.fontDescriptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold | UIFontDescriptorTraitItalic] size:font.pointSize];
 }
@@ -557,6 +557,6 @@ static inline CFRange HTextCFRangeFromNSRange(NSRange range) {
 BOOL HTextIsAppExtension(void);
 
 /// Returns nil in App Extension.
-UIApplication * _Nullable HTextSharedApplication(void);
+UIApplication *_Nullable HTextSharedApplication(void);
 
 NS_ASSUME_NONNULL_END

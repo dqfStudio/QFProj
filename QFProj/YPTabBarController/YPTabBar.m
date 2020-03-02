@@ -225,7 +225,7 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
             y += self.itemHeight;
         }
         self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, MAX(y + self.trailingSpace, self.scrollView.frame.size.height));
-    } else {
+    }else {
         if (self.scrollView.scrollEnabled) {
             // 支持滚动
             CGFloat x = self.leadingSpace;
@@ -246,14 +246,14 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
             }
             self.scrollView.contentSize = CGSizeMake(MAX(x + self.trailingSpace, self.scrollView.frame.size.width),
                                                      self.scrollView.frame.size.height);
-        } else {
+        }else {
             // 不支持滚动
             
             CGFloat x = self.leadingSpace;
             CGFloat allItemsWidth = self.frame.size.width - self.leadingSpace - self.trailingSpace;
             if (self.specialItem && self.specialItem.frame.size.width != 0) {
                 self.itemWidth = (allItemsWidth - self.specialItem.frame.size.width) / self.items.count;
-            } else {
+            }else {
                 self.itemWidth = allItemsWidth / self.items.count;
             }
             
@@ -337,7 +337,7 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
                 oldSelectedItem.transform = CGAffineTransformMakeScale(self.itemTitleUnselectedFontScale,
                                                                        self.itemTitleUnselectedFontScale);
                 oldSelectedItem.titleFont = [self.itemTitleFont fontWithSize:self.itemTitleSelectedFont.pointSize];
-            } else {
+            }else {
                 oldSelectedItem.titleFont = self.itemTitleFont;
             }
         }
@@ -358,7 +358,7 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
         [UIView animateWithDuration:0.25f animations:^{
             [self updateIndicatorFrameWithIndex:selectedItemIndex];
         }];
-    } else {
+    }else {
         [self updateIndicatorFrameWithIndex:selectedItemIndex];
     }
     
@@ -422,7 +422,7 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
         return;
     }
     // 修改偏移量
-    CGFloat offsetX = self.selectedItem.center.x - self.scrollView.frame.size.width * 0.5f;
+    CGFloat offsetX = self.selectedItem.center.x - self.scrollView.frame.size.width *0.5f;
     
     // 处理最小滚动偏移量
     if (offsetX < 0) {
@@ -572,7 +572,7 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
     if (self.itemFontChangeFollowContentScroll) {
         // item字体支持平滑切换，更新每个item的scale
         [self updateItemsScaleIfNeeded];
-    } else {
+    }else {
         // item字体不支持平滑切换，更新item的字体
         if (self.itemTitleSelectedFont) {
             // 设置了选中字体，则只更新未选中的item
@@ -581,7 +581,7 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
                     item.titleFont = itemTitleFont;
                 }
             }
-        } else {
+        }else {
             // 未设置选中字体，更新所有item
             [self.items makeObjectsPerformSelector:@selector(setTitleFont:) withObject:itemTitleFont];
         }
@@ -623,7 +623,7 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
         for (YPTabItem *item in self.items) {
             if (item.selected) {
                 item.titleFont = self.itemTitleSelectedFont;
-            } else {
+            }else {
                 item.titleFont = normalFont;
                 item.transform = CGAffineTransformMakeScale(self.itemTitleUnselectedFontScale,
                                                             self.itemTitleUnselectedFontScale);
@@ -638,7 +638,7 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
     _itemContentHorizontalCenter = itemContentHorizontalCenter;
     if (itemContentHorizontalCenter) {
         [self setItemContentHorizontalCenterAndMarginTop:5 spacing:5];
-    } else {
+    }else {
         [self.items makeObjectsPerformSelector:@selector(setContentHorizontalCenter:) withObject:@(NO)];
     }
 }
@@ -725,7 +725,7 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
     CGFloat onePixel;
     if ([mainScreen respondsToSelector:@selector(nativeScale)]) {
         onePixel = 1.0f / mainScreen.nativeScale;
-    } else {
+    }else {
         onePixel = 1.0f / mainScreen.scale;
     }
     [self setItemSeparatorColor:itemSeparatorColor
@@ -742,7 +742,7 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
         [self.separatorLayers makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
         [self.separatorLayers removeAllObjects];
         
-        [self.items enumerateObjectsUsingBlock:^(YPTabItem * _Nonnull item, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self.items enumerateObjectsUsingBlock:^(YPTabItem *_Nonnull item, NSUInteger idx, BOOL *_Nonnull stop) {
             if (idx > 0) {
                 CALayer *layer = [[CALayer alloc] init];
                 layer.backgroundColor = self.itemSeparatorColor.CGColor;
@@ -751,7 +751,7 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
                                              item.frame.origin.y - self.itemSeparatorThickness / 2,
                                              self.bounds.size.width - self.itemSeparatorLeading - self.itemSeparatorTrailing,
                                              self.itemSeparatorThickness);
-                } else {
+                }else {
                     layer.frame = CGRectMake(item.frame.origin.x - self.itemSeparatorThickness / 2,
                                              self.itemSeparatorLeading,
                                              self.itemSeparatorThickness,
@@ -761,7 +761,7 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
                 [self.separatorLayers addObject:layer];
             }
         }];
-    } else {
+    }else {
         [self.separatorLayers makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
         [self.separatorLayers removeAllObjects];
         self.separatorLayers = nil;
@@ -795,8 +795,8 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
         // 计算字体大小的差值
         CGFloat diff = self.itemTitleUnselectedFontScale - 1;
         // 根据偏移量和差值，计算缩放值
-        leftItem.transform = CGAffineTransformMakeScale(rightScale * diff + 1, rightScale * diff + 1);
-        rightItem.transform = CGAffineTransformMakeScale(leftScale * diff + 1, leftScale * diff + 1);
+        leftItem.transform = CGAffineTransformMakeScale(rightScale *diff + 1, rightScale *diff + 1);
+        rightItem.transform = CGAffineTransformMakeScale(leftScale *diff + 1, leftScale *diff + 1);
     }
     
     if (self.itemColorChangeFollowContentScroll) {
@@ -811,14 +811,14 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
         CGFloat blueDiff = selectedBlue - normalBlue;
         CGFloat alphaDiff = selectedAlpha - normalAlpha;
         // 根据颜色值的差值和偏移量，设置tabItem的标题颜色
-        leftItem.titleLabel.textColor = [UIColor colorWithRed:leftScale * redDiff + normalRed
-                                                        green:leftScale * greenDiff + normalGreen
-                                                         blue:leftScale * blueDiff + normalBlue
-                                                        alpha:leftScale * alphaDiff + normalAlpha];
-        rightItem.titleLabel.textColor = [UIColor colorWithRed:rightScale * redDiff + normalRed
-                                                         green:rightScale * greenDiff + normalGreen
-                                                          blue:rightScale * blueDiff + normalBlue
-                                                         alpha:rightScale * alphaDiff + normalAlpha];
+        leftItem.titleLabel.textColor = [UIColor colorWithRed:leftScale *redDiff + normalRed
+                                                        green:leftScale *greenDiff + normalGreen
+                                                         blue:leftScale *blueDiff + normalBlue
+                                                        alpha:leftScale *alphaDiff + normalAlpha];
+        rightItem.titleLabel.textColor = [UIColor colorWithRed:rightScale *redDiff + normalRed
+                                                         green:rightScale *greenDiff + normalGreen
+                                                          blue:rightScale *blueDiff + normalBlue
+                                                         alpha:rightScale *alphaDiff + normalAlpha];
     }
     
     // 计算背景的frame
@@ -828,10 +828,10 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
             CGRect frame = self.indicatorImageView.frame;
             CGFloat xDiff = rightItem.indicatorFrame.origin.x - leftItem.indicatorFrame.origin.x;
             
-            frame.origin.x = rightScale * xDiff + leftItem.indicatorFrame.origin.x;
+            frame.origin.x = rightScale *xDiff + leftItem.indicatorFrame.origin.x;
             
             CGFloat widthDiff = rightItem.indicatorFrame.size.width - leftItem.indicatorFrame.size.width;
-            frame.size.width = rightScale * widthDiff + leftItem.indicatorFrame.size.width;
+            frame.size.width = rightScale *widthDiff + leftItem.indicatorFrame.size.width;
             
             self.indicatorImageView.frame = frame;
         } else if (self.indicatorAnimationStyle == YPTabBarIndicatorAnimationStyle1) {
@@ -844,12 +844,12 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
             if (_scrollViewLastOffsetX < offsetX) {
                 currentIndex = page;
                 targetIndex = page + 1;
-                scale = scale * 2;
+                scale = scale *2;
             } else if (_scrollViewLastOffsetX > offsetX) {
                 currentIndex = page + 1;
                 targetIndex = page;
                 scale = (1 - scale) * 2;
-            } else {
+            }else {
                 return;
             }
             if (targetIndex >= self.items.count) {
@@ -865,20 +865,20 @@ typedef NS_ENUM(NSInteger, YPTabBarIndicatorStyle) {
             // 设置滑动过程中，指示器的位置
             if (targetIndex > currentIndex) {
                 if (scale < 1) {
-                    CGFloat addition = scale * (CGRectGetMaxX(targetItem.indicatorFrame) - CGRectGetMaxX(currentItem.indicatorFrame));
+                    CGFloat addition = scale *(CGRectGetMaxX(targetItem.indicatorFrame) - CGRectGetMaxX(currentItem.indicatorFrame));
                     // 小于半个屏幕距离
                     [self setIndicatorX:currentItem.indicatorFrame.origin.x
                                   width:addition + currentItem.indicatorFrame.size.width];
                 } else if (scale > 1) {
                     // 大于等于半个屏幕距离
                     scale = scale - 1;
-                    CGFloat addition = scale * (targetItem.indicatorFrame.origin.x - currentItem.indicatorFrame.origin.x);
+                    CGFloat addition = scale *(targetItem.indicatorFrame.origin.x - currentItem.indicatorFrame.origin.x);
                     [self setIndicatorX:currentItem.indicatorFrame.origin.x + addition
                                   width:targetItemWidth + currentItemWidth - addition - currentItem.indicatorInsets.left - targetItem.indicatorInsets.right];
                 }
-            } else {
+            }else {
                 if (scale < 1) {
-                    CGFloat addition = scale * (currentItem.indicatorFrame.origin.x - targetItem.indicatorFrame.origin.x);
+                    CGFloat addition = scale *(currentItem.indicatorFrame.origin.x - targetItem.indicatorFrame.origin.x);
                     [self setIndicatorX:currentItem.indicatorFrame.origin.x - addition
                                   width:addition + currentItem.indicatorFrame.size.width];
                 } else if (scale > 1) {

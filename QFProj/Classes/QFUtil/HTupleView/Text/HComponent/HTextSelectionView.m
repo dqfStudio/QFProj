@@ -35,7 +35,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     CGFloat length = MIN(self.bounds.size.width, self.bounds.size.height);
-    self.layer.cornerRadius = length * 0.5;
+    self.layer.cornerRadius = length *0.5;
     self.mirror.bounds = self.bounds;
     self.mirror.layer.cornerRadius = self.layer.cornerRadius;
 }
@@ -51,7 +51,7 @@
 
 @implementation HSelectionGrabber
 
-- (instancetype) initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (!self) return nil;
     _dot = [[HSelectionGrabberDot alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
@@ -75,7 +75,7 @@
     } else if (dotDirection == HTextDirectionLeft) {
         frame.origin.x = -frame.size.width + ofs;
         frame.origin.y = (self.bounds.size.height - frame.size.height) / 2;
-    } else {
+    }else {
         [_dot removeFromSuperview];
     }
     _dot.frame = frame;
@@ -165,7 +165,7 @@
         [self.class cancelPreviousPerformRequestsWithTarget:self selector:@selector(_startBlinks) object:nil];
         if (caretBlinks) {
             [self performSelector:@selector(_startBlinks) withObject:nil afterDelay:kBlinkFirstDelay];
-        } else {
+        }else {
             [_caretTimer invalidate];
             _caretTimer = nil;
         }
@@ -178,7 +178,7 @@
     if (_caretVisible) {
         _caretTimer = [NSTimer timerWithTimeInterval:kBlinkDuration target:[HTextWeakProxy proxyWithTarget:self] selector:@selector(_doBlink) userInfo:nil repeats:YES];
         [[NSRunLoop currentRunLoop] addTimer:_caretTimer forMode:NSDefaultRunLoopMode];
-    } else {
+    }else {
         _caretView.alpha = 1;
     }
 }
@@ -214,17 +214,17 @@
     if (_verticalForm) {
         if (caretRect.size.height == 0) {
             caretRect.size.height = kLineWidth;
-            caretRect.origin.y -= kLineWidth * 0.5;
+            caretRect.origin.y -= kLineWidth *0.5;
         }
         if (caretRect.origin.y < 0) {
             caretRect.origin.y = 0;
         } else if (caretRect.origin.y + caretRect.size.height > self.bounds.size.height) {
             caretRect.origin.y = self.bounds.size.height - caretRect.size.height;
         }
-    } else {
+    }else {
         if (caretRect.size.width == 0) {
             caretRect.size.width = kLineWidth;
-            caretRect.origin.x -= kLineWidth * 0.5;
+            caretRect.origin.x -= kLineWidth *0.5;
         }
         if (caretRect.origin.x < 0) {
             caretRect.origin.x = 0;
@@ -270,7 +270,7 @@
                 self.endGrabber.hidden = NO;
                 self.endGrabber.frame = rect;
             }
-        } else {
+        }else {
             if (rect.size.width > 0 && rect.size.height > 0) {
                 UIView *mark = [[UIView alloc] initWithFrame:rect];
                 mark.backgroundColor = self->_color;

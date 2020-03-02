@@ -104,9 +104,9 @@
         if (![url hasPrefix:baseUrl]) {
             url = [baseUrl stringByAppendingString:url];
         }
-        [self performWithUrl:url method:method argument:argument whenSeccsss:^(__kindof YTKBaseRequest * _Nonnull request) {
+        [self performWithUrl:url method:method argument:argument whenSeccsss:^(__kindof YTKBaseRequest *_Nonnull request) {
             [self request:request success:success];
-        } whenFailed:^(__kindof YTKBaseRequest * _Nonnull request) {
+        } whenFailed:^(__kindof YTKBaseRequest *_Nonnull request) {
             [self request:request failure:failure];
         }];
     }

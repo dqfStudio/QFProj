@@ -13,7 +13,7 @@
 @implementation UIWindow (HPrinter)
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
     // 判断自己能否接收事件
-    if(self.userInteractionEnabled == NO || self.hidden == YES || self.alpha <= 0.01){
+    if (self.userInteractionEnabled == NO || self.hidden == YES || self.alpha <= 0.01) {
         return nil;
     }
     // 触摸点在不在自己身上

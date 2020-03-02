@@ -25,10 +25,10 @@
 //获取当前顶部视图
 + (UIViewController *)currentViewController {
    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-   if (window.windowLevel != UIWindowLevelNormal){
+   if (window.windowLevel != UIWindowLevelNormal) {
        NSArray *windows = [[UIApplication sharedApplication] windows];
        for (UIWindow *tmpWindow in windows){
-           if (tmpWindow.windowLevel == UIWindowLevelNormal){
+           if (tmpWindow.windowLevel == UIWindowLevelNormal) {
                window = tmpWindow;
                break;
            }
@@ -50,11 +50,11 @@
 + (UIViewController *)checkViewController:(id)className {
     if (className == nil) return nil;
     Class class = className;
-    if ([className isKindOfClass:NSString.class]){
+    if ([className isKindOfClass:NSString.class]) {
         class = NSClassFromString(className);
     }
     for (UIViewController *vc in UIApplication.navi.viewControllers) {
-        if([vc isKindOfClass:class]){
+        if ([vc isKindOfClass:class]) {
             return vc;
         }
     }
@@ -65,7 +65,7 @@
     return [self topViewControllerWithRootViewController:self.window.rootViewController];
 }
 
-- (UIViewController *)topViewControllerWithRootViewController:(UIViewController*)rootViewController {
+- (UIViewController *)topViewControllerWithRootViewController:(UIViewController *)rootViewController {
     if ([rootViewController isKindOfClass:[UITabBarController class]]) {
         UITabBarController *tabBarController = (UITabBarController *)rootViewController;
         return [self topViewControllerWithRootViewController:tabBarController.selectedViewController];

@@ -67,9 +67,9 @@
 //
 //    if (self.qrCodeUrl) {
 //        [self generateQRCode:self.qrCodeUrl];
-//    }else if(!self.htmlurl){
+//    }else if (!self.htmlurl) {
 //        [self.wkWebview loadHTMLString:self.htmlcontent baseURL:nil];
-//    }else{
+//    }else {
 //        NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.htmlurl]];
 //        [self.wkWebview loadRequest:request];
 //    }

@@ -228,9 +228,9 @@ static NSString *const HistoryVersionsKey = @"MiguMusicHistoryVersionsKey";
             NSInteger parameterV = [paramerVersions[index] integerValue];
             
             if (currentV != parameterV) {
-                if (currentV > parameterV){
+                if (currentV > parameterV) {
                     output = 1;
-                }else if (currentV < parameterV){
+                }else if (currentV < parameterV) {
                     output = -1;
                 }
                 flag = YES;
@@ -239,11 +239,11 @@ static NSString *const HistoryVersionsKey = @"MiguMusicHistoryVersionsKey";
         }
         
         if (!flag) {
-            if (minCount < paramerVersions.count){
+            if (minCount < paramerVersions.count) {
                 output = -1;
-            }else if (minCount < currentVersions.count){
+            }else if (minCount < currentVersions.count) {
                 output = 1;
-            }else{
+            }else {
                 output = 0;
             }
         }

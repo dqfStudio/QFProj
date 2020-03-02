@@ -17,7 +17,7 @@
 
 #define HLayoutTupleCell(v) \
 CGRect _frame = self.layoutViewBounds;\
-if(!CGRectEqualToRect(v.frame, _frame)) {\
+if (!CGRectEqualToRect(v.frame, _frame)) {\
     [v setFrame:_frame];\
 }
 

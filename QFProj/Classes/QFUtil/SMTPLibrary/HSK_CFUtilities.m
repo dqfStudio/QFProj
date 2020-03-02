@@ -34,8 +34,7 @@ void CFStreamCreatePairWithUNIXSocketPair(CFAllocatorRef alloc, CFReadStreamRef 
 {
     int sockpair[2];
     int success = socketpair(AF_UNIX, SOCK_STREAM, 0, sockpair);
-    if (success < 0)
-    {
+    if (success < 0) {
         [NSException raise:@"HSK_CFUtilitiesErrorDomain" format:@"Unable to create socket pair, errno: %d", errno];
     }
     
@@ -45,29 +44,24 @@ void CFStreamCreatePairWithUNIXSocketPair(CFAllocatorRef alloc, CFReadStreamRef 
     CFWriteStreamSetProperty(*writeStream, kCFStreamPropertyShouldCloseNativeSocket, kCFBooleanTrue);
 }
 
-CFIndex CFWriteStreamWriteFully(CFWriteStreamRef outputStream, const uint8_t* buffer, CFIndex length)
+CFIndex CFWriteStreamWriteFully(CFWriteStreamRef outputStream, const uint8_t *buffer, CFIndex length)
 {
     CFIndex bufferOffset = 0;
     CFIndex bytesWritten;
         
     while (bufferOffset < length)
     {
-        if (CFWriteStreamCanAcceptBytes(outputStream))
-        {
+        if (CFWriteStreamCanAcceptBytes(outputStream)) {
             bytesWritten = CFWriteStreamWrite(outputStream, &(buffer[bufferOffset]), length - bufferOffset);
-            if (bytesWritten < 0)
-            {
+            if (bytesWritten < 0) {
                 // Bail!                
                 return bytesWritten;
             }
             bufferOffset += bytesWritten;
         }
-        else if (CFWriteStreamGetStatus(outputStream) == kCFStreamStatusError)
-        {
+        else if (CFWriteStreamGetStatus(outputStream) == kCFStreamStatusError) {
             return -1;
-        }
-        else
-        {
+        }else {
             // Pump the runloop
             CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0.0, true);
         }

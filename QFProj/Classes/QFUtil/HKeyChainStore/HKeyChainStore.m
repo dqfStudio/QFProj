@@ -8,7 +8,7 @@
 
 #import "HKeyChainStore.h"
 
-NSString * const HKeyChainStoreErrorDomain = @"com.kishikawakatsumi.Hkeychainstore";
+NSString *const HKeyChainStoreErrorDomain = @"com.kishikawakatsumi.Hkeychainstore";
 static NSString *_defaultService;
 
 @interface HKeyChainStore ()
@@ -159,7 +159,7 @@ static NSString *_defaultService;
     return [self setString:value forKey:key service:nil accessGroup:nil genericAttribute:genericAttribute error:nil];
 }
 
-+ (BOOL)setString:(NSString *)value forKey:(NSString *)key genericAttribute:(id)genericAttribute error:(NSError * __autoreleasing *)error {
++ (BOOL)setString:(NSString *)value forKey:(NSString *)key genericAttribute:(id)genericAttribute error:(NSError *__autoreleasing *)error {
     return [self setString:value forKey:key service:nil accessGroup:nil genericAttribute:genericAttribute error:error];
 }
 
@@ -175,7 +175,7 @@ static NSString *_defaultService;
     return [self setString:value forKey:key service:service accessGroup:nil genericAttribute:genericAttribute error:nil];
 }
 
-+ (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service genericAttribute:(id)genericAttribute error:(NSError * __autoreleasing *)error {
++ (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service genericAttribute:(id)genericAttribute error:(NSError *__autoreleasing *)error {
     return [self setString:value forKey:key service:service accessGroup:nil genericAttribute:genericAttribute error:error];
 }
 
@@ -191,7 +191,7 @@ static NSString *_defaultService;
     return [self setString:value forKey:key service:service accessGroup:accessGroup genericAttribute:genericAttribute error:nil];
 }
 
-+ (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup genericAttribute:(id)genericAttribute error:(NSError * __autoreleasing *)error {
++ (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup genericAttribute:(id)genericAttribute error:(NSError *__autoreleasing *)error {
     if (!value) {
         return [self removeItemForKey:key service:service accessGroup:accessGroup error:error];
     }
@@ -258,7 +258,7 @@ static NSString *_defaultService;
     return [self setData:data forKey:key service:nil accessGroup:nil genericAttribute:genericAttribute error:nil];
 }
 
-+ (BOOL)setData:(NSData *)data forKey:(NSString *)key genericAttribute:(id)genericAttribute error:(NSError * __autoreleasing *)error {
++ (BOOL)setData:(NSData *)data forKey:(NSString *)key genericAttribute:(id)genericAttribute error:(NSError *__autoreleasing *)error {
     return [self setData:data forKey:key service:nil accessGroup:nil genericAttribute:genericAttribute error:error];
 }
 
@@ -274,7 +274,7 @@ static NSString *_defaultService;
     return [self setData:data forKey:key service:service accessGroup:nil genericAttribute:genericAttribute error:nil];
 }
 
-+ (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service genericAttribute:(id)genericAttribute error:(NSError * __autoreleasing *)error {
++ (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service genericAttribute:(id)genericAttribute error:(NSError *__autoreleasing *)error {
     return [self setData:data forKey:key service:service accessGroup:nil genericAttribute:genericAttribute error:error];
 }
 
@@ -290,7 +290,7 @@ static NSString *_defaultService;
     return [self setData:data forKey:key service:service accessGroup:accessGroup genericAttribute:genericAttribute error:nil];
 }
 
-+ (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup genericAttribute:(id)genericAttribute error:(NSError * __autoreleasing *)error {
++ (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup genericAttribute:(id)genericAttribute error:(NSError *__autoreleasing *)error {
     if (!key) {
         NSError *e = [self argumentError:NSLocalizedString(@"the key must not to be nil", nil)];
         if (error) {
@@ -353,7 +353,7 @@ static NSString *_defaultService;
     return [self setString:string forKey:key genericAttribute:genericAttribute label:nil comment:nil error:nil];
 }
 
-- (BOOL)setString:(NSString *)string forKey:(NSString *)key genericAttribute:(id)genericAttribute error:(NSError * __autoreleasing *)error {
+- (BOOL)setString:(NSString *)string forKey:(NSString *)key genericAttribute:(id)genericAttribute error:(NSError *__autoreleasing *)error {
     return [self setString:string forKey:key genericAttribute:genericAttribute label:nil comment:nil error:error];
 }
 
@@ -401,7 +401,7 @@ static NSString *_defaultService;
         if (data) {
             CFRelease(data);
             return ret;
-        } else {
+        }else {
             NSError *e = [self.class unexpectedError:NSLocalizedString(@"Unexpected error has occurred.", nil)];
             if (error) {
                 *error = e;
@@ -433,7 +433,7 @@ static NSString *_defaultService;
     return [self setData:data forKey:key genericAttribute:genericAttribute label:nil comment:nil error:nil];
 }
 
-- (BOOL)setData:(NSData *)data forKey:(NSString *)key genericAttribute:(id)genericAttribute error:(NSError * __autoreleasing *)error {
+- (BOOL)setData:(NSData *)data forKey:(NSString *)key genericAttribute:(id)genericAttribute error:(NSError *__autoreleasing *)error {
     return [self setData:data forKey:key genericAttribute:genericAttribute label:nil comment:nil error:error];
 }
 
@@ -495,13 +495,13 @@ static NSString *_defaultService;
                 *error = unexpectedError;
             }
             return NO;
-        } else {
+        }else {
             
             if (status == errSecInteractionNotAllowed && floor(NSFoundationVersionNumber) <= floor(1140.11)) { // iOS 8.0.x
                 if ([self removeItemForKey:key error:error]) {
                     return [self setData:data forKey:key label:label comment:comment error:error];
                 }
-            } else {
+            }else {
                 status = SecItemUpdate((__bridge CFDictionaryRef)query, (__bridge CFDictionaryRef)attributes);
             }
             if (status != errSecSuccess) {
@@ -532,7 +532,7 @@ static NSString *_defaultService;
                 *error = unexpectedError;
             }
             return NO;
-        } else {
+        }else {
             status = SecItemAdd((__bridge CFDictionaryRef)attributes, NULL);
             if (status != errSecSuccess) {
                 NSError *e = [self.class securityError:status];
@@ -542,7 +542,7 @@ static NSString *_defaultService;
                 return NO;
             }
         }
-    } else {
+    }else {
         NSError *e = [self.class securityError:status];
         if (error) {
             *error = e;
@@ -673,7 +673,7 @@ static NSString *_defaultService;
 - (void)setObject:(NSString *)obj forKeyedSubscript:(NSString <NSCopying> *)key {
     if (!obj) {
         [self removeItemForKey:key];
-    } else {
+    }else {
         [self setString:obj forKey:key];
     }
 }
@@ -820,7 +820,7 @@ static NSString *_defaultService;
         NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         if (string) {
             item[@"value"] = string;
-        } else {
+        }else {
             item[@"value"] = data;
         }
         
@@ -873,13 +873,13 @@ static NSString *_defaultService;
                 if (completion) {
                     completion(account, password, error);
                 }
-            } else {
+            }else {
                 if (completion) {
                     completion(nil, nil, error);
                 }
             }
         }];
-    } else {
+    }else {
         NSError *error = [self.class argumentError:NSLocalizedString(@"the server property must not to be nil, should use 'keyChainStoreWithServer:protocolType:' initializer to instantiate keychain store", nil)];
         if (completion) {
             completion(nil, nil, error);
@@ -897,13 +897,13 @@ static NSString *_defaultService;
                 if (completion) {
                     completion(password, error);
                 }
-            } else {
+            }else {
                 if (completion) {
                     completion(nil, error);
                 }
             }
         }];
-    } else {
+    }else {
         NSError *error = [self.class argumentError:NSLocalizedString(@"the server property must not to be nil, should use 'keyChainStoreWithServer:protocolType:' initializer to instantiate keychain store", nil)];
         if (completion) {
             completion(nil, error);
@@ -919,7 +919,7 @@ static NSString *_defaultService;
                 completion((__bridge NSError *)error);
             }
         });
-    } else {
+    }else {
         NSError *error = [self.class argumentError:NSLocalizedString(@"the server property must not to be nil, should use 'keyChainStoreWithServer:protocolType:' initializer to instantiate keychain store", nil)];
         if (completion) {
             completion(error);
@@ -1011,7 +1011,7 @@ static NSString *_defaultService;
             query[(__bridge __strong id)kSecAttrAccessGroup] = _accessGroup;
         }
 #endif
-    } else {
+    }else {
         if (_server.host) {
             query[(__bridge __strong id)kSecAttrServer] = _server.host;
         }
@@ -1032,7 +1032,7 @@ static NSString *_defaultService;
     if (_authenticationPrompt) {
         if (floor(NSFoundationVersionNumber) > floor(1047.25)) { // iOS 8+ (NSFoundationVersionNumber_iOS_7_1)
             query[(__bridge __strong id)kSecUseOperationPrompt] = _authenticationPrompt;
-        } else {
+        }else {
             NSLog(@"%@", @"Unavailable 'authenticationPrompt' attribute on iOS versions prior to 8.0.");
         }
     }
@@ -1061,7 +1061,7 @@ static NSString *_defaultService;
     if (key) {
         attributes = [self query];
         attributes[(__bridge __strong id)kSecAttrAccount] = key;
-    } else {
+    }else {
         attributes = [[NSMutableDictionary alloc] init];
     }
     
@@ -1095,21 +1095,21 @@ static NSString *_defaultService;
                 return nil;
             }
             attributes[(__bridge __strong id)kSecAttrAccessControl] = (__bridge_transfer id)accessControl;
-        } else {
+        }else {
 #if TARGET_OS_IOS
             NSLog(@"%@", @"Unavailable 'Touch ID integration' on iOS versions prior to 8.0.");
 #else
             NSLog(@"%@", @"Unavailable 'Touch ID integration' on OS X versions prior to 10.10.");
 #endif
         }
-    } else {
+    }else {
         if (floor(NSFoundationVersionNumber) <= floor(iOS_7_1_or_10_9_2) && _accessibility == HKeyChainStoreAccessibilityWhenPasscodeSetThisDeviceOnly) {
 #if TARGET_OS_IOS
             NSLog(@"%@", @"Unavailable 'HKeyChainStoreAccessibilityWhenPasscodeSetThisDeviceOnly' attribute on iOS versions prior to 8.0.");
 #else
             NSLog(@"%@", @"Unavailable 'HKeyChainStoreAccessibilityWhenPasscodeSetThisDeviceOnly' attribute on OS X versions prior to 10.10.");
 #endif
-        } else {
+        }else {
             if (accessibilityObject) {
                 attributes[(__bridge __strong id)kSecAttrAccessible] = (__bridge id)accessibilityObject;
             }

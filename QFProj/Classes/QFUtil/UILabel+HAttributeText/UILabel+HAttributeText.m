@@ -418,7 +418,7 @@
     self.attributeStrings = [NSMutableArray array];
     __weak typeof(self) weakSelf = self;
     
-    [strings enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [strings enumerateObjectsUsingBlock:^(NSString *_Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
         
         NSRange range = [totalStr rangeOfString:obj];
         
@@ -448,7 +448,7 @@
     self.attributeStrings = [NSMutableArray array];
     __weak typeof(self) weakSelf = self;
     
-    [ranges enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [ranges enumerateObjectsUsingBlock:^(NSString *_Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
         NSRange range = NSRangeFromString(obj);
         NSAssert(totalStr.length >= range.location + range.length, @"NSRange(%lu,%lu) is out of bounds",(unsigned long)range.location,(unsigned long)range.length);
         NSString *string = [totalStr substringWithRange:range];
@@ -472,7 +472,7 @@
 
 #pragma mark - KVO
 - (void)addObserver {
-    [self addObserver:self forKeyPath:@"attributedText" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:nil];
+    [self addObserver:self forKeyPath:@"attributedText" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld)context:nil];
 }
 
 - (void)removeObserver {

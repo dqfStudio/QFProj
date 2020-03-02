@@ -27,9 +27,9 @@
     });
 }
 - (BOOL)safe_hasSuffix:(NSString *)str {
-    if([str isKindOfClass:[NSString class]]) {
+    if ([str isKindOfClass:[NSString class]]) {
         return [self safe_hasSuffix:str];
-    } else {
+    }else {
 #if DEBUG
         NSAssert(NO,nil);
 #endif
@@ -37,9 +37,9 @@
     return NO;
 }
 - (BOOL)safe_hasPrefix:(NSString *)str {
-    if([str isKindOfClass:[NSString class]]) {
+    if ([str isKindOfClass:[NSString class]]) {
         return [self safe_hasPrefix:str];
-    } else {
+    }else {
 #if DEBUG
         NSAssert(NO,nil);
 #endif
@@ -47,9 +47,9 @@
     return NO;
 }
 - (instancetype)safe_initWithString:(NSString *)str {
-    if([str isKindOfClass:[NSString class]]) {
+    if ([str isKindOfClass:[NSString class]]) {
         return [self safe_initWithString:str];
-    } else {
+    }else {
 #if DEBUG
         NSAssert(NO,nil);
 #endif
@@ -120,9 +120,9 @@
     return [self safe_substringWithRange:tmpRange];
 }
 - (NSString *)safe_stringByAppendingString:(NSString *)aString {
-    if([aString isKindOfClass:[NSString class]]){
+    if ([aString isKindOfClass:[NSString class]]) {
         return [self safe_stringByAppendingString:aString];
-    } else {
+    }else {
 #if DEBUG
         NSAssert(NO,nil);
 #endif
@@ -140,9 +140,9 @@
     });
 }
 - (void)safe_appendString:(NSString *)aString {
-    if([aString isKindOfClass:[NSString class]]){
+    if ([aString isKindOfClass:[NSString class]]) {
         return [self safe_appendString:aString];
-    } else {
+    }else {
 #if DEBUG
         NSAssert(NO,nil);
 #endif

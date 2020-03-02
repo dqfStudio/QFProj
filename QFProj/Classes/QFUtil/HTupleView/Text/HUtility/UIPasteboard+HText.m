@@ -113,15 +113,18 @@ NSString *const HTextUTTypeWEBP = @"com.google.webp";
                         case HImageTypeGIF: {
                             NSDictionary *item = @{(id)kUTTypeGIF : data};
                             [self addItems:@[item]];
-                        } break;
+                        }
+                            break;
                         case HImageTypePNG: { // APNG
                             NSDictionary *item = @{(id)kUTTypePNG : data};
                             [self addItems:@[item]];
-                        } break;
+                        }
+                            break;
                         case HImageTypeWebP: {
                             NSDictionary *item = @{(id)HTextUTTypeWEBP : data};
                             [self addItems:@[item]];
-                        } break;
+                        }
+                            break;
                         default: break;
                     }
                 }

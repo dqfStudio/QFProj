@@ -41,12 +41,10 @@
 
 @implementation HKBTextFieldViewInfoModal
 
--(instancetype)initWithTextFieldView:(UIView*)textFieldView textFieldDelegate:(id<UITextFieldDelegate>)textFieldDelegate textViewDelegate:(id<UITextViewDelegate>)textViewDelegate originalReturnKey:(UIReturnKeyType)returnKeyType
-{
+- (instancetype)initWithTextFieldView:(UIView *)textFieldView textFieldDelegate:(id<UITextFieldDelegate>)textFieldDelegate textViewDelegate:(id<UITextViewDelegate>)textViewDelegate originalReturnKey:(UIReturnKeyType)returnKeyType {
     self = [super init];
     
-    if (self)
-    {
+    if (self) {
         _textFieldView = textFieldView;
         _textFieldDelegate = textFieldDelegate;
         _textViewDelegate = textViewDelegate;
@@ -61,34 +59,30 @@
 
 @interface HKBKeyboardReturnKeyHandler ()<UITextFieldDelegate,UITextViewDelegate>
 
--(void)updateReturnKeyTypeOnTextField:(UIView*)textField;
+- (void)updateReturnKeyTypeOnTextField:(UIView *)textField;
 
 @end
 
 @implementation HKBKeyboardReturnKeyHandler
 {
-    NSMutableSet<HKBTextFieldViewInfoModal*> *textFieldInfoCache;
+    NSMutableSet<HKBTextFieldViewInfoModal *> *textFieldInfoCache;
 }
 
 @synthesize lastTextFieldReturnKeyType = _lastTextFieldReturnKeyType;
 @synthesize delegate = _delegate;
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [self initWithViewController:nil];
     return self;
 }
 
--(instancetype)initWithViewController:(nullable UIViewController*)controller
-{
+- (instancetype)initWithViewController:(nullable UIViewController *)controller {
     self = [super init];
     
-    if (self)
-    {
+    if (self) {
         textFieldInfoCache = [[NSMutableSet alloc] init];
         
-        if (controller.view)
-        {
+        if (controller.view) {
             [self addResponderFromView:controller.view];
         }
     }
@@ -96,8 +90,7 @@
     return self;
 }
 
--(HKBTextFieldViewInfoModal*)textFieldViewCachedInfo:(UIView*)textField
-{
+- (HKBTextFieldViewInfoModal *)textFieldViewCachedInfo:(UIView *)textField {
     for (HKBTextFieldViewInfoModal *modal in textFieldInfoCache)
         if (modal.textFieldView == textField)  return modal;
     
@@ -105,35 +98,29 @@
 }
 
 #pragma mark - Add/Remove TextFields
--(void)addResponderFromView:(UIView*)view
-{
-    NSArray<UIView*> *textFields = [view deepResponderViews];
+- (void)addResponderFromView:(UIView *)view {
+    NSArray<UIView *> *textFields = [view deepResponderViews];
     
     for (UIView *textField in textFields)  [self addTextFieldView:textField];
 }
 
--(void)removeResponderFromView:(UIView*)view
-{
-    NSArray<UIView*> *textFields = [view deepResponderViews];
+- (void)removeResponderFromView:(UIView *)view {
+    NSArray<UIView *> *textFields = [view deepResponderViews];
     
     for (UIView *textField in textFields)  [self removeTextFieldView:textField];
 }
 
--(void)removeTextFieldView:(UIView*)view
-{
+- (void)removeTextFieldView:(UIView *)view {
     HKBTextFieldViewInfoModal *modal = [self textFieldViewCachedInfo:view];
     
-    if (modal)
-    {
-        if ([view isKindOfClass:[UITextField class]])
-        {
-            UITextField *textField = (UITextField*)view;
+    if (modal) {
+        if ([view isKindOfClass:[UITextField class]]) {
+            UITextField *textField = (UITextField *)view;
             textField.returnKeyType = modal.originalReturnKeyType;
             textField.delegate = modal.textFieldDelegate;
         }
-        else if ([view isKindOfClass:[UITextView class]])
-        {
-            UITextView *textView = (UITextView*)view;
+        else if ([view isKindOfClass:[UITextView class]]) {
+            UITextView *textView = (UITextView *)view;
             textView.returnKeyType = modal.originalReturnKeyType;
             textView.delegate = modal.textViewDelegate;
         }
@@ -142,20 +129,17 @@
     }
 }
 
--(void)addTextFieldView:(UIView*)view
-{
+- (void)addTextFieldView:(UIView *)view {
     HKBTextFieldViewInfoModal *modal = [[HKBTextFieldViewInfoModal alloc] initWithTextFieldView:view textFieldDelegate:nil textViewDelegate:nil originalReturnKey:UIReturnKeyDefault];
     
-    if ([view isKindOfClass:[UITextField class]])
-    {
-        UITextField *textField = (UITextField*)view;
+    if ([view isKindOfClass:[UITextField class]]) {
+        UITextField *textField = (UITextField *)view;
         modal.originalReturnKeyType = textField.returnKeyType;
         modal.textFieldDelegate = textField.delegate;
         [textField setDelegate:self];
     }
-    else if ([view isKindOfClass:[UITextView class]])
-    {
-        UITextView *textView = (UITextView*)view;
+    else if ([view isKindOfClass:[UITextView class]]) {
+        UITextView *textView = (UITextView *)view;
         modal.originalReturnKeyType = textView.returnKeyType;
         modal.textViewDelegate = textView.delegate;
         [textView setDelegate:self];
@@ -164,8 +148,7 @@
     [textFieldInfoCache addObject:modal];
 }
 
--(void)updateReturnKeyTypeOnTextField:(UIView*)textField
-{
+- (void)updateReturnKeyTypeOnTextField:(UIView *)textField {
     UIView *superConsideredView;
     
     //If find any consider responderView in it's upper hierarchy then will get deepResponderView. (Bug ID: #347)
@@ -177,11 +160,10 @@
             break;
     }
 
-    NSArray<UIView*> *textFields = nil;
+    NSArray<UIView *> *textFields = nil;
 
     //If there is a tableView in view's hierarchy, then fetching all it's subview that responds. No sorting for tableView, it's by subView position.
-    if (superConsideredView)  //     //   (Enhancement ID: #22)
-    {
+    if (superConsideredView) {
         textFields = [superConsideredView deepResponderViews];
     }
     //Otherwise fetching all the siblings
@@ -190,8 +172,7 @@
         textFields = [textField responderSiblings];
         
         //Sorting textFields according to behaviour
-        switch ([[HKBKeyboardManager sharedManager] toolbarManageBehaviour])
-        {
+        switch ([[HKBKeyboardManager sharedManager] toolbarManageBehaviour]) {
                 //If needs to sort it by tag
             case HKBAutoToolbarByTag:
                 textFields = [textFields sortedArrayByTag];
@@ -208,13 +189,12 @@
     }
     
     //If it's the last textField in responder view, else next
-    [(UITextField*)textField setReturnKeyType:(([textFields lastObject] == textField)    ?   self.lastTextFieldReturnKeyType :   UIReturnKeyNext)];
+    [(UITextField *)textField setReturnKeyType:(([textFields lastObject] == textField)    ?   self.lastTextFieldReturnKeyType :   UIReturnKeyNext)];
 }
 
 #pragma mark - Goto next or Resign.
 
--(BOOL)goToNextResponderOrResign:(UIView*)textField
-{
+- (BOOL)goToNextResponderOrResign:(UIView *)textField {
     UIView *superConsideredView;
     
     //If find any consider responderView in it's upper hierarchy then will get deepResponderView. (Bug ID: #347)
@@ -226,11 +206,10 @@
             break;
     }
     
-    NSArray<UIView*> *textFields = nil;
+    NSArray<UIView *> *textFields = nil;
     
     //If there is a tableView in view's hierarchy, then fetching all it's subview that responds. No sorting for tableView, it's by subView position.
-    if (superConsideredView)  //     //   (Enhancement ID: #22)
-    {
+    if (superConsideredView) {
         textFields = [superConsideredView deepResponderViews];
     }
     //Otherwise fetching all the siblings
@@ -239,8 +218,7 @@
         textFields = [textField responderSiblings];
         
         //Sorting textFields according to behaviour
-        switch ([[HKBKeyboardManager sharedManager] toolbarManageBehaviour])
-        {
+        switch ([[HKBKeyboardManager sharedManager] toolbarManageBehaviour]) {
                 //If needs to sort it by tag
             case HKBAutoToolbarByTag:
                 textFields = [textFields sortedArrayByTag];
@@ -260,25 +238,20 @@
     NSUInteger index = [textFields indexOfObject:textField];
     
     //If it is not last textField. then it's next object becomeFirstResponder.
-    if (index != NSNotFound && index < textFields.count-1)
-    {
+    if (index != NSNotFound && index < textFields.count-1) {
         [textFields[index+1] becomeFirstResponder];
         return NO;
-    }
-    else
-    {
+    }else {
         [textField resignFirstResponder];
         return YES;
     }
 }
 
 #pragma mark - TextField delegate
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     id<UITextFieldDelegate> delegate = self.delegate;
     
-    if (delegate == nil)
-    {
+    if (delegate == nil) {
         HKBTextFieldViewInfoModal *modal = [self textFieldViewCachedInfo:textField];
         delegate = modal.textFieldDelegate;
     }
@@ -289,14 +262,12 @@
         return YES;
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
     [self updateReturnKeyTypeOnTextField:textField];
 
     id<UITextFieldDelegate> delegate = self.delegate;
     
-    if (delegate == nil)
-    {
+    if (delegate == nil) {
         HKBTextFieldViewInfoModal *modal = [self textFieldViewCachedInfo:textField];
         delegate = modal.textFieldDelegate;
     }
@@ -305,12 +276,10 @@
         [delegate textFieldDidBeginEditing:textField];
 }
 
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
-{
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
     id<UITextFieldDelegate> delegate = self.delegate;
     
-    if (delegate == nil)
-    {
+    if (delegate == nil) {
         HKBTextFieldViewInfoModal *modal = [self textFieldViewCachedInfo:textField];
         delegate = modal.textFieldDelegate;
     }
@@ -321,12 +290,10 @@
         return YES;
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
+- (void)textFieldDidEndEditing:(UITextField *)textField {
     id<UITextFieldDelegate> delegate = self.delegate;
     
-    if (delegate == nil)
-    {
+    if (delegate == nil) {
         HKBTextFieldViewInfoModal *modal = [self textFieldViewCachedInfo:textField];
         delegate = modal.textFieldDelegate;
     }
@@ -335,12 +302,10 @@
         [delegate textFieldDidEndEditing:textField];
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField reason:(UITextFieldDidEndEditingReason)reason NS_AVAILABLE_IOS(10_0);
-{
+- (void)textFieldDidEndEditing:(UITextField *)textField reason:(UITextFieldDidEndEditingReason)reason NS_AVAILABLE_IOS(10_0); {
     id<UITextFieldDelegate> delegate = self.delegate;
     
-    if (delegate == nil)
-    {
+    if (delegate == nil) {
         HKBTextFieldViewInfoModal *modal = [self textFieldViewCachedInfo:textField];
         delegate = modal.textFieldDelegate;
     }
@@ -355,12 +320,10 @@
 #endif
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     id<UITextFieldDelegate> delegate = self.delegate;
     
-    if (delegate == nil)
-    {
+    if (delegate == nil) {
         HKBTextFieldViewInfoModal *modal = [self textFieldViewCachedInfo:textField];
         delegate = modal.textFieldDelegate;
     }
@@ -371,12 +334,10 @@
         return YES;
 }
 
-- (BOOL)textFieldShouldClear:(UITextField *)textField
-{
+- (BOOL)textFieldShouldClear:(UITextField *)textField {
     id<UITextFieldDelegate> delegate = self.delegate;
     
-    if (delegate == nil)
-    {
+    if (delegate == nil) {
         HKBTextFieldViewInfoModal *modal = [self textFieldViewCachedInfo:textField];
         delegate = modal.textFieldDelegate;
     }
@@ -387,41 +348,33 @@
         return YES;
 }
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     id<UITextFieldDelegate> delegate = self.delegate;
     
-    if (delegate == nil)
-    {
+    if (delegate == nil) {
         HKBTextFieldViewInfoModal *modal = [self textFieldViewCachedInfo:textField];
         delegate = modal.textFieldDelegate;
     }
     
-    if ([delegate respondsToSelector:@selector(textFieldShouldReturn:)])
-    {
+    if ([delegate respondsToSelector:@selector(textFieldShouldReturn:)]) {
         BOOL shouldReturn = [delegate textFieldShouldReturn:textField];
 
-        if (shouldReturn)
-        {
+        if (shouldReturn) {
             shouldReturn = [self goToNextResponderOrResign:textField];
         }
         
         return shouldReturn;
-    }
-    else
-    {
+    }else {
         return [self goToNextResponderOrResign:textField];
     }
 }
 
 
 #pragma mark - TextView delegate
-- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
-{
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
     id<UITextViewDelegate> delegate = self.delegate;
     
-    if (delegate == nil)
-    {
+    if (delegate == nil) {
         HKBTextFieldViewInfoModal *modal = [self textFieldViewCachedInfo:textView];
         delegate = modal.textViewDelegate;
     }
@@ -432,12 +385,10 @@
         return YES;
 }
 
-- (BOOL)textViewShouldEndEditing:(UITextView *)textView
-{
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView {
     id<UITextViewDelegate> delegate = self.delegate;
     
-    if (delegate == nil)
-    {
+    if (delegate == nil) {
         HKBTextFieldViewInfoModal *modal = [self textFieldViewCachedInfo:textView];
         delegate = modal.textViewDelegate;
     }
@@ -448,14 +399,12 @@
         return YES;
 }
 
-- (void)textViewDidBeginEditing:(UITextView *)textView
-{
+- (void)textViewDidBeginEditing:(UITextView *)textView {
     [self updateReturnKeyTypeOnTextField:textView];
 
     id<UITextViewDelegate> delegate = self.delegate;
     
-    if (delegate == nil)
-    {
+    if (delegate == nil) {
         HKBTextFieldViewInfoModal *modal = [self textFieldViewCachedInfo:textView];
         delegate = modal.textViewDelegate;
     }
@@ -464,12 +413,10 @@
         [delegate textViewDidBeginEditing:textView];
 }
 
-- (void)textViewDidEndEditing:(UITextView *)textView
-{
+- (void)textViewDidEndEditing:(UITextView *)textView {
     id<UITextViewDelegate> delegate = self.delegate;
     
-    if (delegate == nil)
-    {
+    if (delegate == nil) {
         HKBTextFieldViewInfoModal *modal = [self textFieldViewCachedInfo:textView];
         delegate = modal.textViewDelegate;
     }
@@ -478,12 +425,10 @@
         [delegate textViewDidEndEditing:textView];
 }
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-{
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     id<UITextViewDelegate> delegate = self.delegate;
     
-    if (delegate == nil)
-    {
+    if (delegate == nil) {
         HKBTextFieldViewInfoModal *modal = [self textFieldViewCachedInfo:textView];
         delegate = modal.textViewDelegate;
     }
@@ -493,20 +438,17 @@
     if ([delegate respondsToSelector:@selector(textView:shouldChangeTextInRange:replacementText:)])
         shouldReturn = [delegate textView:textView shouldChangeTextInRange:range replacementText:text];
     
-    if (shouldReturn && [text isEqualToString:@"\n"])
-    {
+    if (shouldReturn && [text isEqualToString:@"\n"]) {
         shouldReturn = [self goToNextResponderOrResign:textView];
     }
     
     return shouldReturn;
 }
 
-- (void)textViewDidChange:(UITextView *)textView
-{
+- (void)textViewDidChange:(UITextView *)textView {
     id<UITextViewDelegate> delegate = self.delegate;
     
-    if (delegate == nil)
-    {
+    if (delegate == nil) {
         HKBTextFieldViewInfoModal *modal = [self textFieldViewCachedInfo:textView];
         delegate = modal.textViewDelegate;
     }
@@ -515,12 +457,10 @@
         [delegate textViewDidChange:textView];
 }
 
-- (void)textViewDidChangeSelection:(UITextView *)textView
-{
+- (void)textViewDidChangeSelection:(UITextView *)textView {
     id<UITextViewDelegate> delegate = self.delegate;
     
-    if (delegate == nil)
-    {
+    if (delegate == nil) {
         HKBTextFieldViewInfoModal *modal = [self textFieldViewCachedInfo:textView];
         delegate = modal.textViewDelegate;
     }
@@ -529,12 +469,10 @@
         [delegate textViewDidChangeSelection:textView];
 }
 
-- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction NS_AVAILABLE_IOS(10_0);
-{
+- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction NS_AVAILABLE_IOS(10_0); {
     id<UITextViewDelegate> delegate = self.delegate;
     
-    if (delegate == nil)
-    {
+    if (delegate == nil) {
         HKBTextFieldViewInfoModal *modal = [self textFieldViewCachedInfo:textView];
         delegate = modal.textViewDelegate;
     }
@@ -551,12 +489,10 @@
     return YES;
 }
 
-- (BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction NS_AVAILABLE_IOS(10_0);
-{
+- (BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction NS_AVAILABLE_IOS(10_0); {
     id<UITextViewDelegate> delegate = self.delegate;
     
-    if (delegate == nil)
-    {
+    if (delegate == nil) {
         HKBTextFieldViewInfoModal *modal = [self textFieldViewCachedInfo:textView];
         delegate = modal.textViewDelegate;
     }
@@ -573,12 +509,10 @@
     return YES;
 }
 
-- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange
-{
+- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange {
     id<UITextViewDelegate> delegate = self.delegate;
     
-    if (delegate == nil)
-    {
+    if (delegate == nil) {
         HKBTextFieldViewInfoModal *modal = [self textFieldViewCachedInfo:textView];
         delegate = modal.textViewDelegate;
     }
@@ -592,12 +526,10 @@
         return YES;
 }
 
-- (BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange
-{
+- (BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange {
     id<UITextViewDelegate> delegate = self.delegate;
     
-    if (delegate == nil)
-    {
+    if (delegate == nil) {
         HKBTextFieldViewInfoModal *modal = [self textFieldViewCachedInfo:textView];
         delegate = modal.textViewDelegate;
     }
@@ -611,21 +543,18 @@
         return YES;
 }
 
--(void)dealloc
-{
+- (void)dealloc {
     for (HKBTextFieldViewInfoModal *modal in textFieldInfoCache)
     {
         UIView *textFieldView = modal.textFieldView;
-        if ([textFieldView isKindOfClass:[UITextField class]])
-        {
-            UITextField *textField = (UITextField*)textFieldView;
+        if ([textFieldView isKindOfClass:[UITextField class]]) {
+            UITextField *textField = (UITextField *)textFieldView;
             textField.returnKeyType = modal.originalReturnKeyType;
             textField.delegate = modal.textFieldDelegate
             ;
         }
-        else if ([textFieldView isKindOfClass:[UITextView class]])
-        {
-            UITextView *textView = (UITextView*)textFieldView;
+        else if ([textFieldView isKindOfClass:[UITextView class]]) {
+            UITextView *textView = (UITextView *)textFieldView;
             textView.returnKeyType = modal.originalReturnKeyType;
             textView.delegate = modal.textViewDelegate;
         }

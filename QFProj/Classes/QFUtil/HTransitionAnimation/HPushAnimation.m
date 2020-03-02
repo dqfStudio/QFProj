@@ -73,7 +73,7 @@
                      completion:^(BOOL finished) {
                          //由于加入了手势交互转场，所以需要根据手势动作是否完成/取消来做操作
                          [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-                         if([transitionContext transitionWasCancelled]) {
+                         if ([transitionContext transitionWasCancelled]) {
                              //手势取消
                          }else {
                              //手势完成

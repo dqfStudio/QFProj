@@ -48,7 +48,7 @@ if ([NSThread isMainThread]) {\
     [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {}];
     //通讯录
     CNContactStore *contactStore = [[CNContactStore alloc] init];
-    [contactStore requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+    [contactStore requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError *_Nullable error) {}];
 }
 
 + (void)getAutorizationStatusWithType:(AuthorizationType)authorizationType completion:(AuthorizationCompletionBlock)completion {
@@ -77,7 +77,7 @@ if ([NSThread isMainThread]) {\
             CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
             if (status == kCLAuthorizationStatusNotDetermined) {
                 [HAuthorizeManager sharemanager].authorizationCompletionBlock = completion;
-            }else if (status == kCLAuthorizationStatusAuthorizedWhenInUse || status == kCLAuthorizationStatusAuthorizedAlways){
+            }else if (status == kCLAuthorizationStatusAuthorizedWhenInUse || status == kCLAuthorizationStatusAuthorizedAlways) {
                 completion(AuthorizationStatusAuthorized);
             }else {
                 completion(AuthorizationStatusDenied);
@@ -96,7 +96,7 @@ if ([NSThread isMainThread]) {\
             break;
         case AuthorizationTypeContacts: {//通讯录
             CNContactStore *contactStore = [[CNContactStore alloc] init];
-            [contactStore requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
+            [contactStore requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError *_Nullable error) {
                 if (granted) {
                     completion(AuthorizationStatusAuthorized);
                 }else {
@@ -120,7 +120,7 @@ if ([NSThread isMainThread]) {\
         if (@available(iOS 10.0, *)) {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:^(BOOL success) {
             }];
-        } else {
+        }else {
             #pragma clang diagnostic push
             #pragma clang diagnostic ignored "-Wdeprecated-declarations"
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
@@ -159,7 +159,7 @@ if ([NSThread isMainThread]) {\
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:cancelTitle style:UIAlertActionStyleCancel handler:nil];
-    UIAlertAction *confirm = [UIAlertAction actionWithTitle:confirmTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *confirm = [UIAlertAction actionWithTitle:confirmTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
         gosetting();
     }];
     [alert addAction:cancel];

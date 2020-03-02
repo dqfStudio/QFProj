@@ -106,19 +106,19 @@
     
     if (firstString.length <= 0 || [firstString canBeConvertedToEncoding:NSASCIIStringEncoding]) {//如果是英语
         return firstString;
-    }else { //如果是非英语
+    }else {//如果是非英语
         // 处理姓氏多音字
         return [firstString firstLettersForSort:YES];
     }
 }
 
 - (NSString *)firstLettersForSort:(BOOL)isForSurname {
-    NSString* convertString = self;
+    NSString *convertString = self;
     if (isForSurname) {
         //如果是姓名优先去掉“·”符号
         convertString = [self stringByReplacingOccurrencesOfString:@"·" withString:@""];
     }
-    NSMutableString* resultString = [NSMutableString string];
+    NSMutableString *resultString = [NSMutableString string];
     if (convertString.length > 0) {
         unichar indexChar;
         for (NSUInteger nIndex = 0; nIndex < convertString.length; ++nIndex) {
@@ -131,7 +131,7 @@
             //判断字符是否为汉字
 //            else if (isFirstLetterHANZI(indexChar))
 //            {
-//                NSString* firstCharacterInPinYin = [NSString stringWithFormat:@"%c",pinyinFirstLetter(indexChar)];//从第三方库中匹配这个汉子的拼音首字母
+//                NSString *firstCharacterInPinYin = [NSString stringWithFormat:@"%c",pinyinFirstLetter(indexChar)];//从第三方库中匹配这个汉子的拼音首字母
 //                if (firstCharacterInPinYin)
 //                {
 //                    [resultString appendString:firstCharacterInPinYin];
@@ -148,8 +148,8 @@
         }
         if (isForSurname) {
             //处理姓氏多音字
-            NSArray* allPolyphoneSurname = [[NSString getDicForAllPolyphoneSurnameFirstLetters] allKeys];
-            for (NSString* tempPolyphoneSurname in allPolyphoneSurname) {
+            NSArray *allPolyphoneSurname = [[NSString getDicForAllPolyphoneSurnameFirstLetters] allKeys];
+            for (NSString *tempPolyphoneSurname in allPolyphoneSurname) {
                 if ([convertString hasPrefix:tempPolyphoneSurname]) {
                     [resultString replaceCharactersInRange:NSMakeRange(0, tempPolyphoneSurname.length) withString:[[NSString getDicForAllPolyphoneSurnameFirstLetters] valueForKey:tempPolyphoneSurname]];
                     break;
@@ -165,7 +165,7 @@
  *  多音字姓氏使用第三方平台转换时，如果转换错误，将使用该键值对匹配替换
  */
 + (NSDictionary *)getDicForAllPolyphoneSurnameFirstLetters {
-    static NSDictionary* g_pAllPolyphoneSurnameFirstLetters = nil;
+    static NSDictionary *g_pAllPolyphoneSurnameFirstLetters = nil;
     static dispatch_once_t pred;
     dispatch_once(&pred, ^
                   {

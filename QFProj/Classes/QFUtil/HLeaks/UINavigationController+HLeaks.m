@@ -11,7 +11,7 @@
 #import <objc/message.h>
 
 #if DEBUG
-extern const char* leaksKey;
+extern const char *leaksKey;
 
 @implementation UINavigationController (HLeaks)
 + (void)load {

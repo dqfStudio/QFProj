@@ -37,11 +37,9 @@
 
 @implementation HKBTitleBarButtonItem
 
--(nonnull instancetype)initWithTitle:(nullable NSString *)title
-{
+-(nonnull instancetype)initWithTitle:(nullable NSString *)title {
     self = [super init];
-    if (self)
-    {
+    if (self) {
         _titleView = [[UIView alloc] init];
         _titleView.backgroundColor = [UIColor clearColor];
 
@@ -57,8 +55,7 @@
         [_titleView addSubview:_titleButton];
         
 #ifdef __IPHONE_11_0
-        if (@available(iOS 11.0, *))
-        {
+        if (@available(iOS 11.0, *)) {
             CGFloat layoutDefaultLowPriority = UILayoutPriorityDefaultLow-1;
             CGFloat layoutDefaultHighPriority = UILayoutPriorityDefaultHigh-1;
 
@@ -92,58 +89,46 @@
     return self;
 }
 
--(void)setTitleFont:(UIFont *)titleFont
-{
+- (void)setTitleFont:(UIFont *)titleFont {
     _titleFont = titleFont;
     
-    if (titleFont)
-    {
+    if (titleFont) {
         _titleButton.titleLabel.font = titleFont;
-    }
-    else
-    {
+    }else {
         _titleButton.titleLabel.font = [UIFont systemFontOfSize:13];
     }
 }
 
--(void)setTitle:(NSString *)title
-{
+- (void)setTitle:(NSString *)title {
     [super setTitle:title];
     [_titleButton setTitle:title forState:UIControlStateNormal];
 }
 
--(void)setTitleColor:(UIColor*)titleColor
-{
+- (void)setTitleColor:(UIColor *)titleColor {
     _titleColor = titleColor;
     [_titleButton setTitleColor:_titleColor?:[UIColor lightGrayColor] forState:UIControlStateDisabled];
 }
 
--(void)setSelectableTitleColor:(UIColor*)selectableTitleColor
-{
+- (void)setSelectableTitleColor:(UIColor *)selectableTitleColor {
     _selectableTitleColor = selectableTitleColor;
     [_titleButton setTitleColor:_selectableTitleColor?:[UIColor colorWithRed:0.0 green:0.5 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
 }
 
--(void)setInvocation:(NSInvocation *)invocation
-{
+- (void)setInvocation:(NSInvocation *)invocation {
     [super setInvocation:invocation];
     
-    if (invocation.target == nil || invocation.selector == NULL)
-    {
+    if (invocation.target == nil || invocation.selector == NULL) {
         self.enabled = NO;
         _titleButton.enabled = NO;
         [_titleButton removeTarget:nil action:NULL forControlEvents:UIControlEventTouchUpInside];
-    }
-    else
-    {
+    }else {
         self.enabled = YES;
         _titleButton.enabled = YES;
         [_titleButton addTarget:invocation.target action:invocation.selector forControlEvents:UIControlEventTouchUpInside];
     }
 }
 
--(void)dealloc
-{
+- (void)dealloc {
     self.customView = nil;
     [_titleButton removeTarget:nil action:NULL forControlEvents:UIControlEventTouchUpInside];
     _titleView = nil;

@@ -119,7 +119,7 @@
         if (object == self) {
             [self.progress setAlpha:1.0f];
             [self.progress setProgress:self.estimatedProgress animated:YES];
-            if(self.estimatedProgress >= 1.0f) {
+            if (self.estimatedProgress >= 1.0f) {
                 [UIView animateWithDuration:0.5f
                                       delay:0.3f
                                     options:UIViewAnimationOptionCurveEaseOut

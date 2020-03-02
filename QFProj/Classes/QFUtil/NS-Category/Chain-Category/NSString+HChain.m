@@ -10,13 +10,13 @@
 
 @implementation NSString (HChain)
 - (NSString *)idx:(NSInteger)index {
-    if(index >= 0 && index < self.length) {
+    if (index >= 0 && index < self.length) {
         return self[index];
     }
     return @"";
 }
 - (NSString *)range:(NSInteger)loc _:(NSInteger)len {
-    if(loc >= 0 && len >= 1 && loc+len <= self.length) {
+    if (loc >= 0 && len >= 1 && loc+len <= self.length) {
         NSRange range = NSMakeRange(loc, len);
         return [self substringWithRange:range];
     }
@@ -78,14 +78,14 @@
     return [self cStringUsingEncoding:NSUTF8StringEncoding];
 }
 - (NSString *)fromIndex:(NSInteger)loc {
-    if(loc >= 0 && loc < self.length) {
+    if (loc >= 0 && loc < self.length) {
         NSRange range = NSMakeRange(loc, self.length-loc);
         return [self substringWithRange:range];
     }
     return @"";
 }
 - (NSString *)toIndex:(NSInteger)index {
-    if(index >= 0) {
+    if (index >= 0) {
         NSRange range = NSMakeRange(0, 0);
         if (index >= self.length) {
             range = NSMakeRange(0, self.length);
@@ -202,7 +202,7 @@
     return contain;
 }
 - (NSString *)objectAtIndexedSubscript:(NSInteger)index {
-    if(index >= 0 && index < self.length) {
+    if (index >= 0 && index < self.length) {
         NSRange range = NSMakeRange(index, 1);
         return [self substringWithRange:range];
     }

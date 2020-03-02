@@ -84,7 +84,7 @@
     
     NSString *CT = @"(^1(33|53|77|8[019]|99)\\d{8}$)|(^1700\\d{7}$)";
     
-    if([self isValidateWithRegex:MOBILE] || [self isValidateWithRegex:CM] || [self isValidateWithRegex:CU] || [self isValidateWithRegex:CT]) {
+    if ([self isValidateWithRegex:MOBILE] || [self isValidateWithRegex:CM] || [self isValidateWithRegex:CU] || [self isValidateWithRegex:CT]) {
         return YES;
     }else {
         return NO;

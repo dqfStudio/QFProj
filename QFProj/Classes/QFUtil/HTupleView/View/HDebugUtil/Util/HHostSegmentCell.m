@@ -48,7 +48,7 @@
     [super relayoutSubviews];
     CGRect frame1 = [self layoutViewBounds];
     CGRect frame2 = CGRectMake(CGRectGetWidth(frame1)-130-10, 5, 130, CGRectGetHeight(frame1)-10);
-    if(!CGRectEqualToRect(self.segment.frame, frame2)) {
+    if (!CGRectEqualToRect(self.segment.frame, frame2)) {
         [self.segment setFrame:frame2];
     }
 }

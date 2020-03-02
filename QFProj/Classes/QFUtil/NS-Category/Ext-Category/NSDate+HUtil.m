@@ -65,7 +65,7 @@ static const NSDate *startDate = nil;
 }
 + (NSDate *)pastWithDate:(NSDate *)date days:(NSUInteger)days {
     if (!date || days < 0) return nil;
-    NSTimeInterval time = days * 24 * 60 * 60;
+    NSTimeInterval time = days *24 * 60 * 60;
     return [date dateByAddingTimeInterval:-time];
 }
 + (NSString *)stringWithFormat:(NSDateFormat)format {

@@ -117,7 +117,7 @@
     if (_repeatMissCount > KMaxRepeateMissCount) {
         return;
     }
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(KReconnectTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(KReconnectTime *NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self connect];
     });
 }

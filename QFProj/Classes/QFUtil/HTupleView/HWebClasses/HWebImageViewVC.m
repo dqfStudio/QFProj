@@ -135,7 +135,7 @@
                 return nil;
             }
             NSString *testString = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(0, 12)] encoding:NSASCIIStringEncoding];
-            if([testString hasPrefix:@"RIFF"] && [testString hasSuffix:@"WEBP"]) {
+            if ([testString hasPrefix:@"RIFF"] && [testString hasSuffix:@"WEBP"]) {
                 return @"webp";
             }
             return nil;

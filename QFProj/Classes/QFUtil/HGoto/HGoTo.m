@@ -83,8 +83,7 @@
         return nil;
     }
     if (path.length == self.config.appSchema.length) {
-        if (finish)
-        {finish(self, nil, herr(kNoDataErrorCode, ([NSString stringWithFormat:@"path not found : %@", path])));}
+        if (finish) {finish(self, nil, herr(kNoDataErrorCode, ([NSString stringWithFormat:@"path not found : %@", path])));}
         return nil;
     }
     
@@ -202,7 +201,7 @@
                 id value = params[paramKey];
                 if ([paramKey isEqualToString:@"finish"]) {
                     [valueArr addObject:finish];
-                } else if (value){
+                } else if (value) {
                     [valueArr addObject:value];
                 }
             }
@@ -288,7 +287,7 @@
             NSDictionary *keyMap = [(NSDictionary *)obj objectForKey:@"HGOtoOpt_KeyMap"];
             if (keyMap) {
                 NSMutableDictionary *revertKeyMap = [NSMutableDictionary new];
-                [keyMap enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+                [keyMap enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL *_Nonnull stop) {
                     [revertKeyMap setObject:key forKey:obj];
                 }];
                 return revertKeyMap;
@@ -322,7 +321,7 @@
             if (kuohaoCount > 0) {
                 if ([ch isEqualToString:@"("]) {
                     kuohaoCount ++;
-                }else if([ch isEqualToString:@")"]) {
+                }else if ([ch isEqualToString:@")"]) {
                     kuohaoCount --;
                     if (kuohaoCount == 0) continue;
                 }

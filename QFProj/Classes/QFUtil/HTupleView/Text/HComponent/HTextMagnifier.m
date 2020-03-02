@@ -25,7 +25,7 @@
 #define kMultiple 1.2
 #define kDiameter 113.0
 #define kPadding 7.0
-#define kSize CGSizeMake(kDiameter + kPadding * 2, kDiameter + kPadding * 2)
+#define kSize CGSizeMake(kDiameter + kPadding *2, kDiameter + kPadding *2)
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];

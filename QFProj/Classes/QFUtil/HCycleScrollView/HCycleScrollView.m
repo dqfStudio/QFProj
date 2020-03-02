@@ -15,7 +15,7 @@
 
 #define kCycleScrollViewInitialPageControlDotSize CGSizeMake(10, 10)
 
-NSString * const KCycleID = @"HCycleScrollViewCell";
+NSString *const KCycleID = @"HCycleScrollViewCell";
 
 @interface HCycleScrollView () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -164,7 +164,7 @@ NSString * const KCycleID = @"HCycleScrollViewCell";
     if ([self.pageControl isKindOfClass:[HPageControl class]]) {
         HPageControl *pageControl = (HPageControl *)_pageControl;
         pageControl.dotColor = currentPageDotColor;
-    } else {
+    }else {
         UIPageControl *pageControl = (UIPageControl *)_pageControl;
         pageControl.currentPageIndicatorTintColor = currentPageDotColor;
     }
@@ -207,7 +207,7 @@ NSString * const KCycleID = @"HCycleScrollViewCell";
         HPageControl *pageControl = (HPageControl *)_pageControl;
         if (isCurrentPageDot) {
             pageControl.currentDotImage = image;
-        } else {
+        }else {
             pageControl.dotImage = image;
         }
     }
@@ -221,7 +221,7 @@ NSString * const KCycleID = @"HCycleScrollViewCell";
     }
 }
 
--(void)setAutoScroll:(BOOL)autoScroll{
+- (void)setAutoScroll:(BOOL)autoScroll {
     _autoScroll = autoScroll;
     
     [self invalidateTimer];
@@ -254,12 +254,12 @@ NSString * const KCycleID = @"HCycleScrollViewCell";
     
     _imagePathsGroup = imagePathsGroup;
     
-    _totalItemsCount = self.infiniteLoop ? self.imagePathsGroup.count * 100 : self.imagePathsGroup.count;
+    _totalItemsCount = self.infiniteLoop ? self.imagePathsGroup.count *100 : self.imagePathsGroup.count;
     
     if (imagePathsGroup.count > 1) { // 由于 !=1 包含count == 0等情况
         self.mainView.scrollEnabled = YES;
         [self setAutoScroll:self.autoScroll];
-    } else {
+    }else {
         self.mainView.scrollEnabled = NO;
         [self invalidateTimer];
     }
@@ -272,7 +272,7 @@ NSString * const KCycleID = @"HCycleScrollViewCell";
     _imageURLStringsGroup = imageURLStringsGroup;
     
     NSMutableArray *temp = [NSMutableArray new];
-    [_imageURLStringsGroup enumerateObjectsUsingBlock:^(NSString * obj, NSUInteger idx, BOOL * stop) {
+    [_imageURLStringsGroup enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL *stop) {
         NSString *urlString;
         if ([obj isKindOfClass:[NSString class]]) {
             urlString = obj;
@@ -338,8 +338,7 @@ NSString * const KCycleID = @"HCycleScrollViewCell";
     int indexOnPageControl = [self pageControlIndexWithCurrentCellIndex:[self currentIndex]];
     
     switch (self.pageControlStyle) {
-        case HCycleScrollViewPageContolStyleAnimated:
-        {
+        case HCycleScrollViewPageContolStyleAnimated: {
             HPageControl *pageControl = [[HPageControl alloc] init];
             pageControl.numberOfPages = self.imagePathsGroup.count;
             pageControl.dotColor = self.currentPageDotColor;
@@ -350,8 +349,7 @@ NSString * const KCycleID = @"HCycleScrollViewCell";
         }
             break;
             
-        case HCycleScrollViewPageContolStyleClassic:
-        {
+        case HCycleScrollViewPageContolStyleClassic: {
             UIPageControl *pageControl = [[UIPageControl alloc] init];
             pageControl.numberOfPages = self.imagePathsGroup.count;
             pageControl.currentPageIndicatorTintColor = self.currentPageDotColor;
@@ -387,7 +385,7 @@ NSString * const KCycleID = @"HCycleScrollViewCell";
 - (void)scrollToIndex:(int)targetIndex {
     if (targetIndex >= _totalItemsCount) {
         if (self.infiniteLoop) {
-            targetIndex = _totalItemsCount * 0.5;
+            targetIndex = _totalItemsCount *0.5;
             [_mainView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:targetIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
         }
         return;
@@ -402,9 +400,9 @@ NSString * const KCycleID = @"HCycleScrollViewCell";
     
     int index = 0;
     if (_flowLayout.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
-        index = (_mainView.contentOffset.x + _flowLayout.itemSize.width * 0.5) / _flowLayout.itemSize.width;
-    } else {
-        index = (_mainView.contentOffset.y + _flowLayout.itemSize.height * 0.5) / _flowLayout.itemSize.height;
+        index = (_mainView.contentOffset.x + _flowLayout.itemSize.width *0.5) / _flowLayout.itemSize.width;
+    }else {
+        index = (_mainView.contentOffset.y + _flowLayout.itemSize.height *0.5) / _flowLayout.itemSize.height;
     }
     
     return MAX(0, index);
@@ -435,8 +433,8 @@ NSString * const KCycleID = @"HCycleScrollViewCell";
     if (_mainView.contentOffset.x == 0 &&  _totalItemsCount) {
         int targetIndex = 0;
         if (self.infiniteLoop) {
-            targetIndex = _totalItemsCount * 0.5;
-        }else{
+            targetIndex = _totalItemsCount *0.5;
+        }else {
             targetIndex = 0;
         }
         [_mainView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:targetIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
@@ -449,8 +447,8 @@ NSString * const KCycleID = @"HCycleScrollViewCell";
             pageControl.dotSize = self.pageControlDotSize;
         }
         size = [pageControl sizeForNumberOfPages:self.imagePathsGroup.count];
-    } else {
-        size = CGSizeMake(self.imagePathsGroup.count * self.pageControlDotSize.width * 1.5, self.pageControlDotSize.height);
+    }else {
+        size = CGSizeMake(self.imagePathsGroup.count *self.pageControlDotSize.width *1.5, self.pageControlDotSize.height);
     }
     CGFloat x = (self.hc_width - size.width) * 0.5;
     if (self.pageControlAliment == HCycleScrollViewPageContolAlimentRight) {
@@ -524,7 +522,7 @@ NSString * const KCycleID = @"HCycleScrollViewCell";
     if (!self.onlyDisplayText && [imagePath isKindOfClass:[NSString class]]) {
         if ([imagePath hasPrefix:@"http"]) {
             [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imagePath] placeholderImage:self.placeholderImage];
-        } else {
+        }else {
             UIImage *image = [UIImage imageNamed:imagePath];
             if (!image) {
                 image = [UIImage imageWithContentsOfFile:imagePath];
@@ -574,7 +572,7 @@ NSString * const KCycleID = @"HCycleScrollViewCell";
     if ([self.pageControl isKindOfClass:[HPageControl class]]) {
         HPageControl *pageControl = (HPageControl *)_pageControl;
         pageControl.currentPage = indexOnPageControl;
-    } else {
+    }else {
         UIPageControl *pageControl = (UIPageControl *)_pageControl;
         pageControl.currentPage = indexOnPageControl;
     }
@@ -608,13 +606,13 @@ NSString * const KCycleID = @"HCycleScrollViewCell";
     }
 }
 
-- (void)makeScrollViewScrollToIndex:(NSInteger)index{
+- (void)makeScrollViewScrollToIndex:(NSInteger)index {
     if (self.autoScroll) {
         [self invalidateTimer];
     }
     if (0 == _totalItemsCount) return;
     
-    [self scrollToIndex:(int)(_totalItemsCount * 0.5 + index)];
+    [self scrollToIndex:(int)(_totalItemsCount *0.5 + index)];
     
     if (self.autoScroll) {
         [self setupTimer];

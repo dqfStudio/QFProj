@@ -16,7 +16,7 @@
 #define HRefereWidth  375.0
 
 // 以屏幕宽度为固定比例关系，来计算对应的值。假设：基准屏幕宽度375，floatV=10；当前屏幕宽度为750时，那么返回的值为20
-#define HAdaptWidth(floatValue) (floatValue*UIScreen.width/HRefereWidth)
+#define HAdaptWidth(floatValue) (floatValue *UIScreen.width/HRefereWidth)
 
 typedef NS_ENUM(NSInteger, HAdaptScreenWidthType) {
     HAdaptScreenWidthTypeConstraint = 1<<0, /* 对约束的constant等比例 */

@@ -18,9 +18,9 @@ _Pragma("clang diagnostic pop") \
 } while (0)
 
 #define KHLocalizedString(key) \
-[[HSwitchLanguage share].currentBundle localizedStringForKey:(key) value:@"" table:nil]
+[[HSwitchLanguage share].currentBundle localizedStringForKey:(key)value:@"" table:nil]
 #define KHLocalizedStringFromTable(key, tbl) \
-[[HSwitchLanguage share].currentBundle localizedStringForKey:(key) value:@"" table:(tbl)]
+[[HSwitchLanguage share].currentBundle localizedStringForKey:(key)value:@"" table:(tbl)]
 
 @interface UIView (HLanguage)
 @property (nonatomic) NSString *languageKey;

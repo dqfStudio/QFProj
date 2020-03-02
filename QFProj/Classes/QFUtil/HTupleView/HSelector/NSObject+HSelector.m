@@ -45,7 +45,7 @@
 //        va_list arg_ptr;
 //        va_start(arg_ptr, firstParameter);
 //        for (NSUInteger i = 3; i < signature.numberOfArguments; i++) {
-//            void * parameter = va_arg(arg_ptr, void *);
+//            void *parameter = va_arg(arg_ptr, void *);
 //            [invocation setArgument:parameter atIndex:i];
 //        }
 //        va_end(arg_ptr);
@@ -95,7 +95,7 @@
     NSUInteger objectsCount = objects.count;
     NSInteger count = MIN(arguments, objectsCount);
     for (int i = 0; i<count; i++) {
-        NSObject*obj = objects[i];
+        NSObject *obj = objects[i];
         //处理参数是NULL类型的情况
         if ([obj isKindOfClass:[NSNull class]]) {
             obj = nil;
@@ -137,7 +137,7 @@
         va_list arg_ptr;
         va_start(arg_ptr, firstParameter);
         for (NSUInteger i = 3; i < signature.numberOfArguments; i++) {
-            void * parameter = va_arg(arg_ptr, void *);
+            void *parameter = va_arg(arg_ptr, void *);
             [invocation setArgument:parameter atIndex:i];
         }
         va_end(arg_ptr);
@@ -177,7 +177,7 @@
         va_list arg_ptr;
         va_start(arg_ptr, firstParameter);
         for (NSUInteger i = 3; i < signature.numberOfArguments; i++) {
-            void * parameter = va_arg(arg_ptr, void *);
+            void *parameter = va_arg(arg_ptr, void *);
             [invocation setArgument:parameter atIndex:i];
         }
         va_end(arg_ptr);
@@ -229,7 +229,7 @@
     NSUInteger objectsCount = objects.count;
     NSInteger count = MIN(arguments, objectsCount);
     for (int i = 0; i<count; i++) {
-        NSObject*obj = objects[i];
+        NSObject *obj = objects[i];
         //处理参数是NULL类型的情况
         if ([obj isKindOfClass:[NSNull class]]) {
             obj = nil;
@@ -278,7 +278,7 @@
         va_list arg_ptr;
         va_start(arg_ptr, firstParameter);
         for (NSUInteger i = 3; i < signature.numberOfArguments; i++) {
-            void * parameter = va_arg(arg_ptr, void *);
+            void *parameter = va_arg(arg_ptr, void *);
             [invocation setArgument:parameter atIndex:i];
         }
         va_end(arg_ptr);
@@ -318,11 +318,11 @@
     //声明返回值变量
     id returnValue;
     //如果没有返回值，也就是消息声明为void，那么returnValue=nil
-    if(!strcmp(returnType, @encode(void)) ){
+    if (!strcmp(returnType, @encode(void)) ) {
         returnValue = nil;
     }
     //如果返回值为对象，那么为变量赋值
-    else if(!strcmp(returnType, @encode(id)) ){
+    else if (!strcmp(returnType, @encode(id)) ) {
         [invocation getReturnValue:&returnValue];
     }
     else {
@@ -335,26 +335,26 @@
         //为变量赋值
         [invocation getReturnValue:buffer];
         
-        if(!strcmp(returnType, @encode(BOOL)) ) {
-            returnValue = [NSNumber numberWithBool:*((BOOL*)buffer)];
+        if (!strcmp(returnType, @encode(BOOL)) ) {
+            returnValue = [NSNumber numberWithBool:*((BOOL *)buffer)];
         }
-        else if(!strcmp(returnType, @encode(NSInteger)) ){
-            returnValue = [NSNumber numberWithInteger:*((NSInteger*)buffer)];
+        else if (!strcmp(returnType, @encode(NSInteger)) ) {
+            returnValue = [NSNumber numberWithInteger:*((NSInteger *)buffer)];
         }
-        else if(!strcmp(returnType, @encode(NSUInteger)) ){
-            returnValue = [NSNumber numberWithUnsignedInteger:*((NSUInteger*)buffer)];
+        else if (!strcmp(returnType, @encode(NSUInteger)) ) {
+            returnValue = [NSNumber numberWithUnsignedInteger:*((NSUInteger *)buffer)];
         }
-        else if(!strcmp(returnType, @encode(float)) ){
-            returnValue = [NSNumber numberWithFloat:*((float*)buffer)];
+        else if (!strcmp(returnType, @encode(float)) ) {
+            returnValue = [NSNumber numberWithFloat:*((float *)buffer)];
         }
-        else if(!strcmp(returnType, @encode(double)) ){
-            returnValue = [NSNumber numberWithFloat:*((double*)buffer)];
+        else if (!strcmp(returnType, @encode(double)) ) {
+            returnValue = [NSNumber numberWithFloat:*((double *)buffer)];
         }
-        else if(!strcmp(returnType, @encode(int))) {
-            returnValue = [NSNumber numberWithInt:*((int*)buffer)];
+        else if (!strcmp(returnType, @encode(int))) {
+            returnValue = [NSNumber numberWithInt:*((int *)buffer)];
         }
-        else if(!strcmp(returnType, @encode(char))) {
-            returnValue = [NSNumber numberWithChar:*((char*)buffer)];
+        else if (!strcmp(returnType, @encode(char))) {
+            returnValue = [NSNumber numberWithChar:*((char *)buffer)];
         }
         else {
             returnValue = [NSValue valueWithBytes:buffer objCType:returnType];

@@ -11,7 +11,7 @@
 #if defined supportsWKWebView
 
 @implementation WKWebViewJavascriptBridge {
-    __weak WKWebView* _webView;
+    __weak WKWebView *_webView;
     __weak id<WKNavigationDelegate> _webViewDelegate;
     long _uniqueId;
     WebViewJavascriptBridgeBase *_base;
@@ -23,7 +23,7 @@
 + (void)enableLogging { [WebViewJavascriptBridgeBase enableLogging]; }
 
 + (instancetype)bridgeForWebView:(WKWebView *)webView {
-    WKWebViewJavascriptBridge* bridge = [[self alloc] init];
+    WKWebViewJavascriptBridge *bridge = [[self alloc] init];
     [bridge _setupInstance:webView];
     [bridge reset];
     return bridge;
@@ -92,7 +92,7 @@
 
 
 - (void)WKFlushMessageQueue {
-    [_webView evaluateJavaScript:[_base webViewJavascriptFetchQueyCommand] completionHandler:^(NSString* result, NSError* error) {
+    [_webView evaluateJavaScript:[_base webViewJavascriptFetchQueyCommand] completionHandler:^(NSString *result, NSError *error) {
         if (error != nil) {
             NSLog(@"WebViewJavascriptBridge: WARNING: Error when trying to fetch data from WKWebView: %@", error);
         }
@@ -128,7 +128,7 @@
     __strong typeof(_webViewDelegate) strongDelegate = _webViewDelegate;
     if (strongDelegate && [strongDelegate respondsToSelector:@selector(webView:didReceiveAuthenticationChallenge:completionHandler:)]) {
         [strongDelegate webView:webView didReceiveAuthenticationChallenge:challenge completionHandler:completionHandler];
-    } else {
+    }else {
         completionHandler(NSURLSessionAuthChallengePerformDefaultHandling, nil);
     }
 }
@@ -143,7 +143,7 @@
             [_base injectJavascriptFile];
         } else if ([_base isQueueMessageURL:url]) {
             [self WKFlushMessageQueue];
-        } else {
+        }else {
             [_base logUnkownMessage:url];
         }
         decisionHandler(WKNavigationActionPolicyCancel);
@@ -152,7 +152,7 @@
     
     if (strongDelegate && [strongDelegate respondsToSelector:@selector(webView:decidePolicyForNavigationAction:decisionHandler:)]) {
         [_webViewDelegate webView:webView decidePolicyForNavigationAction:navigationAction decisionHandler:decisionHandler];
-    } else {
+    }else {
         decisionHandler(WKNavigationActionPolicyAllow);
     }
 }

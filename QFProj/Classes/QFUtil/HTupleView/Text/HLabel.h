@@ -353,7 +353,7 @@ IB_DESIGNABLE
 @property (nullable, nonatomic, strong) id<HTextParser> textParser;
 @property (nullable, nonatomic, strong) HTextLayout *textLayout;
 @property (nullable, nonatomic, copy) UIBezierPath *textContainerPath;
-@property (nullable, nonatomic, copy) NSArray<UIBezierPath*> *exclusionPaths;
+@property (nullable, nonatomic, copy) NSArray<UIBezierPath *> *exclusionPaths;
 @property (nonatomic) UIEdgeInsets textContainerInset;
 @property (nullable, nonatomic, copy) id<HTextLinePositionModifier> linePositionModifier;
 @property (nonnull, nonatomic, copy) HTextDebugOption *debugOption;

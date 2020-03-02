@@ -50,7 +50,7 @@ static void HTextTransactionSetup() {
 
 @implementation HTextTransaction
 
-+ (HTextTransaction *)transactionWithTarget:(id)target selector:(SEL)selector{
++ (HTextTransaction *)transactionWithTarget:(id)target selector:(SEL)selector {
     if (!target || !selector) return nil;
     HTextTransaction *t = [HTextTransaction new];
     t.target = target;

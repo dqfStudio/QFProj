@@ -39,20 +39,17 @@
 @synthesize placeholderLabel = _placeholderLabel;
 @synthesize placeholderTextColor = _placeholderTextColor;
 
--(void)initialize
-{
+- (void)initialize {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshPlaceholder) name:UITextViewTextDidChangeNotification object:self];
 }
 
--(void)dealloc
-{
+- (void)dealloc {
     [_placeholderLabel removeFromSuperview];
     _placeholderLabel = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         [self initialize];
@@ -60,20 +57,15 @@
     return self;
 }
 
--(void)awakeFromNib
-{
+- (void)awakeFromNib {
     [super awakeFromNib];
     [self initialize];
 }
 
--(void)refreshPlaceholder
-{
-    if([[self text] length] || [[self attributedText] length])
-    {
+- (void)refreshPlaceholder {
+    if ([[self text] length] || [[self attributedText] length]) {
         [_placeholderLabel setAlpha:0];
-    }
-    else
-    {
+    }else {
         [_placeholderLabel setAlpha:1];
     }
     
@@ -81,20 +73,17 @@
     [self layoutIfNeeded];
 }
 
-- (void)setText:(NSString *)text
-{
+- (void)setText:(NSString *)text {
     [super setText:text];
     [self refreshPlaceholder];
 }
 
--(void)setAttributedText:(NSAttributedString *)attributedText
-{
+- (void)setAttributedText:(NSAttributedString *)attributedText {
     [super setAttributedText:attributedText];
     [self refreshPlaceholder];
 }
 
--(void)setFont:(UIFont *)font
-{
+- (void)setFont:(UIFont *)font {
     [super setFont:font];
     self.placeholderLabel.font = self.font;
     
@@ -102,8 +91,7 @@
     [self layoutIfNeeded];
 }
 
--(void)setTextAlignment:(NSTextAlignment)textAlignment
-{
+- (void)setTextAlignment:(NSTextAlignment)textAlignment {
     [super setTextAlignment:textAlignment];
     self.placeholderLabel.textAlignment = textAlignment;
     
@@ -111,41 +99,35 @@
     [self layoutIfNeeded];
 }
 
--(void)layoutSubviews
-{
+- (void)layoutSubviews {
     [super layoutSubviews];
     self.placeholderLabel.frame = [self placeholderExpectedFrame];
 }
 
--(void)setPlaceholder:(NSString *)placeholder
-{
+- (void)setPlaceholder:(NSString *)placeholder {
     _placeholder = placeholder;
     
     self.placeholderLabel.text = placeholder;
     [self refreshPlaceholder];
 }
 
--(void)setAttributedPlaceholder:(NSAttributedString *)attributedPlaceholder
-{
+- (void)setAttributedPlaceholder:(NSAttributedString *)attributedPlaceholder {
     _attributedPlaceholder = attributedPlaceholder;
     
     self.placeholderLabel.attributedText = attributedPlaceholder;
     [self refreshPlaceholder];
 }
 
--(void)setPlaceholderTextColor:(UIColor*)placeholderTextColor
-{
+- (void)setPlaceholderTextColor:(UIColor *)placeholderTextColor {
     _placeholderTextColor = placeholderTextColor;
     self.placeholderLabel.textColor = placeholderTextColor;
 }
 
--(UIEdgeInsets)placeholderInsets
-{
+- (UIEdgeInsets)placeholderInsets {
     return UIEdgeInsetsMake(self.textContainerInset.top, self.textContainerInset.left + self.textContainer.lineFragmentPadding, self.textContainerInset.bottom, self.textContainerInset.right + self.textContainer.lineFragmentPadding);
 }
 
--(CGRect)placeholderExpectedFrame
-{
+- (CGRect)placeholderExpectedFrame {
     UIEdgeInsets placeholderInsets = [self placeholderInsets];
     CGFloat maxWidth = CGRectGetWidth(self.frame)-placeholderInsets.left-placeholderInsets.right;
     
@@ -154,10 +136,8 @@
     return CGRectMake(placeholderInsets.left, placeholderInsets.top, maxWidth, expectedSize.height);
 }
 
--(UILabel*)placeholderLabel
-{
-    if (_placeholderLabel == nil)
-    {
+- (UILabel *)placeholderLabel {
+    if (_placeholderLabel == nil) {
         _placeholderLabel = [[UILabel alloc] init];
         _placeholderLabel.autoresizingMask = (UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight);
         _placeholderLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -174,14 +154,12 @@
 }
 
 //When any text changes on textField, the delegate getter is called. At this time we refresh the textView's placeholder
--(id<UITextViewDelegate>)delegate
-{
+- (id<UITextViewDelegate>)delegate {
     [self refreshPlaceholder];
     return [super delegate];
 }
 
--(CGSize)intrinsicContentSize
-{
+- (CGSize)intrinsicContentSize {
     if (self.hasText) {
         return [super intrinsicContentSize];
     }

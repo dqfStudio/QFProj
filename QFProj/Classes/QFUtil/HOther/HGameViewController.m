@@ -26,13 +26,13 @@
 //@implementation HGameViewController
 
 //- (instancetype)initWithURL:(NSURL *)url{
-//    if([super init]){
+//    if ([super init]) {
 //        self.gameURL = url;
 //    }
 //    return self;
 //}
 //- (UIView *)gameContentView{
-//    if(_gameContentView == nil){
+//    if (_gameContentView == nil) {
 //        _gameContentView =  [UIView new];
 //        _gameContentView.backgroundColor = [UIColor clearColor];
 //    }
@@ -104,7 +104,7 @@
 //}
 //
 //- (HSFSafariViewController *)sfsafarViewController{
-//    if(_sfsafarViewController == nil){
+//    if (_sfsafarViewController == nil) {
 //        _sfsafarViewController = [[HSFSafariViewController alloc] initWithURL:self.gameURL];
 //    }
 //    return _sfsafarViewController;
@@ -149,7 +149,7 @@
 //#pragma mark - 进度条颜色(默认颜色蓝色)
 //- (void)setPreferredControlTintColor:(UIColor *)preferredControlTintColor{
 //    _preferredControlTintColor = preferredControlTintColor;
-//    if(self.sfsafarViewController){
+//    if (self.sfsafarViewController) {
 //        self.sfsafarViewController.preferredControlTintColor = _preferredControlTintColor;
 //    }
 //}

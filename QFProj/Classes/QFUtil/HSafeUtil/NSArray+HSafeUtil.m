@@ -48,7 +48,7 @@
     });
 }
 - (id)safe_objectAtIndex:(int)index {
-    if(index >= 0 && index < self.count) {
+    if (index >= 0 && index < self.count) {
         return [self safe_objectAtIndex:index];
     }else {
 #if DEBUG
@@ -58,7 +58,7 @@
     return nil;
 }
 - (id)safe_objectAtIndexedSubscript:(int)index {
-    if(index >= 0 && index < self.count) {
+    if (index >= 0 && index < self.count) {
         return [self safe_objectAtIndexedSubscript:index];
     }else {
 #if DEBUG
@@ -69,7 +69,7 @@
 }
 - (id)safe_initWithObjects:(const id [])objects count:(NSUInteger)cnt {
     for (int i=0; i<cnt; i++) {
-        if (objects == NULL){
+        if (objects == NULL) {
 #if DEBUG
             NSAssert(NO,nil);
 #endif
@@ -140,7 +140,7 @@
     });
 }
 - (void)safe_addObject:(id)anObject {
-    if(anObject){
+    if (anObject) {
         [self safe_addObject:anObject];
     }else {
 #if DEBUG
@@ -149,7 +149,7 @@
     }
 }
 - (id)safe_objectAtIndex:(int)index {
-    if(index >= 0 && index < self.count) {
+    if (index >= 0 && index < self.count) {
         return [self safe_objectAtIndex:index];
     }else {
 #if DEBUG
@@ -159,7 +159,7 @@
     return nil;
 }
 - (id)safe_objectAtIndexedSubscript:(int)index {
-    if(index >= 0 && index < self.count) {
+    if (index >= 0 && index < self.count) {
         return [self safe_objectAtIndexedSubscript:index];
     }else {
 #if DEBUG

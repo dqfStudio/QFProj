@@ -11,9 +11,9 @@
 #include <execinfo.h>
 #include <stdatomic.h>
 
-NSString * const UncaughtExceptionHandlerSignalExceptionName = @"UncaughtExceptionHandlerSignalExceptionName";
-NSString * const UncaughtExceptionHandlerSignalKey = @"UncaughtExceptionHandlerSignalKey";
-NSString * const UncaughtExceptionHandlerAddressesKey = @"UncaughtExceptionHandlerAddressesKey";
+NSString *const UncaughtExceptionHandlerSignalExceptionName = @"UncaughtExceptionHandlerSignalExceptionName";
+NSString *const UncaughtExceptionHandlerSignalKey = @"UncaughtExceptionHandlerSignalKey";
+NSString *const UncaughtExceptionHandlerAddressesKey = @"UncaughtExceptionHandlerAddressesKey";
 
 volatile int32_t UncaughtExceptionCount = 0;
 const int32_t UncaughtExceptionMaximum = 10;
@@ -38,7 +38,7 @@ const int32_t UncaughtExceptionMaximum = 10;
 }
 
 + (NSArray *)backtrace {
-	 void* callstack[128];
+	 void *callstack[128];
 	 int frames = backtrace(callstack, 128);
 	 char **strs = backtrace_symbols(callstack, frames);
 	 
@@ -73,7 +73,7 @@ const int32_t UncaughtExceptionMaximum = 10;
 //                                                 [exception reason],
 //                                                 [[exception userInfo] objectForKey:UncaughtExceptionHandlerAddressesKey]]
 //                                 preferredStyle:UIAlertControllerStyleAlert];
-//    [alertController addAction:[UIAlertAction actionWithTitle:@"退出" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//    [alertController addAction:[UIAlertAction actionWithTitle:@"退出" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action) {
 //        dismissed = YES;
 //    }]];
 //

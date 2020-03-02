@@ -196,8 +196,8 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
 @synthesize secureTextEntry = _secureTextEntry;
 
 #pragma mark - @protocol UITextInput
-@synthesize selectedTextRange = _selectedTextRange;  //copy nonnull (HTextRange*)
-@synthesize markedTextRange = _markedTextRange;      //readonly     (HTextRange*)
+@synthesize selectedTextRange = _selectedTextRange;  //copy nonnull (HTextRange *)
+@synthesize markedTextRange = _markedTextRange;      //readonly     (HTextRange *)
 @synthesize markedTextStyle = _markedTextStyle;      //copy
 @synthesize inputDelegate = _inputDelegate;         //assign
 @synthesize tokenizer = _tokenizer;                 //readonly
@@ -238,7 +238,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     _placeHolderView.hidden = text.length > 0;
     if ([self _detectText:text]) {
         _delectedText = text;
-    } else {
+    }else {
         _delectedText = nil;
     }
     [text replaceCharactersInRange:NSMakeRange(text.length, 0) withString:@"\r"]; // add for nextline caret
@@ -261,7 +261,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     if (_innerContainer.isVerticalForm) {
         size.height = visibleSize.height;
         if (size.width < visibleSize.width) size.width = visibleSize.width;
-    } else {
+    }else {
         size.width = visibleSize.width;
     }
     
@@ -296,13 +296,13 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
             rects = [_innerLayout selectionRectsWithOnlyStartAndEndForRange:selectedRange];
             if (rects) [allRects addObjectsFromArray:rects];
             containsDot = rects.count > 0;
-        } else {
+        }else {
             CGRect rect = [_innerLayout caretRectForPosition:selectedRange.end];
             _selectionView.caretRect = [self _convertRectFromLayout:rect];
             _selectionView.caretVisible = YES;
             _selectionView.caretBlinks = YES;
         }
-    } else {
+    }else {
         if (selectedRange.asRange.length == 0) { // only caret
             if (self.isFirstResponder || _state.trackingPreSelect) {
                 CGRect rect = [_innerLayout caretRectForPosition:selectedRange.end];
@@ -312,7 +312,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
                     _selectionView.caretBlinks = YES;
                 }
             }
-        } else { // range selected
+        }else {// range selected
             if ((self.isFirstResponder && !_state.deleteConfirm) ||
                 (!self.isFirstResponder && _state.selectedWithoutEdit)) {
                 NSArray *rects = [_innerLayout selectionRectsForRange:selectedRange];
@@ -343,7 +343,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     
     if (containsDot) {
         [self _startSelectionDotFixTimer];
-    } else {
+    }else {
         [self _endSelectionDotFixTimer];
     }
 }
@@ -397,7 +397,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
             frame.size = image.size;
             if (container.isVerticalForm) {
                 frame.origin.x = self.bounds.size.width - image.size.width;
-            } else {
+            }else {
                 frame.origin = CGPointZero;
             }
             _placeHolderView.frame = frame;
@@ -468,7 +468,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     if (!_state.showingMagnifierCaret) {
         _state.showingMagnifierCaret = YES;
         [[HTextEffectWindow sharedWindow] showMagnifier:_magnifierCaret];
-    } else {
+    }else {
         [[HTextEffectWindow sharedWindow] moveMagnifier:_magnifierCaret];
     }
 }
@@ -490,7 +490,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     CGPoint magPoint = _trackingPoint;
     if (_verticalForm) {
         magPoint.x += kMagnifierRangedTrackFix;
-    } else {
+    }else {
         magPoint.y += kMagnifierRangedTrackFix;
     }
     
@@ -502,7 +502,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     HTextPosition *position;
     if (_markedTextRange) {
         position = selectedRange.end;
-    } else {
+    }else {
         position = [_innerLayout positionForPoint:[self _convertPointToLayout:magPoint]
                                       oldPosition:(_state.trackingGrabber == kStart ? selectedRange.start : selectedRange.end)
                                     otherPosition:(_state.trackingGrabber == kStart ? selectedRange.end : selectedRange.start)];
@@ -514,7 +514,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
         CGRect lineRect = [self _convertRectFromLayout:line.bounds];
         if (_verticalForm) {
             magPoint.x = HTEXT_CLAMP(magPoint.x, CGRectGetMinX(lineRect), CGRectGetMaxX(lineRect));
-        } else {
+        }else {
             magPoint.y = HTEXT_CLAMP(magPoint.y, CGRectGetMinY(lineRect), CGRectGetMaxY(lineRect));
         }
         CGPoint linePoint = [_innerLayout linePositionForPosition:position];
@@ -523,7 +523,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
         CGPoint popoverPoint = linePoint;
         if (_verticalForm) {
             popoverPoint.x = linePoint.x + _magnifierRangedOffset;
-        } else {
+        }else {
             popoverPoint.y = linePoint.y + _magnifierRangedOffset;
         }
         
@@ -531,7 +531,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
         if (_verticalForm) {
             capturePoint.x = linePoint.x + kMagnifierRangedCaptureOffset;
             capturePoint.y = linePoint.y;
-        } else {
+        }else {
             capturePoint.x = linePoint.x;
             capturePoint.y = linePoint.y + kMagnifierRangedCaptureOffset;
         }
@@ -541,7 +541,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
         if (!_state.showingMagnifierRanged) {
             _state.showingMagnifierRanged = YES;
             [[HTextEffectWindow sharedWindow] showMagnifier:_magnifierRanged];
-        } else {
+        }else {
             [[HTextEffectWindow sharedWindow] moveMagnifier:_magnifierRanged];
         }
     }
@@ -599,11 +599,11 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
         CGRect inter = CGRectIntersection(rect, self.bounds);
         if (!CGRectIsNull(inter) && inter.size.height > 1) {
             rect = inter; //clip to bounds
-        } else {
+        }else {
             if (CGRectGetMinY(rect) < CGRectGetMinY(self.bounds)) {
                 rect.size.height = 1;
                 rect.origin.y = CGRectGetMinY(self.bounds);
-            } else {
+            }else {
                 rect.size.height = 1;
                 rect.origin.y = CGRectGetMaxY(self.bounds);
             }
@@ -623,7 +623,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
                 }
             }
         }
-    } else {
+    }else {
         rect = _selectionView.bounds;
     }
     
@@ -752,7 +752,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
                     UIViewAnimationOptions curve;
                     if (kiOS7Later) {
                         curve = 7 << 16;
-                    } else {
+                    }else {
                         curve = UIViewAnimationOptionCurveEaseInOut;
                     }
                     [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction | curve animations:^{
@@ -781,7 +781,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
                 [super setContentInset:self->_originalContentInset];
                 [super setScrollIndicatorInsets:self->_originalScrollIndicatorInsets];
             } completion:NULL];
-        } else {
+        }else {
             [super setContentInset:_originalContentInset];
             [super setScrollIndicatorInsets:_originalScrollIndicatorInsets];
         }
@@ -794,7 +794,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if ([HTextKeyboardManager defaultManager].keyboardVisible) {
             [self _scrollRangeToVisible:self->_selectedTextRange];
-        } else {
+        }else {
             [self _restoreInsetsAnimated:YES];
         }
         [self _updateMagnifier];
@@ -835,7 +835,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
             rect = [self _convertRectFromLayout:rect];
             _highlight.longPressAction(self, _innerText, _highlightRange, rect);
             [self _endTouchTracking];
-        } else {
+        }else {
             BOOL shouldHighlight = YES;
             if ([self.delegate respondsToSelector:@selector(textView:shouldLongPressHighlight:inRange:)]) {
                 shouldHighlight = [self.delegate textView:self shouldLongPressHighlight:_highlight inRange:_highlightRange];
@@ -850,14 +850,14 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
         }
     }
     
-    if (!dealLongPressAction){
+    if (!dealLongPressAction) {
         [self _removeHighlightAnimated:NO];
         if (_state.trackingTouch) {
             if (_state.trackingGrabber) {
                 self.panGestureRecognizer.enabled = NO;
                 [self _hideMenu];
                 [self _showMagnifierRanged];
-            } else if (self.isFirstResponder){
+            } else if (self.isFirstResponder) {
                 self.panGestureRecognizer.enabled = NO;
                 _selectionView.caretBlinks = NO;
                 _state.trackingCaret = YES;
@@ -879,7 +879,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
                 
                 if (_markedTextRange) {
                     [self _showMagnifierRanged];
-                } else {
+                }else {
                     [self _showMagnifierCaret];
                 }
             } else if (self.selectable) {
@@ -941,27 +941,27 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
             offset.x += _autoScrollOffset;
             
             if (_autoScrollAcceleration > 0) {
-                offset.x += ((_autoScrollOffset > 0 ? 1 : -1) * _autoScrollAcceleration * _autoScrollAcceleration * 0.5);
+                offset.x += ((_autoScrollOffset > 0 ? 1 : -1) * _autoScrollAcceleration *_autoScrollAcceleration *0.5);
             }
             _autoScrollAcceleration++;
             offset.x = round(offset.x);
             if (_autoScrollOffset < 0) {
                 if (offset.x < -self.contentInset.left) offset.x = -self.contentInset.left;
-            } else {
+            }else {
                 CGFloat maxOffsetX = self.contentSize.width - self.bounds.size.width + self.contentInset.right;
                 if (offset.x > maxOffsetX) offset.x = maxOffsetX;
             }
             if (offset.x < -self.contentInset.left) offset.x = -self.contentInset.left;
-        } else {
+        }else {
             offset.y += _autoScrollOffset;
             if (_autoScrollAcceleration > 0) {
-                offset.y += ((_autoScrollOffset > 0 ? 1 : -1) * _autoScrollAcceleration * _autoScrollAcceleration * 0.5);
+                offset.y += ((_autoScrollOffset > 0 ? 1 : -1) * _autoScrollAcceleration *_autoScrollAcceleration *0.5);
             }
             _autoScrollAcceleration++;
             offset.y = round(offset.y);
             if (_autoScrollOffset < 0) {
                 if (offset.y < -self.contentInset.top) offset.y = -self.contentInset.top;
-            } else {
+            }else {
                 CGFloat maxOffsetY = self.contentSize.height - self.bounds.size.height + self.contentInset.bottom;
                 if (offset.y > maxOffsetY) offset.y = maxOffsetY;
             }
@@ -971,7 +971,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
         BOOL shouldScroll;
         if (_verticalForm) {
             shouldScroll = fabs(offset.x -self.contentOffset.x) > 0.5;
-        } else {
+        }else {
             shouldScroll = fabs(offset.y -self.contentOffset.y) > 0.5;
         }
         
@@ -992,7 +992,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
                     } else if (self->_state.trackingCaret) {
                         if (self->_markedTextRange) {
                             [self _showMagnifierRanged];
-                        } else {
+                        }else {
                             [self _showMagnifierCaret];
                         }
                         [self _updateTextRangeByTrackingCaret];
@@ -1000,10 +1000,10 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
                     [self _updateSelectionView];
                 }
             }];
-        } else {
+        }else {
             [self _endAutoScrollTimer];
         }
-    } else {
+    }else {
         [self _endAutoScrollTimer];
     }
 }
@@ -1079,7 +1079,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
             range = [_innerLayout textRangeByExtendingPosition:position inDirection:UITextLayoutDirectionLeft offset:1];
             range = [self _correctedTextRange:range];
         }
-    } else {
+    }else {
         HTextRange *extStart = [_innerLayout textRangeByExtendingPosition:range.start];
         HTextRange *extEnd = [_innerLayout textRangeByExtendingPosition:range.end];
         if (extStart && extEnd) {
@@ -1171,7 +1171,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     magPoint = [self _convertPointToLayout:magPoint];
     if (_verticalForm) {
         magPoint.x += kMagnifierRangedTrackFix;
-    } else {
+    }else {
         magPoint.y += kMagnifierRangedTrackFix;
     }
     HTextPosition *position = [_innerLayout closestPositionToPoint:magPoint];
@@ -1181,11 +1181,11 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
         if (_verticalForm) {
             magPoint.x = HTEXT_CLAMP(magPoint.x, line.left, line.right);
             return magPoint.x - line.position.x + kMagnifierRangedPopoverOffset;
-        } else {
+        }else {
             magPoint.y = HTEXT_CLAMP(magPoint.y, line.top, line.bottom);
             return magPoint.y - line.position.y + kMagnifierRangedPopoverOffset;
         }
-    } else {
+    }else {
         return 0;
     }
 }
@@ -1198,7 +1198,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
         if (fabs(moveH) > kLongPressAllowableMovement) {
             return moveH > 0 ? kRight : kLeft;
         }
-    } else {
+    }else {
         if (fabs(moveV) > kLongPressAllowableMovement) {
             return moveV > 0 ? kBottom : kTop;
         }
@@ -1242,7 +1242,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
             ofs = ((point.x - bounds.size.width) + 5) * 0.5;
             if (ofs > maxOfs) ofs = maxOfs;
         }
-    } else {
+    }else {
         if (point.y < self.contentInset.top) {
             ofs = (point.y - self.contentInset.top - 5) * 0.5;
             if (ofs < -maxOfs) ofs = -maxOfs;
@@ -1290,7 +1290,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
         if (text.length) {
             [UIPasteboard generalPasteboard].h_AttributedString = text;
         }
-    } else {
+    }else {
         NSString *string = [_innerText h_plainTextForRange:_selectedTextRange.asRange];
         if (string.length) {
             [UIPasteboard generalPasteboard].string = string;
@@ -1366,7 +1366,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
             }
         }
         return point;
-    } else {
+    }else {
         if (boundingSize.height < self.bounds.size.height) {
             if (_textVerticalAlignment == HTextVerticalAlignmentCenter) {
                 point.y -= (self.bounds.size.height - boundingSize.height) * 0.5;
@@ -1393,7 +1393,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
             }
         }
         return point;
-    } else {
+    }else {
         if (boundingSize.height < self.bounds.size.height) {
             if (_textVerticalAlignment == HTextVerticalAlignmentCenter) {
                 point.y += (self.bounds.size.height - boundingSize.height) * 0.5;
@@ -1419,21 +1419,21 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
 
 /// Replace the range with the text, and change the `_selectTextRange`.
 /// The caller should make sure the `range` and `text` are valid before call this method.
-- (void)_replaceRange:(HTextRange *)range withText:(NSString *)text notifyToDelegate:(BOOL)notify{
+- (void)_replaceRange:(HTextRange *)range withText:(NSString *)text notifyToDelegate:(BOOL)notify {
     if (NSEqualRanges(range.asRange, _selectedTextRange.asRange)) {
         if (notify) [_inputDelegate selectionWillChange:self];
         NSRange newRange = NSMakeRange(0, 0);
         newRange.location = _selectedTextRange.start.offset + text.length;
         _selectedTextRange = [HTextRange rangeWithRange:newRange];
         if (notify) [_inputDelegate selectionDidChange:self];
-    } else {
+    }else {
         if (range.asRange.length != text.length) {
             if (notify) [_inputDelegate selectionWillChange:self];
             NSRange unionRange = NSIntersectionRange(_selectedTextRange.asRange, range.asRange);
             if (unionRange.length == 0) {
                 // no intersection
                 if (range.end.offset <= _selectedTextRange.start.offset) {
-                    NSInteger ofs = (NSInteger)text.length - (NSInteger)range.asRange.length;
+                    NSInteger ofs = (NSInteger)text.length- (NSInteger)range.asRange.length;
                     NSRange newRange = _selectedTextRange.asRange;
                     newRange.location += ofs;
                     _selectedTextRange = [HTextRange rangeWithRange:newRange];
@@ -1444,18 +1444,18 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
             } else if (range.start.offset >= _selectedTextRange.start.offset &&
                        range.end.offset <= _selectedTextRange.end.offset) {
                 // target range inside selected range
-                NSInteger ofs = (NSInteger)text.length - (NSInteger)range.asRange.length;
+                NSInteger ofs = (NSInteger)text.length- (NSInteger)range.asRange.length;
                 NSRange newRange = _selectedTextRange.asRange;
                 newRange.length += ofs;
                 _selectedTextRange = [HTextRange rangeWithRange:newRange];
-            } else {
+            }else {
                 // interleaving
                 if (range.start.offset < _selectedTextRange.start.offset) {
                     NSRange newRange = _selectedTextRange.asRange;
                     newRange.location = range.start.offset + text.length;
                     newRange.length -= unionRange.length;
                     _selectedTextRange = [HTextRange rangeWithRange:newRange];
-                } else {
+                }else {
                     NSRange newRange = _selectedTextRange.asRange;
                     newRange.length -= unionRange.length;
                     _selectedTextRange = [HTextRange rangeWithRange:newRange];
@@ -1564,7 +1564,8 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
                         [text h_setAttribute:key value:obj range:result.range];
                     }];
                 }
-            } break;
+            }
+                break;
             default:
                 break;
         }
@@ -1675,7 +1676,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
 
 /// Show undo alert if it can undo or redo.
 #ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
-- (void)_showUndoRedoAlert NS_EXTENSION_UNAVAILABLE_IOS(""){
+- (void)_showUndoRedoAlert NS_EXTENSION_UNAVAILABLE_IOS("") {
     _state.firstResponderBeforeUndoAlert = self.isFirstResponder;
     __weak typeof(self) _self = self;
     NSArray *strings = [self _localizedUndoStrings];
@@ -1699,7 +1700,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
                 [_self _restoreFirstResponderAfterUndoAlert];
             }]];
             [ctrl presentViewController:alert animated:YES completion:nil];
-        } else {
+        }else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strings[4] message:@"" delegate:self cancelButtonTitle:strings[0] otherButtonTitles:strings[3], strings[2], nil];
@@ -1717,7 +1718,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
                 [_self _restoreFirstResponderAfterUndoAlert];
             }]];
             [ctrl presentViewController:alert animated:YES completion:nil];
-        } else {
+        }else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strings[4] message:@"" delegate:self cancelButtonTitle:strings[0] otherButtonTitles:strings[3], nil];
@@ -1735,7 +1736,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
                 [_self _restoreFirstResponderAfterUndoAlert];
             }]];
             [ctrl presentViewController:alert animated:YES completion:nil];
-        } else {
+        }else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strings[2] message:@"" delegate:self cancelButtonTitle:strings[0] otherButtonTitles:strings[1], nil];
@@ -1978,10 +1979,10 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     _textContainerInset = kDefaultInset;
     _typingAttributesHolder = [[NSMutableAttributedString alloc] initWithString:@" "];
     _linkTextAttributes = @{NSForegroundColorAttributeName : [self _defaultTintColor],
-                            (id)kCTForegroundColorAttributeName : (id)[self _defaultTintColor].CGColor};
+                            (id)kCTForegroundColorAttributeName:(id)[self _defaultTintColor].CGColor};
     
     HTextHighlight *highlight = [HTextHighlight new];
-    HTextBorder * border = [HTextBorder new];
+    HTextBorder *border = [HTextBorder new];
     border.insets = UIEdgeInsetsMake(-2, -2, -2, -2);
     border.fillColor = [UIColor colorWithWhite:0.1 alpha:0.2];
     border.cornerRadius = 3;
@@ -2239,7 +2240,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
             _innerContainer.insets = kDefaultVerticalInset;
             [self _setTextContainerInset:kDefaultVerticalInset];
         }
-    } else {
+    }else {
         if (UIEdgeInsetsEqualToEdgeInsets(_innerContainer.insets, kDefaultVerticalInset)) {
             _innerContainer.insets = kDefaultInset;
             [self _setTextContainerInset:kDefaultInset];
@@ -2309,7 +2310,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     if (!selectable) {
         if (self.isFirstResponder) {
             [self resignFirstResponder];
-        } else {
+        }else {
             _state.selectedWithoutEdit = NO;
             [self _endTouchTracking];
             [self _hideMenu];
@@ -2324,7 +2325,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     if (clearsOnInsertion) {
         if (self.isFirstResponder) {
             self.selectedRange = NSMakeRange(0, _attributedText.length);
-        } else {
+        }else {
             _state.clearsOnInsertionOnce = YES;
         }
     }
@@ -2347,12 +2348,12 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     if (_placeholderAttributedText.length > 0) {
         if (placeholderText.length > 0) {
             [((NSMutableAttributedString *)_placeholderAttributedText) replaceCharactersInRange:NSMakeRange(0, _placeholderAttributedText.length) withString:placeholderText];
-        } else {
+        }else {
             [((NSMutableAttributedString *)_placeholderAttributedText) replaceCharactersInRange:NSMakeRange(0, _placeholderAttributedText.length) withString:@""];
         }
         ((NSMutableAttributedString *)_placeholderAttributedText).h_font = _placeholderFont;
         ((NSMutableAttributedString *)_placeholderAttributedText).h_color = _placeholderTextColor;
-    } else {
+    }else {
         if (placeholderText.length > 0) {
             NSMutableAttributedString *atr = [[NSMutableAttributedString alloc] initWithString:placeholderText];
             if (!_placeholderFont) _placeholderFont = _font;
@@ -2397,7 +2398,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     UIEdgeInsets oldInsets = self.contentInset;
     if (_insetModifiedByKeyboard) {
         _originalContentInset = contentInset;
-    } else {
+    }else {
         [super setContentInset:contentInset];
         BOOL changed = !UIEdgeInsetsEqualToEdgeInsets(oldInsets, contentInset);
         if (changed) {
@@ -2411,7 +2412,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
 - (void)setScrollIndicatorInsets:(UIEdgeInsets)scrollIndicatorInsets {
     if (_insetModifiedByKeyboard) {
         _originalScrollIndicatorInsets = scrollIndicatorInsets;
-    } else {
+    }else {
         [super setScrollIndicatorInsets:scrollIndicatorInsets];
     }
 }
@@ -2420,7 +2421,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     CGSize oldSize = self.bounds.size;
     [super setFrame:frame];
     CGSize newSize = self.bounds.size;
-    BOOL changed = _innerContainer.isVerticalForm ? (oldSize.height != newSize.height) : (oldSize.width != newSize.width);
+    BOOL changed = _innerContainer.isVerticalForm ? (oldSize.height != newSize.height):(oldSize.width != newSize.width);
     if (changed) {
         [self _updateInnerContainerSize];
         [self _commitUpdate];
@@ -2434,7 +2435,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     CGSize oldSize = self.bounds.size;
     [super setBounds:bounds];
     CGSize newSize = self.bounds.size;
-    BOOL changed = _innerContainer.isVerticalForm ? (oldSize.height != newSize.height) : (oldSize.width != newSize.width);
+    BOOL changed = _innerContainer.isVerticalForm ? (oldSize.height != newSize.height):(oldSize.width != newSize.width);
     if (changed) {
         [self _updateInnerContainerSize];
         [self _commitUpdate];
@@ -2455,7 +2456,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
             [attrs removeObjectForKey:(id)kCTForegroundColorAttributeName];
             [linkAttrs setObject:[self _defaultTintColor] forKey:NSForegroundColorAttributeName];
             [linkAttrs setObject:(id)[self _defaultTintColor].CGColor forKey:(id)kCTForegroundColorAttributeName];
-        } else {
+        }else {
             [attrs setObject:color forKey:NSForegroundColorAttributeName];
             [attrs setObject:(id)color.CGColor forKey:(id)kCTForegroundColorAttributeName];
             [linkAttrs setObject:color forKey:NSForegroundColorAttributeName];
@@ -2479,7 +2480,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
             if (_containerView.bounds.size.height <= size.height) {
                 return _containerView.bounds.size;
             }
-        } else {
+        }else {
             if (_containerView.bounds.size.width <= size.width) {
                 return _containerView.bounds.size;
             }
@@ -2488,7 +2489,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     
     if (!_verticalForm) {
         size.height = HTextContainerMaxSize.height;
-    } else {
+    }else {
         size.width = HTextContainerMaxSize.width;
     }
     
@@ -2531,13 +2532,13 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
         [self _startLongPressTimer];
         if (_highlight) {
             [self _showHighlightAnimated:NO];
-        } else {
+        }else {
             if ([_selectionView isGrabberContainsPoint:point]) { // track grabber
                 self.panGestureRecognizer.enabled = NO; // disable scroll view
                 [self _hideMenu];
                 _state.trackingGrabber = [_selectionView isStartGrabberContainsPoint:point] ? kStart : kEnd;
                 _magnifierRangedOffset = [self _getMagnifierRangedOffset];
-            } else {
+            }else {
                 if (_selectedTextRange.asRange.length == 0 && self.isFirstResponder) {
                     if ([_selectionView isCaretContainsPoint:point]) { // track caret
                         _state.trackingCaret = YES;
@@ -2575,11 +2576,11 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
             HTextHighlight *highlight = [self _getHighlightAtPoint:_trackingPoint range:NULL];
             if (highlight == _highlight) {
                 [self _showHighlightAnimated:YES];
-            } else {
+            }else {
                 [self _hideHighlightAnimated:YES];
             }
             
-        } else {
+        }else {
             _trackingRange = _selectedTextRange;
             if (_state.trackingGrabber) {
                 self.panGestureRecognizer.enabled = NO;
@@ -2597,7 +2598,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
                         if (_state.touchMoved == kTop || _state.touchMoved == kBottom) {
                             self.panGestureRecognizer.enabled = NO;
                         }
-                    } else {
+                    }else {
                         if (_state.touchMoved == kLeft || _state.touchMoved == kRight) {
                             self.panGestureRecognizer.enabled = NO;
                         }
@@ -2605,7 +2606,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
                     [self _updateTextRangeByTrackingCaret];
                     if (_markedTextRange) {
                         showMagnifierRanged = YES;
-                    } else {
+                    }else {
                         showMagnifierCaret = YES;
                     }
                 }
@@ -2651,7 +2652,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
                     CGRect rect = [_innerLayout rectForRange:[HTextRange rangeWithRange:_highlightRange]];
                     rect = [self _convertRectFromLayout:rect];
                     _highlight.tapAction(self, _innerText, _highlightRange, rect);
-                } else {
+                }else {
                     BOOL shouldTap = YES;
                     if ([self.delegate respondsToSelector:@selector(textView:shouldTapHighlight:inRange:)]) {
                         shouldTap = [self.delegate textView:self shouldTapHighlight:_highlight inRange:_highlightRange];
@@ -2664,12 +2665,12 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
                 }
                 [self _removeHighlightAnimated:YES];
             }
-        } else {
+        }else {
             if (_state.trackingCaret) {
                 if (_state.touchMoved) {
                     [self _updateTextRangeByTrackingCaret];
                     [self _showMenu];
-                } else {
+                }else {
                     if (_state.showingMenu) [self _hideMenu];
                     else [self _showMenu];
                 }
@@ -2681,34 +2682,34 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
                 if (_trackingRange.asRange.length > 0) {
                     _state.selectedWithoutEdit = YES;
                     [self _showMenu];
-                } else {
+                }else {
                     [self performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0];
                 }
             } else if (_state.deleteConfirm || _markedTextRange) {
                 [self _updateTextRangeByTrackingCaret];
                 [self _hideMenu];
-            } else {
+            }else {
                 if (!_state.touchMoved) {
                     if (_state.selectedWithoutEdit) {
                         _state.selectedWithoutEdit = NO;
                         [self _hideMenu];
-                    } else {
+                    }else {
                         if (self.isFirstResponder) {
                             HTextRange *_oldRange = _trackingRange;
                             [self _updateTextRangeByTrackingCaret];
                             if ([_oldRange isEqual:_trackingRange]) {
                                 if (_state.showingMenu) [self _hideMenu];
                                 else [self _showMenu];
-                            } else {
+                            }else {
                                 [self _hideMenu];
                             }
-                        } else {
+                        }else {
                             [self _hideMenu];
                             if (_state.clearsOnInsertionOnce) {
                                 _state.clearsOnInsertionOnce = NO;
                                 _selectedTextRange = [HTextRange rangeWithRange:NSMakeRange(0, _innerText.length)];
                                 [self _setSelectedRange:_selectedTextRange.asRange];
-                            } else {
+                            }else {
                                 [self _updateTextRangeByTrackingCaret];
                             }
                             [self performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0];
@@ -2752,7 +2753,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
             [self performSelector:@selector(_showUndoRedoAlert)];
 #pragma clang diagnostic pop
         }
-    } else {
+    }else {
         [super motionEnded:motion withEvent:event];
     }
 }
@@ -2864,7 +2865,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
         if (action == @selector(paste:)) {
             return [self _isPasteboardContainsValidValue];
         }
-    } else {
+    }else {
         if (action == @selector(cut:)) {
             return self.isFirstResponder && self.editable;
         }
@@ -2988,7 +2989,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
         if (range) {
             self.selectedRange = NSMakeRange(range.end.offset, 0);
         }
-    } else {
+    }else {
         NSString *string = p.string;
         if (string.length > 0) {
             [self _saveToUndoStack];
@@ -3037,7 +3038,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     BOOL resign = [self resignFirstResponder];
     if (!resign) return;
     
-    UIReferenceLibraryViewController* ref = [[UIReferenceLibraryViewController alloc] initWithTerm:string];
+    UIReferenceLibraryViewController *ref = [[UIReferenceLibraryViewController alloc] initWithTerm:string];
     ref.view.backgroundColor = [UIColor whiteColor];
     [[self _getRootViewController] presentViewController:ref animated:YES completion:^{}];
 }
@@ -3169,12 +3170,12 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     if ([_outerDelegate respondsToSelector:_cmd]) {
         return [_outerDelegate viewForZoomingInScrollView:scrollView];
-    } else {
+    }else {
         return nil;
     }
 }
 
-- (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view{
+- (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view {
     if ([_outerDelegate respondsToSelector:_cmd]) {
         [_outerDelegate scrollViewWillBeginZooming:scrollView withView:view];
     }
@@ -3333,7 +3334,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     BOOL needApplyHolderAttribute = NO;
     if (_innerText.length > 0 && _markedTextRange) {
         [self _updateAttributesHolder];
-    } else {
+    }else {
         needApplyHolderAttribute = YES;
     }
     
@@ -3349,7 +3350,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
         _markedTextRange = [HTextRange rangeWithRange:NSMakeRange(_selectedTextRange.end.offset, markedText.length)];
         [_innerText replaceCharactersInRange:NSMakeRange(_selectedTextRange.end.offset, 0) withString:markedText];
         _selectedTextRange = [HTextRange rangeWithRange:NSMakeRange(_selectedTextRange.start.offset + selectedRange.location, selectedRange.length)];
-    } else {
+    }else {
         _markedTextRange = [self _correctedTextRange:_markedTextRange];
         [_innerText replaceCharactersInRange:_markedTextRange.asRange withString:markedText];
         _markedTextRange = [HTextRange rangeWithRange:NSMakeRange(_markedTextRange.start.offset, markedText.length)];
@@ -3360,7 +3361,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     _markedTextRange = [self _correctedTextRange:_markedTextRange];
     if (_markedTextRange.asRange.length == 0) {
         _markedTextRange = nil;
-    } else {
+    }else {
         if (needApplyHolderAttribute) {
             [_innerText setAttributes:_typingAttributesHolder.h_attributes range:_markedTextRange.asRange];
         }
@@ -3415,7 +3416,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
                 _typingAttributesHolder.h_attributes = attrs;
             }
         }
-    } else { // no text
+    }else {// no text
         useInnerAttributes = YES;
     }
     BOOL applyTypingAttributes = NO;
@@ -3513,7 +3514,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
         if (extendRange.asRange.length > 0) {
             if (offset < 0) {
                 newLocation = extendRange.start.offset;
-            } else {
+            }else {
                 newLocation = extendRange.end.offset;
             }
         }
@@ -3530,7 +3531,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     BOOL forward;
     if (_innerContainer.isVerticalForm) {
         forward = direction == UITextLayoutDirectionLeft || direction == UITextLayoutDirectionDown;
-    } else {
+    }else {
         forward = direction == UITextLayoutDirectionDown || direction == UITextLayoutDirectionRight;
     }
     if (!forward && offset < 0) {
@@ -3561,7 +3562,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     NSRange nsRange = range.asRange;
     if (direction == UITextLayoutDirectionLeft | direction == UITextLayoutDirectionUp) {
         return [HTextPosition positionWithOffset:nsRange.location];
-    } else {
+    }else {
         return [HTextPosition positionWithOffset:nsRange.location + nsRange.length affinity:HTextAffinityBackward];
     }
 }
@@ -3622,7 +3623,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
             } else if (caretRect.origin.y + caretRect.size.height > self.bounds.size.height) {
                 caretRect.origin.y = self.bounds.size.height - caretRect.size.height;
             }
-        } else {
+        }else {
             if (caretRect.size.width == 0) {
                 caretRect.size.width = 2;
                 caretRect.origin.x -= 2 * 0.5;
@@ -3652,7 +3653,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
 - (UITextStorageDirection)selectionAffinity {
     if (_selectedTextRange.end.affinity == HTextAffinityForward) {
         return UITextStorageDirectionForward;
-    } else {
+    }else {
         return UITextStorageDirectionBackward;
     }
 }
@@ -3721,11 +3722,11 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
         font = [UIFont systemFontOfSize:font.pointSize];
     } else if ([fontName.lowercaseString isEqualToString:@"system bold"]) {
         font = [UIFont boldSystemFontOfSize:font.pointSize];
-    } else {
+    }else {
         if ([self fontIsBold_:font] && ([fontName.lowercaseString rangeOfString:@"bold"].location == NSNotFound)) {
             font = [UIFont fontWithName:fontName size:font.pointSize];
             font = [self boldFont_:font];
-        } else {
+        }else {
             font = [UIFont fontWithName:fontName size:font.pointSize];
         }
     }
@@ -3747,7 +3748,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     if ([self fontIsBold_:font] == fontBold) return;
     if (fontBold) {
         font = [self boldFont_:font];
-    } else {
+    }else {
         font = [self normalFont_:font];
     }
     if (font) self.font = font;
@@ -3761,11 +3762,11 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
         font = [UIFont systemFontOfSize:font.pointSize];
     } else if ([fontName.lowercaseString isEqualToString:@"system bold"]) {
         font = [UIFont boldSystemFontOfSize:font.pointSize];
-    } else {
+    }else {
         if ([self fontIsBold_:font] && ([fontName.lowercaseString rangeOfString:@"bold"].location == NSNotFound)) {
             font = [UIFont fontWithName:fontName size:font.pointSize];
             font = [self boldFont_:font];
-        } else {
+        }else {
             font = [UIFont fontWithName:fontName size:font.pointSize];
         }
     }
@@ -3786,7 +3787,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
     if ([self fontIsBold_:font] == fontBold) return;
     if (fontBold) {
         font = [self boldFont_:font];
-    } else {
+    }else {
         font = [self normalFont_:font];
     }
     if (font) self.placeholderFont = font;
@@ -3820,7 +3821,7 @@ typedef NS_ENUM(NSUInteger, HTextMoveDirection) {
 - (void)setDebugEnabled_:(BOOL)enabled {
     if (!enabled) {
         self.debugOption = nil;
-    } else {
+    }else {
         HTextDebugOption *debugOption = [HTextDebugOption new];
         debugOption.baselineColor = [UIColor redColor];
         debugOption.CTFrameBorderColor = [UIColor redColor];

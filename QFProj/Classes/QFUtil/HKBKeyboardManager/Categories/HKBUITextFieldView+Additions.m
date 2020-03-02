@@ -26,52 +26,46 @@
 
 @implementation UIView (Additions)
 
--(void)setKeyboardDistanceFromTextField:(CGFloat)keyboardDistanceFromTextField
-{
+- (void)setKeyboardDistanceFromTextField:(CGFloat)keyboardDistanceFromTextField {
     //Can't be less than zero. Minimum is zero.
     keyboardDistanceFromTextField = MAX(keyboardDistanceFromTextField, 0);
     
     objc_setAssociatedObject(self, @selector(keyboardDistanceFromTextField), @(keyboardDistanceFromTextField), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
--(CGFloat)keyboardDistanceFromTextField
-{
+- (CGFloat)keyboardDistanceFromTextField {
     NSNumber *keyboardDistanceFromTextField = objc_getAssociatedObject(self, @selector(keyboardDistanceFromTextField));
     
     return (keyboardDistanceFromTextField != nil)?[keyboardDistanceFromTextField floatValue]:kHKBUseDefaultKeyboardDistance;
 }
 
--(void)setIgnoreSwitchingByNextPrevious:(BOOL)ignoreSwitchingByNextPrevious
-{
+- (void)setIgnoreSwitchingByNextPrevious:(BOOL)ignoreSwitchingByNextPrevious {
     objc_setAssociatedObject(self, @selector(ignoreSwitchingByNextPrevious), @(ignoreSwitchingByNextPrevious), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
--(BOOL)ignoreSwitchingByNextPrevious
-{
+- (BOOL)ignoreSwitchingByNextPrevious {
     NSNumber *ignoreSwitchingByNextPrevious = objc_getAssociatedObject(self, @selector(ignoreSwitchingByNextPrevious));
     
     return [ignoreSwitchingByNextPrevious boolValue];
 }
 
-//-(void)setEnableMode:(HKBEnableMode)enableMode
+//- (void)setEnableMode:(HKBEnableMode)enableMode
 //{
 //    objc_setAssociatedObject(self, @selector(enableMode), @(enableMode), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 //}
 //
-//-(HKBEnableMode)enableMode
+//- (HKBEnableMode)enableMode
 //{
 //    NSNumber *enableMode = objc_getAssociatedObject(self, @selector(enableMode));
 //    
 //    return [enableMode unsignedIntegerValue];
 //}
 
--(void)setShouldResignOnTouchOutsideMode:(HKBEnableMode)shouldResignOnTouchOutsideMode
-{
+- (void)setShouldResignOnTouchOutsideMode:(HKBEnableMode)shouldResignOnTouchOutsideMode {
     objc_setAssociatedObject(self, @selector(shouldResignOnTouchOutsideMode), @(shouldResignOnTouchOutsideMode), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
--(HKBEnableMode)shouldResignOnTouchOutsideMode
-{
+- (HKBEnableMode)shouldResignOnTouchOutsideMode {
     NSNumber *shouldResignOnTouchOutsideMode = objc_getAssociatedObject(self, @selector(shouldResignOnTouchOutsideMode));
     
     return [shouldResignOnTouchOutsideMode unsignedIntegerValue];

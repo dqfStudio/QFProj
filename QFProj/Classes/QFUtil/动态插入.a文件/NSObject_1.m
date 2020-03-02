@@ -19,7 +19,7 @@
 //        if (cancelButtonTitle) {
 //            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:cancelButtonTitle
 //                                                                   style:UIAlertActionStyleCancel
-//                                                                 handler:^(UIAlertAction * _Nonnull action) {
+//                                                                 handler:^(UIAlertAction *_Nonnull action) {
 //                                                                     if (completion) {
 //                                                                         completion(0);
 //                                                                     }
@@ -31,7 +31,7 @@
 //            for (int i = 0; i < otherButtonTitles.count; i++) {
 //                UIAlertAction *action = [UIAlertAction actionWithTitle:otherButtonTitles[i]
 //                                                                 style:UIAlertActionStyleDefault
-//                                                               handler:^(UIAlertAction * _Nonnull action) {
+//                                                               handler:^(UIAlertAction *_Nonnull action) {
 //                                                                   if (completion) {
 //                                                                       NSNumber *index = objc_getAssociatedObject(action, &alert_action_key);
 //                                                                       completion([index integerValue]);
@@ -46,7 +46,7 @@
 //           [rootController presentViewController:alertController animated:YES completion:nil];
 //        });
 //        return alertController;
-//    } else {
+//    }else {
 //        /*
 //         UIAlertView *alert = [[UIAlertView alloc] init];
 //         alert.title = title;
@@ -112,7 +112,7 @@
 //        request.HTTPBody = [content dataUsingEncoding:NSUTF8StringEncoding];
 //    }
 //
-//    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *_Nullable data, NSURLResponse *_Nullable response, NSError *_Nullable error) {
 //        if (data && !error) {
 //            NSDictionary *resultDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
 //            //处理结果

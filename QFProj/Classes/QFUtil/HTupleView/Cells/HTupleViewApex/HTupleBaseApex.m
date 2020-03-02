@@ -90,7 +90,7 @@
     _edgeInsets = edgeInsets;
     //更新layoutView的frame
     CGRect frame = [self layoutViewFrame];
-    if(!CGRectEqualToRect(self.layoutView.frame, frame)) {
+    if (!CGRectEqualToRect(self.layoutView.frame, frame)) {
         [self.layoutView setFrame:frame];
         [self relayoutSubviews];
     }

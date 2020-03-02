@@ -70,7 +70,7 @@ extern NSString *const SRHTTPResponseErrorKey;
 @property (nonatomic, readonly) CFHTTPMessageRef receivedHTTPHeaders;
 
 // Optional array of cookies (NSHTTPCookie objects) to apply to the connections
-@property (nonatomic, readwrite) NSArray * requestCookies;
+@property (nonatomic, readwrite) NSArray *requestCookies;
 
 // This returns the negotiated protocol.
 // It will be nil until after the handshake completes.
@@ -88,8 +88,8 @@ extern NSString *const SRHTTPResponseErrorKey;
 
 // Delegate queue will be dispatch_main_queue by default.
 // You cannot set both OperationQueue and dispatch_queue.
-- (void)setDelegateOperationQueue:(NSOperationQueue *) queue;
-- (void)setDelegateDispatchQueue:(dispatch_queue_t) queue;
+- (void)setDelegateOperationQueue:(NSOperationQueue *)queue;
+- (void)setDelegateDispatchQueue:(dispatch_queue_t)queue;
 
 // By default, it will schedule itself on +[NSRunLoop SR_networkRunLoop] using defaultModes.
 - (void)scheduleInRunLoop:(NSRunLoop *)aRunLoop forMode:(NSString *)mode;

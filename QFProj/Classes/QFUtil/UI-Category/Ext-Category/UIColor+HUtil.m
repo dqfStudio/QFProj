@@ -14,7 +14,7 @@
     CGColorSpaceModel colorSpaceModel = CGColorSpaceGetModel(CGColorGetColorSpace(self.CGColor));
     if (colorSpaceModel == kCGColorSpaceModelRGB) {
         const CGFloat *components = CGColorGetComponents(self.CGColor);
-        UIColor *color = [UIColor colorWithRed:(1.0 - components[0]) green:(1.0 - components[1]) blue:(1.0 - components[2]) alpha:components[3]];
+        UIColor *color = [UIColor colorWithRed:(1.0 - components[0]) green:(1.0 - components[1]) blue:(1.0 - components[2])alpha:components[3]];
         
         IMP imp = [color methodForSelector:NSSelectorFromString(@"retain")];
         void (*func)(id) = (void *)imp;
@@ -54,10 +54,10 @@
     [[NSScanner scannerWithString:bString] scanHexInt:&b];
     [[NSScanner scannerWithString:aString] scanHexInt:&a];
     
-    UIColor *color = [UIColor colorWithRed:((float) r / 255.0f)
-                                     green:((float) g / 255.0f)
-                                      blue:((float) b / 255.0f)
-                                     alpha:((float) a / 255.0f)];
+    UIColor *color = [UIColor colorWithRed:((float)r / 255.0f)
+                                     green:((float)g / 255.0f)
+                                      blue:((float)b / 255.0f)
+                                     alpha:((float)a / 255.0f)];
 
     IMP imp = [color methodForSelector:NSSelectorFromString(@"retain")];
     void (*func)(id) = (void *)imp;
@@ -88,9 +88,9 @@
     [[NSScanner scannerWithString:gString] scanHexInt:&g];
     [[NSScanner scannerWithString:bString] scanHexInt:&b];
     
-    UIColor *color = [UIColor colorWithRed:((float) r / 255.0f)
-                                     green:((float) g / 255.0f)
-                                      blue:((float) b / 255.0f)
+    UIColor *color = [UIColor colorWithRed:((float)r / 255.0f)
+                                     green:((float)g / 255.0f)
+                                      blue:((float)b / 255.0f)
                                      alpha:alpha];
     
     IMP imp = [color methodForSelector:NSSelectorFromString(@"retain")];
@@ -140,7 +140,7 @@
           a = components[3];//透明度
       }
       BOOL isLighter = NO;
-      if(r*0.299 + g*0.578 + b*0.114 >= 0.75) {
+      if (r *0.299 + g *0.578 + b *0.114 >= 0.75) {
           isLighter = YES;//浅色
       }
       return isLighter;

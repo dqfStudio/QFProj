@@ -58,17 +58,17 @@
 /**
  Returns the superView of provided class type.
  */
--(nullable UIView*)superviewOfClassType:(nonnull Class)classType;
+-(nullable UIView *)superviewOfClassType:(nonnull Class)classType;
 
 /**
  Returns all siblings of the receiver which canBecomeFirstResponder.
  */
-@property (nonnull, nonatomic, readonly, copy) NSArray<__kindof UIView*> *responderSiblings;
+@property (nonnull, nonatomic, readonly, copy) NSArray<__kindof UIView *> *responderSiblings;
 
 /**
  Returns all deep subViews of the receiver which canBecomeFirstResponder.
  */
-@property (nonnull, nonatomic, readonly, copy) NSArray<__kindof UIView*> *deepResponderViews;
+@property (nonnull, nonatomic, readonly, copy) NSArray<__kindof UIView *> *deepResponderViews;
 
 ///-------------------------
 /// @name Special TextFields
@@ -91,7 +91,7 @@
 /**
  Returns current view transform with respect to the 'toView'.
  */
--(CGAffineTransform)convertTransformToView:(nullable UIView*)toView;
+- (CGAffineTransform)convertTransformToView:(nullable UIView *)toView;
 
 ///-----------------
 /// @name Hierarchy
@@ -117,7 +117,7 @@
 
 @interface UIViewController (HKB_UIView_Hierarchy)
 
--(nullable UIViewController*)parentHKBContainerViewController;
+-(nullable UIViewController *)parentHKBContainerViewController;
 
 @end
 

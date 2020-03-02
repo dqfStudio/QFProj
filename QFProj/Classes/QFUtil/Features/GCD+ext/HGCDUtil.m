@@ -27,7 +27,7 @@ void syncAtMain(void (^action)(void)) {
 }
 
 void dispatchAfter(float sec, void (^action)(void)) {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(sec * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(sec *NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if (action) action();
     });
 }

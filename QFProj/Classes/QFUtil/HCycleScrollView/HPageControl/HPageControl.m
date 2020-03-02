@@ -136,7 +136,7 @@ static CGSize const kHDefaultDotSize = {8, 8};
         UIView *dot;
         if (i < self.dots.count) {
             dot = [self.dots objectAtIndex:i];
-        } else {
+        }else {
             dot = [self generateDotView];
         }
         
@@ -201,7 +201,7 @@ static CGSize const kHDefaultDotSize = {8, 8};
         if ([dotView isKindOfClass:[HAnimatedDotView class]] && self.dotColor) {
             ((HAnimatedDotView *)dotView).dotColor = self.dotColor;
         }
-    } else {
+    }else {
         dotView = [[UIImageView alloc] initWithImage:self.dotImage];
         dotView.frame = CGRectMake(0, 0, self.dotSize.width, self.dotSize.height);
     }
@@ -227,7 +227,7 @@ static CGSize const kHDefaultDotSize = {8, 8};
         HAbstractDotView *abstractDotView = (HAbstractDotView *)[self.dots objectAtIndex:index];
         if ([abstractDotView respondsToSelector:@selector(changeActivityState:)]) {
             [abstractDotView changeActivityState:active];
-        } else {
+        }else {
             NSLog(@"Custom view : %@ must implement an 'changeActivityState' method or you can subclass %@ to help you.", self.dotViewClass, [HAbstractDotView class]);
         }
     } else if (self.dotImage && self.currentDotImage) {
@@ -250,7 +250,7 @@ static CGSize const kHDefaultDotSize = {8, 8};
 - (void)hideForSinglePage {
     if (self.dots.count == 1 && self.hidesForSinglePage) {
         self.hidden = YES;
-    } else {
+    }else {
         self.hidden = NO;
     }
 }

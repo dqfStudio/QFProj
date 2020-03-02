@@ -17,7 +17,7 @@ static pthread_mutex_t _hSharedDebugLock;
 static CFMutableSetRef _hSharedDebugTargets = nil;
 static HTextDebugOption *_hSharedDebugOption = nil;
 
-static const void* _hSharedDebugSetRetain(CFAllocatorRef allocator, const void *value) {
+static const void *_hSharedDebugSetRetain(CFAllocatorRef allocator, const void *value) {
     return value;
 }
 

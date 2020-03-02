@@ -18,7 +18,7 @@
 @end
 
 @interface NSBlock ()
-@property (nonatomic) NSString  *key;
+@property (nonatomic) NSString *key;
 @end
 
 @implementation NSBlock
@@ -64,7 +64,7 @@
         // 添加创世区块
         // 第一个区块没有 previous hash
         block.hashString = [self generateHash:block];
-    } else {
+    }else {
         NSBlock *previousBlock = [self getPreviousBlock];
         block.previousHash = previousBlock.hashString;
         block.index = self.blocks.count;

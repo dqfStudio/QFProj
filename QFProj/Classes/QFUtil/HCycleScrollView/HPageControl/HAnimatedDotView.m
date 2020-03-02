@@ -46,7 +46,7 @@ static CGFloat const kHAnimateDuration = 1;
 - (void)changeActivityState:(BOOL)active {
     if (active) {
         [self animateToActiveState];
-    } else {
+    }else {
         [self animateToDeactiveState];
     }
 }

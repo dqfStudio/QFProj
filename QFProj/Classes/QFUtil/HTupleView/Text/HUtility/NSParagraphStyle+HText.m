@@ -193,7 +193,7 @@
     set[count].value = &paragraphSpacingBefore;
     count++;
     
-    if([self respondsToSelector:@selector(tabStops)]) {
+    if ([self respondsToSelector:@selector(tabStops)]) {
         NSMutableArray *tabs = [NSMutableArray array];
         if ([self respondsToSelector:@selector(tabStops)]) {
             NSInteger numTabs = self.tabStops.count;

@@ -13,10 +13,10 @@
 
 static const void *userInfoAddress = &userInfoAddress;
 
-static char const * const KTopLineViewKey = "KTopLineViewKey";
-static char const * const KBottomLineView = "KBottomLineView";
-static char const * const KLeftLineView   = "KLeftLineView";
-static char const * const KRightLineView  = "KRightLineView";
+static char const *const KTopLineViewKey = "KTopLineViewKey";
+static char const *const KBottomLineView = "KBottomLineView";
+static char const *const KLeftLineView   = "KLeftLineView";
+static char const *const KRightLineView  = "KRightLineView";
 
 #define KLineDefaultColor [UIColor colorWithRed:233/255.0 green:233/255.0 blue:233/255.0 alpha:1.0]
 
@@ -147,11 +147,11 @@ static char const * const KRightLineView  = "KRightLineView";
 
 //设置视图上边角幅度
 - (void)setTopCorner:(CGFloat)radii {
-    [self setCorner:(UIRectCornerTopLeft|UIRectCornerTopRight) radii:radii];
+    [self setCorner:(UIRectCornerTopLeft|UIRectCornerTopRight)radii:radii];
 }
 //设置视图下边角幅度
 - (void)setBottomCorner:(CGFloat)radii {
-    [self setCorner:(UIRectCornerBottomLeft|UIRectCornerBottomRight) radii:radii];
+    [self setCorner:(UIRectCornerBottomLeft|UIRectCornerBottomRight)radii:radii];
 }
 //设置指定角的角幅度
 - (void)setCorner:(UIRectCorner)corners radii:(CGFloat)radii {
@@ -277,7 +277,7 @@ static char const * const KRightLineView  = "KRightLineView";
 - (UITapGestureRecognizer *)addTapGestureWithNumberOfTapsRequired:(NSUInteger)numberOfTapsRequired
                                                             block:(void (^)(UITapGestureRecognizer *))block {
     self.userInteractionEnabled = YES;
-    [self.gestureRecognizers enumerateObjectsUsingBlock:^(__kindof UIGestureRecognizer * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.gestureRecognizers enumerateObjectsUsingBlock:^(__kindof UIGestureRecognizer *_Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
         if ([obj isKindOfClass:[UITapGestureRecognizer class]]) {
             [self removeGestureRecognizer:obj];
         }
@@ -290,7 +290,7 @@ static char const * const KRightLineView  = "KRightLineView";
 
 - (UITapGestureRecognizer *)addSingleTapGestureTarget:(id)target action:(SEL)action {
     self.userInteractionEnabled = YES;
-    [self.gestureRecognizers enumerateObjectsUsingBlock:^(__kindof UIGestureRecognizer * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.gestureRecognizers enumerateObjectsUsingBlock:^(__kindof UIGestureRecognizer *_Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
         if ([obj isKindOfClass:[UITapGestureRecognizer class]]) {
             [self removeGestureRecognizer:obj];
         }
@@ -322,7 +322,7 @@ static char const * const KRightLineView  = "KRightLineView";
     
     // 约束
     if (adaptConstraint) {
-        [self.constraints enumerateObjectsUsingBlock:^(__kindof NSLayoutConstraint * _Nonnull subConstraint, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self.constraints enumerateObjectsUsingBlock:^(__kindof NSLayoutConstraint *_Nonnull subConstraint, NSUInteger idx, BOOL *_Nonnull stop) {
             subConstraint.constant = HAdaptWidth(subConstraint.constant);
         }];
     }
@@ -353,11 +353,11 @@ static char const * const KRightLineView  = "KRightLineView";
             UITextField *textField = (UITextField *)self;
             textField.font = [UIFont systemFontOfSize:HAdaptWidth(textField.font.pointSize)];
         }
-        else  if ([self isKindOfClass:[UIButton class]]) {
+        else if ([self isKindOfClass:[UIButton class]]) {
             UIButton *button = (UIButton *)self;
             button.titleLabel.font = [UIFont systemFontOfSize:HAdaptWidth(button.titleLabel.font.pointSize)];
         }
-        else  if ([self isKindOfClass:[UITextView class]]) {
+        else if ([self isKindOfClass:[UITextView class]]) {
             UITextView *textView = (UITextView *)self;
             textView.font = [UIFont systemFontOfSize:HAdaptWidth(textView.font.pointSize)];
         }
@@ -377,7 +377,7 @@ static char const * const KRightLineView  = "KRightLineView";
         // 对View自身进行适配
         [self adaptScreenWidthWithType:type];
         // 对子view进行适配
-        [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull subView, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView *_Nonnull subView, NSUInteger idx, BOOL *_Nonnull stop) {
             [subView adaptScreenWidthWithType:type exceptViews:exceptViews];
         }];
     }
@@ -386,7 +386,7 @@ static char const * const KRightLineView  = "KRightLineView";
 // 当前view对象是否是例外的视图
 - (BOOL)isExceptViewClassWithClassArray:(NSArray<Class> *)classArray {
     __block BOOL isExcept = NO;
-    [classArray enumerateObjectsUsingBlock:^(Class  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [classArray enumerateObjectsUsingBlock:^(Class  _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
         if ([self isKindOfClass:obj]) {
             isExcept = YES;
             *stop = YES;

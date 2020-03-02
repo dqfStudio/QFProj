@@ -73,7 +73,7 @@
     UIView *targetView = self.interactivePopGestureRecognizer.view;
     
     //  创建pan手势 作用范围是全屏
-    UIPanGestureRecognizer * fullScreenGes = [[UIPanGestureRecognizer alloc] initWithTarget:target action:handler];
+    UIPanGestureRecognizer *fullScreenGes = [[UIPanGestureRecognizer alloc] initWithTarget:target action:handler];
     fullScreenGes.delegate = self;
     [targetView addGestureRecognizer:fullScreenGes];
     
@@ -159,16 +159,16 @@
     if([self.viewControllers count] < [navigationBar.items count]) return YES;
     BOOL shouldPop = YES;
     UIViewController *vc = [self topViewController];
-    if([vc respondsToSelector:@selector(navigationShouldPopOnBackButton)]) {
+    if ([vc respondsToSelector:@selector(navigationShouldPopOnBackButton)]) {
         shouldPop = [vc navigationShouldPopOnBackButton];
     }
-    if(shouldPop) {
+    if (shouldPop) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self popViewControllerAnimated:YES];
         });
     }else {
         for(UIView *subview in [navigationBar subviews]) {
-            if(subview.alpha < 1.f) {
+            if (subview.alpha < 1.f) {
                 [UIView animateWithDuration:.25 animations:^{
                     subview.alpha = 1.f;
                 }];

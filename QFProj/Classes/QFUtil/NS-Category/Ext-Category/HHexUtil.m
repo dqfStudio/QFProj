@@ -35,8 +35,8 @@
     bzero(myBuffer, [hexString length] / 2 + 1);
     for (int i = 0; i < [hexString length] - 1; i += 2) {
         unsigned int anInt;
-        NSString * hexCharStr = [hexString substringWithRange:NSMakeRange(i, 2)];
-        NSScanner * scanner = [[NSScanner alloc] initWithString:hexCharStr];
+        NSString *hexCharStr = [hexString substringWithRange:NSMakeRange(i, 2)];
+        NSScanner *scanner = [[NSScanner alloc] initWithString:hexCharStr];
         [scanner scanHexInt:&anInt];
         myBuffer[i / 2] = (char)anInt;
     }
@@ -45,8 +45,8 @@
 }
 
 // 十六进制转二进制
-+(NSString *)getBinaryByhex:(NSString *)hex {
-    NSMutableDictionary  *hexDic = [[NSMutableDictionary alloc] init];
++ (NSString *)getBinaryByhex:(NSString *)hex {
+    NSMutableDictionary *hexDic = [[NSMutableDictionary alloc] init];
     hexDic = [[NSMutableDictionary alloc] initWithCapacity:16];
     [hexDic setObject:@"0000" forKey:@"0"];
     [hexDic setObject:@"0001" forKey:@"1"];

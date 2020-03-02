@@ -154,7 +154,7 @@ typedef enum {
 @property (nonatomic, strong) UIColor *titleLabelTextColor;
 
 /** 轮播文字label字体大小 */
-@property (nonatomic, strong) UIFont  *titleLabelTextFont;
+@property (nonatomic, strong) UIFont *titleLabelTextFont;
 
 /** 轮播文字label背景颜色 */
 @property (nonatomic, strong) UIColor *titleLabelBackgroundColor;

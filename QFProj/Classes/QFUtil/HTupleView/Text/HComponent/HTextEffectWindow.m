@@ -106,7 +106,7 @@
     return HTextDirectionNone;
 }
 
-- (CGPoint)_correctedCaptureCenter:(CGPoint)center{
+- (CGPoint)_correctedCaptureCenter:(CGPoint)center {
     CGRect keyboardFrame = [HTextKeyboardManager defaultManager].keyboardFrame;
     keyboardFrame = [[HTextKeyboardManager defaultManager] convertRect:keyboardFrame toView:self];
     if (!CGRectIsNull(keyboardFrame) && !CGRectIsEmpty(keyboardFrame)) {
@@ -114,16 +114,20 @@
         switch (direction) {
             case HTextDirectionTop: {
                 if (center.y < CGRectGetMaxY(keyboardFrame)) center.y = CGRectGetMaxY(keyboardFrame);
-            } break;
+            }
+                break;
             case HTextDirectionRight: {
                 if (center.x > CGRectGetMinX(keyboardFrame)) center.x = CGRectGetMinX(keyboardFrame);
-            } break;
+            }
+                break;
             case HTextDirectionBottom: {
                 if (center.y > CGRectGetMinY(keyboardFrame)) center.y = CGRectGetMinY(keyboardFrame);
-            } break;
+            }
+                break;
             case HTextDirectionLeft: {
                 if (center.x < CGRectGetMaxX(keyboardFrame)) center.x = CGRectGetMaxX(keyboardFrame);
-            } break;
+            }
+                break;
             default: break;
         }
     }
@@ -185,7 +189,8 @@
                 } else if (mag.type == HTextMagnifierTypeRanged) {
                     if (center.y < CGRectGetMaxY(keyboardFrame)) center.y = CGRectGetMaxY(keyboardFrame);
                 }
-            } break;
+            }
+                break;
             case HTextDirectionRight: {
                 if (mag.type == HTextMagnifierTypeCaret) {
                     if (center.x + mag.bounds.size.height / 2 > CGRectGetMinX(keyboardFrame))
@@ -193,7 +198,8 @@
                 } else if (mag.type == HTextMagnifierTypeRanged) {
                     if (center.x > CGRectGetMinX(keyboardFrame)) center.x = CGRectGetMinX(keyboardFrame);
                 }
-            } break;
+            }
+                break;
             case HTextDirectionBottom: {
                 if (mag.type == HTextMagnifierTypeCaret) {
                     if (center.y + mag.bounds.size.height / 2 > CGRectGetMinY(keyboardFrame))
@@ -201,7 +207,8 @@
                 } else if (mag.type == HTextMagnifierTypeRanged) {
                     if (center.y > CGRectGetMinY(keyboardFrame)) center.y = CGRectGetMinY(keyboardFrame);
                 }
-            } break;
+            }
+                break;
             case HTextDirectionLeft: {
                 if (mag.type == HTextMagnifierTypeCaret) {
                     if (center.x - mag.bounds.size.height / 2 < CGRectGetMaxX(keyboardFrame))
@@ -209,7 +216,8 @@
                 } else if (mag.type == HTextMagnifierTypeRanged) {
                     if (center.x < CGRectGetMaxX(keyboardFrame)) center.x = CGRectGetMaxX(keyboardFrame);
                 }
-            } break;
+            }
+                break;
             default: break;
         }
     }
@@ -318,7 +326,7 @@
             newCenter.x += center.x;
             newCenter.y += center.y;
             mag.center = [self _correctedCenter:newCenter forMagnifier:mag rotation:rotation];
-        } else {
+        }else {
             mag.center = [self _correctedCenter:center forMagnifier:mag rotation:rotation];
         }
         mag.transform = CGAffineTransformMakeRotation(rotation);
@@ -339,7 +347,7 @@
         newCenter.x += center.x;
         newCenter.y += center.y;
         mag.center = [self _correctedCenter:newCenter forMagnifier:mag rotation:rotation];
-    } else {
+    }else {
         mag.center = [self _correctedCenter:center forMagnifier:mag rotation:rotation];
     }
     mag.transform = CGAffineTransformMakeRotation(rotation);
@@ -363,7 +371,7 @@
             newCenter.x += center.x;
             newCenter.y += center.y;
             mag.center = [self _correctedCenter:newCenter forMagnifier:mag rotation:rotation];
-        } else {
+        }else {
             mag.center = [self _correctedCenter:center forMagnifier:mag rotation:rotation];
             mag.alpha = 0;
         }
@@ -377,7 +385,7 @@
     }];
 }
 
-- (void)_updateSelectionGrabberDot:(HSelectionGrabberDot *)dot selection:(HTextSelectionView *)selection{
+- (void)_updateSelectionGrabberDot:(HSelectionGrabberDot *)dot selection:(HTextSelectionView *)selection {
     dot.mirror.hidden = YES;
     if (selection.hostView.clipsToBounds == YES && dot.h_visibleAlpha > 0.1) {
         CGRect dotRect = [dot h_convertRect:dot.bounds toViewOrWindow:self];
@@ -405,7 +413,7 @@
     CGPoint center = [dot h_convertPoint:CGPointMake(CGRectGetWidth(dot.frame) / 2, CGRectGetHeight(dot.frame) / 2) toViewOrWindow:self];
     if (isnan(center.x) || isnan(center.y) || isinf(center.x) || isinf(center.y)) {
         dot.mirror.hidden = YES;
-    } else {
+    }else {
         dot.mirror.center = center;
     }
 }

@@ -120,8 +120,7 @@
 - (NSTimeInterval)_getAccessDateForFilePath:(NSString *)filePath {
     NSString *accessFilePath = [filePath stringByAppendingString:HFileInfoFileSuffix];
     NSString *dateString = [NSString stringWithContentsOfFile:accessFilePath encoding:NSUTF8StringEncoding error:nil];
-    if (dateString)
-    {
+    if (dateString) {
         return [dateString doubleValue];
     }
     return 0;
@@ -215,7 +214,7 @@
 
 - (void)backgroundCleanDisk {
     Class UIApplicationClass = NSClassFromString(@"UIApplication");
-    if(!UIApplicationClass || ![UIApplicationClass respondsToSelector:@selector(sharedApplication)]) {
+    if (!UIApplicationClass || ![UIApplicationClass respondsToSelector:@selector(sharedApplication)]) {
         return;
     }
     UIApplication *application = [UIApplication performSelector:@selector(sharedApplication)];

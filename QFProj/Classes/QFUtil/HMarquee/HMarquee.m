@@ -14,14 +14,14 @@ typedef NS_ENUM(NSInteger, HMarqueeTapMode) {
 
 @interface HMarquee ()
 
-@property(nonatomic, strong) UIButton             *bgBtn;
-@property(nonatomic, strong) UILabel              *marqueeLbl;
-@property(nonatomic, strong) NSTimer              *timer;
+@property(nonatomic, strong) UIButton *bgBtn;
+@property(nonatomic, strong) UILabel *marqueeLbl;
+@property(nonatomic, strong) NSTimer *timer;
 @property(nonatomic, copy  ) HWonderfulAction     tapAction;
 @property(nonatomic, assign) HMarqueeTapMode      tapMode;
 @property(nonatomic, assign) HMarqueeSpeedLevel   speedLevel;
-@property(nonatomic, strong) UIView               *middleView;
-@property(nonatomic, strong) UIFont               *marqueeLabelFont;
+@property(nonatomic, strong) UIView *middleView;
+@property(nonatomic, strong) UIFont *marqueeLabelFont;
 
 @end
 
@@ -31,7 +31,7 @@ typedef NS_ENUM(NSInteger, HMarqueeTapMode) {
     if (self = [super initWithFrame:frame]) {
         self.layer.cornerRadius = 2;
         self.msg = msg;
-        if(bgColor) {
+        if (bgColor) {
             self.bgColor = bgColor;
         }else {
             self.bgColor = [UIColor whiteColor];
@@ -90,7 +90,7 @@ typedef NS_ENUM(NSInteger, HMarqueeTapMode) {
 }
 
 - (void)setFrame:(CGRect)frame {
-    if(!CGRectEqualToRect(self.frame, frame)) {
+    if (!CGRectEqualToRect(self.frame, frame)) {
         [super setFrame:frame];
         
         _middleView.frame = self.bounds;
@@ -226,7 +226,7 @@ typedef NS_ENUM(NSInteger, HMarqueeTapMode) {
     moveAnim.path = movePath.CGPath;
     moveAnim.removedOnCompletion = YES;
     
-    moveAnim.duration = self.marqueeLbl.frame.size.width * self.speedLevel * 0.01;
+    moveAnim.duration = self.marqueeLbl.frame.size.width *self.speedLevel *0.01;
     [moveAnim setDelegate:(id <CAAnimationDelegate>)self];
     
     [self.marqueeLbl.layer addAnimation:moveAnim forKey:nil];

@@ -101,13 +101,13 @@
                                   const unichar low = [substring characterAtIndex: 1];
                                   const int codepoint = ((high - 0xD800) * 0x400) + (low - 0xDC00) + 0x10000;
                                   
-                                  if (0x1D000 <= codepoint && codepoint <= 0x1F9FF){
+                                  if (0x1D000 <= codepoint && codepoint <= 0x1F9FF) {
                                       returnValue = YES;
                                   }
                                   
                                   // Not surrogate pair (U+2100-27BF)
-                              } else {
-                                  if (0x2100 <= high && high <= 0x27BF){
+                              }else {
+                                  if (0x2100 <= high && high <= 0x27BF) {
                                       returnValue = YES;
                                   }
                               }

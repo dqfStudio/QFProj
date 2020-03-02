@@ -15,7 +15,7 @@
 #pragma mark - 当其KVO方法调用时，需要回调所有的block
 
 @interface _HBlockTarget : NSObject
-/**添加一个KVOBlock*/
+/**添加一个KVOBlock */
 - (void)h_addBlock:(void(^)(__weak id obj, id oldValue, id newValue))block;
 - (void)h_addNotificationBlock:(void(^)(NSNotification *notify))block;
 - (void)h_doNotification:(NSNotification *)notify;
@@ -46,7 +46,7 @@
 
 - (void)h_doNotification:(NSNotification *)notify {
     if (!_notificationBlockSet.count) return;
-    [_notificationBlockSet enumerateObjectsUsingBlock:^(void (^block)(NSNotification *notification), BOOL * _Nonnull stop) {
+    [_notificationBlockSet enumerateObjectsUsingBlock:^(void (^block)(NSNotification *notification), BOOL *_Nonnull stop) {
         block(notify);
     }];
 }
@@ -63,7 +63,7 @@
     id newVal = [change objectForKey:NSKeyValueChangeNewKey];
     if (newVal == [NSNull null]) newVal = nil;
     //执行该target下的所有block
-    [_kvoBlockSet enumerateObjectsUsingBlock:^(void (^block)(__weak id obj, id oldVal, id newVal), BOOL * _Nonnull stop) {
+    [_kvoBlockSet enumerateObjectsUsingBlock:^(void (^block)(__weak id obj, id oldVal, id newVal), BOOL *_Nonnull stop) {
         block(object, oldVal, newVal);
     }];
 }
@@ -172,7 +172,7 @@ static void *const HKNotificationSemaphoreKey = "HKNotificationSemaphoreKey";
     if (!allTargets.count) return;
     dispatch_semaphore_t notificationSemaphore = [self _h_getSemaphoreWithKey:HKNotificationSemaphoreKey];
     dispatch_semaphore_wait(notificationSemaphore, DISPATCH_TIME_FOREVER);
-    [allTargets enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, _HBlockTarget *target, BOOL * _Nonnull stop) {
+    [allTargets enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, _HBlockTarget *target, BOOL *_Nonnull stop) {
         [[NSNotificationCenter defaultCenter] removeObserver:target];
     }];
     [allTargets removeAllObjects];
@@ -183,7 +183,7 @@ static void *const HKNotificationSemaphoreKey = "HKNotificationSemaphoreKey";
     [[NSNotificationCenter defaultCenter] postNotificationName:name object:nil userInfo:userInfo];
 }
 
-static void * hDeallocHasSwizzledKey = "deallocHasSwizzledKey";
+static void *hDeallocHasSwizzledKey = "deallocHasSwizzledKey";
 
 /**
  *  调剂dealloc方法，由于无法直接使用运行时的swizzle方法对dealloc方法进行调剂，所以稍微麻烦一些
@@ -217,7 +217,7 @@ static void * hDeallocHasSwizzledKey = "deallocHasSwizzledKey";
                 void (*msgSend)(struct objc_super *, SEL) = (__typeof__(msgSend))objc_msgSendSuper;
                 //向super发送dealloc消息
                 msgSend(&superInfo, deallocSelector);
-            }else{//如果存在，表明该类实现了dealloc方法，则直接调用即可
+            }else {//如果存在，表明该类实现了dealloc方法，则直接调用即可
                 //调用原有的dealloc方法
                 originalDealloc(objSelf, deallocSelector);
             }

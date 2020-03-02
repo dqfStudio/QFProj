@@ -59,9 +59,9 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 @property (nonatomic) HTableStyle tableStyle;
 
 @property (nonatomic) NSMutableSet *allReuseIdentifiers;
-@property (nonatomic) NSMapTable   *allReuseCells;
-@property (nonatomic) NSMutableDictionary   *allReuseHeaders;
-@property (nonatomic) NSMutableDictionary   *allReuseFooters;
+@property (nonatomic) NSMapTable *allReuseCells;
+@property (nonatomic) NSMutableDictionary *allReuseHeaders;
+@property (nonatomic) NSMutableDictionary *allReuseFooters;
 
 @property (nonatomic, copy) NSArray <NSNumber *> *sectionPaths;
 
@@ -105,7 +105,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     return self;
 }
 - (void)setFrame:(CGRect)frame {
-    if(!CGRectEqualToRect(frame, self.frame)) {
+    if (!CGRectEqualToRect(frame, self.frame)) {
         [super setFrame:frame];
         [self reloadData];
     }
@@ -229,7 +229,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
         self.mj_footer = [HTableRefresh refreshFooterWithStyle:_refreshFooterStyle andBlock:^{
             @sss
             self.pageNo += 1;
-            if (self.pageSize*self.pageNo < self.totalNo) {
+            if (self.pageSize *self.pageNo < self.totalNo) {
                 self->_loadMoreBlock();
             }else {
                 [self.mj_footer endRefreshing];
@@ -675,7 +675,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
         [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&view, &section];
     }
 }
-- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath {
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *prefix = [self tablePrefixWithSection:indexPath.section];
     SEL selector = @selector(didEndDisplayingCell:forRowAtIndexPath:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {

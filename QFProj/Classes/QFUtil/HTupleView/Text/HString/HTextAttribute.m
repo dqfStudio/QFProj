@@ -373,7 +373,7 @@ HTextAttributeType HTextAttributeGetType(NSString *name){
     typeof(self) one = [self.class new];
     if ([self.content respondsToSelector:@selector(copy)]) {
         one.content = [self.content copy];
-    } else {
+    }else {
         one.content = self.content;
     }
     one.contentInsets = self.contentInsets;
@@ -448,7 +448,7 @@ HTextAttributeType HTextAttributeGetType(NSString *name){
     [self _makeMutableAttributes];
     if (font == (id)[NSNull null] || font == nil) {
         ((NSMutableDictionary *)_attributes)[(id)kCTFontAttributeName] = [NSNull null];
-    } else {
+    }else {
         CTFontRef ctFont = CTFontCreateWithName((__bridge CFStringRef)font.fontName, font.pointSize, NULL);
         if (ctFont) {
             ((NSMutableDictionary *)_attributes)[(id)kCTFontAttributeName] = (__bridge id)(ctFont);
@@ -462,7 +462,7 @@ HTextAttributeType HTextAttributeGetType(NSString *name){
     if (color == (id)[NSNull null] || color == nil) {
         ((NSMutableDictionary *)_attributes)[(id)kCTForegroundColorAttributeName] = [NSNull null];
         ((NSMutableDictionary *)_attributes)[NSForegroundColorAttributeName] = [NSNull null];
-    } else {
+    }else {
         ((NSMutableDictionary *)_attributes)[(id)kCTForegroundColorAttributeName] = (__bridge id)(color.CGColor);
         ((NSMutableDictionary *)_attributes)[NSForegroundColorAttributeName] = color;
     }
@@ -472,7 +472,7 @@ HTextAttributeType HTextAttributeGetType(NSString *name){
     [self _makeMutableAttributes];
     if (width == (id)[NSNull null] || width == nil) {
         ((NSMutableDictionary *)_attributes)[(id)kCTStrokeWidthAttributeName] = [NSNull null];
-    } else {
+    }else {
         ((NSMutableDictionary *)_attributes)[(id)kCTStrokeWidthAttributeName] = width;
     }
 }
@@ -482,7 +482,7 @@ HTextAttributeType HTextAttributeGetType(NSString *name){
     if (color == (id)[NSNull null] || color == nil) {
         ((NSMutableDictionary *)_attributes)[(id)kCTStrokeColorAttributeName] = [NSNull null];
         ((NSMutableDictionary *)_attributes)[NSStrokeColorAttributeName] = [NSNull null];
-    } else {
+    }else {
         ((NSMutableDictionary *)_attributes)[(id)kCTStrokeColorAttributeName] = (__bridge id)(color.CGColor);
         ((NSMutableDictionary *)_attributes)[NSStrokeColorAttributeName] = color;
     }

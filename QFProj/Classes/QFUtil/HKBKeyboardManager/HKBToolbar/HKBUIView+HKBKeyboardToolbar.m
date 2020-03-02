@@ -34,8 +34,7 @@
 
 @implementation HKBBarButtonItemConfiguration
 
--(instancetype)initWithBarButtonSystemItem:(UIBarButtonSystemItem)barButtonSystemItem action:(SEL)action
-{
+- (instancetype)initWithBarButtonSystemItem:(UIBarButtonSystemItem)barButtonSystemItem action:(SEL)action {
     self = [super init];
     if (self) {
         _barButtonSystemItem = barButtonSystemItem;
@@ -44,8 +43,7 @@
     return self;
 }
 
--(instancetype)initWithImage:(UIImage *)image action:(SEL)action
-{
+- (instancetype)initWithImage:(UIImage *)image action:(SEL)action {
     self = [super init];
     if (self) {
         _image = image;
@@ -54,8 +52,7 @@
     return self;
 }
 
--(instancetype)initWithTitle:(NSString *)title action:(SEL)action
-{
+- (instancetype)initWithTitle:(NSString *)title action:(SEL)action {
     self = [super init];
     if (self) {
         _title = title;
@@ -68,12 +65,10 @@
 
 @implementation UIImage (HKBKeyboardToolbarNextPreviousImage)
 
-+(UIImage*)keyboardPreviousiOS9Image
-{
++ (UIImage *)keyboardPreviousiOS9Image {
     static UIImage *keyboardPreviousiOS9Image = nil;
     
-    if (keyboardPreviousiOS9Image == nil)
-    {
+    if (keyboardPreviousiOS9Image == nil) {
         // Get the top level "bundle" which may actually be the framework
         NSBundle *mainBundle = [NSBundle bundleForClass:[HKBKeyboardManager class]];
         
@@ -90,8 +85,7 @@
 #ifdef __IPHONE_11_0
         if (@available(iOS 9.0, *)) {
 #endif
-            if ([UIImage instancesRespondToSelector:@selector(imageFlippedForRightToLeftLayoutDirection)])
-            {
+            if ([UIImage instancesRespondToSelector:@selector(imageFlippedForRightToLeftLayoutDirection)]) {
                 keyboardPreviousiOS9Image = [keyboardPreviousiOS9Image imageFlippedForRightToLeftLayoutDirection];
             }
 #ifdef __IPHONE_11_0
@@ -102,12 +96,10 @@
     return keyboardPreviousiOS9Image;
 }
 
-+(UIImage*)keyboardNextiOS9Image
-{
++ (UIImage *)keyboardNextiOS9Image {
     static UIImage *keyboardNextiOS9Image = nil;
     
-    if (keyboardNextiOS9Image == nil)
-    {
+    if (keyboardNextiOS9Image == nil) {
         // Get the top level "bundle" which may actually be the framework
         NSBundle *mainBundle = [NSBundle bundleForClass:[HKBKeyboardManager class]];
         
@@ -124,8 +116,7 @@
 #ifdef __IPHONE_11_0
         if (@available(iOS 9.0, *)) {
 #endif
-            if ([UIImage instancesRespondToSelector:@selector(imageFlippedForRightToLeftLayoutDirection)])
-            {
+            if ([UIImage instancesRespondToSelector:@selector(imageFlippedForRightToLeftLayoutDirection)]) {
                 keyboardNextiOS9Image = [keyboardNextiOS9Image imageFlippedForRightToLeftLayoutDirection];
             }
 #ifdef __IPHONE_11_0
@@ -136,12 +127,10 @@
     return keyboardNextiOS9Image;
 }
 
-+(UIImage*)keyboardPreviousiOS10Image
-{
++ (UIImage *)keyboardPreviousiOS10Image {
     static UIImage *keyboardPreviousiOS10Image = nil;
     
-    if (keyboardPreviousiOS10Image == nil)
-    {
+    if (keyboardPreviousiOS10Image == nil) {
         // Get the top level "bundle" which may actually be the framework
         NSBundle *mainBundle = [NSBundle bundleForClass:[HKBKeyboardManager class]];
         
@@ -158,8 +147,7 @@
 #ifdef __IPHONE_11_0
         if (@available(iOS 9.0, *)) {
 #endif
-            if ([UIImage instancesRespondToSelector:@selector(imageFlippedForRightToLeftLayoutDirection)])
-            {
+            if ([UIImage instancesRespondToSelector:@selector(imageFlippedForRightToLeftLayoutDirection)]) {
                 keyboardPreviousiOS10Image = [keyboardPreviousiOS10Image imageFlippedForRightToLeftLayoutDirection];
             }
 #ifdef __IPHONE_11_0
@@ -170,12 +158,10 @@
     return keyboardPreviousiOS10Image;
 }
 
-+(UIImage*)keyboardNextiOS10Image
-{
++ (UIImage *)keyboardNextiOS10Image {
     static UIImage *keyboardNextiOS10Image = nil;
     
-    if (keyboardNextiOS10Image == nil)
-    {
+    if (keyboardNextiOS10Image == nil) {
         // Get the top level "bundle" which may actually be the framework
         NSBundle *mainBundle = [NSBundle bundleForClass:[HKBKeyboardManager class]];
         
@@ -192,8 +178,7 @@
 #ifdef __IPHONE_11_0
         if (@available(iOS 9.0, *)) {
 #endif
-            if ([UIImage instancesRespondToSelector:@selector(imageFlippedForRightToLeftLayoutDirection)])
-            {
+            if ([UIImage instancesRespondToSelector:@selector(imageFlippedForRightToLeftLayoutDirection)]) {
                 keyboardNextiOS10Image = [keyboardNextiOS10Image imageFlippedForRightToLeftLayoutDirection];
             }
 #ifdef __IPHONE_11_0
@@ -204,8 +189,7 @@
     return keyboardNextiOS10Image;
 }
 
-+(UIImage*)keyboardPreviousImage
-{
++ (UIImage *)keyboardPreviousImage {
 #ifdef __IPHONE_11_0
     if (@available(iOS 10.0, *))
 #else
@@ -213,15 +197,12 @@
 #endif
     {
         return [UIImage keyboardPreviousiOS10Image];
-    }
-    else
-    {
+    }else {
         return [UIImage keyboardPreviousiOS9Image];
     }
 }
 
-+(UIImage*)keyboardNextImage
-{
++ (UIImage *)keyboardNextImage {
 #ifdef __IPHONE_11_0
     if (@available(iOS 10.0, *))
 #else
@@ -229,9 +210,7 @@
 #endif
     {
         return [UIImage keyboardNextiOS10Image];
-    }
-    else
-    {
+    }else {
         return [UIImage keyboardNextiOS9Image];
     }
 }
@@ -239,22 +218,17 @@
 @end
 
 
-/*UIKeyboardToolbar Category implementation*/
+/*UIKeyboardToolbar Category implementation */
 @implementation UIView (HKBToolbarAddition)
 
--(HKBToolbar *)keyboardToolbar
-{
+- (HKBToolbar *)keyboardToolbar {
     HKBToolbar *keyboardToolbar = nil;
-    if ([[self inputAccessoryView] isKindOfClass:[HKBToolbar class]])
-    {
+    if ([[self inputAccessoryView] isKindOfClass:[HKBToolbar class]]) {
         keyboardToolbar = [self inputAccessoryView];
-    }
-    else
-    {
+    }else {
         keyboardToolbar = objc_getAssociatedObject(self, @selector(keyboardToolbar));
         
-        if (keyboardToolbar == nil)
-        {
+        if (keyboardToolbar == nil) {
             keyboardToolbar = [[HKBToolbar alloc] init];
             
             objc_setAssociatedObject(self, @selector(keyboardToolbar), keyboardToolbar, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -264,60 +238,48 @@
     return keyboardToolbar;
 }
 
--(void)setShouldHideToolbarPlaceholder:(BOOL)shouldHideToolbarPlaceholder
-{
+- (void)setShouldHideToolbarPlaceholder:(BOOL)shouldHideToolbarPlaceholder {
     objc_setAssociatedObject(self, @selector(shouldHideToolbarPlaceholder), @(shouldHideToolbarPlaceholder), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
     self.keyboardToolbar.titleBarButton.title = self.drawingToolbarPlaceholder;
 }
 
--(BOOL)shouldHideToolbarPlaceholder
-{
+- (BOOL)shouldHideToolbarPlaceholder {
     NSNumber *shouldHideToolbarPlaceholder = objc_getAssociatedObject(self, @selector(shouldHideToolbarPlaceholder));
     return [shouldHideToolbarPlaceholder boolValue];
 }
 
--(void)setToolbarPlaceholder:(NSString *)toolbarPlaceholder
-{
+- (void)setToolbarPlaceholder:(NSString *)toolbarPlaceholder {
     objc_setAssociatedObject(self, @selector(toolbarPlaceholder), toolbarPlaceholder, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
     self.keyboardToolbar.titleBarButton.title = self.drawingToolbarPlaceholder;
 }
 
--(NSString *)toolbarPlaceholder
-{
+- (NSString *)toolbarPlaceholder {
     NSString *toolbarPlaceholder = objc_getAssociatedObject(self, @selector(toolbarPlaceholder));
     return toolbarPlaceholder;
 }
 
--(NSString *)drawingToolbarPlaceholder
-{
-    if (self.shouldHideToolbarPlaceholder)
-    {
+- (NSString *)drawingToolbarPlaceholder {
+    if (self.shouldHideToolbarPlaceholder) {
         return nil;
     }
-    else if (self.toolbarPlaceholder.length != 0)
-    {
+    else if (self.toolbarPlaceholder.length != 0) {
         return self.toolbarPlaceholder;
     }
-    else if ([self respondsToSelector:@selector(placeholder)])
-    {
-        return [(UITextField*)self placeholder];
-    }
-    else
-    {
+    else if ([self respondsToSelector:@selector(placeholder)]) {
+        return [(UITextField *)self placeholder];
+    }else {
         return nil;
     }
 }
 
 #pragma mark - Private helper
 
-+(HKBBarButtonItem*)flexibleBarButtonItem
-{
++ (HKBBarButtonItem *)flexibleBarButtonItem {
     static HKBBarButtonItem *nilButton = nil;
     
-    if (nilButton == nil)
-    {
+    if (nilButton == nil) {
         nilButton = [[HKBBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     }
     
@@ -326,43 +288,36 @@
 
 #pragma mark - Common
 
-- (void)addKeyboardToolbarWithTarget:(id)target titleText:(NSString*)titleText rightBarButtonConfiguration:(HKBBarButtonItemConfiguration*)rightBarButtonConfiguration previousBarButtonConfiguration:(HKBBarButtonItemConfiguration*)previousBarButtonConfiguration nextBarButtonConfiguration:(HKBBarButtonItemConfiguration*)nextBarButtonConfiguration
-{
+- (void)addKeyboardToolbarWithTarget:(id)target titleText:(NSString *)titleText rightBarButtonConfiguration:(HKBBarButtonItemConfiguration *)rightBarButtonConfiguration previousBarButtonConfiguration:(HKBBarButtonItemConfiguration *)previousBarButtonConfiguration nextBarButtonConfiguration:(HKBBarButtonItemConfiguration *)nextBarButtonConfiguration {
     //If can't set InputAccessoryView. Then return
     if (![self respondsToSelector:@selector(setInputAccessoryView:)])    return;
     
     //  Creating a toolBar for phoneNumber keyboard
     HKBToolbar *toolbar = self.keyboardToolbar;
     
-    NSMutableArray<UIBarButtonItem*> *items = [[NSMutableArray alloc] init];
+    NSMutableArray<UIBarButtonItem *> *items = [[NSMutableArray alloc] init];
     
-    if(previousBarButtonConfiguration)
-    {
+    if (previousBarButtonConfiguration) {
         HKBBarButtonItem *prev = toolbar.previousBarButton;
         
-        if (prev.isSystemItem == NO && (previousBarButtonConfiguration.image || previousBarButtonConfiguration.title))
-        {
+        if (prev.isSystemItem == NO && (previousBarButtonConfiguration.image || previousBarButtonConfiguration.title)) {
             prev.title = previousBarButtonConfiguration.title;
             prev.image = previousBarButtonConfiguration.image;
             prev.target = target;
             prev.action = previousBarButtonConfiguration.action;
         }
-        else if (previousBarButtonConfiguration.image)
-        {
+        else if (previousBarButtonConfiguration.image) {
             prev = [[HKBBarButtonItem alloc] initWithImage:previousBarButtonConfiguration.image style:UIBarButtonItemStylePlain target:target action:previousBarButtonConfiguration.action];
             prev.invocation = toolbar.previousBarButton.invocation;
             prev.accessibilityLabel = toolbar.previousBarButton.accessibilityLabel;
             toolbar.previousBarButton = prev;
         }
-        else if (previousBarButtonConfiguration.title)
-        {
+        else if (previousBarButtonConfiguration.title) {
             prev = [[HKBBarButtonItem alloc] initWithTitle:previousBarButtonConfiguration.title style:UIBarButtonItemStylePlain target:target action:previousBarButtonConfiguration.action];
             prev.invocation = toolbar.previousBarButton.invocation;
             prev.accessibilityLabel = toolbar.previousBarButton.accessibilityLabel;
             toolbar.previousBarButton = prev;
-        }
-        else
-        {
+        }else {
             prev = [[HKBBarButtonItem alloc] initWithBarButtonSystemItem:previousBarButtonConfiguration.barButtonSystemItem target:target action:previousBarButtonConfiguration.action];
             prev.invocation = toolbar.previousBarButton.invocation;
             prev.accessibilityLabel = toolbar.previousBarButton.accessibilityLabel;
@@ -372,38 +327,31 @@
         [items addObject:prev];
     }
     
-    if (previousBarButtonConfiguration != nil && nextBarButtonConfiguration != nil)
-    {
+    if (previousBarButtonConfiguration != nil && nextBarButtonConfiguration != nil) {
         [items addObject:toolbar.fixedSpaceBarButton];
     }
 
-    if(nextBarButtonConfiguration)
-    {
+    if (nextBarButtonConfiguration) {
         HKBBarButtonItem *next = toolbar.nextBarButton;
         
-        if (next.isSystemItem == NO && (nextBarButtonConfiguration.image || nextBarButtonConfiguration.title))
-        {
+        if (next.isSystemItem == NO && (nextBarButtonConfiguration.image || nextBarButtonConfiguration.title)) {
             next.title = nextBarButtonConfiguration.title;
             next.image = nextBarButtonConfiguration.image;
             next.target = target;
             next.action = nextBarButtonConfiguration.action;
         }
-        else if (nextBarButtonConfiguration.image)
-        {
+        else if (nextBarButtonConfiguration.image) {
             next = [[HKBBarButtonItem alloc] initWithImage:nextBarButtonConfiguration.image style:UIBarButtonItemStylePlain target:target action:nextBarButtonConfiguration.action];
             next.invocation = toolbar.nextBarButton.invocation;
             next.accessibilityLabel = toolbar.nextBarButton.accessibilityLabel;
             toolbar.nextBarButton = next;
         }
-        else if (nextBarButtonConfiguration.title)
-        {
+        else if (nextBarButtonConfiguration.title) {
             next = [[HKBBarButtonItem alloc] initWithTitle:nextBarButtonConfiguration.title style:UIBarButtonItemStylePlain target:target action:nextBarButtonConfiguration.action];
             next.invocation = toolbar.nextBarButton.invocation;
             next.accessibilityLabel = toolbar.nextBarButton.accessibilityLabel;
             toolbar.nextBarButton = next;
-        }
-        else
-        {
+        }else {
             next = [[HKBBarButtonItem alloc] initWithBarButtonSystemItem:nextBarButtonConfiguration.barButtonSystemItem target:target action:nextBarButtonConfiguration.action];
             next.invocation = toolbar.nextBarButton.invocation;
             next.accessibilityLabel = toolbar.nextBarButton.accessibilityLabel;
@@ -433,33 +381,27 @@
         [items addObject:[[self class] flexibleBarButtonItem]];
     }
     
-    if(rightBarButtonConfiguration)
-    {
+    if (rightBarButtonConfiguration) {
         HKBBarButtonItem *done = toolbar.doneBarButton;
         
-        if (done.isSystemItem == NO && (rightBarButtonConfiguration.image || rightBarButtonConfiguration.title))
-        {
+        if (done.isSystemItem == NO && (rightBarButtonConfiguration.image || rightBarButtonConfiguration.title)) {
             done.title = rightBarButtonConfiguration.title;
             done.image = rightBarButtonConfiguration.image;
             done.target = target;
             done.action = rightBarButtonConfiguration.action;
         }
-        else if (rightBarButtonConfiguration.image)
-        {
+        else if (rightBarButtonConfiguration.image) {
             done = [[HKBBarButtonItem alloc] initWithImage:rightBarButtonConfiguration.image style:UIBarButtonItemStylePlain target:target action:rightBarButtonConfiguration.action];
             done.invocation = toolbar.doneBarButton.invocation;
             done.accessibilityLabel = toolbar.doneBarButton.accessibilityLabel;
             toolbar.doneBarButton = done;
         }
-        else if (rightBarButtonConfiguration.title)
-        {
+        else if (rightBarButtonConfiguration.title) {
             done = [[HKBBarButtonItem alloc] initWithTitle:rightBarButtonConfiguration.title style:UIBarButtonItemStylePlain target:target action:rightBarButtonConfiguration.action];
             done.invocation = toolbar.doneBarButton.invocation;
             done.accessibilityLabel = toolbar.doneBarButton.accessibilityLabel;
             toolbar.doneBarButton = done;
-        }
-        else
-        {
+        }else {
             done = [[HKBBarButtonItem alloc] initWithBarButtonSystemItem:rightBarButtonConfiguration.barButtonSystemItem target:target action:rightBarButtonConfiguration.action];
             done.invocation = toolbar.doneBarButton.invocation;
             done.accessibilityLabel = toolbar.doneBarButton.accessibilityLabel;
@@ -473,13 +415,11 @@
     [toolbar setItems:items];
     
     //  Setting toolbar to keyboard.
-    [(UITextField*)self setInputAccessoryView:toolbar];
+    [(UITextField *)self setInputAccessoryView:toolbar];
 
     
-    if ([self respondsToSelector:@selector(keyboardAppearance)])
-    {
-        switch ([(UITextField*)self keyboardAppearance])
-        {
+    if ([self respondsToSelector:@selector(keyboardAppearance)]) {
+        switch ([(UITextField *)self keyboardAppearance]) {
             case UIKeyboardAppearanceDark:  toolbar.barStyle = UIBarStyleBlack;     break;
             default:                        toolbar.barStyle = UIBarStyleDefault;   break;
         }
@@ -488,72 +428,60 @@
 
 #pragma mark - Right
 
-- (void)addRightButtonOnKeyboardWithText:(NSString*)text target:(id)target action:(SEL)action
-{
+- (void)addRightButtonOnKeyboardWithText:(NSString *)text target:(id)target action:(SEL)action {
     [self addRightButtonOnKeyboardWithText:text target:target action:action titleText:nil];
 }
 
-- (void)addRightButtonOnKeyboardWithText:(NSString*)text target:(id)target action:(SEL)action shouldShowPlaceholder:(BOOL)shouldShowPlaceholder
-{
+- (void)addRightButtonOnKeyboardWithText:(NSString *)text target:(id)target action:(SEL)action shouldShowPlaceholder:(BOOL)shouldShowPlaceholder {
     [self addRightButtonOnKeyboardWithText:text target:target action:action titleText:(shouldShowPlaceholder?[self drawingToolbarPlaceholder]:nil)];
 }
 
-- (void)addRightButtonOnKeyboardWithText:(NSString*)text target:(id)target action:(SEL)action titleText:(NSString*)titleText
-{
+- (void)addRightButtonOnKeyboardWithText:(NSString *)text target:(id)target action:(SEL)action titleText:(NSString *)titleText {
     HKBBarButtonItemConfiguration *rightConfiguration = [[HKBBarButtonItemConfiguration alloc] initWithTitle:text action:action];
     
     [self addKeyboardToolbarWithTarget:target titleText:titleText rightBarButtonConfiguration:rightConfiguration previousBarButtonConfiguration:nil nextBarButtonConfiguration:nil];
 }
 
 
-- (void)addRightButtonOnKeyboardWithImage:(UIImage*)image target:(id)target action:(SEL)action
-{
+- (void)addRightButtonOnKeyboardWithImage:(UIImage *)image target:(id)target action:(SEL)action {
     [self addRightButtonOnKeyboardWithImage:image target:target action:action titleText:nil];
 }
 
-- (void)addRightButtonOnKeyboardWithImage:(UIImage*)image target:(id)target action:(SEL)action shouldShowPlaceholder:(BOOL)shouldShowPlaceholder
-{
+- (void)addRightButtonOnKeyboardWithImage:(UIImage *)image target:(id)target action:(SEL)action shouldShowPlaceholder:(BOOL)shouldShowPlaceholder {
     [self addRightButtonOnKeyboardWithImage:image target:target action:action titleText:(shouldShowPlaceholder?[self drawingToolbarPlaceholder]:nil)];
 }
 
-- (void)addRightButtonOnKeyboardWithImage:(UIImage*)image target:(id)target action:(SEL)action titleText:(NSString*)titleText
-{
+- (void)addRightButtonOnKeyboardWithImage:(UIImage *)image target:(id)target action:(SEL)action titleText:(NSString *)titleText {
     HKBBarButtonItemConfiguration *rightConfiguration = [[HKBBarButtonItemConfiguration alloc] initWithImage:image action:action];
     
     [self addKeyboardToolbarWithTarget:target titleText:titleText rightBarButtonConfiguration:rightConfiguration previousBarButtonConfiguration:nil nextBarButtonConfiguration:nil];
 }
 
 
--(void)addDoneOnKeyboardWithTarget:(id)target action:(SEL)action
-{
+- (void)addDoneOnKeyboardWithTarget:(id)target action:(SEL)action {
     [self addDoneOnKeyboardWithTarget:target action:action titleText:nil];
 }
 
--(void)addDoneOnKeyboardWithTarget:(id)target action:(SEL)action shouldShowPlaceholder:(BOOL)shouldShowPlaceholder
-{
+- (void)addDoneOnKeyboardWithTarget:(id)target action:(SEL)action shouldShowPlaceholder:(BOOL)shouldShowPlaceholder {
     [self addDoneOnKeyboardWithTarget:target action:action titleText:(shouldShowPlaceholder?[self drawingToolbarPlaceholder]:nil)];
 }
 
-- (void)addDoneOnKeyboardWithTarget:(id)target action:(SEL)action titleText:(NSString*)titleText
-{
+- (void)addDoneOnKeyboardWithTarget:(id)target action:(SEL)action titleText:(NSString *)titleText {
     HKBBarButtonItemConfiguration *rightConfiguration = [[HKBBarButtonItemConfiguration alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone action:action];
     
     [self addKeyboardToolbarWithTarget:target titleText:titleText rightBarButtonConfiguration:rightConfiguration previousBarButtonConfiguration:nil nextBarButtonConfiguration:nil];
 }
 
 
-- (void)addLeftRightOnKeyboardWithTarget:(id)target leftButtonTitle:(NSString*)leftTitle rightButtonTitle:(NSString*)rightTitle leftButtonAction:(SEL)leftAction rightButtonAction:(SEL)rightAction
-{
+- (void)addLeftRightOnKeyboardWithTarget:(id)target leftButtonTitle:(NSString *)leftTitle rightButtonTitle:(NSString *)rightTitle leftButtonAction:(SEL)leftAction rightButtonAction:(SEL)rightAction {
     [self addLeftRightOnKeyboardWithTarget:target leftButtonTitle:leftTitle rightButtonTitle:rightTitle leftButtonAction:leftAction rightButtonAction:rightAction titleText:nil];
 }
 
-- (void)addLeftRightOnKeyboardWithTarget:(id)target leftButtonTitle:(NSString*)leftTitle rightButtonTitle:(NSString*)rightTitle leftButtonAction:(SEL)leftAction rightButtonAction:(SEL)rightAction shouldShowPlaceholder:(BOOL)shouldShowPlaceholder
-{
+- (void)addLeftRightOnKeyboardWithTarget:(id)target leftButtonTitle:(NSString *)leftTitle rightButtonTitle:(NSString *)rightTitle leftButtonAction:(SEL)leftAction rightButtonAction:(SEL)rightAction shouldShowPlaceholder:(BOOL)shouldShowPlaceholder {
     [self addLeftRightOnKeyboardWithTarget:target leftButtonTitle:leftTitle rightButtonTitle:rightTitle leftButtonAction:leftAction rightButtonAction:rightAction titleText:(shouldShowPlaceholder?[self drawingToolbarPlaceholder]:nil)];
 }
 
-- (void)addLeftRightOnKeyboardWithTarget:(id)target leftButtonTitle:(NSString*)leftTitle rightButtonTitle:(NSString*)rightTitle leftButtonAction:(SEL)leftAction rightButtonAction:(SEL)rightAction titleText:(NSString*)titleText
-{
+- (void)addLeftRightOnKeyboardWithTarget:(id)target leftButtonTitle:(NSString *)leftTitle rightButtonTitle:(NSString *)rightTitle leftButtonAction:(SEL)leftAction rightButtonAction:(SEL)rightAction titleText:(NSString *)titleText {
     HKBBarButtonItemConfiguration *leftConfiguration = [[HKBBarButtonItemConfiguration alloc] initWithTitle:leftTitle action:leftAction];
     
     HKBBarButtonItemConfiguration *rightConfiguration = [[HKBBarButtonItemConfiguration alloc] initWithTitle:rightTitle action:rightAction];
@@ -562,18 +490,15 @@
 }
 
 
--(void)addCancelDoneOnKeyboardWithTarget:(id)target cancelAction:(SEL)cancelAction doneAction:(SEL)doneAction
-{
+- (void)addCancelDoneOnKeyboardWithTarget:(id)target cancelAction:(SEL)cancelAction doneAction:(SEL)doneAction {
     [self addCancelDoneOnKeyboardWithTarget:target cancelAction:cancelAction doneAction:doneAction titleText:nil];
 }
 
--(void)addCancelDoneOnKeyboardWithTarget:(id)target cancelAction:(SEL)cancelAction doneAction:(SEL)doneAction shouldShowPlaceholder:(BOOL)shouldShowPlaceholder
-{
+- (void)addCancelDoneOnKeyboardWithTarget:(id)target cancelAction:(SEL)cancelAction doneAction:(SEL)doneAction shouldShowPlaceholder:(BOOL)shouldShowPlaceholder {
     [self addCancelDoneOnKeyboardWithTarget:target cancelAction:cancelAction doneAction:doneAction titleText:(shouldShowPlaceholder?[self drawingToolbarPlaceholder]:nil)];
 }
 
-- (void)addCancelDoneOnKeyboardWithTarget:(id)target cancelAction:(SEL)cancelAction doneAction:(SEL)doneAction titleText:(NSString*)titleText
-{
+- (void)addCancelDoneOnKeyboardWithTarget:(id)target cancelAction:(SEL)cancelAction doneAction:(SEL)doneAction titleText:(NSString *)titleText {
     HKBBarButtonItemConfiguration *leftConfiguration = [[HKBBarButtonItemConfiguration alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel action:cancelAction];
     
     HKBBarButtonItemConfiguration *rightConfiguration = [[HKBBarButtonItemConfiguration alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone action:doneAction];
@@ -582,18 +507,15 @@
 }
 
 
--(void)addPreviousNextDoneOnKeyboardWithTarget:(id)target previousAction:(SEL)previousAction nextAction:(SEL)nextAction doneAction:(SEL)doneAction
-{
+- (void)addPreviousNextDoneOnKeyboardWithTarget:(id)target previousAction:(SEL)previousAction nextAction:(SEL)nextAction doneAction:(SEL)doneAction {
     [self addPreviousNextDoneOnKeyboardWithTarget:target previousAction:previousAction nextAction:nextAction doneAction:doneAction titleText:nil];
 }
 
--(void)addPreviousNextDoneOnKeyboardWithTarget:(id)target previousAction:(SEL)previousAction nextAction:(SEL)nextAction doneAction:(SEL)doneAction shouldShowPlaceholder:(BOOL)shouldShowPlaceholder
-{
+- (void)addPreviousNextDoneOnKeyboardWithTarget:(id)target previousAction:(SEL)previousAction nextAction:(SEL)nextAction doneAction:(SEL)doneAction shouldShowPlaceholder:(BOOL)shouldShowPlaceholder {
     [self addPreviousNextDoneOnKeyboardWithTarget:target previousAction:previousAction nextAction:nextAction doneAction:doneAction titleText:(shouldShowPlaceholder?[self drawingToolbarPlaceholder]:nil)];
 }
 
-- (void)addPreviousNextDoneOnKeyboardWithTarget:(id)target previousAction:(SEL)previousAction nextAction:(SEL)nextAction doneAction:(SEL)doneAction titleText:(NSString*)titleText
-{
+- (void)addPreviousNextDoneOnKeyboardWithTarget:(id)target previousAction:(SEL)previousAction nextAction:(SEL)nextAction doneAction:(SEL)doneAction titleText:(NSString *)titleText {
     HKBBarButtonItemConfiguration *previousConfiguration = [[HKBBarButtonItemConfiguration alloc] initWithImage:[UIImage keyboardPreviousImage] action:previousAction];
     
     HKBBarButtonItemConfiguration *nextConfiguration = [[HKBBarButtonItemConfiguration alloc] initWithImage:[UIImage keyboardNextImage] action:nextAction];
@@ -604,18 +526,15 @@
 }
 
 
-- (void)addPreviousNextRightOnKeyboardWithTarget:(nullable id)target rightButtonImage:(nullable UIImage*)rightButtonImage previousAction:(nullable SEL)previousAction nextAction:(nullable SEL)nextAction rightButtonAction:(nullable SEL)rightButtonAction
-{
+- (void)addPreviousNextRightOnKeyboardWithTarget:(nullable id)target rightButtonImage:(nullable UIImage *)rightButtonImage previousAction:(nullable SEL)previousAction nextAction:(nullable SEL)nextAction rightButtonAction:(nullable SEL)rightButtonAction {
     [self addPreviousNextRightOnKeyboardWithTarget:target rightButtonImage:rightButtonImage previousAction:previousAction nextAction:nextAction rightButtonAction:rightButtonAction titleText:nil];
 }
 
-- (void)addPreviousNextRightOnKeyboardWithTarget:(nullable id)target rightButtonImage:(nullable UIImage*)rightButtonImage previousAction:(nullable SEL)previousAction nextAction:(nullable SEL)nextAction rightButtonAction:(nullable SEL)rightButtonAction shouldShowPlaceholder:(BOOL)shouldShowPlaceholder
-{
+- (void)addPreviousNextRightOnKeyboardWithTarget:(nullable id)target rightButtonImage:(nullable UIImage *)rightButtonImage previousAction:(nullable SEL)previousAction nextAction:(nullable SEL)nextAction rightButtonAction:(nullable SEL)rightButtonAction shouldShowPlaceholder:(BOOL)shouldShowPlaceholder {
     [self addPreviousNextRightOnKeyboardWithTarget:target rightButtonImage:rightButtonImage previousAction:previousAction nextAction:nextAction rightButtonAction:rightButtonAction titleText:(shouldShowPlaceholder?[self drawingToolbarPlaceholder]:nil)];
 }
 
-- (void)addPreviousNextRightOnKeyboardWithTarget:(id)target rightButtonImage:(UIImage*)rightButtonImage previousAction:(SEL)previousAction nextAction:(SEL)nextAction rightButtonAction:(SEL)rightButtonAction titleText:(NSString*)titleText
-{
+- (void)addPreviousNextRightOnKeyboardWithTarget:(id)target rightButtonImage:(UIImage *)rightButtonImage previousAction:(SEL)previousAction nextAction:(SEL)nextAction rightButtonAction:(SEL)rightButtonAction titleText:(NSString *)titleText {
     HKBBarButtonItemConfiguration *previousConfiguration = [[HKBBarButtonItemConfiguration alloc] initWithImage:[UIImage keyboardPreviousImage] action:previousAction];
     
     HKBBarButtonItemConfiguration *nextConfiguration = [[HKBBarButtonItemConfiguration alloc] initWithImage:[UIImage keyboardNextImage] action:nextAction];
@@ -626,18 +545,15 @@
 }
 
 
-- (void)addPreviousNextRightOnKeyboardWithTarget:(id)target rightButtonTitle:(NSString*)rightButtonTitle previousAction:(SEL)previousAction nextAction:(SEL)nextAction rightButtonAction:(SEL)rightButtonAction
-{
+- (void)addPreviousNextRightOnKeyboardWithTarget:(id)target rightButtonTitle:(NSString *)rightButtonTitle previousAction:(SEL)previousAction nextAction:(SEL)nextAction rightButtonAction:(SEL)rightButtonAction {
     [self addPreviousNextRightOnKeyboardWithTarget:target rightButtonTitle:rightButtonTitle previousAction:previousAction nextAction:nextAction rightButtonAction:rightButtonAction titleText:nil];
 }
 
-- (void)addPreviousNextRightOnKeyboardWithTarget:(id)target rightButtonTitle:(NSString*)rightButtonTitle previousAction:(SEL)previousAction nextAction:(SEL)nextAction rightButtonAction:(SEL)rightButtonAction shouldShowPlaceholder:(BOOL)shouldShowPlaceholder
-{
+- (void)addPreviousNextRightOnKeyboardWithTarget:(id)target rightButtonTitle:(NSString *)rightButtonTitle previousAction:(SEL)previousAction nextAction:(SEL)nextAction rightButtonAction:(SEL)rightButtonAction shouldShowPlaceholder:(BOOL)shouldShowPlaceholder {
     [self addPreviousNextRightOnKeyboardWithTarget:target rightButtonTitle:rightButtonTitle previousAction:previousAction nextAction:nextAction rightButtonAction:rightButtonAction titleText:(shouldShowPlaceholder?[self drawingToolbarPlaceholder]:nil)];
 }
 
-- (void)addPreviousNextRightOnKeyboardWithTarget:(id)target rightButtonTitle:(NSString*)rightButtonTitle previousAction:(SEL)previousAction nextAction:(SEL)nextAction rightButtonAction:(SEL)rightButtonAction titleText:(NSString*)titleText
-{
+- (void)addPreviousNextRightOnKeyboardWithTarget:(id)target rightButtonTitle:(NSString *)rightButtonTitle previousAction:(SEL)previousAction nextAction:(SEL)nextAction rightButtonAction:(SEL)rightButtonAction titleText:(NSString *)titleText {
     HKBBarButtonItemConfiguration *previousConfiguration = [[HKBBarButtonItemConfiguration alloc] initWithImage:[UIImage keyboardPreviousImage] action:previousAction];
     
     HKBBarButtonItemConfiguration *nextConfiguration = [[HKBBarButtonItemConfiguration alloc] initWithImage:[UIImage keyboardNextImage] action:nextAction];

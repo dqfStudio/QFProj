@@ -10,11 +10,11 @@
 
 #import "WebViewJavascriptBridge_JS.h"
 
-NSString * WebViewJavascriptBridge_js() {
+NSString *WebViewJavascriptBridge_js() {
 	#define __wvjb_js_func__(x) #x
 	
 	// BEGIN preprocessorJSCode
-	static NSString * preprocessorJSCode = @__wvjb_js_func__(
+	static NSString *preprocessorJSCode = @__wvjb_js_func__(
 ;(function() {
 	if (window.WebViewJavascriptBridge) {
 		return;
@@ -61,7 +61,7 @@ NSString * WebViewJavascriptBridge_js() {
 	
 	function _doSend(message, responseCallback) {
 		if (responseCallback) {
-			var callbackId = 'cb_'+(uniqueId++)+'_'+new Date().getTime();
+			var callbackId = 'cb_'+ (uniqueId++)+'_'+new Date().getTime();
 			responseCallbacks[callbackId] = responseCallback;
 			message['callbackId'] = callbackId;
 		}
@@ -78,7 +78,7 @@ NSString * WebViewJavascriptBridge_js() {
 	function _dispatchMessageFromObjC(messageJSON) {
 		if (dispatchMessagesWithTimeoutSafety) {
 			setTimeout(_doDispatchMessageFromObjC);
-		} else {
+        }else {
 			 _doDispatchMessageFromObjC();
 		}
 		
@@ -94,7 +94,7 @@ NSString * WebViewJavascriptBridge_js() {
 				}
 				responseCallback(message.responseData);
 				delete responseCallbacks[message.responseId];
-			} else {
+            }else {
 				if (message.callbackId) {
 					var callbackResponseId = message.callbackId;
 					responseCallback = function(responseData) {
@@ -105,7 +105,7 @@ NSString * WebViewJavascriptBridge_js() {
 				var handler = messageHandlers[message.handlerName];
 				if (!handler) {
 					console.log("WebViewJavascriptBridge: WARNING: no handler for message from ObjC:", message);
-				} else {
+                }else {
 					handler(message.data, responseCallback);
 				}
 			}

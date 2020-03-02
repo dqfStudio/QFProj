@@ -21,7 +21,7 @@
         frame.size.height -= UIScreen.topBarHeight;
         _tupleView = [HTupleView tupleFrame:^CGRect{
             return frame;
-        } exclusiveSections:^NSArray * _Nullable{
+        } exclusiveSections:^NSArray *_Nullable{
             return @[@0, @1, @2];
         }];
     }

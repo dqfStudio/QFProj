@@ -12,11 +12,11 @@
  示例：
  
  @interface MightyCrash : NSObject
- - (float)divideUsingDenominator:(NSInteger)denominator;
+- (float)divideUsingDenominator:(NSInteger)denominator;
  @end
  
  @implementation MightyCrash
- - (float)divideUsingDenominator:(NSInteger)denominator {
+- (float)divideUsingDenominator:(NSInteger)denominator {
  return 1.f/denominator;
  }
  @end
@@ -25,7 +25,7 @@
  fixInstanceMethodReplace('MightyCrash', 'divideUsingDenominator:', function(instance, originInvocation, originArguments){ \
  if (originArguments[0] == 0) { \
  console.log('zero goes here'); \
- } else { \
+ }else {\
  runInvocation(originInvocation); \
  } \
  }); \

@@ -28,27 +28,27 @@ typedef void(^HKeywordsBlock)(void);
 
 //关键字
 @property (nonatomic, copy)   NSString *keywords;
-@property (nonatomic, strong) UIFont   *keywordsFont;
-@property (nonatomic, strong) UIColor  *keywordsColor;
+@property (nonatomic, strong) UIFont *keywordsFont;
+@property (nonatomic, strong) UIColor *keywordsColor;
 @property (nonatomic, copy)   HKeywordsBlock keywordsBlock;
 
 //插入图片
 @property (nonatomic, assign) NSInteger   imgIndex;
 @property (nonatomic, assign) HWordAlign wordAlign;
 @property (nonatomic, assign) CGSize      imgSize;
-@property (nonatomic, strong) NSString    *imgUrl;
+@property (nonatomic, strong) NSString *imgUrl;
 @property (nonatomic, assign) NSInteger   leftSpace;
 @property (nonatomic, assign) NSInteger   rightSpace;
 
 //下划线
 @property (nonatomic, copy)   NSString *underlineStr;
-@property (nonatomic, strong) UIFont   *underlineFont;
-@property (nonatomic, strong) UIColor  *underlineColor;
+@property (nonatomic, strong) UIFont *underlineFont;
+@property (nonatomic, strong) UIColor *underlineColor;
 
 //中线
 @property (nonatomic, copy)   NSString *middlelineStr;
-@property (nonatomic, strong) UIFont   *middlelineFont;
-@property (nonatomic, strong) UIColor  *middlelineColor;
+@property (nonatomic, strong) UIFont *middlelineFont;
+@property (nonatomic, strong) UIColor *middlelineColor;
 
 /**
  计算label宽高

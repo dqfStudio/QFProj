@@ -58,7 +58,7 @@
             if (block) {
                 block(contanner.containClassName,contanner.userInfo);
             }
-        }else if([obj isKindOfClass:[NSString class]]) {
+        }else if ([obj isKindOfClass:[NSString class]]) {
             if (block) {
                 block(obj,nil);
             }
@@ -79,7 +79,7 @@
             HClassContainner *contanner = (HClassContainner *)obj;
             className = contanner.containClassName;
             *stop = YES;
-        }else if([obj isKindOfClass:[NSString class]]) {
+        }else if ([obj isKindOfClass:[NSString class]]) {
             className = obj;
             *stop = YES;
         }
@@ -99,7 +99,7 @@
             className = contanner.containClassName;
             creator = contanner.userInfo[HClassCreatorKey];
             *stop = YES;
-        }else if([obj isKindOfClass:[NSString class]]) {
+        }else if ([obj isKindOfClass:[NSString class]]) {
             className = obj;
             *stop = YES;
         }
@@ -141,7 +141,7 @@
     NSMutableSet *classKeySet = [_classIndex objectForKey:key];
     if(!classKeySet) classKeySet = [[NSMutableSet alloc] init];
     if (![classKeySet containsObject:aclass]) {
-        if(userInfo) {
+        if (userInfo) {
             HClassContainner *contanner = [HClassContainner new];
             contanner.containClassName = NSStringFromClass(aclass);
             contanner.userInfo = userInfo;
@@ -200,7 +200,7 @@ typedef void (^HMScanProtocalCallback)(NSString *ppname, NSString *protocalStrin
             NSAssert(NO, @"can not get property attr : %@",p);
             continue;
         }
-        const char* attr = property_getAttributes(pp_t);
+        const char *attr = property_getAttributes(pp_t);
         //T@"Test",&,N,V_c"
         //Ti,N,V_a
         //T@"NSNumber<HEOptional>",&,N,V_z
