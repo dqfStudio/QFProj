@@ -804,7 +804,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     return CGPointZero;
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSpringLoadItemAtIndexPath:(NSIndexPath *)indexPath withContext:(id<UISpringLoadedInteractionContext>)context API_AVAILABLE(ios(11.0)){
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSpringLoadItemAtIndexPath:(NSIndexPath *)indexPath withContext:(id<UISpringLoadedInteractionContext>)context API_AVAILABLE(ios(11.0)) {
     NSString *prefix = [self tuplePrefixWithSection:indexPath.section];
     SEL selector = NSSelectorFromString(@"shouldSpringLoadItemAtIndexPath:withContext:");
     if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
@@ -841,7 +841,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     }
 }
 
-- (nullable UIContextMenuConfiguration *)collectionView:(UICollectionView *)collectionView contextMenuConfigurationForItemAtIndexPath:(NSIndexPath *)indexPath point:(CGPoint)point API_AVAILABLE(ios(13.0)){
+- (nullable UIContextMenuConfiguration *)collectionView:(UICollectionView *)collectionView contextMenuConfigurationForItemAtIndexPath:(NSIndexPath *)indexPath point:(CGPoint)point API_AVAILABLE(ios(13.0)) {
     NSString *prefix = [self tuplePrefixWithSection:indexPath.section];
     SEL selector = NSSelectorFromString(@"contextMenuConfigurationForItemAtIndexPath:point:");
     if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
@@ -850,7 +850,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     return nil;
 }
 
-- (nullable UITargetedPreview *)collectionView:(UICollectionView *)collectionView previewForHighlightingContextMenuWithConfiguration:(UIContextMenuConfiguration *)configuration API_AVAILABLE(ios(13.0)){
+- (nullable UITargetedPreview *)collectionView:(UICollectionView *)collectionView previewForHighlightingContextMenuWithConfiguration:(UIContextMenuConfiguration *)configuration API_AVAILABLE(ios(13.0)) {
     NSString *prefix = [self tuplePrefix];
     SEL selector = NSSelectorFromString(@"previewForHighlightingContextMenuWithConfiguration:");
     if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
@@ -859,7 +859,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     return nil;
 }
 
-- (nullable UITargetedPreview *)collectionView:(UICollectionView *)collectionView previewForDismissingContextMenuWithConfiguration:(UIContextMenuConfiguration *)configuration API_AVAILABLE(ios(13.0)){
+- (nullable UITargetedPreview *)collectionView:(UICollectionView *)collectionView previewForDismissingContextMenuWithConfiguration:(UIContextMenuConfiguration *)configuration API_AVAILABLE(ios(13.0)) {
     NSString *prefix = [self tuplePrefix];
     SEL selector = NSSelectorFromString(@"previewForDismissingContextMenuWithConfiguration:");
     if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
@@ -868,7 +868,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
     return nil;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView willPerformPreviewActionForMenuWithConfiguration:(UIContextMenuConfiguration *)configuration animator:(id<UIContextMenuInteractionCommitAnimating>)animator API_AVAILABLE(ios(13.0)){
+- (void)collectionView:(UICollectionView *)collectionView willPerformPreviewActionForMenuWithConfiguration:(UIContextMenuConfiguration *)configuration animator:(id<UIContextMenuInteractionCommitAnimating>)animator API_AVAILABLE(ios(13.0)) {
     NSString *prefix = [self tuplePrefix];
     SEL selector = NSSelectorFromString(@"willPerformPreviewActionForMenuWithConfiguration:animator:");
     if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {

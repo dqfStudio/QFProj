@@ -808,7 +808,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 }
 
 // Swipe actions
-- (nullable UISwipeActionsConfiguration *)tableView:(UITableView *)tableView leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath API_AVAILABLE(ios(11.0)){
+- (nullable UISwipeActionsConfiguration *)tableView:(UITableView *)tableView leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath API_AVAILABLE(ios(11.0)) {
     NSString *prefix = [self tablePrefixWithSection:indexPath.section];
     SEL selector = @selector(leadingSwipeActionsConfigurationForRowAtIndexPath:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
@@ -816,7 +816,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     }
     return nil;
 }
-- (nullable UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath API_AVAILABLE(ios(11.0)){
+- (nullable UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath API_AVAILABLE(ios(11.0)) {
     NSString *prefix = [self tablePrefixWithSection:indexPath.section];
     SEL selector = @selector(trailingSwipeActionsConfigurationForRowAtIndexPath:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
@@ -927,7 +927,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 }
 
 // Spring Loading
-- (BOOL)tableView:(UITableView *)tableView shouldSpringLoadRowAtIndexPath:(NSIndexPath *)indexPath withContext:(id<UISpringLoadedInteractionContext>)context API_AVAILABLE(ios(11.0)){
+- (BOOL)tableView:(UITableView *)tableView shouldSpringLoadRowAtIndexPath:(NSIndexPath *)indexPath withContext:(id<UISpringLoadedInteractionContext>)context API_AVAILABLE(ios(11.0)) {
     NSString *prefix = [self tablePrefixWithSection:indexPath.section];
     SEL selector = @selector(shouldSpringLoadRowAtIndexPath:withContext:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
@@ -962,7 +962,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     }
 }
 
-- (nullable UIContextMenuConfiguration *)tableView:(UITableView *)tableView contextMenuConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath point:(CGPoint)point API_AVAILABLE(ios(13.0)){
+- (nullable UIContextMenuConfiguration *)tableView:(UITableView *)tableView contextMenuConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath point:(CGPoint)point API_AVAILABLE(ios(13.0)) {
     NSString *prefix = [self tablePrefixWithSection:indexPath.section];
     SEL selector = @selector(contextMenuConfigurationForRowAtIndexPath:point:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
@@ -971,7 +971,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     return nil;
 }
 
-- (nullable UITargetedPreview *)tableView:(UITableView *)tableView previewForHighlightingContextMenuWithConfiguration:(UIContextMenuConfiguration *)configuration API_AVAILABLE(ios(13.0)){
+- (nullable UITargetedPreview *)tableView:(UITableView *)tableView previewForHighlightingContextMenuWithConfiguration:(UIContextMenuConfiguration *)configuration API_AVAILABLE(ios(13.0)) {
     NSString *prefix = [self tablePrefix];
     SEL selector = @selector(previewForHighlightingContextMenuWithConfiguration:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
@@ -980,7 +980,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     return nil;
 }
 
-- (nullable UITargetedPreview *)tableView:(UITableView *)tableView previewForDismissingContextMenuWithConfiguration:(UIContextMenuConfiguration *)configuration API_AVAILABLE(ios(13.0)){
+- (nullable UITargetedPreview *)tableView:(UITableView *)tableView previewForDismissingContextMenuWithConfiguration:(UIContextMenuConfiguration *)configuration API_AVAILABLE(ios(13.0)) {
     NSString *prefix = [self tablePrefix];
     SEL selector = @selector(previewForDismissingContextMenuWithConfiguration:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
@@ -989,7 +989,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     return nil;
 }
 
-- (void)tableView:(UITableView *)tableView willPerformPreviewActionForMenuWithConfiguration:(UIContextMenuConfiguration *)configuration animator:(id<UIContextMenuInteractionCommitAnimating>)animator API_AVAILABLE(ios(13.0)){
+- (void)tableView:(UITableView *)tableView willPerformPreviewActionForMenuWithConfiguration:(UIContextMenuConfiguration *)configuration animator:(id<UIContextMenuInteractionCommitAnimating>)animator API_AVAILABLE(ios(13.0)) {
     NSString *prefix = [self tablePrefix];
     SEL selector = @selector(willPerformPreviewActionForMenuWithConfiguration:animator:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
