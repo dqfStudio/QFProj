@@ -418,6 +418,15 @@ $1    break;
     //$1case $2: $3 break;
     
     
+    //查找case
+    /*
+     case HomeBottomActionTypeShare:{
+     */
+    //([ ]*)case[ ]*(.*)[ ]*:[ ]*\{
+    //替换
+    //$1case $2: {
+    
+    
     
     //查找case
     /*
