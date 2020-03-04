@@ -39,7 +39,7 @@
 @property (nonatomic) NSInteger maxInput;//最大输入限制，小于等于0表示不限制，默认为0
 @property (nonatomic) BOOL forbidPaste;//禁止粘贴，默认为NO
 @property (nonatomic) BOOL forbidWhitespaceAndNewline;//禁止输入空格和换行符，默认为YES
-@property (nonatomic) BOOL forbidSpecialCharacters; //禁止输入特殊字符，默认为NO
+@property (nonatomic) BOOL forbidIllegalCharacters; //禁止输入特殊字符，默认为NO
 @property (nonatomic) BOOL editEnabled;//是否可编辑，默认为YES
 @end
 
@@ -81,7 +81,7 @@
 @property (nonatomic, readonly) BOOL isValidatedWechat; //是否有效的微信号
 @property (nonatomic, readonly) BOOL isValidatedBankCard; //是否有效的银行卡账号
 
-@property (nonatomic, readonly) BOOL isContainSpecialCharacters; //是否包含特殊字符
+@property (nonatomic, readonly) BOOL isContainIllegalCharacters; //是否包含特殊字符
 
 - (BOOL (^)(NSInteger length))isEqualto; //判断内容长度是否等于某个值
 - (BOOL (^)(NSInteger start, NSInteger end))isBetween;//判断内容长度是否在某两个值之间

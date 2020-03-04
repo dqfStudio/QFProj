@@ -225,8 +225,8 @@
             return NO;
         }
     }
-    if (self.forbidSpecialCharacters) {
-        if (self.isContainSpecialCharacters) {
+    if (self.forbidIllegalCharacters) {
+        if (self.isContainIllegalCharacters) {
             return NO;
         }
     }
@@ -456,7 +456,7 @@
     NSString *regex = @"[1-9]([0-9]{13,19})";
     return [self isValidateWithRegex:regex];
 }
-- (BOOL)isContainSpecialCharacters {
+- (BOOL)isContainIllegalCharacters {
     NSString *regex = @"^[A-Za-z0-9\\u4e00-\u9fa5]+$";
     //此处结果取反
     return ![self isValidateWithRegex:regex];
