@@ -280,6 +280,7 @@
 		A28EF3B521D9C9A2002F92ED /* HWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF3B421D9C9A2002F92ED /* HWaitingView.m */; };
 		A28EF3C321DA1DFE002F92ED /* HFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF3C021DA1DFE002F92ED /* HFormController.m */; };
 		A28EF3C421DA1DFE002F92ED /* HFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF3C221DA1DFE002F92ED /* HFormCell.m */; };
+		A29307ED240FA47000E675C4 /* NSString+HSize.m in Sources */ = {isa = PBXBuildFile; fileRef = A29307EC240FA47000E675C4 /* NSString+HSize.m */; };
 		A2A17DA62276DB1E003FED58 /* NSMutableAttributedString+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A17DA52276DB1E003FED58 /* NSMutableAttributedString+HUtil.m */; };
 		A2A8EACD22DB59FD0049C51B /* HMarquee.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EACC22DB59FD0049C51B /* HMarquee.m */; };
 		A2A8EB2B22DB62680049C51B /* HCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB1D22DB62670049C51B /* HCollectionViewCell.m */; };
@@ -852,6 +853,8 @@
 		A28EF3C021DA1DFE002F92ED /* HFormController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFormController.m; sourceTree = "<group>"; };
 		A28EF3C121DA1DFE002F92ED /* HFormController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFormController.h; sourceTree = "<group>"; };
 		A28EF3C221DA1DFE002F92ED /* HFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFormCell.m; sourceTree = "<group>"; };
+		A29307EB240FA47000E675C4 /* NSString+HSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+HSize.h"; sourceTree = "<group>"; };
+		A29307EC240FA47000E675C4 /* NSString+HSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+HSize.m"; sourceTree = "<group>"; };
 		A2A17DA42276DB1E003FED58 /* NSMutableAttributedString+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+HUtil.h"; sourceTree = "<group>"; };
 		A2A17DA52276DB1E003FED58 /* NSMutableAttributedString+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+HUtil.m"; sourceTree = "<group>"; };
 		A2A8EACB22DB59FD0049C51B /* HMarquee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMarquee.h; sourceTree = "<group>"; };
@@ -1438,6 +1441,8 @@
 				15B4DDC02092F96B00773E04 /* NSObject+HUtil.m */,
 				15B4DDBF2092F96B00773E04 /* NSString+HUtil.h */,
 				15B4DDB62092F96B00773E04 /* NSString+HUtil.m */,
+				A29307EB240FA47000E675C4 /* NSString+HSize.h */,
+				A29307EC240FA47000E675C4 /* NSString+HSize.m */,
 				15B4DDC52092F96B00773E04 /* NSUserDefaults+HUtil.h */,
 				15B4DDBC2092F96B00773E04 /* NSUserDefaults+HUtil.m */,
 				A208D62D22AD373E009A6FDD /* HAttributedString.h */,
@@ -2957,6 +2962,7 @@
 				153F081520E28CA000C74850 /* HInputValidator.m in Sources */,
 				15B4DD762092F88700773E04 /* main.m in Sources */,
 				A289DCF723E3E3E900FC59F1 /* HTupleViewBannerCell.m in Sources */,
+				A29307ED240FA47000E675C4 /* NSString+HSize.m in Sources */,
 				15E6BB992136E7E300EBE794 /* UIScrollView+YPTab.m in Sources */,
 				A250DF182400101A009F5E47 /* UIView+HUtil.m in Sources */,
 				A22FA0842400D50500B75C1C /* AppDelegate+NotifyService.m in Sources */,
