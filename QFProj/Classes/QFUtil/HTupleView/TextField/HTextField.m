@@ -223,10 +223,11 @@
     if (self.forbidWhitespaceAndNewline && string.length == 1) {//输入字符串
         if ([string containsString:@" "] || [string containsString:@"\n"]) {
             return NO;
-        }else if (self.forbidSpecialCharacters) {
-            if (self.isContainSpecialCharacters) {
-                return NO;
-            }
+        }
+    }
+    if (self.forbidSpecialCharacters) {
+        if (self.isContainSpecialCharacters) {
+            return NO;
         }
     }
     if (self.maxInput > 0) {
