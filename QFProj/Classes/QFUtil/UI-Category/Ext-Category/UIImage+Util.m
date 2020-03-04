@@ -79,6 +79,32 @@
     return image;
 }
 
++ (UIImage *)mergeImage:(UIImage *)imageSource tagertImage:(UIImage *)targetImage {
+    
+    CGSize imageSourceSize = imageSource.size;
+    CGSize targetImageSize = targetImage.size;
+    
+    //以imgSource的图大小为画布创建上下文
+    UIGraphicsBeginImageContextWithOptions(imageSourceSize, NO, UIScreen.mainScreen.scale);
+    [imageSource drawInRect:CGRectMake(0, 0, imageSourceSize.width, imageSourceSize.height)];
+    
+    //取小图都大小targetImage
+    CGFloat mixImageWidth  = MIN(targetImageSize.width, imageSourceSize.width);
+    CGFloat mixImageHeight = MIN(targetImageSize.height, imageSourceSize.height);
+    
+    CGRect rect = CGRectMake((imageSourceSize.width - mixImageWidth)/2.0f,
+                             (imageSourceSize.height - mixImageHeight)/2.0f,
+                             mixImageWidth,
+                             mixImageHeight);
+    
+    [targetImage drawInRect:rect];
+    
+    UIImage *resultImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return resultImage;
+}
+
 + (UIImage *)mergeImage:(UIImage *)image text:(NSString *)text font:(UIFont *)textFont color:(UIColor *)textColor {
     
     if (text == nil || text.length == 0) return image;

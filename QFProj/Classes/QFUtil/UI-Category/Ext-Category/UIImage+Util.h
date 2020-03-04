@@ -17,6 +17,8 @@
 + (UIImage *)testImage;//默认200*200
 + (UIImage *)testImage:(CGSize)size;
 
++ (UIImage *)mergeImage:(UIImage *)imageSource tagertImage:(UIImage *)targetImage;
+
 + (UIImage *)mergeImage:(UIImage *)image text:(NSString *)text font:(UIFont *)textFont color:(UIColor *)textColor;
 
 @end
