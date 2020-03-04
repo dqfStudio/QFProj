@@ -10,6 +10,7 @@
 #import "HCommonDefine.h"
 #import "HCommonBlock.h"
 #import "NSError+HUtil.h"
+#import "UIControl+HSafeUtil.h"
 #import "UIImageView+HFilletLayer.h"
 
 @interface HWebButtonView : UIButton
@@ -77,10 +78,6 @@
 
 
 @interface UIButton (HUtil)
-
-//设置按钮额外热区
-@property (nonatomic) UIEdgeInsets touchAreaInsets;
-
 - (void)setTitle:(NSString *)title;
 - (void)setTitleColor:(UIColor *)color;
 - (void)setFont:(UIFont *)font;
