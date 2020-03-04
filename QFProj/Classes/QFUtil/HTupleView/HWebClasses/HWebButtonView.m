@@ -11,6 +11,7 @@
 #import <SDWebImage/UIButton+WebCache.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <UIView+WebCache.h>
+#import <objc/runtime.h>
 
 @interface HWebButtonView()
 @property (nonatomic) UIImageView *_imageView;
@@ -211,6 +212,14 @@
 
 @implementation UIButton (HUtil)
 
+- (UIEdgeInsets)touchAreaInsets {
+    return [objc_getAssociatedObject(self, @selector(touchAreaInsets)) UIEdgeInsetsValue];
+}
+- (void)setTouchAreaInsets:(UIEdgeInsets)touchAreaInsets {
+    NSValue *value = [NSValue valueWithUIEdgeInsets:touchAreaInsets];
+    objc_setAssociatedObject(self, @selector(touchAreaInsets), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 - (void)setTitle:(NSString *)title {
     [self setTitle:title forState:UIControlStateNormal];
 }
@@ -237,6 +246,14 @@
 //let the min respond area is 44*44
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
     CGRect bounds = self.bounds;
+    //额外热区
+    if (!UIEdgeInsetsEqualToEdgeInsets(UIEdgeInsetsZero, self.touchAreaInsets)) {
+        bounds = CGRectMake(bounds.origin.x - self.touchAreaInsets.left,
+                            bounds.origin.y - self.touchAreaInsets.top,
+                            bounds.size.width + self.touchAreaInsets.left + self.touchAreaInsets.right,
+                            bounds.size.height + self.touchAreaInsets.top + self.touchAreaInsets.bottom);
+    }
+    //响应区域不小于44*44
     CGFloat widthDelta = MAX(44.0 - bounds.size.width, 0);
     CGFloat heightDelta = MAX(44.0 - bounds.size.height, 0);
     bounds = CGRectInset(bounds, -0.5 * widthDelta, -0.5 * heightDelta);

@@ -77,6 +77,10 @@
 
 
 @interface UIButton (HUtil)
+
+//设置按钮额外热区
+@property (nonatomic) UIEdgeInsets touchAreaInsets;
+
 - (void)setTitle:(NSString *)title;
 - (void)setTitleColor:(UIColor *)color;
 - (void)setFont:(UIFont *)font;
