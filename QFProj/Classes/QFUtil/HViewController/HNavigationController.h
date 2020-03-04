@@ -20,8 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HNavigationController : UINavigationController
 - (void)addFullScreenPopBlackListItem:(UIViewController *)viewController;
 - (void)removeFromFullScreenPopBlackList:(UIViewController *)viewController;
-- (BOOL)popToViewControllerOfClass:(Class)klass animated:(BOOL)animated;
-- (void)replaceTopViewController:(UIViewController *)vc animated:(BOOL)animated;
 @end
 
 @interface UIViewController (HJumper)
@@ -32,6 +30,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UINavigationController (HJumper)
 //viewController可为UIViewController实例或类名
 - (void)pushViewController:(id)viewController params:(NSDictionary *_Nullable)params animated:(BOOL)animated;
+//viewController可为UIViewController实例或类名
+- (void)popToViewController:(id)viewController params:(NSDictionary *_Nullable)params animated:(BOOL)animated;
+- (BOOL)popToViewControllerOfClass:(Class)cls animated:(BOOL)animated;
+- (void)replaceTopViewController:(UIViewController *)vc animated:(BOOL)animated;
+- (id)getViewController:(NSString *)controllerName;
+- (void)resetViewControllers:(NSArray *)viewControllers animated:(BOOL)animated;
+- (void)resetViewControllers:(NSArray *)viewControllers;//animated default is NO.
 @end
 
 @interface UIViewController (HBackHandler) <HBackHandlerProtocol>

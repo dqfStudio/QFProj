@@ -30,36 +30,12 @@
     }
     [self.blackList addObject:viewController];
 }
-
 - (void)removeFromFullScreenPopBlackList:(UIViewController *)viewController {
     for (UIViewController *vc in self.blackList) {
         if (vc == viewController) {
             [self.blackList removeObject:vc];
         }
     }
-}
-
-- (BOOL)popToViewControllerOfClass:(Class)klass animated:(BOOL)animated {
-    BOOL success = NO;
-    if (klass != NULL) {
-        for (UIViewController *vc in self.viewControllers) {
-            if ([vc isKindOfClass:klass]) {
-                success = YES;
-                [self popToViewController:vc animated:animated];
-                break;
-            }
-        }
-    }
-    return success;
-}
-
-- (void)replaceTopViewController:(UIViewController *)vc animated:(BOOL)animated {
-    NSMutableArray *vcs = [NSMutableArray arrayWithArray:self.viewControllers];
-    if (vcs.count > 0) {
-        [vcs removeLastObject];
-        [vcs addObject:vc];
-    }
-    [self setViewControllers:vcs animated:animated];
 }
 
 #pragma mark - Life cycle
@@ -159,7 +135,6 @@
         [self presentViewController:vc animated:flag completion:completion];
     }else if ([viewControllerToPresent isKindOfClass:NSString.class]) {
         NSString *controllerName = viewControllerToPresent;
-        if (controllerName == nil || controllerName.length == 0) return;
         //Class newClass = NSClassFromString(controllerName);
         //从一个字符串返回一个类
         const char *className = [controllerName cStringUsingEncoding:NSASCIIStringEncoding];
@@ -207,7 +182,6 @@
         }
     }else if ([viewController isKindOfClass:NSString.class]) {
         NSString *controllerName = viewController;
-        if (controllerName == nil || controllerName.length == 0) return;
         //Class newClass = NSClassFromString(controllerName);
         //从一个字符串返回一个类
         const char *className = [controllerName cStringUsingEncoding:NSASCIIStringEncoding];
@@ -236,7 +210,111 @@
         }
     }
 }
-
+- (void)popToViewController:(id)viewController params:(NSDictionary *)params animated:(BOOL)animated {
+    if ([viewController isKindOfClass:UIViewController.class]) {
+        UIViewController *vc = viewController;
+        //对该对象赋值属性
+        if (params) {
+            [params enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                [vc setValue:obj forKey:key];//利用KVC赋值
+            }];
+        }
+        if (![self.viewControllers containsObject:vc]) {
+            [self pushViewController:vc animated:animated];
+        }else {
+            [self popToViewController:vc animated:animated];
+        }
+    }else if ([viewController isKindOfClass:NSString.class]) {
+        NSString *controllerName = viewController;
+        BOOL newCreate = NO;
+        //获取对象
+        id instance = [self getViewController:controllerName];
+        if (instance == nil) {
+            //从一个字符串返回一个类
+            const char *className = [controllerName cStringUsingEncoding:NSASCIIStringEncoding];
+            Class newClass = objc_getClass(className);
+            if (newClass == nil) {
+                //创建一个类
+                Class superClass = [UIViewController class];
+                newClass = objc_allocateClassPair(superClass, className, 0);
+                //注册创建的这个类
+                objc_registerClassPair(newClass);
+            }
+            //创建对象
+            instance = [[newClass alloc] init];
+            newCreate = YES;
+        }
+        //对该对象赋值属性
+        if (params) {
+            [params enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                [instance setValue:obj forKey:key];//利用KVC赋值
+            }];
+        }
+        if (newCreate) {
+            [self pushViewController:instance animated:animated];
+        }else {
+            [self popToViewController:instance animated:animated];
+        }
+    }
+}
+- (BOOL)popToViewControllerOfClass:(Class)cls animated:(BOOL)animated {
+    BOOL success = NO;
+    if (cls != NULL) {
+        for (UIViewController *vc in self.viewControllers) {
+            if ([vc isKindOfClass:cls]) {
+                success = YES;
+                [self popToViewController:vc animated:animated];
+                break;
+            }
+        }
+    }
+    return success;
+}
+- (void)replaceTopViewController:(UIViewController *)vc animated:(BOOL)animated {
+    NSMutableArray *vcs = [NSMutableArray arrayWithArray:self.viewControllers];
+    if (vcs.count > 0) {
+        [vcs removeLastObject];
+        [vcs addObject:vc];
+    }
+    [self setViewControllers:vcs animated:animated];
+}
+- (id)getViewController:(NSString *)controllerName {
+    NSArray *array = self.viewControllers;
+    id object = nil;
+    for (UIViewController *cotroller in array) {
+        if ([NSStringFromClass(cotroller.class) isEqualToString:controllerName]) {
+            object = cotroller;
+            break;
+        }
+    }
+    return object;
+}
+- (void)resetViewControllers:(NSArray *)viewControllers animated:(BOOL)animated {
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:viewControllers.count];
+    for (id view in viewControllers) {
+        if ([view isKindOfClass:[UIViewController class]]) {
+            [array addObject:view];
+        }else if ([view isKindOfClass:[NSString class]]) {
+            //从一个字符串返回一个类
+            const char *className = [view cStringUsingEncoding:NSASCIIStringEncoding];
+            Class newClass = objc_getClass(className);
+            if (newClass == nil) {
+                //创建一个类
+                Class superClass = [UIViewController class];
+                newClass = objc_allocateClassPair(superClass, className, 0);
+                //注册创建的这个类
+                objc_registerClassPair(newClass);
+            }
+            //创建对象
+            id instance = [[newClass alloc] init];
+            [array addObject:instance];
+        }
+    }
+    [self setViewControllers:array animated:animated];
+}
+- (void)resetViewControllers:(NSArray *)viewControllers {
+    [self resetViewControllers:viewControllers animated:NO];
+}
 @end
 
 @implementation UIViewController (HBackHandler)
