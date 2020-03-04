@@ -211,6 +211,13 @@
     }
     objc_setAssociatedObject(self, @selector(placeholderColor), placeholderColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+#pragma mark - secureTextEntry
+- (void)setSecureTextEntry:(BOOL)secureTextEntry {
+    super.secureTextEntry = secureTextEntry;
+    if (secureTextEntry) {
+        self.forbidPaste = YES;
+    }
+}
 #pragma mark - delegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if (self.forbidWhitespaceAndNewline && string.length == 1) {//输入字符串
