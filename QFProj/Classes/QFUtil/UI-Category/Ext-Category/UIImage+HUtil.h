@@ -1,6 +1,6 @@
 //
-//  UIImage+Util.h
-//  TestProject
+//  UIImage+HUtil.h
+//  HProj
 //
 //  Created by dqf on 2017/11/8.
 //  Copyright © 2017年 dqfStudio. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (Util)
+@interface UIImage (HUtil)
 
 + (UIImage *)imageFromName:(NSString *)aName;
 + (UIImage *)imageFromFile:(NSString *)filePath;

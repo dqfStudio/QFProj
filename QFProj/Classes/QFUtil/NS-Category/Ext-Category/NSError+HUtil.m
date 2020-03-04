@@ -1,6 +1,6 @@
 //
 //  NSError+HUtil.m
-//  TestProject
+//  HProj
 //
 //  Created by dqf on 13-6-5.
 //  Copyright (c) 2013年 dqfStudio. All rights reserved.

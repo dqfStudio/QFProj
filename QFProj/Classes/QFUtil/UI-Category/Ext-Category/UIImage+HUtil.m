@@ -1,15 +1,15 @@
 //
-//  UIImage+Util.m
-//  TestProject
+//  UIImage+HUtil.m
+//  HProj
 //
 //  Created by dqf on 2017/11/8.
 //  Copyright © 2017年 dqfStudio. All rights reserved.
 //
 
-#import "UIImage+Util.h"
+#import "UIImage+HUtil.h"
 #import <objc/runtime.h>
 
-@implementation UIImage (Util)
+@implementation UIImage (HUtil)
 
 + (UIImage *)imageFromName:(NSString *)aName {
     return [UIImage imageNamed:aName];

@@ -18,7 +18,7 @@
 #import "UIDevice+HUtil.h"
 #import "UIScreen+HUtil.h"
 #import "UIGestureRecognizer+HUtil.h"
-#import "UIImage+Util.h"
+#import "UIImage+HUtil.h"
 #import "UILabel+HState.h"
 #import "UILabel+HUtil.h"
 #import "UIScreen+HUtil.h"
