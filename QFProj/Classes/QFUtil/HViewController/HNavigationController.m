@@ -160,7 +160,17 @@
     }else if ([viewControllerToPresent isKindOfClass:NSString.class]) {
         NSString *controllerName = viewControllerToPresent;
         if (controllerName == nil || controllerName.length == 0) return;
-        Class newClass = NSClassFromString(controllerName);
+        //Class newClass = NSClassFromString(controllerName);
+        //从一个字符串返回一个类
+        const char *className = [controllerName cStringUsingEncoding:NSASCIIStringEncoding];
+        Class newClass = objc_getClass(className);
+        if (newClass == nil) {
+            //创建一个类
+            Class superClass = [UIViewController class];
+            newClass = objc_allocateClassPair(superClass, className, 0);
+            //注册创建的这个类
+            objc_registerClassPair(newClass);
+        }
         //创建对象
         id instance = [[newClass alloc] init];
         if ([instance isKindOfClass:UIViewController.class]) {
@@ -198,7 +208,17 @@
     }else if ([viewController isKindOfClass:NSString.class]) {
         NSString *controllerName = viewController;
         if (controllerName == nil || controllerName.length == 0) return;
-        Class newClass = NSClassFromString(controllerName);
+        //Class newClass = NSClassFromString(controllerName);
+        //从一个字符串返回一个类
+        const char *className = [controllerName cStringUsingEncoding:NSASCIIStringEncoding];
+        Class newClass = objc_getClass(className);
+        if (newClass == nil) {
+            //创建一个类
+            Class superClass = [UIViewController class];
+            newClass = objc_allocateClassPair(superClass, className, 0);
+            //注册创建的这个类
+            objc_registerClassPair(newClass);
+        }
         //创建对象
         id instance = [[newClass alloc] init];
         if ([instance isKindOfClass:UIViewController.class]) {
