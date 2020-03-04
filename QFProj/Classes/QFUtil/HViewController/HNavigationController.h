@@ -25,11 +25,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface UIViewController (HJumper)
-- (void)presentViewController:(UIViewController *)viewControllerToPresent param:(NSDictionary *_Nullable)dict animated:(BOOL)flag completion:(void (^ __nullable)(void))completion;
+//viewControllerToPresent可为UIViewController实例或类名
+- (void)presentViewController:(id)viewControllerToPresent params:(NSDictionary *_Nullable)params animated:(BOOL)flag completion:(void (^ __nullable)(void))completion;
 @end
 
 @interface UINavigationController (HJumper)
-- (void)pushViewController:(UIViewController *)viewController param:(NSDictionary *_Nullable)dict animated:(BOOL)animated;
+//viewController可为UIViewController实例或类名
+- (void)pushViewController:(id)viewController params:(NSDictionary *_Nullable)params animated:(BOOL)animated;
 @end
 
 @interface UIViewController (HBackHandler) <HBackHandlerProtocol>

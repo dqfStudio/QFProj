@@ -137,17 +137,86 @@
 @end
 
 @implementation UIViewController (HJumper)
-- (void)presentViewController:(UIViewController *)viewControllerToPresent param:(NSDictionary *)dict animated:(BOOL)flag completion:(void (^ __nullable)(void))completion {
-    if (dict) [viewControllerToPresent autoFill:dict map:nil exclusive:NO isDepSearch:YES];
+- (nullable id)valueForUndefinedKey:(NSString *)key {
+    return nil;
+}
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    //NSLog(@"-------> forUndefinedKey:%@  value:%@",key,value);
+}
+- (void)presentViewController:(id)viewControllerToPresent params:(NSDictionary *)params animated:(BOOL)flag completion:(void (^ __nullable)(void))completion {
+    /*
+    if (params) [viewControllerToPresent autoFill:params map:nil exclusive:NO isDepSearch:YES];
     [self presentViewController:viewControllerToPresent animated:flag completion:completion];
+    */
+    if ([viewControllerToPresent isKindOfClass:UIViewController.class]) {
+        UIViewController *vc = viewControllerToPresent;
+        //对该对象赋值属性
+        if (params) {
+            [params enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                [vc setValue:obj forKey:key];//利用KVC赋值
+            }];
+        }
+        [self presentViewController:vc animated:flag completion:completion];
+    }else if ([viewControllerToPresent isKindOfClass:NSString.class]) {
+        NSString *controllerName = viewControllerToPresent;
+        if (controllerName == nil || controllerName.length == 0) return;
+        Class newClass = NSClassFromString(controllerName);
+        //创建对象
+        id instance = [[newClass alloc] init];
+        if ([instance isKindOfClass:UIViewController.class]) {
+            //对该对象赋值属性
+            if (params) {
+                [params enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                    [instance setValue:obj forKey:key];//利用KVC赋值
+                }];
+            }
+            [self presentViewController:instance animated:flag completion:completion];
+        }
+    }
 }
 @end
 
 @implementation UINavigationController (HJumper)
-- (void)pushViewController:(UIViewController *)viewController param:(NSDictionary *)dict animated:(BOOL)animated {
-    if (dict) [viewController autoFill:dict map:nil exclusive:NO isDepSearch:YES];
+- (void)pushViewController:(id)viewController params:(NSDictionary *)params animated:(BOOL)animated {
+    /*
+    if (params) [viewController autoFill:params map:nil exclusive:NO isDepSearch:YES];
     [self pushViewController:viewController animated:animated];
+    */
+    if ([viewController isKindOfClass:UIViewController.class]) {
+        UIViewController *vc = viewController;
+        //对该对象赋值属性
+        if (params) {
+            [params enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                [vc setValue:obj forKey:key];//利用KVC赋值
+            }];
+        }
+        //避免多个PUSH
+        id controller = [self.viewControllers lastObject];
+        if (![controller isKindOfClass:vc.class]) {
+            [self pushViewController:vc animated:animated];
+        }
+    }else if ([viewController isKindOfClass:NSString.class]) {
+        NSString *controllerName = viewController;
+        if (controllerName == nil || controllerName.length == 0) return;
+        Class newClass = NSClassFromString(controllerName);
+        //创建对象
+        id instance = [[newClass alloc] init];
+        if ([instance isKindOfClass:UIViewController.class]) {
+            //对该对象赋值属性
+            if (params) {
+                [params enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                    [instance setValue:obj forKey:key];//利用KVC赋值
+                }];
+            }
+            //避免多个PUSH
+            id controller = [self.viewControllers lastObject];
+            if (![controller isKindOfClass:newClass]) {
+                [self pushViewController:instance animated:animated];
+            }
+        }
+    }
 }
+
 @end
 
 @implementation UIViewController (HBackHandler)

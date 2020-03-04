@@ -829,7 +829,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     NSString *prefix = [self tablePrefixWithSection:indexPath.section];
     SEL selector = @selector(shouldIndentWhileEditingRowAtIndexPath:);
     if ([(NSObject *)self.tableDelegate respondsToSelector:selector withPre:prefix]) {
-        return [(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath];
+        return [[(NSObject *)self.tableDelegate performSelector:selector withPre:prefix withMethodArgments:&indexPath] boolValue];
     }
     return YES;
 }
