@@ -79,14 +79,14 @@
     return image;
 }
 
-+ (UIImage *)mergeImage:(UIImage *)imageSource tagertImage:(UIImage *)targetImage {
+- (UIImage *)mergeTagertImage:(UIImage *)targetImage {
     
-    CGSize imageSourceSize = imageSource.size;
+    CGSize imageSourceSize = self.size;
     CGSize targetImageSize = targetImage.size;
     
     //以imgSource的图大小为画布创建上下文
     UIGraphicsBeginImageContextWithOptions(imageSourceSize, NO, UIScreen.mainScreen.scale);
-    [imageSource drawInRect:CGRectMake(0, 0, imageSourceSize.width, imageSourceSize.height)];
+    [self drawInRect:CGRectMake(0, 0, imageSourceSize.width, imageSourceSize.height)];
     
     //取小图都大小targetImage
     CGFloat mixImageWidth  = MIN(targetImageSize.width, imageSourceSize.width);
@@ -105,15 +105,15 @@
     return resultImage;
 }
 
-+ (UIImage *)mergeImage:(UIImage *)image text:(NSString *)text font:(UIFont *)textFont color:(UIColor *)textColor {
+- (UIImage *)mergeText:(NSString *)text font:(UIFont *)textFont color:(UIColor *)textColor {
     
-    if (text == nil || text.length == 0) return image;
+    if (text == nil || text.length == 0) return self;
     
-    CGSize imageSize = image.size;
+    CGSize imageSize = self.size;
     
     //以image的图大小为画布创建上下文
     UIGraphicsBeginImageContextWithOptions(imageSize, NO, UIScreen.mainScreen.scale);
-    [image drawInRect:CGRectMake(0, 0, imageSize.width, imageSize.height)];
+    [self drawInRect:CGRectMake(0, 0, imageSize.width, imageSize.height)];
     
     NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
     paragraph.alignment = NSTextAlignmentCenter; //文字剧中
