@@ -231,9 +231,14 @@
         }
     }
     if (self.maxInput > 0) {
-        if (self.endEditWhenTextToMax && textField.text.length >= self.maxInput) {
-            [self resignFirstResponder];
-            return NO;
+        if (textField.text.length >= self.maxInput) {
+            if (self.inputTextToMaxBlock) {
+                self.inputTextToMaxBlock(self);
+            }
+            if (self.endEditWhenTextToMax) {
+                [self resignFirstResponder];
+                return NO;
+            }
         }
         NSInteger strLength = textField.text.length - range.length + string.length;
         if (strLength > self.maxInput) {

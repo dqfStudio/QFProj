@@ -14,6 +14,10 @@
 #import "HVerifyCodeView.h"
 #import "HGeometry.h"
 
+@class HTextField;
+
+typedef void(^HInputTextToMaxBlock)(HTextField *textField);
+
 @interface HTextField : UITextField <UITextFieldDelegate>
 @property (nonatomic) HLabel *leftLabel;
 @property (nonatomic) HLabel *rightLabel;
@@ -42,6 +46,8 @@
 @property (nonatomic) BOOL forbidIllegalCharacters; //禁止输入特殊字符，默认为NO
 @property (nonatomic) BOOL endEditWhenTextToMax; //当输入达到maxInput的值时自动结束编辑，默认为NO
 @property (nonatomic) BOOL editEnabled;//是否可编辑，默认为YES
+//当输入达到maxInput时，该block会被回调
+@property (nonatomic, copy) HInputTextToMaxBlock inputTextToMaxBlock;
 @end
 
 @interface HTextField (HValidate)
