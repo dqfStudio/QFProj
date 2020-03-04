@@ -79,4 +79,50 @@
     return image;
 }
 
++ (UIImage *)mergeImage:(UIImage *)image text:(NSString *)text font:(UIFont *)textFont color:(UIColor *)textColor {
+    
+    if (text == nil || text.length == 0) return image;
+    
+    CGSize imageSize = image.size;
+    
+    //以image的图大小为画布创建上下文
+    UIGraphicsBeginImageContextWithOptions(imageSize, NO, UIScreen.mainScreen.scale);
+    [image drawInRect:CGRectMake(0, 0, imageSize.width, imageSize.height)];
+    
+    NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+    paragraph.alignment = NSTextAlignmentCenter; //文字剧中
+    NSDictionary *attributes = @{
+        NSForegroundColorAttributeName:textColor,
+        NSFontAttributeName:textFont,
+        NSKernAttributeName: @(0.5f), //字间距
+        NSParagraphStyleAttributeName:paragraph
+    };
+    
+    //计算文本大小
+    CGRect textRect = [text boundingRectWithSize:imageSize
+                                     options:NSStringDrawingUsesLineFragmentOrigin
+                                  attributes:attributes
+                                     context:nil];
+    
+    CGFloat textWidth  = textRect.size.width;
+    CGFloat textHeight = textRect.size.height;
+    
+    //取文本的与图片大小的最小值
+    CGFloat mixTextWidth  = MIN(textWidth, imageSize.width);
+    CGFloat mixTextHeight = MIN(textHeight, imageSize.height);
+    
+    CGRect rect = CGRectMake((imageSize.width - mixTextWidth)/2.0f,
+                            (imageSize.height - mixTextHeight)/2.0f,
+                             mixTextWidth,
+                             mixTextHeight);
+    
+    [text drawInRect:rect withAttributes:attributes];
+    
+    UIImage *resultImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return resultImage;
+}
+
 @end
