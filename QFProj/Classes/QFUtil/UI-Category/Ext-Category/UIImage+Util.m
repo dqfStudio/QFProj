@@ -64,10 +64,10 @@
     NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
     paragraph.alignment = textAlignment;
     
-    NSDictionary *attributes = @ {
-    NSForegroundColorAttributeName:[UIColor blackColor],
-    NSFontAttributeName:font,
-    NSParagraphStyleAttributeName:paragraph
+    NSDictionary *attributes = @{
+        NSForegroundColorAttributeName:[UIColor blackColor],
+        NSFontAttributeName:font,
+        NSParagraphStyleAttributeName:paragraph
     };
     
     [string drawInRect:rect withAttributes:attributes];
