@@ -231,6 +231,10 @@
         }
     }
     if (self.maxInput > 0) {
+        if (self.endEditWhenTextToMax && textField.text.length >= self.maxInput) {
+            [self resignFirstResponder];
+            return NO;
+        }
         NSInteger strLength = textField.text.length - range.length + string.length;
         if (strLength > self.maxInput) {
             NSString *tmpString = nil;

@@ -40,6 +40,7 @@
 @property (nonatomic) BOOL forbidPaste;//禁止粘贴，默认为NO
 @property (nonatomic) BOOL forbidWhitespaceAndNewline;//禁止输入空格和换行符，默认为YES
 @property (nonatomic) BOOL forbidIllegalCharacters; //禁止输入特殊字符，默认为NO
+@property (nonatomic) BOOL endEditWhenTextToMax; //当输入达到maxInput的值时自动结束编辑，默认为NO
 @property (nonatomic) BOOL editEnabled;//是否可编辑，默认为YES
 @end
 
