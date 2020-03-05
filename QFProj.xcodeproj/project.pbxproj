@@ -111,6 +111,7 @@
 		A208E18022BA40A2009A6FDD /* UIScrollView+HEmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A208E17D22BA40A2009A6FDD /* UIScrollView+HEmptyDataSet.m */; };
 		A208E18122BA40A2009A6FDD /* UIScrollView+HEmptyDataSetExa.m in Sources */ = {isa = PBXBuildFile; fileRef = A208E17F22BA40A2009A6FDD /* UIScrollView+HEmptyDataSetExa.m */; };
 		A20B4E4924110CFA00F916A8 /* NSObject_2.m in Sources */ = {isa = PBXBuildFile; fileRef = A20B4E4824110CFA00F916A8 /* NSObject_2.m */; };
+		A20B4E4D24113BCA00F916A8 /* NSObject_3.m in Sources */ = {isa = PBXBuildFile; fileRef = A20B4E4C24113BCA00F916A8 /* NSObject_3.m */; };
 		A20E3CD6231A662B00E6982B /* HNaviToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CCF231A662B00E6982B /* HNaviToastView.m */; };
 		A20E3CD7231A662B00E6982B /* HAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CD2231A662B00E6982B /* HAlertView.m */; };
 		A20E3CD8231A662B00E6982B /* HRequestHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CD4231A662B00E6982B /* HRequestHUD.m */; };
@@ -564,6 +565,8 @@
 		A208E17F22BA40A2009A6FDD /* UIScrollView+HEmptyDataSetExa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+HEmptyDataSetExa.m"; sourceTree = "<group>"; };
 		A20B4E4724110CFA00F916A8 /* NSObject_2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject_2.h; sourceTree = "<group>"; };
 		A20B4E4824110CFA00F916A8 /* NSObject_2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObject_2.m; sourceTree = "<group>"; };
+		A20B4E4B24113BCA00F916A8 /* NSObject_3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject_3.h; sourceTree = "<group>"; };
+		A20B4E4C24113BCA00F916A8 /* NSObject_3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObject_3.m; sourceTree = "<group>"; };
 		A20E3CCF231A662B00E6982B /* HNaviToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNaviToastView.m; sourceTree = "<group>"; };
 		A20E3CD0231A662B00E6982B /* HNaviToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNaviToastView.h; sourceTree = "<group>"; };
 		A20E3CD1231A662B00E6982B /* HAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAlertView.h; sourceTree = "<group>"; };
@@ -2191,6 +2194,8 @@
 				A282036423F3F56E000CD22F /* NSObject_1.m */,
 				A20B4E4724110CFA00F916A8 /* NSObject_2.h */,
 				A20B4E4824110CFA00F916A8 /* NSObject_2.m */,
+				A20B4E4B24113BCA00F916A8 /* NSObject_3.h */,
+				A20B4E4C24113BCA00F916A8 /* NSObject_3.m */,
 				A20F4C2B23FA8C6E00E2A126 /* UINavigationController+HIntercept.h */,
 				A20F4C2A23FA8C6E00E2A126 /* UINavigationController+HIntercept.m */,
 			);
@@ -2960,6 +2965,7 @@
 				A24B659E22609CE600B257BB /* NSObject+HName.m in Sources */,
 				A2A8EB2C22DB62680049C51B /* HAbstractDotView.m in Sources */,
 				15E5651D212E5D77003A63E5 /* HHostSegmentCell.m in Sources */,
+				A20B4E4D24113BCA00F916A8 /* NSObject_3.m in Sources */,
 				15B4DE0B2092F96C00773E04 /* NSString+HSafeUtil.m in Sources */,
 				A206881F22C9FDBD00661634 /* HTableRefresh.m in Sources */,
 				A206882122C9FDBD00661634 /* HTableBaseApex.m in Sources */,
