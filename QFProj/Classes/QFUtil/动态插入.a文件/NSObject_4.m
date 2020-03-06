@@ -1,5 +1,7 @@
 //
-//#import "NSObject_3.h"
+//#import "NSObject_4.h"
+//#import <UIKit/UIKit.h>
+//#import <objc/runtime.h>
 //
 //void KKSwizzleClassMethod(Class cls, SEL origSEL, SEL overrideSEL) {
 //    if (!cls) return;
@@ -73,7 +75,7 @@
 //    }
 //}
 //
-//@implementation NSObject (_3)
+//@implementation NSObject (_4)
 //+ (void)methodSwizzleWithOrigSEL:(SEL)origSEL overrideSEL:(SEL)overrideSEL {
 //    KKSwizzleInstanceMethod(self.class, origSEL, overrideSEL);
 //}
@@ -82,7 +84,7 @@
 //}
 //@end
 //
-//@implementation UIViewController (_3)
+//@implementation UIViewController (_4)
 //+ (NSTimer *)h_scheduledTimerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats block:(void(^)(NSTimer *_Nonnull timer))block {
 //    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:interval
 //                                                      target:self
@@ -176,7 +178,7 @@
 //
 //    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *_Nullable data, NSURLResponse *_Nullable response, NSError *_Nullable error) {
 //        if (!error) {
-//            NSLog(@"");
+//            //NSLog(@"");
 //        }
 //    }] resume];
 //

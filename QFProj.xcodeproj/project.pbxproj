@@ -254,6 +254,7 @@
 		A28BC11E23E5275700CC1ED5 /* HWebImageViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BC11D23E5275700CC1ED5 /* HWebImageViewVC.m */; };
 		A28BC12223E5317C00CC1ED5 /* HWebImageViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = A28BC12123E5317C00CC1ED5 /* HWebImageViewHtml.html */; };
 		A28C1A572411F09700E4F28A /* UIViewController+HPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = A28C1A562411F09700E4F28A /* UIViewController+HPrinter.m */; };
+		A28C1A5F24120BCD00E4F28A /* NSObject_4.m in Sources */ = {isa = PBXBuildFile; fileRef = A28C1A5E24120BCD00E4F28A /* NSObject_4.m */; };
 		A28EF2E821D86DD8002F92ED /* HCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */; };
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
 		A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */; };
@@ -827,6 +828,8 @@
 		A28BC12123E5317C00CC1ED5 /* HWebImageViewHtml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = HWebImageViewHtml.html; sourceTree = "<group>"; };
 		A28C1A552411F09700E4F28A /* UIViewController+HPrinter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HPrinter.h"; sourceTree = "<group>"; };
 		A28C1A562411F09700E4F28A /* UIViewController+HPrinter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HPrinter.m"; sourceTree = "<group>"; };
+		A28C1A5D24120BCD00E4F28A /* NSObject_4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject_4.h; sourceTree = "<group>"; };
+		A28C1A5E24120BCD00E4F28A /* NSObject_4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObject_4.m; sourceTree = "<group>"; };
 		A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A28EF2E721D86DD8002F92ED /* HCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		A28EF2EA21D86E43002F92ED /* UILabel+HAttributeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeText.h"; sourceTree = "<group>"; };
@@ -2201,6 +2204,8 @@
 				A20B4E4824110CFA00F916A8 /* NSObject_2.m */,
 				A20B4E4B24113BCA00F916A8 /* NSObject_3.h */,
 				A20B4E4C24113BCA00F916A8 /* NSObject_3.m */,
+				A28C1A5D24120BCD00E4F28A /* NSObject_4.h */,
+				A28C1A5E24120BCD00E4F28A /* NSObject_4.m */,
 				A20F4C2B23FA8C6E00E2A126 /* UINavigationController+HIntercept.h */,
 				A20F4C2A23FA8C6E00E2A126 /* UINavigationController+HIntercept.m */,
 			);
@@ -2967,6 +2972,7 @@
 				A20E3CFB231FDF4D00E6982B /* HMenuController.m in Sources */,
 				A222AE5622818F7D0013098A /* UIView+HText.m in Sources */,
 				A2E8F57822D8356300E7C9F2 /* HCachePrivate.m in Sources */,
+				A28C1A5F24120BCD00E4F28A /* NSObject_4.m in Sources */,
 				A222AE4D22818F7D0013098A /* HTextSelectionView.m in Sources */,
 				A24B659E22609CE600B257BB /* NSObject+HName.m in Sources */,
 				A2A8EB2C22DB62680049C51B /* HAbstractDotView.m in Sources */,
