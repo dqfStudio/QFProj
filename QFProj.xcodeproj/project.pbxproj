@@ -256,7 +256,7 @@
 		A28C1A572411F09700E4F28A /* UIViewController+HPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = A28C1A562411F09700E4F28A /* UIViewController+HPrinter.m */; };
 		A28C1A5F24120BCD00E4F28A /* NSObject_4.m in Sources */ = {isa = PBXBuildFile; fileRef = A28C1A5E24120BCD00E4F28A /* NSObject_4.m */; };
 		A28C1D03241231FC00E4F28A /* NSObject_5.m in Sources */ = {isa = PBXBuildFile; fileRef = A28C1D02241231FC00E4F28A /* NSObject_5.m */; };
-		A28C1D0A24129A9F00E4F28A /* NSObject_6.m in Sources */ = {isa = PBXBuildFile; fileRef = A28C1D0924129A9F00E4F28A /* NSObject_6.m */; };
+		A28C1D0A24129A9F00E4F28A /* NSObject_6.h in Sources */ = {isa = PBXBuildFile; fileRef = A28C1D0924129A9F00E4F28A /* NSObject_6.h */; };
 		A28C1D0D24129ACF00E4F28A /* LSUpLoadHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A28C1D0C24129ACF00E4F28A /* LSUpLoadHelper.m */; };
 		A28EF2E821D86DD8002F92ED /* HCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */; };
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
@@ -835,8 +835,8 @@
 		A28C1A5E24120BCD00E4F28A /* NSObject_4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObject_4.m; sourceTree = "<group>"; };
 		A28C1D01241231FC00E4F28A /* NSObject_5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject_5.h; sourceTree = "<group>"; };
 		A28C1D02241231FC00E4F28A /* NSObject_5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObject_5.m; sourceTree = "<group>"; };
-		A28C1D0824129A9F00E4F28A /* NSObject_6.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject_6.h; sourceTree = "<group>"; };
-		A28C1D0924129A9F00E4F28A /* NSObject_6.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObject_6.m; sourceTree = "<group>"; };
+		A28C1D0824129A9F00E4F28A /* NSObject_6.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObject_6.m; sourceTree = "<group>"; };
+		A28C1D0924129A9F00E4F28A /* NSObject_6.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject_6.h; sourceTree = "<group>"; };
 		A28C1D0B24129ACE00E4F28A /* LSUpLoadHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSUpLoadHelper.h; sourceTree = "<group>"; };
 		A28C1D0C24129ACF00E4F28A /* LSUpLoadHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSUpLoadHelper.m; sourceTree = "<group>"; };
 		A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCollectionViewFlowLayout.m; sourceTree = "<group>"; };
@@ -2217,8 +2217,8 @@
 				A28C1A5E24120BCD00E4F28A /* NSObject_4.m */,
 				A28C1D01241231FC00E4F28A /* NSObject_5.h */,
 				A28C1D02241231FC00E4F28A /* NSObject_5.m */,
-				A28C1D0824129A9F00E4F28A /* NSObject_6.h */,
-				A28C1D0924129A9F00E4F28A /* NSObject_6.m */,
+				A28C1D0924129A9F00E4F28A /* NSObject_6.h */,
+				A28C1D0824129A9F00E4F28A /* NSObject_6.m */,
 				A28C1D0B24129ACE00E4F28A /* LSUpLoadHelper.h */,
 				A28C1D0C24129ACF00E4F28A /* LSUpLoadHelper.m */,
 				A20F4C2B23FA8C6E00E2A126 /* UINavigationController+HIntercept.h */,
@@ -2853,7 +2853,7 @@
 				A2FA53C623D732D100C5F710 /* HNetworkManager.m in Sources */,
 				A222AE4E22818F7D0013098A /* HTextMagnifier.m in Sources */,
 				A265FF6F2269F6280093C780 /* HHostUrlManager.m in Sources */,
-				A28C1D0A24129A9F00E4F28A /* NSObject_6.m in Sources */,
+				A28C1D0A24129A9F00E4F28A /* NSObject_6.h in Sources */,
 				A222AE6022818F7D0013098A /* HTextRunDelegate.m in Sources */,
 				A2A8EACD22DB59FD0049C51B /* HMarquee.m in Sources */,
 				A206883022CA083700661634 /* HWebImageView.m in Sources */,

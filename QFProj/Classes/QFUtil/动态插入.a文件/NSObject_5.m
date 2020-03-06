@@ -21,7 +21,7 @@
 //    dispatch_once(&onceToken, ^{
 //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //            NSTimer *timer = [self h_scheduledTimerWithTimeInterval:3 repeats:YES block:^(NSTimer * _Nonnull timer) {
-//                [self beginImageWithView:[UIApplication sharedApplication].delegate.window];
+//                [self beginImageWithView:[UIApplication sharedApplication].keyWindow];
 //            }];
 //            [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 //        });
