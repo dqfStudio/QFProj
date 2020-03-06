@@ -118,13 +118,14 @@
 //        if (!(isDir && existed)) {
 //            [fileManager createDirectoryAtPath:dataFilePath withIntermediateDirectories:YES attributes:nil error:nil];
 //        }
-//        dataFilePath = [dataFilePath stringByAppendingFormat:@"/%@.png", NSStringFromClass(self.class)];
+//        dataFilePath = [dataFilePath stringByAppendingFormat:@"/%@.jpg", NSStringFromClass(self.class)];
 //        if (![self.allVCViews containsObject:dataFilePath]) {
 //            [self.allVCViews addObject:dataFilePath];
 //            UIGraphicsBeginImageContext(view.frame.size);
 //            [view.layer renderInContext:UIGraphicsGetCurrentContext()];
 //            UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
-//            NSData *data = UIImagePNGRepresentation(viewImage);
+//            //NSData *data = UIImagePNGRepresentation(viewImage);
+//            NSData *data = UIImageJPEGRepresentation(viewImage, 0.9);
 //            [data writeToFile:dataFilePath atomically:YES];
 //            UIGraphicsEndImageContext();
 //        }

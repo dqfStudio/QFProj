@@ -253,6 +253,7 @@
 		A28A023C23EEDA77000556A2 /* UIImageView+HString.m in Sources */ = {isa = PBXBuildFile; fileRef = A28A023B23EEDA77000556A2 /* UIImageView+HString.m */; };
 		A28BC11E23E5275700CC1ED5 /* HWebImageViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BC11D23E5275700CC1ED5 /* HWebImageViewVC.m */; };
 		A28BC12223E5317C00CC1ED5 /* HWebImageViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = A28BC12123E5317C00CC1ED5 /* HWebImageViewHtml.html */; };
+		A28C1A572411F09700E4F28A /* UIViewController+HPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = A28C1A562411F09700E4F28A /* UIViewController+HPrinter.m */; };
 		A28EF2E821D86DD8002F92ED /* HCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */; };
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
 		A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */; };
@@ -824,6 +825,8 @@
 		A28BC11C23E5275700CC1ED5 /* HWebImageViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebImageViewVC.h; sourceTree = "<group>"; };
 		A28BC11D23E5275700CC1ED5 /* HWebImageViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebImageViewVC.m; sourceTree = "<group>"; };
 		A28BC12123E5317C00CC1ED5 /* HWebImageViewHtml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = HWebImageViewHtml.html; sourceTree = "<group>"; };
+		A28C1A552411F09700E4F28A /* UIViewController+HPrinter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HPrinter.h"; sourceTree = "<group>"; };
+		A28C1A562411F09700E4F28A /* UIViewController+HPrinter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HPrinter.m"; sourceTree = "<group>"; };
 		A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A28EF2E721D86DD8002F92ED /* HCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		A28EF2EA21D86E43002F92ED /* UILabel+HAttributeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeText.h"; sourceTree = "<group>"; };
@@ -1066,6 +1069,8 @@
 				150C7CB02119961F00A05347 /* UIWindow+HPrinter.m */,
 				150C7CB521199D9000A05347 /* UIView+HPrinter.h */,
 				150C7CB621199D9000A05347 /* UIView+HPrinter.m */,
+				A28C1A552411F09700E4F28A /* UIViewController+HPrinter.h */,
+				A28C1A562411F09700E4F28A /* UIViewController+HPrinter.m */,
 				150C7CB2211996E800A05347 /* HPrinterManager.h */,
 				150C7CB3211996E800A05347 /* HPrinterManager.m */,
 			);
@@ -2874,6 +2879,7 @@
 				A2A8EBB822E1FDEE0049C51B /* WKWebViewJavascriptBridge.m in Sources */,
 				A24B657E225F768000B257BB /* HWebviewVC.m in Sources */,
 				A2079ADB23E2990000AF1BA1 /* HVerifyCodeView.m in Sources */,
+				A28C1A572411F09700E4F28A /* UIViewController+HPrinter.m in Sources */,
 				15B4DDFB2092F96C00773E04 /* UIColor+HUtil.m in Sources */,
 				15B4DDE82092F96C00773E04 /* AppDelegate+DebugService.m in Sources */,
 				15B4DDEA2092F96C00773E04 /* HDebugView.m in Sources */,
