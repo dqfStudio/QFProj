@@ -2,7 +2,7 @@
 //  UIViewController+HPrinter.h
 //  QFProj
 //
-//  Created by wind on 2020/3/6.
+//  Created by dqf on 2020/3/6.
 //  Copyright © 2020 dqfStudio. All rights reserved.
 //
 
