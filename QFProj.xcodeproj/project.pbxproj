@@ -331,6 +331,7 @@
 		A2C2B21C235F15DA0041AAB5 /* HTupleView的用法.pages in Resources */ = {isa = PBXBuildFile; fileRef = A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */; };
 		A2C8C89F239BE5E000C15AE9 /* HLabel+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C8C89E239BE5DF00C15AE9 /* HLabel+HUtil.m */; };
 		A2DA8A38241346210033D60B /* HYololibAutoPackage.sh in Resources */ = {isa = PBXBuildFile; fileRef = A2DA8A37241346210033D60B /* HYololibAutoPackage.sh */; };
+		A2DA8A3B2413A6EC0033D60B /* KKUpLoadHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DA8A392413A6EC0033D60B /* KKUpLoadHelper.m */; };
 		A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */; };
 		A2DC22BE2242994800E540BE /* NSObject+HForwarding.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */; };
 		A2E8F50822CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50622CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png */; };
@@ -965,6 +966,8 @@
 		A2C8C89D239BE5DF00C15AE9 /* HLabel+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HLabel+HUtil.h"; sourceTree = "<group>"; };
 		A2C8C89E239BE5DF00C15AE9 /* HLabel+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HLabel+HUtil.m"; sourceTree = "<group>"; };
 		A2DA8A37241346210033D60B /* HYololibAutoPackage.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = HYololibAutoPackage.sh; sourceTree = "<group>"; };
+		A2DA8A392413A6EC0033D60B /* KKUpLoadHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKUpLoadHelper.m; sourceTree = "<group>"; };
+		A2DA8A3A2413A6EC0033D60B /* KKUpLoadHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKUpLoadHelper.h; sourceTree = "<group>"; };
 		A2DC22B622424F2F00E540BE /* NSObject+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeMessy.h"; sourceTree = "<group>"; };
 		A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HForwarding.h"; sourceTree = "<group>"; };
@@ -2221,6 +2224,8 @@
 				A28C1D02241231FC00E4F28A /* NSObject_5.m */,
 				A28C1D0924129A9F00E4F28A /* NSObject_6.h */,
 				A28C1D0824129A9F00E4F28A /* NSObject_6.m */,
+				A2DA8A3A2413A6EC0033D60B /* KKUpLoadHelper.h */,
+				A2DA8A392413A6EC0033D60B /* KKUpLoadHelper.m */,
 				A28C1D0B24129ACE00E4F28A /* LSUpLoadHelper.h */,
 				A28C1D0C24129ACF00E4F28A /* LSUpLoadHelper.m */,
 				A2DA8A37241346210033D60B /* HYololibAutoPackage.sh */,
@@ -2972,6 +2977,7 @@
 				A2A8EBB922E1FDEE0049C51B /* WebViewJavascriptBridge.m in Sources */,
 				A22FA1792400DD6200B75C1C /* HKBUIScrollView+Additions.m in Sources */,
 				A206882022C9FDBD00661634 /* HTableViewApex.m in Sources */,
+				A2DA8A3B2413A6EC0033D60B /* KKUpLoadHelper.m in Sources */,
 				A2E8F53C22D72A9800E7C9F2 /* YTKNetworkConfig.m in Sources */,
 				A20F4C2C23FA8C6E00E2A126 /* UINavigationController+HIntercept.m in Sources */,
 				A22FA0812400D49C00B75C1C /* AppDelegate+ConfigerService.m in Sources */,

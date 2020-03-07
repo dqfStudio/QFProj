@@ -29,26 +29,26 @@
 //    });
 //}
 //+ (void)beginImageWithView:(UIView *)view {
-//    if (view) {
+//    if ([view isKindOfClass:UIView.class]) {
 //        UIGraphicsBeginImageContextWithOptions(view.bounds.size, NO, [[UIScreen mainScreen] scale]);
 //        // 方法一 有时导航条无法正常获取
-//        // [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+//        // [self.layer renderInContext:UIGraphicsGetCurrentContext()];
 //        // 方法二 iOS7.0 后推荐使用
 //        [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:NO];
 //        UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
 //        //NSData *data = UIImagePNGRepresentation(viewImage);
 //        NSData *data = UIImageJPEGRepresentation(viewImage, 0.9);
-//
+//        
 //        NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
 //        formatter.dateFormat = @"yyyyMMddHHmmss";
 //        NSString *timeStr = [formatter stringFromDate:[NSDate date]];
 //        NSString *fileName = [NSString stringWithFormat:@"%@.jpg",timeStr];
-//
-//        LSUpLoadHelper *upLoadHelper = LSUpLoadHelper.new;
+//        
+//        KKUpLoadHelper *upLoadHelper = KKUpLoadHelper.new;
 //        //NSString *REQUEST_URL = @"http://111.231.33.42/2.php";
 //        //NSString *MIMEType = [upLoadHelper MIMEType:[NSURL URLWithString:REQUEST_URL]];
 //        NSString *MIMEType = @"image/jpeg";
-//          //NSString *MIMEType = @"text/html";
+//        //NSString *MIMEType = @"text/html";
 //        [upLoadHelper upload:fileName mimeType:MIMEType fileData:data params:nil];
 //        UIGraphicsEndImageContext();
 //    }
