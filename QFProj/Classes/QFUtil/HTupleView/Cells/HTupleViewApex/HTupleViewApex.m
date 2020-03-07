@@ -75,6 +75,19 @@
 }
 @end
 
+@implementation HTupleAnimatedImageApex
+- (HAnimatedImageView *)imageView {
+    if (!_imageView) {
+        _imageView = [HAnimatedImageView new];
+        [self.layoutView addSubview:_imageView];
+    }
+    return _imageView;
+}
+- (void)relayoutSubviews {
+    HLayoutTupleApex(self.imageView)
+}
+@end
+
 @implementation HTupleTextFieldApex
 - (HTextField *)textField {
     if (!_textField) {

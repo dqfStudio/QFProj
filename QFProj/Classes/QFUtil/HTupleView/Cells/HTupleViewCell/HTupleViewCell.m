@@ -75,6 +75,19 @@
 }
 @end
 
+@implementation HTupleAnimatedImageCell
+- (HAnimatedImageView *)imageView {
+    if (!_imageView) {
+        _imageView = [HAnimatedImageView new];
+        [self.layoutView addSubview:_imageView];
+    }
+    return _imageView;
+}
+- (void)relayoutSubviews {
+    HLayoutTupleCell(self.imageView)
+}
+@end
+
 @implementation HTupleTextFieldCell
 - (HTextField *)textField {
     if (!_textField) {

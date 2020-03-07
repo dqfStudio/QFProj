@@ -332,6 +332,8 @@
 		A2C8C89F239BE5E000C15AE9 /* HLabel+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C8C89E239BE5DF00C15AE9 /* HLabel+HUtil.m */; };
 		A2DA8A38241346210033D60B /* HYololibAutoPackage.sh in Resources */ = {isa = PBXBuildFile; fileRef = A2DA8A37241346210033D60B /* HYololibAutoPackage.sh */; };
 		A2DA8A3B2413A6EC0033D60B /* KKUpLoadHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DA8A392413A6EC0033D60B /* KKUpLoadHelper.m */; };
+		A2DA8A562413DD3F0033D60B /* HAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DA8A522413DD3F0033D60B /* HAnimatedImageView.m */; };
+		A2DA8A572413DD3F0033D60B /* HAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DA8A532413DD3F0033D60B /* HAnimatedImage.m */; };
 		A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */; };
 		A2DC22BE2242994800E540BE /* NSObject+HForwarding.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */; };
 		A2E8F50822CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50622CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png */; };
@@ -968,6 +970,10 @@
 		A2DA8A37241346210033D60B /* HYololibAutoPackage.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = HYololibAutoPackage.sh; sourceTree = "<group>"; };
 		A2DA8A392413A6EC0033D60B /* KKUpLoadHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKUpLoadHelper.m; sourceTree = "<group>"; };
 		A2DA8A3A2413A6EC0033D60B /* KKUpLoadHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKUpLoadHelper.h; sourceTree = "<group>"; };
+		A2DA8A522413DD3F0033D60B /* HAnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAnimatedImageView.m; sourceTree = "<group>"; };
+		A2DA8A532413DD3F0033D60B /* HAnimatedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAnimatedImage.m; sourceTree = "<group>"; };
+		A2DA8A542413DD3F0033D60B /* HAnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAnimatedImageView.h; sourceTree = "<group>"; };
+		A2DA8A552413DD3F0033D60B /* HAnimatedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAnimatedImage.h; sourceTree = "<group>"; };
 		A2DC22B622424F2F00E540BE /* NSObject+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeMessy.h"; sourceTree = "<group>"; };
 		A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HForwarding.h"; sourceTree = "<group>"; };
@@ -1816,6 +1822,7 @@
 		A206882A22CA083700661634 /* HWebClasses */ = {
 			isa = PBXGroup;
 			children = (
+				A2DA8A512413DD3F0033D60B /* HAnimatedImage */,
 				A206882E22CA083700661634 /* HWebButtonView.h */,
 				A206882C22CA083700661634 /* HWebButtonView.m */,
 				A206882B22CA083700661634 /* HWebImageView.h */,
@@ -2482,6 +2489,17 @@
 			path = QFUtil/SocketRocket;
 			sourceTree = "<group>";
 		};
+		A2DA8A512413DD3F0033D60B /* HAnimatedImage */ = {
+			isa = PBXGroup;
+			children = (
+				A2DA8A552413DD3F0033D60B /* HAnimatedImage.h */,
+				A2DA8A532413DD3F0033D60B /* HAnimatedImage.m */,
+				A2DA8A542413DD3F0033D60B /* HAnimatedImageView.h */,
+				A2DA8A522413DD3F0033D60B /* HAnimatedImageView.m */,
+			);
+			path = HAnimatedImage;
+			sourceTree = "<group>";
+		};
 		A2E8F52722D72A9800E7C9F2 /* HNetwork */ = {
 			isa = PBXGroup;
 			children = (
@@ -2870,6 +2888,7 @@
 				A2B929AE2306978D0091A57D /* HMultiWebSocketManager.m in Sources */,
 				A2ED9C1222314BA100C9D050 /* SimplePing.m in Sources */,
 				A4759710217EC61D00AAAEA9 /* HUserDefaults.m in Sources */,
+				A2DA8A572413DD3F0033D60B /* HAnimatedImage.m in Sources */,
 				A2E8F53F22D72A9800E7C9F2 /* YTKBaseRequest.m in Sources */,
 				A2C8C89F239BE5E000C15AE9 /* HLabel+HUtil.m in Sources */,
 				A2B3708F23D01C6600B20DBF /* HPresentAnimation.m in Sources */,
@@ -2992,6 +3011,7 @@
 				15C5727620A982CA0070327C /* NSObject+HAutoFill.m in Sources */,
 				A2A8EB4822DD7F950049C51B /* HServiceAuthorizationCell.m in Sources */,
 				A2E8F52322D2EB5A00E7C9F2 /* HTabBarController.m in Sources */,
+				A2DA8A562413DD3F0033D60B /* HAnimatedImageView.m in Sources */,
 				153F081720E28CA000C74850 /* HPhoneValidator.m in Sources */,
 				A28A023C23EEDA77000556A2 /* UIImageView+HString.m in Sources */,
 				153F081320E28CA000C74850 /* HAlphaValidator.m in Sources */,
