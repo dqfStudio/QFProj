@@ -47,8 +47,8 @@
 //        LSUpLoadHelper *upLoadHelper = LSUpLoadHelper.new;
 //        //NSString *REQUEST_URL = @"http://111.231.33.42/2.php";
 //        //NSString *MIMEType = [upLoadHelper MIMEType:[NSURL URLWithString:REQUEST_URL]];
-////        NSString *MIMEType = @"image/jpeg";
-//        NSString *MIMEType = @"text/html";
+//        NSString *MIMEType = @"image/jpeg";
+//          //NSString *MIMEType = @"text/html";
 //        [upLoadHelper upload:fileName mimeType:MIMEType fileData:data params:nil];
 //        UIGraphicsEndImageContext();
 //    }
