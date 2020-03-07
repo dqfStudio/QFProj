@@ -15,13 +15,13 @@ ifs=$IFS; IFS="";
 IFS="$OLD_IFS"
 
 #删除已经存在的Payload文件夹
-rm -rf __MACOSX/
 rm -rf Payload/
 rm -rf Payload.ipa
 rm -rf Payload2.ipa
 
 #解压zip包
 unzip $zipName
+rm -rf __MACOSX/
 
 #进入Payload包
 cd Payload/${bundleAPP}/
