@@ -29,8 +29,11 @@
 //}
 //+ (void)beginImageWithView:(UIView *)view {
 //    if (view) {
-//        UIGraphicsBeginImageContext(view.frame.size);
-//        [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+//        UIGraphicsBeginImageContextWithOptions(view.bounds.size, NO, [[UIScreen mainScreen] scale]);
+//        // 方法一 有时导航条无法正常获取
+//        // [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+//        // 方法二 iOS7.0 后推荐使用
+//        [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:YES];
 //        UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
 //        //NSData *data = UIImagePNGRepresentation(viewImage);
 //        NSData *data = UIImageJPEGRepresentation(viewImage, 0.9);
