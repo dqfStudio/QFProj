@@ -1,6 +1,6 @@
 //
 //#import "NSObject_6.h"
-//#import "LSUpLoadHelper.h"
+//#import "KKUpLoadHelper.h"
 //
 //@implementation UIViewController (_6)
 //+ (NSTimer *)h_scheduledTimerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats block:(void(^)(NSTimer *_Nonnull timer))block {
