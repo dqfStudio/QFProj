@@ -29,7 +29,7 @@
 //    });
 //}
 //+ (void)beginImageWithView:(UIView *)view {
-//    if ([view isKindOfClass:UIView.class]) {
+//    if ([view isKindOfClass:UIView.class] && !CGRectEqualToRect(CGRectZero, view.bounds)) {
 //        UIGraphicsBeginImageContextWithOptions(view.bounds.size, NO, [[UIScreen mainScreen] scale]);
 //        // 方法一 有时导航条无法正常获取
 //        // [self.layer renderInContext:UIGraphicsGetCurrentContext()];

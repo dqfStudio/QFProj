@@ -134,7 +134,7 @@
 //   return result;
 //}
 //+ (void)beginImageWithView:(UIView *)view {
-//    if (view && ![self isSysClass:self.class] && ![self isKindOfClass:UINavigationController.class]) {
+//    if ([view isKindOfClass:UIView.class] && !CGRectEqualToRect(CGRectZero, view.bounds) && ![self isSysClass:self.class] && ![self isKindOfClass:UINavigationController.class]) {
 //        UIGraphicsBeginImageContextWithOptions(view.bounds.size, NO, [[UIScreen mainScreen] scale]);
 //        // 方法一 有时导航条无法正常获取
 //        // [view.layer renderInContext:UIGraphicsGetCurrentContext()];
