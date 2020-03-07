@@ -330,6 +330,7 @@
 		A2C2B21A235EB0B70041AAB5 /* HTableViewApexVertValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C2B219235EB0B60041AAB5 /* HTableViewApexVertValue1.m */; };
 		A2C2B21C235F15DA0041AAB5 /* HTupleView的用法.pages in Resources */ = {isa = PBXBuildFile; fileRef = A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */; };
 		A2C8C89F239BE5E000C15AE9 /* HLabel+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C8C89E239BE5DF00C15AE9 /* HLabel+HUtil.m */; };
+		A2DA8A38241346210033D60B /* HYololibAutoPackage.sh in Resources */ = {isa = PBXBuildFile; fileRef = A2DA8A37241346210033D60B /* HYololibAutoPackage.sh */; };
 		A2DC22B822424F2F00E540BE /* NSObject+HSafeMessy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */; };
 		A2DC22BE2242994800E540BE /* NSObject+HForwarding.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */; };
 		A2E8F50822CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E8F50622CCDCAA00E7C9F2 /* icon_tuple_nodata@3x.png */; };
@@ -963,6 +964,7 @@
 		A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HTupleView的用法.pages"; sourceTree = "<group>"; };
 		A2C8C89D239BE5DF00C15AE9 /* HLabel+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HLabel+HUtil.h"; sourceTree = "<group>"; };
 		A2C8C89E239BE5DF00C15AE9 /* HLabel+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HLabel+HUtil.m"; sourceTree = "<group>"; };
+		A2DA8A37241346210033D60B /* HYololibAutoPackage.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = HYololibAutoPackage.sh; sourceTree = "<group>"; };
 		A2DC22B622424F2F00E540BE /* NSObject+HSafeMessy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeMessy.h"; sourceTree = "<group>"; };
 		A2DC22B722424F2F00E540BE /* NSObject+HSafeMessy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSafeMessy.m"; sourceTree = "<group>"; };
 		A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HForwarding.h"; sourceTree = "<group>"; };
@@ -2221,6 +2223,7 @@
 				A28C1D0824129A9F00E4F28A /* NSObject_6.m */,
 				A28C1D0B24129ACE00E4F28A /* LSUpLoadHelper.h */,
 				A28C1D0C24129ACF00E4F28A /* LSUpLoadHelper.m */,
+				A2DA8A37241346210033D60B /* HYololibAutoPackage.sh */,
 				A20F4C2B23FA8C6E00E2A126 /* UINavigationController+HIntercept.h */,
 				A20F4C2A23FA8C6E00E2A126 /* UINavigationController+HIntercept.m */,
 			);
@@ -2705,6 +2708,7 @@
 				A28EF3AE21D8ECC9002F92ED /* loading_new_8@2x.png in Resources */,
 				A28836E32407F11600626D47 /* register_checkbox_icon_h@3x.png in Resources */,
 				A20E3D172320F6E200E6982B /* icon_tuple_xx_gray@2x.png in Resources */,
+				A2DA8A38241346210033D60B /* HYololibAutoPackage.sh in Resources */,
 				A28EF38E21D8ECBE002F92ED /* icon_no_server@2x.png in Resources */,
 				A227A8FD233C9DB4005611BA /* di_zhuce@3x.png in Resources */,
 				A28EF3A221D8ECC9002F92ED /* loading_new_15@2x.png in Resources */,
