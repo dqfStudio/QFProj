@@ -7,6 +7,7 @@
 //
 
 #import "HTableBaseApex.h"
+#import "HAnimatedImageView.h"
 #import "HLabel+HUtil.h"
 #import "HTupleView.h"
 #import "HLabel.h"
@@ -29,6 +30,10 @@
 
 @interface HTableImageApex : HTableBaseApex
 @property (nonatomic) HWebImageView *imageView;
+@end
+
+@interface HTableAnimatedImageApex : HTableBaseApex
+@property (nonatomic) HAnimatedImageView *imageView;
 @end
 
 @interface HTableTextFieldApex : HTableBaseApex

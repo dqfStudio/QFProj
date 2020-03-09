@@ -102,6 +102,20 @@
 }
 @end
 
+@implementation HTableAnimatedImageCell
+@synthesize imageView = _imageView;
+- (HAnimatedImageView *)imageView {
+    if (!_imageView) {
+        _imageView = [HAnimatedImageView new];
+        [self.layoutView addSubview:_imageView];
+    }
+    return _imageView;
+}
+- (void)relayoutSubviews {
+    HLayoutTableCell(self.imageView)
+}
+@end
+
 @implementation HTableTextFieldCell
 - (HTextField *)textField {
     if (!_textField) {

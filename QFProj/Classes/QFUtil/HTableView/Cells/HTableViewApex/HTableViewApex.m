@@ -74,6 +74,19 @@
 }
 @end
 
+@implementation HTableAnimatedImageApex
+- (HAnimatedImageView *)imageView {
+    if (!_imageView) {
+        _imageView = [HAnimatedImageView new];
+        [self.layoutView addSubview:_imageView];
+    }
+    return _imageView;
+}
+- (void)relayoutSubviews {
+    HLayoutTableApex(self.imageView)
+}
+@end
+
 @implementation HTableTextFieldApex
 - (HTextField *)textField {
     if (!_textField) {

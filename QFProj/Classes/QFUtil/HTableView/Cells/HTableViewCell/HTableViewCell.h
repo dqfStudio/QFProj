@@ -7,6 +7,7 @@
 //
 
 #import "HTableBaseCell.h"
+#import "HAnimatedImageView.h"
 #import "HLabel+HUtil.h"
 #import "HTupleView.h"
 #import "HLabel.h"
@@ -41,6 +42,10 @@
 
 @interface HTableImageCell : HTableBaseCell
 @property (nonatomic) HWebImageView *imageView;
+@end
+
+@interface HTableAnimatedImageCell : HTableBaseCell
+@property (nonatomic) HAnimatedImageView *imageView;
 @end
 
 @interface HTableTextFieldCell : HTableBaseCell
