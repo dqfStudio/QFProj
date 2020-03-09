@@ -237,6 +237,9 @@
 		A28836E32407F11600626D47 /* register_checkbox_icon_h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28836DF2407F11600626D47 /* register_checkbox_icon_h@3x.png */; };
 		A28836E42407F11600626D47 /* register_checkbox_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28836E02407F11600626D47 /* register_checkbox_icon@2x.png */; };
 		A28836E52407F11600626D47 /* register_checkbox_icon_h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28836E12407F11600626D47 /* register_checkbox_icon_h@2x.png */; };
+		A288E13A2415E89A00F701FF /* HLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = A288E1392415E89A00F701FF /* HLocalNotification.m */; };
+		A288E13D2415E8C500F701FF /* HRemoteNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = A288E13C2415E8C500F701FF /* HRemoteNotification.m */; };
+		A288E13F2415EC9600F701FF /* notification.caf in Resources */ = {isa = PBXBuildFile; fileRef = A288E13E2415EC9600F701FF /* notification.caf */; };
 		A289DCEA23E3DFD400FC59F1 /* HTupleViewBannerApex.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DCE923E3DFD400FC59F1 /* HTupleViewBannerApex.m */; };
 		A289DCEC23E3E31100FC59F1 /* HCyclePlaceholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A289DCEB23E3E31100FC59F1 /* HCyclePlaceholder@2x.png */; };
 		A289DCF123E3E31A00FC59F1 /* HCyclePageControlDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A289DCED23E3E31A00FC59F1 /* HCyclePageControlDot@2x.png */; };
@@ -806,6 +809,11 @@
 		A28836DF2407F11600626D47 /* register_checkbox_icon_h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "register_checkbox_icon_h@3x.png"; sourceTree = "<group>"; };
 		A28836E02407F11600626D47 /* register_checkbox_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "register_checkbox_icon@2x.png"; sourceTree = "<group>"; };
 		A28836E12407F11600626D47 /* register_checkbox_icon_h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "register_checkbox_icon_h@2x.png"; sourceTree = "<group>"; };
+		A288E1382415E89A00F701FF /* HLocalNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLocalNotification.h; sourceTree = "<group>"; };
+		A288E1392415E89A00F701FF /* HLocalNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLocalNotification.m; sourceTree = "<group>"; };
+		A288E13B2415E8C500F701FF /* HRemoteNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRemoteNotification.h; sourceTree = "<group>"; };
+		A288E13C2415E8C500F701FF /* HRemoteNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRemoteNotification.m; sourceTree = "<group>"; };
+		A288E13E2415EC9600F701FF /* notification.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.caf; sourceTree = "<group>"; };
 		A289DCE823E3DFD400FC59F1 /* HTupleViewBannerApex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleViewBannerApex.h; sourceTree = "<group>"; };
 		A289DCE923E3DFD400FC59F1 /* HTupleViewBannerApex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleViewBannerApex.m; sourceTree = "<group>"; };
 		A289DCEB23E3E31100FC59F1 /* HCyclePlaceholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HCyclePlaceholder@2x.png"; sourceTree = "<group>"; };
@@ -1316,6 +1324,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A288E1372415E88800F701FF /* HNotification */,
 				A22FA14C2400DD6200B75C1C /* HKBKeyboardManager */,
 				A28566B123F1436F00552FE7 /* 动态插入.a文件 */,
 				A289DCFE23E4135800FC59F1 /* HTextLoopView */,
@@ -2243,6 +2252,19 @@
 			path = "QFUtil/动态插入.a文件";
 			sourceTree = "<group>";
 		};
+		A288E1372415E88800F701FF /* HNotification */ = {
+			isa = PBXGroup;
+			children = (
+				A288E13E2415EC9600F701FF /* notification.caf */,
+				A288E1382415E89A00F701FF /* HLocalNotification.h */,
+				A288E1392415E89A00F701FF /* HLocalNotification.m */,
+				A288E13B2415E8C500F701FF /* HRemoteNotification.h */,
+				A288E13C2415E8C500F701FF /* HRemoteNotification.m */,
+			);
+			name = HNotification;
+			path = QFUtil/HNotification;
+			sourceTree = "<group>";
+		};
 		A289DCFE23E4135800FC59F1 /* HTextLoopView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2743,6 +2765,7 @@
 				A2FF719D2317BADF00522223 /* hvc_back_icon@3x.png in Resources */,
 				A28EF3A521D8ECC9002F92ED /* loading_new_6@2x.png in Resources */,
 				A28EF3AF21D8ECC9002F92ED /* loading_new_9@2x.png in Resources */,
+				A288E13F2415EC9600F701FF /* notification.caf in Resources */,
 				15C5736E20B3DD7B0070327C /* icon_tuple_arrow_right@2x.png in Resources */,
 				A28BC12223E5317C00CC1ED5 /* HWebImageViewHtml.html in Resources */,
 				A20E3D0F231FE8FC00E6982B /* di_index_h@2x.png in Resources */,
@@ -2877,6 +2900,7 @@
 				A2E8F57622D8356300E7C9F2 /* HValueTransformerFactory.m in Sources */,
 				A2E8F57422D8356300E7C9F2 /* NSURL+HExtendedFileAttributes.m in Sources */,
 				A22FA1742400DD6200B75C1C /* HKBPreviousNextView.m in Sources */,
+				A288E13A2415E89A00F701FF /* HLocalNotification.m in Sources */,
 				A2FA53C623D732D100C5F710 /* HNetworkManager.m in Sources */,
 				A222AE4E22818F7D0013098A /* HTextMagnifier.m in Sources */,
 				A265FF6F2269F6280093C780 /* HHostUrlManager.m in Sources */,
@@ -3092,6 +3116,7 @@
 				15E6BB9B2136E7E300EBE794 /* YPTabBar.m in Sources */,
 				A20E3CE4231CC3B400E6982B /* NSObject+HKVO.m in Sources */,
 				A24B659722607E8400B257BB /* SKPSMTPMessage.m in Sources */,
+				A288E13D2415E8C500F701FF /* HRemoteNotification.m in Sources */,
 				A2E8F52622D2EB6E00E7C9F2 /* HNavigationController.m in Sources */,
 				A26CF7BF2302747C00D73ECD /* NSNull+HSafeUtil.m in Sources */,
 				A289DCFD23E3E6F800FC59F1 /* HTupleViewMarqueeApex.m in Sources */,

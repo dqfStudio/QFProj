@@ -7,10 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "HLocalNotification.h"
+#import "HRemoteNotification.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AppDelegate (NotifyService)
+@interface AppDelegate (NotifyService) <HLocalNotificationDelegate, HRemoteNotificationDelegate>
 
 @end
 

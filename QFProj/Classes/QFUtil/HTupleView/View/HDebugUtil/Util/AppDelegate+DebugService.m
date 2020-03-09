@@ -7,9 +7,20 @@
 //
 
 #import "AppDelegate+DebugService.h"
+#import "NSObject+HSwizzleUtil.h"
 #import <objc/runtime.h>
 
 @implementation AppDelegate (DebugService)
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [[self class] methodSwizzleWithOrigSEL:@selector(application:didFinishLaunchingWithOptions:) overrideSEL:@selector(debug_application:didFinishLaunchingWithOptions:)];
+    });
+}
+- (BOOL)debug_application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [self loadFolatingball];
+    return [self debug_application:application didFinishLaunchingWithOptions:launchOptions];
+}
 #if DEBUG
 //- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 //    [super touchesBegan:touches withEvent:event];
