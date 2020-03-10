@@ -254,6 +254,7 @@
 		A289DD0A23E418E200FC59F1 /* HTupleViewTextLoopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A289DD0923E418E200FC59F1 /* HTupleViewTextLoopCell.m */; };
 		A289F5032406578D007A7AE3 /* YPContainerTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A289F5002406578D007A7AE3 /* YPContainerTableView.m */; };
 		A28A023C23EEDA77000556A2 /* UIImageView+HString.m in Sources */ = {isa = PBXBuildFile; fileRef = A28A023B23EEDA77000556A2 /* UIImageView+HString.m */; };
+		A28B91482417892300E6861B /* UIView+HUserInterfaceStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = A28B91472417892300E6861B /* UIView+HUserInterfaceStyle.m */; };
 		A28BC11E23E5275700CC1ED5 /* HWebImageViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BC11D23E5275700CC1ED5 /* HWebImageViewVC.m */; };
 		A28BC12223E5317C00CC1ED5 /* HWebImageViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = A28BC12123E5317C00CC1ED5 /* HWebImageViewHtml.html */; };
 		A28C1A572411F09700E4F28A /* UIViewController+HPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = A28C1A562411F09700E4F28A /* UIViewController+HPrinter.m */; };
@@ -838,6 +839,8 @@
 		A289F5022406578D007A7AE3 /* YPContainerTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPContainerTableView.h; sourceTree = "<group>"; };
 		A28A023A23EEDA77000556A2 /* UIImageView+HString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+HString.h"; sourceTree = "<group>"; };
 		A28A023B23EEDA77000556A2 /* UIImageView+HString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+HString.m"; sourceTree = "<group>"; };
+		A28B91462417892300E6861B /* UIView+HUserInterfaceStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HUserInterfaceStyle.h"; sourceTree = "<group>"; };
+		A28B91472417892300E6861B /* UIView+HUserInterfaceStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+HUserInterfaceStyle.m"; sourceTree = "<group>"; };
 		A28BC11C23E5275700CC1ED5 /* HWebImageViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebImageViewVC.h; sourceTree = "<group>"; };
 		A28BC11D23E5275700CC1ED5 /* HWebImageViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebImageViewVC.m; sourceTree = "<group>"; };
 		A28BC12123E5317C00CC1ED5 /* HWebImageViewHtml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = HWebImageViewHtml.html; sourceTree = "<group>"; };
@@ -1815,6 +1818,8 @@
 				A2FF719C2317BADF00522223 /* hvc_back_icon@3x.png */,
 				A206882622CA081400661634 /* HViewController.h */,
 				A206882522CA081400661634 /* HViewController.m */,
+				A28B91462417892300E6861B /* UIView+HUserInterfaceStyle.h */,
+				A28B91472417892300E6861B /* UIView+HUserInterfaceStyle.m */,
 				A2E8F51E22D2300D00E7C9F2 /* HTableController.h */,
 				A2E8F51F22D2300D00E7C9F2 /* HTableController.m */,
 				A2E8F51B22D229A500E7C9F2 /* HTupleController.h */,
@@ -3045,6 +3050,7 @@
 				A2E8F57822D8356300E7C9F2 /* HCachePrivate.m in Sources */,
 				A28C1A5F24120BCD00E4F28A /* NSObject_4.m in Sources */,
 				A222AE4D22818F7D0013098A /* HTextSelectionView.m in Sources */,
+				A28B91482417892300E6861B /* UIView+HUserInterfaceStyle.m in Sources */,
 				A24B659E22609CE600B257BB /* NSObject+HName.m in Sources */,
 				A2A8EB2C22DB62680049C51B /* HAbstractDotView.m in Sources */,
 				15E5651D212E5D77003A63E5 /* HHostSegmentCell.m in Sources */,

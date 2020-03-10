@@ -16,6 +16,7 @@
 #import "UIApplication+HUtil.h"
 #import "NSObject+HSwizzleUtil.h"
 #import "HNavigationController.h"
+#import "UIView+HUserInterfaceStyle.h"
 
 typedef NS_OPTIONS(NSUInteger, HVCDisappearType) {
     HVCDisappearTypeOther = 0,

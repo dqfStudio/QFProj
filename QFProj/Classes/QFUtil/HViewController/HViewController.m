@@ -34,24 +34,6 @@
 
 @end
 
-@implementation UIView (HUserInterfaceStyle)
-+ (void)load {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [[self class] methodSwizzleWithOrigSEL:@selector(willMoveToSuperview:) overrideSEL:@selector(pvc_willMoveToSuperview:)];
-    });
-}
-- (void)pvc_willMoveToSuperview:(nullable UIView *)newSuperview {
-    //关闭暗黑模式
-#ifdef __IPHONE_13_0
-    if (@available(iOS 13.0, *)) {
-        self.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
-    }
-#endif
-    [self pvc_willMoveToSuperview:newSuperview];
-}
-@end
-
 @interface HViewController ()
 
 @property (nonatomic) NSMutableArray *controllableRequests;
