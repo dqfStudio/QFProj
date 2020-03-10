@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define HColorHex(_hex_) [UIColor colorWithString:((__bridge NSString *)CFSTR(#_hex_))]
+
 @interface UIColor (HUtil)
 
 - (UIColor *)revertColor;
