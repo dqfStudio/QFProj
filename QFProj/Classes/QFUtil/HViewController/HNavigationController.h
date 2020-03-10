@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (HJumper)
 //viewControllerToPresent可为UIViewController实例或类名
+- (void)presentAlertController:(id)viewControllerToPresent animated:(BOOL)flag completion:(void (^ __nullable)(void))completion;
+- (void)presentAlertController:(id)viewControllerToPresent params:(NSDictionary *_Nullable)params animated:(BOOL)flag completion:(void (^ __nullable)(void))completion;
 - (void)presentViewController:(id)viewControllerToPresent params:(NSDictionary *_Nullable)params animated:(BOOL)flag completion:(void (^ __nullable)(void))completion;
 @end
 
