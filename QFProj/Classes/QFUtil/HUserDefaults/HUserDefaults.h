@@ -16,9 +16,7 @@
 
 /** 用户ID */
 @property (nonatomic, copy) NSString *userId;
-@property (nonatomic, copy) NSString *userKey;
 @property (nonatomic, copy) NSString *userName;
-@property (nonatomic, copy) NSString *realname;
 
 /** 密码 */
 @property (nonatomic, copy) NSString *password;
@@ -34,11 +32,5 @@
 
 - (void)setH5Link:(NSString *)h5Link;
 - (NSString *)h5Link;
-
-- (void)setPlatCodeLink:(NSString *)platCodeLink;
-- (NSString *)platCodeLink;
-
-- (void)setSrc1Link:(NSString *)src1Link;
-- (NSString *)src1Link;
 
 @end

@@ -105,41 +105,6 @@
     }
 }
 
-//加载钥匙串中的数据
-- (BOOL)loadKeyChainDataWith:(NSString *)userName pwd:(NSString *)pwd {
-    BOOL boolValue = NO;
-    if (userName.length > 3) {
-        NSString *defaultsUserId = [userName uppercaseString];
-        NSData *data = [[HKeyChainStore keyChainStore] dataForKey:defaultsUserId];
-        if (data) {
-            HUserDefaults *userDefaults = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-            id propertyValue = [userDefaults valueForKey:@"password"];
-            //密码不相等则不能提取用户信息
-            if (![pwd isEqualToString:propertyValue]) {
-                userDefaults = nil;
-                return boolValue;
-            }
-            boolValue = YES;
-            unsigned int pro_count = 0;
-            objc_property_t *properties = class_copyPropertyList([self class], &pro_count);
-            for (int i = 0; i < pro_count; i ++) {
-                objc_property_t property = properties[i];
-                NSString *propertyName = [NSString stringWithFormat:@"%s", property_getName(property)];
-                //isLogin 这个属性的值由外部业务赋值
-                if (![propertyName isEqualToString:@"isLogin"]) {
-                    //通过KVC的方式赋值
-                    id propertyValue = [userDefaults valueForKey:propertyName];
-                    [self setValue:propertyValue forKey:propertyName];
-                }
-            }
-            // 释放
-            userDefaults = nil;
-            free(properties);
-        }
-    }
-    return boolValue;
-}
-
 //登出的时候需要移除用户信息
 - (void)removeUser {
     //删除记录的登录标志
@@ -196,6 +161,40 @@
     //NSLog(@"-------> forUndefinedKey:%@  value:%@",key,value);
 }
 
+//加载钥匙串中的数据
+- (BOOL)loadKeyChainDataWith:(NSString *)userName pwd:(NSString *)pwd {
+    BOOL boolValue = NO;
+    if (userName.length > 3) {
+        NSString *defaultsUserId = [userName uppercaseString];
+        NSData *data = [[HKeyChainStore keyChainStore] dataForKey:defaultsUserId];
+        if (data) {
+            HUserDefaults *userDefaults = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+            id propertyValue = [userDefaults valueForKey:@"password"];
+            //密码不相等则不能提取用户信息
+            if (![pwd isEqualToString:propertyValue]) {
+                userDefaults = nil;
+                return boolValue;
+            }
+            boolValue = YES;
+            unsigned int pro_count = 0;
+            objc_property_t *properties = class_copyPropertyList([self class], &pro_count);
+            for (int i = 0; i < pro_count; i ++) {
+                objc_property_t property = properties[i];
+                NSString *propertyName = [NSString stringWithFormat:@"%s", property_getName(property)];
+                //isLogin 这个属性的值由外部业务赋值
+                if (![propertyName isEqualToString:@"isLogin"]) {
+                    //通过KVC的方式赋值
+                    id propertyValue = [userDefaults valueForKey:propertyName];
+                    [self setValue:propertyValue forKey:propertyName];
+                }
+            }
+            // 释放
+            userDefaults = nil;
+            free(properties);
+        }
+    }
+    return boolValue;
+}
 
 - (void)setBaseLink:(NSString *)baseLink {
     [[NSUserDefaults standardUserDefaults] setObject:baseLink forKey:@"baseLink"];
@@ -213,25 +212,6 @@
 }
 - (NSString *)h5Link {
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"h5Link"];
-}
-
-
-
-- (void)setPlatCodeLink:(NSString *)platCodeLink {
-    [[NSUserDefaults standardUserDefaults] setObject:platCodeLink forKey:@"platCodeLink"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-- (NSString *)platCodeLink {
-    return [[NSUserDefaults standardUserDefaults] objectForKey:@"platCodeLink"];
-}
-
-
-- (void)setSrc1Link:(NSString *)src1Link {
-    [[NSUserDefaults standardUserDefaults] setObject:src1Link forKey:@"src1Link"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-- (NSString *)src1Link {
-    return [[NSUserDefaults standardUserDefaults] objectForKey:@"src1Link"];
 }
 
 @end
