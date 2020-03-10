@@ -145,6 +145,9 @@ typedef NS_ENUM(NSInteger, HAdaptScreenWidthType) {
 - (UIImage *)snapshotImage;
 - (UIImage *)snapshotImageWithFrame:(CGRect)frame;
 
+- (NSData *)snapshotData;
+- (NSData *)snapshotDataWithFrame:(CGRect)frame;
+
 /**
  *  生成快照PDF
  */

@@ -410,14 +410,37 @@ static char const *const KRightLineView  = "KRightLineView";
 
 //根据视图生成图片
 - (UIImage *)snapshotImage {
+    /*
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return snap;
+    */
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, [[UIScreen mainScreen] scale]);
+    // 方法一 有时导航条无法正常获取
+    // [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    // 方法二 iOS7.0 后推荐使用
+    [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:NO];
+    UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return snap;
+}
+- (NSData *)snapshotData {
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, [[UIScreen mainScreen] scale]);
+    // 方法一 有时导航条无法正常获取
+    // [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    // 方法二 iOS7.0 后推荐使用
+    [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:NO];
+    UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
+    //NSData *data = UIImagePNGRepresentation(viewImage);
+    NSData *data = UIImageJPEGRepresentation(snap, 0.9);
+    UIGraphicsEndImageContext();
+    return data;
 }
 
 - (UIImage *)snapshotImageWithFrame:(CGRect)frame {
+    /*
     UIGraphicsBeginImageContextWithOptions(frame.size, self.opaque, 0.0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextTranslateCTM(context, -frame.origin.x, -frame.origin.y);
@@ -426,6 +449,27 @@ static char const *const KRightLineView  = "KRightLineView";
     UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return theImage;
+    */
+    UIGraphicsBeginImageContextWithOptions(frame.size, NO, [[UIScreen mainScreen] scale]);
+    // 方法一 有时导航条无法正常获取
+    // [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    // 方法二 iOS7.0 后推荐使用
+    [self drawViewHierarchyInRect:frame afterScreenUpdates:NO];
+    UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return snap;
+}
+- (NSData *)snapshotDataWithFrame:(CGRect)frame {
+    UIGraphicsBeginImageContextWithOptions(frame.size, NO, [[UIScreen mainScreen] scale]);
+    // 方法一 有时导航条无法正常获取
+    // [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    // 方法二 iOS7.0 后推荐使用
+    [self drawViewHierarchyInRect:frame afterScreenUpdates:NO];
+    UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
+    //NSData *data = UIImagePNGRepresentation(viewImage);
+    NSData *data = UIImageJPEGRepresentation(snap, 0.9);
+    UIGraphicsEndImageContext();
+    return data;
 }
 
 - (NSData *)snapshotPDF {
