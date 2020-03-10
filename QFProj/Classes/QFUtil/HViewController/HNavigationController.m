@@ -140,6 +140,8 @@
         }else {
             self.modalPresentationStyle = UIModalPresentationCurrentContext;
         }
+        vc.providesPresentationContextTransitionStyle = YES;
+        vc.definesPresentationContext = YES;
         vc.view.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.4];
         [self presentViewController:vc animated:flag completion:completion];
     }else if ([viewControllerToPresent isKindOfClass:NSString.class]) {
@@ -169,6 +171,8 @@
             }else {
                 self.modalPresentationStyle = UIModalPresentationCurrentContext;
             }
+            instance.providesPresentationContextTransitionStyle = YES;
+            instance.definesPresentationContext = YES;
             instance.view.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.4];
             [self presentViewController:instance animated:flag completion:completion];
         }
