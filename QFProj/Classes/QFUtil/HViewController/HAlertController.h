@@ -6,8 +6,8 @@
 //  Copyright © 2020 dqfStudio. All rights reserved.
 //
 
-#import "HAnimationController.h"
+#import "HAlertAnimationController.h"
 
-@interface HAlertController : HAnimationController
+@interface HAlertController : HAlertAnimationController
 
 @end

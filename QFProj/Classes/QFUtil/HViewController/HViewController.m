@@ -66,6 +66,8 @@
 }
 
 - (void)pvc_initialize {
+    //子类覆盖
+    [self hInitialize];
     _statusBarPadding = 0;
     //modalPresentationStyle 设置默认样式为 UIModalPresentationFullScreen
     self.modalPresentationStyle = UIModalPresentationFullScreen;
@@ -74,6 +76,10 @@
         _statusBarPadding = UIScreen.statusBarHeight;
     }
 }
+
+//初始化方法
+- (void)hInitialize { }
+
 + (HVCAppearance *)appearance {
     return [HVCAppearance shared];
 }

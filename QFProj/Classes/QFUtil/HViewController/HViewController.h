@@ -42,6 +42,9 @@ typedef NS_OPTIONS(NSUInteger, HVCDisappearType) {
 
 - (CGFloat)topBarHeight;
 
+//初始化调用方法
+- (void)hInitialize;
+
 + (HVCAppearance *)appearance;
 
 //设置按钮的正常态和点击态,如果要设置正常态和点击态不一样,直接访问leftNaviButton和rightNaviButton设置

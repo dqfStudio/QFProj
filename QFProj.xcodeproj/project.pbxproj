@@ -291,8 +291,11 @@
 		A28EF3B521D9C9A2002F92ED /* HWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF3B421D9C9A2002F92ED /* HWaitingView.m */; };
 		A28EF3C321DA1DFE002F92ED /* HFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF3C021DA1DFE002F92ED /* HFormController.m */; };
 		A28EF3C421DA1DFE002F92ED /* HFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF3C221DA1DFE002F92ED /* HFormCell.m */; };
-		A2909C512418DCE8002B4819 /* HAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2909C502418DCE8002B4819 /* HAnimationController.m */; };
+		A2909C512418DCE8002B4819 /* HAlertAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2909C502418DCE8002B4819 /* HAlertAnimationController.m */; };
 		A2909C542418DDC4002B4819 /* HAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2909C532418DDC4002B4819 /* HAlertController.m */; };
+		A2909C572418E752002B4819 /* HTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2909C562418E752002B4819 /* HTestViewController.m */; };
+		A2909C5A2418F83E002B4819 /* HSheetAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2909C592418F83E002B4819 /* HSheetAnimationController.m */; };
+		A2909C5D2418F88C002B4819 /* HSheetAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2909C5C2418F88C002B4819 /* HSheetAlertController.m */; };
 		A29307ED240FA47000E675C4 /* NSString+HSize.m in Sources */ = {isa = PBXBuildFile; fileRef = A29307EC240FA47000E675C4 /* NSString+HSize.m */; };
 		A29307F0240FA4EB00E675C4 /* UIImage+QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A29307EF240FA4EB00E675C4 /* UIImage+QRCode.m */; };
 		A2A17DA62276DB1E003FED58 /* NSMutableAttributedString+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A17DA52276DB1E003FED58 /* NSMutableAttributedString+HUtil.m */; };
@@ -892,10 +895,16 @@
 		A28EF3C021DA1DFE002F92ED /* HFormController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFormController.m; sourceTree = "<group>"; };
 		A28EF3C121DA1DFE002F92ED /* HFormController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFormController.h; sourceTree = "<group>"; };
 		A28EF3C221DA1DFE002F92ED /* HFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFormCell.m; sourceTree = "<group>"; };
-		A2909C4F2418DCE8002B4819 /* HAnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAnimationController.h; sourceTree = "<group>"; };
-		A2909C502418DCE8002B4819 /* HAnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAnimationController.m; sourceTree = "<group>"; };
+		A2909C4F2418DCE8002B4819 /* HAlertAnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAlertAnimationController.h; sourceTree = "<group>"; };
+		A2909C502418DCE8002B4819 /* HAlertAnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAlertAnimationController.m; sourceTree = "<group>"; };
 		A2909C522418DDC4002B4819 /* HAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAlertController.h; sourceTree = "<group>"; };
 		A2909C532418DDC4002B4819 /* HAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAlertController.m; sourceTree = "<group>"; };
+		A2909C552418E752002B4819 /* HTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTestViewController.h; sourceTree = "<group>"; };
+		A2909C562418E752002B4819 /* HTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTestViewController.m; sourceTree = "<group>"; };
+		A2909C582418F83E002B4819 /* HSheetAnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSheetAnimationController.h; sourceTree = "<group>"; };
+		A2909C592418F83E002B4819 /* HSheetAnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSheetAnimationController.m; sourceTree = "<group>"; };
+		A2909C5B2418F88C002B4819 /* HSheetAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSheetAlertController.h; sourceTree = "<group>"; };
+		A2909C5C2418F88C002B4819 /* HSheetAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSheetAlertController.m; sourceTree = "<group>"; };
 		A29307EB240FA47000E675C4 /* NSString+HSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+HSize.h"; sourceTree = "<group>"; };
 		A29307EC240FA47000E675C4 /* NSString+HSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+HSize.m"; sourceTree = "<group>"; };
 		A29307EE240FA4EB00E675C4 /* UIImage+QRCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+QRCode.h"; sourceTree = "<group>"; };
@@ -1834,10 +1843,16 @@
 				A2E8F52222D2EB5A00E7C9F2 /* HTabBarController.m */,
 				A2E8F52522D2EB6E00E7C9F2 /* HNavigationController.h */,
 				A2E8F52422D2EB6E00E7C9F2 /* HNavigationController.m */,
-				A2909C4F2418DCE8002B4819 /* HAnimationController.h */,
-				A2909C502418DCE8002B4819 /* HAnimationController.m */,
+				A2909C4F2418DCE8002B4819 /* HAlertAnimationController.h */,
+				A2909C502418DCE8002B4819 /* HAlertAnimationController.m */,
+				A2909C582418F83E002B4819 /* HSheetAnimationController.h */,
+				A2909C592418F83E002B4819 /* HSheetAnimationController.m */,
+				A2909C5B2418F88C002B4819 /* HSheetAlertController.h */,
+				A2909C5C2418F88C002B4819 /* HSheetAlertController.m */,
 				A2909C522418DDC4002B4819 /* HAlertController.h */,
 				A2909C532418DDC4002B4819 /* HAlertController.m */,
+				A2909C552418E752002B4819 /* HTestViewController.h */,
+				A2909C562418E752002B4819 /* HTestViewController.m */,
 			);
 			name = HViewController;
 			path = QFUtil/HViewController;
@@ -2863,6 +2878,7 @@
 				A20E3CE0231A663300E6982B /* UIAlertController+HUtil.m in Sources */,
 				A227A901233C9F1F005611BA /* HMainController5.m in Sources */,
 				15B4DE042092F96C00773E04 /* NSError+HUtil.m in Sources */,
+				A2909C572418E752002B4819 /* HTestViewController.m in Sources */,
 				A28EF38321D8EC2A002F92ED /* HResultView.m in Sources */,
 				A2E8F54722D72AB700E7C9F2 /* HNetworkDAO.m in Sources */,
 				157684D220E2157E00D8DC5B /* NSBlockChain.m in Sources */,
@@ -2902,7 +2918,7 @@
 				15038EA820CC0C6A00A16FC9 /* HSwitchLanguage.m in Sources */,
 				A24B659522607E8400B257BB /* NSStream+SKPSMTPExtensions.m in Sources */,
 				A2E8F57322D8356300E7C9F2 /* HFileStorage.m in Sources */,
-				A2909C512418DCE8002B4819 /* HAnimationController.m in Sources */,
+				A2909C512418DCE8002B4819 /* HAlertAnimationController.m in Sources */,
 				A2A8EBF522E4A17D0049C51B /* HFPickerView.m in Sources */,
 				A20E3D332326891900E6982B /* HTupleViewCellVertValue1.m in Sources */,
 				A2A8EB3022DB62680049C51B /* HCycleScrollView.m in Sources */,
@@ -2934,6 +2950,7 @@
 				A2B3708F23D01C6600B20DBF /* HPresentAnimation.m in Sources */,
 				A20E3CE1231A663300E6982B /* UIView+HAlert.m in Sources */,
 				A22FA1752400DD6200B75C1C /* HKBBarButtonItem.m in Sources */,
+				A2909C5D2418F88C002B4819 /* HSheetAlertController.m in Sources */,
 				A22FA1772400DD6200B75C1C /* HKBUIView+HKBKeyboardToolbar.m in Sources */,
 				A22FA17F2400DFC900B75C1C /* AppDelegate+UserService.m in Sources */,
 				A20E3D04231FE0C800E6982B /* HMainController3.m in Sources */,
@@ -2942,6 +2959,7 @@
 				A24B659622607E8400B257BB /* HEmailManager.m in Sources */,
 				A22FA17C2400DD6200B75C1C /* HKBNSArray+Sort.m in Sources */,
 				15E6BB9C2136E7E300EBE794 /* YPTabBarController.m in Sources */,
+				A2909C5A2418F83E002B4819 /* HSheetAnimationController.m in Sources */,
 				15B4DDF62092F96C00773E04 /* UIApplication+HUtil.m in Sources */,
 				A222A716227C52430013098A /* UILabel+HUtil.m in Sources */,
 				1538FFA92094065A002E3A29 /* NSFileManager+HUtil.m in Sources */,

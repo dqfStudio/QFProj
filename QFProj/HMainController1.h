@@ -10,6 +10,9 @@
 #import "HTupleViewCellVertValue1.h"
 #import "HTupleViewCellHoriValue1.h"
 #import "HAlertController.h"
+#import "UIViewController+Animation.h"
+#import "HTestViewController.h"
+#import "HSheetAlertController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
