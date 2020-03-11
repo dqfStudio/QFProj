@@ -12,24 +12,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HPresentAnimation : HTransitionAnimation <UIViewControllerTransitioningDelegate>
 
-/*
- * 弹框的尺寸大小
- */
+//转场视图尺寸大小
 @property (nonatomic) CGSize contentSize;
 
-/*
- * 弹框的类型(默认Alert)
- */
+//转场动画类型(默认Alert)
 @property (nonatomic) HTransitionStyle presetType;
 
-/*
- * 弹框点击背景是否dismiss (消失）默认NO
- */
+//转场视图点击背景是否dismiss (消失）默认NO
 @property (nonatomic) BOOL isShadowDismiss;
 
-/*
-* 弹框背景颜色 (默认 [[UIColor blackColor] colorWithAlphaComponent:0.2f]）
-*/
+//转场视图背景颜色 (默认 [UIColor colorWithWhite:0.1 alpha:0.2]）
 @property (nonatomic, nullable) UIColor *shadowColor;
 
 @end

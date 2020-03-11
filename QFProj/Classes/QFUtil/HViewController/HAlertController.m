@@ -8,18 +8,58 @@
 
 #import "HAlertController.h"
 
+@interface HAlertController ()
+@property (nonatomic) UIVisualEffectView *visualView;
+@end
+
 @implementation HAlertController
 
-//VC初始化调用方法
-- (void)hInitialize {
-    //是否展示视觉效果view
-    //self.hideVisualView = YES;
+- (UIVisualEffectView *)visualView {
+    if (!_visualView) {
+        UIBlurEffect * blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+        _visualView = [[UIVisualEffectView alloc] initWithEffect:blur];
+        CGRect frame = CGRectZero;
+        frame.size = self.containerSize;
+        _visualView.frame = frame;
+    }
+    return _visualView;
+}
+
+- (HTupleView *)tupleView {
+    if (!_tupleView) {
+        CGRect frame = CGRectZero;
+        //CGSizeMake(270, 121)
+        frame.size = self.containerSize;
+        _tupleView = [[HTupleView alloc] initWithFrame:frame];
+        _tupleView.backgroundColor = UIColor.clearColor;
+        _tupleView.layer.cornerRadius = 10.f;//默认系统弹框圆角为10.f
+        [_tupleView setScrollEnabled:NO];
+    }
+    return _tupleView;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = UIColor.clearColor;
+    [self.topBar setHidden:YES];
+    if (self.hideVisualView) {
+        self.tupleView.backgroundColor = UIColor.whiteColor;
+        [self.view addSubview:self.tupleView];
+    }else {
+        [self.visualView.contentView addSubview:self.tupleView];
+        [self.view addSubview:self.visualView];
+    }
     [self.tupleView setTupleDelegate:self];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    if (!self.hideVisualView) {
+        for (UIView *subview in self.visualView.subviews) {
+            subview.layer.cornerRadius = self.tupleView.layer.cornerRadius;
+        }
+    }
 }
 
 - (NSInteger)numberOfSectionsInTupleView {
@@ -111,4 +151,3 @@
 }
 
 @end
-

@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (Animation)
 
+//内容视图的大小
+@property (nonatomic) CGSize containerSize;
+
 #pragma mark - Present、Dismiss -> Alert
 #pragma mark -
 /*
@@ -26,10 +29,10 @@ NS_ASSUME_NONNULL_BEGIN
 /*
  viewController 要显示的控制器
  contentSize    显示的视图大小
- shadowColor    蒙层颜色
+ shadowDismiss  点击阴影是否dismiss当前页面
  completion     动画结束后的回调
 */
-- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor completion:(HTransitionCompletion __nullable)completion;
+- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowDismiss:(BOOL)isShadowDismiss completion:(HTransitionCompletion __nullable)completion;
 
 /*
  viewController 要显示的控制器
@@ -63,10 +66,10 @@ NS_ASSUME_NONNULL_BEGIN
 /*
  viewController 要显示的控制器
  contentSize    显示的视图大小
- shadowColor    蒙层颜色
+ shadowDismiss  点击阴影是否dismiss当前页面
  completion     动画结束后的回调
  */
-- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor completion:(HTransitionCompletion __nullable)completion;
+- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowDismiss:(BOOL)isShadowDismiss completion:(HTransitionCompletion __nullable)completion;
 
 /*
  viewController 要显示的控制器

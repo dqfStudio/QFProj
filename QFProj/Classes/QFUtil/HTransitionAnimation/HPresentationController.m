@@ -73,16 +73,23 @@
 - (CGRect)frameOfPresentedViewInContainerView {
     CGRect makeRect = CGRectZero;
     if (self.presentType == HTransitionStyleAlert) {
-        makeRect = CGRectMake(self.containerView.center.x- self.contentSize.width *0.5, self.containerView.center.y-self.contentSize.height *0.5, self.contentSize.width, self.contentSize.height);
+        makeRect = CGRectMake(self.containerView.center.x - self.contentSize.width *0.5,
+                              self.containerView.center.y - self.contentSize.height *0.5,
+                              self.contentSize.width,
+                              self.contentSize.height);
         
     }else if (self.presentType == HTransitionStyleSheet) {
         if (CGSizeEqualToSize(self.contentSize, CGSizeZero)) {
-            self.contentSize = CGSizeMake(CGRectGetWidth(self.containerView.bounds), CGRectGetHeight(self.containerView.bounds));
+            self.contentSize = CGSizeMake(CGRectGetWidth(self.containerView.bounds),
+                                          CGRectGetHeight(self.containerView.bounds));
         }
         if (self.contentSize.width == 0 && self.contentSize.height) {
             self.contentSize = CGSizeMake(CGRectGetWidth(self.containerView.bounds), self.contentSize.height);
         }
-        makeRect = CGRectMake(self.containerView.bounds.size.width - self.contentSize.width, self.containerView.bounds.size.height - self.contentSize.height, self.contentSize.width, self.contentSize.height);
+        makeRect = CGRectMake(self.containerView.bounds.size.width - self.contentSize.width,
+                              self.containerView.bounds.size.height - self.contentSize.height,
+                              self.contentSize.width,
+                              self.contentSize.height);
     }
     return makeRect;
 }
@@ -109,7 +116,7 @@
 - (void)setShadowColor:(UIColor *)shadowColor {
     _shadowColor = shadowColor;
     if (_shadowColor == nil) {
-        _shadowColor = [[UIColor blackColor] colorWithAlphaComponent:0.2f];
+        _shadowColor = [UIColor colorWithWhite:0.1 alpha:0.2];
     }
     _contentCoverView.backgroundColor = _shadowColor;
 }

@@ -63,7 +63,6 @@
     if (self.presetType == HTransitionStyleAlert) {
         presentedView.alpha = 0.0f;
         presentedView.transform = CGAffineTransformMakeScale(1.2, 1.2);
-        // 动画弹出
         [UIView animateWithDuration:duration delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:50 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             presentedView.alpha = 1.0f;
             presentedView.transform = CGAffineTransformIdentity;
@@ -73,9 +72,12 @@
             }
         }];
     } else if (self.presetType == HTransitionStyleSheet) {
-        presentedView.transform = CGAffineTransformMakeTranslation(0, weakSelf.contentSize.height);
-        [UIView animateWithDuration:duration animations:^{
-            presentedView.transform = CGAffineTransformIdentity;
+        presentedView.alpha = 0.0f;
+        CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+        presentedView.frame = CGRectMake(0, screenHeight, self.contentSize.width, self.contentSize.height);
+        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            presentedView.alpha = 1.0f;
+            presentedView.frame = CGRectMake(0, screenHeight-weakSelf.contentSize.height, weakSelf.contentSize.width, weakSelf.contentSize.height);
         } completion:^(BOOL finished) {
             if (finished) {
                 [transitionContext completeTransition:YES];
@@ -91,16 +93,10 @@
     
     HAnimationWeakSelf(weakSelf)
     if (self.presetType == HTransitionStyleAlert) {
-        // 消失
         [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-            presentedView.alpha = 0.0f;
-            presentedView.transform = CGAffineTransformMakeScale(0.00001, 0.00001);
-        } completion:^(BOOL finished) {
-            if (finished) {
-                [presentedView removeFromSuperview];
-                [transitionContext completeTransition:YES];
-            }
-        }];
+            [presentedView removeFromSuperview];
+            [transitionContext completeTransition:YES];
+        } completion:nil];
     }else if (self.presetType == HTransitionStyleSheet) {
         [UIView animateWithDuration:duration animations:^{
             presentedView.transform = CGAffineTransformMakeTranslation(0, weakSelf.contentSize.height);

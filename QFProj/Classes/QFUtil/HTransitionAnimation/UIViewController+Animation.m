@@ -51,6 +51,17 @@
 
 @implementation UIViewController (Animation)
 
+//内容视图的大小
+- (CGSize)containerSize {
+    NSValue *value = objc_getAssociatedObject(self, _cmd);
+    if (value) return value.CGSizeValue;
+    return CGSizeZero;
+}
+- (void)setContainerSize:(CGSize)containerSize {
+    NSValue *value = [NSValue valueWithCGSize:containerSize];
+    objc_setAssociatedObject(self, @selector(containerSize), value, OBJC_ASSOCIATION_RETAIN);
+}
+
 #pragma mark - Present、Dismiss -> Alert
 #pragma mark -
 /*
@@ -59,17 +70,17 @@
  completion     动画结束后的回调
 */
 - (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize completion:(HTransitionCompletion __nullable)completion {
-    [self presentAlertController:viewController contentSize:aSize shadowColor:nil completion:completion];
+    [self presentAlertController:viewController contentSize:aSize shadowDismiss:NO completion:completion];
 }
 
 /*
  viewController 要显示的控制器
  contentSize    显示的视图大小
- shadowColor    蒙层颜色
+ shadowDismiss  点击阴影是否dismiss当前页面
  completion     动画结束后的回调
 */
-- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor completion:(HTransitionCompletion __nullable)completion {
-    [self presentAlertController:viewController contentSize:aSize animationDuration:0.25 shadowColor:aColor shadowDismiss:NO completion:completion];
+- (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowDismiss:(BOOL)isShadowDismiss completion:(HTransitionCompletion __nullable)completion {
+    [self presentAlertController:viewController contentSize:aSize animationDuration:0.25 shadowColor:nil shadowDismiss:isShadowDismiss completion:completion];
 }
 
 /*
@@ -92,13 +103,14 @@
  completion     动画结束后的回调
 */
 - (void)presentAlertController:(UIViewController *)viewController contentSize:(CGSize)aSize animationDuration:(NSTimeInterval)duration shadowColor:(UIColor *__nullable)aColor shadowDismiss:(BOOL)isShadowDismiss completion:(HTransitionCompletion __nullable)completion {
-   HPresentAnimation *animation = HPresentAnimation.new;
-   animation.presetType = HTransitionStyleAlert;
-   animation.contentSize = aSize;
-   animation.transitionDuration = duration;
-   animation.shadowColor = aColor;
-   animation.isShadowDismiss = isShadowDismiss;
-   animation.transitionCompletion = completion;
+    HPresentAnimation *animation = HPresentAnimation.new;
+    animation.presetType = HTransitionStyleAlert;
+    animation.contentSize = aSize;
+    animation.transitionDuration = duration;
+    animation.shadowColor = aColor;
+    animation.isShadowDismiss = isShadowDismiss;
+    animation.transitionCompletion = completion;
+    viewController.containerSize = aSize;
    [self presentedViewController:viewController animation:animation];
 }
 
@@ -110,17 +122,17 @@
  completion     动画结束后的回调
 */
 - (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize completion:(HTransitionCompletion __nullable)completion {
-    [self presentSheetController:viewController contentSize:aSize shadowColor:nil completion:completion];
+    [self presentSheetController:viewController contentSize:aSize shadowDismiss:NO completion:completion];
 }
 
 /*
  viewController 要显示的控制器
  contentSize    显示的视图大小
- shadowColor    蒙层颜色
+ shadowDismiss  点击阴影是否dismiss当前页面
  completion     动画结束后的回调
  */
-- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowColor:(UIColor *__nullable)aColor completion:(HTransitionCompletion __nullable)completion {
-    [self presentSheetController:viewController contentSize:aSize animationDuration:0.25 shadowColor:aColor shadowDismiss:NO completion:completion];
+- (void)presentSheetController:(UIViewController *)viewController contentSize:(CGSize)aSize shadowDismiss:(BOOL)isShadowDismiss completion:(HTransitionCompletion __nullable)completion {
+    [self presentSheetController:viewController contentSize:aSize animationDuration:0.25 shadowColor:nil shadowDismiss:isShadowDismiss completion:completion];
 }
 
 /*
@@ -150,6 +162,7 @@
     animation.shadowColor = aColor;
     animation.isShadowDismiss = isShadowDismiss;
     animation.transitionCompletion = completion;
+    viewController.containerSize = aSize;
     [self presentedViewController:viewController animation:animation];
 }
 
