@@ -153,7 +153,7 @@
         }
         vc.providesPresentationContextTransitionStyle = YES;
         vc.definesPresentationContext = YES;
-        //vc.view.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.3];
+        //vc.view.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.2];
         [self presentViewController:vc animated:flag completion:completion];
     }else if ([viewControllerToPresent isKindOfClass:NSString.class]) {
         NSString *controllerName = viewControllerToPresent;
@@ -184,7 +184,7 @@
             }
             instance.providesPresentationContextTransitionStyle = YES;
             instance.definesPresentationContext = YES;
-            //instance.view.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.3];
+            //instance.view.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.2];
             [self presentViewController:instance animated:flag completion:completion];
         }
     }

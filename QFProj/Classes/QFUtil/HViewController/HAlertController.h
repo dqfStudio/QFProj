@@ -6,8 +6,8 @@
 //  Copyright © 2020 dqfStudio. All rights reserved.
 //
 
-#import "HTupleController.h"
+#import "HViewController.h"
 
-@interface HAlertController : HTupleController
+@interface HAlertController : HViewController
 
 @end
