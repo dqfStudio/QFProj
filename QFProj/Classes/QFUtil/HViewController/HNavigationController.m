@@ -91,6 +91,15 @@
     return self.childViewControllers.count == 1 ? NO : YES;
 }
 
+//触发之后是否响应手势事件
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    //处理侧滑返回与UISlider的拖动手势冲突
+    if ([touch.view isKindOfClass:[UISlider class]]) {
+        return NO;
+    }
+    return YES;
+}
+
 #pragma mark - rotate
 
 - (BOOL)shouldAutorotate {
