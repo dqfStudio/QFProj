@@ -52,7 +52,7 @@
         for (UIView *subview in self.visualView.subviews) {
             subview.layer.cornerRadius = 10;
         }
-        self.visualView.center = [[UIApplication sharedApplication] getKeyWindow].center;
+        self.visualView.center = self.view.center;
         //设置tupleView属性
         self.tupleView.frame = frame;
         self.tupleView.layer.cornerRadius = 10;
