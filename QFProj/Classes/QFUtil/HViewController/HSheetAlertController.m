@@ -7,12 +7,23 @@
 //
 
 #import "HSheetAlertController.h"
+#import "UIViewController+HTransitionSize.h"
+#import "HTupleView.h"
 
-@interface HSheetAlertController ()
+@interface HSheetAlertController () <HTupleViewDelegate>
 @property (nonatomic) UIVisualEffectView *visualView;
+@property (nonatomic) HTupleView *tupleView;
 @end
 
 @implementation HSheetAlertController
+
+- (CGSize)containerSize {
+    return CGSizeMake(UIScreen.width, 190+UIScreen.bottomBarHeight);
+}
+
+- (HTransitionStyle)presetType {
+    return HTransitionStyleSheet;
+}
 
 - (UIVisualEffectView *)visualView {
     if (!_visualView) {

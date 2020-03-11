@@ -9,6 +9,7 @@
 #import "HTupleController.h"
 #import "HTupleViewCellVertValue1.h"
 #import "HTupleViewCellHoriValue1.h"
+#import "UIViewController+HAnimation.h"
 #import "HSheetAlertController.h"
 #import "HAlertController.h"
 

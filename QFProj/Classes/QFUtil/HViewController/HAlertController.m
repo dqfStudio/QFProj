@@ -7,12 +7,19 @@
 //
 
 #import "HAlertController.h"
+#import "HTupleView.h"
+#import "UIViewController+HTransitionSize.h"
 
-@interface HAlertController ()
+@interface HAlertController () <HTupleViewDelegate>
 @property (nonatomic) UIVisualEffectView *visualView;
+@property (nonatomic) HTupleView *tupleView;
 @end
 
 @implementation HAlertController
+
+- (CGSize)containerSize {
+    return CGSizeMake(270, 121);
+}
 
 - (UIVisualEffectView *)visualView {
     if (!_visualView) {

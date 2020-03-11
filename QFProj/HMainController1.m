@@ -256,12 +256,12 @@
 }
 - (void)didSelectCell:(HTupleBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath {
 
-    [self presentAlertController:HAlertController.new contentSize:CGSizeMake(270, 121) completion:^(HTransitionType transitionType) {
+    [self presentController:HAlertController.new completion:^(HTransitionType transitionType) {
         NSLog(@"");
     }];
     
     /*
-    [self presentSheetController:HSheetAlertController.new contentSize:CGSizeMake(UIScreen.width, 190+UIScreen.bottomBarHeight) completion:^(HTransitionType transitionType) {
+    [self presentController:HSheetAlertController.new completion:^(HTransitionType transitionType) {
         NSLog(@"");
     }];
     */
