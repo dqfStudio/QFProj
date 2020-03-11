@@ -7,74 +7,13 @@
 //
 
 #import "HAlertController.h"
-#import "HTupleView.h"
-
-@interface HAlertController () <HTupleViewDelegate>
-@property (nonatomic) UIVisualEffectView *visualView;
-@property (nonatomic) HTupleView *tupleView;
-@end
 
 @implementation HAlertController
-
-- (UIVisualEffectView *)visualView {
-    if (!_visualView) {
-        UIBlurEffect * blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
-        _visualView = [[UIVisualEffectView alloc] initWithEffect:blur];
-    }
-    return _visualView;
-}
-
-- (HTupleView *)tupleView {
-    if (!_tupleView) {
-        _tupleView = [[HTupleView alloc] initWithFrame:CGRectZero];
-        [_tupleView setScrollEnabled:NO];
-        [self.visualView.contentView addSubview:self.tupleView];
-    }
-    return _tupleView;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.2];
-    [self.topBar setHidden:YES];
-
-    [self.view addSubview:self.visualView];
     [self.tupleView setTupleDelegate:self];
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    CGRect frame = CGRectMake(0, 0, 270, 121);
-    if (!CGRectEqualToRect(frame, self.visualView.bounds)) {
-        //设置visualView属性
-        self.visualView.frame = frame;
-        for (UIView *subview in self.visualView.subviews) {
-            subview.layer.cornerRadius = 10;
-        }
-        self.visualView.center = self.view.center;
-        //设置tupleView属性
-        self.tupleView.frame = frame;
-        self.tupleView.layer.cornerRadius = 10;
-        //执行动画
-        [self animationAlert:self.visualView];
-    }
-}
-
-- (void)back {
-    [self dismissViewControllerAnimated:NO completion:nil];
-}
-
-- (void)animationAlert:(UIView *)view {
-    CAKeyframeAnimation *popAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
-    popAnimation.duration = 0.3;
-    popAnimation.values = @[[NSValue valueWithCATransform3D:CATransform3DMakeScale(1.15f, 1.15f, 1.0f)],
-                            [NSValue valueWithCATransform3D:CATransform3DIdentity]];
-    popAnimation.keyTimes = @[@0.0f, @0.5f, @0.75f, @1.0f];
-    popAnimation.timingFunctions = @[[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
-                                     [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
-                                     [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
-    [view.layer addAnimation:popAnimation forKey:nil];
 }
 
 - (NSInteger)numberOfSectionsInTupleView {
