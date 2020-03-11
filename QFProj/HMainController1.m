@@ -255,7 +255,8 @@
     
 }
 - (void)didSelectCell:(HTupleBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    [self presentAlertController:[HNavigationController initWithRootVC:HAlertController.new] animated:NO completion:nil];
+    [self presentAlertController:HAlertController.new animated:NO completion:nil];
+    //[self presentAlertController:[HNavigationController initWithRootVC:HAlertController.new] animated:NO completion:nil];
 }
 
 @end
