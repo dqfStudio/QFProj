@@ -37,7 +37,9 @@
         }
     }
 }
-
++ (instancetype)initWithRootVC:(UIViewController *)rootViewController {
+    return [[HNavigationController alloc] initWithRootViewController:rootViewController];
+}
 #pragma mark - Life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -151,7 +153,7 @@
         }
         vc.providesPresentationContextTransitionStyle = YES;
         vc.definesPresentationContext = YES;
-        vc.view.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.4];
+        //vc.view.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.3];
         [self presentViewController:vc animated:flag completion:completion];
     }else if ([viewControllerToPresent isKindOfClass:NSString.class]) {
         NSString *controllerName = viewControllerToPresent;
@@ -182,7 +184,7 @@
             }
             instance.providesPresentationContextTransitionStyle = YES;
             instance.definesPresentationContext = YES;
-            instance.view.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.4];
+            //instance.view.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.3];
             [self presentViewController:instance animated:flag completion:completion];
         }
     }

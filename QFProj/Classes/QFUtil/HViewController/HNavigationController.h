@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HNavigationController : UINavigationController
 - (void)addFullScreenPopBlackListItem:(UIViewController *)viewController;
 - (void)removeFromFullScreenPopBlackList:(UIViewController *)viewController;
++ (instancetype)initWithRootVC:(UIViewController *)rootViewController;
 @end
 
 @interface UIViewController (HJumper)

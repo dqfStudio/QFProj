@@ -9,6 +9,7 @@
 #import "HTupleController.h"
 #import "HTupleViewCellVertValue1.h"
 #import "HTupleViewCellHoriValue1.h"
+#import "HAlertController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
