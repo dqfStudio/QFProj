@@ -8,7 +8,7 @@
 
 #import "HAlertController.h"
 #import "HTupleView.h"
-#import "UIViewController+HTransitionSize.h"
+#import "UIViewController+HTransition.h"
 
 @interface HAlertController () <HTupleViewDelegate>
 @property (nonatomic) UIVisualEffectView *visualView;

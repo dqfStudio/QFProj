@@ -293,7 +293,7 @@
 		A28EF3C421DA1DFE002F92ED /* HFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF3C221DA1DFE002F92ED /* HFormCell.m */; };
 		A2909C6024191E59002B4819 /* HAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2909C5F24191E59002B4819 /* HAlertController.m */; };
 		A2909C63241923AB002B4819 /* HSheetAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2909C62241923AB002B4819 /* HSheetAlertController.m */; };
-		A2909C6624192B16002B4819 /* UIViewController+HTransitionSize.m in Sources */ = {isa = PBXBuildFile; fileRef = A2909C6524192B16002B4819 /* UIViewController+HTransitionSize.m */; };
+		A2909C6624192B16002B4819 /* UIViewController+HTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = A2909C6524192B16002B4819 /* UIViewController+HTransition.m */; };
 		A29307ED240FA47000E675C4 /* NSString+HSize.m in Sources */ = {isa = PBXBuildFile; fileRef = A29307EC240FA47000E675C4 /* NSString+HSize.m */; };
 		A29307F0240FA4EB00E675C4 /* UIImage+QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A29307EF240FA4EB00E675C4 /* UIImage+QRCode.m */; };
 		A2A17DA62276DB1E003FED58 /* NSMutableAttributedString+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A17DA52276DB1E003FED58 /* NSMutableAttributedString+HUtil.m */; };
@@ -897,8 +897,8 @@
 		A2909C5F24191E59002B4819 /* HAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAlertController.m; sourceTree = "<group>"; };
 		A2909C61241923AB002B4819 /* HSheetAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSheetAlertController.h; sourceTree = "<group>"; };
 		A2909C62241923AB002B4819 /* HSheetAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSheetAlertController.m; sourceTree = "<group>"; };
-		A2909C6424192B16002B4819 /* UIViewController+HTransitionSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HTransitionSize.h"; sourceTree = "<group>"; };
-		A2909C6524192B16002B4819 /* UIViewController+HTransitionSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HTransitionSize.m"; sourceTree = "<group>"; };
+		A2909C6424192B16002B4819 /* UIViewController+HTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HTransition.h"; sourceTree = "<group>"; };
+		A2909C6524192B16002B4819 /* UIViewController+HTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HTransition.m"; sourceTree = "<group>"; };
 		A29307EB240FA47000E675C4 /* NSString+HSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+HSize.h"; sourceTree = "<group>"; };
 		A29307EC240FA47000E675C4 /* NSString+HSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+HSize.m"; sourceTree = "<group>"; };
 		A29307EE240FA4EB00E675C4 /* UIImage+QRCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+QRCode.h"; sourceTree = "<group>"; };
@@ -2511,8 +2511,8 @@
 				A2B3708B23D01C6600B20DBF /* HPushAnimation.m */,
 				A2B3708523D01C6600B20DBF /* UIViewController+HAnimation.h */,
 				A2B3708923D01C6600B20DBF /* UIViewController+HAnimation.m */,
-				A2909C6424192B16002B4819 /* UIViewController+HTransitionSize.h */,
-				A2909C6524192B16002B4819 /* UIViewController+HTransitionSize.m */,
+				A2909C6424192B16002B4819 /* UIViewController+HTransition.h */,
+				A2909C6524192B16002B4819 /* UIViewController+HTransition.m */,
 			);
 			name = HTransitionAnimation;
 			path = QFUtil/HTransitionAnimation;
@@ -3114,7 +3114,7 @@
 				A206880E22C9FD1B00661634 /* HTupleBaseApex.m in Sources */,
 				A2C2B214235EAC770041AAB5 /* HMainController6.m in Sources */,
 				15F9152020A171A8000261C4 /* NSObject+HAspects.m in Sources */,
-				A2909C6624192B16002B4819 /* UIViewController+HTransitionSize.m in Sources */,
+				A2909C6624192B16002B4819 /* UIViewController+HTransition.m in Sources */,
 				A2E8F57A22D8356300E7C9F2 /* HDiskCache.m in Sources */,
 				A222AE5B22818F7D0013098A /* HTextWeakProxy.m in Sources */,
 				15B4DD682092F88700773E04 /* AppDelegate.m in Sources */,

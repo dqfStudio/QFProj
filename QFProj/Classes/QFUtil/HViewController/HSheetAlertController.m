@@ -7,7 +7,7 @@
 //
 
 #import "HSheetAlertController.h"
-#import "UIViewController+HTransitionSize.h"
+#import "UIViewController+HTransition.h"
 #import "HTupleView.h"
 
 @interface HSheetAlertController () <HTupleViewDelegate>

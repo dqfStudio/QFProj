@@ -1,14 +1,14 @@
 //
-//  UIViewController+HTransitionSize.m
+//  UIViewController+HTransition.m
 //  QFProj
 //
 //  Created by wind on 2020/3/11.
 //  Copyright © 2020 dqfStudio. All rights reserved.
 //
 
-#import "UIViewController+HTransitionSize.h"
+#import "UIViewController+HTransition.h"
 
-@implementation UIViewController (HTransitionSize)
+@implementation UIViewController (HTransition)
 - (CGSize)containerSize {
     return CGSizeZero;
 }

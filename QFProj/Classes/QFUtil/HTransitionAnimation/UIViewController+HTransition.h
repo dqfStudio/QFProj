@@ -1,5 +1,5 @@
 //
-//  UIViewController+HTransitionSize.h
+//  UIViewController+HTransition.h
 //  QFProj
 //
 //  Created by wind on 2020/3/11.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HTransitionHeader.h"
 
-@interface UIViewController (HTransitionSize)
+@interface UIViewController (HTransition)
 //转场动画内容视图的大小
 @property (nonatomic, readonly) CGSize containerSize;
 //转场动画的时间

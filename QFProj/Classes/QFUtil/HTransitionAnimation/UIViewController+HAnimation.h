@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIViewController+HTransitionSize.h"
+#import "UIViewController+HTransition.h"
 #import "HPresentAnimation.h"
 #import "HPushAnimation.h"
 
