@@ -75,7 +75,6 @@
 #pragma mark -
 /*
  viewController 要显示的控制器
- animationType  动画类型
  completion     动画结束后的回调
 */
 - (void)pushViewController:(UIViewController *)viewController completion:(HTransitionCompletion __nullable)completion {
