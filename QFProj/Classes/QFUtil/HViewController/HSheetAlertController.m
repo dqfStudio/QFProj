@@ -39,7 +39,6 @@
 - (HTupleView *)tupleView {
     if (!_tupleView) {
         CGRect frame = CGRectZero;
-        //CGSizeMake(UIScreen.width, 190+UIScreen.bottomBarHeight)
         frame.size = self.containerSize;
         _tupleView = [[HTupleView alloc] initWithFrame:frame];
         _tupleView.backgroundColor = UIColor.clearColor;
