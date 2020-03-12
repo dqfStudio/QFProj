@@ -9,14 +9,14 @@
 #import "UIViewController+HAnimation.h"
 #import <objc/runtime.h>
 
-@interface UIViewController (HTransition)
+@interface UIViewController (HTransitionAnimation)
 //动画管理类(Present、Dismiss)
 @property (nonatomic, nullable) HPresentAnimation *presentAnimation;
 //动画管理类(Push、Pop)
 @property (nonatomic, nullable) HPushAnimation *pushAnimation;
 @end
 
-@implementation UIViewController (HTransition)
+@implementation UIViewController (HTransitionAnimation)
 
 #pragma mark - 通过runtime 动态添加属性
 #pragma mark -
@@ -61,7 +61,7 @@
     HPresentAnimation *animation = HPresentAnimation.new;
     animation.presetType = viewController.presetType;
     animation.contentSize = viewController.containerSize;
-    animation.transitionDuration = viewController.transitionDuration;
+    animation.transitionDuration = viewController.animationDuration;
     animation.shadowColor = viewController.shadowColor;
     animation.isShadowDismiss = viewController.isShadowDismiss;
     animation.transitionCompletion = completion;

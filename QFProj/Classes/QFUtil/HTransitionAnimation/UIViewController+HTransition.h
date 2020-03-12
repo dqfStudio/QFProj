@@ -13,7 +13,7 @@
 //转场动画内容视图的大小
 @property (nonatomic, readonly) CGSize containerSize;
 //转场动画的时间
-@property (nonatomic, readonly) CGFloat transitionDuration;
+@property (nonatomic, readonly) CGFloat animationDuration;
 //转场动画内容视图阴影部分颜色
 @property (nonatomic, readonly) UIColor *shadowColor;
 //转场动画内容视图点击是否整体消失

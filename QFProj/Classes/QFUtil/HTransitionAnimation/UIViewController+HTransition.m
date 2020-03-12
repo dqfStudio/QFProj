@@ -12,7 +12,7 @@
 - (CGSize)containerSize {
     return CGSizeZero;
 }
-- (CGFloat)transitionDuration {
+- (CGFloat)animationDuration {
     return 0.25;
 }
 - (UIColor *)shadowColor {
