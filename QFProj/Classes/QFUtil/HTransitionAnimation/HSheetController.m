@@ -1,21 +1,21 @@
 //
-//  HSheetAlertController.m
+//  HSheetController.m
 //  QFProj
 //
 //  Created by wind on 2020/3/11.
 //  Copyright © 2020 dqfStudio. All rights reserved.
 //
 
-#import "HSheetAlertController.h"
+#import "HSheetController.h"
 #import "UIViewController+HTransition.h"
 #import "HTupleView.h"
 
-@interface HSheetAlertController () <HTupleViewDelegate>
+@interface HSheetController () <HTupleViewDelegate>
 @property (nonatomic) UIVisualEffectView *visualView;
 @property (nonatomic) HTupleView *tupleView;
 @end
 
-@implementation HSheetAlertController
+@implementation HSheetController
 
 - (CGSize)containerSize {
     return CGSizeMake(UIScreen.width, 190+UIScreen.bottomBarHeight);

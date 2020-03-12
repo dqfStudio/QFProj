@@ -261,7 +261,7 @@
     }];
     
     /*
-    [self presentController:HSheetAlertController.new completion:^(HTransitionType transitionType) {
+    [self presentController:HSheetController.new completion:^(HTransitionType transitionType) {
         NSLog(@"");
     }];
     */

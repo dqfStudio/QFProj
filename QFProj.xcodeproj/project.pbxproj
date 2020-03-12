@@ -257,6 +257,8 @@
 		A28B91482417892300E6861B /* UIView+HUserInterfaceStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = A28B91472417892300E6861B /* UIView+HUserInterfaceStyle.m */; };
 		A28BC11E23E5275700CC1ED5 /* HWebImageViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BC11D23E5275700CC1ED5 /* HWebImageViewVC.m */; };
 		A28BC12223E5317C00CC1ED5 /* HWebImageViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = A28BC12123E5317C00CC1ED5 /* HWebImageViewHtml.html */; };
+		A28BDBEC2419D5E300F4EA75 /* HSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BDBEA2419D5E300F4EA75 /* HSheetController.m */; };
+		A28BDBED2419D5E300F4EA75 /* HAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28BDBEB2419D5E300F4EA75 /* HAlertController.m */; };
 		A28C1A572411F09700E4F28A /* UIViewController+HPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = A28C1A562411F09700E4F28A /* UIViewController+HPrinter.m */; };
 		A28C1A5F24120BCD00E4F28A /* NSObject_4.m in Sources */ = {isa = PBXBuildFile; fileRef = A28C1A5E24120BCD00E4F28A /* NSObject_4.m */; };
 		A28C1D03241231FC00E4F28A /* NSObject_5.m in Sources */ = {isa = PBXBuildFile; fileRef = A28C1D02241231FC00E4F28A /* NSObject_5.m */; };
@@ -291,8 +293,6 @@
 		A28EF3B521D9C9A2002F92ED /* HWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF3B421D9C9A2002F92ED /* HWaitingView.m */; };
 		A28EF3C321DA1DFE002F92ED /* HFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF3C021DA1DFE002F92ED /* HFormController.m */; };
 		A28EF3C421DA1DFE002F92ED /* HFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF3C221DA1DFE002F92ED /* HFormCell.m */; };
-		A2909C6024191E59002B4819 /* HAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2909C5F24191E59002B4819 /* HAlertController.m */; };
-		A2909C63241923AB002B4819 /* HSheetAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2909C62241923AB002B4819 /* HSheetAlertController.m */; };
 		A2909C6624192B16002B4819 /* UIViewController+HTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = A2909C6524192B16002B4819 /* UIViewController+HTransition.m */; };
 		A29307ED240FA47000E675C4 /* NSString+HSize.m in Sources */ = {isa = PBXBuildFile; fileRef = A29307EC240FA47000E675C4 /* NSString+HSize.m */; };
 		A29307F0240FA4EB00E675C4 /* UIImage+QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A29307EF240FA4EB00E675C4 /* UIImage+QRCode.m */; };
@@ -847,6 +847,10 @@
 		A28BC11C23E5275700CC1ED5 /* HWebImageViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebImageViewVC.h; sourceTree = "<group>"; };
 		A28BC11D23E5275700CC1ED5 /* HWebImageViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWebImageViewVC.m; sourceTree = "<group>"; };
 		A28BC12123E5317C00CC1ED5 /* HWebImageViewHtml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = HWebImageViewHtml.html; sourceTree = "<group>"; };
+		A28BDBE82419D5E300F4EA75 /* HAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAlertController.h; sourceTree = "<group>"; };
+		A28BDBE92419D5E300F4EA75 /* HSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSheetController.h; sourceTree = "<group>"; };
+		A28BDBEA2419D5E300F4EA75 /* HSheetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSheetController.m; sourceTree = "<group>"; };
+		A28BDBEB2419D5E300F4EA75 /* HAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAlertController.m; sourceTree = "<group>"; };
 		A28C1A552411F09700E4F28A /* UIViewController+HPrinter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HPrinter.h"; sourceTree = "<group>"; };
 		A28C1A562411F09700E4F28A /* UIViewController+HPrinter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HPrinter.m"; sourceTree = "<group>"; };
 		A28C1A5D24120BCD00E4F28A /* NSObject_4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject_4.h; sourceTree = "<group>"; };
@@ -893,10 +897,6 @@
 		A28EF3C021DA1DFE002F92ED /* HFormController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFormController.m; sourceTree = "<group>"; };
 		A28EF3C121DA1DFE002F92ED /* HFormController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFormController.h; sourceTree = "<group>"; };
 		A28EF3C221DA1DFE002F92ED /* HFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFormCell.m; sourceTree = "<group>"; };
-		A2909C5E24191E59002B4819 /* HAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAlertController.h; sourceTree = "<group>"; };
-		A2909C5F24191E59002B4819 /* HAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAlertController.m; sourceTree = "<group>"; };
-		A2909C61241923AB002B4819 /* HSheetAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSheetAlertController.h; sourceTree = "<group>"; };
-		A2909C62241923AB002B4819 /* HSheetAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSheetAlertController.m; sourceTree = "<group>"; };
 		A2909C6424192B16002B4819 /* UIViewController+HTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HTransition.h"; sourceTree = "<group>"; };
 		A2909C6524192B16002B4819 /* UIViewController+HTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HTransition.m"; sourceTree = "<group>"; };
 		A29307EB240FA47000E675C4 /* NSString+HSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+HSize.h"; sourceTree = "<group>"; };
@@ -1837,10 +1837,6 @@
 				A2E8F52222D2EB5A00E7C9F2 /* HTabBarController.m */,
 				A2E8F52522D2EB6E00E7C9F2 /* HNavigationController.h */,
 				A2E8F52422D2EB6E00E7C9F2 /* HNavigationController.m */,
-				A2909C61241923AB002B4819 /* HSheetAlertController.h */,
-				A2909C62241923AB002B4819 /* HSheetAlertController.m */,
-				A2909C5E24191E59002B4819 /* HAlertController.h */,
-				A2909C5F24191E59002B4819 /* HAlertController.m */,
 			);
 			name = HViewController;
 			path = QFUtil/HViewController;
@@ -2513,6 +2509,10 @@
 				A2B3708923D01C6600B20DBF /* UIViewController+HAnimation.m */,
 				A2909C6424192B16002B4819 /* UIViewController+HTransition.h */,
 				A2909C6524192B16002B4819 /* UIViewController+HTransition.m */,
+				A28BDBE82419D5E300F4EA75 /* HAlertController.h */,
+				A28BDBEB2419D5E300F4EA75 /* HAlertController.m */,
+				A28BDBE92419D5E300F4EA75 /* HSheetController.h */,
+				A28BDBEA2419D5E300F4EA75 /* HSheetController.m */,
 			);
 			name = HTransitionAnimation;
 			path = QFUtil/HTransitionAnimation;
@@ -2870,6 +2870,7 @@
 				15B4DE042092F96C00773E04 /* NSError+HUtil.m in Sources */,
 				A28EF38321D8EC2A002F92ED /* HResultView.m in Sources */,
 				A2E8F54722D72AB700E7C9F2 /* HNetworkDAO.m in Sources */,
+				A28BDBEC2419D5E300F4EA75 /* HSheetController.m in Sources */,
 				157684D220E2157E00D8DC5B /* NSBlockChain.m in Sources */,
 				A2ED9C1322314BA100C9D050 /* HPingTester.m in Sources */,
 				15B4DDF82092F96C00773E04 /* UIImage+HUtil.m in Sources */,
@@ -2898,7 +2899,6 @@
 				15780E4621257840006392CF /* HAuthorizeManager.m in Sources */,
 				A2A8EBBA22E1FDEE0049C51B /* WebViewJavascriptBridge_JS.m in Sources */,
 				A24B6581225F7A7500B257BB /* HPayWebviewVC.m in Sources */,
-				A2909C6024191E59002B4819 /* HAlertController.m in Sources */,
 				150C7CB721199D9000A05347 /* UIView+HPrinter.m in Sources */,
 				15464B7720A2C26300CDD27E /* HTestManager.m in Sources */,
 				A22FA0872400D52B00B75C1C /* AppDelegate+SoundService.m in Sources */,
@@ -2908,6 +2908,7 @@
 				15038EA820CC0C6A00A16FC9 /* HSwitchLanguage.m in Sources */,
 				A24B659522607E8400B257BB /* NSStream+SKPSMTPExtensions.m in Sources */,
 				A2E8F57322D8356300E7C9F2 /* HFileStorage.m in Sources */,
+				A28BDBED2419D5E300F4EA75 /* HAlertController.m in Sources */,
 				A2A8EBF522E4A17D0049C51B /* HFPickerView.m in Sources */,
 				A20E3D332326891900E6982B /* HTupleViewCellVertValue1.m in Sources */,
 				A2A8EB3022DB62680049C51B /* HCycleScrollView.m in Sources */,
@@ -2920,7 +2921,6 @@
 				A2E8F55A22D8354400E7C9F2 /* HFileCache.m in Sources */,
 				A2E8F57622D8356300E7C9F2 /* HValueTransformerFactory.m in Sources */,
 				A2E8F57422D8356300E7C9F2 /* NSURL+HExtendedFileAttributes.m in Sources */,
-				A2909C63241923AB002B4819 /* HSheetAlertController.m in Sources */,
 				A22FA1742400DD6200B75C1C /* HKBPreviousNextView.m in Sources */,
 				A288E13A2415E89A00F701FF /* HLocalNotification.m in Sources */,
 				A2FA53C623D732D100C5F710 /* HNetworkManager.m in Sources */,
