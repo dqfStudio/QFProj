@@ -72,6 +72,7 @@
 }
 - (void)tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
     HTupleImageApex *cell = headerBlock(nil, HTupleImageApex.class, nil, YES);
+    [cell.imageView setBackgroundColor:UIColor.whiteColor];
     if (self.bgColor) [cell.imageView setBackgroundColor:self.bgColor];
     switch (self.style) {
         case HResultTypeNoData:
@@ -96,16 +97,13 @@
     switch (indexPath.row) {
         case 0: {
             HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
-            if (self.bgColor) [cell.label setBackgroundColor:self.bgColor];
+            [cell.label setBackgroundColor:UIColor.whiteColor];
             [cell.label setTextColor:[UIColor blackColor]];
             [cell.label setFont:[UIFont systemFontOfSize:14]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
-            if (self.descFont) {
-                [cell.label setFont:self.descFont];
-            }
-            if (self.descColor) {
-                [cell.label setTextColor:self.descColor];
-            }
+            if (self.bgColor) [cell.label setBackgroundColor:self.bgColor];
+            if (self.descFont) [cell.label setFont:self.descFont];
+            if (self.descColor) [cell.label setTextColor:self.descColor];
             if (self.desc.length > 0) {
                 [cell.label setText:self.desc];
             }else {
@@ -127,19 +125,14 @@
             break;
         case 1: {
             HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
-            if (self.bgColor) [cell.label setBackgroundColor:self.bgColor];
+            [cell.label setBackgroundColor:UIColor.whiteColor];
             [cell.label setTextColor:[UIColor blackColor]];
             [cell.label setFont:[UIFont systemFontOfSize:14]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
-            if (self.detlDescFont) {
-                [cell.label setFont:self.detlDescFont];
-            }
-            if (self.detlDescColor) {
-                [cell.label setTextColor:self.detlDescColor];
-            }
-            if (self.detlDesc.length > 0) {
-                [cell.label setText:self.detlDesc];
-            }
+            if (self.bgColor) [cell.label setBackgroundColor:self.bgColor];
+            if (self.detlDescFont) [cell.label setFont:self.detlDescFont];
+            if (self.detlDescColor) [cell.label setTextColor:self.detlDescColor];
+            if (self.detlDesc.length > 0) [cell.label setText:self.detlDesc];
         }
             break;
             
