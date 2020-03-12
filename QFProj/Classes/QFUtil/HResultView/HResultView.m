@@ -8,7 +8,6 @@
 
 #import "HResultView.h"
 #import "HTupleView.h"
-#import <objc/runtime.h>
 #import "AFNetworkReachabilityManager.h"
 
 //#define KImageWidth  165
@@ -32,7 +31,7 @@
 
 - (HTupleView *)tupleView {
     if (!_tupleView) {
-        _tupleView = [[HTupleView alloc] initWithFrame:self.bounds];
+        _tupleView = [[HTupleView alloc] initWithFrame:CGRectZero];
         [_tupleView setScrollEnabled:NO];
         [_tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
     }
@@ -40,112 +39,115 @@
 }
 - (void)wakeup {
     //添加view
+    CGFloat height = KTextHeight;
+    if (!self.hideImage) height += KImageHeight;
+    if (self.detlDesc.length > 0) height += KTextHeight2;
+    
+    CGRect frame = CGRectMake(0, 0, KImageWidth, height);
+    self.tupleView.frame = frame;
+    self.tupleView.center = CGPointMake(self.center.x, self.center.y-self.marginTop);
     [self addSubview:self.tupleView];
 }
 
 - (NSInteger)numberOfSectionsInTupleView {
-    return 1;
-}
-- (NSInteger)numberOfItemsInSection:(NSInteger)section {
-    return 1;
-}
-
-- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(self.tupleView.width, self.tupleView.height);
-}
-
-- (UIEdgeInsets)edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat height = 0.f;
-    if (!self.hideImage) height += KImageHeight;
-    height += KTextHeight;
-    if (self.detlDesc.length > 0) height += KTextHeight2;
-
-    CGFloat tmpMarginTop = self.tupleView.height/2-height/2;
-    if (self.marginTop > 0) tmpMarginTop -= self.marginTop;
-
-    return UIEdgeInsetsMake(tmpMarginTop, self.tupleView.width/2-KImageWidth/2, self.tupleView.height - tmpMarginTop - height, self.tupleView.width/2-KImageWidth/2);
-}
-
-- (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    NSString *prefix = @"image";
-    if (self.desc.length > 0) prefix = @"text";
-    if (self.detlDesc.length > 0) prefix = @"union";
-
-    HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, prefix, YES);
-    if (self.bgColor) [cell setBackgroundColor:self.bgColor];
-
-    CGRect frame = [cell layoutViewFrame];
-
     if (![AFNetworkReachabilityManager sharedManager].isReachable) {
         self.style = HResultTypeNoNetwork;
     }
-
-    if (!self.hideImage) {
-
-        frame.origin.x += 35/2;
-        frame.size.width -= 35;
-        frame.size.height -= KTextHeight; //image和text都显示的情况
-        if (self.detlDesc.length > 0) frame.size.height -= KTextHeight2; //image和text都显示的情况
-
-        [cell.imageView setFrame:frame];
-
-        switch (self.style) {
-            case HResultTypeNoData:
-                [cell.imageView setImage:[UIImage imageNamed:@"mgf_icon_load_nothing"]];
-                break;
-            case HResultTypeLoadError:
-                [cell.imageView setImage:[UIImage imageNamed:@"mgf_icon_no_server"]];
-                break;
-            case HResultTypeNoNetwork:
-                [cell.imageView setImage:[UIImage imageNamed:@"mgf_icon_no_network"]];
-                break;
-            default:
-                break;
-        }
-    }
-
-    frame.origin.x -= 35/2;
-    frame.size.width += 35;
-    if (!self.hideImage) frame.origin.y += KImageHeight;
-    frame.size.height = KTextHeight;
-    [cell.label setFrame:frame];
-
-    [cell.label setTextColor:[UIColor blackColor]];
-    [cell.label setFont:[UIFont systemFontOfSize:14]];
-    [cell.label setTextAlignment:NSTextAlignmentCenter];
-
-    if (self.desc.length > 0) {
-        [cell.label setText:self.desc];
-    }else {
-        switch (self.style) {
-            case HResultTypeNoData:
-                [cell.label setText:@"这里好像什么都没有呢⋯"];
-                break;
-            case HResultTypeLoadError:
-                [cell.label setText:@"服务器开小差了，请稍后再试~"];
-                break;
-            case HResultTypeNoNetwork:
-                [cell.label setText:@"网络已断开"];
-                break;
-            default:
-                break;
-        }
-    }
-
-    if (self.detlDesc.length > 0) {//image和text都显示的情况
-
-        frame.origin.y += KTextHeight;
-        frame.size.height = KTextHeight2;
-        [cell.detailLabel setFrame:frame];
-
-        [cell.detailLabel setText:self.detlDesc];
-        [cell.detailLabel setTextColor:[UIColor blackColor]];
-        [cell.detailLabel setFont:[UIFont systemFontOfSize:14]];
-        [cell.detailLabel setTextAlignment:NSTextAlignmentCenter];
-    }
-
+    return 1;
+}
+- (NSInteger)numberOfItemsInSection:(NSInteger)section {
+    return self.detlDesc.length > 0 ? 2 : 1;
 }
 
+- (CGSize)sizeForHeaderInSection:(NSInteger)section {
+    return self.hideImage ? CGSizeZero : CGSizeMake(KImageWidth, KImageHeight);
+}
+- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 0: return CGSizeMake(KTextWidth, KTextHeight);
+        case 1: return CGSizeMake(KTextWidth, KTextHeight2);
+        default:break;
+    }
+    return CGSizeZero;
+}
+- (void)tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
+    HTupleImageApex *cell = headerBlock(nil, HTupleImageApex.class, nil, YES);
+    if (self.bgColor) [cell.imageView setBackgroundColor:self.bgColor];
+    switch (self.style) {
+        case HResultTypeNoData:
+            [cell.imageView setImage:[UIImage imageNamed:@"mgf_icon_load_nothing"]];
+            break;
+        case HResultTypeLoadError:
+            [cell.imageView setImage:[UIImage imageNamed:@"mgf_icon_no_server"]];
+            break;
+        case HResultTypeNoNetwork:
+            [cell.imageView setImage:[UIImage imageNamed:@"mgf_icon_no_network"]];
+            break;
+        default:
+            break;
+    }
+    cell.imageView.pressed = ^(id sender, id data) {
+        if (self.clickedBlock) {
+            self.clickedBlock();
+        }
+    };
+}
+- (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 0: {
+            HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
+            if (self.bgColor) [cell.label setBackgroundColor:self.bgColor];
+            [cell.label setTextColor:[UIColor blackColor]];
+            [cell.label setFont:[UIFont systemFontOfSize:14]];
+            [cell.label setTextAlignment:NSTextAlignmentCenter];
+            if (self.descFont) {
+                [cell.label setFont:self.descFont];
+            }
+            if (self.descColor) {
+                [cell.label setTextColor:self.descColor];
+            }
+            if (self.desc.length > 0) {
+                [cell.label setText:self.desc];
+            }else {
+                switch (self.style) {
+                    case HResultTypeNoData:
+                        [cell.label setText:@"这里好像什么都没有呢⋯"];
+                        break;
+                    case HResultTypeLoadError:
+                        [cell.label setText:@"服务器开小差了，请稍后再试~"];
+                        break;
+                    case HResultTypeNoNetwork:
+                        [cell.label setText:@"网络已断开"];
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+            break;
+        case 1: {
+            HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
+            if (self.bgColor) [cell.label setBackgroundColor:self.bgColor];
+            [cell.label setTextColor:[UIColor blackColor]];
+            [cell.label setFont:[UIFont systemFontOfSize:14]];
+            [cell.label setTextAlignment:NSTextAlignmentCenter];
+            if (self.detlDescFont) {
+                [cell.label setFont:self.detlDescFont];
+            }
+            if (self.detlDescColor) {
+                [cell.label setTextColor:self.detlDescColor];
+            }
+            if (self.detlDesc.length > 0) {
+                [cell.label setText:self.detlDesc];
+            }
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+}
 - (void)didSelectCell:(HTupleBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     if (self.clickedBlock) {
         self.clickedBlock();
