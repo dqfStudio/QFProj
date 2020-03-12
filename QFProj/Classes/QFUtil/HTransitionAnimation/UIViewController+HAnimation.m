@@ -78,7 +78,7 @@
  animationType  动画类型
  completion     动画结束后的回调
 */
-- (void)pushViewController:(UIViewController *)viewController completion:(HTransitionCompletion)completion {
+- (void)pushViewController:(UIViewController *)viewController completion:(HTransitionCompletion __nullable)completion {
     HPushAnimation *animation = HPushAnimation.new;
     animation.pushAnimationType = viewController.animationType;
     animation.transitionCompletion = completion;
