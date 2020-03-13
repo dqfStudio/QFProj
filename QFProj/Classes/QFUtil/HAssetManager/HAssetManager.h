@@ -23,7 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 //获取相册里面的图片和视频
 - (NSArray <HAssetModel *>* _Nullable )getImagesAndVideoFromFolder;
 
-//保存图片到系统相册
+//保存图片到系统默认相册
+- (void)saveImageToDefaultAlbum:(UIImage *)image completionHandler:(nullable void(^)(BOOL success, NSError * _Nullable error))completionHandler;
+
+//保存图片到指定相册
 - (void)saveImage:(UIImage *)image completionHandler:(nullable void(^)(BOOL success, NSError * _Nullable error))completionHandler;
 
 //保存视频到系统相册

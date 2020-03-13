@@ -16,6 +16,11 @@
 @implementation HAssetManager
 
 + (instancetype)share {
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        if (status == PHAuthorizationStatusDenied || status == PHAuthorizationStatusRestricted) {
+            [UIAlertController showAlertWithTitle:@"未获得照片使用权限" message:@"请在iOS 设置-隐私-照片 中打开" style:UIAlertControllerStyleAlert cancelButtonTitle:@"好的" otherButtonTitles:nil completion:nil];
+        }
+    }];
     static HAssetManager *operator = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -27,18 +32,12 @@
 }
 
 - (void)createAlbums {
-    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-        if (status == PHAuthorizationStatusAuthorized) {
-            if (![self isExistAlbums]) {
-                [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-                    //创建相册文件夹
-                    [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:self.albumsName];
-                } completionHandler:nil];
-            }
-        }else if (status == PHAuthorizationStatusDenied || status == PHAuthorizationStatusRestricted) {
-            [UIAlertController showAlertWithTitle:@"未获得照片使用权限" message:@"请在iOS 设置-隐私-照片 中打开" style:UIAlertControllerStyleAlert cancelButtonTitle:@"好的" otherButtonTitles:nil completion:nil];
-        }
-    }];
+    if (![self isExistAlbums]) {
+        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+            //创建相册文件夹
+            [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:self.albumsName];
+        } completionHandler:nil];
+    }
 }
 
 - (NSArray <HAssetModel *>* _Nullable )getImagesAndVideoFromFolder {
@@ -122,6 +121,21 @@
     }
 }
 
+//保存图片到系统默认相册
+- (void)saveImageToDefaultAlbum:(UIImage *)image completionHandler:(nullable void(^)(BOOL success, NSError * _Nullable error))completionHandler {
+    if (image == nil) {
+        if (completionHandler) {
+            NSError *error = [NSError errorWithDomain:@"HAssetOperator" code:-999 userInfo:@{NSLocalizedDescriptionKey : @"图片不能为空"}];
+            completionHandler(NO, error);
+        }
+        return;
+    }
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        [PHAssetChangeRequest creationRequestForAssetFromImage:image];
+    } completionHandler:completionHandler];
+}
+
+//保存图片到指定相册
 - (void)saveImage:(UIImage *)image completionHandler:(nullable void(^)(BOOL success, NSError * _Nullable error))completionHandler {
     if ([self checkShouldCreateAlbums]) {
         if (image == nil) {
