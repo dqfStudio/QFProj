@@ -60,6 +60,27 @@
     jsonString = [jsonString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     return jsonString;
 }
+//将json文件转为data
++ (NSData *)dataWithResource:(NSString *)jsonResource {
+    if (![jsonResource isKindOfClass:NSString.class]) return nil;
+    NSString *path = [[NSBundle mainBundle] pathForResource:jsonResource ofType:nil];
+    if (path) {
+        return [NSData dataWithContentsOfFile:path];
+    }
+    return nil;
+}
+//将json文件转为string
++ (NSString *)stringWithResource:(NSString *)jsonResource {
+    if (![jsonResource isKindOfClass:NSString.class]) return nil;
+    NSString *path = [[NSBundle mainBundle] pathForResource:jsonResource ofType:nil];
+    if (path) {
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        if (data) {
+            return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        }
+    }
+    return nil;
+}
 //将json文件转为字典
 + (instancetype)dictionaryWithResource:(NSString *)jsonResource {
     if (![jsonResource isKindOfClass:NSString.class]) return nil;
@@ -78,6 +99,27 @@
 @end
 
 @implementation NSArray (HJson)
+//将json文件转为data
++ (NSData *)dataWithResource:(NSString *)jsonResource {
+    if (![jsonResource isKindOfClass:NSString.class]) return nil;
+    NSString *path = [[NSBundle mainBundle] pathForResource:jsonResource ofType:nil];
+    if (path) {
+        return [NSData dataWithContentsOfFile:path];
+    }
+    return nil;
+}
+//将json文件转为string
++ (NSString *)stringWithResource:(NSString *)jsonResource {
+    if (![jsonResource isKindOfClass:NSString.class]) return nil;
+    NSString *path = [[NSBundle mainBundle] pathForResource:jsonResource ofType:nil];
+    if (path) {
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        if (data) {
+            return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        }
+    }
+    return nil;
+}
 //将json文件转为数组
 + (instancetype)arrayithResource:(NSString *)jsonResource {
     if (![jsonResource isKindOfClass:NSString.class]) return nil;

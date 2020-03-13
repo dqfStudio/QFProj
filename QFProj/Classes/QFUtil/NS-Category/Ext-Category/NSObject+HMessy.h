@@ -28,11 +28,19 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)jsonString;
 //去掉json字符串中的空格和换行符
 - (NSString *)jsonString2;
+//将json文件转为data
++ (NSData *)dataWithResource:(NSString *)jsonResource;
+//将json文件转为string
++ (NSString *)stringWithResource:(NSString *)jsonResource;
 //将json文件转为字典
 + (instancetype)dictionaryWithResource:(NSString *)jsonResource;
 @end
 
 @interface NSArray (HJson)
+//将json文件转为data
++ (NSData *)dataWithResource:(NSString *)jsonResource;
+//将json文件转为string
++ (NSString *)stringWithResource:(NSString *)jsonResource;
 //将json文件转为数组
 + (instancetype)arrayithResource:(NSString *)jsonResource;
 @end
