@@ -414,7 +414,7 @@ static NSUInteger gcd(NSUInteger a, NSUInteger b)
     layer.contents = (__bridge id)self.image.CGImage;
 }
 
-- (NSData *)animatedGIFDataWithNamed:(NSString *)name {
+- (NSData *)animatedGIFDataWithName:(NSString *)name {
     CGFloat scale = [UIScreen mainScreen].scale;
     if (scale > 1.0f) {
         NSString *retinaPath = [[NSBundle mainBundle] pathForResource:[name stringByAppendingString:@"@2x"] ofType:@"gif"];
@@ -438,8 +438,8 @@ static NSUInteger gcd(NSUInteger a, NSUInteger b)
     }
 }
 
-- (void)setAnimatedGIFDataWithNamed:(NSString *)name {
-    NSData *data = [self animatedGIFDataWithNamed:nil];
+- (void)setAnimatedGIFDataWithName:(NSString *)name {
+    NSData *data = [self animatedGIFDataWithName:name];
     self.animatedImage = [[HAnimatedImage alloc] initWithAnimatedGIFData:data];
 }
 

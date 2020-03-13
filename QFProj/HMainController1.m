@@ -181,7 +181,7 @@
             cell.labelHeight = 25;
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setText:@"黑客帝国"];
-            
+
             cell.didSelectCell = ^(HTupleViewCellVertValue1 *cell, NSIndexPath *indexPath) {
                 NSLog(@"选中黑客帝国");
             };
@@ -255,8 +255,11 @@
     
 }
 - (void)didSelectCell:(HTupleBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"");
-    [self.view showResult:^(id<HResultProtocol> make) {
+    
+//    [self.view showResult:^(id<HResultProtocol> make) {
+//
+//    }];
+    [self.view showWaiting:^(id<HWaitingProtocol> make) {
         
     }];
 //    [self presentController:HAlertController.new completion:^(HTransitionType transitionType) {
