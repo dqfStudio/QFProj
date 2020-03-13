@@ -31,7 +31,7 @@
             self.hWaitingView = waitingView;
             [self addSubview:waitingView];
         }
-        return [self getAssociatedValueForKey:_cmd];
+        return waitingView;
     }
 }
 - (void)setHWaitingView:(HWaitingView *)hWaitingView {
@@ -47,7 +47,7 @@
             self.hResultView = resultView;
             [self addSubview:resultView];
         }
-        return [self getAssociatedValueForKey:_cmd];
+        return resultView;
     }
 }
 - (void)setHResultView:(HResultView *)hResultView {
@@ -58,7 +58,7 @@
     @synchronized(self) {
         HNaviToast *naviToast = [self getAssociatedValueForKey:_cmd];
         if (!naviToast) self.hNaviToast = [HNaviToast new];
-        return [self getAssociatedValueForKey:_cmd];
+        return naviToast;
     }
 }
 - (void)setHNaviToast:(HNaviToast *)hNaviToast {
@@ -69,7 +69,7 @@
     @synchronized(self) {
         HToast *toast = [self getAssociatedValueForKey:_cmd];
         if (!toast) self.hToast = [HToast new];
-        return [self getAssociatedValueForKey:_cmd];
+        return toast;
     }
 }
 - (void)setHToast:(HToast *)hToast {
@@ -80,7 +80,7 @@
     @synchronized(self) {
         HAlert *alert = [self getAssociatedValueForKey:_cmd];
         if (!alert) self.hAlert = [HAlert new];
-        return [self getAssociatedValueForKey:_cmd];
+        return alert;
     }
 }
 - (void)setHAlert:(HAlert *)hAlert {
@@ -91,7 +91,7 @@
     @synchronized(self) {
         HSheet *sheet = [self getAssociatedValueForKey:_cmd];
         if (!sheet) self.hSheet = [HSheet new];
-        return [self getAssociatedValueForKey:_cmd];
+        return sheet;
     }
 }
 - (void)setHSheet:(HSheet *)hSheet {
@@ -102,7 +102,7 @@
     @synchronized(self) {
         HForm *form = [self getAssociatedValueForKey:_cmd];
         if (!form) self.hForm = [HForm new];
-        return [self getAssociatedValueForKey:_cmd];
+        return form;
     }
 }
 - (void)setHForm:(HForm *)hForm {
@@ -121,7 +121,10 @@
                 if (configBlock) {
                     configBlock(self.hWaitingView);
                 }
-                [self.hWaitingView wakeup];
+                #pragma clang diagnostic push
+                #pragma clang diagnostic ignored "-Wundeclared-selector"
+                [self.hWaitingView performSelector:@selector(wakeup)];
+                #pragma clang diagnostic pop
                 [self bringSubviewToFront:self.hWaitingView];
             }
         }
@@ -131,16 +134,19 @@
 - (void)showResult:(void(^)(id<HResultProtocol> make))configBlock {
     @synchronized(self) {
         [self removeWaiting];
-//        if ([self.hResultView conformsToProtocol:@protocol(HAlertProtocol)]) {
+        if ([self.hResultView conformsToProtocol:@protocol(HResultProtocol)]) {
             if (!self.hResultView.isLoading) {
                 self.hResultView.isLoading = YES;
                 if (configBlock) {
                     configBlock(self.hResultView);
                 }
-                [self.hResultView wakeup];
+                #pragma clang diagnostic push
+                #pragma clang diagnostic ignored "-Wundeclared-selector"
+                [self.hResultView performSelector:@selector(wakeup)];
+                #pragma clang diagnostic pop
                 [self bringSubviewToFront:self.hResultView];
             }
-//        }
+        }
     }
 }
 
@@ -150,7 +156,10 @@
             if (configBlock) {
                 configBlock(self.hAlert);
             }
-            [self.hAlert wakeup];
+            #pragma clang diagnostic push
+            #pragma clang diagnostic ignored "-Wundeclared-selector"
+            [self.hAlert performSelector:@selector(wakeup)];
+            #pragma clang diagnostic pop
         }
     }
 }
@@ -161,7 +170,10 @@
             if (configBlock) {
                 configBlock(self.hSheet);
             }
-            [self.hSheet wakeup];
+            #pragma clang diagnostic push
+            #pragma clang diagnostic ignored "-Wundeclared-selector"
+            [self.hSheet performSelector:@selector(wakeup)];
+            #pragma clang diagnostic pop
         }
     }
 }
@@ -172,7 +184,10 @@
             if (configBlock) {
                 configBlock(self.hForm);
             }
-            [self.hForm wakeup];
+            #pragma clang diagnostic push
+            #pragma clang diagnostic ignored "-Wundeclared-selector"
+            [self.hForm performSelector:@selector(wakeup)];
+            #pragma clang diagnostic pop
         }
     }
 }
@@ -183,7 +198,10 @@
             if (configBlock) {
                 configBlock(self.hToast);
             }
-            [self.hToast wakeup];
+            #pragma clang diagnostic push
+            #pragma clang diagnostic ignored "-Wundeclared-selector"
+            [self.hToast performSelector:@selector(wakeup)];
+            #pragma clang diagnostic pop
         }
     }
 }
@@ -194,7 +212,10 @@
             if (configBlock) {
                 configBlock(self.hNaviToast);
             }
-            [self.hNaviToast wakeup];
+            #pragma clang diagnostic push
+            #pragma clang diagnostic ignored "-Wundeclared-selector"
+            [self.hNaviToast performSelector:@selector(wakeup)];
+            #pragma clang diagnostic pop
         }
     }
 }

@@ -30,7 +30,7 @@
         _tupleView = [[HTupleView alloc] initWithFrame:CGRectZero];
         [_tupleView setScrollEnabled:NO];
         [_tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
-        [self addSubview:self.tupleView];
+        [self addSubview:_tupleView];
     }
     return _tupleView;
 }

@@ -15,5 +15,5 @@ typedef NS_ENUM(NSInteger, HWaitingType) {
 };
 
 @interface HWaitingView : UIView <HWaitingProtocol>
-- (void)wakeup;
+
 @end

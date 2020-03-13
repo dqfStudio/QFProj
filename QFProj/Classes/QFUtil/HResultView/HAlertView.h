@@ -15,22 +15,22 @@
 #import "HAlert+Protocol.h"
 
 @interface HToast : NSObject <HToastProtocol>
-- (void)wakeup;
+
 @end
 
 @interface HNaviToast : NSObject <HNaviToastProtocol>
-- (void)wakeup;
+
 @end
 
 @interface HAlert : NSObject <HAlertProtocol>
-- (void)wakeup;
+
 @end
 
 @interface HSheet : NSObject <HSheetProtocol>
-- (void)wakeup;
+
 @end
 
 @interface HForm : NSObject <HFormProtocol>
-- (void)wakeup;
+
 @end
 

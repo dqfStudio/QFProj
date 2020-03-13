@@ -256,12 +256,12 @@
 }
 - (void)didSelectCell:(HTupleBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
-//    [self.view showResult:^(id<HResultProtocol> make) {
+    [self.view showResult:^(id<HResultProtocol> make) {
+
+    }];
+//    [self.view showWaiting:^(id<HWaitingProtocol> make) {
 //
 //    }];
-    [self.view showWaiting:^(id<HWaitingProtocol> make) {
-        
-    }];
 //    [self presentController:HAlertController.new completion:^(HTransitionType transitionType) {
 //        NSLog(@"");
 //    }];

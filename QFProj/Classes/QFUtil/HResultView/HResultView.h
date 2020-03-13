@@ -15,5 +15,5 @@ typedef NS_ENUM(NSInteger, HResultType) {
 };
 
 @interface HResultView : UIView <HResultProtocol>
-- (void)wakeup;
+
 @end
