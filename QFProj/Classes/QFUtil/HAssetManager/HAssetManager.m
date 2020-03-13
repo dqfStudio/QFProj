@@ -146,11 +146,11 @@
                 [PHAssetChangeRequest creationRequestForAssetFromImage:image];
             }];
         } completionHandler:^(BOOL success, NSError * _Nullable error) {
+            [self removeExclusive:KExecutingKey];
+            [self removeExclusive:KInOperationKey];
             if (completionHandler) {
                 completionHandler(success, error);
             }
-            [self removeExclusive:KExecutingKey];
-            [self removeExclusive:KInOperationKey];
         }];
     }];
 }
@@ -235,37 +235,42 @@
 }
 
 - (void)_saveFile:(BOOL)isImage image:(UIImage *)image videoPathURL:(NSURL *)videoPathURL semaphore:(dispatch_semaphore_t)semaphore completionHandler:(nullable void(^)(BOOL success, NSError *_Nullable error))completionHandler {
-    //首先获取相册的集合
-    PHFetchResult *collectonResuts = [PHCollectionList fetchTopLevelUserCollectionsWithOptions:nil];
-    //对获取到集合进行遍历
-    [collectonResuts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        PHAssetCollection *assetCollection = obj;
-        //Camera Roll是我们写入照片的相册
-        if ([assetCollection.localizedTitle isEqualToString:self.albumsName])  {
-            *stop = YES;
-            [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-                //请求创建一个Asset
-                PHAssetChangeRequest *assetRequest;
-                if (isImage) {
-                    assetRequest = [PHAssetChangeRequest creationRequestForAssetFromImage:image];
-                }else {
-                    assetRequest = [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:videoPathURL];
-                }
-                //请求编辑相册
-                PHAssetCollectionChangeRequest *collectonRequest = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:assetCollection];
-                //为Asset创建一个占位符，放到相册编辑请求中
-                PHObjectPlaceholder *placeHolder = [assetRequest placeholderForCreatedAsset];
-                //相册中添加照片 或者 视频
-                [collectonRequest insertAssets:@[placeHolder] atIndexes:[NSIndexSet indexSetWithIndex:0]];
-                //[collectonRequest addAssets:@[placeHolder]];
-                
-            } completionHandler:^(BOOL success, NSError *error) {
-                dispatch_semaphore_signal(semaphore);
-                if (completionHandler != nil) {
-                    completionHandler(success, error);
-                }
-            }];
-        }
+    [self exclusive:KInOperationKey block:^{
+        //首先获取相册的集合
+        PHFetchResult *collectonResuts = [PHCollectionList fetchTopLevelUserCollectionsWithOptions:nil];
+        //对获取到集合进行遍历
+        [collectonResuts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            PHAssetCollection *assetCollection = obj;
+            //Camera Roll是我们写入照片的相册
+            if ([assetCollection.localizedTitle isEqualToString:self.albumsName])  {
+                *stop = YES;
+                [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+                    [self exclusive:KExecutingKey block:^{
+                        //请求创建一个Asset
+                        PHAssetChangeRequest *assetRequest;
+                        if (isImage) {
+                            assetRequest = [PHAssetChangeRequest creationRequestForAssetFromImage:image];
+                        }else {
+                            assetRequest = [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:videoPathURL];
+                        }
+                        //请求编辑相册
+                        PHAssetCollectionChangeRequest *collectonRequest = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:assetCollection];
+                        //为Asset创建一个占位符，放到相册编辑请求中
+                        PHObjectPlaceholder *placeHolder = [assetRequest placeholderForCreatedAsset];
+                        //相册中添加照片 或者 视频
+                        [collectonRequest insertAssets:@[placeHolder] atIndexes:[NSIndexSet indexSetWithIndex:0]];
+                        //[collectonRequest addAssets:@[placeHolder]];
+                    }];
+                } completionHandler:^(BOOL success, NSError *error) {
+                    [self removeExclusive:KExecutingKey];
+                    [self removeExclusive:KInOperationKey];
+                    dispatch_semaphore_signal(semaphore);
+                    if (completionHandler != nil) {
+                        completionHandler(success, error);
+                    }
+                }];
+            }
+        }];
     }];
 }
 
@@ -302,29 +307,34 @@
         return;
     }
     
-    PHFetchResult *collectonResuts = [PHCollectionList fetchTopLevelUserCollectionsWithOptions:nil];
-    [collectonResuts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        
-        PHAssetCollection *assetCollection = obj;
-        *stop = YES;
-        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+    [self exclusive:KInOperationKey block:^{
+        PHFetchResult *collectonResuts = [PHCollectionList fetchTopLevelUserCollectionsWithOptions:nil];
+        [collectonResuts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             
-            NSURL *url = [NSURL fileURLWithPath:path];
-            PHAssetChangeRequest *assetRequest = [PHAssetChangeRequest creationRequestForAssetFromImageAtFileURL:url];
-            
-            //请求编辑相册
-            PHAssetCollectionChangeRequest *collectonRequest = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:assetCollection];
-            //为Asset创建一个占位符，放到相册编辑请求中
-            PHObjectPlaceholder *placeHolder = [assetRequest placeholderForCreatedAsset];
-            //相册中添加照片 或者 视频
-            [collectonRequest addAssets:@[placeHolder]];
-
-        } completionHandler:^(BOOL success, NSError *error) {
-            if (completion) {
-                completion(success, error);
-            }
+            PHAssetCollection *assetCollection = obj;
+            *stop = YES;
+            [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+                [self exclusive:KExecutingKey block:^{
+                    NSURL *url = [NSURL fileURLWithPath:path];
+                    PHAssetChangeRequest *assetRequest = [PHAssetChangeRequest creationRequestForAssetFromImageAtFileURL:url];
+                    
+                    //请求编辑相册
+                    PHAssetCollectionChangeRequest *collectonRequest = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:assetCollection];
+                    //为Asset创建一个占位符，放到相册编辑请求中
+                    PHObjectPlaceholder *placeHolder = [assetRequest placeholderForCreatedAsset];
+                    //相册中添加照片 或者 视频
+                    [collectonRequest addAssets:@[placeHolder]];
+                }];
+            } completionHandler:^(BOOL success, NSError *error) {
+                [self removeExclusive:KExecutingKey];
+                [self removeExclusive:KInOperationKey];
+                if (completion) {
+                    completion(success, error);
+                }
+            }];
         }];
     }];
+
 }
 
 @end
