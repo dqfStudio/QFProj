@@ -60,7 +60,41 @@
     jsonString = [jsonString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     return jsonString;
 }
+//将json文件转为字典
++ (instancetype)dictionaryWithResource:(NSString *)jsonResource {
+    if (![jsonResource isKindOfClass:NSString.class]) return nil;
+    NSString *path = [[NSBundle mainBundle] pathForResource:jsonResource ofType:nil];
+    if (path) {
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        if (data) {
+            id resource = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            if ([resource isKindOfClass:NSDictionary.class]) {
+                return resource;
+            }
+        }
+    }
+    return nil;
+}
 @end
+
+@implementation NSArray (HJson)
+//将json文件转为数组
++ (instancetype)arrayithResource:(NSString *)jsonResource {
+    if (![jsonResource isKindOfClass:NSString.class]) return nil;
+    NSString *path = [[NSBundle mainBundle] pathForResource:jsonResource ofType:nil];
+    if (path) {
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        if (data) {
+            id resource = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            if ([resource isKindOfClass:NSArray.class]) {
+                return resource;
+            }
+        }
+    }
+    return nil;
+}
+@end
+
 
 @implementation NSString (HJson)
 //将json字符串转化成字典
