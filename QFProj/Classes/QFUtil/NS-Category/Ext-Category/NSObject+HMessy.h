@@ -40,6 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSString (HJson)
 //将json字符串转化成字典
 - (NSDictionary *)dictionary;
+//将json字符串转化成数组
+- (NSArray *)array;
 //将字符串转化data
 - (NSData *)dataValue;
 @end
@@ -47,6 +49,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSData (HJson)
 //将json data转化成字典
 - (NSDictionary *)dictionary;
+//将json data转化成数组
+- (NSArray *)array;
 //将data转化成字符串
 - (NSString *)stringValue;
 @end

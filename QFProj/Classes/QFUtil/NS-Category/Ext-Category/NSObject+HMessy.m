@@ -103,6 +103,12 @@
                                            options:NSJSONReadingMutableContainers
                                              error:nil];
 }
+//将json字符串转化成数组
+- (NSArray *)array {
+    return [NSJSONSerialization JSONObjectWithData:[self dataUsingEncoding:NSUTF8StringEncoding]
+                                           options:NSJSONReadingAllowFragments
+                                             error:nil];
+}
 //将字符串转化data
 - (NSData *)dataValue {
     return [self dataUsingEncoding:NSUTF8StringEncoding];
@@ -115,6 +121,10 @@
     return [NSJSONSerialization JSONObjectWithData:self
                                            options:NSJSONReadingMutableContainers
                                              error:nil];
+}
+//将json data转化成数组
+- (NSArray *)array {
+    return [NSJSONSerialization JSONObjectWithData:self options:NSJSONReadingAllowFragments error:nil];
 }
 //将data转化成字符串
 - (NSString *)stringValue {
