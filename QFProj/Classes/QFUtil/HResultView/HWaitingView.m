@@ -87,10 +87,6 @@
 }
 
 - (void)removeFromSuperview {
-    HTupleImageCell *cell = self.tupleView.cell(0, 0);
-    if (cell.imageView.isAnimating) {
-        [cell.imageView stopAnimating];
-    }
     [self setIsLoading:NO];
     [super removeFromSuperview];
 }
