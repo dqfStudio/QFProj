@@ -266,6 +266,8 @@
 		A28E886A241B6CF900BE5C53 /* loading_gif_white.gif in Resources */ = {isa = PBXBuildFile; fileRef = A28E8867241B6CF900BE5C53 /* loading_gif_white.gif */; };
 		A28E886B241B6CF900BE5C53 /* loading_gif_black.gif in Resources */ = {isa = PBXBuildFile; fileRef = A28E8868241B6CF900BE5C53 /* loading_gif_black.gif */; };
 		A28E886C241B6CF900BE5C53 /* loading_gif_lightGray.gif in Resources */ = {isa = PBXBuildFile; fileRef = A28E8869241B6CF900BE5C53 /* loading_gif_lightGray.gif */; };
+		A28E8870241BBE8500BE5C53 /* HAssetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E886F241BBE8500BE5C53 /* HAssetManager.m */; };
+		A28E8873241BBE9D00BE5C53 /* HAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A28E8872241BBE9D00BE5C53 /* HAssetModel.m */; };
 		A28EF2E821D86DD8002F92ED /* HCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */; };
 		A28EF2EC21D86E44002F92ED /* UILabel+HAttributeText.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2EB21D86E43002F92ED /* UILabel+HAttributeText.m */; };
 		A28EF2EF21D8763A002F92ED /* YPTabBar+HSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF2ED21D87639002F92ED /* YPTabBar+HSubView.m */; };
@@ -864,6 +866,10 @@
 		A28E8867241B6CF900BE5C53 /* loading_gif_white.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading_gif_white.gif; sourceTree = "<group>"; };
 		A28E8868241B6CF900BE5C53 /* loading_gif_black.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading_gif_black.gif; sourceTree = "<group>"; };
 		A28E8869241B6CF900BE5C53 /* loading_gif_lightGray.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading_gif_lightGray.gif; sourceTree = "<group>"; };
+		A28E886E241BBE8500BE5C53 /* HAssetManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAssetManager.h; sourceTree = "<group>"; };
+		A28E886F241BBE8500BE5C53 /* HAssetManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAssetManager.m; sourceTree = "<group>"; };
+		A28E8871241BBE9D00BE5C53 /* HAssetModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAssetModel.h; sourceTree = "<group>"; };
+		A28E8872241BBE9D00BE5C53 /* HAssetModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAssetModel.m; sourceTree = "<group>"; };
 		A28EF2E621D86DD8002F92ED /* HCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A28EF2E721D86DD8002F92ED /* HCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		A28EF2EA21D86E43002F92ED /* UILabel+HAttributeText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HAttributeText.h"; sourceTree = "<group>"; };
@@ -1339,6 +1345,7 @@
 		15B4DD7D2092F96B00773E04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A28E886D241BBE7A00BE5C53 /* HAssetManager */,
 				A288E1372415E88800F701FF /* HNotification */,
 				A22FA14C2400DD6200B75C1C /* HKBKeyboardManager */,
 				A28566B123F1436F00552FE7 /* 动态插入.a文件 */,
@@ -2296,6 +2303,18 @@
 			path = QFUtil/HTextLoopView;
 			sourceTree = "<group>";
 		};
+		A28E886D241BBE7A00BE5C53 /* HAssetManager */ = {
+			isa = PBXGroup;
+			children = (
+				A28E886E241BBE8500BE5C53 /* HAssetManager.h */,
+				A28E886F241BBE8500BE5C53 /* HAssetManager.m */,
+				A28E8871241BBE9D00BE5C53 /* HAssetModel.h */,
+				A28E8872241BBE9D00BE5C53 /* HAssetModel.m */,
+			);
+			name = HAssetManager;
+			path = QFUtil/HAssetManager;
+			sourceTree = "<group>";
+		};
 		A28EF2E921D86E43002F92ED /* UILabel+HAttributeText */ = {
 			isa = PBXGroup;
 			children = (
@@ -2906,6 +2925,7 @@
 				15780E4621257840006392CF /* HAuthorizeManager.m in Sources */,
 				A2A8EBBA22E1FDEE0049C51B /* WebViewJavascriptBridge_JS.m in Sources */,
 				A24B6581225F7A7500B257BB /* HPayWebviewVC.m in Sources */,
+				A28E8870241BBE8500BE5C53 /* HAssetManager.m in Sources */,
 				150C7CB721199D9000A05347 /* UIView+HPrinter.m in Sources */,
 				15464B7720A2C26300CDD27E /* HTestManager.m in Sources */,
 				A22FA0872400D52B00B75C1C /* AppDelegate+SoundService.m in Sources */,
@@ -3080,6 +3100,7 @@
 				A20B4E4D24113BCA00F916A8 /* NSObject_3.m in Sources */,
 				15B4DE0B2092F96C00773E04 /* NSString+HSafeUtil.m in Sources */,
 				A206881F22C9FDBD00661634 /* HTableRefresh.m in Sources */,
+				A28E8873241BBE9D00BE5C53 /* HAssetModel.m in Sources */,
 				A206882122C9FDBD00661634 /* HTableBaseApex.m in Sources */,
 				A2E8F52022D2300D00E7C9F2 /* HTableController.m in Sources */,
 				A222AE5D22818F7D0013098A /* HTextRubyAnnotation.m in Sources */,
