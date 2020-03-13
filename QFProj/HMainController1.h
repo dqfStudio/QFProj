@@ -12,6 +12,7 @@
 #import "UIViewController+HAnimation.h"
 #import "HSheetController.h"
 #import "HAlertController.h"
+#import "UIView+HAlert.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

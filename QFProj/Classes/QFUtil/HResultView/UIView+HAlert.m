@@ -26,7 +26,8 @@
     @synchronized(self) {
         HWaitingView *waitingView = [self getAssociatedValueForKey:_cmd];
         if (!waitingView) {
-            waitingView = [[HWaitingView alloc] initWithFrame:self.frame];            
+            waitingView = [[HWaitingView alloc] initWithFrame:self.frame];
+            ALWAYS_CENTER(waitingView);
             self.hWaitingView = waitingView;
             [self addSubview:waitingView];
         }
@@ -42,6 +43,7 @@
         HResultView *resultView = [self getAssociatedValueForKey:_cmd];
         if (!resultView) {
             resultView = [[HResultView alloc] initWithFrame:self.frame];
+            ALWAYS_CENTER(resultView);
             self.hResultView = resultView;
             [self addSubview:resultView];
         }
@@ -129,7 +131,7 @@
 - (void)showResult:(void(^)(id<HResultProtocol> make))configBlock {
     @synchronized(self) {
         [self removeWaiting];
-        if ([self.hResultView conformsToProtocol:@protocol(HAlertProtocol)]) {
+//        if ([self.hResultView conformsToProtocol:@protocol(HAlertProtocol)]) {
             if (!self.hResultView.isLoading) {
                 self.hResultView.isLoading = YES;
                 if (configBlock) {
@@ -138,7 +140,7 @@
                 [self.hResultView wakeup];
                 [self bringSubviewToFront:self.hResultView];
             }
-        }
+//        }
     }
 }
 

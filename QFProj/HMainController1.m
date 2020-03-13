@@ -255,10 +255,13 @@
     
 }
 - (void)didSelectCell:(HTupleBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-
-    [self presentController:HAlertController.new completion:^(HTransitionType transitionType) {
-        NSLog(@"");
+    NSLog(@"");
+    [self.view showResult:^(id<HResultProtocol> make) {
+        
     }];
+//    [self presentController:HAlertController.new completion:^(HTransitionType transitionType) {
+//        NSLog(@"");
+//    }];
     
     /*
     [self presentController:HSheetController.new completion:^(HTransitionType transitionType) {

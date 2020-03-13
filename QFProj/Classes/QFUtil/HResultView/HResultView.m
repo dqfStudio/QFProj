@@ -10,13 +10,9 @@
 #import "HTupleView.h"
 #import "AFNetworkReachabilityManager.h"
 
-//#define KImageWidth  165
-#define KImageWidth  200
-#define KImageHeight 140
-
-#define KTextWidth   200
-#define KTextHeight  25
-#define KTextHeight2 20
+#define KResultImageSize     CGSizeMake(200, 140)
+#define KResultTextSize      CGSizeMake(200, 25)
+#define KResultDetlTextSize  CGSizeMake(200, 20)
 
 @interface HResultView () <HTupleViewDelegate>
 @property (nonatomic) HTupleView *tupleView;
@@ -34,19 +30,19 @@
         _tupleView = [[HTupleView alloc] initWithFrame:CGRectZero];
         [_tupleView setScrollEnabled:NO];
         [_tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
+        [self addSubview:self.tupleView];
     }
     return _tupleView;
 }
 - (void)wakeup {
     //添加view
-    CGFloat height = KTextHeight;
-    if (!self.hideImage) height += KImageHeight;
-    if (self.detlDesc.length > 0) height += KTextHeight2;
+    CGFloat height = KResultTextSize.height;
+    if (!self.hideImage) height += KResultImageSize.height;
+    if (self.detlDesc.length > 0) height += KResultDetlTextSize.height;
     
-    CGRect frame = CGRectMake(0, 0, KImageWidth, height);
+    CGRect frame = CGRectMake(0, 0, KResultImageSize.width, height);
     self.tupleView.frame = frame;
     self.tupleView.center = CGPointMake(self.center.x, self.center.y-self.marginTop);
-    [self addSubview:self.tupleView];
 }
 
 - (NSInteger)numberOfSectionsInTupleView {
@@ -60,12 +56,12 @@
 }
 
 - (CGSize)sizeForHeaderInSection:(NSInteger)section {
-    return self.hideImage ? CGSizeZero : CGSizeMake(KImageWidth, KImageHeight);
+    return self.hideImage ? CGSizeZero : KResultImageSize;
 }
 - (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
-        case 0: return CGSizeMake(KTextWidth, KTextHeight);
-        case 1: return CGSizeMake(KTextWidth, KTextHeight2);
+        case 0: return KResultTextSize;
+        case 1: return KResultDetlTextSize;
         default:break;
     }
     return CGSizeZero;
@@ -76,13 +72,13 @@
     if (self.bgColor) [cell.imageView setBackgroundColor:self.bgColor];
     switch (self.style) {
         case HResultTypeNoData:
-            [cell.imageView setImage:[UIImage imageNamed:@"mgf_icon_load_nothing"]];
+            [cell.imageView setImage:[UIImage imageNamed:@"icon_load_nothing"]];
             break;
         case HResultTypeLoadError:
-            [cell.imageView setImage:[UIImage imageNamed:@"mgf_icon_no_server"]];
+            [cell.imageView setImage:[UIImage imageNamed:@"icon_no_server"]];
             break;
         case HResultTypeNoNetwork:
-            [cell.imageView setImage:[UIImage imageNamed:@"mgf_icon_no_network"]];
+            [cell.imageView setImage:[UIImage imageNamed:@"icon_no_network"]];
             break;
         default:
             break;
@@ -96,7 +92,7 @@
 - (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
-            HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
+            HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
             [cell.label setBackgroundColor:UIColor.whiteColor];
             [cell.label setTextColor:[UIColor blackColor]];
             [cell.label setFont:[UIFont systemFontOfSize:14]];
@@ -124,7 +120,7 @@
         }
             break;
         case 1: {
-            HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
+            HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
             [cell.label setBackgroundColor:UIColor.whiteColor];
             [cell.label setTextColor:[UIColor blackColor]];
             [cell.label setFont:[UIFont systemFontOfSize:14]];
