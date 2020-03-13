@@ -10,6 +10,7 @@
 #import "HCommonDefine.h"
 #import "HCommonBlock.h"
 #import "NSError+HUtil.h"
+#import "NSObject+HBlockSEL.h"
 #import "UIControl+HSafeUtil.h"
 #import "UIImageView+HFilletLayer.h"
 
@@ -85,6 +86,7 @@
 - (void)setImage:(UIImage *)image;
 - (void)setBackgroundImage:(UIImage *)image;
 - (void)addTarget:(id)target action:(SEL)action;
+- (void)addTarget:(id)target actionBlock:(void(^)(id button))action;
 
 //图左文字右
 - (void)imageAndTextWithSpacing:(CGFloat)spacing;

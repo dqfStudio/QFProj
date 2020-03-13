@@ -235,6 +235,13 @@
     [self addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)addTarget:(id)target actionBlock:(void(^)(id button))action {
+    SEL selector = [self selectorBlock:^(id weakSelf, id arg) {
+         if (action) action(self);
+    }];
+    [self addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
+}
+
 //图左文字右
 - (void)imageAndTextWithSpacing:(CGFloat)spacing {
     self.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, spacing);
