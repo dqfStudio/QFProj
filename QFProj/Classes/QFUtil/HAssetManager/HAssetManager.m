@@ -9,6 +9,9 @@
 #import "HAssetManager.h"
 #import <Photos/Photos.h>
 
+#define KInOperationKey @"inOperation"
+#define KExecutingKey   @"executing"
+
 @interface HAssetManager()
 @property (nonatomic) NSMutableArray <HAssetModel *> *modelArray;
 @end
@@ -32,12 +35,19 @@
 }
 
 - (void)createAlbums {
-    if (![self isExistAlbums]) {
-        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-            //创建相册文件夹
-            [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:self.albumsName];
-        } completionHandler:nil];
-    }
+    [self exclusive:KInOperationKey block:^{
+        if (![self isExistAlbums]) {
+            [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+                [self exclusive:KExecutingKey block:^{
+                    //创建相册文件夹
+                    [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:self.albumsName];
+                }];
+            } completionHandler:^(BOOL success, NSError * _Nullable error) {
+                [self removeExclusive:KExecutingKey];
+                [self removeExclusive:KInOperationKey];
+            }];
+        }
+    }];
 }
 
 - (NSArray <HAssetModel *>* _Nullable )getImagesAndVideoFromFolder {
@@ -130,9 +140,19 @@
         }
         return;
     }
-    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-        [PHAssetChangeRequest creationRequestForAssetFromImage:image];
-    } completionHandler:completionHandler];
+    [self exclusive:KInOperationKey block:^{
+        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+            [self exclusive:KExecutingKey block:^{
+                [PHAssetChangeRequest creationRequestForAssetFromImage:image];
+            }];
+        } completionHandler:^(BOOL success, NSError * _Nullable error) {
+            if (completionHandler) {
+                completionHandler(success, error);
+            }
+            [self removeExclusive:KExecutingKey];
+            [self removeExclusive:KInOperationKey];
+        }];
+    }];
 }
 
 //保存图片到指定相册

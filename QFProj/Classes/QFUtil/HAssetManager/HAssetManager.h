@@ -7,6 +7,7 @@
 //
 
 #import "HAssetModel.h"
+#import "NSObject+HExclusive.h"
 #import "UIAlertController+HUtil.h"
 
 NS_ASSUME_NONNULL_BEGIN
