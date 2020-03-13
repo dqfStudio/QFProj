@@ -114,7 +114,6 @@
 		A20B4E4D24113BCA00F916A8 /* NSObject_3.m in Sources */ = {isa = PBXBuildFile; fileRef = A20B4E4C24113BCA00F916A8 /* NSObject_3.m */; };
 		A20E3CD6231A662B00E6982B /* HNaviToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CCF231A662B00E6982B /* HNaviToastView.m */; };
 		A20E3CD7231A662B00E6982B /* HAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CD2231A662B00E6982B /* HAlertView.m */; };
-		A20E3CD8231A662B00E6982B /* HRequestHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CD4231A662B00E6982B /* HRequestHUD.m */; };
 		A20E3CDF231A663300E6982B /* HProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CDA231A663200E6982B /* HProgressHUD.m */; };
 		A20E3CE0231A663300E6982B /* UIAlertController+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CDC231A663300E6982B /* UIAlertController+HUtil.m */; };
 		A20E3CE1231A663300E6982B /* UIView+HAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CDE231A663300E6982B /* UIView+HAlert.m */; };
@@ -591,8 +590,6 @@
 		A20E3CD1231A662B00E6982B /* HAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAlertView.h; sourceTree = "<group>"; };
 		A20E3CD2231A662B00E6982B /* HAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAlertView.m; sourceTree = "<group>"; };
 		A20E3CD3231A662B00E6982B /* HAlert+Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HAlert+Protocol.h"; sourceTree = "<group>"; };
-		A20E3CD4231A662B00E6982B /* HRequestHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRequestHUD.m; sourceTree = "<group>"; };
-		A20E3CD5231A662B00E6982B /* HRequestHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRequestHUD.h; sourceTree = "<group>"; };
 		A20E3CD9231A663200E6982B /* HProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HProgressHUD.h; sourceTree = "<group>"; };
 		A20E3CDA231A663200E6982B /* HProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HProgressHUD.m; sourceTree = "<group>"; };
 		A20E3CDB231A663300E6982B /* UIAlertController+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+HUtil.h"; sourceTree = "<group>"; };
@@ -2322,8 +2319,6 @@
 				A28EF3C021DA1DFE002F92ED /* HFormController.m */,
 				A20E3CD0231A662B00E6982B /* HNaviToastView.h */,
 				A20E3CCF231A662B00E6982B /* HNaviToastView.m */,
-				A20E3CD5231A662B00E6982B /* HRequestHUD.h */,
-				A20E3CD4231A662B00E6982B /* HRequestHUD.m */,
 				A28EF35221D8EC2A002F92ED /* HResultView.h */,
 				A28EF36C21D8EC2A002F92ED /* HResultView.m */,
 				A28EF3B321D9C9A2002F92ED /* HWaitingView.h */,
@@ -2994,7 +2989,6 @@
 				A289DD0723E418D700FC59F1 /* HTupleViewTextLoopApex.m in Sources */,
 				15B4DE122092F96C00773E04 /* NSObject+HSwizzleUtil.m in Sources */,
 				A208E18022BA40A2009A6FDD /* UIScrollView+HEmptyDataSet.m in Sources */,
-				A20E3CD8231A662B00E6982B /* HRequestHUD.m in Sources */,
 				A20E3D2123239BE400E6982B /* HMainController3+HSection0.m in Sources */,
 				A2E8F57522D8356300E7C9F2 /* HCacheImageDecoder.m in Sources */,
 				A20E3D3F23278A2500E6982B /* HTupleViewCellHoriValue1.m in Sources */,

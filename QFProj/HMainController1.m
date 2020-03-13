@@ -256,15 +256,15 @@
 }
 - (void)didSelectCell:(HTupleBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
-    [self.view showResult:^(id<HResultProtocol> make) {
-
-    }];
+//    [self.view showResult:^(id<HResultProtocol> make) {
+//
+//    }];
 //    [self.view showWaiting:^(id<HWaitingProtocol> make) {
 //
 //    }];
-//    [self presentController:HAlertController.new completion:^(HTransitionType transitionType) {
-//        NSLog(@"");
-//    }];
+    [self presentController:HAlertController.new completion:^(HTransitionType transitionType) {
+        NSLog(@"");
+    }];
     
     /*
     [self presentController:HSheetController.new completion:^(HTransitionType transitionType) {

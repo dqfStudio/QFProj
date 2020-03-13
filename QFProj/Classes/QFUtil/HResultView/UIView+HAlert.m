@@ -57,7 +57,10 @@
 - (HNaviToast *)hNaviToast {
     @synchronized(self) {
         HNaviToast *naviToast = [self getAssociatedValueForKey:_cmd];
-        if (!naviToast) self.hNaviToast = [HNaviToast new];
+        if (!naviToast) {
+             naviToast = [HNaviToast new];
+             self.hNaviToast = naviToast;
+        }
         return naviToast;
     }
 }
@@ -68,7 +71,10 @@
 - (HToast *)hToast {
     @synchronized(self) {
         HToast *toast = [self getAssociatedValueForKey:_cmd];
-        if (!toast) self.hToast = [HToast new];
+        if (!toast) {
+            toast = [HToast new];
+            self.hToast = toast;
+        }
         return toast;
     }
 }
@@ -79,7 +85,10 @@
 - (HAlert *)hAlert {
     @synchronized(self) {
         HAlert *alert = [self getAssociatedValueForKey:_cmd];
-        if (!alert) self.hAlert = [HAlert new];
+        if (!alert) {
+            alert = [HAlert new];
+            self.hAlert = alert;
+        }
         return alert;
     }
 }
@@ -90,7 +99,10 @@
 - (HSheet *)hSheet {
     @synchronized(self) {
         HSheet *sheet = [self getAssociatedValueForKey:_cmd];
-        if (!sheet) self.hSheet = [HSheet new];
+        if (!sheet) {
+            sheet = [HSheet new];
+            self.hSheet = sheet;
+        }
         return sheet;
     }
 }
@@ -101,7 +113,10 @@
 - (HForm *)hForm {
     @synchronized(self) {
         HForm *form = [self getAssociatedValueForKey:_cmd];
-        if (!form) self.hForm = [HForm new];
+        if (!form) {
+            form = [HForm new];
+            self.hForm = form;
+        }
         return form;
     }
 }

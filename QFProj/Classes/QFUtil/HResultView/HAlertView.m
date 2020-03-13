@@ -15,13 +15,13 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.delay = 2;
+        self.delay = 2.f;
     }
     return self;
 }
 
 - (void)wakeup {
-    UIWindow *window = [[UIApplication sharedApplication].windows firstObject];
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     HProgressHUD *hud = [HProgressHUD showHUDAddedTo:window animated:YES];
     hud.mode = HProgressHUDModeText;
     hud.labelText = self.desc;
@@ -46,7 +46,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.delay = 2;
+        self.delay = 2.f;
     }
     return self;
 }

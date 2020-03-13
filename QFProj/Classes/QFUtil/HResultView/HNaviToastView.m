@@ -180,7 +180,7 @@
 }
 
 + (instancetype)showCustomToast:(NSString *)string afterDelay:(NSTimeInterval)delay icon:(UIImage *)icon {
-    UIWindow *window = [[UIApplication sharedApplication].windows firstObject];
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     [HNaviToastView hideAllToastForView:window animated:NO];
     HNaviToastView *toastView = [HNaviToastView customToastAddedTo:window animated:YES];
     toastView.titleLabel.text = string;
@@ -199,7 +199,7 @@
 }
 
 + (instancetype)showErrorToast:(NSString *)string afterDelay:(NSTimeInterval)delay icon:(UIImage *)icon {
-    UIWindow *window = [[UIApplication sharedApplication].windows firstObject];
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     [HNaviToastView hideAllToastForView:window animated:NO];
     HNaviToastView *toastView = [HNaviToastView errorToastAddedTo:window animated:YES];
     toastView.titleLabel.text = string;
