@@ -82,13 +82,13 @@
 }
 - (void)tuple1_tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     HTupleTextFieldCell *cell = itemBlock(nil,HTupleTextFieldCell.class, @"tuple1", YES);
-    [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
+    [cell.textField setBackgroundColor:HColorHex(#F2F2F2)];
     
     [cell.textField setLeftWidth:80];
     [cell.textField.leftLabel setTextAlignment:NSTextAlignmentCenter];
     [cell.textField.leftLabel setText:@"+86"];
     
-    [cell.textField setTextColor:[UIColor colorWithString:@"#BABABF"]];
+    [cell.textField setTextColor:HColorHex(#BABABF)];
     [cell.textField setFont:[UIFont systemFontOfSize:14]];
     [cell.textField setText:[self.tupleView objectForKey:@"state"]];
     

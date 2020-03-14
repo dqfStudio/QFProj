@@ -57,14 +57,14 @@
     switch (indexPath.row) {
         case HCell0: {
             HTupleTextFieldCell *cell = itemBlock(nil,HTupleTextFieldCell.class, nil, YES);
-            [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
+            [cell.textField setBackgroundColor:HColorHex(#F2F2F2)];
 
             [cell.textField setLeftWidth:80];
             [cell.textField.leftLabel setTextAlignment:NSTextAlignmentCenter];
             [cell.textField.leftLabel setText:@"+86"];
 
             [cell.textField setPlaceholder:@"请输入手机号"];
-            [cell.textField setTextColor:[UIColor colorWithString:@"#BABABF"]];
+            [cell.textField setTextColor:HColorHex(#BABABF)];
             [cell.textField setFont:[UIFont systemFontOfSize:14]];
             //cell.textField.inputValidator = HPhoneValidator.new;
 
@@ -75,14 +75,14 @@
             break;
         case HCell1: {
             HTupleTextFieldCell *cell = itemBlock(nil, HTupleTextFieldCell.class, nil, YES);
-            [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
+            [cell.textField setBackgroundColor:HColorHex(#F2F2F2)];
 
             [cell.textField setLeftWidth:80];
             [cell.textField.leftLabel setTextAlignment:NSTextAlignmentCenter];
             [cell.textField.leftLabel setText:@"昵称"];
 
             [cell.textField setPlaceholder:@"请输入昵称"];
-            [cell.textField setTextColor:[UIColor colorWithString:@"#BABABF"]];
+            [cell.textField setTextColor:HColorHex(#BABABF)];
             [cell.textField setFont:[UIFont systemFontOfSize:14]];
 
             [cell setSignalBlock:^(HTupleTextFieldCell *cell, HTupleSignal *signal) {
@@ -92,14 +92,14 @@
             break;
         case HCell2: {
             HTupleTextFieldCell *cell = itemBlock(nil, HTupleTextFieldCell.class, nil, YES);
-            [cell.textField setBackgroundColor:[UIColor colorWithString:@"#F2F2F2"]];
+            [cell.textField setBackgroundColor:HColorHex(#F2F2F2)];
 
             [cell.textField setLeftWidth:80];
             [cell.textField.leftLabel setTextAlignment:NSTextAlignmentCenter];
             [cell.textField.leftLabel setText:@"验证码"];
 
             [cell.textField setPlaceholder:@"请输入验证码"];
-            [cell.textField setTextColor:[UIColor colorWithString:@"#BABABF"]];
+            [cell.textField setTextColor:HColorHex(#BABABF)];
             [cell.textField setFont:[UIFont systemFontOfSize:14]];
             //cell.textField.inputValidator = HNumericValidator.new;
 
@@ -121,7 +121,7 @@
             break;
         case HCell4: {
             HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
-            [cell.buttonView setBackgroundColor:[UIColor colorWithString:@"#CCCCCC"]];
+            [cell.buttonView setBackgroundColor:HColorHex(#CCCCCC)];
             [cell.buttonView setTitle:@"登录"];
             [cell.buttonView setPressed:^(id sender, id data) {
                 /*

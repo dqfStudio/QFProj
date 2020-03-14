@@ -32,8 +32,8 @@
         [_attributedString h_appendString:string1];
         [_attributedString h_appendString:string2];
         
-        [_attributedString h_setColor:[UIColor colorWithString:@"#BABABF"] range:NSMakeRange(1, string1.length)];
-        [_attributedString h_setColor:[UIColor colorWithString:@"#34BDD7"] range:NSMakeRange(string1.length+1, string2.length)];
+        [_attributedString h_setColor:HColorHex(#BABABF) range:NSMakeRange(1, string1.length)];
+        [_attributedString h_setColor:HColorHex(#34BDD7) range:NSMakeRange(string1.length+1, string2.length)];
         //设置点击
         HTextHighlight *highlight = HTextHighlight.new;
         @www

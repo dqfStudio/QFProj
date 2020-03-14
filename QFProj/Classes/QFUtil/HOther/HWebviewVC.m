@@ -422,7 +422,7 @@
 //    if (!_lobbyBtn) {
 //        _lobbyBtn = [UIButton buttonWithType:UIButtonTypeCustom];
 //        _lobbyBtn.hidden = YES;
-////        [_lobbyBtn setGradientBackgroundWithColors:@[[UIColor colorWithString:@"#FEFEFE"], [UIColor colorWithString:@"#D6C1AB"]] locations:nil startPoint:CGPointMake(0.f, 0.f) endPoint:CGPointMake(0.f, 1.f)];
+////        [_lobbyBtn setGradientBackgroundWithColors:@[HColorHex(#FEFEFE), HColorHex(#D6C1AB)] locations:nil startPoint:CGPointMake(0.f, 0.f) endPoint:CGPointMake(0.f, 1.f)];
 //        [_lobbyBtn setCornerRadius:16.f];
 //        [_lobbyBtn setImage:[UIImage imageNamed:@"cq9_lobby"] forState:UIControlStateNormal];
 //        @www

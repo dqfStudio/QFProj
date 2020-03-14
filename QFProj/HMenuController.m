@@ -57,8 +57,8 @@ static const CGFloat kTabBarHeight = 50;
     [self setTabBarFrame:CGRectMake(0, tabBarY, screenSize.width, kTabBarHeight)
         contentViewFrame:CGRectMake(0, contentViewY, screenSize.width, contentViewHeight)];
     
-    self.tabBar.itemTitleColor = [UIColor colorWithString:@"#535353"];
-    self.tabBar.itemTitleSelectedColor = [UIColor colorWithString:@"#CFA359"];
+    self.tabBar.itemTitleColor = HColorHex(#535353);
+    self.tabBar.itemTitleSelectedColor = HColorHex(#CFA359);
     self.tabBar.itemTitleFont = [UIFont systemFontOfSize:14];
     self.tabBar.itemTitleSelectedFont = [UIFont systemFontOfSize:14];
     [self.tabBar setBackgroundColor:[UIColor whiteColor]];
@@ -142,8 +142,8 @@ static const CGFloat kTabBarHeight = 50;
     specialItem.title = @"中间";
     specialItem.image = [UIImage imageNamed:@"di_zhuce"];
     specialItem.selectedImage = [UIImage imageNamed:@"di_zhuce"];
-    specialItem.titleColor = [UIColor colorWithString:@"#535353"];
-    specialItem.titleSelectedColor = [UIColor colorWithString:@"#CFA359"];
+    specialItem.titleColor = HColorHex(#535353);
+    specialItem.titleSelectedColor = HColorHex(#CFA359);
     specialItem.backgroundColor = [UIColor clearColor];
     specialItem.titleFont = [UIFont systemFontOfSize:14];
     

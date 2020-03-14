@@ -27,8 +27,8 @@
     [self setTabBarFrame:CGRectMake(0, 0, KSidebar, screenSize.height)
     contentViewFrame:CGRectMake(KSidebar, 0, screenSize.width - KSidebar, screenSize.height)];
     
-    self.tabBar.itemTitleColor = [UIColor colorWithString:@"#535353"];
-    self.tabBar.itemTitleSelectedColor = [UIColor colorWithString:@"#CFA359"];
+    self.tabBar.itemTitleColor = HColorHex(#535353);
+    self.tabBar.itemTitleSelectedColor = HColorHex(#CFA359);
     self.tabBar.itemTitleFont = [UIFont systemFontOfSize:17];
     self.tabBar.itemTitleSelectedFont = [UIFont systemFontOfSize:17];
     
@@ -39,7 +39,7 @@
     [self.tabBar setItemSeparatorColor:[UIColor redColor] leading:0 trailing:0];
     [self.tabBar setBackgroundColor:[UIColor lightGrayColor]];
     
-    self.tabBar.indicatorColor = [UIColor colorWithString:@"#efeff4"];
+    self.tabBar.indicatorColor = HColorHex(#efeff4);
     
     [self.tabContentView setDelegate:self];
     
