@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UIView+HUtil.h"
 #import "HTableSignal.h"
+#import "UIColor+HUtil.h"
 
 #define HLayoutTableApex(v) \
 CGRect _frame = self.layoutViewBounds;\

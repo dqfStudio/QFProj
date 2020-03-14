@@ -33,8 +33,7 @@
     if (!_separatorView) {
         _separatorView = UIView.new;
         [_separatorView setHidden:YES];
-        UIColor *color = [UIColor colorWithRed:233/255.0 green:233/255.0 blue:233/255.0 alpha:1.0];
-        [_separatorView setBackgroundColor:color];
+        [_separatorView setBackgroundColor:HColorHex(#e9e9e9)];
     }
     return _separatorView;
 }

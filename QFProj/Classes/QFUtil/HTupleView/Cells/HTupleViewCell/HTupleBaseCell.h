@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UIView+HUtil.h"
 #import "HTupleSignal.h"
+#import "UIColor+HUtil.h"
 //方便业务层调用
 //#import "NSObject+HMessy.h"
 //#import "UILabel+HState.h"

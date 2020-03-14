@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UIView+HUtil.h"
 #import "HTableSignal.h"
+#import "UIColor+HUtil.h"
 #import "HGeometry.h"
 
 #define HLayoutTableCell(v) \

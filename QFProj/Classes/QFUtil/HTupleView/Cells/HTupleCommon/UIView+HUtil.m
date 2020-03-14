@@ -18,7 +18,7 @@ static char const *const KBottomLineView = "KBottomLineView";
 static char const *const KLeftLineView   = "KLeftLineView";
 static char const *const KRightLineView  = "KRightLineView";
 
-#define KLineDefaultColor [UIColor colorWithRed:233/255.0 green:233/255.0 blue:233/255.0 alpha:1.0]
+#define KLineDefaultColor HColorHex(#e9e9e9)
 
 @implementation UIView (HUtil)
 

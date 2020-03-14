@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
+#import "UIColor+HUtil.h"
 #import "UIDevice+HUtil.h"
 #import "UIScreen+HUtil.h"
 #import "UIGestureRecognizer+HUtil.h"
