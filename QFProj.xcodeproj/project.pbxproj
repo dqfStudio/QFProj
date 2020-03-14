@@ -376,6 +376,7 @@
 		A2938627241C95C600508606 /* KSCrashInstallationVictory.m in Sources */ = {isa = PBXBuildFile; fileRef = A29385D5241C95C500508606 /* KSCrashInstallationVictory.m */; };
 		A2938628241C95C600508606 /* KSCrashInstallationQuincyHockey.m in Sources */ = {isa = PBXBuildFile; fileRef = A29385D9241C95C500508606 /* KSCrashInstallationQuincyHockey.m */; };
 		A2938629241C95C600508606 /* KSCrashInstallation+Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = A29385DA241C95C500508606 /* KSCrashInstallation+Alert.m */; };
+		A2938630241CF08800508606 /* CADisplayLink+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A293862F241CF08800508606 /* CADisplayLink+HUtil.m */; };
 		A2A17DA62276DB1E003FED58 /* NSMutableAttributedString+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A17DA52276DB1E003FED58 /* NSMutableAttributedString+HUtil.m */; };
 		A2A8EACD22DB59FD0049C51B /* HMarquee.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EACC22DB59FD0049C51B /* HMarquee.m */; };
 		A2A8EB2B22DB62680049C51B /* HCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A8EB1D22DB62670049C51B /* HCollectionViewCell.m */; };
@@ -1160,6 +1161,8 @@
 		A29385DB241C95C500508606 /* KSCrashInstallationVictory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCrashInstallationVictory.h; sourceTree = "<group>"; };
 		A29385DC241C95C500508606 /* KSCrashInstallation+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KSCrashInstallation+Private.h"; sourceTree = "<group>"; };
 		A29385DD241C95C500508606 /* KSCrashInstallation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSCrashInstallation.h; sourceTree = "<group>"; };
+		A293862E241CF08800508606 /* CADisplayLink+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CADisplayLink+HUtil.h"; sourceTree = "<group>"; };
+		A293862F241CF08800508606 /* CADisplayLink+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CADisplayLink+HUtil.m"; sourceTree = "<group>"; };
 		A2A17DA42276DB1E003FED58 /* NSMutableAttributedString+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+HUtil.h"; sourceTree = "<group>"; };
 		A2A17DA52276DB1E003FED58 /* NSMutableAttributedString+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+HUtil.m"; sourceTree = "<group>"; };
 		A2A8EACB22DB59FD0049C51B /* HMarquee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMarquee.h; sourceTree = "<group>"; };
@@ -1768,6 +1771,8 @@
 				A208D62C22AD373E009A6FDD /* HAttributedString.m */,
 				1510793D20F98E4800860D1C /* NSTimer+HUtil.h */,
 				1510793E20F98E4800860D1C /* NSTimer+HUtil.m */,
+				A293862E241CF08800508606 /* CADisplayLink+HUtil.h */,
+				A293862F241CF08800508606 /* CADisplayLink+HUtil.m */,
 				A222A6C22279AAAD0013098A /* NSDictionary+HUtil.h */,
 				A222A6C32279AAAD0013098A /* NSDictionary+HUtil.m */,
 				A2A17DA42276DB1E003FED58 /* NSMutableAttributedString+HUtil.h */,
@@ -3613,6 +3618,7 @@
 				A2938629241C95C600508606 /* KSCrashInstallation+Alert.m in Sources */,
 				A2938602241C95C600508606 /* NSError+SimpleConstructor.m in Sources */,
 				A29385E3241C95C600508606 /* KSCrashReportFilterAlert.m in Sources */,
+				A2938630241CF08800508606 /* CADisplayLink+HUtil.m in Sources */,
 				15B4DE2A2093034700773E04 /* HClassManager.m in Sources */,
 				A22FA17B2400DD6200B75C1C /* HKBUITextFieldView+Additions.m in Sources */,
 				A289DD0A23E418E200FC59F1 /* HTupleViewTextLoopCell.m in Sources */,
