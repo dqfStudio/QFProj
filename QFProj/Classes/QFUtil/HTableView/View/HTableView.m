@@ -124,6 +124,9 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
     self.showsVerticalScrollIndicator = NO;
     
     if (@available(iOS 11.0, *)) {
+        if (@available(iOS 13.0, *)) {
+            self.automaticallyAdjustsScrollIndicatorInsets = NO;
+        }
         self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     

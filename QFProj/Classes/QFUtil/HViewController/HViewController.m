@@ -148,10 +148,16 @@
 #ifdef __IPHONE_11_0
     if (@available(iOS 11.0, *)) {
         if ([self.view isKindOfClass:[UIScrollView class]]) {
+            if (@available(iOS 13.0, *)) {
+                [(UIScrollView *)self.view setAutomaticallyAdjustsScrollIndicatorInsets:NO];
+            }
             [(UIScrollView *)self.view setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
         }
         for (UIView *view in self.view.subviews) {
             if ([view isKindOfClass:[UIScrollView class]]) {
+                if (@available(iOS 13.0, *)) {
+                    [(UIScrollView *)self.view setAutomaticallyAdjustsScrollIndicatorInsets:NO];
+                }
                 [(UIScrollView *)view setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
             }
         }
