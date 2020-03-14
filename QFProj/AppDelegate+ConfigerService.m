@@ -11,6 +11,16 @@
 #import "UIAlertController+HUtil.h"
 #import "HKBKeyboardManager.h"
 
+//#import "GHWEmailManager.h"
+//#import "GHWCrashHandler.h"
+//#import "KSCrash.h"
+//#import "KSCrashInstallation+Alert.h"
+//#import "KSCrashInstallationStandard.h"
+//#import "KSCrashInstallationQuincyHockey.h"
+//#import "KSCrashInstallationEmail.h"
+//#import "KSCrashInstallationVictory.h"
+//#import "KSCrashReportFilterAppleFmt.h"
+
 @implementation AppDelegate (ConfigerService)
 
 //键盘管理
@@ -22,6 +32,58 @@
     // 控制整个功能是否启用
     [HKBKeyboardManager sharedManager].enable = YES;
 }
+
+//- (void)setupCrashCollection {
+//    //崩溃日志捕捉
+////    InstallCrashExceptionHandler(); //使用KSCrash 日志收集 + 静默邮件上传
+//    [[GHWEmailManager shareInstance] configWithFromEmail:@"txwinding@gmail.com"
+//                                              andPasswod:@"b@123000"
+//                                              andToEmail:@"txwinding@gmail.com"
+//                                            andRelayHose:@"smtp.gmail.com"];
+//    KSCrashInstallation *installation = [KSCrashInstallationEmail sharedInstance];
+//    [(KSCrashInstallationEmail *)installation setReportStyle:KSCrashEmailReportStyleApple useDefaultFilenameFormat:YES];
+//
+//    [installation install];
+//    //[KSCrash sharedInstance].deleteBehaviorAfterSendAll = KSCDeleteOnSucess;
+//    // TODO: Remove this 不用框架提供的发送策略、自己管理删除
+//
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        AppDelegate *appl = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//        [appl sendCrashToEmail];
+//    });
+//}
+//- (void)sendCrashToEmail {
+//    //真机发送崩溃记录
+//    if (!TARGET_IPHONE_SIMULATOR) {
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//
+//            KSCrash *handler = [KSCrash sharedInstance];
+//            NSArray *reports = [handler allReports];
+//
+//            KSCrashReportFilterAppleFmt *fileter = [[KSCrashReportFilterAppleFmt alloc] initWithReportStyle:KSAppleReportStyleSymbolicatedSideBySide];
+//
+//            NSMutableString *message = [NSMutableString new];
+//            for (NSDictionary *dic in reports) {
+//                NSString *str = [fileter toAppleFormat:dic];
+//                if (message.length == 0) {
+//                    [message appendString:str];
+//                }else {
+//                    [message appendFormat:@"\n新的奔溃日志记录\n%@",str];
+//                }
+//            }
+//
+//            if (message.length > 0) {
+//                [[GHWEmailManager shareInstance] sendEmail:message];
+//
+//                [[GHWEmailManager shareInstance] setSendEmailEndBlock:^(BOOL successed) {
+//                    if (successed) {
+//                         [[KSCrash sharedInstance] deleteAllReports];
+//                    }
+//                }];
+//            }
+//        });
+//    }
+//}
 
 //网络状态监听
 - (void)setupAFNReachability {
