@@ -17,7 +17,7 @@
     CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:target selector:selector];
     if (@available(iOS 10.0, *)) {
          displayLink.preferredFramesPerSecond = 1;
-    }else{
+    }else {
         displayLink.frameInterval = 1;
     }
     [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
