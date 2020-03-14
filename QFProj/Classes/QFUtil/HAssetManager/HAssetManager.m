@@ -62,7 +62,7 @@
     PHFetchResult *collectonResuts = [PHCollectionList fetchTopLevelUserCollectionsWithOptions:nil];
     
     // 创建的相册
-    __block PHAssetCollection *assetCollection;
+    __block PHAssetCollection *assetCollection = nil;
     //对获取到集合进行遍历
     [collectonResuts enumerateObjectsUsingBlock:^(PHAssetCollection *obj, NSUInteger idx, BOOL *stop) {
         //albumsName是我们写入照片的相册
