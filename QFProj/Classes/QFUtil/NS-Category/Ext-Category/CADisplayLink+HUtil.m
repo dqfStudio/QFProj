@@ -14,7 +14,7 @@
     SEL selector = [self selectorBlock:^(id weakSelf, id arg) {
         if (block) block(weakSelf);
     }];
-    CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:selector];
+    CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:target selector:selector];
     if (@available(iOS 10.0, *)) {
          displayLink.preferredFramesPerSecond = 1;
     }else{
