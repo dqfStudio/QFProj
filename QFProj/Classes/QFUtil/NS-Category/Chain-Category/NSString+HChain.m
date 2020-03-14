@@ -1,6 +1,6 @@
 //
 //  NSString+HChain.m
-//  TestProj
+//  QFProj
 //
 //  Created by dqf on 2017/8/10.
 //  Copyright © 2017年 dqfStudio. All rights reserved.
