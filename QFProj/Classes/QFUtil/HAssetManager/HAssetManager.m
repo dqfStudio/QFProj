@@ -18,12 +18,22 @@
 
 @implementation HAssetManager
 
++ (void)showDeniedAlert {
+    [UIAlertController showAlertWithTitle:@"未获得照片使用权限" message:@"请在iOS 设置-隐私-照片 中打开" style:UIAlertControllerStyleAlert cancelButtonTitle:@"好的" otherButtonTitles:nil completion:nil];
+}
+
 + (instancetype)share {
-    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-        if (status == PHAuthorizationStatusDenied || status == PHAuthorizationStatusRestricted) {
-            [UIAlertController showAlertWithTitle:@"未获得照片使用权限" message:@"请在iOS 设置-隐私-照片 中打开" style:UIAlertControllerStyleAlert cancelButtonTitle:@"好的" otherButtonTitles:nil completion:nil];
-        }
-    }];
+    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    if (status == PHAuthorizationStatusDenied || status == PHAuthorizationStatusRestricted) {
+        [self showDeniedAlert];
+    }else if(status == PHAuthorizationStatusNotDetermined) {
+       // 首次运行，等用户同意
+       [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+           if (status == PHAuthorizationStatusDenied || status == PHAuthorizationStatusRestricted) {
+               [self showDeniedAlert];
+           }
+       }];
+    }
     static HAssetManager *operator = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
