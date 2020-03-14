@@ -207,6 +207,7 @@
 }
 #pragma mark - 事件处理
 - (void)back {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 //    if (self.presentedViewController || self.presentingViewController) {
 //        [self dismissViewControllerAnimated:YES completion:nil];
 //    }else {
