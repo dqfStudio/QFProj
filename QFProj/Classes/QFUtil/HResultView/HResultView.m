@@ -28,7 +28,7 @@
 - (HTupleView *)tupleView {
     if (!_tupleView) {
         _tupleView = [[HTupleView alloc] initWithFrame:CGRectZero];
-        [_tupleView setScrollEnabled:NO];
+        [_tupleView bounceDisenable];
         [_tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
         [self addSubview:_tupleView];
     }

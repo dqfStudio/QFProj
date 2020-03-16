@@ -39,7 +39,7 @@
         _tupleView = [[HTupleView alloc] initWithFrame:frame];
         _tupleView.backgroundColor = UIColor.clearColor;
         _tupleView.layer.cornerRadius = 10.f;//默认系统弹框圆角为10.f
-        [_tupleView setScrollEnabled:NO];
+        [_tupleView bounceDisenable];
     }
     return _tupleView;
 }
