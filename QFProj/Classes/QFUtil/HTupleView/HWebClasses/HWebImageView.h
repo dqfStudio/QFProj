@@ -12,8 +12,10 @@
 #import "NSError+HUtil.h"
 #import "UIImageView+HString.h"
 #import "UIImageView+HFilletLayer.h"
+#import <SDWebImage/SDWebImageManager.h>
 
 @interface HWebImageView : UIImageView
+@property (nonatomic) SDWebImageOptions imageOptions;
 @property (nonatomic) UIImage *placeHoderImage;
 @property (nonatomic) UIColor *renderColor; //父类那个tintColor有问题
 @property (nonatomic) id userInfo;

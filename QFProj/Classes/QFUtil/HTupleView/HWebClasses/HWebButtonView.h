@@ -13,10 +13,12 @@
 #import "NSObject+HBlockSEL.h"
 #import "UIControl+HSafeUtil.h"
 #import "UIImageView+HFilletLayer.h"
+#import <SDWebImage/SDWebImageManager.h>
 
 @interface HWebButtonView : UIButton
-@property (nonatomic) UIColor *renderColor; //父类那个tintColor有问题
+@property (nonatomic) SDWebImageOptions imageOptions;
 @property (nonatomic) UIImage *placeHoderImage;
+@property (nonatomic) UIColor *renderColor; //父类那个tintColor有问题
 @property (nonatomic) id userInfo;
 
 @property (nonatomic) callback pressed;

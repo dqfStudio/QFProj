@@ -7,9 +7,8 @@
 //
 
 #import "HWebImageView.h"
-#import <SDWebImage/SDWebImageManager.h>
-#import <SDWebImage/UIImageView+WebCache.h>
 #import <UIView+WebCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface HWebImageView ()
 @property (nonatomic) NSString *lastURL;
@@ -47,6 +46,7 @@
 - (void)initialize {
     self.contentMode = UIViewContentModeScaleAspectFill;
     self.layer.masksToBounds = YES;
+    self.imageOptions = SDWebImageRetryFailed;
 }
 - (void)_setImage:(UIImage *)image {
     [self sd_cancelCurrentImageLoad];
@@ -125,7 +125,7 @@
         }
     }
     if (!self.image) {
-        [self sd_setImageWithURL:url placeholderImage:placeholder options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [self sd_setImageWithURL:url placeholderImage:placeholder options:self.imageOptions completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             @strongify(self);
             if (error) {
                 if (self.didGetError) self.didGetError(self, error);

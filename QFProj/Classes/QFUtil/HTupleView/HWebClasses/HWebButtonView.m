@@ -7,11 +7,10 @@
 //
 
 #import "HWebButtonView.h"
-#import <SDWebImage/SDWebImageManager.h>
+#import <objc/runtime.h>
+#import <UIView+WebCache.h>
 #import <SDWebImage/UIButton+WebCache.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-#import <UIView+WebCache.h>
-#import <objc/runtime.h>
 
 @interface HWebButtonView()
 @property (nonatomic) UIImageView *_imageView;
@@ -50,6 +49,7 @@
     [self.titleLabel setFont:[UIFont systemFontOfSize:14]];
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     self.layer.masksToBounds = YES;
+    self.imageOptions = SDWebImageRetryFailed;
     [self addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
 }
 - (UIImageView *)_imageView {
@@ -152,7 +152,7 @@
         }
     }
     if (!self._imageView.image) {
-        [__imageView sd_setImageWithURL:url placeholderImage:placeholder options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [__imageView sd_setImageWithURL:url placeholderImage:placeholder options:self.imageOptions completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             @strongify(self);
             if (error) {
                 if (self.didGetError) self.didGetError(self, error);
