@@ -723,6 +723,7 @@
 		A20F4C2B23FA8C6E00E2A126 /* UINavigationController+HIntercept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+HIntercept.h"; sourceTree = "<group>"; };
 		A219F22D222FB46A00241FD7 /* HIFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIFS.m; sourceTree = "<group>"; };
 		A219F22E222FB46A00241FD7 /* HIFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIFS.h; sourceTree = "<group>"; };
+		A21AFEB0241FB2DD00165F0A /* NSNull+HSafeUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNull+HSafeUtil.h"; sourceTree = "<group>"; };
 		A222A6C22279AAAD0013098A /* NSDictionary+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HUtil.h"; sourceTree = "<group>"; };
 		A222A6C32279AAAD0013098A /* NSDictionary+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+HUtil.m"; sourceTree = "<group>"; };
 		A222A714227C52430013098A /* UILabel+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HUtil.h"; sourceTree = "<group>"; };
@@ -1818,6 +1819,7 @@
 				15B4DDE52092F96B00773E04 /* UIControl+HSafeUtil.m */,
 				A2DC22BC2242994800E540BE /* NSObject+HForwarding.h */,
 				A2DC22BD2242994800E540BE /* NSObject+HForwarding.m */,
+				A21AFEB0241FB2DD00165F0A /* NSNull+HSafeUtil.h */,
 				A26CF7BE2302747B00D73ECD /* NSNull+HSafeUtil.m */,
 			);
 			path = HSafeUtil;

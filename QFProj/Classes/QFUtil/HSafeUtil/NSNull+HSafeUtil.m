@@ -2,7 +2,7 @@
 //  HNullSafe.m
 //
 
-#import <Foundation/Foundation.h>
+#import "NSNull+HSafeUtil.h"
 #import <objc/runtime.h>
 
 #ifndef HNullSafe_ENABLED
