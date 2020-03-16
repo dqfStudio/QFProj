@@ -3,7 +3,7 @@
 //  HGoto
 //
 //  Created by zct on 2017/4/28.
-//  Copyright © 2017年 zhangchutian. All rights reserved.
+//  Copyright © 2017年 dqfStudio. All rights reserved.
 //
 
 #import "HGotoRuntimeSupport.h"

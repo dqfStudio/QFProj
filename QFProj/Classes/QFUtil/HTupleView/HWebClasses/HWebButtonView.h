@@ -1,9 +1,9 @@
 //
 //  HWebButtonView.h
-//  PCommunityKitDemo
+//  QFProj
 //
-//  Created by zhangchutian on 15/8/6.
-//  Copyright (c) 2015年 vstudio. All rights reserved.
+//  Created by dqf on 15/8/6.
+//  Copyright (c) 2015年 dqfStudio. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

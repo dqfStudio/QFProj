@@ -1,9 +1,9 @@
 //
 //  HWebImageView.h
-//  PCommunityKitDemo
+//  QFProj
 //
-//  Created by zhangchutian on 15/8/5.
-//  Copyright (c) 2015年 vstudio. All rights reserved.
+//  Created by dqf on 15/8/5.
+//  Copyright (c) 2015年 dqfStudio. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

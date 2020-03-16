@@ -3,7 +3,7 @@
 //  QFProj
 //
 //  Created by dqf on 2019/1/25.
-//  Copyright © 2019年 dqf. All rights reserved.
+//  Copyright © 2019年 dqfStudio. All rights reserved.
 //
 
 #import "HNetworkDAO.h"

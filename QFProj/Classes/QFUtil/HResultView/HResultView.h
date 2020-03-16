@@ -3,7 +3,7 @@
 //  QFProj
 //
 //  Created by dqf on 2018/12/30.
-//  Copyright © 2018年 dqf. All rights reserved.
+//  Copyright © 2018年 dqfStudio. All rights reserved.
 //
 
 #import "HAlert+Protocol.h"

@@ -2,8 +2,8 @@
 //  NSObject+annotation.m
 //  Hodor
 //
-//  Created by zhangchutian on 16/1/17.
-//  Copyright © 2016年 zhangchutian. All rights reserved.
+//  Created by dqf on 16/1/17.
+//  Copyright © 2016年 dqfStudio. All rights reserved.
 //
 
 #import "NSObject+annotation.h"

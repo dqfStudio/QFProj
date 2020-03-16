@@ -2,8 +2,8 @@
 //  HFileCache.m
 //  HAccess
 //
-//  Created by zhangchutian on 15/11/10.
-//  Copyright © 2015年 zhangchutian. All rights reserved.
+//  Created by dqf on 15/11/10.
+//  Copyright © 2015年 dqfStudio. All rights reserved.
 //
 
 #import "HFileCache.h"

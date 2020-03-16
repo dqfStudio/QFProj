@@ -3,7 +3,7 @@
 //  HCountDownButton
 //
 //  Created by dqf on 2019/3/23.
-//  Copyright © 2019年 dqf. All rights reserved.
+//  Copyright © 2019年 dqfStudio. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

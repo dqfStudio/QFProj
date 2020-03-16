@@ -1,9 +1,9 @@
 //
 //  HGoToSupport.h
-//  Camera360
+//  QFProj
 //
-//  Created by zhangchutian on 14-4-4.
-//  Copyright (c) 2014年 Pinguo. All rights reserved.
+//  Created by dqf on 14-4-4.
+//  Copyright (c) 2014年 dqfStudio. All rights reserved.
 //
 
 #ifndef HGoto_HGoToSupport_h

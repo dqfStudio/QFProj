@@ -1,9 +1,9 @@
 //
 //  NSFileManager+HUtil.h
-//  Camera360
+//  QFProj
 //
-//  Created by zhangchutian on 14-8-5.
-//  Copyright (c) 2014年 Pinguo. All rights reserved.
+//  Created by dqf on 14-8-5.
+//  Copyright (c) 2014年 dqfStudio. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
