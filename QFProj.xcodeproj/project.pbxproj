@@ -3965,6 +3965,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/QFProj/Classes/QFUtil/HTupleView/View/HDebugUtil/Util",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/QFProj/Classes/QFUtil/HUtilHeader/HUtilHeader.h";
 				INFOPLIST_FILE = QFProj/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -3990,6 +3992,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/QFProj/Classes/QFUtil/HTupleView/View/HDebugUtil/Util",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/QFProj/Classes/QFUtil/HUtilHeader/HUtilHeader.h";
 				INFOPLIST_FILE = QFProj/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

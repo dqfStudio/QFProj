@@ -9,6 +9,8 @@
 #ifndef HUtilHeader_h
 #define HUtilHeader_h
 
+#ifdef __OBJC__
+
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
@@ -87,7 +89,6 @@
 //ohter
 #import "HUserDefaults.h"
 #import "HKeyChainStore.h"
-#import "HValidate.h"
 #import "HViewController.h"
 #import "HTableController.h"
 #import "HTupleController.h"
@@ -104,5 +105,6 @@
 #import "HNetworkManager.h"
 
 
+#endif
 
 #endif /* HUtilHeader_h */
