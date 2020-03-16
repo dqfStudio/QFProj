@@ -80,6 +80,10 @@
 #import "HTupleViewCellVertValue1.h"
 #import "HTupleViewCellHoriValue1.h"
 
+//HCommon Define
+#import "HCommonBlock.h"
+#import "HCommonDefine.h"
+
 //ohter
 #import "HUserDefaults.h"
 #import "HKeyChainStore.h"
@@ -94,11 +98,11 @@
 #import "HWebImageView.h"
 #import "HAuthorizeManager.h"
 #import "UILabel+HAttributeText.h"
-
 #import "HGCDUtil.h"
 
-//HCommon Define
-#import "HCommonBlock.h"
-#import "HCommonDefine.h"
+#import "HNetworkDAO.h"
+#import "HNetworkManager.h"
+
+
 
 #endif /* HUtilHeader_h */
