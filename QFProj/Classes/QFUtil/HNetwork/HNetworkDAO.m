@@ -8,6 +8,9 @@
 
 #import "HNetworkDAO.h"
 
+const int KURLErrorCode = -10000; //网络原因引起的异常
+const int KServerErrorCode = -10001; //服务端返回数据异常
+
 @interface HNetworkDAO ()
 @property (nonatomic, assign) NSInteger tryCount; //当前重试次数
 @property (nonatomic, assign) NSInteger tryMax; //最大重试次数
@@ -105,9 +108,24 @@
             url = [baseUrl stringByAppendingString:url];
         }
         [self performWithUrl:url method:method argument:argument whenSeccsss:^(__kindof YTKBaseRequest *_Nonnull request) {
-            [self request:request success:success];
+            id responseObject = request.responseJSONObject;
+            if ([responseObject isKindOfClass:NSDictionary.class]) {
+                NSString *status = [responseObject[@"status"] stringValue];
+                if ([status isEqualToString:@"10000"]) {
+                    [self request:request success:success];
+                }else {
+                    [self request:request serverErrorFailure:failure];
+                }
+            }else if ([responseObject isKindOfClass:NSArray.class]) {
+                NSArray *responseArray = responseObject;
+                if (responseArray.count > 0) {
+                    [self request:request success:success];
+                }else {
+                    [self request:request serverErrorFailure:failure];
+                }
+            }
         } whenFailed:^(__kindof YTKBaseRequest *_Nonnull request) {
-            [self request:request failure:failure];
+            [self request:request urlErrorFailure:failure];
         }];
     }
 }
@@ -150,10 +168,17 @@
     }
     success(responseDict);
 }
-- (void)request:(YTKBaseRequest *)request failure:(void(^)(NSError *error))failure {
+- (void)request:(YTKBaseRequest *)request urlErrorFailure:(void(^)(NSError *error))failure {
     NSString *description = @"服务器离家出走中，请稍后再试!";
     NSString *domain = @"HURLErrorDomain";
-    NSInteger code = -1000;
+    NSInteger code = KURLErrorCode;
+    NSError *error = [NSError errorWithDomain:domain code:code userInfo:@{NSLocalizedDescriptionKey : description}];
+    failure(error);
+}
+- (void)request:(YTKBaseRequest *)request serverErrorFailure:(void(^)(NSError *error))failure {
+    NSString *description = @"数据返回异常!";
+    NSString *domain = @"HServerErrorDomain";
+    NSInteger code = KServerErrorCode;
     NSError *error = [NSError errorWithDomain:domain code:code userInfo:@{NSLocalizedDescriptionKey : description}];
     failure(error);
 }

@@ -10,6 +10,9 @@
 #import "YTKNetworkPrivate.h"
 #import "YTKRequest.h"
 
+extern const int KURLErrorCode; //网络原因引起的异常
+extern const int KServerErrorCode; //服务端返回数据异常
+
 @interface HNetworkDAO : YTKRequest
 
 #pragma mark - 网络请求
