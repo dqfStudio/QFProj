@@ -103,8 +103,10 @@ const int KServerErrorCode = -10001; //服务端返回数据异常
                success:(void(^)(id responseObject))success
                failure:(void(^)(NSError *error))failure {
     NSString *baseUrl = [YTKNetworkConfig sharedConfig].baseUrl;
-    if (baseUrl.length > 0 && url.length > 0) {
-        if (![url hasPrefix:baseUrl]) {
+    if (baseUrl.length > 0) {
+        if (!url) {
+            url = baseUrl;
+        }else if (![url hasPrefix:baseUrl]) {
             url = [baseUrl stringByAppendingString:url];
         }
         [self performWithUrl:url method:method argument:argument whenSeccsss:^(__kindof YTKBaseRequest *_Nonnull request) {
