@@ -104,7 +104,7 @@ const int KServerErrorCode = -10001; //服务端返回数据异常
                failure:(void(^)(NSError *error))failure {
     NSString *baseUrl = [YTKNetworkConfig sharedConfig].baseUrl;
     if (baseUrl.length > 0) {
-        if (!url) {
+        if (!url || url.length == 0) {
             url = baseUrl;
         }else if (![url hasPrefix:baseUrl]) {
             url = [baseUrl stringByAppendingString:url];
