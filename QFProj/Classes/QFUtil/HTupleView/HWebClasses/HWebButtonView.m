@@ -215,12 +215,24 @@
 - (void)setTitle:(NSString *)title {
     [self setTitle:title forState:UIControlStateNormal];
 }
+
 - (void)setTitleColor:(UIColor *)color {
     [self setTitleColor:color forState:UIControlStateNormal];
 }
+- (void)setTitleColorHex:(NSString *)color {
+    [self setTitleColor:[UIColor colorWithString:color] forState:UIControlStateNormal];
+}
+
 - (void)setFont:(UIFont *)font {
     [self.titleLabel setFont:font];
 }
+- (void)setSysFont:(CGFloat)font {
+    [self.titleLabel setFont:[UIFont systemFontOfSize:font]];
+}
+- (void)setBoldSysFont:(CGFloat)font {
+    [self.titleLabel setFont:[UIFont boldSystemFontOfSize:font]];
+}
+
 - (void)setTextAlignment:(NSTextAlignment)textAlignment {
     [self.titleLabel setTextAlignment:textAlignment];
 }
@@ -229,6 +241,14 @@
 }
 - (void)setBackgroundImage:(UIImage *)image {
     [self setBackgroundImage:image forState:UIControlStateNormal];
+}
+
+- (void)setBackgroundImageWithName:(NSString *)fileName {
+    [self setBackgroundImage:[UIImage imageNamed:fileName] forState:UIControlStateNormal];
+}
+
+- (void)setBackgroundColorHex:(NSString *)color {
+    [self setBackgroundColor:[UIColor colorWithString:color]];
 }
 
 - (void)addTarget:(id)target action:(SEL)action {

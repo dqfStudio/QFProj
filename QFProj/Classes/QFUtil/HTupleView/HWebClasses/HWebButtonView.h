@@ -82,11 +82,22 @@
 
 @interface UIButton (HUtil)
 - (void)setTitle:(NSString *)title;
+
 - (void)setTitleColor:(UIColor *)color;
+- (void)setTitleColorHex:(NSString *)color;
+
 - (void)setFont:(UIFont *)font;
+- (void)setSysFont:(CGFloat)font;
+- (void)setBoldSysFont:(CGFloat)font;
+
 - (void)setTextAlignment:(NSTextAlignment)textAlignment;
 - (void)setImage:(UIImage *)image;
+
 - (void)setBackgroundImage:(UIImage *)image;
+- (void)setBackgroundImageWithName:(NSString *)fileName;
+
+- (void)setBackgroundColorHex:(NSString *)color;
+
 - (void)addTarget:(id)target action:(SEL)action;
 - (void)addTarget:(id)target actionBlock:(void(^)(id button))action;
 
