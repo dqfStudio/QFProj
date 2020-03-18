@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #define HColorHex(_hex_) [UIColor colorWithString:((__bridge NSString *)CFSTR(#_hex_))]
+#define HColorHexAlpha(_hex_, _alpha_) [UIColor colorWithString:((__bridge NSString *)CFSTR(#_hex_)) alpha:_alpha_]
 
 @interface UIColor (HUtil)
 

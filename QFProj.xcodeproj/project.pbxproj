@@ -147,6 +147,8 @@
 		A20E3D4B2328AC1600E6982B /* HTupleViewApexHoriValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D4A2328AC1600E6982B /* HTupleViewApexHoriValue1.m */; };
 		A20F4C2C23FA8C6E00E2A126 /* UINavigationController+HIntercept.m in Sources */ = {isa = PBXBuildFile; fileRef = A20F4C2A23FA8C6E00E2A126 /* UINavigationController+HIntercept.m */; };
 		A219F22F222FB46A00241FD7 /* HIFS.m in Sources */ = {isa = PBXBuildFile; fileRef = A219F22D222FB46A00241FD7 /* HIFS.m */; };
+		A21F4092242215B4002221C4 /* HMainController1+Normal.m in Sources */ = {isa = PBXBuildFile; fileRef = A21F4091242215B4002221C4 /* HMainController1+Normal.m */; };
+		A21F4095242215C1002221C4 /* HMainController1+Error.m in Sources */ = {isa = PBXBuildFile; fileRef = A21F4094242215C1002221C4 /* HMainController1+Error.m */; };
 		A222A6C42279AAAD0013098A /* NSDictionary+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A6C32279AAAD0013098A /* NSDictionary+HUtil.m */; };
 		A222A716227C52430013098A /* UILabel+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A222A715227C52430013098A /* UILabel+HUtil.m */; };
 		A222AE4A22818F7D0013098A /* HTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A222AE1822818F7D0013098A /* HTextView.m */; };
@@ -724,6 +726,10 @@
 		A219F22D222FB46A00241FD7 /* HIFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIFS.m; sourceTree = "<group>"; };
 		A219F22E222FB46A00241FD7 /* HIFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIFS.h; sourceTree = "<group>"; };
 		A21AFEB0241FB2DD00165F0A /* NSNull+HSafeUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNull+HSafeUtil.h"; sourceTree = "<group>"; };
+		A21F4090242215B4002221C4 /* HMainController1+Normal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMainController1+Normal.h"; sourceTree = "<group>"; };
+		A21F4091242215B4002221C4 /* HMainController1+Normal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HMainController1+Normal.m"; sourceTree = "<group>"; };
+		A21F4093242215C1002221C4 /* HMainController1+Error.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMainController1+Error.h"; sourceTree = "<group>"; };
+		A21F4094242215C1002221C4 /* HMainController1+Error.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HMainController1+Error.m"; sourceTree = "<group>"; };
 		A222A6C22279AAAD0013098A /* NSDictionary+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HUtil.h"; sourceTree = "<group>"; };
 		A222A6C32279AAAD0013098A /* NSDictionary+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+HUtil.m"; sourceTree = "<group>"; };
 		A222A714227C52430013098A /* UILabel+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+HUtil.h"; sourceTree = "<group>"; };
@@ -1572,6 +1578,10 @@
 				A20E3CFA231FDF4D00E6982B /* HMenuController.m */,
 				A20E3CFC231FE0B400E6982B /* HMainController1.h */,
 				A20E3CFD231FE0B400E6982B /* HMainController1.m */,
+				A21F4093242215C1002221C4 /* HMainController1+Error.h */,
+				A21F4094242215C1002221C4 /* HMainController1+Error.m */,
+				A21F4090242215B4002221C4 /* HMainController1+Normal.h */,
+				A21F4091242215B4002221C4 /* HMainController1+Normal.m */,
 				A20E3CFF231FE0C000E6982B /* HMainController2.h */,
 				A20E3D00231FE0C000E6982B /* HMainController2.m */,
 				A20E3D02231FE0C800E6982B /* HMainController3.h */,
@@ -3691,6 +3701,7 @@
 				153F081720E28CA000C74850 /* HPhoneValidator.m in Sources */,
 				A28A023C23EEDA77000556A2 /* UIImageView+HString.m in Sources */,
 				153F081320E28CA000C74850 /* HAlphaValidator.m in Sources */,
+				A21F4095242215C1002221C4 /* HMainController1+Error.m in Sources */,
 				A2E8F54222D72A9800E7C9F2 /* YTKChainRequestAgent.m in Sources */,
 				A20E3CFB231FDF4D00E6982B /* HMenuController.m in Sources */,
 				A222AE5622818F7D0013098A /* UIView+HText.m in Sources */,
@@ -3759,6 +3770,7 @@
 				A222AE4C22818F7D0013098A /* HTextDebugOption.m in Sources */,
 				A206880E22C9FD1B00661634 /* HTupleBaseApex.m in Sources */,
 				A29385E9241C95C600508606 /* NSMutableData+AppendUTF8.m in Sources */,
+				A21F4092242215B4002221C4 /* HMainController1+Normal.m in Sources */,
 				A2C2B214235EAC770041AAB5 /* HMainController6.m in Sources */,
 				A293861A241C95C600508606 /* KSStackCursor_Backtrace.c in Sources */,
 				15F9152020A171A8000261C4 /* NSObject+HAspects.m in Sources */,

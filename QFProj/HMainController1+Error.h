@@ -1,0 +1,13 @@
+//
+//  HMainController1+Error.h
+//  QFProj
+//
+//  Created by wind on 2020/3/18.
+//  Copyright © 2020 dqfStudio. All rights reserved.
+//
+
+#import "HMainController1.h"
+
+@interface HMainController1 (Error)
+
+@end

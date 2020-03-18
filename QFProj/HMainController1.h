@@ -6,7 +6,8 @@
 //  Copyright © 2019 dqfStudio. All rights reserved.
 //
 
-#import "HTupleController.h"
+#import "HViewController.h"
+#import "HTupleView.h"
 #import "HTupleViewCellVertValue1.h"
 #import "HTupleViewCellHoriValue1.h"
 #import "UIViewController+HAnimation.h"
@@ -14,10 +15,15 @@
 #import "HAlertController.h"
 #import "UIView+HAlert.h"
 
+typedef NS_OPTIONS(NSUInteger, HMainCtrl1Type) {
+    HMainCtrl1Type1 = 0,
+    HMainCtrl1Type2
+};
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HMainController1 : HTupleController
-
+@interface HMainController1 : HViewController
+@property (nonatomic) HTupleView *tupleView;
 @end
 
 NS_ASSUME_NONNULL_END
