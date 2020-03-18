@@ -28,28 +28,6 @@
     return _tupleView;
 }
 
-//- (void)viewDidLoad {
-//    [super viewDidLoad];
-//    // Do any additional setup after loading the view.
-//    [self.view setBackgroundColor:[UIColor whiteColor]];
-//    [self.leftNaviButton setHidden:YES];
-//    [self setTitle:@"第一页"];
-//    [self.tupleView setTupleDelegate:self];
-//}
-- (void)vcWillDisappear:(HVCDisappearType)type {
-    if (type == HVCDisappearTypePop || type == HVCDisappearTypeDismiss) {
-        [self.tupleView releaseTupleBlock];
-    }
-}
-
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
-    CGRect frame = self.view.bounds;
-    frame.origin.y += UIScreen.topBarHeight;
-    frame.size.height -= UIScreen.topBarHeight;
-    _tupleView.frame = frame;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -62,6 +40,20 @@
         self.tupleView.tupleState = HMainCtrl1Type2;
         [self.tupleView reloadData];
     });
+}
+
+- (void)vcWillDisappear:(HVCDisappearType)type {
+    if (type == HVCDisappearTypePop || type == HVCDisappearTypeDismiss) {
+        [self.tupleView releaseTupleBlock];
+    }
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    CGRect frame = self.view.bounds;
+    frame.origin.y += UIScreen.topBarHeight;
+    frame.size.height -= UIScreen.topBarHeight;
+    _tupleView.frame = frame;
 }
 
 @end
