@@ -70,10 +70,13 @@
             
             cell.showAccessoryArrow = YES;
             
+            cell.labelInsets = UIEdgeInsetsMake(2.5, 0, 2.5, 30);
             [cell.label setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
             
+            cell.detailLabelInsets = UIEdgeInsetsMake(2.5, 0, 2.5, 100);
             [cell.detailLabel setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
 
+            cell.accessoryLabelInsets = UIEdgeInsetsMake(2.5, 0, 2.5, 180);
             [cell.accessoryLabel setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
             
             //接收信号
@@ -90,9 +93,14 @@
             
             [cell.imageView setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
             
+            cell.labelInsets = UIEdgeInsetsMake(2.5, 0, 2.5, 30);
             [cell.label setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
-
+            
+            cell.detailLabelInsets = UIEdgeInsetsMake(2.5, 0, 2.5, 100);
             [cell.detailLabel setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
+
+            cell.accessoryLabelInsets = UIEdgeInsetsMake(2.5, 0, 2.5, 180);
+            [cell.accessoryLabel setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
             
             //接收信号
             [cell setSignalBlock:^(HTupleViewCellHoriValue4 *cell, HTupleSignal *signal) {
@@ -113,9 +121,14 @@
 
             [cell.detailView setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
 
+            cell.labelInsets = UIEdgeInsetsMake(2.5, 0, 2.5, 30);
             [cell.label setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
-
+            
+            cell.detailLabelInsets = UIEdgeInsetsMake(2.5, 0, 2.5, 100);
             [cell.detailLabel setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
+
+            cell.accessoryLabelInsets = UIEdgeInsetsMake(2.5, 0, 2.5, 180);
+            [cell.accessoryLabel setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
         }
             break;
         case HCell3: {
@@ -128,6 +141,7 @@
             [cell.imageView setFillet:YES];
             
             cell.labelHeight = 25;
+            cell.labelInsets = UITBEdgeInsetsMake(10, 0);
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
         }
@@ -141,6 +155,7 @@
             [cell.imageView setFillet:YES];
             
             cell.labelHeight = 25;
+            cell.labelInsets = UITBEdgeInsetsMake(10, 0);
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
         }
@@ -155,6 +170,7 @@
             [cell.imageView setFillet:YES];
 
             cell.labelHeight = 25;
+            cell.labelInsets = UITBEdgeInsetsMake(10, 0);
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
 
@@ -171,14 +187,17 @@
             
             cell.detailWidth  = CGRectGetWidth(cell.layoutViewBounds)/3;
             cell.accessoryWidth = CGRectGetWidth(cell.layoutViewBounds)/3;
-            [cell.label setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
-            [cell.label setTextAlignment:NSTextAlignmentCenter];
-
-            [cell.detailLabel setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
-            [cell.detailLabel setTextAlignment:NSTextAlignmentCenter];
             
+            cell.centralInsets = UIEdgeInsetsMake(12.5, 10, 12.5, 10);
+            
+            cell.labelInsets = UILREdgeInsetsMake(5, 5);
+            [cell.label setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
+
+            cell.detailLabelInsets = UILREdgeInsetsMake(5, 0);
+            [cell.detailLabel setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
+            
+            cell.accessoryLabelInsets = UILREdgeInsetsMake(0, 5);
             [cell.accessoryLabel setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
-            [cell.accessoryLabel setTextAlignment:NSTextAlignmentCenter];
         }
             break;
         case HCell7: {
