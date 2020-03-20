@@ -141,7 +141,7 @@
             [cell.imageView setFillet:YES];
             
             cell.labelHeight = 25;
-            cell.labelInsets = UITBEdgeInsetsMake(10, 0);
+            cell.labelInsets = UIEdgeInsetsMake(10, 20, 0, 20);
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
         }
@@ -155,7 +155,7 @@
             [cell.imageView setFillet:YES];
             
             cell.labelHeight = 25;
-            cell.labelInsets = UITBEdgeInsetsMake(10, 0);
+            cell.labelInsets = UIEdgeInsetsMake(10, 20, 0, 20);
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
         }
@@ -170,7 +170,7 @@
             [cell.imageView setFillet:YES];
 
             cell.labelHeight = 25;
-            cell.labelInsets = UITBEdgeInsetsMake(10, 0);
+            cell.labelInsets = UIEdgeInsetsMake(10, 20, 0, 20);
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
 
