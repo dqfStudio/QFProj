@@ -213,6 +213,10 @@ typedef NSArray *_Nullable(^HTableSectionExclusiveBlock)(void);
 - (id)dequeueReusableCellWithClass:(Class)cls iblk:(id _Nullable)iblk pre:(id _Nullable)pre idx:(bool)idx idxPath:(NSIndexPath *)idxPath;
 //release method
 - (void)releaseTableBlock;
+// 开始闪烁动画
+- (void)startOpacityForeverAnimation;
+// 停止闪烁动画
+- (void)stopOpacityForeverAnimation;
 //根据传入的row和section获取cell或indexPath
 - (id (^)(NSInteger row, NSInteger section))cell;
 - (id (^)(NSInteger row, NSInteger section))indexPath;

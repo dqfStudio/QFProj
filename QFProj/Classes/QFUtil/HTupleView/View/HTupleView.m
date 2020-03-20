@@ -1034,6 +1034,27 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 
 #pragma mark - other methods
 #pragma mark -
+// 开始闪烁动画
+- (void)startOpacityForeverAnimation {
+    [self.layer addAnimation:[self opacityForeverAnimationWithDuration:3.f] forKey:nil];
+}
+// 停止闪烁动画
+- (void)stopOpacityForeverAnimation {
+    [self.layer removeAllAnimations];
+}
+// 闪烁动画
+- (CABasicAnimation *)opacityForeverAnimationWithDuration:(NSTimeInterval)duration {
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];//必须写opacity才行。
+    animation.fromValue = [NSNumber numberWithFloat:1.0f];
+    animation.toValue = [NSNumber numberWithFloat:0.8f];
+    animation.autoreverses = YES;
+    animation.duration = duration;
+    animation.repeatCount = MAXFLOAT;
+    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeForwards;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];///没有的话是均匀的动画。
+    return animation;
+}
 - (id (^)(NSInteger row, NSInteger section))cell {
     return ^id (NSInteger row, NSInteger section) {
         return [self.allReuseCells objectForKey:NSIndexPath.stringValue(row, section)];
