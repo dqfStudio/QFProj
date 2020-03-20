@@ -14,7 +14,7 @@
 - (void)initUI {
     self.imageViewInsets = UIEdgeInsetsZero;
     self.labelInterval = 5;
-    self.centralInsets = UILREdgeInsetsMake(10, 10);
+    self.centralInsets = UIEdgeInsetsMake(0, 10, 0, 10);
     self.detailViewInsets = UIEdgeInsetsZero;
 }
 @end
@@ -25,7 +25,7 @@
     self.detailLabelInsets = UILREdgeInsetsZero;
     self.labelInsets = UILREdgeInsetsZero;
     self.accessoryLabelInsets = UILREdgeInsetsZero;
-    self.centralInsets = UILREdgeInsetsMake(10, 10);
+    self.centralInsets = UIEdgeInsetsMake(0, 10, 0, 10);
     self.detailViewInsets = UIEdgeInsetsZero;
 }
 @end
@@ -33,10 +33,10 @@
 @implementation HTableViewApexHoriBase3
 - (void)initUI {
     self.imageViewInsets = UIEdgeInsetsZero;
-    self.labelInsets =  UITBEdgeInsetsZero;
-    self.detailLabelInsets =  UITBEdgeInsetsZero;
-    self.accessoryLabelInsets =  UITBEdgeInsetsZero;
-    self.centralInsets = UILREdgeInsetsMake(10, 10);
+    self.labelInsets = UIEdgeInsetsZero;
+    self.detailLabelInsets = UIEdgeInsetsZero;
+    self.accessoryLabelInsets = UIEdgeInsetsZero;
+    self.centralInsets = UIEdgeInsetsMake(0, 10, 0, 10);
     self.detailViewInsets = UIEdgeInsetsZero;
 }
 @end
@@ -143,20 +143,28 @@
     }
     
     //计算centralLayoutView的坐标
+    tmpFrame4.origin.y += self.centralInsets.top;
+    tmpFrame4.size.height -= self.centralInsets.top + self.centralInsets.bottom;
     [self.centralLayoutView setFrame:tmpFrame4];
     
     //计算label和detailLabel的坐标
     if (self.label.text.length > 0 && self.detailLabel.text.length > 0) {
         NSInteger wordWidth = 20; //默认为20
-        wordWidth = self.detailLabel.intrinsicContentSize.width/self.detailLabel.text.length;
+        
+        //CGSize stringSize = self.label.intrinsicContentSize;
+        CGSize stringSize = [self.label.text sizeWithAttributes:[NSDictionary dictionaryWithObject:self.label.font forKey:NSFontAttributeName]];
+        CGSize stringSize2 = [self.detailLabel.text sizeWithAttributes:[NSDictionary dictionaryWithObject:self.detailLabel.font forKey:NSFontAttributeName]];
+        
+        wordWidth = stringSize2.width/self.detailLabel.text.length;
         if (wordWidth < 20) wordWidth += wordWidth;
-        if (self.label.intrinsicContentSize.width >= tmpFrame4.size.width - self.labelInterval - wordWidth) {
+        if (stringSize.width >= tmpFrame4.size.width - self.labelInterval - wordWidth) {
             [self.label setFrame:CGRectMake(0, 0, tmpFrame4.size.width, tmpFrame4.size.height)];
             [self.detailLabel setFrame:CGRectZero];
         }else {
-            [self.label setFrame:CGRectMake(0, 0, self.label.intrinsicContentSize.width, tmpFrame4.size.height)];
-            [self.detailLabel setFrame:CGRectMake(self.label.intrinsicContentSize.width+self.labelInterval, 0,
-                                                  tmpFrame4.size.width-self.label.intrinsicContentSize.width-self.labelInterval,
+            [self.label setFrame:CGRectMake(0, 0, stringSize.width, tmpFrame4.size.height)];
+            [self.detailLabel setFrame:CGRectMake(stringSize.width+self.labelInterval,
+                                                  0,
+                                                  tmpFrame4.size.width-stringSize.width-self.labelInterval,
                                                   tmpFrame4.size.height)];
         }
     }else if (self.detailLabel.text.length > 0) {
@@ -271,22 +279,30 @@
     }
     
     //计算centralLayoutView的坐标
+    tmpFrame4.origin.y += self.centralInsets.top;
+    tmpFrame4.size.height -= self.centralInsets.top + self.centralInsets.bottom;
     [self.centralLayoutView setFrame:tmpFrame4];
     
     //计算label和detailLabel的坐标
     if (self.label.text.length > 0 && self.detailLabel.text.length > 0) {
         NSInteger wordWidth = 20; //默认为20
-        wordWidth = self.detailLabel.intrinsicContentSize.width/self.detailLabel.text.length;
+        
+        //CGSize stringSize = self.detailLabel.intrinsicContentSize;
+        CGSize stringSize = [self.detailLabel.text sizeWithAttributes:[NSDictionary dictionaryWithObject:self.detailLabel.font forKey:NSFontAttributeName]];
+        
+        wordWidth = stringSize.width/self.detailLabel.text.length;
         if (wordWidth < 20) wordWidth += wordWidth;
-        if (self.detailLabel.intrinsicContentSize.width >= tmpFrame4.size.width - self.labelInterval - wordWidth) {
+        if (stringSize.width >= tmpFrame4.size.width - self.labelInterval - wordWidth) {
             [self.detailLabel setFrame:CGRectMake(0, 0, tmpFrame4.size.width, tmpFrame4.size.height)];
             [self.label setFrame:CGRectZero];
         }else {
-            [self.label setFrame:CGRectMake(0, 0,
-                                            tmpFrame4.size.width-self.detailLabel.intrinsicContentSize.width-self.labelInterval,
+            [self.label setFrame:CGRectMake(0,
+                                            0,
+                                            tmpFrame4.size.width-stringSize.width-self.labelInterval,
                                             tmpFrame4.size.height)];
-            [self.detailLabel setFrame:CGRectMake(tmpFrame4.size.width-self.detailLabel.intrinsicContentSize.width, 0,
-                                                  self.detailLabel.intrinsicContentSize.width,
+            [self.detailLabel setFrame:CGRectMake(tmpFrame4.size.width-stringSize.width,
+                                                  0,
+                                                  stringSize.width,
                                                   tmpFrame4.size.height)];
         }
     }else if (self.detailLabel.text.length > 0) {
@@ -410,6 +426,8 @@
     }
     
     //计算centralLayoutView的坐标
+    tmpFrame4.origin.y += self.centralInsets.top;
+    tmpFrame4.size.height -= self.centralInsets.top + self.centralInsets.bottom;
     [self.centralLayoutView setFrame:tmpFrame4];
     
     //保存centralLayoutView的值
@@ -546,19 +564,25 @@
     }
     
     //计算label的高度
+    CGFloat height = CGRectGetHeight(frame);
+    height -= self.centralInsets.top + self.centralInsets.bottom;;
     if (_detailLabel && _accessoryLabel) {
-        tmpFrame4.size.height = CGRectGetHeight(frame)/3;
+        tmpFrame4.size.height = height/3;
     }else if (_detailLabel || _accessoryLabel) {
-        tmpFrame4.size.height = CGRectGetHeight(frame)/2;
+        tmpFrame4.size.height = height/2;
     }else {
-        tmpFrame4.size.height = CGRectGetHeight(frame);
+        tmpFrame4.size.height = height;
     }
     
     //保存tmpFrame4的值
     CGRect tmpFrame5 = tmpFrame4;
     
     //计算label的坐标
+    tmpFrame4.origin.y += self.centralInsets.top;
+    
+    tmpFrame4.origin.x += self.labelInsets.left;
     tmpFrame4.origin.y += self.labelInsets.top;
+    tmpFrame4.size.width -= self.labelInsets.left+self.labelInsets.right;
     tmpFrame4.size.height -= self.labelInsets.top+self.labelInsets.bottom;
     [self.label setFrame:tmpFrame4];
     
@@ -566,7 +590,11 @@
     if (_detailLabel) {
         CGRect tmpFrame6 = tmpFrame5;
         tmpFrame6.origin.y += CGRectGetHeight(tmpFrame5);
+        tmpFrame6.origin.y += self.centralInsets.top;
+        
+        tmpFrame6.origin.x += self.detailLabelInsets.left;
         tmpFrame6.origin.y += self.detailLabelInsets.top;
+        tmpFrame6.size.width -= self.detailLabelInsets.left+self.detailLabelInsets.right;
         tmpFrame6.size.height -= self.detailLabelInsets.top+self.detailLabelInsets.bottom;
         [_detailLabel setFrame:tmpFrame6];
     }
@@ -577,7 +605,11 @@
         tmpFrame7.origin.y += CGRectGetHeight(tmpFrame5);
         if (_detailLabel) tmpFrame7.origin.y += CGRectGetHeight(tmpFrame7);
         
+        tmpFrame7.origin.y += self.centralInsets.top;
+        
+        tmpFrame7.origin.x += self.accessoryLabelInsets.left;
         tmpFrame7.origin.y += self.accessoryLabelInsets.top;
+        tmpFrame7.size.width -= self.accessoryLabelInsets.left+self.accessoryLabelInsets.right;
         tmpFrame7.size.height -= self.accessoryLabelInsets.top+self.accessoryLabelInsets.bottom;
         [_accessoryLabel setFrame:tmpFrame7];
     }

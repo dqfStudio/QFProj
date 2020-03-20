@@ -36,10 +36,10 @@
     [self setTitle:@"第一页"];
     [self.tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
     [self.view addSubview:self.tupleView];
-//    dispatchAfter(3.0, ^{
-//        self.tupleView.tupleState = HMainCtrl1Type2;
-//        [self.tupleView reloadData];
-//    });
+    dispatchAfter(3.0, ^{
+        self.tupleView.tupleState = HMainCtrl1Type2;
+        [self.tupleView reloadData];
+    });
 }
 
 - (void)vcWillDisappear:(HVCDisappearType)type {
