@@ -78,11 +78,6 @@
 
             cell.accessoryLabelInsets = UIEdgeInsetsMake(2.5, 0, 2.5, 180);
             [cell.accessoryLabel setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
-            
-            //接收信号
-            [cell setSignalBlock:^(HTupleViewCellHoriValue4 *cell, HTupleSignal *signal) {
-                
-            }];
         }
             break;
         case HCell1: {
@@ -101,14 +96,6 @@
 
             cell.accessoryLabelInsets = UIEdgeInsetsMake(2.5, 0, 2.5, 180);
             [cell.accessoryLabel setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
-            
-            //接收信号
-            [cell setSignalBlock:^(HTupleViewCellHoriValue4 *cell, HTupleSignal *signal) {
-                
-            }];
-            
-            //发送信号
-            //[self.tupleView signal:nil toRow:HCell0 inSection:HSection0];
         }
             break;
         case HCell2: {
@@ -173,10 +160,6 @@
             cell.labelInsets = UIEdgeInsetsMake(10, 20, 0, 20);
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setBackgroundColor:HColorHexAlpha(#E8E7EE, 0.6)];
-
-            cell.didSelectCell = ^(HTupleViewCellVertValue1 *cell, NSIndexPath *indexPath) {
-                NSLog(@"选中黑客帝国");
-            };
         }
             break;
         case HCell6: {
