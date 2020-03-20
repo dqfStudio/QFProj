@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HTupleViewApexHoriBase1 : HTupleBaseApex
 @property (nonatomic) UIEdgeInsets imageViewInsets; //imageView的上下左右边距
 @property (nonatomic) CGFloat labelInterval; //两个label的间距
-@property (nonatomic) UILREdgeInsets centralInsets; //中间label的左右边距
+@property (nonatomic) UIEdgeInsets centralInsets; //中间label的上下左右边距
 @property (nonatomic) UIEdgeInsets detailViewInsets; //detailView的上下左右边距
 @end
 
@@ -22,16 +22,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) UILREdgeInsets labelInsets; //label的左右边距
 @property (nonatomic) UILREdgeInsets detailLabelInsets; //detailLabel的左右边距
 @property (nonatomic) UILREdgeInsets accessoryLabelInsets; //accessoryLabel的左右边距
-@property (nonatomic) UILREdgeInsets centralInsets; //中间label的左右边距
+@property (nonatomic) UIEdgeInsets centralInsets; //中间label的上下左右边距
 @property (nonatomic) UIEdgeInsets detailViewInsets; //detailView的上下左右边距
 @end
 
 @interface HTupleViewApexHoriBase3 : HTupleBaseApex
 @property (nonatomic) UIEdgeInsets imageViewInsets; //imageView的上下左右边距
-@property (nonatomic) UITBEdgeInsets labelInsets; //label的上下边距
-@property (nonatomic) UITBEdgeInsets detailLabelInsets; //detailLabel的上下边距
-@property (nonatomic) UITBEdgeInsets accessoryLabelInsets; //accessoryLabel的上下边距
-@property (nonatomic) UILREdgeInsets centralInsets; //中间label的左右边距
+@property (nonatomic) UIEdgeInsets labelInsets; //label的上下左右边距
+@property (nonatomic) UIEdgeInsets detailLabelInsets; //detailLabel的上下左右边距
+@property (nonatomic) UIEdgeInsets accessoryLabelInsets; //accessoryLabel的上下左右边距
+@property (nonatomic) UIEdgeInsets centralInsets; //中间label的上下左右边距
 @property (nonatomic) UIEdgeInsets detailViewInsets; //detailView的上下左右边距
 @end
 

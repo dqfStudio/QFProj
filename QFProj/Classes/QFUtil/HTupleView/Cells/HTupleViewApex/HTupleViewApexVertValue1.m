@@ -10,10 +10,10 @@
 
 @implementation HTupleViewApexVertBase1
 - (void)initUI {
-    self.imageViewInsets = UITBEdgeInsetsZero;
-    self.labelInsets =  UITBEdgeInsetsZero;
-    self.detailLabelInsets =  UITBEdgeInsetsZero;
-    self.accessoryLabelInsets =  UITBEdgeInsetsZero;
+    self.imageViewInsets = UIEdgeInsetsZero;
+    self.labelInsets = UIEdgeInsetsZero;
+    self.detailLabelInsets = UIEdgeInsetsZero;
+    self.accessoryLabelInsets = UIEdgeInsetsZero;
 }
 @end
 
@@ -93,7 +93,9 @@
     if (_accessoryLabel) {
         CGRect tmpFrame = frame;
         tmpFrame.size.height = self.accessoryHeight;
+        tmpFrame.origin.x += self.accessoryLabelInsets.left;
         tmpFrame.origin.y += self.accessoryLabelInsets.top;
+        tmpFrame.size.width -= self.accessoryLabelInsets.left+self.accessoryLabelInsets.right;
         tmpFrame.size.height -= self.accessoryLabelInsets.top+self.accessoryLabelInsets.bottom;
         [_accessoryLabel setFrame:tmpFrame];
     }
@@ -104,7 +106,9 @@
         tmpFrame.size.height -= self.labelHeight+self.detailHeight+self.accessoryHeight;
         tmpFrame.origin.y += self.accessoryHeight;
         
+        tmpFrame.origin.x += self.imageViewInsets.left;
         tmpFrame.origin.y += self.imageViewInsets.top;
+        tmpFrame.size.width -= self.imageViewInsets.left+self.imageViewInsets.right;
         tmpFrame.size.height -= self.imageViewInsets.top+self.imageViewInsets.bottom;
         [_imageView setFrame:tmpFrame];
         
@@ -130,9 +134,11 @@
     if (_label) {
         CGRect tmpFrame = frame;
         tmpFrame.size.height = self.labelHeight;
-        
         tmpFrame.origin.y = frame.size.height-self.labelHeight-self.detailHeight;
+        
+        tmpFrame.origin.x += self.labelInsets.left;
         tmpFrame.origin.y += self.labelInsets.top;
+        tmpFrame.size.width -= self.labelInsets.left+self.labelInsets.right;
         tmpFrame.size.height -= self.labelInsets.top+self.labelInsets.bottom;
         [_label setFrame:tmpFrame];
     }
@@ -141,9 +147,11 @@
     if (_detailLabel) {
         CGRect tmpFrame = frame;
         tmpFrame.size.height = self.detailHeight;
-        
         tmpFrame.origin.y = frame.size.height-self.detailHeight;
+        
+        tmpFrame.origin.x += self.detailLabelInsets.left;
         tmpFrame.origin.y += self.detailLabelInsets.top;
+        tmpFrame.size.width -= self.detailLabelInsets.left+self.detailLabelInsets.right;
         tmpFrame.size.height -= self.detailLabelInsets.top+self.detailLabelInsets.bottom;
         [_detailLabel setFrame:tmpFrame];
     }
