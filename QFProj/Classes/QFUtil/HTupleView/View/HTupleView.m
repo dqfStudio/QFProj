@@ -1036,11 +1036,11 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 #pragma mark -
 // 开始闪烁动画
 - (void)startOpacityForeverAnimation {
-    [self.layer addAnimation:[self opacityForeverAnimationWithDuration:3.f] forKey:nil];
+    [self.layer addAnimation:[self opacityForeverAnimationWithDuration:3.f] forKey:NSStringFromClass(self.class)];
 }
 // 停止闪烁动画
 - (void)stopOpacityForeverAnimation {
-    [self.layer removeAllAnimations];
+    [self.layer removeAnimationForKey:NSStringFromClass(self.class)];
 }
 // 闪烁动画
 - (CABasicAnimation *)opacityForeverAnimationWithDuration:(NSTimeInterval)duration {
