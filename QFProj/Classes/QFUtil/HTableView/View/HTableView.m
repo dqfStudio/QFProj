@@ -1160,7 +1160,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 #pragma mark -
 // 开始闪烁动画
 - (void)startOpacityForeverAnimation {
-    [self.layer addAnimation:[self opacityForeverAnimationWithDuration:3.f] forKey:NSStringFromClass(self.class)];
+    [self.layer addAnimation:[self opacityForeverAnimationWithDuration:2.f] forKey:NSStringFromClass(self.class)];
 }
 // 停止闪烁动画
 - (void)stopOpacityForeverAnimation {
@@ -1170,7 +1170,7 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
 - (CABasicAnimation *)opacityForeverAnimationWithDuration:(NSTimeInterval)duration {
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];//必须写opacity才行。
     animation.fromValue = [NSNumber numberWithFloat:1.0f];
-    animation.toValue = [NSNumber numberWithFloat:0.8f];
+    animation.toValue = [NSNumber numberWithFloat:0.6f];
     animation.autoreverses = YES;
     animation.duration = duration;
     animation.repeatCount = MAXFLOAT;
