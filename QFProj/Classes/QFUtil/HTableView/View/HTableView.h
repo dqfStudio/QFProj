@@ -11,6 +11,7 @@
 #import "HTableRefresh.h"
 #import "HTableViewCell.h"
 #import "HTableViewApex.h"
+#import "UIView+HLoadable.h"
 #import "NSIndexPath+HUtil.h"
 #import "NSObject+HSelector.h"
 #import "UIScrollView+HEmptyDataSet.h"

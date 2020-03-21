@@ -36,12 +36,19 @@
     [self setTitle:@"第一页"];
     [self.tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
     [self.view addSubview:self.tupleView];
-    dispatchAfter(5.0, ^{
-        self.tupleView.tupleState = HMainCtrl1Type2;
-        [self.tupleView reloadData];
-        [self.tupleView stopOpacityForeverAnimation];
+//    dispatchAfter(5.0, ^{
+//        self.tupleView.tupleState = HMainCtrl1Type2;
+//        [self.tupleView reloadData];
+//        [self.tupleView stopOpacityForeverAnimation];
+//    });
+//    [self.tupleView startOpacityForeverAnimation];
+    dispatchAfter(1.0, ^{
+        [self.tupleView showLoader];
+        dispatchAfter(5.0, ^{
+            [self.tupleView hideLoader];
+            self.tupleView.tupleState = HMainCtrl1Type2;
+        });
     });
-    [self.tupleView startOpacityForeverAnimation];
 }
 
 - (void)vcWillDisappear:(HVCDisappearType)type {

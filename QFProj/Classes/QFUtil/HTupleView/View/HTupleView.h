@@ -11,6 +11,7 @@
 #import "HTupleRefresh.h"
 #import "HTupleViewCell.h"
 #import "HTupleViewApex.h"
+#import "UIView+HLoadable.h"
 #import "NSIndexPath+HUtil.h"
 #import "NSObject+HSelector.h"
 #import "UIScrollView+HEmptyDataSet.h"

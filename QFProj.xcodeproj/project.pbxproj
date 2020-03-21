@@ -300,6 +300,7 @@
 		A28EF3C321DA1DFE002F92ED /* HFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF3C021DA1DFE002F92ED /* HFormController.m */; };
 		A28EF3C421DA1DFE002F92ED /* HFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A28EF3C221DA1DFE002F92ED /* HFormCell.m */; };
 		A2909C6624192B16002B4819 /* UIViewController+HTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = A2909C6524192B16002B4819 /* UIViewController+HTransition.m */; };
+		A291D58624263DE700904F61 /* UIView+HLoadable.m in Sources */ = {isa = PBXBuildFile; fileRef = A291D58424263DE700904F61 /* UIView+HLoadable.m */; };
 		A29307ED240FA47000E675C4 /* NSString+HSize.m in Sources */ = {isa = PBXBuildFile; fileRef = A29307EC240FA47000E675C4 /* NSString+HSize.m */; };
 		A29307F0240FA4EB00E675C4 /* UIImage+QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A29307EF240FA4EB00E675C4 /* UIImage+QRCode.m */; };
 		A29385DE241C95C600508606 /* Container+DeepSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = A2938527241C95C500508606 /* Container+DeepSearch.m */; };
@@ -992,6 +993,8 @@
 		A28EF3C221DA1DFE002F92ED /* HFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFormCell.m; sourceTree = "<group>"; };
 		A2909C6424192B16002B4819 /* UIViewController+HTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HTransition.h"; sourceTree = "<group>"; };
 		A2909C6524192B16002B4819 /* UIViewController+HTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HTransition.m"; sourceTree = "<group>"; };
+		A291D58424263DE700904F61 /* UIView+HLoadable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HLoadable.m"; sourceTree = "<group>"; };
+		A291D58524263DE700904F61 /* UIView+HLoadable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HLoadable.h"; sourceTree = "<group>"; };
 		A29307EB240FA47000E675C4 /* NSString+HSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+HSize.h"; sourceTree = "<group>"; };
 		A29307EC240FA47000E675C4 /* NSString+HSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+HSize.m"; sourceTree = "<group>"; };
 		A29307EE240FA4EB00E675C4 /* UIImage+QRCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+QRCode.h"; sourceTree = "<group>"; };
@@ -1488,6 +1491,8 @@
 				A28701BC23E84BC500F9752A /* HTupleHeader.h */,
 				A208E17622BA305C009A6FDD /* HTupleRefresh.h */,
 				A208E17722BA305C009A6FDD /* HTupleRefresh.m */,
+				A291D58524263DE700904F61 /* UIView+HLoadable.h */,
+				A291D58424263DE700904F61 /* UIView+HLoadable.m */,
 				A2E8F63C22DB51F500E7C9F2 /* NSIndexPath+HUtil.h */,
 				A2E8F63D22DB51F500E7C9F2 /* NSIndexPath+HUtil.m */,
 				A208E17E22BA40A2009A6FDD /* UIScrollView+HEmptyDataSet.h */,
@@ -3634,6 +3639,7 @@
 				15B4DE2A2093034700773E04 /* HClassManager.m in Sources */,
 				A22FA17B2400DD6200B75C1C /* HKBUITextFieldView+Additions.m in Sources */,
 				A289DD0A23E418E200FC59F1 /* HTupleViewTextLoopCell.m in Sources */,
+				A291D58624263DE700904F61 /* UIView+HLoadable.m in Sources */,
 				15B4DE1D209302BF00773E04 /* HGoTo.m in Sources */,
 				1510794520F99ABB00860D1C /* NSObject+HExclusive.m in Sources */,
 				A2B3708E23D01C6600B20DBF /* UIViewController+HAnimation.m in Sources */,
