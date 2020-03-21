@@ -37,20 +37,20 @@
     [self.tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
     [self.view addSubview:self.tupleView];
     
-//    [self.tupleView startOpacityForeverAnimation];
-//    dispatchAfter(5.0, ^{
-//        self.tupleView.tupleState = HMainCtrl1Type2;
-//        [self.tupleView reloadData];
-//        [self.tupleView stopOpacityForeverAnimation];
-//    });
+    [self.tupleView startOpacityForeverAnimation];
+    dispatchAfter(5.0, ^{
+        self.tupleView.tupleState = HMainCtrl1Type2;
+        [self.tupleView reloadData];
+        [self.tupleView stopOpacityForeverAnimation];
+    });
     
-    dispatchAfter(1.0, ^{
-        [self.tupleView showLoader];
+//    dispatchAfter(0.1, ^{
+//        [self.tupleView showLoader];
 //        dispatchAfter(5.0, ^{
 //            [self.tupleView hideLoader];
 //            self.tupleView.tupleState = HMainCtrl1Type2;
 //        });
-    });
+//    });
 }
 
 - (void)vcWillDisappear:(HVCDisappearType)type {
