@@ -41,14 +41,14 @@
 //        [self.tupleView reloadData];
 //        [self.tupleView stopOpacityForeverAnimation];
 //    });
-//    [self.tupleView startOpacityForeverAnimation];
-    dispatchAfter(1.0, ^{
-        [self.tupleView showLoader];
-        dispatchAfter(5.0, ^{
-            [self.tupleView hideLoader];
-            self.tupleView.tupleState = HMainCtrl1Type2;
-        });
-    });
+    [self.tupleView startOpacityForeverAnimation];
+//    dispatchAfter(1.0, ^{
+//        [self.tupleView showLoader];
+//        dispatchAfter(5.0, ^{
+//            [self.tupleView hideLoader];
+//            self.tupleView.tupleState = HMainCtrl1Type2;
+//        });
+//    });
 }
 
 - (void)vcWillDisappear:(HVCDisappearType)type {

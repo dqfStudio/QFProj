@@ -1046,7 +1046,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 - (CABasicAnimation *)opacityForeverAnimationWithDuration:(NSTimeInterval)duration {
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];//必须写opacity才行。
     animation.fromValue = [NSNumber numberWithFloat:1.0f];
-    animation.toValue = [NSNumber numberWithFloat:0.8f];
+    animation.toValue = [NSNumber numberWithFloat:0.6f];
     animation.autoreverses = YES;
     animation.duration = duration;
     animation.repeatCount = MAXFLOAT;
