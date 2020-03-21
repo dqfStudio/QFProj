@@ -2,7 +2,7 @@
 //  NSNull+HSafeUtil2.h
 //  QFProj
 //
-//  Created by wind on 2020/3/16.
+//  Created by dqf on 2020/3/16.
 //  Copyright © 2020 dqfStudio. All rights reserved.
 //
 
