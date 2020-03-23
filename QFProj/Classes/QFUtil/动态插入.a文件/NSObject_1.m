@@ -1,7 +1,7 @@
 //
 //#import <UIKit/UIKit.h>
 //#import <objc/runtime.h>
-//#import "NSObject_.h"
+//#import "NSObject_1.h"
 //
 //static const int alert_action_key;
 //
@@ -41,9 +41,11 @@
 //                [alertController addAction:action];
 //            }
 //        }
-//        UIViewController *rootController = [UIApplication sharedApplication].delegate.window.rootViewController;
+//        UIViewController *rootController = [[UIApplication sharedApplication] keyWindow].rootViewController;
 //        dispatch_async(dispatch_get_main_queue(), ^{
-//           [rootController presentViewController:alertController animated:YES completion:nil];
+//            if ([rootController isKindOfClass:UIViewController.class]) {
+//                [rootController presentViewController:alertController animated:YES completion:nil];
+//            }
 //        });
 //        return alertController;
 //    }else {

@@ -109,8 +109,12 @@
 //                                                           style:UIAlertActionStyleCancel
 //                                                         handler:^(UIAlertAction *_Nonnull action) {}];
 //    [alertController addAction:cancelAction];
-//    UIViewController *rootController = [UIApplication sharedApplication].delegate.window.rootViewController;
-//    [rootController presentViewController:alertController animated:YES completion:nil];
+//    UIViewController *rootController = [[UIApplication sharedApplication] keyWindow].rootViewController;
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        if ([rootController isKindOfClass:UIViewController.class]) {
+//            [rootController presentViewController:alertController animated:YES completion:nil];
+//        }
+//    });
 #endif
 }
 
