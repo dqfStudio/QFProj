@@ -15,12 +15,15 @@
 @end
 
 @implementation UIControl (HSafeUtil)
-+ (void)load {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [[self class] methodSwizzleWithOrigSEL:@selector(sendAction:to:forEvent:) overrideSEL:@selector(safe_sendAction:to:forEvent:)];
-    });
-}
+/*
+ *会影响到UISlider滑动事件的检测
+ */
+//+ (void)load {
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        [[self class] methodSwizzleWithOrigSEL:@selector(sendAction:to:forEvent:) overrideSEL:@selector(safe_sendAction:to:forEvent:)];
+//    });
+//}
 - (void)safe_sendAction:(SEL)action to:(id)target forEvent:(UIEvent *)event {
     
     self.timeInterval = self.timeInterval == 0 ? KDefaultInterval: self.timeInterval;
