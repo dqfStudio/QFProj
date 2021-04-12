@@ -15,7 +15,8 @@ target 'QFProj' do
   pod "MJRefresh"
   #pod "YPTabBarController"
   pod "Masonry"
-  pod "SDWebImage"
+#  pod "SDWebImage"
+  pod 'SDWebImage’,’~> 4.0.0’
   pod 'AFNetworking',	'~> 3.0'
   pod 'Aspects'
   #pod 'HAccess'
