@@ -153,16 +153,24 @@
     if (@available(iOS 11.0, *)) {
         if ([self.view isKindOfClass:[UIScrollView class]]) {
             if (@available(iOS 13.0, *)) {
-                [(UIScrollView *)self.view setAutomaticallyAdjustsScrollIndicatorInsets:NO];
+                if ([(UIScrollView *)self.view respondsToSelector:@selector(setAutomaticallyAdjustsScrollIndicatorInsets:)]) {
+                    [(UIScrollView *)self.view setAutomaticallyAdjustsScrollIndicatorInsets:NO];
+                }
             }
-            [(UIScrollView *)self.view setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+            if ([(UIScrollView *)self.view respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
+                [(UIScrollView *)self.view setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+            }
         }
         for (UIView *view in self.view.subviews) {
             if ([view isKindOfClass:[UIScrollView class]]) {
                 if (@available(iOS 13.0, *)) {
-                    [(UIScrollView *)self.view setAutomaticallyAdjustsScrollIndicatorInsets:NO];
+                    if ([(UIScrollView *)self.view respondsToSelector:@selector(setAutomaticallyAdjustsScrollIndicatorInsets:)]) {
+                        [(UIScrollView *)self.view setAutomaticallyAdjustsScrollIndicatorInsets:NO];
+                    }
                 }
-                [(UIScrollView *)view setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+                if ([(UIScrollView *)self.view respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
+                    [(UIScrollView *)self.view setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+                }
             }
         }
     }else {
