@@ -1287,22 +1287,20 @@ typedef NS_OPTIONS(NSUInteger, HTableStyle) {
         if (self.signalBlock) self.signalBlock = nil;
         //release all cell
         for (HTableBaseCell *cell in self.allReuseCells) {
-            if (cell.didSelectCell) {
-                cell.didSelectCell = nil;
-            }
-            if (cell.signalBlock) {
-                cell.signalBlock = nil;
+            if ([cell isKindOfClass:HTableBaseCell.class]) {
+                if (cell.didSelectCell) cell.didSelectCell = nil;
+                if (cell.signalBlock) cell.signalBlock = nil;
             }
         }
         //release all header
         for (HTableBaseApex *header in self.allReuseHeaders) {
-            if (header.signalBlock) {
+            if ([header isKindOfClass:HTableBaseApex.class] && header.signalBlock) {
                 header.signalBlock = nil;
             }
         }
         //release all footer
         for (HTableBaseApex *footer in self.allReuseFooters) {
-            if (footer.signalBlock) {
+            if ([footer isKindOfClass:HTableBaseApex.class] && footer.signalBlock) {
                 footer.signalBlock = nil;
             }
         }
