@@ -10,14 +10,15 @@
 
 @implementation NSDecimalNumber (HUtil)
 
-//取小数点儿后的几位数，不四舍五入，如 price=2.65, position=1，则结果为2.6
-//如 price=3, position=1，则结果为3
+//exclusive默认为YES
 + (NSString *)notRounding:(float)price afterPoint:(int)position {
-    return [NSDecimalNumber notRounding:price afterPoint:position exclusive:NO];
+    return [NSDecimalNumber notRounding:price afterPoint:position exclusive:YES];
 }
 
-//取小数点儿后的几位数，不四舍五入，如 price=2.65, position=1，则结果为2.6
-//如 price=3, position=1， number=1，则结果为3.0
+//取小数点儿后的几位数，不四舍五入
+//如 price=2.65, position=1，则结果为2.6
+//如 price=3, position=1， exclusive=YES，则结果为3.0
+//如 price=3, position=1， exclusive=NO，则结果为3
 + (NSString *)notRounding:(float)price afterPoint:(int)position exclusive:(BOOL)exclusive {
     NSDecimalNumberHandler *roundingBehavior = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundDown scale:position raiseOnExactness:NO raiseOnOverflow:NO raiseOnUnderflow:NO raiseOnDivideByZero:NO];
     NSDecimalNumber *ouncesDecimal = [[NSDecimalNumber alloc] initWithFloat:price];
