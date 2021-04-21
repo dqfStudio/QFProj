@@ -37,6 +37,7 @@
 		A22FA0842400D50500B75C1C /* AppDelegate+NotifyService.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA0832400D50500B75C1C /* AppDelegate+NotifyService.m */; };
 		A22FA0872400D52B00B75C1C /* AppDelegate+SoundService.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA0862400D52B00B75C1C /* AppDelegate+SoundService.m */; };
 		A22FA17F2400DFC900B75C1C /* AppDelegate+UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA17E2400DFC900B75C1C /* AppDelegate+UserService.m */; };
+		A23FBFE3263053AE00F40CBC /* NSDecimalNumber+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A23FBFE2263053AE00F40CBC /* NSDecimalNumber+HUtil.m */; };
 		A25E670C262445FD00863FF8 /* HAnalogNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6345262445FC00863FF8 /* HAnalogNetworkManager.m */; };
 		A25E670D262445FD00863FF8 /* HTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6349262445FC00863FF8 /* HTool.m */; };
 		A25E670E262445FD00863FF8 /* HWebview.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E634B262445FC00863FF8 /* HWebview.m */; };
@@ -519,6 +520,8 @@
 		A22FA0862400D52B00B75C1C /* AppDelegate+SoundService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+SoundService.m"; sourceTree = "<group>"; };
 		A22FA17D2400DFC900B75C1C /* AppDelegate+UserService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+UserService.h"; sourceTree = "<group>"; };
 		A22FA17E2400DFC900B75C1C /* AppDelegate+UserService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+UserService.m"; sourceTree = "<group>"; };
+		A23FBFE1263053AE00F40CBC /* NSDecimalNumber+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDecimalNumber+HUtil.h"; sourceTree = "<group>"; };
+		A23FBFE2263053AE00F40CBC /* NSDecimalNumber+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDecimalNumber+HUtil.m"; sourceTree = "<group>"; };
 		A25E6344262445FC00863FF8 /* HAnalogNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAnalogNetworkManager.h; sourceTree = "<group>"; };
 		A25E6345262445FC00863FF8 /* HAnalogNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAnalogNetworkManager.m; sourceTree = "<group>"; };
 		A25E6347262445FC00863FF8 /* HWebviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebviewVC.h; sourceTree = "<group>"; };
@@ -2051,10 +2054,10 @@
 		A25E643A262445FC00863FF8 /* HNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				A25E643E262445FC00863FF8 /* HNetworkDAO.h */,
 				A25E643B262445FC00863FF8 /* HNetworkDAO.m */,
 				A25E643C262445FC00863FF8 /* HNetworkManager.h */,
 				A25E643D262445FC00863FF8 /* HNetworkManager.m */,
-				A25E643E262445FC00863FF8 /* HNetworkDAO.h */,
 				A25E643F262445FC00863FF8 /* YTKNetwork */,
 			);
 			path = HNetwork;
@@ -2063,24 +2066,24 @@
 		A25E643F262445FC00863FF8 /* YTKNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				A25E6440262445FC00863FF8 /* YTKNetworkConfig.m */,
 				A25E6441262445FC00863FF8 /* YTKBaseRequest.h */,
-				A25E6442262445FC00863FF8 /* YTKChainRequest.m */,
-				A25E6443262445FC00863FF8 /* YTKNetwork.h */,
+				A25E644A262445FC00863FF8 /* YTKBaseRequest.m */,
 				A25E6444262445FC00863FF8 /* YTKBatchRequest.h */,
+				A25E644D262445FC00863FF8 /* YTKBatchRequest.m */,
+				A25E6448262445FC00863FF8 /* YTKBatchRequestAgent.h */,
+				A25E6450262445FC00863FF8 /* YTKBatchRequestAgent.m */,
+				A25E644C262445FC00863FF8 /* YTKChainRequest.h */,
+				A25E6442262445FC00863FF8 /* YTKChainRequest.m */,
+				A25E6449262445FC00863FF8 /* YTKChainRequestAgent.h */,
+				A25E644F262445FC00863FF8 /* YTKChainRequestAgent.m */,
+				A25E6443262445FC00863FF8 /* YTKNetwork.h */,
 				A25E6445262445FC00863FF8 /* YTKNetworkAgent.h */,
+				A25E644E262445FC00863FF8 /* YTKNetworkAgent.m */,
+				A25E644B262445FC00863FF8 /* YTKNetworkConfig.h */,
+				A25E6440262445FC00863FF8 /* YTKNetworkConfig.m */,
+				A25E6451262445FC00863FF8 /* YTKNetworkPrivate.h */,
 				A25E6446262445FC00863FF8 /* YTKNetworkPrivate.m */,
 				A25E6447262445FC00863FF8 /* YTKRequest.h */,
-				A25E6448262445FC00863FF8 /* YTKBatchRequestAgent.h */,
-				A25E6449262445FC00863FF8 /* YTKChainRequestAgent.h */,
-				A25E644A262445FC00863FF8 /* YTKBaseRequest.m */,
-				A25E644B262445FC00863FF8 /* YTKNetworkConfig.h */,
-				A25E644C262445FC00863FF8 /* YTKChainRequest.h */,
-				A25E644D262445FC00863FF8 /* YTKBatchRequest.m */,
-				A25E644E262445FC00863FF8 /* YTKNetworkAgent.m */,
-				A25E644F262445FC00863FF8 /* YTKChainRequestAgent.m */,
-				A25E6450262445FC00863FF8 /* YTKBatchRequestAgent.m */,
-				A25E6451262445FC00863FF8 /* YTKNetworkPrivate.h */,
 				A25E6452262445FC00863FF8 /* YTKRequest.m */,
 			);
 			path = YTKNetwork;
@@ -2137,38 +2140,40 @@
 		A25E6468262445FC00863FF8 /* Ext-Category */ = {
 			isa = PBXGroup;
 			children = (
-				A25E6469262445FC00863FF8 /* NSString+HSize.h */,
-				A25E646A262445FC00863FF8 /* NSDictionary+HUtil.m */,
-				A25E646B262445FC00863FF8 /* NSObject+HMessy.m */,
-				A25E646C262445FC00863FF8 /* NSObject+HName.m */,
-				A25E646D262445FC00863FF8 /* NSString+HUtil.m */,
-				A25E646E262445FC00863FF8 /* NSObject+HUtil.h */,
-				A25E646F262445FC00863FF8 /* HAttributedString.m */,
-				A25E6470262445FC00863FF8 /* NSDate+HUtil.m */,
-				A25E6471262445FC00863FF8 /* NSError+HUtil.h */,
-				A25E6472262445FC00863FF8 /* HSpeechUtil.m */,
-				A25E6473262445FC00863FF8 /* NSObject+HExclusive.m */,
-				A25E6474262445FC00863FF8 /* NSTimer+HUtil.m */,
-				A25E6475262445FC00863FF8 /* NSUserDefaults+HUtil.m */,
 				A25E6476262445FC00863FF8 /* CADisplayLink+HUtil.h */,
-				A25E6477262445FC00863FF8 /* HHexUtil.h */,
-				A25E6478262445FC00863FF8 /* NSMutableAttributedString+HUtil.h */,
-				A25E6479262445FC00863FF8 /* NSObject+HMessy.h */,
-				A25E647A262445FC00863FF8 /* NSDictionary+HUtil.h */,
-				A25E647B262445FC00863FF8 /* NSString+HSize.m */,
-				A25E647C262445FC00863FF8 /* HAttributedString.h */,
-				A25E647D262445FC00863FF8 /* NSString+HUtil.h */,
-				A25E647E262445FC00863FF8 /* NSObject+HUtil.m */,
-				A25E647F262445FC00863FF8 /* NSObject+HName.h */,
-				A25E6480262445FC00863FF8 /* HSpeechUtil.h */,
-				A25E6481262445FC00863FF8 /* NSError+HUtil.m */,
-				A25E6482262445FC00863FF8 /* NSDate+HUtil.h */,
-				A25E6483262445FC00863FF8 /* NSMutableAttributedString+HUtil.m */,
-				A25E6484262445FC00863FF8 /* HHexUtil.m */,
 				A25E6485262445FC00863FF8 /* CADisplayLink+HUtil.m */,
-				A25E6486262445FC00863FF8 /* NSUserDefaults+HUtil.h */,
+				A25E647C262445FC00863FF8 /* HAttributedString.h */,
+				A25E646F262445FC00863FF8 /* HAttributedString.m */,
+				A25E6477262445FC00863FF8 /* HHexUtil.h */,
+				A25E6484262445FC00863FF8 /* HHexUtil.m */,
+				A25E6480262445FC00863FF8 /* HSpeechUtil.h */,
+				A25E6472262445FC00863FF8 /* HSpeechUtil.m */,
+				A25E6482262445FC00863FF8 /* NSDate+HUtil.h */,
+				A25E6470262445FC00863FF8 /* NSDate+HUtil.m */,
+				A25E647A262445FC00863FF8 /* NSDictionary+HUtil.h */,
+				A25E646A262445FC00863FF8 /* NSDictionary+HUtil.m */,
+				A25E6471262445FC00863FF8 /* NSError+HUtil.h */,
+				A25E6481262445FC00863FF8 /* NSError+HUtil.m */,
+				A25E6478262445FC00863FF8 /* NSMutableAttributedString+HUtil.h */,
+				A25E6483262445FC00863FF8 /* NSMutableAttributedString+HUtil.m */,
 				A25E6487262445FC00863FF8 /* NSObject+HExclusive.h */,
+				A25E6473262445FC00863FF8 /* NSObject+HExclusive.m */,
+				A25E6479262445FC00863FF8 /* NSObject+HMessy.h */,
+				A25E646B262445FC00863FF8 /* NSObject+HMessy.m */,
+				A25E647F262445FC00863FF8 /* NSObject+HName.h */,
+				A25E646C262445FC00863FF8 /* NSObject+HName.m */,
+				A25E646E262445FC00863FF8 /* NSObject+HUtil.h */,
+				A25E647E262445FC00863FF8 /* NSObject+HUtil.m */,
+				A25E6469262445FC00863FF8 /* NSString+HSize.h */,
+				A25E647B262445FC00863FF8 /* NSString+HSize.m */,
+				A25E647D262445FC00863FF8 /* NSString+HUtil.h */,
+				A25E646D262445FC00863FF8 /* NSString+HUtil.m */,
 				A25E6488262445FC00863FF8 /* NSTimer+HUtil.h */,
+				A25E6474262445FC00863FF8 /* NSTimer+HUtil.m */,
+				A25E6486262445FC00863FF8 /* NSUserDefaults+HUtil.h */,
+				A25E6475262445FC00863FF8 /* NSUserDefaults+HUtil.m */,
+				A23FBFE1263053AE00F40CBC /* NSDecimalNumber+HUtil.h */,
+				A23FBFE2263053AE00F40CBC /* NSDecimalNumber+HUtil.m */,
 			);
 			path = "Ext-Category";
 			sourceTree = "<group>";
@@ -2739,14 +2744,14 @@
 		A25E65DA262445FD00863FF8 /* HTupleViewApex */ = {
 			isa = PBXGroup;
 			children = (
-				A25E65DB262445FD00863FF8 /* HTupleViewApexVertValue1.h */,
 				A25E65DC262445FD00863FF8 /* HTupleBaseApex.h */,
+				A25E65E0262445FD00863FF8 /* HTupleBaseApex.m */,
+				A25E65E2262445FD00863FF8 /* HTupleViewApex.h */,
 				A25E65DD262445FD00863FF8 /* HTupleViewApex.m */,
 				A25E65DE262445FD00863FF8 /* HTupleViewApexHoriValue1.h */,
-				A25E65DF262445FD00863FF8 /* HTupleViewApexVertValue1.m */,
-				A25E65E0262445FD00863FF8 /* HTupleBaseApex.m */,
 				A25E65E1262445FD00863FF8 /* HTupleViewApexHoriValue1.m */,
-				A25E65E2262445FD00863FF8 /* HTupleViewApex.h */,
+				A25E65DB262445FD00863FF8 /* HTupleViewApexVertValue1.h */,
+				A25E65DF262445FD00863FF8 /* HTupleViewApexVertValue1.m */,
 			);
 			path = HTupleViewApex;
 			sourceTree = "<group>";
@@ -3705,6 +3710,7 @@
 				A25E6872262445FE00863FF8 /* HUncaughtExceptionHandler.m in Sources */,
 				A25E689C262445FE00863FF8 /* UIControl+HSafeUtil.m in Sources */,
 				15B4DD762092F88700773E04 /* main.m in Sources */,
+				A23FBFE3263053AE00F40CBC /* NSDecimalNumber+HUtil.m in Sources */,
 				A25E684A262445FE00863FF8 /* HWebImageView.m in Sources */,
 				A25E67F2262445FE00863FF8 /* KSCrashInstallationStandard.m in Sources */,
 				A25E67E0262445FE00863FF8 /* KSLogger.c in Sources */,

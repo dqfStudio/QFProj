@@ -39,6 +39,7 @@
 #import "NSString+HUtil.h"
 #import "NSString+HSize.h"
 #import "NSUserDefaults+HUtil.h"
+#import "NSDecimalNumber+HUtil.h"
 #import "HAttributedString.h"
 #import "NSTimer+HUtil.h"
 #import "CADisplayLink+HUtil.h"
