@@ -26,7 +26,7 @@
     NSString *priceString = [NSString stringWithFormat:@"%@",roundedOunces];
     if (exclusive) {
         NSMutableString *mutableString = NSMutableString.new;
-        for (int i=0; position; i++) {
+        for (int i=0; i<position; i++) {
             [mutableString appendString:@"0"];
         }
         priceString = [NSString stringWithFormat:@"%@.%@",priceString, mutableString];
