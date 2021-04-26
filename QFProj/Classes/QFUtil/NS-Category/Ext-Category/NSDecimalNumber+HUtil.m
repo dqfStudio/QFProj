@@ -11,7 +11,7 @@
 @implementation NSDecimalNumber (HUtil)
 
 //exclusive默认为YES
-+ (NSString *)notRounding:(CGFloat)price afterPoint:(NSInteger)position {
++ (NSString *)notRounding:(NSNumber *)price afterPoint:(NSInteger)position {
     return [NSDecimalNumber notRounding:price afterPoint:position exclusive:YES];
 }
 
@@ -19,7 +19,7 @@
 //如 price=2.65, position=1，则结果为2.6
 //如 price=3, position=1， exclusive=YES，则结果为3.0
 //如 price=3, position=1， exclusive=NO，则结果为3
-+ (NSString *)notRounding:(CGFloat)price afterPoint:(NSInteger)position exclusive:(BOOL)exclusive {
++ (NSString *)notRounding:(NSNumber *)price afterPoint:(NSInteger)position exclusive:(BOOL)exclusive {
     NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
     //不四舍五入
     numberFormatter.roundingMode = NSNumberFormatterRoundDown;
@@ -30,7 +30,7 @@
     numberFormatter.groupingSeparator = @",";
     numberFormatter.decimalSeparator = @".";
     
-    NSDecimalNumber *decimal = [[NSDecimalNumber alloc] initWithFloat:price];
+    NSDecimalNumber *decimal = [[NSDecimalNumber alloc] initWithDouble:price.doubleValue];
     return [numberFormatter stringFromNumber:decimal];
 }
 
@@ -40,7 +40,7 @@
 + (NSString *)decimalNumber:(NSString *)multiplierString multiplyingBy:(NSString *)multiplicandString {
     NSDecimalNumber *multiplier = [NSDecimalNumber decimalNumberWithString:multiplierString];
     multiplier = [multiplier decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:multiplicandString]];
-    return [NSDecimalNumber notRounding:multiplier.floatValue afterPoint:2 exclusive:NO];
+    return [NSDecimalNumber notRounding:multiplier afterPoint:2 exclusive:NO];
 }
 
 //divisor除以dividend
@@ -49,7 +49,7 @@
 + (NSString *)decimalNumber:(NSString *)divisorString dividingBy:(NSString *)dividendString {
     NSDecimalNumber *divisor = [NSDecimalNumber decimalNumberWithString:divisorString];
     divisor = [divisor decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:dividendString]];
-    return [NSDecimalNumber notRounding:divisor.floatValue afterPoint:2 exclusive:NO];
+    return [NSDecimalNumber notRounding:divisor afterPoint:2 exclusive:NO];
 }
 
 @end
