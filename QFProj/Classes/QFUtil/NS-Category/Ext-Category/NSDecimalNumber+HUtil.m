@@ -11,6 +11,12 @@
 @implementation NSDecimalNumber (HUtil)
 
 //exclusive默认为YES
+//默认保留两位小数
++ (NSString *)notRounding:(NSNumber *)price {
+    return [NSDecimalNumber notRounding:price afterPoint:2 exclusive:YES];
+}
+
+//exclusive默认为YES
 + (NSString *)notRounding:(NSNumber *)price afterPoint:(NSInteger)position {
     return [NSDecimalNumber notRounding:price afterPoint:position exclusive:YES];
 }
@@ -36,7 +42,7 @@
 
 //multiplier乘以multiplicand
 //multiplierString为乘数，multiplicandString为被乘数
-//保留两位小数
+//保留两位小数，exclusive默认为NO
 + (NSString *)decimalNumber:(NSString *)multiplierString multiplyingBy:(NSString *)multiplicandString {
     NSDecimalNumber *multiplier = [NSDecimalNumber decimalNumberWithString:multiplierString];
     multiplier = [multiplier decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:multiplicandString]];
@@ -45,7 +51,7 @@
 
 //divisor除以dividend
 //divisorString为除数，dividendString为被除数
-//保留两位小数
+//保留两位小数，exclusive默认为NO
 + (NSString *)decimalNumber:(NSString *)divisorString dividingBy:(NSString *)dividendString {
     NSDecimalNumber *divisor = [NSDecimalNumber decimalNumberWithString:divisorString];
     divisor = [divisor decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:dividendString]];

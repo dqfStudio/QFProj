@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDecimalNumber (HUtil)
 //exclusive默认为YES
+//默认保留两位小数
++ (NSString *)notRounding:(NSNumber *)price;
+//exclusive默认为YES
 + (NSString *)notRounding:(NSNumber *)price afterPoint:(NSInteger)position;
 //取小数点儿后的几位数，不四舍五入
 //如 price=2.65, position=1，则结果为2.6
@@ -20,11 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)notRounding:(NSNumber *)price afterPoint:(NSInteger)position exclusive:(BOOL)exclusive;
 //multiplier乘以multiplicand
 //multiplierString为乘数，multiplicandString为被乘数
-//保留两位小数
+//保留两位小数，exclusive默认为NO
 + (NSString *)decimalNumber:(NSString *)multiplierString multiplyingBy:(NSString *)multiplicandString;
 //divisor除以dividend
 //divisorString为除数，dividendString为被除数
-//保留两位小数
+//保留两位小数，exclusive默认为NO
 + (NSString *)decimalNumber:(NSString *)divisorString dividingBy:(NSString *)dividendString;
 @end
 
