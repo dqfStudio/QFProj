@@ -109,6 +109,7 @@ typedef NS_OPTIONS(NSUInteger, HVCDisappearType) {
 //统一iOS6及以上系统控制导航栏的方式，匀采用代理方式
 //控制器想要实现导航栏的隐藏与否，需要实现以下两个方法，当状态栏状态改性时需要调用-setNeedsNavigationBarAppearanceUpdate
 //以刷新导航栏状态, 默认实现是显示导航栏和没有动画
+- (BOOL)prefersBackButtonHidden;
 - (BOOL)prefersTopBarLineHidden;
 - (BOOL)prefersNavigationBarHidden;
 - (UIColor *)preferredNaviBarColor;

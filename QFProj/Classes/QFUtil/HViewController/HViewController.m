@@ -143,6 +143,8 @@
     [self.view bringSubviewToFront:self.topBar];
     //要更新statusbar状态的需要调用下这个方法,最好与viewWillDisappear对应
     [self setNeedsStatusBarAppearanceUpdate];
+    //返回按钮是否隐藏
+    self.leftNaviButton.hidden = self.prefersBackButtonHidden;
     //根据导航栏的颜色动态设置状态栏样式
     if (self.preferredStatusBarColor) {
         [UIApplication setStatusBarStyleWithColor:self.preferredStatusBarColor];
@@ -457,6 +459,10 @@
     self.topBar.hidden = [self prefersNavigationBarHidden];
     self.topBar.backgroundColor = [self preferredNaviBarColor];
     self.topBarLine.backgroundColor = [self preferredNaviShadowColor];
+}
+
+- (BOOL)prefersBackButtonHidden {
+    return NO;
 }
 
 - (BOOL)prefersTopBarLineHidden {
