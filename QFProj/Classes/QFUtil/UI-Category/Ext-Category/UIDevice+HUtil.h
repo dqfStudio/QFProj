@@ -27,9 +27,14 @@
 /// @see http://theiphonewiki.com/wiki/Models
 @property (nonatomic, readonly) NSString *_Nonnull machineModel;
 
-/// 设备型号名称，例如："iPhone 5s" "iPad mini 2"
-/// @see http://theiphonewiki.com/wiki/Models
-@property (nonatomic, readonly) NSString *_Nonnull machineModelName;
+//获取手机系统版本
+@property (nonatomic, readonly) NSString *_Nonnull deviceVersion;
+
+//获取手机用户自定义名称
+@property (nonatomic, readonly) NSString *_Nonnull deviceName;
+
+//获取手机UDID
+@property (nonatomic, readonly) NSString *_Nonnull deviceUdid;
 
 #pragma mark - Disk Space
 

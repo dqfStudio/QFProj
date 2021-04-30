@@ -37,7 +37,7 @@
 
 - (NSString *)uuid {
     static dispatch_once_t onceToken;
-    static NSString *uuid = @"";
+    static NSString *uuid;
     dispatch_once(&onceToken, ^{
         uuid = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
     });
@@ -62,6 +62,36 @@
         struct utsname systemInfo;
         uname(&systemInfo);
         model = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+    });
+    return model;
+}
+
+//获取手机系统版本
+- (NSString *)deviceVersion {
+    static dispatch_once_t once;
+    static NSString *model;
+    dispatch_once(&once, ^{
+        model = [[UIDevice currentDevice] systemVersion];
+    });
+    return model;
+}
+
+//获取手机用户自定义名称
+- (NSString *)deviceName {
+    static dispatch_once_t once;
+    static NSString *model;
+    dispatch_once(&once, ^{
+        model = [[UIDevice currentDevice] name];
+    });
+    return model;
+}
+
+//获取手机UDID
+- (NSString *)deviceUdid {
+    static dispatch_once_t once;
+    static NSString *model;
+    dispatch_once(&once, ^{
+        model = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     });
     return model;
 }
