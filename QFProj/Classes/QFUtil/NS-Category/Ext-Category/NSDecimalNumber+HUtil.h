@@ -11,24 +11,23 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDecimalNumber (HUtil)
-//exclusive默认为YES
-//默认保留两位小数
-+ (NSString *)notRounding:(NSNumber *)price;
-//exclusive默认为YES
-+ (NSString *)notRounding:(NSNumber *)price afterPoint:(NSInteger)position;
-//取小数点儿后的几位数，不四舍五入
-//如 price=2.65, position=1，则结果为2.6
-//如 price=3, position=1， exclusive=YES，则结果为3.0
-//如 price=3, position=1， exclusive=NO，则结果为3
-+ (NSString *)notRounding:(NSNumber *)price afterPoint:(NSInteger)position exclusive:(BOOL)exclusive;
-//multiplier乘以multiplicand
-//multiplierString为乘数，multiplicandString为被乘数
-//保留两位小数，exclusive默认为NO
-+ (NSString *)decimalNumber:(NSString *)multiplierString multiplyingBy:(NSString *)multiplicandString;
-//divisor除以dividend
-//divisorString为除数，dividendString为被除数
-//保留两位小数，exclusive默认为NO
-+ (NSString *)decimalNumber:(NSString *)divisorString dividingBy:(NSString *)dividendString;
+//加
+- (NSString *)decimalNumberByAddingStringValue:(NSString *)string;
+- (NSString *)decimalNumberByAddingStringValue:(NSString *)string pointZero:(BOOL)pointZero;
+
+//减
+- (NSString *)decimalNumberBySubtractingStringValue:(NSString *)string;
+- (NSString *)decimalNumberBySubtractingStringValue:(NSString *)string pointZero:(BOOL)pointZero;
+
+//乘
+- (NSString *)decimalNumberByMultiplyingStringValue:(NSString *)string;
+- (NSString *)decimalNumberByMultiplyingStringValue:(NSString *)string pointZero:(BOOL)pointZero;
+
+//除
+- (NSString *)decimalNumberByDividingStringValue:(NSString *)string;
+- (NSString *)decimalNumberByDividingStringValue:(NSString *)string pointZero:(BOOL)pointZero;
+
 @end
+
 
 NS_ASSUME_NONNULL_END

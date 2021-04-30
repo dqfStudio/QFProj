@@ -41,6 +41,7 @@
 		A23BFB65263BCD2000501F79 /* HUserDefaults+Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB61263BCD2000501F79 /* HUserDefaults+Properties.m */; };
 		A23BFB66263BCD2000501F79 /* HUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB63263BCD2000501F79 /* HUserDefaults.m */; };
 		A23BFB74263BE9F100501F79 /* HNetSpeedMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB73263BE9F100501F79 /* HNetSpeedMonitor.m */; };
+		A23BFB8E263C1F2100501F79 /* NSNumber+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB8D263C1F2100501F79 /* NSNumber+HUtil.m */; };
 		A23FBFE3263053AE00F40CBC /* NSDecimalNumber+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A23FBFE2263053AE00F40CBC /* NSDecimalNumber+HUtil.m */; };
 		A25E670C262445FD00863FF8 /* HAnalogNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6345262445FC00863FF8 /* HAnalogNetworkManager.m */; };
 		A25E670D262445FD00863FF8 /* HTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6349262445FC00863FF8 /* HTool.m */; };
@@ -532,6 +533,8 @@
 		A23BFB64263BCD2000501F79 /* HUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUserDefaults.h; sourceTree = "<group>"; };
 		A23BFB72263BE9F100501F79 /* HNetSpeedMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNetSpeedMonitor.h; sourceTree = "<group>"; };
 		A23BFB73263BE9F100501F79 /* HNetSpeedMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNetSpeedMonitor.m; sourceTree = "<group>"; };
+		A23BFB8C263C1F2100501F79 /* NSNumber+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNumber+HUtil.h"; sourceTree = "<group>"; };
+		A23BFB8D263C1F2100501F79 /* NSNumber+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+HUtil.m"; sourceTree = "<group>"; };
 		A23FBFE1263053AE00F40CBC /* NSDecimalNumber+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDecimalNumber+HUtil.h"; sourceTree = "<group>"; };
 		A23FBFE2263053AE00F40CBC /* NSDecimalNumber+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDecimalNumber+HUtil.m"; sourceTree = "<group>"; };
 		A25E6344262445FC00863FF8 /* HAnalogNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAnalogNetworkManager.h; sourceTree = "<group>"; };
@@ -2192,6 +2195,8 @@
 				A25E6475262445FC00863FF8 /* NSUserDefaults+HUtil.m */,
 				A23FBFE1263053AE00F40CBC /* NSDecimalNumber+HUtil.h */,
 				A23FBFE2263053AE00F40CBC /* NSDecimalNumber+HUtil.m */,
+				A23BFB8C263C1F2100501F79 /* NSNumber+HUtil.h */,
+				A23BFB8D263C1F2100501F79 /* NSNumber+HUtil.m */,
 				A23BFB1D263AC2FA00501F79 /* HDecimalUtil.h */,
 				A23BFB1E263AC2FA00501F79 /* HDecimalUtil.m */,
 			);
@@ -3729,6 +3734,7 @@
 				A25E6817262445FE00863FF8 /* HKBUIView+Hierarchy.m in Sources */,
 				A25E68B4262445FE00863FF8 /* HTransitionAnimation.m in Sources */,
 				A25E6874262445FE00863FF8 /* UIView+HAlert.m in Sources */,
+				A23BFB8E263C1F2100501F79 /* NSNumber+HUtil.m in Sources */,
 				A25E671C262445FD00863FF8 /* HMonitor.m in Sources */,
 				A25E6872262445FE00863FF8 /* HUncaughtExceptionHandler.m in Sources */,
 				A25E689C262445FE00863FF8 /* UIControl+HSafeUtil.m in Sources */,
