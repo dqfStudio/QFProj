@@ -1848,24 +1848,24 @@
 		A25E63D7262445FC00863FF8 /* Ext-Category */ = {
 			isa = PBXGroup;
 			children = (
-				A25E63D8262445FC00863FF8 /* UILabel+HState.h */,
-				A25E63D9262445FC00863FF8 /* UIGestureRecognizer+HUtil.h */,
-				A25E63DA262445FC00863FF8 /* UIImage+HUtil.m */,
-				A25E63DB262445FC00863FF8 /* UIScreen+HUtil.h */,
 				A25E63DC262445FC00863FF8 /* UIApplication+HUtil.h */,
-				A25E63DD262445FC00863FF8 /* UIDevice+HUtil.h */,
-				A25E63DE262445FC00863FF8 /* UIColor+HUtil.h */,
-				A25E63DF262445FC00863FF8 /* UILabel+HUtil.h */,
-				A25E63E0262445FC00863FF8 /* UIImage+QRCode.h */,
-				A25E63E1262445FC00863FF8 /* UILabel+HState.m */,
-				A25E63E2262445FC00863FF8 /* UIGestureRecognizer+HUtil.m */,
 				A25E63E3262445FC00863FF8 /* UIApplication+HUtil.m */,
-				A25E63E4262445FC00863FF8 /* UIDevice+HUtil.m */,
-				A25E63E5262445FC00863FF8 /* UIScreen+HUtil.m */,
-				A25E63E6262445FC00863FF8 /* UIImage+HUtil.h */,
-				A25E63E7262445FC00863FF8 /* UILabel+HUtil.m */,
+				A25E63DE262445FC00863FF8 /* UIColor+HUtil.h */,
 				A25E63E8262445FC00863FF8 /* UIColor+HUtil.m */,
+				A25E63DD262445FC00863FF8 /* UIDevice+HUtil.h */,
+				A25E63E4262445FC00863FF8 /* UIDevice+HUtil.m */,
+				A25E63D9262445FC00863FF8 /* UIGestureRecognizer+HUtil.h */,
+				A25E63E2262445FC00863FF8 /* UIGestureRecognizer+HUtil.m */,
+				A25E63E6262445FC00863FF8 /* UIImage+HUtil.h */,
+				A25E63DA262445FC00863FF8 /* UIImage+HUtil.m */,
+				A25E63E0262445FC00863FF8 /* UIImage+QRCode.h */,
 				A25E63E9262445FC00863FF8 /* UIImage+QRCode.m */,
+				A25E63D8262445FC00863FF8 /* UILabel+HState.h */,
+				A25E63E1262445FC00863FF8 /* UILabel+HState.m */,
+				A25E63DF262445FC00863FF8 /* UILabel+HUtil.h */,
+				A25E63E7262445FC00863FF8 /* UILabel+HUtil.m */,
+				A25E63DB262445FC00863FF8 /* UIScreen+HUtil.h */,
+				A25E63E5262445FC00863FF8 /* UIScreen+HUtil.m */,
 			);
 			path = "Ext-Category";
 			sourceTree = "<group>";
@@ -2689,8 +2689,8 @@
 		A25E65BC262445FD00863FF8 /* HFileCache */ = {
 			isa = PBXGroup;
 			children = (
-				A25E65BD262445FD00863FF8 /* HFileCache.m */,
 				A25E65BE262445FD00863FF8 /* HFileCache.h */,
+				A25E65BD262445FD00863FF8 /* HFileCache.m */,
 			);
 			path = HFileCache;
 			sourceTree = "<group>";
@@ -2698,18 +2698,18 @@
 		A25E65BF262445FD00863FF8 /* HCycleScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				A25E65C0262445FD00863FF8 /* UIView+HExtension.h */,
-				A25E65C1262445FD00863FF8 /* HCollectionViewCell.m */,
-				A25E65C2262445FD00863FF8 /* HPageControl */,
-				A25E65CF262445FD00863FF8 /* HTupleViewBannerCell.h */,
-				A25E65D0262445FD00863FF8 /* HTupleViewBannerApex.m */,
-				A25E65D1262445FD00863FF8 /* HCycleScrollView.m */,
-				A25E65D2262445FD00863FF8 /* HCyclePlaceholder@2x.png */,
-				A25E65D3262445FD00863FF8 /* UIView+HExtension.m */,
-				A25E65D4262445FD00863FF8 /* HTupleViewBannerCell.m */,
 				A25E65D5262445FD00863FF8 /* HCollectionViewCell.h */,
+				A25E65C1262445FD00863FF8 /* HCollectionViewCell.m */,
+				A25E65D2262445FD00863FF8 /* HCyclePlaceholder@2x.png */,
 				A25E65D6262445FD00863FF8 /* HCycleScrollView.h */,
+				A25E65D1262445FD00863FF8 /* HCycleScrollView.m */,
+				A25E65C2262445FD00863FF8 /* HPageControl */,
 				A25E65D7262445FD00863FF8 /* HTupleViewBannerApex.h */,
+				A25E65D0262445FD00863FF8 /* HTupleViewBannerApex.m */,
+				A25E65CF262445FD00863FF8 /* HTupleViewBannerCell.h */,
+				A25E65D4262445FD00863FF8 /* HTupleViewBannerCell.m */,
+				A25E65C0262445FD00863FF8 /* UIView+HExtension.h */,
+				A25E65D3262445FD00863FF8 /* UIView+HExtension.m */,
 			);
 			path = HCycleScrollView;
 			sourceTree = "<group>";

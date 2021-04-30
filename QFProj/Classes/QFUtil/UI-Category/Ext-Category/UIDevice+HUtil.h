@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AdSupport/ASIdentifierManager.h>
 
 @interface UIDevice (HUtil)
 
@@ -15,6 +16,9 @@
 
 /// 判断设备是否为模拟器
 @property (nonatomic, readonly) BOOL isSimulator;
+
+/// 设备的UUID
+@property (nonatomic, readonly) NSString * _Nullable uuid;
 
 /// 判断设备是否能打电话
 @property (nonatomic, readonly) BOOL canMakePhoneCalls NS_EXTENSION_UNAVAILABLE_IOS("");

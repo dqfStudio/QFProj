@@ -35,6 +35,15 @@
 #endif
 }
 
+- (NSString *)uuid {
+    static dispatch_once_t onceToken;
+    static NSString *uuid = @"";
+    dispatch_once(&onceToken, ^{
+        uuid = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    });
+    return uuid;
+}
+
 #ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
 - (BOOL)canMakePhoneCalls {
     __block BOOL can;
