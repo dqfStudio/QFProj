@@ -16,7 +16,11 @@
 }
 - (NSString *)decimalNumberByAddingStringValue:(NSString *)string pointZero:(BOOL)pointZero {
     NSDecimalNumber *addend = [self decimalNumberByAdding:[NSDecimalNumber decimalNumberWithString:string]];
-    return [addend roundDownWithAfterPoint:2 pointZero:pointZero];
+    return [addend makeFormatter:^(HDecimalFormatter * _Nonnull make) {
+        make.roundingMode = roundDown;
+        make.afterPoint = 2;
+        make.pointZero = pointZero;
+    }];
 }
 
 //减
@@ -25,7 +29,11 @@
 }
 - (NSString *)decimalNumberBySubtractingStringValue:(NSString *)string pointZero:(BOOL)pointZero {
     NSDecimalNumber *subtraction = [self decimalNumberBySubtracting:[NSDecimalNumber decimalNumberWithString:string]];
-    return [subtraction roundDownWithAfterPoint:2 pointZero:pointZero];
+    return [subtraction makeFormatter:^(HDecimalFormatter * _Nonnull make) {
+        make.roundingMode = roundDown;
+        make.afterPoint = 2;
+        make.pointZero = pointZero;
+    }];
 }
 
 //乘
@@ -34,7 +42,11 @@
 }
 - (NSString *)decimalNumberByMultiplyingStringValue:(NSString *)string pointZero:(BOOL)pointZero {
     NSDecimalNumber *multiplier = [self decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:string]];
-    return [multiplier roundDownWithAfterPoint:2 pointZero:pointZero];
+    return [multiplier makeFormatter:^(HDecimalFormatter * _Nonnull make) {
+        make.roundingMode = roundDown;
+        make.afterPoint = 2;
+        make.pointZero = pointZero;
+    }];
 }
 
 //除
@@ -43,7 +55,11 @@
 }
 - (NSString *)decimalNumberByDividingStringValue:(NSString *)string pointZero:(BOOL)pointZero {
     NSDecimalNumber *divisor = [self decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:string]];
-    return [divisor roundDownWithAfterPoint:2 pointZero:pointZero];
+    return [divisor makeFormatter:^(HDecimalFormatter * _Nonnull make) {
+        make.roundingMode = roundDown;
+        make.afterPoint = 2;
+        make.pointZero = pointZero;
+    }];
 }
 
 @end
