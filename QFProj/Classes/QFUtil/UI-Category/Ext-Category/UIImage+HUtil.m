@@ -9,6 +9,14 @@
 #import "UIImage+HUtil.h"
 #import <objc/runtime.h>
 
+static const void *CompleteBlockKey = &CompleteBlockKey;
+static const void *FailBlockKey    = &FailBlockKey;
+
+@interface UIImage ()
+@property(nonatomic, copy) void(^CompleteBlock)(void);
+@property(nonatomic, copy) void(^FailBlock)(void);
+@end
+
 @implementation UIImage (HUtil)
 
 + (UIImage *)imageFromName:(NSString *)aName {
@@ -165,6 +173,237 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
+}
+
+/**
+ *  拉伸图片
+ */
+#pragma mark  拉伸图片:自定义比例
++ (UIImage *)resizeWithImageName:(NSString *)name leftCap:(CGFloat)leftCap topCap:(CGFloat)topCap {
+    UIImage *image = [self imageNamed:name];
+    return [image stretchableImageWithLeftCapWidth:image.size.width * leftCap topCapHeight:image.size.height * topCap];
+}
+
+
+#pragma mark  拉伸图片
++ (UIImage *)resizeWithImageName:(NSString *)name {
+    return [self resizeWithImageName:name leftCap:.5f topCap:.5f];
+    
+}
+
++ (UIImage *)clipCircleImage:(NSString *)name {
+    return [[self imageNamed:name] clipCircleImage];
+}
+
+#pragma mark 图片缩放
+- (UIImage *)scaleImage:(UIImage *)image size:(CGSize)size {
+    UIGraphicsBeginImageContext(size);
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return scaledImage;
+}
+
+#pragma mark 图片切圆
+- (UIImage *)clipCircleImage {
+    UIGraphicsBeginImageContext(self.size);
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGRect rect = CGRectMake(0, 0, self.size.width, self.size.width);
+    CGContextAddEllipseInRect(ctx, rect);
+    CGContextClip(ctx);
+    [self drawInRect:rect];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+#pragma mark 图片比例
+- (CGFloat)getImageHightWidthScale {
+    return self.size.height / self.size.width;
+}
+
+#pragma mark 图片防止倒立
+- (UIImage *)fixOrientation {
+    if (self.imageOrientation == UIImageOrientationUp) return self;
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    
+    switch (self.imageOrientation) {
+        case UIImageOrientationDown:
+        case UIImageOrientationDownMirrored:
+            transform = CGAffineTransformTranslate(transform, self.size.width, self.size.height);
+            transform = CGAffineTransformRotate(transform, M_PI);
+            break;
+            
+        case UIImageOrientationLeft:
+        case UIImageOrientationLeftMirrored:
+            transform = CGAffineTransformTranslate(transform, self.size.width, 0);
+            transform = CGAffineTransformRotate(transform, M_PI_2);
+            break;
+            
+        case UIImageOrientationRight:
+        case UIImageOrientationRightMirrored:
+            transform = CGAffineTransformTranslate(transform, 0, self.size.height);
+            transform = CGAffineTransformRotate(transform, -M_PI_2);
+            break;
+        default:
+            break;
+    }
+    
+    switch (self.imageOrientation) {
+        case UIImageOrientationUpMirrored:
+        case UIImageOrientationDownMirrored:
+            transform = CGAffineTransformTranslate(transform, self.size.width, 0);
+            transform = CGAffineTransformScale(transform, -1, 1);
+            break;
+            
+        case UIImageOrientationLeftMirrored:
+        case UIImageOrientationRightMirrored:
+            transform = CGAffineTransformTranslate(transform, self.size.height, 0);
+            transform = CGAffineTransformScale(transform, -1, 1);
+            break;
+        default:
+            break;
+    }
+    
+    CGContextRef ctx = CGBitmapContextCreate(NULL, self.size.width, self.size.height,
+                                             CGImageGetBitsPerComponent(self.CGImage), 0,
+                                             CGImageGetColorSpace(self.CGImage),
+                                             CGImageGetBitmapInfo(self.CGImage));
+    CGContextConcatCTM(ctx, transform);
+    
+    switch (self.imageOrientation) {
+        case UIImageOrientationLeft:
+        case UIImageOrientationLeftMirrored:
+        case UIImageOrientationRight:
+        case UIImageOrientationRightMirrored:
+            CGContextDrawImage(ctx, CGRectMake(0,0,self.size.height,self.size.width), self.CGImage);
+            break;
+            
+        default:
+            CGContextDrawImage(ctx, CGRectMake(0,0,self.size.width,self.size.height), self.CGImage);
+            break;
+    }
+    
+    CGImageRef cgimage = CGBitmapContextCreateImage(ctx);
+    UIImage *image = [UIImage imageWithCGImage:cgimage];
+    CGContextRelease(ctx);
+    CGImageRelease(cgimage);
+    
+    return image;
+}
+
++ (UIImage *)thumbnailWithImage:(UIImage *)originalImage size:(CGSize)size {
+    CGSize originalsize = [originalImage size];
+    if (originalsize.width<size.width && originalsize.height<size.height) { //原图长宽均小于标准长宽的，不作处理返回原图
+        return originalImage;
+    }else if (originalsize.width>size.width && originalsize.height>size.height) { //原图长宽均大于标准长宽的，按比例缩小至最大适应值
+        CGFloat rate = 1.0;
+        CGFloat widthRate = originalsize.width/size.width;
+        CGFloat heightRate = originalsize.height/size.height;
+        rate = widthRate>heightRate?heightRate:widthRate;
+        CGImageRef imageRef = nil;
+        
+        if (heightRate>widthRate) {
+            imageRef = CGImageCreateWithImageInRect([originalImage CGImage], CGRectMake(0, originalsize.height/2-size.height*rate/2, originalsize.width, size.height*rate));//获取图片整体部分
+        }else {
+            imageRef = CGImageCreateWithImageInRect([originalImage CGImage], CGRectMake(originalsize.width/2-size.width*rate/2, 0, size.width*rate, originalsize.height));//获取图片整体部分
+        }
+        
+        UIGraphicsBeginImageContext(size);//指定要绘画图片的大小
+        CGContextRef con = UIGraphicsGetCurrentContext();
+
+        CGContextTranslateCTM(con, 0.0, size.height);
+        CGContextScaleCTM(con, 1.0, -1.0);
+        CGContextDrawImage(con, CGRectMake(0, 0, size.width, size.height), imageRef);
+
+        UIImage *standardImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        CGImageRelease(imageRef);
+        return standardImage;
+    }
+    //原图长宽有一项大于标准长宽的，对大于标准的那一项进行裁剪，另一项保持不变
+    else if (originalsize.height>size.height || originalsize.width>size.width) {
+        CGImageRef imageRef = nil;
+        if (originalsize.height>size.height) {
+            imageRef = CGImageCreateWithImageInRect([originalImage CGImage], CGRectMake(0, originalsize.height/2-size.height/2, originalsize.width, size.height));//获取图片整体部分
+        }else if (originalsize.width>size.width) {
+            imageRef = CGImageCreateWithImageInRect([originalImage CGImage], CGRectMake(originalsize.width/2-size.width/2, 0, size.width, originalsize.height));//获取图片整体部分
+        }
+
+        UIGraphicsBeginImageContext(size);//指定要绘画图片的大小
+        CGContextRef con = UIGraphicsGetCurrentContext();
+        CGContextTranslateCTM(con, 0.0, size.height);
+        CGContextScaleCTM(con, 1.0, -1.0);
+        CGContextDrawImage(con, CGRectMake(0, 0, size.width, size.height), imageRef);
+
+        UIImage *standardImage = UIGraphicsGetImageFromCurrentImageContext();
+        //NSLog(@"改变后图片的宽度为%f,图片的高度为%f",[standardImage size].width,[standardImage size].height);
+        UIGraphicsEndImageContext();
+        CGImageRelease(imageRef);
+
+        return standardImage;
+    }
+    //原图为标准长宽的，不做处理
+    else {
+        return originalImage;
+    }
+    
+}
+
+/**
+ *  保存相册
+ *
+ *  @param completeBlock 成功回调
+ *  @param failBlock 出错回调
+ */
+- (void)savedPhotosAlbum:(void(^)(void))completeBlock failBlock:(void(^)(void))failBlock {
+    UIImageWriteToSavedPhotosAlbum(self, self, @selector(image:didFinishSavingWithError:contextInfo:),NULL);
+    self.CompleteBlock = completeBlock;
+    self.FailBlock = failBlock;
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    if (error == nil) {
+        if (self.CompleteBlock != nil) self.CompleteBlock();
+    }else {
+        if(self.FailBlock !=nil) self.FailBlock();
+    }
+}
+
++ (UIImage *)compressImage:(UIImage*)sourceImage toTargetWidth:(CGFloat)targetWidth {
+    //获取原图片的大小尺寸
+    CGSize imageSize = sourceImage.size;
+    CGFloat width = imageSize.width;
+    CGFloat height = imageSize.height;
+    //根据目标图片的宽度计算目标图片的高度
+    CGFloat targetHeight = (targetWidth / width) * height;
+    //开启图片上下文
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(targetWidth, targetHeight), NO, [UIScreen mainScreen].scale);
+    //绘制图片
+    [sourceImage drawInRect:CGRectMake(0,0, targetWidth, targetHeight)];
+    //从上下文中获取绘制好的图片
+    UIImage*newImage = UIGraphicsGetImageFromCurrentImageContext();
+    //关闭图片上下文
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
+/*
+ *  模拟成员变量
+ */
+- (void (^)(void))FailBlock{
+    return objc_getAssociatedObject(self, FailBlockKey);
+}
+- (void)setFailBlock:(void (^)(void))FailBlock{
+    objc_setAssociatedObject(self, FailBlockKey, FailBlock, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (void (^)(void))CompleteBlock{
+    return objc_getAssociatedObject(self, CompleteBlockKey);
+}
+
+- (void)setCompleteBlock:(void (^)(void))CompleteBlock{
+    objc_setAssociatedObject(self, CompleteBlockKey, CompleteBlock, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end
