@@ -40,6 +40,7 @@
 		A23BFB1F263AC2FA00501F79 /* HDecimalUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB1E263AC2FA00501F79 /* HDecimalUtil.m */; };
 		A23BFB65263BCD2000501F79 /* HUserDefaults+Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB61263BCD2000501F79 /* HUserDefaults+Properties.m */; };
 		A23BFB66263BCD2000501F79 /* HUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB63263BCD2000501F79 /* HUserDefaults.m */; };
+		A23BFB74263BE9F100501F79 /* HNetSpeedMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB73263BE9F100501F79 /* HNetSpeedMonitor.m */; };
 		A23FBFE3263053AE00F40CBC /* NSDecimalNumber+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A23FBFE2263053AE00F40CBC /* NSDecimalNumber+HUtil.m */; };
 		A25E670C262445FD00863FF8 /* HAnalogNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6345262445FC00863FF8 /* HAnalogNetworkManager.m */; };
 		A25E670D262445FD00863FF8 /* HTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6349262445FC00863FF8 /* HTool.m */; };
@@ -529,6 +530,8 @@
 		A23BFB62263BCD2000501F79 /* HUserDefaults+Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HUserDefaults+Properties.h"; sourceTree = "<group>"; };
 		A23BFB63263BCD2000501F79 /* HUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUserDefaults.m; sourceTree = "<group>"; };
 		A23BFB64263BCD2000501F79 /* HUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUserDefaults.h; sourceTree = "<group>"; };
+		A23BFB72263BE9F100501F79 /* HNetSpeedMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNetSpeedMonitor.h; sourceTree = "<group>"; };
+		A23BFB73263BE9F100501F79 /* HNetSpeedMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNetSpeedMonitor.m; sourceTree = "<group>"; };
 		A23FBFE1263053AE00F40CBC /* NSDecimalNumber+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDecimalNumber+HUtil.h"; sourceTree = "<group>"; };
 		A23FBFE2263053AE00F40CBC /* NSDecimalNumber+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDecimalNumber+HUtil.m"; sourceTree = "<group>"; };
 		A25E6344262445FC00863FF8 /* HAnalogNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAnalogNetworkManager.h; sourceTree = "<group>"; };
@@ -1620,10 +1623,12 @@
 		A25E6365262445FC00863FF8 /* HMonitor */ = {
 			isa = PBXGroup;
 			children = (
-				A25E6366262445FC00863FF8 /* HMonitorControl.m */,
-				A25E6367262445FC00863FF8 /* HMonitor.m */,
 				A25E6368262445FC00863FF8 /* HMonitor.h */,
+				A25E6367262445FC00863FF8 /* HMonitor.m */,
 				A25E6369262445FC00863FF8 /* HMonitorControl.h */,
+				A25E6366262445FC00863FF8 /* HMonitorControl.m */,
+				A23BFB72263BE9F100501F79 /* HNetSpeedMonitor.h */,
+				A23BFB73263BE9F100501F79 /* HNetSpeedMonitor.m */,
 			);
 			path = HMonitor;
 			sourceTree = "<group>";
@@ -2128,14 +2133,14 @@
 		A25E645E262445FC00863FF8 /* HGoto */ = {
 			isa = PBXGroup;
 			children = (
-				A25E645F262445FC00863FF8 /* HGoToApp.m */,
-				A25E6460262445FC00863FF8 /* NSObject+HAutoFill.m */,
 				A25E6461262445FC00863FF8 /* HGoTo.h */,
-				A25E6462262445FC00863FF8 /* HGotoRuntimeSupport.h */,
-				A25E6463262445FC00863FF8 /* HGoToApp.h */,
-				A25E6464262445FC00863FF8 /* NSObject+HAutoFill.h */,
-				A25E6465262445FC00863FF8 /* HGotoRuntimeSupport.m */,
 				A25E6466262445FC00863FF8 /* HGoTo.m */,
+				A25E6463262445FC00863FF8 /* HGoToApp.h */,
+				A25E645F262445FC00863FF8 /* HGoToApp.m */,
+				A25E6462262445FC00863FF8 /* HGotoRuntimeSupport.h */,
+				A25E6465262445FC00863FF8 /* HGotoRuntimeSupport.m */,
+				A25E6464262445FC00863FF8 /* NSObject+HAutoFill.h */,
+				A25E6460262445FC00863FF8 /* NSObject+HAutoFill.m */,
 			);
 			path = HGoto;
 			sourceTree = "<group>";
@@ -3283,8 +3288,8 @@
 		A25E6709262445FD00863FF8 /* HSwitchLanguage */ = {
 			isa = PBXGroup;
 			children = (
-				A25E670A262445FD00863FF8 /* HSwitchLanguage.m */,
 				A25E670B262445FD00863FF8 /* HSwitchLanguage.h */,
+				A25E670A262445FD00863FF8 /* HSwitchLanguage.m */,
 			);
 			path = HSwitchLanguage;
 			sourceTree = "<group>";
@@ -3495,6 +3500,7 @@
 				A25E678A262445FD00863FF8 /* NSString+HUtil.m in Sources */,
 				A25E67E7262445FE00863FF8 /* KSJSONCodec.c in Sources */,
 				A25E67CD262445FE00863FF8 /* KSCrashMonitor_User.c in Sources */,
+				A23BFB74263BE9F100501F79 /* HNetSpeedMonitor.m in Sources */,
 				A25E686A262445FE00863FF8 /* NSAttributedString+HText.m in Sources */,
 				A25E677D262445FD00863FF8 /* YTKRequest.m in Sources */,
 				A25E67D2262445FE00863FF8 /* KSCPU_x86_32.c in Sources */,
