@@ -39,14 +39,12 @@ enum TypeEncodings {
         if ([NSUserDefaults instancesRespondToSelector:@selector(initWithSuiteName:)]) {
             suiteName = [self _suiteName];
         }
-
         if (suiteName && suiteName.length) {
             _userDefaults = [[NSUserDefaults alloc] initWithSuiteName:suiteName];
-        } else {
+        }else {
             _userDefaults = [NSUserDefaults standardUserDefaults];
         }
     }
-
     return _userDefaults;
 }
 
@@ -119,7 +117,7 @@ static void objectSetter(HUserDefaults *self, SEL _cmd, id object) {
     NSString *key = [self defaultsKeyForSelector:_cmd];
     if (object) {
         [self.userDefaults setObject:object forKey:key];
-    } else {
+    }else {
         [self.userDefaults removeObjectForKey:key];
     }
 }
