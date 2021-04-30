@@ -36,94 +36,94 @@ static char const *const KRightLineView  = "KRightLineView";
 #pragma mark - Frame
 #pragma mark -
 
-- (CGFloat)h_x {
+- (CGFloat)viewX {
     return self.frame.origin.x;
 }
-- (void)setH_x:(CGFloat)h_x {
+- (void)setViewX:(CGFloat)viewX {
     CGRect frame = self.frame;
-    frame.origin.x = h_x;
+    frame.origin.x = viewX;
     self.frame = frame;
 }
 
-- (CGFloat)h_y {
+- (CGFloat)viewY {
     return self.frame.origin.y;
 }
-- (void)setH_y:(CGFloat)h_y {
+- (void)setViewY:(CGFloat)viewY {
     CGRect frame = self.frame;
-    frame.origin.y = h_y;
+    frame.origin.y = viewY;
     self.frame = frame;
 }
 
-- (CGFloat)h_width {
+- (CGFloat)viewWidth {
     return self.frame.size.width;
 }
-- (void)setH_width:(CGFloat)h_width {
+- (void)setViewWidth:(CGFloat)viewWidth {
     CGRect frame = self.frame;
-    frame.size.width = h_width;
+    frame.size.width = viewWidth;
     self.frame = frame;
 }
 
-- (CGFloat)h_height {
+- (CGFloat)viewHeight {
     return self.frame.size.height;
 }
-- (void)setH_height:(CGFloat)h_height {
+- (void)setViewHeight:(CGFloat)viewHeight {
     CGRect frame = self.frame;
-    frame.size.height = h_height;
+    frame.size.height = viewHeight;
     self.frame = frame;
 }
 
 
 
-- (CGPoint)h_origin {
+- (CGPoint)viewOrigin {
     return self.frame.origin;
 }
-- (void)setH_origin:(CGPoint)h_origin {
+- (void)setViewOrigin:(CGPoint)viewOrigin {
     CGRect frame = self.frame;
-    frame.origin = h_origin;
+    frame.origin = viewOrigin;
     self.frame = frame;
 }
 
-- (CGSize)h_size {
+- (CGSize)viewSize {
     return self.frame.size;
 }
-- (void)setH_size:(CGSize)h_size {
+- (void)setViewSize:(CGSize)viewSize {
     CGRect frame = self.frame;
-    frame.size = h_size;
+    frame.size = viewSize;
     self.frame = frame;
 }
 
-- (CGFloat)h_centerX {
+- (CGFloat)viewCenterX {
     return self.center.x;
 }
-- (void)setH_centerX:(CGFloat)h_centerX {
-    self.center = CGPointMake(h_centerX, self.center.y);
+- (void)setViewCenterX:(CGFloat)viewCenterX {
+    self.center = CGPointMake(viewCenterX, self.center.y);
 }
 
-- (CGFloat)h_centerY {
+- (CGFloat)viewCenterY {
     return self.center.y;
 }
-- (void)setH_centerY:(CGFloat)h_centerY {
-    self.center = CGPointMake(self.center.x, h_centerY);
+- (void)setViewCenterY:(CGFloat)viewCenterY {
+    self.center = CGPointMake(self.center.x, viewCenterY);
 }
 
-- (CGFloat)h_minX {
+- (CGFloat)viewMinX {
     return CGRectGetMinX(self.frame);
 }
-- (CGFloat)h_minY {
+- (CGFloat)viewMinY {
     return CGRectGetMinY(self.frame);
 }
 
-- (CGFloat)h_midX {
+- (CGFloat)viewMidX {
     return CGRectGetMidX(self.frame);
 }
-- (CGFloat)h_midY {
+- (CGFloat)viewMidY {
     return CGRectGetMidY(self.frame);
 }
 
-- (CGFloat)h_maxX {
+- (CGFloat)viewMaxX {
     return CGRectGetMaxX(self.frame);
 }
-- (CGFloat)h_maxY {
+- (CGFloat)viewMaxY {
     return CGRectGetMaxY(self.frame);
 }
 

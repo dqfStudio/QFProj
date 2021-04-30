@@ -256,14 +256,14 @@
         //[_topBar setAdjustsImageWhenHighlighted:NO];
         //没有系统导航栏的时候,status背景色是透明的,用自定义导航栏去伪造一个status背景区域
         if ([self prefersNavigationBarHidden]) {
-            _topBar.frame = CGRectMake(0, _statusBarPadding, self.view.h_width, UIScreen.naviBarHeight);
+            _topBar.frame = CGRectMake(0, _statusBarPadding, self.view.viewWidth, UIScreen.naviBarHeight);
         }else {
-            _topBar.frame = CGRectMake(0, 0, self.view.h_width, UIScreen.naviBarHeight + _statusBarPadding);
-            _topBar.bounds = CGRectMake(0, -_statusBarPadding, self.view.h_width, UIScreen.naviBarHeight + _statusBarPadding);
+            _topBar.frame = CGRectMake(0, 0, self.view.viewWidth, UIScreen.naviBarHeight + _statusBarPadding);
+            _topBar.bounds = CGRectMake(0, -_statusBarPadding, self.view.viewWidth, UIScreen.naviBarHeight + _statusBarPadding);
         }
         _topBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         _topBarLine = [[UIView alloc] init];
-        _topBarLine.frame = CGRectMake(0, UIScreen.naviBarHeight - 1, _topBar.h_width, 1);
+        _topBarLine.frame = CGRectMake(0, UIScreen.naviBarHeight - 1, _topBar.viewWidth, 1);
         [_topBar addSubview:_topBarLine];
         _topBarLine.hidden = [self prefersTopBarLineHidden];
     }
@@ -275,7 +275,7 @@
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.frame = CGRectMake(54, 0, self.view.h_width - 54 * 2, UIScreen.naviBarHeight);
+        _titleLabel.frame = CGRectMake(54, 0, self.view.viewWidth - 54 * 2, UIScreen.naviBarHeight);
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.font = [UIFont systemFontOfSize:18];
@@ -307,7 +307,7 @@
         _rightNaviButton = [[HWebButtonView alloc] init];
         _rightNaviButton.backgroundColor = nil;
         [_rightNaviButton.titleLabel setFont:[UIFont systemFontOfSize:16]];
-        _rightNaviButton.frame = CGRectMake(self.topBar.h_width - UIScreen.naviBarHeight - 10, 0, UIScreen.naviBarHeight, UIScreen.naviBarHeight);
+        _rightNaviButton.frame = CGRectMake(self.topBar.viewWidth - UIScreen.naviBarHeight - 10, 0, UIScreen.naviBarHeight, UIScreen.naviBarHeight);
         _rightNaviButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
         _rightNaviButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         @weakify(self)
@@ -328,20 +328,20 @@
     }
     //reset topBar
     if ([self prefersNavigationBarHidden]) {
-        _topBar.frame = CGRectMake(0, _statusBarPadding, self.view.h_width, UIScreen.naviBarHeight);
+        _topBar.frame = CGRectMake(0, _statusBarPadding, self.view.viewWidth, UIScreen.naviBarHeight);
     }else {
-        _topBar.frame = CGRectMake(0, 0, self.view.h_width, UIScreen.naviBarHeight + _statusBarPadding);
-        _topBar.bounds = CGRectMake(0, -_statusBarPadding, self.view.h_width, UIScreen.naviBarHeight + _statusBarPadding);
+        _topBar.frame = CGRectMake(0, 0, self.view.viewWidth, UIScreen.naviBarHeight + _statusBarPadding);
+        _topBar.bounds = CGRectMake(0, -_statusBarPadding, self.view.viewWidth, UIScreen.naviBarHeight + _statusBarPadding);
     }
     //reset topBar line
-    _topBarLine.frame = CGRectMake(0, UIScreen.naviBarHeight - 1, _topBar.h_width, 1);
+    _topBarLine.frame = CGRectMake(0, UIScreen.naviBarHeight - 1, _topBar.viewWidth, 1);
     //reset right button
-    _rightNaviButton.frame = CGRectMake(_topBar.h_width - _rightNaviButton.h_width - 10, _rightNaviButton.h_y, _rightNaviButton.h_width, _rightNaviButton.h_height);
+    _rightNaviButton.frame = CGRectMake(_topBar.viewWidth - _rightNaviButton.viewWidth - 10, _rightNaviButton.viewY, _rightNaviButton.viewWidth, _rightNaviButton.viewHeight);
     //reset title label
     if (_rightNaviButton) {
-        _titleLabel.frame = CGRectMake(_leftNaviButton.h_maxX, 0, _rightNaviButton.h_minX - _leftNaviButton.h_maxX, UIScreen.naviBarHeight);
+        _titleLabel.frame = CGRectMake(_leftNaviButton.viewMaxX, 0, _rightNaviButton.viewMinX - _leftNaviButton.viewMaxX, UIScreen.naviBarHeight);
     }else {
-        _titleLabel.frame = CGRectMake(_leftNaviButton.h_maxX, 0, self.view.h_width - _leftNaviButton.h_maxX - 10, UIScreen.naviBarHeight);
+        _titleLabel.frame = CGRectMake(_leftNaviButton.viewMaxX, 0, self.view.viewWidth - _leftNaviButton.viewMaxX - 10, UIScreen.naviBarHeight);
     }
 }
 
@@ -408,7 +408,7 @@
     [self.leftNaviButton setTitleColor:color forState:UIControlStateNormal];
     [self.leftNaviButton setTitleColor:highlightcolor forState:UIControlStateHighlighted];
     self.leftNaviButton.titleLabel.font = [UIFont systemFontOfSize:15];
-    self.leftNaviButton.frame = CGRectMake(HNavTitleButtonMargin, self.rightNaviButton.h_y, HNavTitleButtonWidth, self.rightNaviButton.h_height);
+    self.leftNaviButton.frame = CGRectMake(HNavTitleButtonMargin, self.rightNaviButton.viewY, HNavTitleButtonWidth, self.rightNaviButton.viewHeight);
 }
 - (void)setRightNaviTitle:(NSString *)title {
     [self.rightNaviButton setImage:nil forState:UIControlStateNormal];
@@ -424,7 +424,7 @@
     [self.rightNaviButton setTitleColor:color forState:UIControlStateNormal];
     [self.rightNaviButton setTitleColor:highlightcolor forState:UIControlStateHighlighted];
     self.rightNaviButton.titleLabel.font = [UIFont systemFontOfSize:15];
-    self.rightNaviButton.frame = CGRectMake(self.topBar.h_width - HNavTitleButtonWidth - HNavTitleButtonMargin, self.rightNaviButton.h_y, HNavTitleButtonWidth, self.rightNaviButton.h_height);
+    self.rightNaviButton.frame = CGRectMake(self.topBar.viewWidth - HNavTitleButtonWidth - HNavTitleButtonMargin, self.rightNaviButton.viewY, HNavTitleButtonWidth, self.rightNaviButton.viewHeight);
 }
 
 #pragma mark - 状态栏的隐藏控制

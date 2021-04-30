@@ -46,30 +46,32 @@ typedef NS_ENUM(NSInteger, HAdaptScreenWidthType) {
 #pragma mark - Frame
 #pragma mark -
 
-@property (nonatomic, readwrite) CGFloat h_x;
-@property (nonatomic, readwrite) CGFloat h_y;
-@property (nonatomic, readwrite) CGFloat h_width;
-@property (nonatomic, readwrite) CGFloat h_height;
+
+@property (nonatomic, readwrite) CGFloat viewX;
+@property (nonatomic, readwrite) CGFloat viewY;
+@property (nonatomic, readwrite) CGFloat viewWidth;
+@property (nonatomic, readwrite) CGFloat viewHeight;
 
 
-@property (nonatomic, readwrite) CGPoint h_origin;
-@property (nonatomic, readwrite) CGSize  h_size;
+@property (nonatomic, readwrite) CGPoint viewOrigin;
+@property (nonatomic, readwrite) CGSize  viewSize;
 
 
-@property (nonatomic, readwrite) CGFloat h_centerX;
-@property (nonatomic, readwrite) CGFloat h_centerY;
+@property (nonatomic, readwrite) CGFloat viewCenterX;
+@property (nonatomic, readwrite) CGFloat viewCenterY;
 
 
-@property (nonatomic, readonly)  CGFloat  h_minX;
-@property (nonatomic, readonly)  CGFloat  h_minY;
+@property (nonatomic, readonly)  CGFloat  viewMinX;
+@property (nonatomic, readonly)  CGFloat  viewMinY;
 
 
-@property (nonatomic, readonly)  CGFloat  h_midX;
-@property (nonatomic, readonly)  CGFloat  h_midY;
+@property (nonatomic, readonly)  CGFloat  viewMidX;
+@property (nonatomic, readonly)  CGFloat  viewMidY;
 
 
-@property (nonatomic, readonly)  CGFloat  h_maxX;
-@property (nonatomic, readonly)  CGFloat  h_maxY;
+@property (nonatomic, readonly)  CGFloat  viewMaxX;
+@property (nonatomic, readonly)  CGFloat  viewMaxY;
+
 
 #pragma mark - 上下左右边角
 #pragma mark -
