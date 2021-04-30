@@ -181,7 +181,7 @@ void import_NSObject_HHH (void) { }
 //        }];
         //属性
         SEL selector = NSSelectorFromString(@"isLogin");
-        [NSClassFromString(@"HUserDefaults") aspectInstead:selector usingBlock:^(id<AspectInfo> info) {
+        [NSClassFromString(@"HUserStore") aspectInstead:selector usingBlock:^(id<AspectInfo> info) {
             BOOL returnValue = YES;
             [info.originalInvocation setReturnValue:&returnValue];
         }];

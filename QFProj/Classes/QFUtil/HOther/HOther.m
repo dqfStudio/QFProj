@@ -7,7 +7,7 @@
 //
 
 #import "HOther.h"
-#import "HUserDefaults.h"
+#import "HUserStore.h"
 
 @implementation HOther
 
@@ -38,14 +38,14 @@
 //
 //            void (^HJsonConfigBlock)(void) = ^(void) {
 //                if (resultDict && [resultDict isKindOfClass:NSDictionary.class] && resultDict.count > 0) {
-//                    [[HUserDefaults defaults] setBaseLink:[[resultDict objectForKey:@"navture_url"] stringValue]];
+//                    [[HUserStore defaults] setBaseLink:[[resultDict objectForKey:@"navture_url"] stringValue]];
 //                    NSString *h5_url = [[resultDict objectForKey:@"app_url"] stringValue];
 //                    NSString *urlStr = [h5_url stringByReplacingOccurrencesOfString:@"?app=true" withString:@""];
-//                    [[HUserDefaults defaults] setH5Link:urlStr];
-//                    [[HUserDefaults defaults] setPlatCodeLink:[[resultDict objectForKey:@"plat_code"] stringValue]];
-//                    [[HUserDefaults defaults] setSrc1Link:[[resultDict objectForKey:@"src1"] stringValue]];
+//                    [[HUserStore defaults] setH5Link:urlStr];
+//                    [[HUserStore defaults] setPlatCodeLink:[[resultDict objectForKey:@"plat_code"] stringValue]];
+//                    [[HUserStore defaults] setSrc1Link:[[resultDict objectForKey:@"src1"] stringValue]];
 //                    // 保存客服联系方式
-//                    [[HUserDefaults defaults] setContacts:[resultDict objectForKey:@"contacts"]];
+//                    [[HUserStore defaults] setContacts:[resultDict objectForKey:@"contacts"]];
 //                }
 //            };
 //
@@ -79,7 +79,7 @@
 //            }
 //            if (!jsonSucccess) {
 //                [UIAlertController showAlertWithTitle:@"温馨提示" message:@"请求json数据失败!" style:UIAlertControllerStyleAlert cancelButtonTitle:@"确定" otherButtonTitles:nil completion:nil];
-//            }else if (![baselink isEqualToString:[HUserDefaults defaults].baseLink]) {
+//            }else if (![baselink isEqualToString:[HUserStore defaults].baseLink]) {
 //                [UIAlertController showAlertWithTitle:@"温馨提示" message:@"json数据已改变，请及时修改硬编码，谢谢!" style:UIAlertControllerStyleAlert cancelButtonTitle:@"确定" otherButtonTitles:nil completion:nil];
 //            }
 //#endif
@@ -103,7 +103,7 @@
 }
 
 - (void)loadLocalData {
-//    if (![HUserDefaults defaults].baseLink) {
+//    if (![HUserStore defaults].baseLink) {
 //        NSString *bundleIdentifier = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
 //        if (bundleIdentifier) {
 //            HKeyChainStore *keyChainStore = [HKeyChainStore keyChainStoreWithService:bundleIdentifier];
@@ -111,34 +111,34 @@
 //            if (cachedData) {
 //                NSDictionary *resultDict = [cachedData dictionary];
 //                if (resultDict && [resultDict isKindOfClass:NSDictionary.class] && resultDict.count > 0) {
-//                    [[HUserDefaults defaults] setBaseLink:[[resultDict objectForKey:@"navture_url"] stringValue]];
+//                    [[HUserStore defaults] setBaseLink:[[resultDict objectForKey:@"navture_url"] stringValue]];
 //                    NSString *h5_url = [[resultDict objectForKey:@"app_url"] stringValue];
 //                    NSString *urlStr = [h5_url stringByReplacingOccurrencesOfString:@"?app=true" withString:@""];
-//                    [[HUserDefaults defaults] setH5Link:urlStr];
-//                    [[HUserDefaults defaults] setPlatCodeLink:[[resultDict objectForKey:@"plat_code"] stringValue]];
-//                    [[HUserDefaults defaults] setSrc1Link:[[resultDict objectForKey:@"src1"] stringValue]];
+//                    [[HUserStore defaults] setH5Link:urlStr];
+//                    [[HUserStore defaults] setPlatCodeLink:[[resultDict objectForKey:@"plat_code"] stringValue]];
+//                    [[HUserStore defaults] setSrc1Link:[[resultDict objectForKey:@"src1"] stringValue]];
 //                    // 保存客服联系方式
-//                    [[HUserDefaults defaults] setContacts:[resultDict objectForKey:@"contacts"]];
+//                    [[HUserStore defaults] setContacts:[resultDict objectForKey:@"contacts"]];
 //                }
 //            }
 //
-//            if ([HUserDefaults defaults].baseLink.length < 3 ) {
-//                [[HUserDefaults defaults] setBaseLink:@"https://m.xht111.com/XHD/"];
+//            if ([HUserStore defaults].baseLink.length < 3 ) {
+//                [[HUserStore defaults] setBaseLink:@"https://m.xht111.com/XHD/"];
 //            }
-//            if ([HUserDefaults defaults].h5Link.length < 3 ) {
-//                [[HUserDefaults defaults] setH5Link:@"https://m.xht111.com/"];
+//            if ([HUserStore defaults].h5Link.length < 3 ) {
+//                [[HUserStore defaults] setH5Link:@"https://m.xht111.com/"];
 //            }
-//            if ([HUserDefaults defaults].platCodeLink.length < 3 ) {
-//                [[HUserDefaults defaults] setPlatCodeLink:@"XHD"];
+//            if ([HUserStore defaults].platCodeLink.length < 3 ) {
+//                [[HUserStore defaults] setPlatCodeLink:@"XHD"];
 //            }
-//            if ([HUserDefaults defaults].src1Link.length < 3 ) {
-//                [[HUserDefaults defaults] setSrc1Link:@"XHD"];
+//            if ([HUserStore defaults].src1Link.length < 3 ) {
+//                [[HUserStore defaults] setSrc1Link:@"XHD"];
 //            }
 //        }
 //    }
     
-//    if ([HUserDefaults defaults].contacts.count <= 0) {
-//        [[HUserDefaults defaults] setDefaultCustomInfo];
+//    if ([HUserStore defaults].contacts.count <= 0) {
+//        [[HUserStore defaults] setDefaultCustomInfo];
 //    }
 //    //set base url
 //    if (HEADBASEINURL.length > 0) {
@@ -155,7 +155,7 @@
 //    self.loginDict[@"isMobile"] = @"3";
 //    [HProgressHUD showLoadingWithStatus:@"正在登录..."];
 //    void (^HLoginBlock)(void) = ^(void) {
-//        [[HUserDefaults defaults] setIsLogin:YES];
+//        [[HUserStore defaults] setIsLogin:YES];
 //        [HProgressHUD showSuccessWithStatus:@"登陆成功"];
 //        [self back];
 //        [[NSNotificationCenter defaultCenter] postNotificationName:@"KMenuSelectedIndexNotify" object:@(0)];
@@ -168,7 +168,7 @@
 //                    HLoginBlock();
 //                }else {
 //                    NSString *userName = self.loginDict[@"tname"];
-//                    if (userName.length > 3 && [[HUserDefaults defaults] LoadKeyChainDataWith:userName pwd:self.loginDict[@"tpwd"]]) {
+//                    if (userName.length > 3 && [[HUserStore defaults] LoadKeyChainDataWith:userName pwd:self.loginDict[@"tpwd"]]) {
 //                        HLoginBlock();
 //                    }else {
 //                        [HProgressHUD showErrorWithStatus:@"登录失败!"];
@@ -184,7 +184,7 @@
 //        }
 //    } failure:^(NSError *error) {
 //        NSString *userName = self.loginDict[@"tname"];
-//        if (userName.length > 3 && [[HUserDefaults defaults] LoadKeyChainDataWith:userName pwd:self.loginDict[@"tpwd"]]) {
+//        if (userName.length > 3 && [[HUserStore defaults] LoadKeyChainDataWith:userName pwd:self.loginDict[@"tpwd"]]) {
 //            //有网络才让登录
 //            AFNetworkReachabilityStatus status = [AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
 //            if (status != AFNetworkReachabilityStatusUnknown && status != AFNetworkReachabilityStatusNotReachable) {
@@ -290,7 +290,7 @@
 
 //- (void)addSpecialItem {
 //    self.registerItem = [YPTabItem buttonWithType:UIButtonTypeCustom];
-//    [RACObserve([HUserDefaults defaults], isLogin) subscribeNext:^(NSNumber *x) {
+//    [RACObserve([HUserStore defaults], isLogin) subscribeNext:^(NSNumber *x) {
 //        if (x.integerValue == 0) {
 //            self.registerItem.title = @"注册";
 //            self.registerItem.image = [UIImage imageNamed:@"di_zhuce"];
@@ -322,7 +322,7 @@
 //             afterItemWithIndex:1
 //                     tapHandler:^(YPTabItem *item) {
 //                         @sss
-//                         if (![HUserDefaults defaults].isLogin) {
+//                         if (![HUserStore defaults].isLogin) {
 //                             HNavigationController *registerVC = [[HNavigationController alloc] initWithRootViewController:HRegisterController.new];
 //                             [self presentViewController:registerVC animated:YES completion:nil];
 //                         }else {
@@ -405,7 +405,7 @@
 //     {
 //         //这里可以重新修改重新向后的请求方式和参数。
 //         if (request) {
-//             NSString *platCode = [HUserDefaults defaults].platCodeLink;
+//             NSString *platCode = [HUserStore defaults].platCodeLink;
 //             NSString *baseLink = nil;
 //             NSString *h5Link = nil;
 //             if (platCode) {
@@ -417,20 +417,20 @@
 //                     if (range.location != NSNotFound) {
 //                         if (absoluteString.length >= range.location+range.length) {
 //                             baseLink = [absoluteString substringToIndex:range.location+range.length];
-//                             [[HUserDefaults defaults] setBaseLink:baseLink];
+//                             [[HUserStore defaults] setBaseLink:baseLink];
 //                             [[YTKNetworkConfig sharedConfig] setBaseUrl:baseLink];
 //                         }
 //                         //set h5 link
 //                         if (absoluteString.length >= range.location) {
 //                             h5Link = [absoluteString substringToIndex:range.location];
-//                             [[HUserDefaults defaults] setH5Link:h5Link];
+//                             [[HUserStore defaults] setH5Link:h5Link];
 //                         }
 //                     }
 //                 }
 //             }
 //             //set h5 link
 //             if (!h5Link) {
-//                 h5Link = [HUserDefaults defaults].h5Link;
+//                 h5Link = [HUserStore defaults].h5Link;
 //             }
 //             NSMutableURLRequest *mutRequest = [sessionManagerBlock.requestSerializer requestWithMethod:way URLString:request.URL.absoluteString parameters:parameters error:nil];
 //             [mutRequest addValue:h5Link forHTTPHeaderField:@"referer"];

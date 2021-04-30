@@ -137,7 +137,7 @@ const int KServerErrorCode = -10001; //服务端返回数据异常
         //在这里处理，登录失效，自动登录。
         // 需要先pop回root controller
         /*
-        if ([HUserDefaults defaults].isLogin) {
+        if ([HUserStore defaults].isLogin) {
             [[UIApplication naviTop].navigationController popToRootViewControllerAnimated:NO];
             [[UIApplication appDel] exitUserAction:^{
                 NSString *msg = responseDict[@"msg"];
@@ -160,12 +160,12 @@ const int KServerErrorCode = -10001; //服务端返回数据异常
     NSArray *cookies = [NSHTTPCookie cookiesWithResponseHeaderFields:fields forURL:url];
     for (NSHTTPCookie *cookie in cookies) {
         if ([cookie.name isEqualToString:@"TOKEN"]) {
-            //[HUserDefaults defaults].cookieToken = cookie;
+            //[HUserStore defaults].cookieToken = cookie;
         }else if ([cookie.name isEqualToString:@"SESSION"]) {
-            //[HUserDefaults defaults].cookieSession = cookie;
+            //[HUserStore defaults].cookieSession = cookie;
         }else if ([cookie.name isEqualToString:@"JSESSIONID"]) {
             //新切换合并接口添加以下代码
-            //[HUserDefaults defaults].jsessionSession = cookie;
+            //[HUserStore defaults].jsessionSession = cookie;
         }
     }
     success(responseDict);

@@ -38,6 +38,8 @@
 		A22FA0872400D52B00B75C1C /* AppDelegate+SoundService.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA0862400D52B00B75C1C /* AppDelegate+SoundService.m */; };
 		A22FA17F2400DFC900B75C1C /* AppDelegate+UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA17E2400DFC900B75C1C /* AppDelegate+UserService.m */; };
 		A23BFB1F263AC2FA00501F79 /* HDecimalUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB1E263AC2FA00501F79 /* HDecimalUtil.m */; };
+		A23BFB65263BCD2000501F79 /* HUserDefaults+Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB61263BCD2000501F79 /* HUserDefaults+Properties.m */; };
+		A23BFB66263BCD2000501F79 /* HUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB63263BCD2000501F79 /* HUserDefaults.m */; };
 		A23FBFE3263053AE00F40CBC /* NSDecimalNumber+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A23FBFE2263053AE00F40CBC /* NSDecimalNumber+HUtil.m */; };
 		A25E670C262445FD00863FF8 /* HAnalogNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6345262445FC00863FF8 /* HAnalogNetworkManager.m */; };
 		A25E670D262445FD00863FF8 /* HTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6349262445FC00863FF8 /* HTool.m */; };
@@ -126,7 +128,7 @@
 		A25E6760262445FD00863FF8 /* HGCDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E640C262445FC00863FF8 /* HGCDUtil.m */; };
 		A25E6761262445FD00863FF8 /* NSObject+annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6410262445FC00863FF8 /* NSObject+annotation.m */; };
 		A25E6762262445FD00863FF8 /* HClassManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6412262445FC00863FF8 /* HClassManager.m */; };
-		A25E6763262445FD00863FF8 /* HUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6415262445FC00863FF8 /* HUserDefaults.m */; };
+		A25E6763262445FD00863FF8 /* HUserStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6415262445FC00863FF8 /* HUserStore.m */; };
 		A25E6764262445FD00863FF8 /* HAutoPackage_Release.sh in Resources */ = {isa = PBXBuildFile; fileRef = A25E6418262445FC00863FF8 /* HAutoPackage_Release.sh */; };
 		A25E6765262445FD00863FF8 /* HProjectDRConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A25E6419262445FC00863FF8 /* HProjectDRConfig.xcconfig */; };
 		A25E6766262445FD00863FF8 /* README.H.md in Resources */ = {isa = PBXBuildFile; fileRef = A25E641A262445FC00863FF8 /* README.H.md */; };
@@ -523,6 +525,10 @@
 		A22FA17E2400DFC900B75C1C /* AppDelegate+UserService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+UserService.m"; sourceTree = "<group>"; };
 		A23BFB1D263AC2FA00501F79 /* HDecimalUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDecimalUtil.h; sourceTree = "<group>"; };
 		A23BFB1E263AC2FA00501F79 /* HDecimalUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDecimalUtil.m; sourceTree = "<group>"; };
+		A23BFB61263BCD2000501F79 /* HUserDefaults+Properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HUserDefaults+Properties.m"; sourceTree = "<group>"; };
+		A23BFB62263BCD2000501F79 /* HUserDefaults+Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HUserDefaults+Properties.h"; sourceTree = "<group>"; };
+		A23BFB63263BCD2000501F79 /* HUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUserDefaults.m; sourceTree = "<group>"; };
+		A23BFB64263BCD2000501F79 /* HUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUserDefaults.h; sourceTree = "<group>"; };
 		A23FBFE1263053AE00F40CBC /* NSDecimalNumber+HUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDecimalNumber+HUtil.h"; sourceTree = "<group>"; };
 		A23FBFE2263053AE00F40CBC /* NSDecimalNumber+HUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDecimalNumber+HUtil.m"; sourceTree = "<group>"; };
 		A25E6344262445FC00863FF8 /* HAnalogNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAnalogNetworkManager.h; sourceTree = "<group>"; };
@@ -702,8 +708,8 @@
 		A25E6410262445FC00863FF8 /* NSObject+annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+annotation.m"; sourceTree = "<group>"; };
 		A25E6412262445FC00863FF8 /* HClassManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HClassManager.m; sourceTree = "<group>"; };
 		A25E6413262445FC00863FF8 /* HClassManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HClassManager.h; sourceTree = "<group>"; };
-		A25E6415262445FC00863FF8 /* HUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUserDefaults.m; sourceTree = "<group>"; };
-		A25E6416262445FC00863FF8 /* HUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUserDefaults.h; sourceTree = "<group>"; };
+		A25E6415262445FC00863FF8 /* HUserStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUserStore.m; sourceTree = "<group>"; };
+		A25E6416262445FC00863FF8 /* HUserStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUserStore.h; sourceTree = "<group>"; };
 		A25E6418262445FC00863FF8 /* HAutoPackage_Release.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = HAutoPackage_Release.sh; sourceTree = "<group>"; };
 		A25E6419262445FC00863FF8 /* HProjectDRConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = HProjectDRConfig.xcconfig; sourceTree = "<group>"; };
 		A25E641A262445FC00863FF8 /* README.H.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.H.md; sourceTree = "<group>"; };
@@ -1960,8 +1966,12 @@
 		A25E6414262445FC00863FF8 /* HUserDefaults */ = {
 			isa = PBXGroup;
 			children = (
-				A25E6415262445FC00863FF8 /* HUserDefaults.m */,
-				A25E6416262445FC00863FF8 /* HUserDefaults.h */,
+				A25E6416262445FC00863FF8 /* HUserStore.h */,
+				A25E6415262445FC00863FF8 /* HUserStore.m */,
+				A23BFB64263BCD2000501F79 /* HUserDefaults.h */,
+				A23BFB63263BCD2000501F79 /* HUserDefaults.m */,
+				A23BFB62263BCD2000501F79 /* HUserDefaults+Properties.h */,
+				A23BFB61263BCD2000501F79 /* HUserDefaults+Properties.m */,
 			);
 			path = HUserDefaults;
 			sourceTree = "<group>";
@@ -3541,7 +3551,7 @@
 				A25E678C262445FD00863FF8 /* NSDate+HUtil.m in Sources */,
 				A25E67C5262445FE00863FF8 /* KSCrashMonitor_Deadlock.m in Sources */,
 				A22FA17F2400DFC900B75C1C /* AppDelegate+UserService.m in Sources */,
-				A25E6763262445FD00863FF8 /* HUserDefaults.m in Sources */,
+				A25E6763262445FD00863FF8 /* HUserStore.m in Sources */,
 				A25E6786262445FD00863FF8 /* HGoTo.m in Sources */,
 				A25E674F262445FD00863FF8 /* UIDevice+HUtil.m in Sources */,
 				A25E672F262445FD00863FF8 /* NSObject_6.m in Sources */,
@@ -3700,6 +3710,7 @@
 				A25E689F262445FE00863FF8 /* HVersionManager.m in Sources */,
 				A25E67B3262445FE00863FF8 /* KSCrashReportFilterGZip.m in Sources */,
 				A25E67B9262445FE00863FF8 /* KSHTTPRequestSender.m in Sources */,
+				A23BFB66263BCD2000501F79 /* HUserDefaults.m in Sources */,
 				A25E6716262445FD00863FF8 /* HTestVC-DQF.m in Sources */,
 				A25E672B262445FD00863FF8 /* NSObject_5.m in Sources */,
 				A25E68A0262445FE00863FF8 /* HHostUrlManager.m in Sources */,
@@ -3743,6 +3754,7 @@
 				A25E6810262445FE00863FF8 /* HKBToolbar.m in Sources */,
 				A20E3D07231FE0D100E6982B /* HMainController4.m in Sources */,
 				A25E688F262445FE00863FF8 /* HFormCell.m in Sources */,
+				A23BFB65263BCD2000501F79 /* HUserDefaults+Properties.m in Sources */,
 				A25E6772262445FD00863FF8 /* HCache.m in Sources */,
 				A25E6780262445FD00863FF8 /* UIWindow+HPrinter.m in Sources */,
 				A25E6778262445FD00863FF8 /* YTKBaseRequest.m in Sources */,

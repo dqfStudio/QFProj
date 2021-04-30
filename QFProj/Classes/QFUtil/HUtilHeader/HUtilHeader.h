@@ -88,7 +88,7 @@
 #import "HCommonDefine.h"
 
 //ohter
-#import "HUserDefaults.h"
+#import "HUserStore.h"
 #import "HKeyChainStore.h"
 #import "HViewController.h"
 #import "HTableController.h"

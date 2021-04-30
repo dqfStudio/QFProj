@@ -86,7 +86,7 @@
     if (_webSocket && SR_OPEN == _webSocket.readyState) {
         return;
     }
-    NSString *h5Link = nil;//[HUserDefaults defaults].h5Link;
+    NSString *h5Link = nil;//[HUserStore defaults].h5Link;
     NSString *url = @"";
     if (h5Link.length > 8) {
         if ([h5Link containsString:@"http://"]) {
