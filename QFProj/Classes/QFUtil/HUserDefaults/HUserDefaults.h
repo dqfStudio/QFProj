@@ -10,6 +10,6 @@
 
 @interface HUserDefaults : NSObject
 
-+ (instancetype)standardUserDefaults;
++ (HUserDefaults *)defaults;
 
 @end

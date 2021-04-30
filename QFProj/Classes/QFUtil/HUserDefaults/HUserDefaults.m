@@ -16,7 +16,7 @@
 
 @implementation HUserDefaults
 
-enum TypeEncodings {
+enum HTypeEncodings {
     Char                = 'c',
     Bool                = 'B',
     Short               = 's',
@@ -124,13 +124,13 @@ static void objectSetter(HUserDefaults *self, SEL _cmd, id object) {
 
 #pragma mark - Begin
 
-+ (instancetype)standardUserDefaults {
-    static dispatch_once_t pred;
-    static HUserDefaults *sharedInstance = nil;
-    dispatch_once(&pred, ^{
-        sharedInstance = [[self alloc] init];
++ (HUserDefaults *)defaults {
+    static HUserDefaults *share = nil;
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        share = [[self alloc] init];
     });
-    return sharedInstance;
+    return share;
 }
 
 #pragma GCC diagnostic push
@@ -140,7 +140,7 @@ static void objectSetter(HUserDefaults *self, SEL _cmd, id object) {
 - (instancetype)init {
     self = [super init];
     if (self) {
-        SEL setupDefaultSEL = NSSelectorFromString([NSString stringWithFormat:@"%@pDefaults", @"setu"]);
+        SEL setupDefaultSEL = NSSelectorFromString(@"setupDefaults");
         if ([self respondsToSelector:setupDefaultSEL]) {
             NSDictionary *defaults = [self performSelector:setupDefaultSEL];
             NSMutableDictionary *mutableDefaults = [NSMutableDictionary dictionaryWithCapacity:[defaults count]];
