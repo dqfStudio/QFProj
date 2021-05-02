@@ -9,6 +9,7 @@
 #import "HDecimalFormatter.h"
 
 @implementation HDecimalFormatter
+
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -20,13 +21,6 @@
         _symbol = @"";
     }
     return self;
-}
-
-- (NSString *)makeFormatter:(void(^)(HDecimalFormatter *make))block {
-    HDecimalFormatter *make = HDecimalFormatter.new;
-    block(make);
-    NSNumber *modeNumber = self.formatterEnum()[make.roundingMode];
-    return [self roundingMode:modeNumber.intValue afterPoint:make.afterPoint pointZero:make.pointZero grouping:make.grouping prefix:make.prefix symbol:make.symbol];
 }
 
 - (NSArray *(^)(void))formatterEnum {
@@ -46,12 +40,13 @@
    };
 }
 
-- (NSString *)roundingMode:(NSNumberFormatterRoundingMode)mode
-                afterPoint:(NSInteger)position
-                 pointZero:(BOOL)pointZero
-                  grouping:(BOOL)grouping
-                    prefix:(BOOL)prefix
-                    symbol:(NSString *)symbol {
+- (NSString *)decimalObjc:(id)decimalObjc
+             roundingMode:(NSNumberFormatterRoundingMode)mode
+               afterPoint:(NSInteger)position
+                pointZero:(BOOL)pointZero
+                 grouping:(BOOL)grouping
+                   prefix:(BOOL)prefix
+                   symbol:(NSString *)symbol {
     
     NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
     //不四舍五入
@@ -79,10 +74,10 @@
         numberFormatter.negativePrefix = @"-";
     }
     
-    if ([self isKindOfClass:NSNumber.class]) {
-        return [numberFormatter stringFromNumber:(NSNumber *)self];
-    }else if ([self isKindOfClass:NSString.class]) {
-        return [numberFormatter stringFromNumber:[NSDecimalNumber decimalNumberWithString:(NSString *)self]];
+    if ([decimalObjc isKindOfClass:NSNumber.class]) {
+        return [numberFormatter stringFromNumber:(NSNumber *)decimalObjc];
+    }else if ([decimalObjc isKindOfClass:NSString.class]) {
+        return [numberFormatter stringFromNumber:[NSDecimalNumber decimalNumberWithString:(NSString *)decimalObjc]];
     }
     
     return @"";
@@ -96,7 +91,7 @@
     HDecimalFormatter *make = HDecimalFormatter.new;
     block(make);
     NSNumber *modeNumber = make.formatterEnum()[make.roundingMode];
-    return [make roundingMode:modeNumber.intValue afterPoint:make.afterPoint pointZero:make.pointZero grouping:make.grouping prefix:make.prefix symbol:make.symbol];
+    return [make decimalObjc:self roundingMode:modeNumber.intValue afterPoint:make.afterPoint pointZero:make.pointZero grouping:make.grouping prefix:make.prefix symbol:make.symbol];
 }
 @end
 
@@ -106,6 +101,6 @@
     HDecimalFormatter *make = HDecimalFormatter.new;
     block(make);
     NSNumber *modeNumber = make.formatterEnum()[make.roundingMode];
-    return [make roundingMode:modeNumber.intValue afterPoint:make.afterPoint pointZero:make.pointZero grouping:make.grouping prefix:make.prefix symbol:make.symbol];
+    return [make decimalObjc:self roundingMode:modeNumber.intValue afterPoint:make.afterPoint pointZero:make.pointZero grouping:make.grouping prefix:make.prefix symbol:make.symbol];
 }
 @end
