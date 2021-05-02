@@ -27,10 +27,8 @@
     }
 #if DEBUG
     NSAssert(NO,nil);
-    return nil;
-#else
-    return nil;
 #endif
+    return nil;
 }
 @end
 
