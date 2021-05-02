@@ -78,7 +78,6 @@
     if (!decimalNumber) return numberObjc;
     
     NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
-    //不四舍五入
     numberFormatter.roundingMode = mode;
     numberFormatter.maximumFractionDigits = position;
     //是否保留小数末尾零位
