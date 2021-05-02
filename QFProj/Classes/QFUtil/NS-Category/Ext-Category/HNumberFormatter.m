@@ -12,7 +12,12 @@
 //objcValue为NSString或NSNumber类型
 + (NSDecimalNumber *)decimalNumberWithObjcValue:(id)objcValue {
     if ([objcValue isKindOfClass:NSString.class]) {
-        return [NSDecimalNumber decimalNumberWithString:objcValue];
+        NSString *objcStrintValue = [objcValue stringByReplacingOccurrencesOfString:@" " withString:@""];
+        if ([objcStrintValue containsString:@","] || [objcStrintValue containsString:@"，"]) {
+            objcStrintValue = [objcStrintValue stringByReplacingOccurrencesOfString:@"," withString:@""];
+            objcStrintValue = [objcStrintValue stringByReplacingOccurrencesOfString:@"，" withString:@""];
+        }
+        return [NSDecimalNumber decimalNumberWithString:objcStrintValue];
     }else if ([objcValue isKindOfClass:NSNumber.class]) {
         return [NSDecimalNumber decimalNumberWithDecimal:[(NSNumber *)objcValue decimalValue]];
     }
