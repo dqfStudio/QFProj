@@ -23,15 +23,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HNumberFormatter : NSObject
 //默认roundingMode == roundDown
 @property(nonatomic, assign) HNumberFormatterRoundingMode roundingMode;
-//默认保留两位小数，即afterPoint == 2
+//保留几位小数，默认保留两位小数，即afterPoint == 2
 @property(nonatomic, assign) NSInteger afterPoint;
-//默认为YES
+//是否强制保留afterPoint位小数，默认为YES
 @property(nonatomic, assign) BOOL pointZero;
-//默认为NO
+//数字是否分组，例如120,354.00，默认为NO
 @property(nonatomic, assign) BOOL grouping;
-//默认为NO
+//是否有"+"或"-"前缀，默认为NO
 @property(nonatomic, assign) BOOL prefix;
-//默认symbol == @""
+//前缀后，数字之前，是否有符号，例如+$234.00，默认symbol == @""
 @property(nonatomic) NSString *symbol;
 //当达到千、百万、亿、兆时，使用省略写法（K、M、B、T），默认为NO
 @property(nonatomic, assign) BOOL conversion;
