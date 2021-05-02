@@ -159,7 +159,7 @@
 //格式化
 - (NSString *)makeFormatter:(void(^)(HNumberFormatter *make))block {
     HNumberFormatter *make = HNumberFormatter.new;
-    block(make);
+    if (block) block(make);
     NSNumber *modeNumber = make.formatterEnum()[make.roundingMode];
     return [make numberObjc:self roundingMode:modeNumber.intValue afterPoint:make.afterPoint pointZero:make.pointZero grouping:make.grouping prefix:make.prefix symbol:make.symbol conversion:make.conversion];
 }
@@ -190,7 +190,7 @@
 //格式化
 - (NSString *)makeFormatter:(void(^)(HNumberFormatter *make))block {
     HNumberFormatter *make = HNumberFormatter.new;
-    block(make);
+    if (block) block(make);
     NSNumber *modeNumber = make.formatterEnum()[make.roundingMode];
     return [make numberObjc:self roundingMode:modeNumber.intValue afterPoint:make.afterPoint pointZero:make.pointZero grouping:make.grouping prefix:make.prefix symbol:make.symbol conversion:make.conversion];
 }
