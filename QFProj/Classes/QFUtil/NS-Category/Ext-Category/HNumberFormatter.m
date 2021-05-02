@@ -25,7 +25,12 @@
             return [NSDecimalNumber decimalNumberWithDecimal:[(NSNumber *)objcValue decimalValue]];
         }
     }
+#if DEBUG
+    NSAssert(NO,nil);
     return nil;
+#else
+    return nil;
+#endif
 }
 @end
 
