@@ -53,7 +53,7 @@
 }
 //会保留小数点儿后六位，如果小数超过六位的情况下
 - (NSString *)stringValue {
-    NSString *string = [NSString stringWithFormat:@"%f", [self doubleValue]];
+    NSString *string = [NSString stringWithFormat:@"%lf", [self doubleValue]];
     NSDecimalNumber *decimalNumber = [NSDecimalNumber decimalNumberWithString:string];
     //NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh-cn"];
     return [decimalNumber descriptionWithLocale:nil];
