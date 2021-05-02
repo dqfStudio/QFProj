@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL grouping;
 //是否有"+"或"-"前缀，默认为NO
 @property(nonatomic, assign) BOOL prefix;
-//前缀后，数字之前，是否有符号，例如+$234.00，默认symbol == @""
+//前缀后，数字之前，是否有符号，例如+$234.00，默认为nil
 @property(nonatomic) NSString *symbol;
 //当达到千、百万、亿、兆时，使用省略写法（K、M、B、T），默认为NO
 @property(nonatomic, assign) BOOL conversion;

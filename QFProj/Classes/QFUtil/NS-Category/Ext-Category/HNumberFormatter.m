@@ -42,7 +42,7 @@
         _pointZero = YES;
         _grouping = NO;
         _prefix = NO;
-        _symbol = @"";
+        _symbol = nil;
         _conversion = NO;
     }
     return self;
