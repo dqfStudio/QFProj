@@ -91,8 +91,7 @@
     if ([objcValue isKindOfClass:NSString.class]) {
         return [NSDecimalNumber decimalNumberWithString:objcValue];
     }else if ([objcValue isKindOfClass:NSNumber.class]) {
-        NSString *string = [NSString stringWithFormat:@"%lf", [(NSNumber *)objcValue doubleValue]];
-        return [NSDecimalNumber decimalNumberWithString:string];
+        return [NSDecimalNumber decimalNumberWithDecimal:[(NSNumber *)objcValue decimalValue]];
     }
     return NSDecimalNumber.new;
 }
