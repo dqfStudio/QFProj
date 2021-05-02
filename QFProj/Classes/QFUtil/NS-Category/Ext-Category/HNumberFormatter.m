@@ -8,6 +8,18 @@
 
 #import "HNumberFormatter.h"
 
+@implementation NSDecimalNumber (HFormatter)
+//objcValue为NSString或NSNumber类型
++ (NSDecimalNumber *)decimalNumberWithObjcValue:(id)objcValue {
+    if ([objcValue isKindOfClass:NSString.class]) {
+        return [NSDecimalNumber decimalNumberWithString:objcValue];
+    }else if ([objcValue isKindOfClass:NSNumber.class]) {
+        return [NSDecimalNumber decimalNumberWithDecimal:[(NSNumber *)objcValue decimalValue]];
+    }
+    return NSDecimalNumber.new;
+}
+@end
+
 @implementation HNumberFormatter
 
 - (instancetype)init {
@@ -19,6 +31,7 @@
         _grouping = NO;
         _prefix = NO;
         _symbol = @"";
+        _conversion = NO;
     }
     return self;
 }
@@ -46,7 +59,8 @@
                pointZero:(BOOL)pointZero
                 grouping:(BOOL)grouping
                   prefix:(BOOL)prefix
-                  symbol:(NSString *)symbol {
+                  symbol:(NSString *)symbol
+              conversion:(BOOL)conversion {
     
     NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
     //不四舍五入
@@ -74,27 +88,46 @@
         numberFormatter.negativePrefix = @"-";
     }
     
-    if ([numberObjc isKindOfClass:NSNumber.class]) {
-        return [numberFormatter stringFromNumber:(NSNumber *)numberObjc];
-    }else if ([numberObjc isKindOfClass:NSString.class]) {
-        return [numberFormatter stringFromNumber:[NSDecimalNumber decimalNumberWithString:(NSString *)numberObjc]];
+    NSDecimalNumber *decimalNumber = [NSDecimalNumber decimalNumberWithObjcValue:numberObjc];
+    //判断是否要金额缩写
+    if (conversion) {
+        
+        NSString *tmpString = numberObjc;
+        if ([numberObjc isKindOfClass:NSNumber.class]) {
+            tmpString = [NSString stringWithFormat:@"%lf", [(NSNumber *)tmpString doubleValue]];
+        }
+        
+        NSRange range = [tmpString rangeOfString:@"."];
+        NSInteger length = range.location;
+        if (range.location == NSNotFound) length = tmpString.length;
+        
+        NSString *appendString = @"";
+        NSString *dividendString = @"1";
+        
+        //当达到千、百万、亿、兆时，使用省略写法（K、M、B、T）
+        if (length >= 13) {
+            appendString = @"T";
+            dividendString = @"1000000000000";
+        }else if (length >= 9) {
+            appendString = @"B";
+            dividendString = @"100000000";
+        }else if (length >= 7) {
+            appendString = @"M";
+            dividendString = @"1000000";
+        }else if (length >= 4) {
+            appendString = @"K";
+            dividendString = @"1000";
+        }
+        //除以相关位数
+        decimalNumber = [decimalNumber decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:dividendString]];
+        //正后缀和负后缀
+        numberFormatter.positiveSuffix = appendString;
+        numberFormatter.negativeSuffix = appendString;
     }
     
-    return @"";
+    return [numberFormatter stringFromNumber:decimalNumber];
 }
 
-@end
-
-@implementation NSDecimalNumber (HFormatter)
-//objcValue为NSString或NSNumber类型
-+ (NSDecimalNumber *)decimalNumberWithObjcValue:(id)objcValue {
-    if ([objcValue isKindOfClass:NSString.class]) {
-        return [NSDecimalNumber decimalNumberWithString:objcValue];
-    }else if ([objcValue isKindOfClass:NSNumber.class]) {
-        return [NSDecimalNumber decimalNumberWithDecimal:[(NSNumber *)objcValue decimalValue]];
-    }
-    return NSDecimalNumber.new;
-}
 @end
 
 @implementation NSNumber (HFormatter)
@@ -123,7 +156,7 @@
     HNumberFormatter *make = HNumberFormatter.new;
     block(make);
     NSNumber *modeNumber = make.formatterEnum()[make.roundingMode];
-    return [make numberObjc:self roundingMode:modeNumber.intValue afterPoint:make.afterPoint pointZero:make.pointZero grouping:make.grouping prefix:make.prefix symbol:make.symbol];
+    return [make numberObjc:self roundingMode:modeNumber.intValue afterPoint:make.afterPoint pointZero:make.pointZero grouping:make.grouping prefix:make.prefix symbol:make.symbol conversion:make.conversion];
 }
 @end
 
@@ -154,6 +187,6 @@
     HNumberFormatter *make = HNumberFormatter.new;
     block(make);
     NSNumber *modeNumber = make.formatterEnum()[make.roundingMode];
-    return [make numberObjc:self roundingMode:modeNumber.intValue afterPoint:make.afterPoint pointZero:make.pointZero grouping:make.grouping prefix:make.prefix symbol:make.symbol];
+    return [make numberObjc:self roundingMode:modeNumber.intValue afterPoint:make.afterPoint pointZero:make.pointZero grouping:make.grouping prefix:make.prefix symbol:make.symbol conversion:make.conversion];
 }
 @end

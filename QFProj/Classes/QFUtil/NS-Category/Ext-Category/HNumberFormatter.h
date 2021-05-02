@@ -25,14 +25,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) HNumberFormatterRoundingMode roundingMode;
 //默认保留两位小数，即afterPoint == 2
 @property(nonatomic, assign) NSInteger afterPoint;
-//默认pointZero == YES
+//默认为YES
 @property(nonatomic, assign) BOOL pointZero;
-//默认grouping == NO
+//默认为NO
 @property(nonatomic, assign) BOOL grouping;
-//默认prefix == NO
+//默认为NO
 @property(nonatomic, assign) BOOL prefix;
 //默认symbol == @""
 @property(nonatomic) NSString *symbol;
+//当达到千、百万、亿、兆时，使用省略写法（K、M、B、T），默认为NO
+@property(nonatomic, assign) BOOL conversion;
 @end
 
 @interface NSNumber (HFormatter)
