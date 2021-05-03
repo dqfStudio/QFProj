@@ -12,14 +12,14 @@
 //objcValue为NSString或NSNumber类型
 + (NSDecimalNumber *)decimalNumberWithObjcValue:(id)objcValue {
     if ([objcValue isKindOfClass:NSString.class]) {
-        NSString *objcStrintValue = [objcValue stringByReplacingOccurrencesOfString:@" " withString:@""];
-        if ([objcStrintValue containsString:@","] || [objcStrintValue containsString:@"，"]) {
-            objcStrintValue = [objcStrintValue stringByReplacingOccurrencesOfString:@"," withString:@""];
-            objcStrintValue = [objcStrintValue stringByReplacingOccurrencesOfString:@"，" withString:@""];
+        NSString *objcStringValue = [objcValue stringByReplacingOccurrencesOfString:@" " withString:@""];
+        if ([objcStringValue containsString:@","] || [objcStringValue containsString:@"，"]) {
+            objcStringValue = [objcStringValue stringByReplacingOccurrencesOfString:@"," withString:@""];
+            objcStringValue = [objcStringValue stringByReplacingOccurrencesOfString:@"，" withString:@""];
         }
         //避免[@“” floatValue] == 0 的情况
-        if (objcStrintValue.length > 0 && [objcStrintValue floatValue] >= 0) {
-            return [NSDecimalNumber decimalNumberWithString:objcStrintValue];
+        if (objcStringValue.length > 0 && [objcStringValue floatValue] >= 0) {
+            return [NSDecimalNumber decimalNumberWithString:objcStringValue];
         }
     }else if ([objcValue isKindOfClass:NSNumber.class]) {
         if ([(NSNumber *)objcValue floatValue] >= 0) {
