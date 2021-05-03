@@ -17,11 +17,12 @@
             objcStrintValue = [objcStrintValue stringByReplacingOccurrencesOfString:@"," withString:@""];
             objcStrintValue = [objcStrintValue stringByReplacingOccurrencesOfString:@"，" withString:@""];
         }
-        if ([objcStrintValue floatValue] > 0) {
+        //避免[@“” floatValue] == 0 的情况
+        if (objcStrintValue.length > 0 && [objcStrintValue floatValue] >= 0) {
             return [NSDecimalNumber decimalNumberWithString:objcStrintValue];
         }
     }else if ([objcValue isKindOfClass:NSNumber.class]) {
-        if ([(NSNumber *)objcValue floatValue] > 0) {
+        if ([(NSNumber *)objcValue floatValue] >= 0) {
             return [NSDecimalNumber decimalNumberWithDecimal:[(NSNumber *)objcValue decimalValue]];
         }
     }
@@ -91,7 +92,12 @@
     //小数分隔符，默认为"."
     numberFormatter.decimalSeparator = @".";
     //正前缀和负前缀
-    if (prefix && symbol.length > 0) {
+    if (decimalNumber.doubleValue == 0) {
+        if (symbol.length > 0) {
+            numberFormatter.positivePrefix = symbol;
+            numberFormatter.negativePrefix = symbol;
+        }
+    }else if (prefix && symbol.length > 0) {
         numberFormatter.positivePrefix = [@"+" stringByAppendingString:symbol];
         numberFormatter.negativePrefix = [@"-" stringByAppendingString:symbol];
     }else if (symbol.length > 0) {
