@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 //除，value为NSString或NSNumber类型
 - (NSDecimalNumber *)dividing:(id)value;
 //格式化
-- (NSString *)makeFormatter:(void(^)(HNumberFormatter *make))block;
+- (NSString *)makeFormatter:(void(^_Nullable)(HNumberFormatter *make))block;
 @end
 
 @interface NSString (HFormatter)
@@ -60,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
 //除，value为NSString或NSNumber类型
 - (NSDecimalNumber *)dividing:(id)value;
 //格式化
-- (NSString *)makeFormatter:(void(^)(HNumberFormatter *make))block;
+- (NSString *)makeFormatter:(void(^_Nullable)(HNumberFormatter *make))block;
 @end
 
 NS_ASSUME_NONNULL_END

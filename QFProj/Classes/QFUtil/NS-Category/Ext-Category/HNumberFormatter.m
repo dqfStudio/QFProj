@@ -173,7 +173,7 @@
     return [selfNumber decimalNumberByDividingBy:decimalNumber];
 }
 //格式化
-- (NSString *)makeFormatter:(void(^)(HNumberFormatter *make))block {
+- (NSString *)makeFormatter:(void(^_Nullable)(HNumberFormatter *make))block {
     HNumberFormatter *make = HNumberFormatter.new;
     if (block) block(make);
     NSNumber *modeNumber = make.formatterEnum()[make.roundingMode];
@@ -212,7 +212,7 @@
     return [selfNumber decimalNumberByDividingBy:decimalNumber];
 }
 //格式化
-- (NSString *)makeFormatter:(void(^)(HNumberFormatter *make))block {
+- (NSString *)makeFormatter:(void(^_Nullable)(HNumberFormatter *make))block {
     HNumberFormatter *make = HNumberFormatter.new;
     if (block) block(make);
     NSNumber *modeNumber = make.formatterEnum()[make.roundingMode];
