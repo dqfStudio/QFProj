@@ -152,7 +152,7 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
         
         NSString *tmpString = numberObjc;
         if ([numberObjc isKindOfClass:NSNumber.class]) {
-            tmpString = [NSString stringWithFormat:@"%lf", [(NSNumber *)tmpString doubleValue]];
+            tmpString = [(NSNumber *)tmpString stringValue];
         }
         
         NSRange range = [tmpString rangeOfString:@"."];
