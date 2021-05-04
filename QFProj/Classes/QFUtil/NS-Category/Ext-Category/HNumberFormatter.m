@@ -19,7 +19,7 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 @implementation NSDecimalNumber (HFormatter)
 + (BOOL)isOnlyNumericWithText:(NSString *)text {
     if (![text isKindOfClass:NSString.class]) return NO;
-    NSString *regex = @"[0-9.+-]+$";//允许带+-.三种符号
+    NSString *regex = @"[0-9.]+$";//允许带点号
     return [[NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex] evaluateWithObject:text];
 }
 //主动操作数据调用
