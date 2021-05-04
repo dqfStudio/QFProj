@@ -49,17 +49,17 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
             else return [NSDecimalNumber decimalNumberWithString:@"0"];
         }
             break;
-        case subtracting:{
+        case subtracting: {
             if (active) return [NSDecimalNumber decimalNumberWithString:@"0"];
             else return [NSDecimalNumber decimalNumberWithString:@"0"];
         }
             break;
-        case multiplying:{
+        case multiplying: {
             if (active) return [NSDecimalNumber decimalNumberWithString:@"1"];
             else return [NSDecimalNumber decimalNumberWithString:@"1"];
         }
             break;
-        case dividing:{
+        case dividing: {
             if (active) return [NSDecimalNumber decimalNumberWithString:@"0"];
             else return [NSDecimalNumber decimalNumberWithString:@"1"];
         }
