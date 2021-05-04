@@ -9,11 +9,11 @@
 #import "HNumberFormatter.h"
 
 typedef NS_ENUM(NSUInteger, HOperationMode) {
+    other,
     adding,
     subtracting,
     multiplying,
-    dividing,
-    other
+    dividing
 };
 
 @implementation NSDecimalNumber (HFormatter)
