@@ -37,7 +37,6 @@
 		A22FA0842400D50500B75C1C /* AppDelegate+NotifyService.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA0832400D50500B75C1C /* AppDelegate+NotifyService.m */; };
 		A22FA0872400D52B00B75C1C /* AppDelegate+SoundService.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA0862400D52B00B75C1C /* AppDelegate+SoundService.m */; };
 		A22FA17F2400DFC900B75C1C /* AppDelegate+UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA17E2400DFC900B75C1C /* AppDelegate+UserService.m */; };
-		A23BFB1F263AC2FA00501F79 /* HDecimalUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB1E263AC2FA00501F79 /* HDecimalUtil.m */; };
 		A23BFB65263BCD2000501F79 /* HUserDefaults+Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB61263BCD2000501F79 /* HUserDefaults+Properties.m */; };
 		A23BFB66263BCD2000501F79 /* HUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB63263BCD2000501F79 /* HUserDefaults.m */; };
 		A23BFB74263BE9F100501F79 /* HNetSpeedMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB73263BE9F100501F79 /* HNetSpeedMonitor.m */; };
@@ -524,8 +523,6 @@
 		A22FA0862400D52B00B75C1C /* AppDelegate+SoundService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+SoundService.m"; sourceTree = "<group>"; };
 		A22FA17D2400DFC900B75C1C /* AppDelegate+UserService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+UserService.h"; sourceTree = "<group>"; };
 		A22FA17E2400DFC900B75C1C /* AppDelegate+UserService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+UserService.m"; sourceTree = "<group>"; };
-		A23BFB1D263AC2FA00501F79 /* HDecimalUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDecimalUtil.h; sourceTree = "<group>"; };
-		A23BFB1E263AC2FA00501F79 /* HDecimalUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDecimalUtil.m; sourceTree = "<group>"; };
 		A23BFB61263BCD2000501F79 /* HUserDefaults+Properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HUserDefaults+Properties.m"; sourceTree = "<group>"; };
 		A23BFB62263BCD2000501F79 /* HUserDefaults+Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HUserDefaults+Properties.h"; sourceTree = "<group>"; };
 		A23BFB63263BCD2000501F79 /* HUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUserDefaults.m; sourceTree = "<group>"; };
@@ -2192,8 +2189,6 @@
 				A25E6475262445FC00863FF8 /* NSUserDefaults+HUtil.m */,
 				A23BFB90263C46A900501F79 /* HNumberFormatter.h */,
 				A23BFB91263C46A900501F79 /* HNumberFormatter.m */,
-				A23BFB1D263AC2FA00501F79 /* HDecimalUtil.h */,
-				A23BFB1E263AC2FA00501F79 /* HDecimalUtil.m */,
 			);
 			path = "Ext-Category";
 			sourceTree = "<group>";
@@ -3538,7 +3533,6 @@
 				A25E6770262445FD00863FF8 /* HCacheTimer.m in Sources */,
 				A25E67EC262445FE00863FF8 /* KSID.c in Sources */,
 				A25E680B262445FE00863FF8 /* HTupleViewTextLoopApex.m in Sources */,
-				A23BFB1F263AC2FA00501F79 /* HDecimalUtil.m in Sources */,
 				A25E67AD262445FE00863FF8 /* Container+DeepSearch.m in Sources */,
 				A25E6808262445FE00863FF8 /* HRegisterController+SJ.m in Sources */,
 				A25E6777262445FD00863FF8 /* YTKNetworkPrivate.m in Sources */,
