@@ -8,9 +8,25 @@
 
 #import "HNumberFormatter.h"
 
+typedef NS_ENUM(NSUInteger, HOperationMode) {
+    adding,
+    subtracting,
+    multiplying,
+    dividing,
+    other
+};
+
 @implementation NSDecimalNumber (HFormatter)
+//主动操作数据调用
++ (NSDecimalNumber *)activeDecimalNumberWithObjcValue:(id)objcValue operationMode:(HOperationMode)mode {
+    return [NSDecimalNumber decimalNumberWithObjcValue:objcValue active:YES operationMode:mode];
+}
+//被动操作数据调用
++ (NSDecimalNumber *)unactiveDecimalNumberWithObjcValue:(id)objcValue operationMode:(HOperationMode)mode {
+    return [NSDecimalNumber decimalNumberWithObjcValue:objcValue active:NO operationMode:mode];
+}
 //objcValue为NSString或NSNumber类型
-+ (NSDecimalNumber *)decimalNumberWithObjcValue:(id)objcValue {
++ (NSDecimalNumber *)decimalNumberWithObjcValue:(id)objcValue active:(BOOL)active operationMode:(HOperationMode)mode {
     if ([objcValue isKindOfClass:NSString.class]) {
         NSString *objcStringValue = [objcValue stringByReplacingOccurrencesOfString:@" " withString:@""];
         if ([objcStringValue containsString:@","] || [objcStringValue containsString:@"，"]) {
@@ -22,13 +38,36 @@
             return [NSDecimalNumber decimalNumberWithString:objcStringValue];
         }
     }else if ([objcValue isKindOfClass:NSNumber.class]) {
-        if ([(NSNumber *)objcValue floatValue] >= 0) {
-            return [NSDecimalNumber decimalNumberWithDecimal:[(NSNumber *)objcValue decimalValue]];
+        NSNumber *objcNumberValue = objcValue;
+        if ([objcNumberValue stringValue].length > 0 && [objcNumberValue floatValue] >= 0) {
+            return [NSDecimalNumber decimalNumberWithDecimal:[objcNumberValue decimalValue]];
         }
     }
-#if DEBUG
-    NSAssert(NO,nil);
-#endif
+    switch (mode) {
+        case adding: {
+            if (active) return [NSDecimalNumber decimalNumberWithString:@"0"];
+            else return [NSDecimalNumber decimalNumberWithString:@"0"];
+        }
+            break;
+        case subtracting:{
+            if (active) return [NSDecimalNumber decimalNumberWithString:@"0"];
+            else return [NSDecimalNumber decimalNumberWithString:@"0"];
+        }
+            break;
+        case multiplying:{
+            if (active) return [NSDecimalNumber decimalNumberWithString:@"1"];
+            else return [NSDecimalNumber decimalNumberWithString:@"1"];
+        }
+            break;
+        case dividing:{
+            if (active) return [NSDecimalNumber decimalNumberWithString:@"0"];
+            else return [NSDecimalNumber decimalNumberWithString:@"1"];
+        }
+            break;
+            
+        default:
+            break;
+    }
     return nil;
 }
 @end
@@ -75,7 +114,7 @@
                   symbol:(NSString *)symbol
               conversion:(BOOL)conversion {
     
-    NSDecimalNumber *decimalNumber = [NSDecimalNumber decimalNumberWithObjcValue:numberObjc];
+    NSDecimalNumber *decimalNumber = [NSDecimalNumber activeDecimalNumberWithObjcValue:numberObjc operationMode:other];
     if (!decimalNumber) return numberObjc;
     
     NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
@@ -152,30 +191,26 @@
 @implementation NSNumber (HFormatter)
 //加，value为NSString或NSNumber类型
 - (NSDecimalNumber *)adding:(id)value {
-    NSDecimalNumber *selfNumber = [NSDecimalNumber decimalNumberWithObjcValue:self];
-    NSDecimalNumber *decimalNumber = [NSDecimalNumber decimalNumberWithObjcValue:value];
-    if (!selfNumber || !decimalNumber) return [NSDecimalNumber decimalNumberWithDecimal:self.decimalValue];
+    NSDecimalNumber *selfNumber = [NSDecimalNumber activeDecimalNumberWithObjcValue:value operationMode:adding];
+    NSDecimalNumber *decimalNumber = [NSDecimalNumber unactiveDecimalNumberWithObjcValue:value operationMode:adding];
     return [selfNumber decimalNumberByAdding:decimalNumber];
 }
 //减，value为NSString或NSNumber类型
 - (NSDecimalNumber *)subtracting:(id)value {
-    NSDecimalNumber *selfNumber = [NSDecimalNumber decimalNumberWithObjcValue:self];
-    NSDecimalNumber *decimalNumber = [NSDecimalNumber decimalNumberWithObjcValue:value];
-    if (!selfNumber || !decimalNumber) return [NSDecimalNumber decimalNumberWithDecimal:self.decimalValue];
+    NSDecimalNumber *selfNumber = [NSDecimalNumber activeDecimalNumberWithObjcValue:value operationMode:subtracting];
+    NSDecimalNumber *decimalNumber = [NSDecimalNumber unactiveDecimalNumberWithObjcValue:value operationMode:subtracting];
     return [selfNumber decimalNumberBySubtracting:decimalNumber];
 }
 //乘，value为NSString或NSNumber类型
 - (NSDecimalNumber *)multiplying:(id)value {
-    NSDecimalNumber *selfNumber = [NSDecimalNumber decimalNumberWithObjcValue:self];
-    NSDecimalNumber *decimalNumber = [NSDecimalNumber decimalNumberWithObjcValue:value];
-    if (!selfNumber || !decimalNumber) return [NSDecimalNumber decimalNumberWithDecimal:self.decimalValue];
+    NSDecimalNumber *selfNumber = [NSDecimalNumber activeDecimalNumberWithObjcValue:value operationMode:multiplying];
+    NSDecimalNumber *decimalNumber = [NSDecimalNumber unactiveDecimalNumberWithObjcValue:value operationMode:multiplying];
     return [selfNumber decimalNumberByMultiplyingBy:decimalNumber];
 }
 //除，value为NSString或NSNumber类型
 - (NSDecimalNumber *)dividing:(id)value {
-    NSDecimalNumber *selfNumber = [NSDecimalNumber decimalNumberWithObjcValue:self];
-    NSDecimalNumber *decimalNumber = [NSDecimalNumber decimalNumberWithObjcValue:value];
-    if (!selfNumber || !decimalNumber) return [NSDecimalNumber decimalNumberWithDecimal:self.decimalValue];
+    NSDecimalNumber *selfNumber = [NSDecimalNumber activeDecimalNumberWithObjcValue:value operationMode:dividing];
+    NSDecimalNumber *decimalNumber = [NSDecimalNumber unactiveDecimalNumberWithObjcValue:value operationMode:dividing];
     return [selfNumber decimalNumberByDividingBy:decimalNumber];
 }
 //格式化
@@ -191,30 +226,26 @@
 @implementation NSString (HFormatter)
 //加，value为NSString或NSNumber类型
 - (NSDecimalNumber *)adding:(id)value {
-    NSDecimalNumber *selfNumber = [NSDecimalNumber decimalNumberWithObjcValue:self];
-    NSDecimalNumber *decimalNumber = [NSDecimalNumber decimalNumberWithObjcValue:value];
-    if (!selfNumber || !decimalNumber) return [NSDecimalNumber decimalNumberWithString:self];
+    NSDecimalNumber *selfNumber = [NSDecimalNumber activeDecimalNumberWithObjcValue:value operationMode:adding];
+    NSDecimalNumber *decimalNumber = [NSDecimalNumber unactiveDecimalNumberWithObjcValue:value operationMode:adding];
     return [selfNumber decimalNumberByAdding:decimalNumber];
 }
 //减，value为NSString或NSNumber类型
 - (NSDecimalNumber *)subtracting:(id)value {
-    NSDecimalNumber *selfNumber = [NSDecimalNumber decimalNumberWithObjcValue:self];
-    NSDecimalNumber *decimalNumber = [NSDecimalNumber decimalNumberWithObjcValue:value];
-    if (!selfNumber || !decimalNumber) return [NSDecimalNumber decimalNumberWithString:self];
+    NSDecimalNumber *selfNumber = [NSDecimalNumber activeDecimalNumberWithObjcValue:value operationMode:subtracting];
+    NSDecimalNumber *decimalNumber = [NSDecimalNumber unactiveDecimalNumberWithObjcValue:value operationMode:subtracting];
     return [selfNumber decimalNumberBySubtracting:decimalNumber];
 }
 //乘，value为NSString或NSNumber类型
 - (NSDecimalNumber *)multiplying:(id)value {
-    NSDecimalNumber *selfNumber = [NSDecimalNumber decimalNumberWithObjcValue:self];
-    NSDecimalNumber *decimalNumber = [NSDecimalNumber decimalNumberWithObjcValue:value];
-    if (!selfNumber || !decimalNumber) return [NSDecimalNumber decimalNumberWithString:self];
+    NSDecimalNumber *selfNumber = [NSDecimalNumber activeDecimalNumberWithObjcValue:value operationMode:multiplying];
+    NSDecimalNumber *decimalNumber = [NSDecimalNumber unactiveDecimalNumberWithObjcValue:value operationMode:multiplying];
     return [selfNumber decimalNumberByMultiplyingBy:decimalNumber];
 }
 //除，value为NSString或NSNumber类型
 - (NSDecimalNumber *)dividing:(id)value {
-    NSDecimalNumber *selfNumber = [NSDecimalNumber decimalNumberWithObjcValue:self];
-    NSDecimalNumber *decimalNumber = [NSDecimalNumber decimalNumberWithObjcValue:value];
-    if (!selfNumber || !decimalNumber) return [NSDecimalNumber decimalNumberWithString:self];
+    NSDecimalNumber *selfNumber = [NSDecimalNumber activeDecimalNumberWithObjcValue:value operationMode:dividing];
+    NSDecimalNumber *decimalNumber = [NSDecimalNumber unactiveDecimalNumberWithObjcValue:value operationMode:dividing];
     return [selfNumber decimalNumberByDividingBy:decimalNumber];
 }
 //格式化
