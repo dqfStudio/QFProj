@@ -17,6 +17,11 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 };
 
 @implementation NSDecimalNumber (HFormatter)
++ (BOOL)isOnlyNumericWithText:(NSString *)text {
+    if (![text isKindOfClass:NSString.class]) return NO;
+    NSString *regex = @"[0-9.+-]+$";//允许带+-.三种符号
+    return [[NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex] evaluateWithObject:text];
+}
 //主动操作数据调用
 + (NSDecimalNumber *)activeDecimalNumberWithObjcValue:(id)objcValue operationMode:(HOperationMode)mode {
     return [NSDecimalNumber decimalNumberWithObjcValue:objcValue active:YES operationMode:mode];
@@ -33,13 +38,12 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
             objcStringValue = [objcStringValue stringByReplacingOccurrencesOfString:@"," withString:@""];
             objcStringValue = [objcStringValue stringByReplacingOccurrencesOfString:@"，" withString:@""];
         }
-        //避免[@“” floatValue] == 0 的情况
-        if (objcStringValue.length > 0 && [objcStringValue floatValue] >= 0) {
+        if ([self isOnlyNumericWithText:objcStringValue]) {
             return [NSDecimalNumber decimalNumberWithString:objcStringValue];
         }
     }else if ([objcValue isKindOfClass:NSNumber.class]) {
         NSNumber *objcNumberValue = objcValue;
-        if ([objcNumberValue stringValue].length > 0 && [objcNumberValue floatValue] >= 0) {
+        if ([self isOnlyNumericWithText:objcNumberValue.stringValue]) {
             return [NSDecimalNumber decimalNumberWithDecimal:[objcNumberValue decimalValue]];
         }
     }
