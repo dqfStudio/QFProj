@@ -17,6 +17,7 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 };
 
 @implementation NSDecimalNumber (HFormatter)
+//清除某些特定符号，是对数据的一种容错处理
 + (NSString *)clearTheSymbolWithText:(NSString *)text {
     if (![text isKindOfClass:NSString.class]) return @"";
     NSError *error = nil;
@@ -24,6 +25,7 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     NSRegularExpression *regularExpress = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:&error];
     return [regularExpress stringByReplacingMatchesInString:text options:0 range:NSMakeRange(0, text.length) withTemplate:@""];
 }
+//判断是否只有特定符号
 + (BOOL)isOnlyNumericWithText:(NSString *)text {
     if (![text isKindOfClass:NSString.class]) return NO;
     //条件查找
