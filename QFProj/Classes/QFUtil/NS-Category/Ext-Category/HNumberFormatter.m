@@ -28,7 +28,6 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 //判断是否只有特定符号
 + (BOOL)isOnlyNumericWithText:(NSString *)text {
     if (![text isKindOfClass:NSString.class]) return NO;
-    //条件查找
     NSString *regex = @"[0-9+-.]+$";//允许带+-.号
     return [[NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex] evaluateWithObject:text];
 }
