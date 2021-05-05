@@ -17,8 +17,16 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 };
 
 @implementation NSDecimalNumber (HFormatter)
++ (NSString *)clearTheSymbolWithText:(NSString *)text {
+    if (![text isKindOfClass:NSString.class]) return @"";
+    NSError *error = nil;
+    NSString *pattern = @"[，, ]";//中英文环境下逗号和空格
+    NSRegularExpression *regularExpress = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:&error];
+    return [regularExpress stringByReplacingMatchesInString:text options:0 range:NSMakeRange(0, text.length) withTemplate:@""];
+}
 + (BOOL)isOnlyNumericWithText:(NSString *)text {
     if (![text isKindOfClass:NSString.class]) return NO;
+    //条件查找
     NSString *regex = @"[0-9+-.]+$";//允许带+-.号
     return [[NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex] evaluateWithObject:text];
 }
@@ -33,11 +41,7 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 //objcValue为NSString或NSNumber类型
 + (NSDecimalNumber *)decimalNumberWithObjcValue:(id)objcValue active:(BOOL)active operationMode:(HOperationMode)mode {
     if ([objcValue isKindOfClass:NSString.class]) {
-        NSString *objcStringValue = [objcValue stringByReplacingOccurrencesOfString:@" " withString:@""];
-        if ([objcStringValue containsString:@","] || [objcStringValue containsString:@"，"]) {
-            objcStringValue = [objcStringValue stringByReplacingOccurrencesOfString:@"," withString:@""];
-            objcStringValue = [objcStringValue stringByReplacingOccurrencesOfString:@"，" withString:@""];
-        }
+        NSString *objcStringValue = [self clearTheSymbolWithText:objcValue];
         if ([self isOnlyNumericWithText:objcStringValue]) {
             return [NSDecimalNumber decimalNumberWithString:objcStringValue];
         }
