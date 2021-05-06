@@ -7,6 +7,7 @@
 //
 
 #import <AFNetworking/AFNetworking.h>
+#import "YTKRequest+Initialize.h"
 #import "YTKNetworkPrivate.h"
 #import "YTKRequest.h"
 
