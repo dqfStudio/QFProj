@@ -42,11 +42,13 @@
 - (void)uploadImage:(UIImage *)image
            argument:(NSDictionary *)argument
             success:(void(^)(id responseObject))success
+           progress:(void(^)(NSProgress *))progress
             failure:(void(^)(NSError *error))failure;
 
 - (void)downloadWithImageId:(NSString *)imageId
                    argument:(NSDictionary *)argument
                     success:(void(^)(id responseObject))success
+                   progress:(void(^)(NSProgress *))progress
                     failure:(void(^)(NSError *error))failure;
 
 #pragma mark - 查找可用URL

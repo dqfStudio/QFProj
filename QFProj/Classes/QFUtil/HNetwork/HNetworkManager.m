@@ -60,8 +60,12 @@
 - (void)uploadImage:(UIImage *)image
            argument:(NSDictionary *)argument
             success:(void(^)(id responseObject))success
+           progress:(void(^)(NSProgress *))progress
             failure:(void(^)(NSError *error))failure {
     HUploadImageDAO *uploadImageDAO = [[HUploadImageDAO alloc] initWithImage:image argument:argument];
+    [uploadImageDAO setUploadProgressBlock:^(NSProgress * _Nonnull progressValue) {
+        if (progress) progress(progressValue);
+    }];
     [uploadImageDAO startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         success(request.responseObject);
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
@@ -72,8 +76,12 @@
 - (void)downloadWithImageId:(NSString *)imageId
                    argument:(NSDictionary *)argument
                     success:(void(^)(id responseObject))success
+                   progress:(void(^)(NSProgress *))progress
                     failure:(void(^)(NSError *error))failure {
     HDownloadImageDAO *downloadImageDAO = [[HDownloadImageDAO alloc] initWithImageId:imageId argument:argument];
+    [downloadImageDAO setResumableDownloadProgressBlock:^(NSProgress * _Nonnull progressValue) {
+        if (progress) progress(progressValue);
+    }];
     [downloadImageDAO startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         success(request.responseObject);
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
