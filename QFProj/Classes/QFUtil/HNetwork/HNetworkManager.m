@@ -67,9 +67,9 @@
         if (progress) progress(progressValue);
     }];
     [uploadImageDAO startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        success(request.responseObject);
+        if (success) success(request.responseObject);
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        failure(request.error);
+        if (failure) failure(request.error);
     }];
 }
 
@@ -83,9 +83,9 @@
         if (progress) progress(progressValue);
     }];
     [downloadImageDAO startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        success(request.responseObject);
+        if (success) success(request.responseObject);
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        failure(request.error);
+        if (failure) failure(request.error);
     }];
 }
 
