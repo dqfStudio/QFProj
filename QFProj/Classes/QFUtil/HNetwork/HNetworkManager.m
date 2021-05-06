@@ -62,15 +62,7 @@
             success:(void(^)(id responseObject))success
            progress:(void(^)(NSProgress *))progress
             failure:(void(^)(NSError *error))failure {
-    HUploadImageDAO *uploadImageDAO = [[HUploadImageDAO alloc] initWithImage:image argument:argument];
-    [uploadImageDAO setUploadProgressBlock:^(NSProgress * _Nonnull progressValue) {
-        if (progress) progress(progressValue);
-    }];
-    [uploadImageDAO startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        if (success) success(request.responseObject);
-    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        if (failure) failure(request.error);
-    }];
+    [HUploadImageDAO uploadImage:image argument:argument success:success progress:progress failure:failure];
 }
 
 - (void)downloadWithImageId:(NSString *)imageId
@@ -78,15 +70,7 @@
                     success:(void(^)(id responseObject))success
                    progress:(void(^)(NSProgress *))progress
                     failure:(void(^)(NSError *error))failure {
-    HDownloadImageDAO *downloadImageDAO = [[HDownloadImageDAO alloc] initWithImageId:imageId argument:argument];
-    [downloadImageDAO setResumableDownloadProgressBlock:^(NSProgress * _Nonnull progressValue) {
-        if (progress) progress(progressValue);
-    }];
-    [downloadImageDAO startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        if (success) success(request.responseObject);
-    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        if (failure) failure(request.error);
-    }];
+    [HDownloadImageDAO downloadWithImageId:imageId argument:argument success:success progress:progress failure:failure];
 }
 
 #pragma mark - 查找可用URL

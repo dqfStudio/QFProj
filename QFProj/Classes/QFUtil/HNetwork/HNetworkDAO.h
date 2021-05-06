@@ -42,9 +42,17 @@ extern const int KServerErrorCode; //服务端返回数据异常
 @end
 
 @interface HUploadImageDAO : YTKRequest
-- (id)initWithImage:(UIImage *)image argument:(NSDictionary *)argument;
++ (void)uploadImage:(UIImage *)image
+           argument:(NSDictionary *)argument
+            success:(void(^)(id responseObject))success
+           progress:(void(^)(NSProgress *))progress
+            failure:(void(^)(NSError *error))failure;
 @end
 
 @interface HDownloadImageDAO : YTKRequest
-- (id)initWithImageId:(NSString *)imageId argument:(NSDictionary *)argument;
++ (void)downloadWithImageId:(NSString *)imageId
+                   argument:(NSDictionary *)argument
+                    success:(void(^)(id responseObject))success
+                   progress:(void(^)(NSProgress *))progress
+                    failure:(void(^)(NSError *error))failure;
 @end

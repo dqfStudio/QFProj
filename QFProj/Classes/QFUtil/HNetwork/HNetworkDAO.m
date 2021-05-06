@@ -248,6 +248,21 @@ const int KServerErrorCode = -10001; //服务端返回数据异常
         [formData appendPartWithFileData:data name:formKey fileName:name mimeType:type];
     };
 }
++ (void)uploadImage:(UIImage *)image
+           argument:(NSDictionary *)argument
+            success:(void(^)(id responseObject))success
+           progress:(void(^)(NSProgress *))progress
+            failure:(void(^)(NSError *error))failure {
+    HUploadImageDAO *uploadImageDAO = [[HUploadImageDAO alloc] initWithImage:image argument:argument];
+    [uploadImageDAO setUploadProgressBlock:^(NSProgress * _Nonnull progressValue) {
+        if (progress) progress(progressValue);
+    }];
+    [uploadImageDAO startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+        if (success) success(request.responseObject);
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        if (failure) failure(request.error);
+    }];
+}
 @end
 
 @implementation HDownloadImageDAO {
@@ -276,5 +291,20 @@ const int KServerErrorCode = -10001; //服务端返回数据异常
     NSString *cachePath = [libPath stringByAppendingPathComponent:@"Caches"];
     NSString *filePath = [cachePath stringByAppendingPathComponent:_imageId];
     return filePath;
+}
++ (void)downloadWithImageId:(NSString *)imageId
+                   argument:(NSDictionary *)argument
+                    success:(void(^)(id responseObject))success
+                   progress:(void(^)(NSProgress *))progress
+                    failure:(void(^)(NSError *error))failure {
+    HDownloadImageDAO *downloadImageDAO = [[HDownloadImageDAO alloc] initWithImageId:imageId argument:argument];
+    [downloadImageDAO setResumableDownloadProgressBlock:^(NSProgress * _Nonnull progressValue) {
+        if (progress) progress(progressValue);
+    }];
+    [downloadImageDAO startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+        if (success) success(request.responseObject);
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        if (failure) failure(request.error);
+    }];
 }
 @end
