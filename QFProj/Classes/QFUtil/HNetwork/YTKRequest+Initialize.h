@@ -10,6 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface YTKBaseRequest (Tag)
+//身份标识，通过该字段区别另外一个请求
+@property(nonatomic) NSString *identify;
+@end
+
 @interface YTKRequest (Initialize)
 
 @end

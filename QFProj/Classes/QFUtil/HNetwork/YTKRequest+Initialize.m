@@ -7,6 +7,16 @@
 //
 
 #import "YTKRequest+Initialize.h"
+#import <objc/runtime.h>
+
+@implementation YTKBaseRequest (Tag)
+- (NSString *)identify {
+    return objc_getAssociatedObject(self, _cmd);
+}
+- (void)setIdentify:(NSString *)identify {
+    objc_setAssociatedObject(self, @selector(identify), identify, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+@end
 
 @implementation YTKRequest (Initialize)
 + (void)initialize {
