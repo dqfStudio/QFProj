@@ -130,7 +130,6 @@
 		A25E6762262445FD00863FF8 /* HClassManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6412262445FC00863FF8 /* HClassManager.m */; };
 		A25E6763262445FD00863FF8 /* HUserStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6415262445FC00863FF8 /* HUserStore.m */; };
 		A25E6764262445FD00863FF8 /* HAutoPackage_Release.sh in Resources */ = {isa = PBXBuildFile; fileRef = A25E6418262445FC00863FF8 /* HAutoPackage_Release.sh */; };
-		A25E6765262445FD00863FF8 /* HProjectDRConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A25E6419262445FC00863FF8 /* HProjectDRConfig.xcconfig */; };
 		A25E6766262445FD00863FF8 /* README.H.md in Resources */ = {isa = PBXBuildFile; fileRef = A25E641A262445FC00863FF8 /* README.H.md */; };
 		A25E6767262445FD00863FF8 /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = A25E641B262445FC00863FF8 /* exportOptions.plist */; };
 		A25E6768262445FD00863FF8 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E641D262445FC00863FF8 /* SRWebSocket.m */; };
@@ -3317,7 +3316,7 @@
 		15B4DD5B2092F88700773E04 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = dqfStudio;
 				TargetAttributes = {
 					15B4DD622092F88700773E04 = {
@@ -3375,7 +3374,6 @@
 				A25E68BC262445FE00863FF8 /* hvc_back_icon@3x.png in Resources */,
 				A25E6883262445FE00863FF8 /* loading_new_12@2x.png in Resources */,
 				A25E6834262445FE00863FF8 /* icon_tuple_xx_gray@2x.png in Resources */,
-				A25E6765262445FD00863FF8 /* HProjectDRConfig.xcconfig in Resources */,
 				A25E6835262445FE00863FF8 /* icon_tuple_arrow_down@2x.png in Resources */,
 				A25E6839262445FE00863FF8 /* icon_tuple_nodata@2x.png in Resources */,
 				A25E6886262445FE00863FF8 /* loading_new_2@2x.png in Resources */,
@@ -3906,6 +3904,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -3931,7 +3930,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -3963,6 +3962,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -3982,7 +3982,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -4004,7 +4004,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QFProj/Classes/QFUtil/HUtilHeader/HUtilHeader.h";
 				INFOPLIST_FILE = QFProj/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4031,7 +4031,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QFProj/Classes/QFUtil/HUtilHeader/HUtilHeader.h";
 				INFOPLIST_FILE = QFProj/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
