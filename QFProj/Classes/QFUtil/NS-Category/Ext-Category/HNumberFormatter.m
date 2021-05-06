@@ -229,6 +229,14 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     NSNumber *modeNumber = make.formatterEnum()[make.roundingMode];
     return [make numberObjc:self roundingMode:modeNumber.intValue afterPoint:make.afterPoint pointZero:make.pointZero grouping:make.grouping prefix:make.prefix symbol:make.symbol conversion:make.conversion];
 }
+//获取十进制金额数据
+- (NSString *)decimalStringValue {
+    NSString *selfValue = [NSDecimalNumber clearTheSymbolWithText:self.stringValue];
+    if ([NSDecimalNumber isOnlyNumericWithText:selfValue]) {
+        return selfValue;
+    }
+    return @"";
+}
 @end
 
 
@@ -256,6 +264,14 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     NSDecimalNumber *selfNumber = [NSDecimalNumber activeDecimalNumberWithObjcValue:self operationMode:dividing];
     NSDecimalNumber *decimalNumber = [NSDecimalNumber unactiveDecimalNumberWithObjcValue:value operationMode:dividing];
     return [selfNumber decimalNumberByDividingBy:decimalNumber];
+}
+//获取十进制金额数据
+- (NSString *)decimalStringValue {
+    NSString *selfValue = [NSDecimalNumber clearTheSymbolWithText:self];
+    if ([NSDecimalNumber isOnlyNumericWithText:selfValue]) {
+        return selfValue;
+    }
+    return @"";
 }
 //格式化
 - (NSString *)makeFormatter:(void(^_Nullable)(HNumberFormatter *make))block {
