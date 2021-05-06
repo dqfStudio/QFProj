@@ -39,7 +39,7 @@
     if (self) {
         _requestArray = [requestArray copy];
         _finishedCount = 0;
-        for (YTKRequest *req in _requestArray) {
+        for (YTKRequest * req in _requestArray) {
             if (![req isKindOfClass:[YTKRequest class]]) {
                 YTKLog(@"Error, request item must be YTKRequest instance.");
                 return nil;
@@ -57,7 +57,7 @@
     _failedRequest = nil;
     [[YTKBatchRequestAgent sharedAgent] addBatchRequest:self];
     [self toggleAccessoriesWillStartCallBack];
-    for (YTKRequest *req in _requestArray) {
+    for (YTKRequest * req in _requestArray) {
         req.delegate = self;
         [req clearCompletionBlock];
         [req start];
@@ -145,7 +145,7 @@
 }
 
 - (void)clearRequest {
-    for (YTKRequest *req in _requestArray) {
+    for (YTKRequest * req in _requestArray) {
         [req stop];
     }
     [self clearCompletionBlock];

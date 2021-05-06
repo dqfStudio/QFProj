@@ -60,7 +60,7 @@
         [self toggleAccessoriesWillStartCallBack];
         [self startNextRequest];
         [[YTKChainRequestAgent sharedAgent] addChainRequest:self];
-    }else {
+    } else {
         YTKLog(@"Error! Chain request array is empty.");
     }
 }
@@ -76,7 +76,7 @@
     [_requestArray addObject:request];
     if (callback != nil) {
         [_requestCallbackArray addObject:callback];
-    }else {
+    } else {
         [_requestCallbackArray addObject:_emptyCallback];
     }
 }
@@ -93,7 +93,7 @@
         [request clearCompletionBlock];
         [request start];
         return YES;
-    }else {
+    } else {
         return NO;
     }
 }

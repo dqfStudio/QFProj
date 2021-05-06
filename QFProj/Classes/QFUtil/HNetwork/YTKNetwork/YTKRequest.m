@@ -147,7 +147,7 @@ static dispatch_queue_t ytkrequest_cache_writing_queue() {
         dispatch_async(ytkrequest_cache_writing_queue(), ^{
             [self saveResponseDataToCacheFile:[super responseData]];
         });
-    }else {
+    } else {
         [self saveResponseDataToCacheFile:[super responseData]];
     }
 }
@@ -212,7 +212,7 @@ static dispatch_queue_t ytkrequest_cache_writing_queue() {
 
 #pragma mark -
 
-- (BOOL)loadCacheWithError:(NSError *_Nullable __autoreleasing *)error {
+- (BOOL)loadCacheWithError:(NSError * _Nullable __autoreleasing *)error {
     // Make sure cache time in valid.
     if ([self cacheTimeInSeconds] < 0) {
         if (error) {
@@ -245,7 +245,7 @@ static dispatch_queue_t ytkrequest_cache_writing_queue() {
     return YES;
 }
 
-- (BOOL)validateCacheWithError:(NSError *_Nullable __autoreleasing *)error {
+- (BOOL)validateCacheWithError:(NSError * _Nullable __autoreleasing *)error {
     // Date
     NSDate *creationDate = self.cacheMetadata.creationDate;
     NSTimeInterval duration = -[creationDate timeIntervalSinceNow];
@@ -291,7 +291,7 @@ static dispatch_queue_t ytkrequest_cache_writing_queue() {
 
 - (BOOL)loadCacheMetadata {
     NSString *path = [self cacheMetadataFilePath];
-    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSFileManager * fileManager = [NSFileManager defaultManager];
     if ([fileManager fileExistsAtPath:path isDirectory:nil]) {
         @try {
             _cacheMetadata = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
@@ -365,7 +365,7 @@ static dispatch_queue_t ytkrequest_cache_writing_queue() {
     BOOL isDir;
     if (![fileManager fileExistsAtPath:path isDirectory:&isDir]) {
         [self createBaseDirectoryAtPath:path];
-    }else {
+    } else {
         if (!isDir) {
             NSError *error = nil;
             [fileManager removeItemAtPath:path error:&error];
@@ -380,7 +380,7 @@ static dispatch_queue_t ytkrequest_cache_writing_queue() {
                                                attributes:nil error:&error];
     if (error) {
         YTKLog(@"create cache directory failed, error = %@", error);
-    }else {
+    } else {
         [YTKNetworkUtils addDoNotBackupAttribute:path];
     }
 }

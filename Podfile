@@ -17,7 +17,7 @@ target 'QFProj' do
   pod "Masonry"
 #  pod "SDWebImage"
   pod 'SDWebImage’,’~> 4.0.0’
-  pod 'AFNetworking',	'~> 3.0'
+  pod 'AFNetworking','~> 4.0.0'
   pod 'Aspects'
   #pod 'HAccess'
   pod 'ReactiveCocoa',	'~> 2.1.8'
