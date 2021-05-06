@@ -37,6 +37,18 @@
                  success:(void(^)(id responseObject))success
                  failure:(void(^)(NSError *error))failure;
 
+#pragma mark - 上传下载图片
+
+- (void)uploadImage:(UIImage *)image
+           argument:(NSDictionary *)argument
+            success:(void(^)(id responseObject))success
+            failure:(void(^)(NSError *error))failure;
+
+- (void)downloadWithImageId:(NSString *)imageId
+                   argument:(NSDictionary *)argument
+                    success:(void(^)(id responseObject))success
+                    failure:(void(^)(NSError *error))failure;
+
 #pragma mark - 查找可用URL
 
 - (void)findUsableURL:(NSArray *)urlArr callback:(void (^)(NSString *))handler;

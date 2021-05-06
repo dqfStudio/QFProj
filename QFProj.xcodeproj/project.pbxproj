@@ -26,6 +26,7 @@
 		A20E3D2423239BF600E6982B /* HMainController3+HSection1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D2323239BF600E6982B /* HMainController3+HSection1.m */; };
 		A20E3D2723239C0200E6982B /* HMainController3+HSection2.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D2623239C0200E6982B /* HMainController3+HSection2.m */; };
 		A2109C7A2643BEE00001FD80 /* YTKRequestEventAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = A2109C792643BEE00001FD80 /* YTKRequestEventAccessory.m */; };
+		A2109CBA2643C6D90001FD80 /* YTKRequest+Initialize.m in Sources */ = {isa = PBXBuildFile; fileRef = A2109CB92643C6D90001FD80 /* YTKRequest+Initialize.m */; };
 		A21F4092242215B4002221C4 /* HMainController1+Normal.m in Sources */ = {isa = PBXBuildFile; fileRef = A21F4091242215B4002221C4 /* HMainController1+Normal.m */; };
 		A21F4095242215C1002221C4 /* HMainController1+Error.m in Sources */ = {isa = PBXBuildFile; fileRef = A21F4094242215C1002221C4 /* HMainController1+Error.m */; };
 		A227A8FD233C9DB4005611BA /* di_zhuce@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A227A8FB233C9DB4005611BA /* di_zhuce@3x.png */; };
@@ -505,6 +506,8 @@
 		A20E3D2623239C0200E6982B /* HMainController3+HSection2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HMainController3+HSection2.m"; sourceTree = "<group>"; };
 		A2109C782643BEE00001FD80 /* YTKRequestEventAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKRequestEventAccessory.h; sourceTree = "<group>"; };
 		A2109C792643BEE00001FD80 /* YTKRequestEventAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKRequestEventAccessory.m; sourceTree = "<group>"; };
+		A2109CB82643C6D90001FD80 /* YTKRequest+Initialize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YTKRequest+Initialize.h"; sourceTree = "<group>"; };
+		A2109CB92643C6D90001FD80 /* YTKRequest+Initialize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YTKRequest+Initialize.m"; sourceTree = "<group>"; };
 		A21F4090242215B4002221C4 /* HMainController1+Normal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMainController1+Normal.h"; sourceTree = "<group>"; };
 		A21F4091242215B4002221C4 /* HMainController1+Normal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HMainController1+Normal.m"; sourceTree = "<group>"; };
 		A21F4093242215C1002221C4 /* HMainController1+Error.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMainController1+Error.h"; sourceTree = "<group>"; };
@@ -2071,6 +2074,8 @@
 		A25E643A262445FC00863FF8 /* HNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				A2109CB82643C6D90001FD80 /* YTKRequest+Initialize.h */,
+				A2109CB92643C6D90001FD80 /* YTKRequest+Initialize.m */,
 				A25E643E262445FC00863FF8 /* HNetworkDAO.h */,
 				A25E643B262445FC00863FF8 /* HNetworkDAO.m */,
 				A25E643C262445FC00863FF8 /* HNetworkManager.h */,
@@ -3569,6 +3574,7 @@
 				A25E67FB262445FE00863FF8 /* HServiceAuthorizationCell.m in Sources */,
 				A25E67CE262445FE00863FF8 /* KSCrashMonitor.c in Sources */,
 				A25E6756262445FD00863FF8 /* HNumericValidator.m in Sources */,
+				A2109CBA2643C6D90001FD80 /* YTKRequest+Initialize.m in Sources */,
 				A20E3D04231FE0C800E6982B /* HMainController3.m in Sources */,
 				A25E67CF262445FE00863FF8 /* KSCrashMonitor_CPPException.cpp in Sources */,
 				A25E685E262445FE00863FF8 /* HTextLine.m in Sources */,

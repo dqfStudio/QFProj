@@ -217,3 +217,64 @@ const int KServerErrorCode = -10001; //服务端返回数据异常
     [networkDAO performWithUrl:url method:YTKRequestMethodPOST argument:argument success:success failure:failure];
 }
 @end
+
+@implementation HUploadImageDAO {
+    UIImage *_image;
+    NSDictionary *_argument;
+}
+- (id)initWithImage:(UIImage *)image argument:(NSDictionary *)argument {
+    self = [super init];
+    if (self) {
+        _image = image;
+        _argument = argument;
+    }
+    return self;
+}
+- (YTKRequestMethod)requestMethod {
+    return YTKRequestMethodPOST;
+}
+- (NSString *)requestUrl {
+    return @"/iphone/image/upload";
+}
+- (id)requestArgument {
+    return _argument;
+}
+- (AFConstructingBlock)constructingBodyBlock {
+    return ^(id<AFMultipartFormData> formData) {
+        NSData *data = UIImageJPEGRepresentation(self->_image, 0.9);
+        NSString *name = @"name";
+        NSString *formKey = @"image";
+        NSString *type = @"image/jpeg";
+        [formData appendPartWithFileData:data name:formKey fileName:name mimeType:type];
+    };
+}
+@end
+
+@implementation HDownloadImageDAO {
+    NSString *_imageId;
+    NSDictionary *_argument;
+}
+- (id)initWithImageId:(NSString *)imageId argument:(NSDictionary *)argument {
+    self = [super init];
+    if (self) {
+        _imageId = imageId;
+        _argument = argument;
+    }
+    return self;
+}
+- (NSString *)requestUrl {
+    return [NSString stringWithFormat:@"/iphone/images/%@", _imageId];
+}
+- (id)requestArgument {
+    return _argument;
+}
+- (BOOL)useCDN {
+    return YES;
+}
+- (NSString *)resumableDownloadPath {
+    NSString *libPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *cachePath = [libPath stringByAppendingPathComponent:@"Caches"];
+    NSString *filePath = [cachePath stringByAppendingPathComponent:_imageId];
+    return filePath;
+}
+@end

@@ -40,3 +40,11 @@ extern const int KServerErrorCode; //服务端返回数据异常
                  failure:(void(^)(NSError *error))failure;
 
 @end
+
+@interface HUploadImageDAO : YTKRequest
+- (id)initWithImage:(UIImage *)image argument:(NSDictionary *)argument;
+@end
+
+@interface HDownloadImageDAO : YTKRequest
+- (id)initWithImageId:(NSString *)imageId argument:(NSDictionary *)argument;
+@end

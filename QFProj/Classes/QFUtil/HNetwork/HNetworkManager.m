@@ -55,6 +55,32 @@
     [HNetworkDAO retryPostWithUrl:url argument:argument success:success failure:failure];
 }
 
+#pragma mark - 上传下载图片
+
+- (void)uploadImage:(UIImage *)image
+           argument:(NSDictionary *)argument
+            success:(void(^)(id responseObject))success
+            failure:(void(^)(NSError *error))failure {
+    HUploadImageDAO *uploadImageDAO = [[HUploadImageDAO alloc] initWithImage:image argument:argument];
+    [uploadImageDAO startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+        success(request.responseObject);
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        failure(request.error);
+    }];
+}
+
+- (void)downloadWithImageId:(NSString *)imageId
+                   argument:(NSDictionary *)argument
+                    success:(void(^)(id responseObject))success
+                    failure:(void(^)(NSError *error))failure {
+    HDownloadImageDAO *downloadImageDAO = [[HDownloadImageDAO alloc] initWithImageId:imageId argument:argument];
+    [downloadImageDAO startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+        success(request.responseObject);
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        failure(request.error);
+    }];
+}
+
 #pragma mark - 查找可用URL
 
 - (void)findUsableURL:(NSArray *)urlArr callback:(void (^)(NSString *))handler {
