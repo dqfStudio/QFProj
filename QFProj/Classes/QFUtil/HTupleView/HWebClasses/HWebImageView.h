@@ -23,6 +23,7 @@
 @property (nonatomic) callback pressed;
 @property (nonatomic) callback didGetImage;
 @property (nonatomic) callback didGetError;
+@property (nonatomic) callback themeSkin; //主题换肤
 /**
  *  设置图片链接
  *

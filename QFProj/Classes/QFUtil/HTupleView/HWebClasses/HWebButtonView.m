@@ -191,6 +191,22 @@
 - (void)buttonPressed {
     if (_pressed) _pressed(self, nil);
 }
+- (void)setThemeSkin:(callback)themeSkin {
+    if (_themeSkin != themeSkin) {
+        _themeSkin = nil;
+        _themeSkin = themeSkin;
+        if (themeSkin) {
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(themeSkinNotifyAction) name:KThemeSkinNotify object:nil];
+        }else {
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:KThemeSkinNotify object:nil];
+        }
+    }
+}
+- (void)themeSkinNotifyAction {
+    if (_themeSkin) {
+        _themeSkin(self, nil);
+    }
+}
 @end
 
 
