@@ -111,7 +111,7 @@ _Pragma("clang diagnostic pop") \
         //倒序执行
         for (NSUInteger i=allObjects.count-1; i>=0; i--) {
             id anObject = allObjects[i];
-            if ([anObject isKindOfClass:UILabel.class] || [anObject isKindOfClass:HLabel.class] || [anObject isKindOfClass:UITextView.class]) {
+            if ([anObject isKindOfClass:UILabel.class] || [anObject isKindOfClass:HLabel.class] || [anObject isKindOfClass:UITextView.class] || [anObject isKindOfClass:HTextView.class]) {
                 UIView *view = anObject;
                 SEL selector = NSSelectorFromString(@"skin_setText:");
                 if ([view respondsToSelector:selector]) {
@@ -249,3 +249,42 @@ _Pragma("clang diagnostic pop") \
 }
 @end
 
+@implementation HTextView (HLanguage)
++ (void)load {
+    [super load];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self methodSwizzleWithOrigSEL:@selector(setText:) overrideSEL:@selector(skin_setText:)];
+    });
+}
+- (void)skin_setText:(NSString *)text {
+    if ([text isKindOfClass:NSString.class] || [text isKindOfClass:NSNumber.class]) {
+        NSString *aKey = text;
+        if ([text isKindOfClass:NSNumber.class]) {
+            //aKey = [NSString stringWithFormat:@"%@", text];
+            aKey = text.stringValue;
+        }
+        if (aKey.length > 0) {
+            NSString *table = KSKinTable;
+            NSString *content = KHLocalizedStringFromTable(aKey, table);
+            if (content.length > 0) {
+                //保存文字颜色
+                UIColor *color = self.textColor;
+                [self setLanguageKey:aKey];
+                //此处文字颜色会被更改掉
+                [self skin_setText:content];
+                //重新设置保存的文字颜色
+                [self setTextColor:color];
+                
+                [[HUserLanguage userDefaults] addObject:self];
+            }else {
+                [self skin_setText:aKey];
+            }
+        }else {
+            [self skin_setText:aKey];
+        }
+    }else {
+        [self skin_setText:nil];
+    }
+}
+@end
