@@ -1,5 +1,5 @@
 //
-//  HSwitchLanguage.m
+//  HUserLanguage.m
 //  HProj
 //
 //  Created by dqf on 2018/6/5.
@@ -18,9 +18,9 @@ _Pragma("clang diagnostic pop") \
 } while (0)
 
 #define KHLocalizedString(key) \
-[[HSwitchLanguage share].currentBundle localizedStringForKey:(key)value:@"" table:nil]
+[[HUserLanguage userDefaults].currentBundle localizedStringForKey:(key)value:@"" table:nil]
 #define KHLocalizedStringFromTable(key, tbl) \
-[[HSwitchLanguage share].currentBundle localizedStringForKey:(key)value:@"" table:(tbl)]
+[[HUserLanguage userDefaults].currentBundle localizedStringForKey:(key)value:@"" table:(tbl)]
 
 @interface UIView (HLanguage)
 @property (nonatomic) NSString *languageKey;
@@ -43,7 +43,7 @@ _Pragma("clang diagnostic pop") \
 @end
 
 @implementation HUserLanguage
-+ (HUserLanguage *)share {
++ (HUserLanguage *)userDefaults {
     static HUserLanguage *shareInstance = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
@@ -99,7 +99,7 @@ _Pragma("clang diagnostic pop") \
         
         NSString *path = [[NSBundle mainBundle] pathForResource:language ofType:@"lproj" ];
         _currentBundle = [NSBundle bundleWithPath:path];
-        [[HUserLanguage share] enumerateOperation:completion];
+        [[HUserLanguage userDefaults] enumerateOperation:completion];
     }
 }
 - (void)addObject:(id)anObject {
@@ -156,7 +156,7 @@ _Pragma("clang diagnostic pop") \
                 //重新设置保存的文字颜色
                 [self setTextColor:color];
                 
-                [[HUserLanguage share] addObject:self];
+                [[HUserLanguage userDefaults] addObject:self];
             }else {
                 [self skin_setText:aKey];
             }
@@ -166,36 +166,6 @@ _Pragma("clang diagnostic pop") \
     }else {
         [self skin_setText:nil];
     }
-//    NSString *aKey = nil;
-//    if ([text isKindOfClass:NSString.class]) {
-//        aKey = text;
-//    }else if ([text isKindOfClass:NSNumber.class]) {
-//        aKey = [NSString stringWithFormat:@"%@", text];
-//    }
-//    NSString *aKey = text;
-//    if ([text isKindOfClass:NSNumber.class]) {
-//        //aKey = [NSString stringWithFormat:@"%@", text];
-//        aKey = text.stringValue;
-//    }
-//    if (aKey) {
-//        NSString *table = KSKinTable;
-//        NSString *content = KHLocalizedStringFromTable(aKey, table);
-//        if (content) {
-//            //保存文字颜色
-//            UIColor *color = self.textColor;
-//            [self setLanguageKey:aKey];
-//            //此处文字颜色会被更改掉
-//            [self skin_setText:content];
-//            //重新设置保存的文字颜色
-//            [self setTextColor:color];
-//
-//            [[HSwitchLanguage share] addObject:self];
-//        }else {
-//            [self skin_setText:aKey];
-//        }
-//    }else {
-//        [self skin_setText:nil];
-//    }
 }
 @end
 
@@ -226,7 +196,7 @@ _Pragma("clang diagnostic pop") \
                 //重新设置保存的文字颜色
                 [self setTextColor:color];
                 
-                [[HUserLanguage share] addObject:self];
+                [[HUserLanguage userDefaults] addObject:self];
             }else {
                 [self skin_setText:aKey];
             }
@@ -236,31 +206,6 @@ _Pragma("clang diagnostic pop") \
     }else {
         [self skin_setText:nil];
     }
-//    NSString *aKey = nil;
-//    if ([text isKindOfClass:NSString.class]) {
-//        aKey = text;
-//    }else if ([text isKindOfClass:NSNumber.class]) {
-//        aKey = [NSString stringWithFormat:@"%@", text];
-//    }
-//    if (aKey) {
-//        NSString *table = KSKinTable;
-//        NSString *content = KHLocalizedStringFromTable(aKey, table);
-//        if (content) {
-//            //保存文字颜色
-//            UIColor *color = self.textColor;
-//            [self setLanguageKey:aKey];
-//            //此处文字颜色会被更改掉
-//            [self skin_setText:content];
-//            //重新设置保存的文字颜色
-//            [self setTextColor:color];
-//
-//            [[HSwitchLanguage share] addObject:self];
-//        }else {
-//            [self skin_setText:aKey];
-//        }
-//    }else {
-//        [self skin_setText:aKey];
-//    }
 }
 @end
 
@@ -291,7 +236,7 @@ _Pragma("clang diagnostic pop") \
                 //重新设置保存的文字颜色
                 [self setTextColor:color];
                 
-                [[HUserLanguage share] addObject:self];
+                [[HUserLanguage userDefaults] addObject:self];
             }else {
                 [self skin_setText:aKey];
             }
@@ -301,31 +246,6 @@ _Pragma("clang diagnostic pop") \
     }else {
         [self skin_setText:nil];
     }
-//    NSString *aKey = nil;
-//    if ([text isKindOfClass:NSString.class]) {
-//        aKey = text;
-//    }else if ([text isKindOfClass:NSNumber.class]) {
-//        aKey = [NSString stringWithFormat:@"%@", text];
-//    }
-//    if (aKey) {
-//        NSString *table = KSKinTable;
-//        NSString *content = KHLocalizedStringFromTable(aKey, table);
-//        if (content) {
-//            //保存文字颜色
-//            UIColor *color = self.textColor;
-//            [self setLanguageKey:aKey];
-//            //此处文字颜色会被更改掉
-//            [self skin_setText:content];
-//            //重新设置保存的文字颜色
-//            [self setTextColor:color];
-//
-//            [[HSwitchLanguage share] addObject:self];
-//        }else {
-//            [self skin_setText:aKey];
-//        }
-//    }else {
-//        [self skin_setText:aKey];
-//    }
 }
 @end
 
