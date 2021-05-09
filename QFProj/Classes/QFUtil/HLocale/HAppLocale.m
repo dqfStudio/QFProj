@@ -32,6 +32,15 @@
     return shareInstance;
 }
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        NSString *localeIdentifier = [[self.userLanguageCode stringByAppendingString:@"-"] stringByAppendingString:self.userCountryCode];
+        _locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
+    }
+    return self;
+}
+
 - (NSString *)defaultUserCountryCode {
     return [HDeviceLocale locale].countryCode;
 }
