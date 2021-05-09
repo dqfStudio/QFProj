@@ -13,7 +13,7 @@
 #define KUserLanguageCodeKey  @"KUserLanguageCodeKey"
 
 @interface HAppLocale () {
-    NSLocale *locale;
+    NSLocale *_locale;
     NSString *_userLanguageCode;
     NSString *_userCountryCode;
 }
@@ -57,7 +57,7 @@
         }
         [[NSUserDefaults standardUserDefaults] synchronize];
         NSString *localeIdentifier = [[self.userLanguageCode stringByAppendingString:@"-"] stringByAppendingString:self.userCountryCode];
-        locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
+        _locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
     }
 }
 
@@ -79,16 +79,16 @@
         }
         [[NSUserDefaults standardUserDefaults] synchronize];
         NSString *localeIdentifier = [[self.userLanguageCode stringByAppendingString:@"-"] stringByAppendingString:self.userCountryCode];
-        locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
+        _locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
     }
 }
 
 - (NSString *)localeIdentifier {
-    return locale.localeIdentifier;
+    return _locale.localeIdentifier;
 }
 
 - (NSString *)languageCode {
-    //return locale.languageCode;
+    //return _locale.languageCode;
     NSString *localeIdentifier = self.localeIdentifier;
     if ([localeIdentifier hasSuffix:self.countryCode]) {
         localeIdentifier = [localeIdentifier substringToIndex:localeIdentifier.length-self.countryCode.length-1];
@@ -97,32 +97,32 @@
 }
 
 - (NSString *)languageName {
-    //return [locale localizedStringForLanguageCode:self.languageCode];
-    return [locale localizedStringForLocaleIdentifier:self.languageCode];
+    //return [_locale localizedStringForLanguageCode:self.languageCode];
+    return [_locale localizedStringForLocaleIdentifier:self.languageCode];
 }
 
 - (NSString *)countryCode {
-    return locale.countryCode;
+    return _locale.countryCode;
 }
 
 - (NSString *)countryName {
-    return [locale localizedStringForCountryCode:self.countryCode];
+    return [_locale localizedStringForCountryCode:self.countryCode];
 }
 
 - (NSString *)decimalSeparator {
-    return locale.decimalSeparator;
+    return _locale.decimalSeparator;
 }
 
 - (NSString *)groupingSeparator {
-    return locale.groupingSeparator;
+    return _locale.groupingSeparator;
 }
 
 - (NSString *)currencySymbol {
-    return locale.currencySymbol;
+    return _locale.currencySymbol;
 }
 
 - (NSString *)currencyCode {
-    return locale.currencyCode;
+    return _locale.currencyCode;
 }
 
 @end
