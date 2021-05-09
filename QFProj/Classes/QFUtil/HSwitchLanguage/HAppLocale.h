@@ -41,8 +41,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, nullable, readonly) NSString *currencyCode API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
 
-- (void)setUserCountryCode:(NSString *)countryCode userLanguageCode:(NSString *)languageCode;
-
 @end
 
 NS_ASSUME_NONNULL_END

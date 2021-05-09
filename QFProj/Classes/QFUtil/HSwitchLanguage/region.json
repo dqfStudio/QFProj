@@ -1,5 +1,6 @@
 [
-    {"countryCode":"CN","countryName":"Vietnam","languageCode":"Vietnam","languageName":"Vietnam"},
-    {"countryCode":"India","countryName":"India","languageCode":"India","languageName":"India"},
+    {"countryCode":"CN","countryName":"China","languageCode":"Vietnam","languageName":"Vietnam"},
+    {"countryCode":"VN","countryName":"Vietnam","languageCode":"Vietnam","languageName":"Vietnam"},
+    {"countryCode":"IN","countryName":"India","languageCode":"India","languageName":"India"},
     {"countryCode":"Global","countryName":"Global","languageCode":"Others","languageName":"Others"}
 ]

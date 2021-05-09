@@ -125,17 +125,4 @@
     return locale.currencyCode;
 }
 
-- (void)setUserCountryCode:(NSString *)countryCode userLanguageCode:(NSString *)languageCode {
-    if (countryCode.length > 0) {
-        [[NSUserDefaults standardUserDefaults] setObject:countryCode forKey:KUserCountryCodeKey];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
-    if (languageCode.length > 0) {
-        [[NSUserDefaults standardUserDefaults] setObject:languageCode forKey:KUserLanguageCodeKey];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
-    NSString *localeIdentifier = [[self.userLanguageCode stringByAppendingString:@"-"] stringByAppendingString:self.userCountryCode];
-    locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
-}
-
 @end
