@@ -43,7 +43,6 @@
 		A23BFB66263BCD2000501F79 /* HUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB63263BCD2000501F79 /* HUserDefaults.m */; };
 		A23BFB74263BE9F100501F79 /* HNetSpeedMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB73263BE9F100501F79 /* HNetSpeedMonitor.m */; };
 		A23BFB92263C46A900501F79 /* HNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB91263C46A900501F79 /* HNumberFormatter.m */; };
-		A251A98626458B560067E574 /* HUserRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = A251A98526458B560067E574 /* HUserRegion.m */; };
 		A251A9932647B9550067E574 /* HAppLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = A251A9922647B9550067E574 /* HAppLocale.m */; };
 		A251A9972647B9640067E574 /* HDeviceLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = A251A9962647B9640067E574 /* HDeviceLocale.m */; };
 		A251A99E2647E7F40067E574 /* region.json in Resources */ = {isa = PBXBuildFile; fileRef = A251A99D2647E7F40067E574 /* region.json */; };
@@ -540,8 +539,6 @@
 		A23BFB73263BE9F100501F79 /* HNetSpeedMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNetSpeedMonitor.m; sourceTree = "<group>"; };
 		A23BFB90263C46A900501F79 /* HNumberFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNumberFormatter.h; sourceTree = "<group>"; };
 		A23BFB91263C46A900501F79 /* HNumberFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNumberFormatter.m; sourceTree = "<group>"; };
-		A251A98426458B560067E574 /* HUserRegion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUserRegion.h; sourceTree = "<group>"; };
-		A251A98526458B560067E574 /* HUserRegion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HUserRegion.m; sourceTree = "<group>"; };
 		A251A9912647B9550067E574 /* HAppLocale.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAppLocale.h; sourceTree = "<group>"; };
 		A251A9922647B9550067E574 /* HAppLocale.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAppLocale.m; sourceTree = "<group>"; };
 		A251A9952647B9640067E574 /* HDeviceLocale.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDeviceLocale.h; sourceTree = "<group>"; };
@@ -3305,8 +3302,6 @@
 			children = (
 				A25E670B262445FD00863FF8 /* HUserLanguage.h */,
 				A25E670A262445FD00863FF8 /* HUserLanguage.m */,
-				A251A98426458B560067E574 /* HUserRegion.h */,
-				A251A98526458B560067E574 /* HUserRegion.m */,
 				A251A9912647B9550067E574 /* HAppLocale.h */,
 				A251A9922647B9550067E574 /* HAppLocale.m */,
 				A251A99D2647E7F40067E574 /* region.json */,
@@ -3686,7 +3681,6 @@
 				A25E68B6262445FE00863FF8 /* HDrawerViewController.m in Sources */,
 				A25E6713262445FD00863FF8 /* HGameViewController.m in Sources */,
 				A25E68A1262445FE00863FF8 /* NSObject+HAspects.m in Sources */,
-				A251A98626458B560067E574 /* HUserRegion.m in Sources */,
 				A25E67F0262445FE00863FF8 /* KSCrashC.c in Sources */,
 				A25E671A262445FD00863FF8 /* HUpdate.m in Sources */,
 				A25E682F262445FE00863FF8 /* HTupleViewCellVertValue1.m in Sources */,
