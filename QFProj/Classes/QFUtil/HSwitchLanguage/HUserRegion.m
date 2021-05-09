@@ -78,7 +78,9 @@
 
 //获取用户设置的语言
 + (NSString *)getUserLanguage {
-    return [[NSUserDefaults standardUserDefaults] valueForKey:KUserLanguageKey];
+    NSString *language = [[NSUserDefaults standardUserDefaults] valueForKey:KUserLanguageKey];
+    if (language.length > 0) return language;
+    return self.localLanguage;
 }
 
 //获取用户设置的语言全称

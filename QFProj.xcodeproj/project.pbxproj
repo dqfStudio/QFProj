@@ -44,6 +44,9 @@
 		A23BFB74263BE9F100501F79 /* HNetSpeedMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB73263BE9F100501F79 /* HNetSpeedMonitor.m */; };
 		A23BFB92263C46A900501F79 /* HNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB91263C46A900501F79 /* HNumberFormatter.m */; };
 		A251A98626458B560067E574 /* HUserRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = A251A98526458B560067E574 /* HUserRegion.m */; };
+		A251A9932647B9550067E574 /* HAppLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = A251A9922647B9550067E574 /* HAppLocale.m */; };
+		A251A9972647B9640067E574 /* HDeviceLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = A251A9962647B9640067E574 /* HDeviceLocale.m */; };
+		A251A99E2647E7F40067E574 /* region.json in Resources */ = {isa = PBXBuildFile; fileRef = A251A99D2647E7F40067E574 /* region.json */; };
 		A25E670C262445FD00863FF8 /* HAnalogNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6345262445FC00863FF8 /* HAnalogNetworkManager.m */; };
 		A25E670D262445FD00863FF8 /* HTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6349262445FC00863FF8 /* HTool.m */; };
 		A25E670E262445FD00863FF8 /* HWebview.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E634B262445FC00863FF8 /* HWebview.m */; };
@@ -539,6 +542,11 @@
 		A23BFB91263C46A900501F79 /* HNumberFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNumberFormatter.m; sourceTree = "<group>"; };
 		A251A98426458B560067E574 /* HUserRegion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUserRegion.h; sourceTree = "<group>"; };
 		A251A98526458B560067E574 /* HUserRegion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HUserRegion.m; sourceTree = "<group>"; };
+		A251A9912647B9550067E574 /* HAppLocale.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAppLocale.h; sourceTree = "<group>"; };
+		A251A9922647B9550067E574 /* HAppLocale.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAppLocale.m; sourceTree = "<group>"; };
+		A251A9952647B9640067E574 /* HDeviceLocale.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDeviceLocale.h; sourceTree = "<group>"; };
+		A251A9962647B9640067E574 /* HDeviceLocale.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDeviceLocale.m; sourceTree = "<group>"; };
+		A251A99D2647E7F40067E574 /* region.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = region.json; sourceTree = "<group>"; };
 		A25E6344262445FC00863FF8 /* HAnalogNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAnalogNetworkManager.h; sourceTree = "<group>"; };
 		A25E6345262445FC00863FF8 /* HAnalogNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAnalogNetworkManager.m; sourceTree = "<group>"; };
 		A25E6347262445FC00863FF8 /* HWebviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebviewVC.h; sourceTree = "<group>"; };
@@ -3299,6 +3307,11 @@
 				A25E670A262445FD00863FF8 /* HUserLanguage.m */,
 				A251A98426458B560067E574 /* HUserRegion.h */,
 				A251A98526458B560067E574 /* HUserRegion.m */,
+				A251A9912647B9550067E574 /* HAppLocale.h */,
+				A251A9922647B9550067E574 /* HAppLocale.m */,
+				A251A99D2647E7F40067E574 /* region.json */,
+				A251A9952647B9640067E574 /* HDeviceLocale.h */,
+				A251A9962647B9640067E574 /* HDeviceLocale.m */,
 			);
 			path = HSwitchLanguage;
 			sourceTree = "<group>";
@@ -3410,6 +3423,7 @@
 				A25E6718262445FD00863FF8 /* notification.caf in Resources */,
 				A25E67FE262445FE00863FF8 /* register_checkbox_icon_h@2x.png in Resources */,
 				A25E6833262445FE00863FF8 /* icon_tuple_xx_gray@3x.png in Resources */,
+				A251A99E2647E7F40067E574 /* region.json in Resources */,
 				A25E6853262445FE00863FF8 /* HLaunchImage.jpg in Resources */,
 				A25E6881262445FE00863FF8 /* loading_new_5@2x.png in Resources */,
 				A25E679A262445FD00863FF8 /* HJsonList in Resources */,
@@ -3678,6 +3692,7 @@
 				A25E682F262445FE00863FF8 /* HTupleViewCellVertValue1.m in Sources */,
 				A25E671D262445FD00863FF8 /* NSBlockChain.m in Sources */,
 				A25E680A262445FE00863FF8 /* HTextLoopView.m in Sources */,
+				A251A9972647B9640067E574 /* HDeviceLocale.m in Sources */,
 				A25E68A4262445FE00863FF8 /* NSStream+SKPSMTPExtensions.m in Sources */,
 				A25E6799262445FD00863FF8 /* NSString+HChain.m in Sources */,
 				A25E6737262445FD00863FF8 /* WKWebViewJavascriptBridge.m in Sources */,
@@ -3831,6 +3846,7 @@
 				A25E67D1262445FE00863FF8 /* NSError+SimpleConstructor.m in Sources */,
 				A21F4092242215B4002221C4 /* HMainController1+Normal.m in Sources */,
 				A25E67B6262445FE00863FF8 /* KSReachabilityKSCrash.m in Sources */,
+				A251A9932647B9550067E574 /* HAppLocale.m in Sources */,
 				A25E679B262445FD00863FF8 /* HJsonFileManager.m in Sources */,
 				A2C2B214235EAC770041AAB5 /* HMainController6.m in Sources */,
 				A25E67AA262445FD00863FF8 /* UINavigationController+HLeaks.m in Sources */,
