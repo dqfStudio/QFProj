@@ -9,16 +9,14 @@
 #import "HAppLocale.h"
 #import "HDeviceLocale.h"
 
-#define KUserCountryCodeKey   @"KUserCountryCodeKey"
-#define KUserLanguageCodeKey  @"KUserLanguageCodeKey"
+#define KCountryCodeKey   @"KCountryCodeKey"
+#define KLanguageCodeKey  @"KLanguageCodeKey"
 
 @interface HAppLocale () {
     NSLocale *_locale;
-    NSString *_userLanguageCode;
-    NSString *_userCountryCode;
+    NSString *_languageCode;
+    NSString *_countryCode;
 }
-@property (nonatomic, readonly) NSString *defaultUserCountryCode;
-@property (nonatomic, readonly) NSString *defaultUserLanguageCode;
 @end
 
 @implementation HAppLocale
@@ -35,74 +33,44 @@
 - (id)init {
     self = [super init];
     if (self) {
-        NSString *localeIdentifier = [[self.userLanguageCode stringByAppendingString:@"-"] stringByAppendingString:self.userCountryCode];
+        NSString *localeIdentifier = [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:self.countryCode];
         _locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
     }
     return self;
 }
 
-- (NSString *)defaultUserCountryCode {
+- (NSString *)defaultCountryCode {
     return [HDeviceLocale locale].countryCode;
 }
-- (NSString *)defaultUserLanguageCode {
+- (NSString *)defaultLanguageCode {
     return [HDeviceLocale locale].userLanguageCode;
 }
 
-- (NSString *)userLanguageCode {
-    if (!_userLanguageCode) {
-        _userLanguageCode = [[NSUserDefaults standardUserDefaults] valueForKey:KUserLanguageCodeKey];
-        if (!_userLanguageCode) _userLanguageCode = self.defaultUserLanguageCode;
-    }
-    return _userLanguageCode;
-}
-- (void)setUserLanguageCode:(NSString *)userLanguageCode {
-    if (_userLanguageCode != userLanguageCode) {
-        _userLanguageCode = nil;
-        _userLanguageCode = userLanguageCode;
-        if (userLanguageCode.length > 0) {
-            [[NSUserDefaults standardUserDefaults] setObject:userLanguageCode forKey:KUserLanguageCodeKey];
-        }else {
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:KUserLanguageCodeKey];
-        }
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        NSString *localeIdentifier = [[self.userLanguageCode stringByAppendingString:@"-"] stringByAppendingString:self.userCountryCode];
-        _locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
-    }
-}
-
-- (NSString *)userCountryCode {
-    if (!_userCountryCode) {
-        _userCountryCode = [[NSUserDefaults standardUserDefaults] valueForKey:KUserCountryCodeKey];
-        if (!_userCountryCode) _userLanguageCode = self.defaultUserCountryCode;
-    }
-    return _userCountryCode;
-}
-- (void)setUserCountryCode:(NSString *)userCountryCode {
-    if (_userCountryCode != userCountryCode) {
-        _userCountryCode = nil;
-        _userCountryCode = userCountryCode;
-        if (userCountryCode.length > 0) {
-            [[NSUserDefaults standardUserDefaults] setObject:userCountryCode forKey:KUserCountryCodeKey];
-        }else {
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:KUserCountryCodeKey];
-        }
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        NSString *localeIdentifier = [[self.userLanguageCode stringByAppendingString:@"-"] stringByAppendingString:self.userCountryCode];
-        _locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
-    }
-}
 
 - (NSString *)localeIdentifier {
     return _locale.localeIdentifier;
 }
 
 - (NSString *)languageCode {
-    //return _locale.languageCode;
-    NSString *localeIdentifier = self.localeIdentifier;
-    if ([localeIdentifier hasSuffix:self.countryCode]) {
-        localeIdentifier = [localeIdentifier substringToIndex:localeIdentifier.length-self.countryCode.length-1];
+    if (!_languageCode) {
+        _languageCode = [[NSUserDefaults standardUserDefaults] valueForKey:KLanguageCodeKey];
+        if (!_languageCode) _languageCode = self.defaultLanguageCode;
     }
-    return localeIdentifier;
+    return _languageCode;
+}
+- (void)setLanguageCode:(NSString *)languageCode {
+    if (_languageCode != languageCode) {
+        _languageCode = nil;
+        _languageCode = languageCode;
+        if (languageCode.length > 0) {
+            [[NSUserDefaults standardUserDefaults] setObject:languageCode forKey:KLanguageCodeKey];
+        }else {
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:KLanguageCodeKey];
+        }
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        NSString *localeIdentifier = [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:self.countryCode];
+        _locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
+    }
 }
 
 - (NSString *)languageName {
@@ -111,7 +79,25 @@
 }
 
 - (NSString *)countryCode {
-    return _locale.countryCode;
+    if (!_countryCode) {
+        _countryCode = [[NSUserDefaults standardUserDefaults] valueForKey:KCountryCodeKey];
+        if (!_countryCode) _languageCode = self.defaultCountryCode;
+    }
+    return _countryCode;
+}
+- (void)setCountryCode:(NSString *)countryCode {
+    if (_countryCode != countryCode) {
+        _countryCode = nil;
+        _countryCode = countryCode;
+        if (countryCode.length > 0) {
+            [[NSUserDefaults standardUserDefaults] setObject:countryCode forKey:KCountryCodeKey];
+        }else {
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:KCountryCodeKey];
+        }
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        NSString *localeIdentifier = [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:self.countryCode];
+        _locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
+    }
 }
 
 - (NSString *)countryName {

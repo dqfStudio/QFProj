@@ -17,20 +17,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (HAppLocale *)locale;
 
-//APP中可设置某个国家语言代码
-@property (nonatomic) NSString *userLanguageCode API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
-//APP中可设置某个国家代码
-@property (nonatomic) NSString *userCountryCode API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
-
 @property (nonatomic, readonly) NSString *localeIdentifier;  // same as NSLocaleIdentifier
 
-@property (nonatomic, readonly) NSString *languageCode API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+//APP中可设置某个国家语言代码
+@property (nonatomic) NSString *languageCode API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
 
 @property (nonatomic, readonly) NSString *languageName API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
 
-@property (nonatomic, nullable, readonly) NSString *countryCode API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+//APP中可设置某个国家代码
+@property (nonatomic) NSString *countryCode API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
 
-@property (nonatomic, nullable, readonly) NSString *countryName API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+@property (nonatomic, readonly) NSString *countryName API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
 
 @property (nonatomic, readonly) NSString *decimalSeparator API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
 
@@ -38,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) NSString *currencySymbol API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
 
-@property (nonatomic, nullable, readonly) NSString *currencyCode API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+@property (nonatomic, readonly) NSString *currencyCode API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
 
 @end
 
