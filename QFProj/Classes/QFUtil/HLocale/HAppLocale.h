@@ -6,7 +6,6 @@
 //  Copyright © 2021 dqfStudio. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "HDeviceLocale.h"
 
 NS_ASSUME_NONNULL_BEGIN
