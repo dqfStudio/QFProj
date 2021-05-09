@@ -1,12 +1,12 @@
 //
-//  HUserLanguage.m
+//  HAppLanguage.m
 //  HProj
 //
 //  Created by dqf on 2018/6/5.
 //  Copyright © 2018年 dqfStudio. All rights reserved.
 //
 
-#import "HUserLanguage.h"
+#import "HAppLanguage.h"
 #import <objc/runtime.h>
 
 #define KHSuppressPerformSelectorLeakWarning(Stuff) \
@@ -18,9 +18,9 @@ _Pragma("clang diagnostic pop") \
 } while (0)
 
 #define KHLocalizedString(key) \
-[[HUserLanguage userDefaults].currentBundle localizedStringForKey:(key)value:@"" table:nil]
+[[HAppLanguage userDefaults].currentBundle localizedStringForKey:(key)value:@"" table:nil]
 #define KHLocalizedStringFromTable(key, tbl) \
-[[HUserLanguage userDefaults].currentBundle localizedStringForKey:(key)value:@"" table:(tbl)]
+[[HAppLanguage userDefaults].currentBundle localizedStringForKey:(key)value:@"" table:(tbl)]
 
 @interface UIView (HLanguage)
 @property (nonatomic) NSString *languageKey;
@@ -35,16 +35,16 @@ _Pragma("clang diagnostic pop") \
 }
 @end
 
-@interface HUserLanguage () {
+@interface HAppLanguage () {
     NSBundle *_currentBundle;
     NSHashTable *_hashTable;
 }
 @property (nonatomic, readonly) NSBundle *currentBundle;//当前语言资源文件
 @end
 
-@implementation HUserLanguage
-+ (HUserLanguage *)userDefaults {
-    static HUserLanguage *shareInstance = nil;
+@implementation HAppLanguage
++ (HAppLanguage *)userDefaults {
+    static HAppLanguage *shareInstance = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         shareInstance = [[self alloc] init];
@@ -99,7 +99,7 @@ _Pragma("clang diagnostic pop") \
         
         NSString *path = [[NSBundle mainBundle] pathForResource:language ofType:@"lproj" ];
         _currentBundle = [NSBundle bundleWithPath:path];
-        [[HUserLanguage userDefaults] enumerateOperation:completion];
+        [[HAppLanguage userDefaults] enumerateOperation:completion];
     }
 }
 - (void)addObject:(id)anObject {
@@ -156,7 +156,7 @@ _Pragma("clang diagnostic pop") \
                 //重新设置保存的文字颜色
                 [self setTextColor:color];
                 
-                [[HUserLanguage userDefaults] addObject:self];
+                [[HAppLanguage userDefaults] addObject:self];
             }else {
                 [self skin_setText:aKey];
             }
@@ -196,7 +196,7 @@ _Pragma("clang diagnostic pop") \
                 //重新设置保存的文字颜色
                 [self setTextColor:color];
                 
-                [[HUserLanguage userDefaults] addObject:self];
+                [[HAppLanguage userDefaults] addObject:self];
             }else {
                 [self skin_setText:aKey];
             }
@@ -236,7 +236,7 @@ _Pragma("clang diagnostic pop") \
                 //重新设置保存的文字颜色
                 [self setTextColor:color];
                 
-                [[HUserLanguage userDefaults] addObject:self];
+                [[HAppLanguage userDefaults] addObject:self];
             }else {
                 [self skin_setText:aKey];
             }
@@ -276,7 +276,7 @@ _Pragma("clang diagnostic pop") \
                 //重新设置保存的文字颜色
                 [self setTextColor:color];
                 
-                [[HUserLanguage userDefaults] addObject:self];
+                [[HAppLanguage userDefaults] addObject:self];
             }else {
                 [self skin_setText:aKey];
             }

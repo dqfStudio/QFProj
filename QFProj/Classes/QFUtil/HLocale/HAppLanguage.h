@@ -1,5 +1,5 @@
 //
-//  HUserLanguage.h
+//  HAppLanguage.h
 //  HProj
 //
 //  Created by dqf on 2018/6/5.
@@ -19,11 +19,11 @@
  此方案需要配置多个语言文本，然后设置每个词条的关键字即可
  */
 
-@interface HUserLanguage : NSObject
+@interface HAppLanguage : NSObject
 //获取当前语言
 @property (nonatomic, readonly) NSString *userLanguage;
 //单例
-+ (HUserLanguage *)userDefaults;
++ (HAppLanguage *)userDefaults;
 //设置当前语言
 - (void)setUserlanguage:(NSString *)language completion:(void (^)(void))completion;
 

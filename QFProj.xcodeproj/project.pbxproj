@@ -43,9 +43,10 @@
 		A23BFB66263BCD2000501F79 /* HUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB63263BCD2000501F79 /* HUserDefaults.m */; };
 		A23BFB74263BE9F100501F79 /* HNetSpeedMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB73263BE9F100501F79 /* HNetSpeedMonitor.m */; };
 		A23BFB92263C46A900501F79 /* HNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A23BFB91263C46A900501F79 /* HNumberFormatter.m */; };
-		A251A9932647B9550067E574 /* HAppLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = A251A9922647B9550067E574 /* HAppLocale.m */; };
-		A251A9972647B9640067E574 /* HDeviceLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = A251A9962647B9640067E574 /* HDeviceLocale.m */; };
-		A251A99E2647E7F40067E574 /* region.json in Resources */ = {isa = PBXBuildFile; fileRef = A251A99D2647E7F40067E574 /* region.json */; };
+		A251A9B92648172B0067E574 /* HDeviceLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = A251A9B52648172B0067E574 /* HDeviceLocale.m */; };
+		A251A9BA2648172B0067E574 /* HAppLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = A251A9B62648172B0067E574 /* HAppLanguage.m */; };
+		A251A9BB2648172B0067E574 /* region.json in Resources */ = {isa = PBXBuildFile; fileRef = A251A9B72648172B0067E574 /* region.json */; };
+		A251A9BC2648172B0067E574 /* HAppLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = A251A9B82648172B0067E574 /* HAppLocale.m */; };
 		A25E670C262445FD00863FF8 /* HAnalogNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6345262445FC00863FF8 /* HAnalogNetworkManager.m */; };
 		A25E670D262445FD00863FF8 /* HTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6349262445FC00863FF8 /* HTool.m */; };
 		A25E670E262445FD00863FF8 /* HWebview.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E634B262445FC00863FF8 /* HWebview.m */; };
@@ -469,7 +470,6 @@
 		A25E68BE262445FE00863FF8 /* HNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6703262445FD00863FF8 /* HNavigationController.m */; };
 		A25E68BF262445FE00863FF8 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6707262445FD00863FF8 /* SimplePing.m */; };
 		A25E68C0262445FE00863FF8 /* HPingTester.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6708262445FD00863FF8 /* HPingTester.m */; };
-		A25E68C1262445FE00863FF8 /* HUserLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E670A262445FD00863FF8 /* HUserLanguage.m */; };
 		A28836DD2407A6C300626D47 /* AppDelegate+RotateService.m in Sources */ = {isa = PBXBuildFile; fileRef = A28836DC2407A6C300626D47 /* AppDelegate+RotateService.m */; };
 		A2C2B214235EAC770041AAB5 /* HMainController6.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C2B213235EAC770041AAB5 /* HMainController6.m */; };
 		A2C2B21C235F15DA0041AAB5 /* HTupleView的用法.pages in Resources */ = {isa = PBXBuildFile; fileRef = A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */; };
@@ -539,11 +539,13 @@
 		A23BFB73263BE9F100501F79 /* HNetSpeedMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNetSpeedMonitor.m; sourceTree = "<group>"; };
 		A23BFB90263C46A900501F79 /* HNumberFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNumberFormatter.h; sourceTree = "<group>"; };
 		A23BFB91263C46A900501F79 /* HNumberFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNumberFormatter.m; sourceTree = "<group>"; };
-		A251A9912647B9550067E574 /* HAppLocale.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAppLocale.h; sourceTree = "<group>"; };
-		A251A9922647B9550067E574 /* HAppLocale.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAppLocale.m; sourceTree = "<group>"; };
-		A251A9952647B9640067E574 /* HDeviceLocale.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDeviceLocale.h; sourceTree = "<group>"; };
-		A251A9962647B9640067E574 /* HDeviceLocale.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDeviceLocale.m; sourceTree = "<group>"; };
-		A251A99D2647E7F40067E574 /* region.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = region.json; sourceTree = "<group>"; };
+		A251A9B22648172B0067E574 /* HAppLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAppLanguage.h; sourceTree = "<group>"; };
+		A251A9B32648172B0067E574 /* HDeviceLocale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDeviceLocale.h; sourceTree = "<group>"; };
+		A251A9B42648172B0067E574 /* HAppLocale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAppLocale.h; sourceTree = "<group>"; };
+		A251A9B52648172B0067E574 /* HDeviceLocale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDeviceLocale.m; sourceTree = "<group>"; };
+		A251A9B62648172B0067E574 /* HAppLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAppLanguage.m; sourceTree = "<group>"; };
+		A251A9B72648172B0067E574 /* region.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = region.json; sourceTree = "<group>"; };
+		A251A9B82648172B0067E574 /* HAppLocale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAppLocale.m; sourceTree = "<group>"; };
 		A25E6344262445FC00863FF8 /* HAnalogNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAnalogNetworkManager.h; sourceTree = "<group>"; };
 		A25E6345262445FC00863FF8 /* HAnalogNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAnalogNetworkManager.m; sourceTree = "<group>"; };
 		A25E6347262445FC00863FF8 /* HWebviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebviewVC.h; sourceTree = "<group>"; };
@@ -1363,8 +1365,6 @@
 		A25E6706262445FD00863FF8 /* HPingTester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPingTester.h; sourceTree = "<group>"; };
 		A25E6707262445FD00863FF8 /* SimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePing.m; sourceTree = "<group>"; };
 		A25E6708262445FD00863FF8 /* HPingTester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPingTester.m; sourceTree = "<group>"; };
-		A25E670A262445FD00863FF8 /* HUserLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUserLanguage.m; sourceTree = "<group>"; };
-		A25E670B262445FD00863FF8 /* HUserLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUserLanguage.h; sourceTree = "<group>"; };
 		A28836DB2407A6C300626D47 /* AppDelegate+RotateService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+RotateService.h"; sourceTree = "<group>"; };
 		A28836DC2407A6C300626D47 /* AppDelegate+RotateService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+RotateService.m"; sourceTree = "<group>"; };
 		A2C2B212235EAC770041AAB5 /* HMainController6.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMainController6.h; sourceTree = "<group>"; };
@@ -1498,9 +1498,24 @@
 			path = HomeIcons;
 			sourceTree = "<group>";
 		};
+		A251A9B12648172B0067E574 /* HLocale */ = {
+			isa = PBXGroup;
+			children = (
+				A251A9B22648172B0067E574 /* HAppLanguage.h */,
+				A251A9B62648172B0067E574 /* HAppLanguage.m */,
+				A251A9B42648172B0067E574 /* HAppLocale.h */,
+				A251A9B82648172B0067E574 /* HAppLocale.m */,
+				A251A9B32648172B0067E574 /* HDeviceLocale.h */,
+				A251A9B52648172B0067E574 /* HDeviceLocale.m */,
+				A251A9B72648172B0067E574 /* region.json */,
+			);
+			path = HLocale;
+			sourceTree = "<group>";
+		};
 		A25E6342262445FC00863FF8 /* QFUtil */ = {
 			isa = PBXGroup;
 			children = (
+				A251A9B12648172B0067E574 /* HLocale */,
 				A25E6343262445FC00863FF8 /* HAnalogNetworkManager */,
 				A25E6346262445FC00863FF8 /* HOther */,
 				A25E6357262445FC00863FF8 /* HTestUtil */,
@@ -1561,7 +1576,6 @@
 				A25E66F2262445FD00863FF8 /* HDrawerViewController */,
 				A25E66F5262445FD00863FF8 /* HViewController */,
 				A25E6704262445FD00863FF8 /* HPingTool */,
-				A25E6709262445FD00863FF8 /* HSwitchLanguage */,
 			);
 			path = QFUtil;
 			sourceTree = "<group>";
@@ -3297,20 +3311,6 @@
 			path = HPingTool;
 			sourceTree = "<group>";
 		};
-		A25E6709262445FD00863FF8 /* HSwitchLanguage */ = {
-			isa = PBXGroup;
-			children = (
-				A25E670B262445FD00863FF8 /* HUserLanguage.h */,
-				A25E670A262445FD00863FF8 /* HUserLanguage.m */,
-				A251A9912647B9550067E574 /* HAppLocale.h */,
-				A251A9922647B9550067E574 /* HAppLocale.m */,
-				A251A99D2647E7F40067E574 /* region.json */,
-				A251A9952647B9640067E574 /* HDeviceLocale.h */,
-				A251A9962647B9640067E574 /* HDeviceLocale.m */,
-			);
-			path = HSwitchLanguage;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3418,7 +3418,7 @@
 				A25E6718262445FD00863FF8 /* notification.caf in Resources */,
 				A25E67FE262445FE00863FF8 /* register_checkbox_icon_h@2x.png in Resources */,
 				A25E6833262445FE00863FF8 /* icon_tuple_xx_gray@3x.png in Resources */,
-				A251A99E2647E7F40067E574 /* region.json in Resources */,
+				A251A9BB2648172B0067E574 /* region.json in Resources */,
 				A25E6853262445FE00863FF8 /* HLaunchImage.jpg in Resources */,
 				A25E6881262445FE00863FF8 /* loading_new_5@2x.png in Resources */,
 				A25E679A262445FD00863FF8 /* HJsonList in Resources */,
@@ -3650,6 +3650,7 @@
 				A25E6733262445FD00863FF8 /* NSObject_.m in Sources */,
 				A25E67B2262445FE00863FF8 /* KSCrashReportFilterAlert.m in Sources */,
 				A25E685C262445FE00863FF8 /* HTextLayout.m in Sources */,
+				A251A9B92648172B0067E574 /* HDeviceLocale.m in Sources */,
 				A25E6720262445FD00863FF8 /* HTableViewApex.m in Sources */,
 				A25E6787262445FD00863FF8 /* NSDictionary+HUtil.m in Sources */,
 				A25E682A262445FE00863FF8 /* HTupleViewApexVertValue1.m in Sources */,
@@ -3686,11 +3687,9 @@
 				A25E682F262445FE00863FF8 /* HTupleViewCellVertValue1.m in Sources */,
 				A25E671D262445FD00863FF8 /* NSBlockChain.m in Sources */,
 				A25E680A262445FE00863FF8 /* HTextLoopView.m in Sources */,
-				A251A9972647B9640067E574 /* HDeviceLocale.m in Sources */,
 				A25E68A4262445FE00863FF8 /* NSStream+SKPSMTPExtensions.m in Sources */,
 				A25E6799262445FD00863FF8 /* NSString+HChain.m in Sources */,
 				A25E6737262445FD00863FF8 /* WKWebViewJavascriptBridge.m in Sources */,
-				A25E68C1262445FE00863FF8 /* HUserLanguage.m in Sources */,
 				A25E6897262445FE00863FF8 /* NSObject+HSafeMessy.m in Sources */,
 				A25E673E262445FD00863FF8 /* YPTabBar+HSubView.m in Sources */,
 				A25E670E262445FD00863FF8 /* HWebview.m in Sources */,
@@ -3840,8 +3839,8 @@
 				A25E67D1262445FE00863FF8 /* NSError+SimpleConstructor.m in Sources */,
 				A21F4092242215B4002221C4 /* HMainController1+Normal.m in Sources */,
 				A25E67B6262445FE00863FF8 /* KSReachabilityKSCrash.m in Sources */,
-				A251A9932647B9550067E574 /* HAppLocale.m in Sources */,
 				A25E679B262445FD00863FF8 /* HJsonFileManager.m in Sources */,
+				A251A9BC2648172B0067E574 /* HAppLocale.m in Sources */,
 				A2C2B214235EAC770041AAB5 /* HMainController6.m in Sources */,
 				A25E67AA262445FD00863FF8 /* UINavigationController+HLeaks.m in Sources */,
 				A25E6863262445FE00863FF8 /* NSParagraphStyle+HText.m in Sources */,
@@ -3850,6 +3849,7 @@
 				A25E6892262445FE00863FF8 /* HResultView.m in Sources */,
 				A25E676A262445FD00863FF8 /* HFileStorage.m in Sources */,
 				A25E6840262445FE00863FF8 /* UIView+HUtil.m in Sources */,
+				A251A9BA2648172B0067E574 /* HAppLanguage.m in Sources */,
 				A25E6760262445FD00863FF8 /* HGCDUtil.m in Sources */,
 				A25E67D5262445FE00863FF8 /* KSCPU_arm.c in Sources */,
 				A25E676F262445FD00863FF8 /* HCachePrivate.m in Sources */,
