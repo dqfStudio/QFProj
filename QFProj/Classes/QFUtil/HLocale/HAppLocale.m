@@ -33,10 +33,15 @@
 - (id)init {
     self = [super init];
     if (self) {
-        NSString *localeIdentifier = [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:self.countryCode];
-        _locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
+        //重新初始化ocale
+        [self loadLocale];
     }
     return self;
+}
+
+- (void)loadLocale {
+    NSString *localeIdentifier = [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:self.countryCode];
+    _locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
 }
 
 - (NSString *)defaultCountryCode {
@@ -68,8 +73,8 @@
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:KLanguageCodeKey];
         }
         [[NSUserDefaults standardUserDefaults] synchronize];
-        NSString *localeIdentifier = [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:self.countryCode];
-        _locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
+        //重新初始化ocale
+        [self loadLocale];
     }
 }
 
@@ -95,8 +100,8 @@
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:KCountryCodeKey];
         }
         [[NSUserDefaults standardUserDefaults] synchronize];
-        NSString *localeIdentifier = [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:self.countryCode];
-        _locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
+        //重新初始化ocale
+        [self loadLocale];
     }
 }
 
