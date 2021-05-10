@@ -48,4 +48,27 @@
         return localeIdentifier;
     }
 }
+- (NSString *)localeLanguageName {
+    NSString *defaultLanguageName = @"";
+    if ([self.languageCode isEqualToString:@"zh-Hans"]) { defaultLanguageName = @"简体中文"; }
+    else if ([self.languageCode isEqualToString:@"zh-Hant"]) { defaultLanguageName = @"繁體中文"; }
+    else if ([self.languageCode isEqualToString:@"en"]) { defaultLanguageName = @"English"; }
+    else if ([self.languageCode isEqualToString:@"ja"]) { defaultLanguageName = @"日本語"; }
+    else if ([self.languageCode isEqualToString:@"ko"]) { defaultLanguageName = @"한국어"; }
+    else if ([self.languageCode containsString:@"vi"]) { defaultLanguageName = @"Tiếng Việt"; }
+    else if ([self.languageCode isEqualToString:@"en-IN"]) { defaultLanguageName = @"भारत गणराज्य"; }
+    return defaultLanguageName;
+}
+- (NSString *)localeLanguageCode {
+    NSString *defaultLanguageCode = @"";
+    if ([self.languageCode isEqualToString:@"zh-Hans"]) { defaultLanguageCode = @"CN"; }
+    else if ([self.languageCode isEqualToString:@"zh-Hant"]) { defaultLanguageCode = @""; }
+    else if ([self.languageCode isEqualToString:@"en"]) { defaultLanguageCode = @"EN"; }
+    else if ([self.languageCode isEqualToString:@"ja"]) { defaultLanguageCode = @""; }
+    else if ([self.languageCode isEqualToString:@"ko"]) { defaultLanguageCode = @""; }
+    else if ([self.languageCode containsString:@"vi"]) { defaultLanguageCode = @"VN"; }
+    else if ([self.languageCode isEqualToString:@"en-IN"]) { defaultLanguageCode = @"IN"; }
+    else { defaultLanguageCode = @"CN"; }
+    return defaultLanguageCode;
+}
 @end
