@@ -6,7 +6,7 @@
 //  Copyright © 2021 dqfStudio. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "HAppLocale.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface HLocaleQuery : NSObject
+//当前设置语言下的region.json文件内容
++ (NSArray *(^)(void))regionArray;
+//查询当前设置语言下region.json文件内容的某项信息
 + (HLocaleInfo *)makeQuery:(void(^)(HLocaleInfo *make))block;
 @end
 

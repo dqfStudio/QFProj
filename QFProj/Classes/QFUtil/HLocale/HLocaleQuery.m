@@ -15,48 +15,45 @@
 @implementation HLocaleQuery
 + (NSArray *(^)(void))regionArray {
    return ^NSArray *(void) {
-       static dispatch_once_t once;
-       static NSArray *array;
-       dispatch_once(&once, ^{
-           NSString *path = [[NSBundle mainBundle] pathForResource:@"region" ofType:@"json"];
-           if (path) {
-               NSData *data = [NSData dataWithContentsOfFile:path];
-               if (data) {
-                   id resource = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-                   if ([resource isKindOfClass:NSArray.class]) {
-                       array = resource;
-                   }
+       NSString *path = [[NSBundle mainBundle] pathForResource:@"region" ofType:@"json" inDirectory:nil forLocalization:[HAppLocale locale].languageCode];
+       if (path) {
+           NSData *data = [NSData dataWithContentsOfFile:path];
+           if (data) {
+               id resource = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+               if ([resource isKindOfClass:NSArray.class]) {
+                   return resource;
                }
            }
-       });
-       return array;
+       }
+       return nil;
    };
 }
 + (HLocaleInfo *)queryWithLocaleInfo:(HLocaleInfo *)localeInfo {
     NSDictionary *tmpDict = nil;
+    NSArray *regionArray = self.regionArray();
     if (localeInfo.countryCode.length > 0) {
-        for (NSDictionary *dict in self.regionArray()) {
+        for (NSDictionary *dict in regionArray) {
             if ([localeInfo.countryCode isEqualToString:dict[@"countryCode"]]) {
                 tmpDict = [dict mutableCopy];
                 break;
             }
         }
     }else if (localeInfo.countryName.length > 0) {
-        for (NSDictionary *dict in self.regionArray()) {
+        for (NSDictionary *dict in regionArray) {
             if ([localeInfo.countryName isEqualToString:dict[@"countryName"]]) {
                 tmpDict = [dict mutableCopy];
                 break;
             }
         }
     }else if (localeInfo.languageCode.length > 0) {
-        for (NSDictionary *dict in self.regionArray()) {
+        for (NSDictionary *dict in regionArray) {
             if ([localeInfo.languageCode isEqualToString:dict[@"languageCode"]]) {
                 tmpDict = [dict mutableCopy];
                 break;
             }
         }
     }else if (localeInfo.languageName.length > 0) {
-        for (NSDictionary *dict in self.regionArray()) {
+        for (NSDictionary *dict in regionArray) {
             if ([localeInfo.languageName isEqualToString:dict[@"languageName"]]) {
                 tmpDict = [dict mutableCopy];
                 break;
