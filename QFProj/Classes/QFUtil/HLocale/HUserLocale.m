@@ -48,6 +48,9 @@
         return localeIdentifier;
     }
 }
+- (NSString *)silverCode {
+    return @"SILVER";
+}
 - (NSString *)localeLanguageName {
     NSString *defaultLanguageName = @"";
     if ([self.languageCode isEqualToString:@"zh-Hans"]) { defaultLanguageName = @"简体中文"; }
@@ -70,5 +73,32 @@
     else if ([self.languageCode isEqualToString:@"en-IN"]) { defaultLanguageCode = @"IN"; }
     else { defaultLanguageCode = @"CN"; }
     return defaultLanguageCode;
+}
+- (NSInteger)localeLanguageCodeIndex {
+    NSInteger index = -1;
+#if DEBUG
+    if ([self.languageCode isEqualToString:@""]) { index = 0; }
+    else if ([self.languageCode isEqualToString:@"zh-Hans"]) { index = 0; }
+    else if ([self.languageCode isEqualToString:@"en"]) { index = 1; }
+    else if ([self.languageCode containsString:@"vi"]) { index = 2; }
+    else if ([self.languageCode isEqualToString:@"en-IN"]) { index = 3; }
+#else
+    if ([self.languageCode isEqualToString:@""]) { index = 0; }
+    else if ([self.languageCode isEqualToString:@"en"]) { index = 0; }
+    else if ([self.languageCode containsString:@"vi"]) { index = 1; }
+    else if ([self.languageCode isEqualToString:@"en-IN"]) { index = 2; }
+    else if ([self.languageCode isEqualToString:@"zh-Hant"]) { index = 3; }
+    else if ([self.languageCode isEqualToString:@"ja"]) { index = 4; }
+    else if ([self.languageCode isEqualToString:@"ko"]) { index = 5; }
+#endif
+    return index;
+}
+- (NSInteger)localeCountryNameIndex {
+    NSInteger index = -1;
+    if ([self.countryName isEqualToString:@"Vietnam"]) { index = 0; }
+    else if ([self.countryName isEqualToString:@"India"]) { index = 1; }
+//    else if ([userRegion isEqualToString:@"Silver"]) { index = 2; }
+    else { index = 2; }
+    return index;
 }
 @end
