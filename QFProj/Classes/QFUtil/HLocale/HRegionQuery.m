@@ -1,5 +1,5 @@
 //
-//  HLocaleQuery.m
+//  HRegionQuery.m
 //  QFProj
 //
 //  Created by Wind on 2021/5/10.
@@ -8,7 +8,7 @@
 
 #import "HRegionQuery.h"
 
-@implementation HLocaleInfo
+@implementation HRegionInfo
 
 @end
 
@@ -28,49 +28,49 @@
        return nil;
    };
 }
-+ (HLocaleInfo *)queryWithLocaleInfo:(HLocaleInfo *)localeInfo {
++ (HRegionInfo *)queryWithRegionInfo:(HRegionInfo *)regionInfo {
     NSDictionary *tmpDict = nil;
     NSArray *regionArray = self.regionArray();
-    if (localeInfo.countryCode.length > 0) {
+    if (regionInfo.countryCode.length > 0) {
         for (NSDictionary *dict in regionArray) {
-            if ([localeInfo.countryCode isEqualToString:dict[@"countryCode"]]) {
+            if ([regionInfo.countryCode isEqualToString:dict[@"countryCode"]]) {
                 tmpDict = [dict mutableCopy];
                 break;
             }
         }
-    }else if (localeInfo.countryName.length > 0) {
+    }else if (regionInfo.countryName.length > 0) {
         for (NSDictionary *dict in regionArray) {
-            if ([localeInfo.countryName isEqualToString:dict[@"countryName"]]) {
+            if ([regionInfo.countryName isEqualToString:dict[@"countryName"]]) {
                 tmpDict = [dict mutableCopy];
                 break;
             }
         }
-    }else if (localeInfo.languageCode.length > 0) {
+    }else if (regionInfo.languageCode.length > 0) {
         for (NSDictionary *dict in regionArray) {
-            if ([localeInfo.languageCode isEqualToString:dict[@"languageCode"]]) {
+            if ([regionInfo.languageCode isEqualToString:dict[@"languageCode"]]) {
                 tmpDict = [dict mutableCopy];
                 break;
             }
         }
-    }else if (localeInfo.languageName.length > 0) {
+    }else if (regionInfo.languageName.length > 0) {
         for (NSDictionary *dict in regionArray) {
-            if ([localeInfo.languageName isEqualToString:dict[@"languageName"]]) {
+            if ([regionInfo.languageName isEqualToString:dict[@"languageName"]]) {
                 tmpDict = [dict mutableCopy];
                 break;
             }
         }
     }
     if (tmpDict) {
-        localeInfo.countryCode  = tmpDict[@"countryCode"];
-        localeInfo.countryName  = tmpDict[@"countryName"];
-        localeInfo.languageCode = tmpDict[@"languageCode"];
-        localeInfo.languageName = tmpDict[@"languageName"];
+        regionInfo.countryCode  = tmpDict[@"countryCode"];
+        regionInfo.countryName  = tmpDict[@"countryName"];
+        regionInfo.languageCode = tmpDict[@"languageCode"];
+        regionInfo.languageName = tmpDict[@"languageName"];
     }
-    return localeInfo;
+    return regionInfo;
 }
-+ (HLocaleInfo *)makeQuery:(void(^)(HLocaleInfo *make))block {
-    HLocaleInfo *make = HLocaleInfo.new;
++ (HRegionInfo *)makeQuery:(void(^)(HRegionInfo *make))block {
+    HRegionInfo *make = HRegionInfo.new;
     block(make);
-    return [self queryWithLocaleInfo:make];
+    return [self queryWithRegionInfo:make];
 }
 @end
