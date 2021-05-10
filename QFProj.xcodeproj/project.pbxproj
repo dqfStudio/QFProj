@@ -48,6 +48,7 @@
 		A251A9BB2648172B0067E574 /* region.json in Resources */ = {isa = PBXBuildFile; fileRef = A251A9B72648172B0067E574 /* region.json */; };
 		A251A9BC2648172B0067E574 /* HAppLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = A251A9B82648172B0067E574 /* HAppLocale.m */; };
 		A251A9CA264903B90067E574 /* HRegionQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = A251A9C9264903B90067E574 /* HRegionQuery.m */; };
+		A251AA09264955CD0067E574 /* HUserLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = A251AA08264955CD0067E574 /* HUserLocale.m */; };
 		A25E670C262445FD00863FF8 /* HAnalogNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6345262445FC00863FF8 /* HAnalogNetworkManager.m */; };
 		A25E670D262445FD00863FF8 /* HTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6349262445FC00863FF8 /* HTool.m */; };
 		A25E670E262445FD00863FF8 /* HWebview.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E634B262445FC00863FF8 /* HWebview.m */; };
@@ -549,6 +550,8 @@
 		A251A9B82648172B0067E574 /* HAppLocale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAppLocale.m; sourceTree = "<group>"; };
 		A251A9C8264903B90067E574 /* HRegionQuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRegionQuery.h; sourceTree = "<group>"; };
 		A251A9C9264903B90067E574 /* HRegionQuery.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRegionQuery.m; sourceTree = "<group>"; };
+		A251AA07264955CD0067E574 /* HUserLocale.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUserLocale.h; sourceTree = "<group>"; };
+		A251AA08264955CD0067E574 /* HUserLocale.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HUserLocale.m; sourceTree = "<group>"; };
 		A25E6344262445FC00863FF8 /* HAnalogNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAnalogNetworkManager.h; sourceTree = "<group>"; };
 		A25E6345262445FC00863FF8 /* HAnalogNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAnalogNetworkManager.m; sourceTree = "<group>"; };
 		A25E6347262445FC00863FF8 /* HWebviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebviewVC.h; sourceTree = "<group>"; };
@@ -1508,6 +1511,8 @@
 				A251A9B62648172B0067E574 /* HAppLanguage.m */,
 				A251A9B42648172B0067E574 /* HAppLocale.h */,
 				A251A9B82648172B0067E574 /* HAppLocale.m */,
+				A251AA07264955CD0067E574 /* HUserLocale.h */,
+				A251AA08264955CD0067E574 /* HUserLocale.m */,
 				A251A9B32648172B0067E574 /* HDeviceLocale.h */,
 				A251A9B52648172B0067E574 /* HDeviceLocale.m */,
 				A251A9C8264903B90067E574 /* HRegionQuery.h */,
@@ -3744,6 +3749,7 @@
 				A25E6716262445FD00863FF8 /* HTestVC-DQF.m in Sources */,
 				A25E672B262445FD00863FF8 /* NSObject_5.m in Sources */,
 				A25E68A0262445FE00863FF8 /* HHostUrlManager.m in Sources */,
+				A251AA09264955CD0067E574 /* HUserLocale.m in Sources */,
 				A25E6729262445FD00863FF8 /* HSimilarity.m in Sources */,
 				A20E3CFB231FDF4D00E6982B /* HMenuController.m in Sources */,
 				A25E6847262445FE00863FF8 /* UIImageView+HFilletLayer.m in Sources */,

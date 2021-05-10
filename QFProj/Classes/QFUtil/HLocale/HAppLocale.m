@@ -40,7 +40,12 @@
 }
 
 - (void)loadLocale {
-    NSString *localeIdentifier = [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:self.countryCode];
+    NSString *localeIdentifier = nil;
+    if ([[NSLocale ISOCountryCodes] containsObject:self.countryCode]) {
+        localeIdentifier = [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:self.countryCode];
+    }else {
+        localeIdentifier = [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:@"EN"];
+    }
     _locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
 }
 
