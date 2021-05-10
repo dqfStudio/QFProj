@@ -19,10 +19,12 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 @implementation NSDecimalNumber (HFormatter)
 //清除某些特定符号，是对数据的一种容错处理
 + (NSString *)clearTheSymbolWithText:(NSString *)text {
-    if (![text isKindOfClass:NSString.class]) return @"";
-    NSError *error = nil;
     NSString *pattern = @"[，, ]";//中英文环境下逗号和空格
-    NSRegularExpression *regularExpress = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:&error];
+    return [self clearTheSymbol:pattern withText:text];
+}
++ (NSString *)clearTheSymbol:(NSString *)symbol withText:(NSString *)text {
+    if (![text isKindOfClass:NSString.class]) return @"";
+    NSRegularExpression *regularExpress = [NSRegularExpression regularExpressionWithPattern:symbol options:0 error:nil];
     return [regularExpress stringByReplacingMatchesInString:text options:0 range:NSMakeRange(0, text.length) withTemplate:@""];
 }
 //判断是否只有特定符号
@@ -255,12 +257,7 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 }
 //无正负号的金额数据
 - (NSString *)noOperatorStringValue {
-    NSString *stringValue = self.decimalStringValue;
-    if (stringValue.length > 0) {
-        stringValue = [stringValue stringByReplacingOccurrencesOfString:@"+" withString:@""];
-        stringValue = [stringValue stringByReplacingOccurrencesOfString:@"-" withString:@""];
-    }
-    return stringValue;
+    return [NSDecimalNumber clearTheSymbol:@"[+-]" withText:self.decimalStringValue];;
 }
 @end
 
@@ -323,11 +320,6 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 }
 //无正负号的金额数据
 - (NSString *)noOperatorStringValue {
-    NSString *stringValue = self.decimalStringValue;
-    if (stringValue.length > 0) {
-        stringValue = [stringValue stringByReplacingOccurrencesOfString:@"+" withString:@""];
-        stringValue = [stringValue stringByReplacingOccurrencesOfString:@"-" withString:@""];
-    }
-    return stringValue;
+    return [NSDecimalNumber clearTheSymbol:@"[+-]" withText:self.decimalStringValue];;
 }
 @end
