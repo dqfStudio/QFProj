@@ -12,6 +12,42 @@
 #import <SDWebImage/UIButton+WebCache.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
+@interface HWebButtonAppearance ()
+@property (nonatomic) NSHashTable *hashButtons;
+@end
+
+@implementation HWebButtonAppearance
++ (instancetype)appearance {
+    static id sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[self alloc] init];
+    });
+    return sharedInstance;
+}
+- (void)addButton:(id)anButton {
+    if (!self.hashButtons) {
+        self.hashButtons = [NSHashTable weakObjectsHashTable];
+    }
+    [self.hashButtons addObject:anButton];
+}
+- (void)enumerateButtons:(void (^)(void))completion {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSArray *allObjects = [[self.hashButtons objectEnumerator] allObjects];
+        //倒序执行
+        for (NSUInteger i=allObjects.count-1; i>=0; i--) {
+            HWebButtonView *buttonView = allObjects[i];
+            if (buttonView.themeSkin) {
+                buttonView.themeSkin(buttonView, nil);
+            }
+        }
+        if (completion) {
+            completion();
+        }
+    });
+}
+@end
+
 @interface HWebButtonView()
 @property (nonatomic) UIImageView *_imageView;
 @property (nonatomic) NSString *lastURL;
@@ -196,15 +232,9 @@
         _themeSkin = nil;
         _themeSkin = themeSkin;
         if (themeSkin) {
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(themeSkinNotifyAction) name:KThemeSkinNotify object:nil];
-        }else {
-            [[NSNotificationCenter defaultCenter] removeObserver:self name:KThemeSkinNotify object:nil];
+            //保存button用于全局刷新
+            [[HWebButtonAppearance appearance] addButton:self];
         }
-    }
-}
-- (void)themeSkinNotifyAction {
-    if (_themeSkin) {
-        _themeSkin(self, nil);
     }
 }
 @end

@@ -14,6 +14,12 @@
 #import "UIImageView+HFilletLayer.h"
 #import <SDWebImage/SDWebImageManager.h>
 
+//此类用于全工程刷新HWebImageView
+@interface HWebImageAppearance : NSObject
++ (instancetype)appearance;
+- (void)enumerateImages:(void (^)(void))completion;
+@end
+
 @interface HWebImageView : UIImageView
 @property (nonatomic) SDWebImageOptions imageOptions;
 @property (nonatomic) UIImage *placeHoderImage;

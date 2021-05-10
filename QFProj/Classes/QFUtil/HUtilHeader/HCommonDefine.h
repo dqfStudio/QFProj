@@ -15,8 +15,6 @@
 #define www weakify(self)
 #define sss strongify(self)
 
-#define KThemeSkinNotify @"KThemeSkinNotify"
-
 #ifndef weakify
     #if DEBUG
         #if __has_feature(objc_arc)

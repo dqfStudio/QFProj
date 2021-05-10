@@ -15,6 +15,12 @@
 #import "UIImageView+HFilletLayer.h"
 #import <SDWebImage/SDWebImageManager.h>
 
+//此类用于全工程刷新HWebButtonView
+@interface HWebButtonAppearance : NSObject
++ (instancetype)appearance;
+- (void)enumerateButtons:(void (^)(void))completion;
+@end
+
 @interface HWebButtonView : UIButton
 @property (nonatomic) SDWebImageOptions imageOptions;
 @property (nonatomic) UIImage *placeHoderImage;

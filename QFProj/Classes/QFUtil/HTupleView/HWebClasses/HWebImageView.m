@@ -10,6 +10,42 @@
 #import <UIView+WebCache.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
+@interface HWebImageAppearance ()
+@property (nonatomic) NSHashTable *hashImages;
+@end
+
+@implementation HWebImageAppearance
++ (instancetype)appearance {
+    static id sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[self alloc] init];
+    });
+    return sharedInstance;
+}
+- (void)addImage:(id)anImage {
+    if (!self.hashImages) {
+        self.hashImages = [NSHashTable weakObjectsHashTable];
+    }
+    [self.hashImages addObject:anImage];
+}
+- (void)enumerateImages:(void (^)(void))completion {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSArray *allObjects = [[self.hashImages objectEnumerator] allObjects];
+        //倒序执行
+        for (NSUInteger i=allObjects.count-1; i>=0; i--) {
+            HWebImageView *imageView = allObjects[i];
+            if (imageView.themeSkin) {
+                imageView.themeSkin(imageView, nil);
+            }
+        }
+        if (completion) {
+            completion();
+        }
+    });
+}
+@end
+
 @interface HWebImageView ()
 @property (nonatomic) NSString *lastURL;
 @property (nonatomic) UITapGestureRecognizer *tapGesture;
@@ -192,15 +228,8 @@
         _themeSkin = nil;
         _themeSkin = themeSkin;
         if (themeSkin) {
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(themeSkinNotifyAction) name:KThemeSkinNotify object:nil];
-        }else {
-            [[NSNotificationCenter defaultCenter] removeObserver:self name:KThemeSkinNotify object:nil];
+            [[HWebImageAppearance appearance] addImage:self];
         }
-    }
-}
-- (void)themeSkinNotifyAction {
-    if (_themeSkin) {
-        _themeSkin(self, nil);
     }
 }
 @end
