@@ -237,6 +237,31 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     }
     return @"";
 }
+//正号的金额数据
+- (NSString *)positiveStringValue {
+    NSString *stringValue = self.noSymbolStringValue;
+    if (stringValue.length > 0) {
+        stringValue = [@"+" stringByAppendingString:stringValue];
+    }
+    return stringValue;
+}
+//负号的金额数据
+- (NSString *)negativeStringValue {
+    NSString *stringValue = self.noSymbolStringValue;
+    if (stringValue.length > 0) {
+        stringValue = [@"-" stringByAppendingString:stringValue];
+    }
+    return stringValue;
+}
+//无正负号的金额数据
+- (NSString *)noSymbolStringValue {
+    NSString *stringValue = self.decimalStringValue;
+    if (stringValue.length > 0) {
+        stringValue = [stringValue stringByReplacingOccurrencesOfString:@"+" withString:@""];
+        stringValue = [stringValue stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    }
+    return stringValue;
+}
 @end
 
 
@@ -265,6 +290,13 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     NSDecimalNumber *decimalNumber = [NSDecimalNumber unactiveDecimalNumberWithObjcValue:value operationMode:dividing];
     return [selfNumber decimalNumberByDividingBy:decimalNumber];
 }
+//格式化
+- (NSString *)makeFormatter:(void(^_Nullable)(HNumberFormatter *make))block {
+    HNumberFormatter *make = HNumberFormatter.new;
+    if (block) block(make);
+    NSNumber *modeNumber = make.formatterEnum()[make.roundingMode];
+    return [make numberObjc:self roundingMode:modeNumber.intValue afterPoint:make.afterPoint pointZero:make.pointZero grouping:make.grouping prefix:make.prefix symbol:make.symbol conversion:make.conversion];
+}
 //获取十进制金额数据
 - (NSString *)decimalStringValue {
     NSString *selfValue = [NSDecimalNumber clearTheSymbolWithText:self];
@@ -273,11 +305,29 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     }
     return @"";
 }
-//格式化
-- (NSString *)makeFormatter:(void(^_Nullable)(HNumberFormatter *make))block {
-    HNumberFormatter *make = HNumberFormatter.new;
-    if (block) block(make);
-    NSNumber *modeNumber = make.formatterEnum()[make.roundingMode];
-    return [make numberObjc:self roundingMode:modeNumber.intValue afterPoint:make.afterPoint pointZero:make.pointZero grouping:make.grouping prefix:make.prefix symbol:make.symbol conversion:make.conversion];
+//正号的金额数据
+- (NSString *)positiveStringValue {
+    NSString *stringValue = self.noSymbolStringValue;
+    if (stringValue.length > 0) {
+        stringValue = [@"+" stringByAppendingString:stringValue];
+    }
+    return stringValue;
+}
+//负号的金额数据
+- (NSString *)negativeStringValue {
+    NSString *stringValue = self.noSymbolStringValue;
+    if (stringValue.length > 0) {
+        stringValue = [@"-" stringByAppendingString:stringValue];
+    }
+    return stringValue;
+}
+//无正负号的金额数据
+- (NSString *)noSymbolStringValue {
+    NSString *stringValue = self.decimalStringValue;
+    if (stringValue.length > 0) {
+        stringValue = [stringValue stringByReplacingOccurrencesOfString:@"+" withString:@""];
+        stringValue = [stringValue stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    }
+    return stringValue;
 }
 @end

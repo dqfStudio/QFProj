@@ -48,6 +48,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSDecimalNumber *)dividing:(id)value;
 //获取十进制金额数据
 - (NSString *)decimalStringValue;
+//正号的金额数据
+- (NSString *)positiveStringValue;
+//负号的金额数据
+- (NSString *)negativeStringValue;
+//无正负号的金额数据
+- (NSString *)noSymbolStringValue;
 //格式化
 - (NSString *)makeFormatter:(void(^_Nullable)(HNumberFormatter *make))block;
 @end
@@ -63,6 +69,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSDecimalNumber *)dividing:(id)value;
 //获取十进制金额数据
 - (NSString *)decimalStringValue;
+//正号的金额数据
+- (NSString *)positiveStringValue;
+//负号的金额数据
+- (NSString *)negativeStringValue;
+//无正负号的金额数据
+- (NSString *)noSymbolStringValue;
 //格式化
 - (NSString *)makeFormatter:(void(^_Nullable)(HNumberFormatter *make))block;
 @end
