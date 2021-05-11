@@ -28,31 +28,40 @@
     return localeIdentifier.uppercaseString;
 }
 - (void)setCountryCode:(NSString *)countryCode {
+//    NSArray *countryCodeArray = @[@"VN", @"IN"];
+//    if (![countryCodeArray containsObject:countryCode]) {
+//        if ([countryCode.uppercaseString isEqual:@"SILVER"]) {
+//            countryCode = @"SILVER";
+//        }else {
+//            countryCode = @"OTHERS";
+//        }
+//    }
+//    super.countryCode = countryCode;
     NSArray *countryCodeArray = @[@"VN", @"IN"];
     if (![countryCodeArray containsObject:countryCode]) {
-        if ([countryCode.uppercaseString isEqual:@"SILVER"]) {
-            countryCode = @"SILVER";
-        }else {
-            countryCode = @"OTHERS";
-        }
+        countryCode = @"OTHERS";
     }
     super.countryCode = countryCode;
 }
 - (NSString *)countryName {
+//    if ([[NSLocale ISOCountryCodes] containsObject:super.countryCode]) {
+//        return super.countryName;
+//    }else {
+//        NSString *localeIdentifier = self.localeIdentifier;
+//        if ([localeIdentifier hasSuffix:super.countryCode]) {
+//            localeIdentifier = [localeIdentifier substringFromIndex:localeIdentifier.length-super.countryCode.length];
+//        }
+//        if ([localeIdentifier isEqual:@"SILVER"]) {
+//            localeIdentifier = @"Silver";
+//        }else {
+//            localeIdentifier = @"Others";
+//        }
+//        return localeIdentifier;
+//    }
     if ([[NSLocale ISOCountryCodes] containsObject:super.countryCode]) {
         return super.countryName;
-    }else {
-        NSString *localeIdentifier = self.localeIdentifier;
-        if ([localeIdentifier hasSuffix:super.countryCode]) {
-            localeIdentifier = [localeIdentifier substringFromIndex:localeIdentifier.length-super.countryCode.length];
-        }
-        if ([localeIdentifier isEqual:@"SILVER"]) {
-            localeIdentifier = @"Silver";
-        }else {
-            localeIdentifier = @"Others";
-        }
-        return localeIdentifier;
     }
+    return @"Others";
 }
 - (NSString *)silverCode {
     return @"SILVER";
@@ -103,7 +112,6 @@
     NSInteger index = -1;
     if ([self.countryName isEqualToString:@"Vietnam"]) { index = 0; }
     else if ([self.countryName isEqualToString:@"India"]) { index = 1; }
-//    else if ([self.countryName isEqualToString:@"Silver"]) { index = 2; }
     else { index = 2; }
     return index;
 }
