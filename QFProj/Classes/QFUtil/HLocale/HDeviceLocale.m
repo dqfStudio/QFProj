@@ -53,17 +53,11 @@
 }
 
 - (NSString *)currencySymbol {
-    //return [NSLocale autoupdatingCurrentLocale].currencySymbol;
-    return [self clearTheSymbolWithText:[NSLocale autoupdatingCurrentLocale].currencySymbol];
+    return [NSLocale autoupdatingCurrentLocale].currencySymbol;
 }
 
 - (NSString *)currencyCode {
     return [NSLocale autoupdatingCurrentLocale].currencyCode;
 }
-//清除字母符号
-- (NSString *)clearTheSymbolWithText:(NSString *)text {
-    NSString *pattern = @"[a-zA-Z]";
-    NSRegularExpression *regularExpress = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:nil];
-    return [regularExpress stringByReplacingMatchesInString:text options:0 range:NSMakeRange(0, text.length) withTemplate:@""];
-}
+
 @end

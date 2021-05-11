@@ -123,17 +123,11 @@
 }
 
 - (NSString *)currencySymbol {
-    //return _locale.currencySymbol;
-    return [self clearTheSymbolWithText:_locale.currencySymbol];
+    return _locale.currencySymbol;
 }
 
 - (NSString *)currencyCode {
     return _locale.currencyCode;
 }
-//清除字母符号
-- (NSString *)clearTheSymbolWithText:(NSString *)text {
-    NSString *pattern = @"[a-zA-Z]";
-    NSRegularExpression *regularExpress = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:nil];
-    return [regularExpress stringByReplacingMatchesInString:text options:0 range:NSMakeRange(0, text.length) withTemplate:@""];
-}
+
 @end
