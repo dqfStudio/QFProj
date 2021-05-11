@@ -103,7 +103,7 @@
     NSInteger index = -1;
     if ([self.countryName isEqualToString:@"Vietnam"]) { index = 0; }
     else if ([self.countryName isEqualToString:@"India"]) { index = 1; }
-//    else if ([userRegion isEqualToString:@"Silver"]) { index = 2; }
+//    else if ([self.countryName isEqualToString:@"Silver"]) { index = 2; }
     else { index = 2; }
     return index;
 }
