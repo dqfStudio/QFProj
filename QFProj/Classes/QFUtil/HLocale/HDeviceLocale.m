@@ -10,7 +10,7 @@
 
 @implementation HDeviceLocale
 
-+ (HDeviceLocale *)locale {
++ (HDeviceLocale *)defaultLocale {
     static HDeviceLocale *shareInstance = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{

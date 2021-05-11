@@ -15,7 +15,7 @@
 @implementation HRegionQuery
 + (NSArray *(^)(void))regionArray {
    return ^NSArray *(void) {
-       NSString *path = [[NSBundle mainBundle] pathForResource:@"region" ofType:@"json" inDirectory:nil forLocalization:[HAppLocale locale].languageCode];
+       NSString *path = [[NSBundle mainBundle] pathForResource:@"region" ofType:@"json" inDirectory:nil forLocalization:[HAppLocale defaultLocale].languageCode];
        if (path) {
            NSData *data = [NSData dataWithContentsOfFile:path];
            if (data) {

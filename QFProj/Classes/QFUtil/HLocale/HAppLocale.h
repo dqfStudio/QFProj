@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface HAppLocale : NSObject
 
-+ (HAppLocale *)locale;
++ (HAppLocale *)defaultLocale;
 
 @property (nonatomic, readonly) NSString *localeIdentifier;  // same as NSLocaleIdentifier
 

@@ -9,7 +9,7 @@
 #import "HUserLocale.h"
 
 @implementation HUserLocale
-+ (HUserLocale *)locale {
++ (HUserLocale *)defaultLocale {
     static HUserLocale *shareInstance = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{

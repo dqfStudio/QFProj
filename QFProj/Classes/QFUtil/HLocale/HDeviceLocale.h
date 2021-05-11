@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface HDeviceLocale : NSObject
 
-+ (HDeviceLocale *)locale;
++ (HDeviceLocale *)defaultLocale;
 
 @property (nonatomic, readonly) NSString *localeIdentifier;  // same as NSLocaleIdentifier
 //国家本身的语言属性，如中国，默认语言就是中文

@@ -21,7 +21,7 @@
 
 @implementation HAppLocale
 
-+ (HAppLocale *)locale {
++ (HAppLocale *)defaultLocale {
     static HAppLocale *shareInstance = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
@@ -50,10 +50,10 @@
 }
 
 - (NSString *)defaultCountryCode {
-    return [HDeviceLocale locale].countryCode;
+    return [HDeviceLocale defaultLocale].countryCode;
 }
 - (NSString *)defaultLanguageCode {
-    return [HDeviceLocale locale].userLanguageCode;
+    return [HDeviceLocale defaultLocale].userLanguageCode;
 }
 
 
