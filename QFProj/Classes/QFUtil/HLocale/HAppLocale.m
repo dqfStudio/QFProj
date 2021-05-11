@@ -44,7 +44,7 @@
     if ([[NSLocale ISOCountryCodes] containsObject:self.countryCode]) {
         localeIdentifier = [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:self.countryCode];
     }else {
-        localeIdentifier = [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:@"EN"];
+        localeIdentifier = [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:@"USA"];
     }
     _locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
 }
@@ -91,7 +91,7 @@
 - (NSString *)countryCode {
     if (!_countryCode) {
         _countryCode = [[NSUserDefaults standardUserDefaults] valueForKey:KCountryCodeKey];
-        if (!_countryCode) _languageCode = self.defaultCountryCode;
+        if (!_countryCode) _countryCode = self.defaultCountryCode;
     }
     return _countryCode;
 }
@@ -123,11 +123,17 @@
 }
 
 - (NSString *)currencySymbol {
-    return _locale.currencySymbol;
+    //return _locale.currencySymbol;
+    return [self clearTheSymbolWithText:_locale.currencySymbol];
 }
 
 - (NSString *)currencyCode {
     return _locale.currencyCode;
 }
-
+//清除字母符号
+- (NSString *)clearTheSymbolWithText:(NSString *)text {
+    NSString *pattern = @"[a-zA-Z]";
+    NSRegularExpression *regularExpress = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:nil];
+    return [regularExpress stringByReplacingMatchesInString:text options:0 range:NSMakeRange(0, text.length) withTemplate:@""];
+}
 @end

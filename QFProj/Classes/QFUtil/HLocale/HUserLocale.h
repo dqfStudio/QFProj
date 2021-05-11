@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HUserLocale : HAppLocale
++ (HUserLocale *)locale;
 - (NSString *)silverCode;
 - (NSString *)localeLanguageName;
 - (NSString *)localeLanguageCode;

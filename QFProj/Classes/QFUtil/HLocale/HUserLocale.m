@@ -9,6 +9,14 @@
 #import "HUserLocale.h"
 
 @implementation HUserLocale
++ (HUserLocale *)locale {
+    static HUserLocale *shareInstance = nil;
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        shareInstance = [[self alloc] init];
+    });
+    return shareInstance;
+}
 - (NSString *)localeIdentifier {
     return [[super.languageCode stringByAppendingString:@"-"] stringByAppendingString:super.countryCode];
 }
@@ -31,10 +39,8 @@
     super.countryCode = countryCode;
 }
 - (NSString *)countryName {
-    NSString *name = super.countryName;
-    NSArray *countryNameArray = @[@"Vietnam", @"India"];
-    if ([countryNameArray containsObject:name]) {
-        return name;
+    if ([[NSLocale ISOCountryCodes] containsObject:super.countryCode]) {
+        return super.countryName;
     }else {
         NSString *localeIdentifier = self.localeIdentifier;
         if ([localeIdentifier hasSuffix:super.countryCode]) {
