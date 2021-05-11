@@ -30,7 +30,7 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 //判断是否只有特定符号
 + (BOOL)isOnlyNumericWithText:(NSString *)text {
     if (![text isKindOfClass:NSString.class]) return NO;
-    NSString *regex = @"(?=.*[0-9])([0-9+-.])+$";//可以是0-9以及+-.号，但必须有一位数字
+    NSString *regex = @"(?=.*[0-9])([0-9+-.$￥₫₹])+$";//可以是0-9、+-.号以及美国 中国 越南 印度等国货币符号，但必须有一位数字
     return [[NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex] evaluateWithObject:text];
 }
 //主动操作数据调用
