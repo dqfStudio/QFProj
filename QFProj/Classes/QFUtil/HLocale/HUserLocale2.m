@@ -132,4 +132,14 @@
     return dict[@"countryName"];
 }
 
+- (NSString *)currencySymbol {
+    NSDictionary *dict = [self.countryDict objectForKey:self.countryCode];
+    return dict[@"currencySymbol"];
+}
+
+- (NSString *)currencyCode {
+    NSDictionary *dict = [self.countryDict objectForKey:self.countryCode];
+    return dict[@"currencyCode"];
+}
+
 @end
