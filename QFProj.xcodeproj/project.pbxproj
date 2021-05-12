@@ -51,6 +51,7 @@
 		A251AA09264955CD0067E574 /* HUserLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = A251AA08264955CD0067E574 /* HUserLocale.m */; };
 		A251AA63264BAD2B0067E574 /* countryInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = A251AA62264BAD2B0067E574 /* countryInfo.json */; };
 		A251AA6A264BB2990067E574 /* HUserLocale2.m in Sources */ = {isa = PBXBuildFile; fileRef = A251AA69264BB2990067E574 /* HUserLocale2.m */; };
+		A251AAAE264C10220067E574 /* countryInfoMap.json in Resources */ = {isa = PBXBuildFile; fileRef = A251AAAD264C10220067E574 /* countryInfoMap.json */; };
 		A25E670C262445FD00863FF8 /* HAnalogNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6345262445FC00863FF8 /* HAnalogNetworkManager.m */; };
 		A25E670D262445FD00863FF8 /* HTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6349262445FC00863FF8 /* HTool.m */; };
 		A25E670E262445FD00863FF8 /* HWebview.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E634B262445FC00863FF8 /* HWebview.m */; };
@@ -557,6 +558,7 @@
 		A251AA62264BAD2B0067E574 /* countryInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countryInfo.json; sourceTree = "<group>"; };
 		A251AA68264BB2990067E574 /* HUserLocale2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUserLocale2.h; sourceTree = "<group>"; };
 		A251AA69264BB2990067E574 /* HUserLocale2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HUserLocale2.m; sourceTree = "<group>"; };
+		A251AAAD264C10220067E574 /* countryInfoMap.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countryInfoMap.json; sourceTree = "<group>"; };
 		A25E6344262445FC00863FF8 /* HAnalogNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAnalogNetworkManager.h; sourceTree = "<group>"; };
 		A25E6345262445FC00863FF8 /* HAnalogNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAnalogNetworkManager.m; sourceTree = "<group>"; };
 		A25E6347262445FC00863FF8 /* HWebviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebviewVC.h; sourceTree = "<group>"; };
@@ -1526,6 +1528,7 @@
 				A251A9C9264903B90067E574 /* HRegionQuery.m */,
 				A251A9B72648172B0067E574 /* region.json */,
 				A251AA62264BAD2B0067E574 /* countryInfo.json */,
+				A251AAAD264C10220067E574 /* countryInfoMap.json */,
 			);
 			path = HLocale;
 			sourceTree = "<group>";
@@ -3415,6 +3418,7 @@
 				A25E6730262445FD00863FF8 /* HYololibAutoPackage.sh in Resources */,
 				A25E68BC262445FE00863FF8 /* hvc_back_icon@3x.png in Resources */,
 				A25E6883262445FE00863FF8 /* loading_new_12@2x.png in Resources */,
+				A251AAAE264C10220067E574 /* countryInfoMap.json in Resources */,
 				A25E6834262445FE00863FF8 /* icon_tuple_xx_gray@2x.png in Resources */,
 				A25E6835262445FE00863FF8 /* icon_tuple_arrow_down@2x.png in Resources */,
 				A25E6839262445FE00863FF8 /* icon_tuple_nodata@2x.png in Resources */,

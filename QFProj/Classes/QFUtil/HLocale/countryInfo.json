@@ -1,5 +1,5 @@
 {
-    "VN" : {"countryCode":"VN","countryName":"Vietnam","languageCode":"vi","currencyCode":"VND","currencySymbol":"₫"},
-    "IN" : {"countryCode":"IN","countryName":"India","languageCode":"en-IN","currencyCode":"INR","currencySymbol":"₹"},
-    "OTHERS" : {"countryCode":"OTHERS","countryName":"Others","languageCode":"en","currencyCode":"USD","currencySymbol":"$"}
+    "Vietnam" : {"countryCode":"VN","countryName":"Vietnam","languageCode":"vi","currencyCode":"VND","currencySymbol":"₫"},
+    "India" : {"countryCode":"IN","countryName":"India","languageCode":"en-IN","currencyCode":"INR","currencySymbol":"₹"},
+    "Others" : {"countryCode":"OTHERS","countryName":"Others","languageCode":"en","currencyCode":"USD","currencySymbol":"$"}
 }

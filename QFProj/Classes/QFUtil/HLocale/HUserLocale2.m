@@ -8,14 +8,16 @@
 
 #import "HUserLocale2.h"
 
-#define KCountryCodeKey   @"KCountryCodeKey"
-#define KLanguageCodeKey  @"KLanguageCodeKey"
+#define KCountryNameKey         @"KCountryNameKey"
+#define KLanguageCodeKey        @"KLanguageCodeKey"
 
 @interface HUserLocale2 () {
     NSString *_languageCode;
     NSString *_countryCode;
+    NSString *_countryName;
 }
 @property(nonatomic) NSDictionary *countryDict;
+@property(nonatomic) NSDictionary *countryMapDict;
 @end
 
 @implementation HUserLocale2
@@ -42,7 +44,17 @@
             }
         }
     }
-    return _countryDict;;
+    return _countryDict;
+}
+- (NSDictionary *)countryMapDict {
+    if (!_countryMapDict) {
+        _countryMapDict = @{@"VN" : @"Vietnam", @"IN" : @"India", @"OTHERS" : @"Others"};
+    }
+    return _countryMapDict;
+}
+
+- (NSString *)localeIdentifier {
+    return [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:self.countryCode];
 }
 
 - (NSString *)languageCode {
@@ -82,78 +94,94 @@
 }
 
 - (NSString *)languageName {
-    NSString *languageName = @"";
-    if ([self.languageCode isEqualToString:@"zh-Hans"]) { languageName = @"简体中文"; }
-    else if ([self.languageCode isEqualToString:@"zh-Hant"]) { languageName = @"繁體中文"; }
-    else if ([self.languageCode isEqualToString:@"en"]) { languageName = @"English"; }
-    else if ([self.languageCode isEqualToString:@"ja"]) { languageName = @"日本語"; }
-    else if ([self.languageCode isEqualToString:@"ko"]) { languageName = @"한국어"; }
-    else if ([self.languageCode containsString:@"vi"]) { languageName = @"Tiếng Việt"; }
-    else if ([self.languageCode isEqualToString:@"en-IN"]) { languageName = @"भारत गणराज्य"; }
-    return languageName;
+//    NSString *languageName = @"";
+//    if ([self.languageCode isEqualToString:@"zh-Hans"]) { languageName = @"简体中文"; }
+//    else if ([self.languageCode isEqualToString:@"zh-Hant"]) { languageName = @"繁體中文"; }
+//    else if ([self.languageCode isEqualToString:@"en"]) { languageName = @"English"; }
+//    else if ([self.languageCode isEqualToString:@"ja"]) { languageName = @"日本語"; }
+//    else if ([self.languageCode isEqualToString:@"ko"]) { languageName = @"한국어"; }
+//    else if ([self.languageCode containsString:@"vi"]) { languageName = @"Tiếng Việt"; }
+//    else if ([self.languageCode isEqualToString:@"en-IN"]) { languageName = @"भारत गणराज्य"; }
+//    return languageName;
+    NSString *languageName = [[NSLocale localeWithLocaleIdentifier:self.languageCode] localizedStringForLocaleIdentifier:self.languageCode];
+    if ([languageName isEqualToString:@"en-IN"]) { languageName = @"भारत गणराज्य"; }
+    return languageName ?: @"";
 }
 
 
 
 - (NSString *)countryCode {
     if (!_countryCode) {
-        NSString *defaultCountryCode = [[NSUserDefaults standardUserDefaults] objectForKey:KCountryCodeKey];
-        if (!defaultCountryCode) {
-            defaultCountryCode = [NSLocale autoupdatingCurrentLocale].countryCode;
-            if (![self.countryDict.allKeys containsObject:defaultCountryCode]) {
-                defaultCountryCode = self.countryDict.allKeys.lastObject;
+        for (NSString *key in self.countryMapDict.allKeys) {
+            NSString *value = self.countryMapDict[key];
+            if ([value isEqualToString:self.countryName]) {
+                _countryCode = [key mutableCopy];
+                break;;
             }
-            [[NSUserDefaults standardUserDefaults] setObject:defaultCountryCode forKey:KCountryCodeKey];
-            [[NSUserDefaults standardUserDefaults] synchronize];
         }
-        _countryCode = defaultCountryCode;
     }
     return _countryCode;
 }
-- (void)setCountryCode:(NSString *)countryCode {
-    if (_countryCode != countryCode) {
-        _countryCode = nil;
-        _countryCode = countryCode;
-        if (countryCode && [self.countryDict.allKeys containsObject:countryCode]) {
-            [[NSUserDefaults standardUserDefaults] setObject:countryCode forKey:KCountryCodeKey];
+
+- (NSString *)countryName {
+    if (!_countryName) {
+        NSString *defaultCountryName = [[NSUserDefaults standardUserDefaults] objectForKey:KCountryNameKey];
+        if (!defaultCountryName) {
+            NSString *countryCode = [NSLocale autoupdatingCurrentLocale].countryCode;
+            defaultCountryName = self.countryMapDict[countryCode];
+            if (![self.countryDict.allKeys containsObject:defaultCountryName]) {
+                defaultCountryName = self.countryDict.allKeys.lastObject;
+            }
+            [[NSUserDefaults standardUserDefaults] setObject:defaultCountryName forKey:KCountryNameKey];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
+        _countryName = defaultCountryName;
+    }
+    return _countryName;
+}
+- (void)setCountryName:(NSString *)countryName {
+    if (_countryName != countryName) {
+        _countryName = nil;
+        _countryName = countryName;
+        if (countryName && [self.countryDict.allKeys containsObject:countryName]) {
+            [[NSUserDefaults standardUserDefaults] setObject:countryName forKey:KCountryNameKey];
         }else {
-            if ([self.countryDict.allKeys containsObject:[NSLocale autoupdatingCurrentLocale].countryCode]) {
-                [[NSUserDefaults standardUserDefaults] setObject:[NSLocale autoupdatingCurrentLocale].countryCode forKey:KCountryCodeKey];
+            NSString *countryCode = [NSLocale autoupdatingCurrentLocale].countryCode;
+            if ([self.countryDict.allKeys containsObject:self.countryMapDict[countryCode]]) {
+                [[NSUserDefaults standardUserDefaults] setObject:self.countryMapDict[countryCode] forKey:KCountryNameKey];
             }else {
-                [[NSUserDefaults standardUserDefaults] setObject:self.countryDict.allKeys.lastObject forKey:KCountryCodeKey];
+                [[NSUserDefaults standardUserDefaults] setObject:self.countryDict.allKeys.lastObject forKey:KCountryNameKey];
             }
         }
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 
-- (NSString *)countryName {
-    NSDictionary *dict = [self.countryDict objectForKey:self.countryCode];
-    return dict[@"countryName"];
-}
-
 - (NSString *)currencySymbol {
-    NSDictionary *dict = [self.countryDict objectForKey:self.countryCode];
+    NSDictionary *dict = [self.countryDict objectForKey:self.countryName];
     return dict[@"currencySymbol"];
 }
 
 - (NSString *)currencyCode {
-    NSDictionary *dict = [self.countryDict objectForKey:self.countryCode];
+    NSDictionary *dict = [self.countryDict objectForKey:self.countryName];
     return dict[@"currencyCode"];
 }
 
 
 
 - (NSString *)localeLanguageName {
-    NSString *defaultLanguageName = @"";
-    if ([self.languageCode isEqualToString:@"zh-Hans"]) { defaultLanguageName = @"简体中文"; }
-    else if ([self.languageCode isEqualToString:@"zh-Hant"]) { defaultLanguageName = @"繁體中文"; }
-    else if ([self.languageCode isEqualToString:@"en"]) { defaultLanguageName = @"English"; }
-    else if ([self.languageCode isEqualToString:@"ja"]) { defaultLanguageName = @"日本語"; }
-    else if ([self.languageCode isEqualToString:@"ko"]) { defaultLanguageName = @"한국어"; }
-    else if ([self.languageCode containsString:@"vi"]) { defaultLanguageName = @"Tiếng Việt"; }
-    else if ([self.languageCode isEqualToString:@"en-IN"]) { defaultLanguageName = @"भारत गणराज्य"; }
-    return defaultLanguageName;
+//    NSString *defaultLanguageName = @"";
+//    if ([self.languageCode isEqualToString:@"zh-Hans"]) { defaultLanguageName = @"简体中文"; }
+//    else if ([self.languageCode isEqualToString:@"zh-Hant"]) { defaultLanguageName = @"繁體中文"; }
+//    else if ([self.languageCode isEqualToString:@"en"]) { defaultLanguageName = @"English"; }
+//    else if ([self.languageCode isEqualToString:@"ja"]) { defaultLanguageName = @"日本語"; }
+//    else if ([self.languageCode isEqualToString:@"ko"]) { defaultLanguageName = @"한국어"; }
+//    else if ([self.languageCode containsString:@"vi"]) { defaultLanguageName = @"Tiếng Việt"; }
+//    else if ([self.languageCode isEqualToString:@"en-IN"]) { defaultLanguageName = @"भारत गणराज्य"; }
+//    return defaultLanguageName;
+    NSString *languageName = [[NSLocale localeWithLocaleIdentifier:self.languageCode] localizedStringForLocaleIdentifier:self.languageCode];
+    if ([languageName isEqualToString:@"en-IN"]) { languageName = @"भारत गणराज्य"; }
+    return languageName ?: @"";
 }
 - (NSString *)localeLanguageCode {
     NSString *defaultLanguageCode = @"";
