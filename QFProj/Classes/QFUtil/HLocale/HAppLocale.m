@@ -51,7 +51,7 @@
     if ([[NSLocale ISOCountryCodes] containsObject:self.countryCode]) {
         localeIdentifier = [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:self.countryCode];
     }else {
-        localeIdentifier = [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:@"USA"];//默认美国
+        localeIdentifier = [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:@"US"];//默认美国
     }
     _locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
 }
