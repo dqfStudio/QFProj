@@ -8,11 +8,6 @@
 
 #import "HUserLocale.h"
 
-@interface HUserLocale ()
-@property(nonatomic) NSArray *countryCodeArray;
-@property(nonatomic) NSArray *languageCodeArray;
-@end
-
 @implementation HUserLocale
 + (HUserLocale *)defaultLocale {
     static HUserLocale *shareInstance = nil;
@@ -22,32 +17,15 @@
     });
     return shareInstance;
 }
-- (id)init {
-    self = [super init];
-    if (self) {
-        self.countryCodeArray  = @[@"VN", @"IN"];
-        self.languageCodeArray = @[@"vi", @"en-IN"];
-    }
-    return self;
-}
 - (NSString *)localeIdentifier {
-    //正常写法
-//    return [[super.languageCode stringByAppendingString:@"-"] stringByAppendingString:super.countryCode];
-    //有国家限制时的写法
-    return [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:self.countryCode];
+    return [[super.languageCode stringByAppendingString:@"-"] stringByAppendingString:super.countryCode];
 }
 - (NSString *)countryCode {
-    //正常写法
-//    NSString *localeIdentifier = self.localeIdentifier;
-//    if ([localeIdentifier hasSuffix:super.countryCode]) {
-//        localeIdentifier = [localeIdentifier substringFromIndex:localeIdentifier.length-super.countryCode.length];
-//    }
-//    return localeIdentifier.uppercaseString;
-    //有国家限制时的写法
-    if (![self.countryCodeArray containsObject:super.countryCode]) {
-        super.countryCode = @"en";
+    NSString *localeIdentifier = self.localeIdentifier;
+    if ([localeIdentifier hasSuffix:super.countryCode]) {
+        localeIdentifier = [localeIdentifier substringFromIndex:localeIdentifier.length-super.countryCode.length];
     }
-    return super.countryCode;
+    return localeIdentifier.uppercaseString;
 }
 - (void)setCountryCode:(NSString *)countryCode {
     //有国家限制且有SILVER时的写法
@@ -61,7 +39,7 @@
 //    }
 //    super.countryCode = countryCode;
     //有国家限制时的写法
-    if (![self.countryCodeArray containsObject:countryCode]) {
+    if (![self.limitedCountryCodeArray containsObject:countryCode]) {
         countryCode = @"OTHERS";
     }
     super.countryCode = countryCode;
@@ -87,20 +65,6 @@
         return super.countryName;
     }
     return @"Others";
-}
-- (NSString *)languageCode {
-    //有国家限制时的写法
-    if (![self.languageCodeArray containsObject:super.languageCode]) {
-        super.languageCode = @"en";
-    }
-    return super.languageCode;
-}
-- (void)setLanguageCode:(NSString *)languageCode {
-    //有国家限制时的写法
-    if (![self.languageCodeArray containsObject:languageCode]) {
-        languageCode = @"en";
-    }
-    super.languageCode = languageCode;
 }
 - (NSString *)silverCode {
     return @"SILVER";

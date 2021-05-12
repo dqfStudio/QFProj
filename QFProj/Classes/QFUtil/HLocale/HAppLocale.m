@@ -12,6 +12,11 @@
 #define KCountryCodeKey   @"KCountryCodeKey"
 #define KLanguageCodeKey  @"KLanguageCodeKey"
 
+//默认Others代表其他地方或全球
+#define KDefaultCountryCodeKey   @"Others"
+//默认英语
+#define KDefualtLanguageCodeKey  @"en"
+
 @interface HAppLocale () {
     NSLocale *_locale;
     NSString *_languageCode;
@@ -35,6 +40,8 @@
     if (self) {
         //重新初始化ocale
         [self loadLocale];
+        _limitedCountryCodeArray  = @[@"VN", @"IN"];
+        _limitedLanguageCodeArray = @[@"vi", @"en-IN"];
     }
     return self;
 }
@@ -44,16 +51,24 @@
     if ([[NSLocale ISOCountryCodes] containsObject:self.countryCode]) {
         localeIdentifier = [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:self.countryCode];
     }else {
-        localeIdentifier = [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:@"USA"];
+        localeIdentifier = [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:@"USA"];//默认美国
     }
     _locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
 }
 
 - (NSString *)defaultCountryCode {
-    return [HDeviceLocale defaultLocale].countryCode;
+    NSString *countryCode = [HDeviceLocale defaultLocale].countryCode;
+    if (![self.limitedCountryCodeArray containsObject:countryCode]) {
+        countryCode = KDefaultCountryCodeKey;
+    }
+    return countryCode;
 }
 - (NSString *)defaultLanguageCode {
-    return [HDeviceLocale defaultLocale].userLanguageCode;
+    NSString *userLanguageCode = [HDeviceLocale defaultLocale].userLanguageCode;
+    if (![self.limitedLanguageCodeArray containsObject:userLanguageCode]) {
+        userLanguageCode = KDefualtLanguageCodeKey;
+    }
+    return userLanguageCode;
 }
 
 

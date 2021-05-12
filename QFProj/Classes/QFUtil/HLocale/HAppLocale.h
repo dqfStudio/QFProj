@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (HAppLocale *)defaultLocale;
 
+@property (nonatomic, readonly) NSArray *limitedCountryCodeArray; //有限制的国家代码
+@property (nonatomic, readonly) NSArray *limitedLanguageCodeArray; //有限制的语言代码
+
 @property (nonatomic, readonly) NSString *localeIdentifier;  // same as NSLocaleIdentifier
 
 //APP中可设置某个国家语言代码
