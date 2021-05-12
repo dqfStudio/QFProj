@@ -51,7 +51,7 @@
         if (!defaultLanguageCode) {
             for (NSDictionary *dict in self.countryDict.allValues) {
                 NSString *languageCode = dict[@"languageCode"];
-                if ([languageCode isEqualToString:[NSLocale autoupdatingCurrentLocale].languageCode]) {
+                if ([languageCode isEqualToString:[[NSLocale preferredLanguages] firstObject]]) {
                     [[NSUserDefaults standardUserDefaults] setObject:languageCode forKey:KLanguageCodeKey];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                     defaultLanguageCode = languageCode;
