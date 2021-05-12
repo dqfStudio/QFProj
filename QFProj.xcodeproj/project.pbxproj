@@ -49,6 +49,8 @@
 		A251A9BC2648172B0067E574 /* HAppLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = A251A9B82648172B0067E574 /* HAppLocale.m */; };
 		A251A9CA264903B90067E574 /* HRegionQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = A251A9C9264903B90067E574 /* HRegionQuery.m */; };
 		A251AA09264955CD0067E574 /* HUserLocale.m in Sources */ = {isa = PBXBuildFile; fileRef = A251AA08264955CD0067E574 /* HUserLocale.m */; };
+		A251AA63264BAD2B0067E574 /* countryInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = A251AA62264BAD2B0067E574 /* countryInfo.json */; };
+		A251AA6A264BB2990067E574 /* HUserLocale2.m in Sources */ = {isa = PBXBuildFile; fileRef = A251AA69264BB2990067E574 /* HUserLocale2.m */; };
 		A25E670C262445FD00863FF8 /* HAnalogNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6345262445FC00863FF8 /* HAnalogNetworkManager.m */; };
 		A25E670D262445FD00863FF8 /* HTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6349262445FC00863FF8 /* HTool.m */; };
 		A25E670E262445FD00863FF8 /* HWebview.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E634B262445FC00863FF8 /* HWebview.m */; };
@@ -552,6 +554,9 @@
 		A251A9C9264903B90067E574 /* HRegionQuery.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRegionQuery.m; sourceTree = "<group>"; };
 		A251AA07264955CD0067E574 /* HUserLocale.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUserLocale.h; sourceTree = "<group>"; };
 		A251AA08264955CD0067E574 /* HUserLocale.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HUserLocale.m; sourceTree = "<group>"; };
+		A251AA62264BAD2B0067E574 /* countryInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countryInfo.json; sourceTree = "<group>"; };
+		A251AA68264BB2990067E574 /* HUserLocale2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUserLocale2.h; sourceTree = "<group>"; };
+		A251AA69264BB2990067E574 /* HUserLocale2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HUserLocale2.m; sourceTree = "<group>"; };
 		A25E6344262445FC00863FF8 /* HAnalogNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAnalogNetworkManager.h; sourceTree = "<group>"; };
 		A25E6345262445FC00863FF8 /* HAnalogNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAnalogNetworkManager.m; sourceTree = "<group>"; };
 		A25E6347262445FC00863FF8 /* HWebviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebviewVC.h; sourceTree = "<group>"; };
@@ -1513,11 +1518,14 @@
 				A251A9B82648172B0067E574 /* HAppLocale.m */,
 				A251AA07264955CD0067E574 /* HUserLocale.h */,
 				A251AA08264955CD0067E574 /* HUserLocale.m */,
+				A251AA68264BB2990067E574 /* HUserLocale2.h */,
+				A251AA69264BB2990067E574 /* HUserLocale2.m */,
 				A251A9B32648172B0067E574 /* HDeviceLocale.h */,
 				A251A9B52648172B0067E574 /* HDeviceLocale.m */,
 				A251A9C8264903B90067E574 /* HRegionQuery.h */,
 				A251A9C9264903B90067E574 /* HRegionQuery.m */,
 				A251A9B72648172B0067E574 /* region.json */,
+				A251AA62264BAD2B0067E574 /* countryInfo.json */,
 			);
 			path = HLocale;
 			sourceTree = "<group>";
@@ -3354,6 +3362,7 @@
 				TargetAttributes = {
 					15B4DD622092F88700773E04 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1240;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -3433,6 +3442,7 @@
 				A25E6881262445FE00863FF8 /* loading_new_5@2x.png in Resources */,
 				A25E679A262445FD00863FF8 /* HJsonList in Resources */,
 				A25E6882262445FE00863FF8 /* loading_new_9@2x.png in Resources */,
+				A251AA63264BAD2B0067E574 /* countryInfo.json in Resources */,
 				A25E6879262445FE00863FF8 /* icon_load_nothing@2x.png in Resources */,
 				A25E6880262445FE00863FF8 /* loading_new_16@2x.png in Resources */,
 				A25E687D262445FE00863FF8 /* loading_new_3@2x.png in Resources */,
@@ -3764,6 +3774,7 @@
 				A25E689C262445FE00863FF8 /* UIControl+HSafeUtil.m in Sources */,
 				15B4DD762092F88700773E04 /* main.m in Sources */,
 				A25E684A262445FE00863FF8 /* HWebImageView.m in Sources */,
+				A251AA6A264BB2990067E574 /* HUserLocale2.m in Sources */,
 				A25E67F2262445FE00863FF8 /* KSCrashInstallationStandard.m in Sources */,
 				A25E67E0262445FE00863FF8 /* KSLogger.c in Sources */,
 				A25E67DB262445FE00863FF8 /* KSDate.c in Sources */,
@@ -4034,6 +4045,7 @@
 			baseConfigurationReference = 1049599A6188933E5342328E /* Pods-QFProj.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 63WJZK9FU3;
 				ENABLE_BITCODE = NO;
@@ -4052,6 +4064,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dqfStudio.QFProj2;
 				PRODUCT_NAME = QFProj;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -4061,6 +4075,7 @@
 			baseConfigurationReference = 60580163C2E51E9CB5D59084 /* Pods-QFProj.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 63WJZK9FU3;
 				ENABLE_BITCODE = NO;
@@ -4079,6 +4094,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dqfStudio.QFProj2;
 				PRODUCT_NAME = QFProj;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
