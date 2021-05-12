@@ -82,13 +82,15 @@
 }
 
 - (NSString *)languageName {
-    for (NSDictionary *dict in self.countryDict.allValues) {
-        NSString *languageCode = dict[@"languageCode"];
-        if ([languageCode isEqualToString:self.languageCode]) {
-            return dict[@"languageName"];
-        }
-    }
-    return @"";
+    NSString *languageName = @"";
+    if ([self.languageCode isEqualToString:@"zh-Hans"]) { languageName = @"简体中文"; }
+    else if ([self.languageCode isEqualToString:@"zh-Hant"]) { languageName = @"繁體中文"; }
+    else if ([self.languageCode isEqualToString:@"en"]) { languageName = @"English"; }
+    else if ([self.languageCode isEqualToString:@"ja"]) { languageName = @"日本語"; }
+    else if ([self.languageCode isEqualToString:@"ko"]) { languageName = @"한국어"; }
+    else if ([self.languageCode containsString:@"vi"]) { languageName = @"Tiếng Việt"; }
+    else if ([self.languageCode isEqualToString:@"en-IN"]) { languageName = @"भारत गणराज्य"; }
+    return languageName;
 }
 
 
