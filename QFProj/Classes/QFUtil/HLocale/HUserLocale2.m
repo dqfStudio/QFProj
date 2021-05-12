@@ -116,7 +116,7 @@
             NSString *value = self.countryMapDict[key];
             if ([value isEqualToString:self.countryName]) {
                 _countryCode = [key mutableCopy];
-                break;;
+                break;
             }
         }
     }
