@@ -1,0 +1,6 @@
+{
+    "Vietnam" : {"countryCode":"VN","countryName":"Vietnam","languageCode":"vi","currencyCode":"VND","currencySymbol":"₫"},
+    "India" : {"countryCode":"IN","countryName":"India","languageCode":"en-IN","currencyCode":"INR","currencySymbol":"₹"},
+    "Brazil" : {"countryCode":"BR","countryName":"Brazil","languageCode":"pt-BR","currencyCode":"BRL","currencySymbol":"R$"},
+    "Others" : {"countryCode":"OTHERS","countryName":"Others","languageCode":"en","currencyCode":"USD","currencySymbol":"$"}
+}

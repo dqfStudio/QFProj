@@ -35,7 +35,7 @@
 //区域json文件内容
 - (NSDictionary *)regionDict {
     if (!_regionDict) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"countryInfo" ofType:@"json"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"HRegionInfo" ofType:@"json"];
         if (path) {
             NSData *data = [NSData dataWithContentsOfFile:path];
             if (data) {
