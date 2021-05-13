@@ -175,6 +175,64 @@
     return dict[@"currencyCode"];
 }
 
+//货币图标
+- (UIImage *)currencyIcon {
+    return [UIImage imageNamed:self.currencyIconName];
+}
+//货币图标名称
+- (NSString *)currencyIconName {
+    if ([self.regionName isEqual:@"Vietnam"]) {
+        return @"越南盾";
+    } else if([self.regionName isEqual:@"India"]) {
+        return @"卢比";
+    } else if([self.regionName isEqual:@"Brazil"]) {
+        return @"巴西雷亚尔";
+    }
+    return @"USDT";
+}
+
+
+- (UIImage *)currencyIconWithFactors:(NSString *)factors {
+    if (factors.length > 0) {
+        for (NSDictionary *dict in self.regionDict.allValues) {
+            if ([dict.allValues containsObject:factors]) {
+                if ([dict[@"countryCode"] isEqual:@"VN"]) {
+                    return [UIImage imageNamed:@"越南盾"];
+                }else if ([dict[@"countryCode"] isEqual:@"IN"]) {
+                    return [UIImage imageNamed:@"卢比"];
+                }else if ([dict[@"countryCode"] isEqual:@"BR"]) {
+                    return [UIImage imageNamed:@"巴西雷亚尔"];
+                }
+            }
+        }
+    }
+    return [UIImage imageNamed:@"USDT"];
+}
+- (NSString *)currencySymbolWithFactors:(NSString *)factors {
+    if (!factors || factors.length == 0) return @"₫";
+    for (NSDictionary *dict in self.regionDict.allValues) {
+        if ([dict.allValues containsObject:factors]) {
+            return dict[@"currencySymbol"];
+        }
+    }
+    return @"$";
+}
+- (NSString *)currencyCodeWithFactors:(NSString *)factors {
+    if (!factors || factors.length == 0) return @"VND";
+    for (NSDictionary *dict in self.regionDict.allValues) {
+        if ([dict.allValues containsObject:factors]) {
+            return dict[@"currencyCode"];
+        }
+    }
+    return @"USD";
+}
+- (NSString *)currencyCodeWithServerCurrencyCode:(NSString *)code {
+    if([code isEqual:@"USDT"]) {
+        return @"USD";
+    }
+    return code;
+}
+
 
 //获取语言代码的序号
 - (NSInteger)sceneLanguageCodeIndex {

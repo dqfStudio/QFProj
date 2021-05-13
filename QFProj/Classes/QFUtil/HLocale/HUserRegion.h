@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (HUserRegion *)defaultRegion;
 
-//APP中可设置某个区域语言代码
+//APP中可设置某个地区语言代码
 @property (nonatomic) NSString *languageCode;//语言代码
 @property (nonatomic, readonly) NSString *languageName;//语言名称
 
@@ -28,7 +28,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSString *regionCode;//区域代码
 
 @property (nonatomic, readonly) NSString *currencyCode;//货币代码
+- (NSString *)currencyCodeWithFactors:(NSString *)factors;
+- (NSString *)currencyCodeWithServerCurrencyCode:(NSString *)code;
+
 @property (nonatomic, readonly) NSString *currencySymbol;//货币符号
+- (NSString *)currencySymbolWithFactors:(NSString *)factors;
+
+@property (nonatomic, readonly) UIImage  *currencyIcon;//货币图标
+- (UIImage *)currencyIconWithFactors:(NSString *)factors;
+
+@property (nonatomic, readonly) NSString *currencyIconName;//货币图标名称
+
 
 //获取语言代码的序号
 - (NSInteger)sceneLanguageCodeIndex;
