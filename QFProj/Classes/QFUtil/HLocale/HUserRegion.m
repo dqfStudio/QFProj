@@ -196,11 +196,11 @@
     if (factors.length > 0) {
         for (NSDictionary *dict in self.regionDict.allValues) {
             if ([dict.allValues containsObject:factors]) {
-                if ([dict[@"countryCode"] isEqual:@"VN"]) {
+                if ([dict[@"regionCode"] isEqual:@"VN"]) {
                     return [UIImage imageNamed:@"越南盾"];
-                }else if ([dict[@"countryCode"] isEqual:@"IN"]) {
+                }else if ([dict[@"regionCode"] isEqual:@"IN"]) {
                     return [UIImage imageNamed:@"卢比"];
-                }else if ([dict[@"countryCode"] isEqual:@"BR"]) {
+                }else if ([dict[@"regionCode"] isEqual:@"BR"]) {
                     return [UIImage imageNamed:@"巴西雷亚尔"];
                 }
             }
