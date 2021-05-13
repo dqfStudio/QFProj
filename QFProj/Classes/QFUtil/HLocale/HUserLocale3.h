@@ -12,26 +12,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HUserLocale3 : NSObject
 
-@property (nonatomic, readonly) NSString *localeIdentifier;  // same as NSLocaleIdentifier
++ (HUserLocale3 *)defaultLocale;
 
 //APP中可设置某个国家语言代码
-@property (nonatomic) NSString *languageCode API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+@property (nonatomic) NSString *languageCode;
+@property (nonatomic, readonly) NSString *languageName;
 
-@property (nonatomic, readonly) NSString *languageName API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+//APP中可设置某个地区名称
+@property (nonatomic) NSString *regionName;
+@property (nonatomic, readonly) NSString *regionCode;
 
-@property (nonatomic, readonly) NSString *regionCode API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+@property (nonatomic, readonly) NSString *currencyCode;
+@property (nonatomic, readonly) NSString *currencySymbol;
 
-//APP中可设置某个国家名称
-@property (nonatomic) NSString *regionName API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+//获取语言代码相对应的语言名称
+//- (NSString *)sceneLanguageName;
+//获取语言代码的序号
+- (NSInteger)sceneLanguageCodeIndex;
 
-@property (nonatomic, readonly) NSString *currencySymbol API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
-
-@property (nonatomic, readonly) NSString *currencyCode API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
-
-- (NSString *)localeLanguageName;
-- (NSString *)localeLanguageCode;
-- (NSInteger)localeLanguageCodeIndex;
-- (NSInteger)localeRegionNameIndex;
+//获取地区代码
+- (NSString *)sceneRegionCode;
+//获取地区名称序号
+- (NSInteger)sceneRegionNameIndex;
 
 @end
 

@@ -8,8 +8,8 @@
 
 #import "HUserLocale3.h"
 
-#define KRegionNameKey         @"KRegionNameKey"
-#define KLanguageCodeKey       @"KLanguageCodeKey"
+#define KRegionNameKey    @"KRegionNameKey"
+#define KLanguageCodeKey  @"KLanguageCodeKey"
 
 @interface HUserLocale3 () {
     NSString *_languageCode;
@@ -53,10 +53,6 @@
     return _regionMapDict;
 }
 
-- (NSString *)localeIdentifier {
-    return [[self.languageCode stringByAppendingString:@"-"] stringByAppendingString:self.regionCode];
-}
-
 - (NSString *)languageCode {
     if (!_languageCode) {
         NSString *defaultLanguageCode = [[NSUserDefaults standardUserDefaults] objectForKey:KLanguageCodeKey];
@@ -94,18 +90,18 @@
 }
 
 - (NSString *)languageName {
-//    NSString *languageName = @"";
-//    if ([self.languageCode isEqualToString:@"zh-Hans"]) { languageName = @"简体中文"; }
-//    else if ([self.languageCode isEqualToString:@"zh-Hant"]) { languageName = @"繁體中文"; }
-//    else if ([self.languageCode isEqualToString:@"en"]) { languageName = @"English"; }
-//    else if ([self.languageCode isEqualToString:@"ja"]) { languageName = @"日本語"; }
-//    else if ([self.languageCode isEqualToString:@"ko"]) { languageName = @"한국어"; }
-//    else if ([self.languageCode containsString:@"vi"]) { languageName = @"Tiếng Việt"; }
-//    else if ([self.languageCode isEqualToString:@"en-IN"]) { languageName = @"भारत गणराज्य"; }
-//    return languageName;
-    NSString *languageName = [[NSLocale localeWithLocaleIdentifier:self.languageCode] localizedStringForLocaleIdentifier:self.languageCode];
-    if ([languageName isEqualToString:@"en-IN"]) { languageName = @"भारत गणराज्य"; }
-    return languageName ?: @"";
+//    NSString *languageName = [[NSLocale localeWithLocaleIdentifier:self.languageCode] localizedStringForLocaleIdentifier:self.languageCode];
+//    if ([languageName isEqualToString:@"en-IN"]) { languageName = @"भारत गणराज्य"; }
+//    return languageName ?: @"";
+    NSString *languageName = @"";
+    if ([self.languageCode isEqualToString:@"zh-Hans"]) { languageName = @"简体中文"; }
+    else if ([self.languageCode isEqualToString:@"zh-Hant"]) { languageName = @"繁體中文"; }
+    else if ([self.languageCode isEqualToString:@"en"]) { languageName = @"English"; }
+    else if ([self.languageCode isEqualToString:@"ja"]) { languageName = @"日本語"; }
+    else if ([self.languageCode isEqualToString:@"ko"]) { languageName = @"한국어"; }
+    else if ([self.languageCode containsString:@"vi"]) { languageName = @"Tiếng Việt"; }
+    else if ([self.languageCode isEqualToString:@"en-IN"]) { languageName = @"भारत गणराज्य"; }
+    return languageName;
 }
 
 
@@ -169,7 +165,10 @@
 
 
 
-- (NSString *)localeLanguageName {
+//- (NSString *)sceneLanguageName {
+////    NSString *languageName = [[NSLocale localeWithLocaleIdentifier:self.languageCode] localizedStringForLocaleIdentifier:self.languageCode];
+////    if ([languageName isEqualToString:@"en-IN"]) { languageName = @"भारत गणराज्य"; }
+////    return languageName ?: @"";
 //    NSString *defaultLanguageName = @"";
 //    if ([self.languageCode isEqualToString:@"zh-Hans"]) { defaultLanguageName = @"简体中文"; }
 //    else if ([self.languageCode isEqualToString:@"zh-Hant"]) { defaultLanguageName = @"繁體中文"; }
@@ -179,23 +178,8 @@
 //    else if ([self.languageCode containsString:@"vi"]) { defaultLanguageName = @"Tiếng Việt"; }
 //    else if ([self.languageCode isEqualToString:@"en-IN"]) { defaultLanguageName = @"भारत गणराज्य"; }
 //    return defaultLanguageName;
-    NSString *languageName = [[NSLocale localeWithLocaleIdentifier:self.languageCode] localizedStringForLocaleIdentifier:self.languageCode];
-    if ([languageName isEqualToString:@"en-IN"]) { languageName = @"भारत गणराज्य"; }
-    return languageName ?: @"";
-}
-- (NSString *)localeLanguageCode {
-    NSString *defaultLanguageCode = @"";
-    if ([self.languageCode isEqualToString:@"zh-Hans"]) { defaultLanguageCode = @"CN"; }
-    else if ([self.languageCode isEqualToString:@"zh-Hant"]) { defaultLanguageCode = @""; }
-    else if ([self.languageCode isEqualToString:@"en"]) { defaultLanguageCode = @"EN"; }
-    else if ([self.languageCode isEqualToString:@"ja"]) { defaultLanguageCode = @""; }
-    else if ([self.languageCode isEqualToString:@"ko"]) { defaultLanguageCode = @""; }
-    else if ([self.languageCode containsString:@"vi"]) { defaultLanguageCode = @"VN"; }
-    else if ([self.languageCode isEqualToString:@"en-IN"]) { defaultLanguageCode = @"IN"; }
-    else { defaultLanguageCode = @"CN"; }
-    return defaultLanguageCode;
-}
-- (NSInteger)localeLanguageCodeIndex {
+//}
+- (NSInteger)sceneLanguageCodeIndex {
     NSInteger index = -1;
 #if DEBUG
     if ([self.languageCode isEqualToString:@""]) { index = 0; }
@@ -214,7 +198,19 @@
 #endif
     return index;
 }
-- (NSInteger)localeRegionNameIndex {
+- (NSString *)sceneRegionCode {
+    NSString *defaultLanguageCode = @"";
+    if ([self.languageCode isEqualToString:@"zh-Hans"]) { defaultLanguageCode = @"CN"; }
+    else if ([self.languageCode isEqualToString:@"zh-Hant"]) { defaultLanguageCode = @""; }
+    else if ([self.languageCode isEqualToString:@"en"]) { defaultLanguageCode = @"EN"; }
+    else if ([self.languageCode isEqualToString:@"ja"]) { defaultLanguageCode = @""; }
+    else if ([self.languageCode isEqualToString:@"ko"]) { defaultLanguageCode = @""; }
+    else if ([self.languageCode containsString:@"vi"]) { defaultLanguageCode = @"VN"; }
+    else if ([self.languageCode isEqualToString:@"en-IN"]) { defaultLanguageCode = @"IN"; }
+    else { defaultLanguageCode = @"CN"; }
+    return defaultLanguageCode;
+}
+- (NSInteger)sceneRegionNameIndex {
     NSInteger index = -1;
     if ([self.regionName isEqualToString:@"Vietnam"]) { index = 0; }
     else if ([self.regionName isEqualToString:@"India"]) { index = 1; }
