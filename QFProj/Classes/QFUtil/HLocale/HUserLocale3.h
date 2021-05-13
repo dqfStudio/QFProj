@@ -22,8 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSString *regionName;
 @property (nonatomic, readonly) NSString *regionCode;
 
-@property (nonatomic, readonly) NSString *currencyCode;
-@property (nonatomic, readonly) NSString *currencySymbol;
+@property (nonatomic, readonly) NSString *currencyCode;//货币代码
+@property (nonatomic, readonly) NSString *currencySymbol;//货币符号
 
 //获取语言代码的序号
 - (NSInteger)sceneLanguageCodeIndex;

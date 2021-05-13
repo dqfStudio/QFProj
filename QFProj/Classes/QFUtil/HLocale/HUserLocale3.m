@@ -48,7 +48,7 @@
 }
 - (NSDictionary *)regionMapDict {
     if (!_regionMapDict) {
-        _regionMapDict = @{@"VN" : @"Vietnam", @"IN" : @"India", @"OTHERS" : @"Others"};
+        _regionMapDict = @{@"VN" : @"Vietnam", @"IN" : @"India", @"BR" : @"Brazil", @"OTHERS" : @"Others"};
     }
     return _regionMapDict;
 }
@@ -92,6 +92,7 @@
 - (NSString *)languageName {
 //    NSString *languageName = [[NSLocale localeWithLocaleIdentifier:self.languageCode] localizedStringForLocaleIdentifier:self.languageCode];
 //    if ([languageName isEqualToString:@"en-IN"]) { languageName = @"भारत गणराज्य"; }
+//    else if ([languageName isEqualToString:@"pt-BR"]) { languageName = @"português"; }
 //    return languageName ?: @"";
     NSString *languageName = @"";
     if ([self.languageCode isEqualToString:@"zh-Hans"]) { languageName = @"简体中文"; }
@@ -101,6 +102,7 @@
     else if ([self.languageCode isEqualToString:@"ko"]) { languageName = @"한국어"; }
     else if ([self.languageCode containsString:@"vi"]) { languageName = @"Tiếng Việt"; }
     else if ([self.languageCode isEqualToString:@"en-IN"]) { languageName = @"भारत गणराज्य"; }
+    else if ([self.languageCode isEqualToString:@"pt-BR"]) { languageName = @"português"; }
     return languageName;
 }
 
@@ -173,6 +175,7 @@
     else if ([self.languageCode isEqualToString:@"en"]) { index = 1; }
     else if ([self.languageCode containsString:@"vi"]) { index = 2; }
     else if ([self.languageCode isEqualToString:@"en-IN"]) { index = 3; }
+    else if ([self.languageCode isEqualToString:@"pt-BR"]) { index = 4; }
 #else
     if ([self.languageCode isEqualToString:@""]) { index = 0; }
     else if ([self.languageCode isEqualToString:@"en"]) { index = 0; }
@@ -181,6 +184,7 @@
     else if ([self.languageCode isEqualToString:@"zh-Hant"]) { index = 3; }
     else if ([self.languageCode isEqualToString:@"ja"]) { index = 4; }
     else if ([self.languageCode isEqualToString:@"ko"]) { index = 5; }
+    else if ([self.languageCode isEqualToString:@"pt-BR"]) { index = 6; }
 #endif
     return index;
 }
@@ -193,6 +197,7 @@
     else if ([self.languageCode isEqualToString:@"ko"]) { defaultLanguageCode = @""; }
     else if ([self.languageCode containsString:@"vi"]) { defaultLanguageCode = @"VN"; }
     else if ([self.languageCode isEqualToString:@"en-IN"]) { defaultLanguageCode = @"IN"; }
+    else if ([self.languageCode isEqualToString:@"pt-BR"]) { defaultLanguageCode = @"BR"; }
     else { defaultLanguageCode = @"CN"; }
     return defaultLanguageCode;
 }
@@ -200,7 +205,8 @@
     NSInteger index = -1;
     if ([self.regionName isEqualToString:@"Vietnam"]) { index = 0; }
     else if ([self.regionName isEqualToString:@"India"]) { index = 1; }
-    else { index = 2; }
+    else if ([self.regionName isEqualToString:@"Brazil"]) { index = 2; }
+    else { index = 3; }
     return index;
 }
 
