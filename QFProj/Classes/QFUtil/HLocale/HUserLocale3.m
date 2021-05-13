@@ -165,20 +165,6 @@
 
 
 
-//- (NSString *)sceneLanguageName {
-////    NSString *languageName = [[NSLocale localeWithLocaleIdentifier:self.languageCode] localizedStringForLocaleIdentifier:self.languageCode];
-////    if ([languageName isEqualToString:@"en-IN"]) { languageName = @"भारत गणराज्य"; }
-////    return languageName ?: @"";
-//    NSString *defaultLanguageName = @"";
-//    if ([self.languageCode isEqualToString:@"zh-Hans"]) { defaultLanguageName = @"简体中文"; }
-//    else if ([self.languageCode isEqualToString:@"zh-Hant"]) { defaultLanguageName = @"繁體中文"; }
-//    else if ([self.languageCode isEqualToString:@"en"]) { defaultLanguageName = @"English"; }
-//    else if ([self.languageCode isEqualToString:@"ja"]) { defaultLanguageName = @"日本語"; }
-//    else if ([self.languageCode isEqualToString:@"ko"]) { defaultLanguageName = @"한국어"; }
-//    else if ([self.languageCode containsString:@"vi"]) { defaultLanguageName = @"Tiếng Việt"; }
-//    else if ([self.languageCode isEqualToString:@"en-IN"]) { defaultLanguageName = @"भारत गणराज्य"; }
-//    return defaultLanguageName;
-//}
 - (NSInteger)sceneLanguageCodeIndex {
     NSInteger index = -1;
 #if DEBUG

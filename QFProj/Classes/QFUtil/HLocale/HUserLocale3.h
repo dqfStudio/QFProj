@@ -25,8 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSString *currencyCode;
 @property (nonatomic, readonly) NSString *currencySymbol;
 
-//获取语言代码相对应的语言名称
-//- (NSString *)sceneLanguageName;
 //获取语言代码的序号
 - (NSInteger)sceneLanguageCodeIndex;
 
