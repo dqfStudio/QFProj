@@ -1,36 +1,38 @@
 //
-//  HUserLocale3.m
+//  HUserRegion.m
 //  QFProj
 //
 //  Created by Wind on 2021/5/13.
 //  Copyright © 2021 dqfStudio. All rights reserved.
 //
 
-#import "HUserLocale3.h"
+#import "HUserRegion.h"
 
 #define KRegionNameKey    @"KRegionNameKey"
 #define KLanguageCodeKey  @"KLanguageCodeKey"
 
-@interface HUserLocale3 () {
+@interface HUserRegion () {
     NSString *_languageCode;
     NSString *_regionCode;
     NSString *_regionName;
 }
+//区域json文件内容
 @property(nonatomic) NSDictionary *regionDict;
+//区域代码和区域名称的映射表
 @property(nonatomic) NSDictionary *regionMapDict;
 @end
 
-@implementation HUserLocale3
+@implementation HUserRegion
 
-+ (HUserLocale3 *)defaultLocale {
-    static HUserLocale3 *shareInstance = nil;
++ (HUserRegion *)defaultRegion {
+    static HUserRegion *shareInstance = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         shareInstance = [[self alloc] init];
     });
     return shareInstance;
 }
-
+//区域json文件内容
 - (NSDictionary *)regionDict {
     if (!_regionDict) {
         NSString *path = [[NSBundle mainBundle] pathForResource:@"countryInfo" ofType:@"json"];
@@ -46,17 +48,19 @@
     }
     return _regionDict;
 }
+//区域代码和区域名称的映射表
 - (NSDictionary *)regionMapDict {
     if (!_regionMapDict) {
         _regionMapDict = @{@"VN" : @"Vietnam", @"IN" : @"India", @"BR" : @"Brazil", @"OTHERS" : @"Others"};
     }
     return _regionMapDict;
 }
-
+//语言代码
 - (NSString *)languageCode {
     if (!_languageCode) {
         NSString *defaultLanguageCode = [[NSUserDefaults standardUserDefaults] objectForKey:KLanguageCodeKey];
         if (!defaultLanguageCode) {
+            //如果用户没有设置语言，读取“设置-通用-语言”中默认的语言
             for (NSDictionary *dict in self.regionDict.allValues) {
                 NSString *languageCode = dict[@"languageCode"];
                 if ([languageCode isEqualToString:[[NSLocale preferredLanguages] firstObject]]) {
@@ -66,6 +70,7 @@
                     break;
                 }
             }
+            //如果用户没有设置语言，读取区域json文件中最后一项
             if (!defaultLanguageCode) {
                 NSDictionary *dict = self.regionDict.allValues.lastObject;
                 NSString *languageCode = dict[@"languageCode"];
@@ -88,7 +93,7 @@
         }
     }
 }
-
+//语言名称
 - (NSString *)languageName {
 //    NSString *languageName = [[NSLocale localeWithLocaleIdentifier:self.languageCode] localizedStringForLocaleIdentifier:self.languageCode];
 //    if ([languageName isEqualToString:@"en-IN"]) { languageName = @"भारत गणराज्य"; }
@@ -107,9 +112,10 @@
 }
 
 
-
+//区域代码
 - (NSString *)regionCode {
     if (!_regionCode) {
+        //如果用户没有设置区域，读取区域json文件中匹配的区域代码
         for (NSString *key in self.regionMapDict.allKeys) {
             NSString *value = self.regionMapDict[key];
             if ([value isEqualToString:self.regionName]) {
@@ -120,14 +126,16 @@
     }
     return _regionCode;
 }
-
+//区域名称
 - (NSString *)regionName {
     if (!_regionName) {
         NSString *defaultRegionName = [[NSUserDefaults standardUserDefaults] objectForKey:KRegionNameKey];
         if (!defaultRegionName) {
+            //如果用户没有设置区域，读取“设置-通用-地区”中默认的区域
             NSString *regionCode = [NSLocale autoupdatingCurrentLocale].countryCode;
             defaultRegionName = self.regionMapDict[regionCode];
             if (![self.regionDict.allKeys containsObject:defaultRegionName]) {
+                //如果用户没有设置区域，读取区域json文件中最后一项
                 defaultRegionName = self.regionDict.allKeys.lastObject;
             }
             [[NSUserDefaults standardUserDefaults] setObject:defaultRegionName forKey:KRegionNameKey];
@@ -144,29 +152,31 @@
         if (regionName && [self.regionDict.allKeys containsObject:regionName]) {
             [[NSUserDefaults standardUserDefaults] setObject:regionName forKey:KRegionNameKey];
         }else {
+            //如果用户没有设置区域，读取“设置-通用-地区”中默认的区域
             NSString *regionCode = [NSLocale autoupdatingCurrentLocale].countryCode;
             if ([self.regionDict.allKeys containsObject:self.regionMapDict[regionCode]]) {
                 [[NSUserDefaults standardUserDefaults] setObject:self.regionMapDict[regionCode] forKey:KRegionNameKey];
             }else {
+                //如果用户没有设置区域，读取区域json文件中最后一项
                 [[NSUserDefaults standardUserDefaults] setObject:self.regionDict.allKeys.lastObject forKey:KRegionNameKey];
             }
         }
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
-
+//货币符号
 - (NSString *)currencySymbol {
     NSDictionary *dict = [self.regionDict objectForKey:self.regionName];
     return dict[@"currencySymbol"];
 }
-
+//货币代码
 - (NSString *)currencyCode {
     NSDictionary *dict = [self.regionDict objectForKey:self.regionName];
     return dict[@"currencyCode"];
 }
 
 
-
+//获取语言代码的序号
 - (NSInteger)sceneLanguageCodeIndex {
     NSInteger index = -1;
 #if DEBUG
@@ -188,6 +198,7 @@
 #endif
     return index;
 }
+//获取地区代码
 - (NSString *)sceneRegionCode {
     NSString *defaultLanguageCode = @"";
     if ([self.languageCode isEqualToString:@"zh-Hans"]) { defaultLanguageCode = @"CN"; }
@@ -201,6 +212,7 @@
     else { defaultLanguageCode = @"CN"; }
     return defaultLanguageCode;
 }
+//获取地区名称序号
 - (NSInteger)sceneRegionNameIndex {
     NSInteger index = -1;
     if ([self.regionName isEqualToString:@"Vietnam"]) { index = 0; }

@@ -1,5 +1,5 @@
 //
-//  HUserLocale3.h
+//  HUserRegion.h
 //  QFProj
 //
 //  Created by Wind on 2021/5/13.
@@ -9,10 +9,15 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
+/*
+ 根据项目实际情况作出如下更改：
+ 1.将country概念改为region
+ 2.将以regionCode为标识改为以regionName为标识
+ */
 
 @interface HUserRegion : NSObject
 
-+ (HUserRegion *)defaultLocale;
++ (HUserRegion *)defaultRegion;
 
 //APP中可设置某个区域语言代码
 @property (nonatomic) NSString *languageCode;//语言代码
