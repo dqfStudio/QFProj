@@ -161,6 +161,8 @@
                 [[NSUserDefaults standardUserDefaults] setObject:self.regionDict.allKeys.lastObject forKey:KRegionNameKey];
             }
         }
+        //清空regionCode的值
+        _regionCode = nil;
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
