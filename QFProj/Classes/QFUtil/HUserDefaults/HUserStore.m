@@ -12,6 +12,18 @@
 
 #define KUSER @"H_USER_DEFAULTS"
 
+@implementation HUserStore (Defaults)
+- (NSString *)suiteName {
+    return @"UserId";
+}
+- (NSDictionary *)setupDefaults {
+    return @{
+        @"isLogin": @0,
+        @"userId": @"111"
+    };
+}
+@end
+
 @implementation HUserStore
 
 - (void)encodeWithCoder:(NSCoder *)coder {
@@ -60,8 +72,37 @@
     return share;
 }
 
-+ (NSString *)defaultsUserId {
-    return [HUserStore defaults].userName.uppercaseString;
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        //设置初始默认值
+        [self _setupDefaults];
+    }
+    return self;
+}
+
+- (void)_setupDefaults {
+    SEL setupDefaultSEL = NSSelectorFromString(@"setupDefaults");
+    if ([self respondsToSelector:setupDefaultSEL]) {
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        NSDictionary *defaults = [self performSelector:setupDefaultSEL];
+        #pragma clang diagnostic pop
+        for (NSString *key in defaults) {
+            id value = [defaults objectForKey:key];
+            [self setValue:value forKey:key];
+        }
+    }
+}
+
+- (NSString *)defaultsUserId {
+    if ([self respondsToSelector:NSSelectorFromString(@"suiteName")]) {
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        return [self performSelector:NSSelectorFromString(@"suiteName")];
+        #pragma clang diagnostic pop
+    }
+    return nil;
 }
 
 //初始化数据
@@ -96,7 +137,7 @@
 - (void)saveUser {
     if (self.isLogin) {
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self];
-        NSString *defaultsUserId = [HUserStore defaultsUserId];
+        NSString *defaultsUserId = [HUserStore.defaults defaultsUserId];
         if (defaultsUserId.length > 0 && data) {
             [[HKeyChainStore keyChainStore] setData:data forKey:defaultsUserId];
             [[HKeyChainStore keyChainStore] setString:defaultsUserId forKey:KUSER];
@@ -152,6 +193,9 @@
     }
     // 释放
     free(properties);
+    
+    //设置初始默认值
+    [self _setupDefaults];
 
 }
 

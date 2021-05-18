@@ -10,6 +10,12 @@
 
 @interface HUserDefaults : NSObject
 
+@property (nonatomic, weak) NSString *userName;
+@property (nonatomic, weak) NSNumber *userId;
+@property (nonatomic) NSInteger integerValue;
+@property (nonatomic) BOOL boolValue;
+@property (nonatomic) float floatValue;
+
 + (HUserDefaults *)defaults;
 
 @end

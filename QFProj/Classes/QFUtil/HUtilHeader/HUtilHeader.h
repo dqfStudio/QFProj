@@ -91,7 +91,6 @@
 #import "HUserStore.h"
 #import "HKeyChainStore.h"
 #import "HUserDefaults.h"
-#import "HUserDefaults+Properties.h"
 #import "HViewController.h"
 #import "HTableController.h"
 #import "HTupleController.h"
