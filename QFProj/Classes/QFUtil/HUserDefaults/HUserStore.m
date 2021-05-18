@@ -171,31 +171,33 @@
         objc_property_t property = properties[i];
         const char *name = property_getName(property);
         NSString *propertyName = [NSString stringWithUTF8String:name];
-        id propertyValue = [self valueForKey:propertyName];
+//        id propertyValue = [self valueForKey:propertyName];
+//
+//        //跳过null
+//        if (!propertyValue || [propertyValue isKindOfClass:[NSNull class]]) {
+//            continue;
+//        }
+//
+//        //通过KVC的方式赋值
+//        if ([propertyValue isKindOfClass:[NSString class]]) {
+//            [self setValue:@"" forKey:propertyName];
+//        }
+//        else if ([propertyValue isKindOfClass:[NSNumber class]]) {
+//            [self setValue:@(0) forKey:propertyName];
+//        }
+//        else if ([propertyValue isKindOfClass:[NSMutableDictionary class]] ||
+//                 [propertyValue isKindOfClass:[NSDictionary class]]) {
+//            [self setValue:@{} forKey:propertyName];
+//        }
+//        else if ([propertyValue isKindOfClass:[NSMutableArray class]] ||
+//                 [propertyValue isKindOfClass:[NSArray class]]) {
+//            [self setValue:@[] forKey:propertyName];
+//        }
+//        else {
+//            [self setValue:nil forKey:propertyName];
+//        }
         
-        //跳过null
-        if (!propertyValue || [propertyValue isKindOfClass:[NSNull class]]) {
-            continue;
-        }
-        
-        //通过KVC的方式赋值
-        if ([propertyValue isKindOfClass:[NSString class]]) {
-            [self setValue:@"" forKey:propertyName];
-        }
-        else if ([propertyValue isKindOfClass:[NSNumber class]]) {
-            [self setValue:@(0) forKey:propertyName];
-        }
-        else if ([propertyValue isKindOfClass:[NSMutableDictionary class]] ||
-                 [propertyValue isKindOfClass:[NSDictionary class]]) {
-            [self setValue:@{} forKey:propertyName];
-        }
-        else if ([propertyValue isKindOfClass:[NSMutableArray class]] ||
-                 [propertyValue isKindOfClass:[NSArray class]]) {
-            [self setValue:@[] forKey:propertyName];
-        }
-        else {
-            [self setValue:nil forKey:propertyName];
-        }
+        [self setValue:nil forKey:propertyName];
     }
     // 释放
     free(properties);
