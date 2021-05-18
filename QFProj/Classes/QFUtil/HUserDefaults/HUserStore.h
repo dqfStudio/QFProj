@@ -11,14 +11,9 @@
 
 @interface HUserStore : NSObject
 
-/** 是否登录 */
 @property (nonatomic) BOOL isLogin;
-
-/** 用户ID */
 @property (nonatomic, copy) NSString *userId;
 @property (nonatomic, copy) NSString *userName;
-
-/** 密码 */
 @property (nonatomic, copy) NSString *password;
 
 + (HUserStore *)defaults;

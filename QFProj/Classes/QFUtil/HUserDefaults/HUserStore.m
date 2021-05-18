@@ -10,7 +10,7 @@
 #import <objc/runtime.h>
 #import "NSObject+HKVO.h"
 
-#define KUSER @"H_USER_DEFAULTS"
+#define KUserStoreKey @"KUserStoreKey"
 
 @implementation HUserStore (Defaults)
 - (NSString *)suiteName {
@@ -59,7 +59,7 @@
     static HUserStore *share = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
-        NSString *defaultsUserId = [[HKeyChainStore keyChainStore] stringForKey:KUSER];
+        NSString *defaultsUserId = [[HKeyChainStore keyChainStore] stringForKey:KUserStoreKey];
         if (defaultsUserId.length > 0) {
             NSData *data = [[HKeyChainStore keyChainStore] dataForKey:defaultsUserId];
             if (data) share = [NSKeyedUnarchiver unarchiveObjectWithData:data];
@@ -140,7 +140,7 @@
         NSString *defaultsUserId = [HUserStore.defaults defaultsUserId];
         if (defaultsUserId.length > 0 && data) {
             [[HKeyChainStore keyChainStore] setData:data forKey:defaultsUserId];
-            [[HKeyChainStore keyChainStore] setString:defaultsUserId forKey:KUSER];
+            [[HKeyChainStore keyChainStore] setString:defaultsUserId forKey:KUserStoreKey];
             [[HKeyChainStore keyChainStore] synchronizable];
         }
     }
@@ -149,7 +149,7 @@
 //登出的时候需要移除用户信息
 - (void)removeUser {
     //删除记录的登录标志
-    [[HKeyChainStore keyChainStore] setString:nil forKey:KUSER];
+    [[HKeyChainStore keyChainStore] setString:nil forKey:KUserStoreKey];
     [[HKeyChainStore keyChainStore] synchronizable];
     //清空所有属性值
     [self cleanAllProperties];
