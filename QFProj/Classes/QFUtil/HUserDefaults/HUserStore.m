@@ -59,9 +59,9 @@
     static HUserStore *share = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
-        NSString *defaultsUserId = [[HKeyChainStore keyChainStore] stringForKey:KUserStoreKey];
-        if (defaultsUserId.length > 0) {
-            NSData *data = [[HKeyChainStore keyChainStore] dataForKey:defaultsUserId];
+        NSString *_suiteName = [[HKeyChainStore keyChainStore] stringForKey:KUserStoreKey];
+        if (_suiteName.length > 0) {
+            NSData *data = [[HKeyChainStore keyChainStore] dataForKey:_suiteName];
             #pragma clang diagnostic push
             #pragma clang diagnostic ignored "-Wdeprecated-declarations"
             if (data) share = [NSKeyedUnarchiver unarchiveObjectWithData:data];
@@ -84,6 +84,16 @@
     return self;
 }
 
+- (NSString *)_suiteName {
+    if ([self respondsToSelector:NSSelectorFromString(@"suiteName")]) {
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        return [self performSelector:NSSelectorFromString(@"suiteName")];
+        #pragma clang diagnostic pop
+    }
+    return nil;
+}
+
 - (void)_setupDefaults {
     SEL setupDefaultSEL = NSSelectorFromString(@"setupDefaults");
     if ([self respondsToSelector:setupDefaultSEL]) {
@@ -96,16 +106,6 @@
             [self setValue:value forKey:key];
         }
     }
-}
-
-- (NSString *)defaultsUserId {
-    if ([self respondsToSelector:NSSelectorFromString(@"suiteName")]) {
-        #pragma clang diagnostic push
-        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        return [self performSelector:NSSelectorFromString(@"suiteName")];
-        #pragma clang diagnostic pop
-    }
-    return nil;
 }
 
 //初始化数据
@@ -143,10 +143,10 @@
         #pragma clang diagnostic ignored "-Wdeprecated-declarations"
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self];
         #pragma clang diagnostic pop
-        NSString *defaultsUserId = [HUserStore.defaults defaultsUserId];
-        if (defaultsUserId.length > 0 && data) {
-            [[HKeyChainStore keyChainStore] setData:data forKey:defaultsUserId];
-            [[HKeyChainStore keyChainStore] setString:defaultsUserId forKey:KUserStoreKey];
+        NSString *_suiteName = [HUserStore.defaults _suiteName];
+        if (_suiteName.length > 0 && data) {
+            [[HKeyChainStore keyChainStore] setData:data forKey:_suiteName];
+            [[HKeyChainStore keyChainStore] setString:_suiteName forKey:KUserStoreKey];
             [[HKeyChainStore keyChainStore] synchronizable];
         }
     }
@@ -215,8 +215,8 @@
 - (BOOL)loadKeyChainDataWith:(NSString *)userName pwd:(NSString *)pwd {
     BOOL boolValue = NO;
     if (userName.length > 3) {
-        NSString *defaultsUserId = [userName uppercaseString];
-        NSData *data = [[HKeyChainStore keyChainStore] dataForKey:defaultsUserId];
+        NSString *_suiteName = userName;
+        NSData *data = [[HKeyChainStore keyChainStore] dataForKey:_suiteName];
         if (data) {
             #pragma clang diagnostic push
             #pragma clang diagnostic ignored "-Wdeprecated-declarations"
