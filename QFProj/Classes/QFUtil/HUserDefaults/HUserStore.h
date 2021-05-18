@@ -21,11 +21,4 @@
 //加载钥匙串中的数据
 - (BOOL)loadKeyChainDataWith:(NSString *)userName pwd:(NSString *)pwd;
 
-//线上环境链接
-- (void)setBaseLink:(NSString *)baseLink;
-- (NSString *)baseLink;
-
-- (void)setH5Link:(NSString *)h5Link;
-- (NSString *)h5Link;
-
 @end

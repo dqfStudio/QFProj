@@ -251,22 +251,4 @@
     return boolValue;
 }
 
-- (void)setBaseLink:(NSString *)baseLink {
-    [[NSUserDefaults standardUserDefaults] setObject:baseLink forKey:@"baseLink"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-- (NSString *)baseLink {
-    return [[NSUserDefaults standardUserDefaults] objectForKey:@"baseLink"];
-}
-
-
-
-- (void)setH5Link:(NSString *)h5Link {
-    [[NSUserDefaults standardUserDefaults] setObject:h5Link forKey:@"h5Link"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-- (NSString *)h5Link {
-    return [[NSUserDefaults standardUserDefaults] objectForKey:@"h5Link"];
-}
-
 @end
