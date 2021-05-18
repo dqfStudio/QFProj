@@ -62,7 +62,10 @@
         NSString *defaultsUserId = [[HKeyChainStore keyChainStore] stringForKey:KUserStoreKey];
         if (defaultsUserId.length > 0) {
             NSData *data = [[HKeyChainStore keyChainStore] dataForKey:defaultsUserId];
+            #pragma clang diagnostic push
+            #pragma clang diagnostic ignored "-Wdeprecated-declarations"
             if (data) share = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+            #pragma clang diagnostic pop
         }
         if (!share || ![share respondsToSelector:@selector(initData)]) {
             share = HUserStore.new;
@@ -136,7 +139,10 @@
 
 - (void)saveUser {
     if (self.isLogin) {
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Wdeprecated-declarations"
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self];
+        #pragma clang diagnostic pop
         NSString *defaultsUserId = [HUserStore.defaults defaultsUserId];
         if (defaultsUserId.length > 0 && data) {
             [[HKeyChainStore keyChainStore] setData:data forKey:defaultsUserId];
@@ -212,7 +218,10 @@
         NSString *defaultsUserId = [userName uppercaseString];
         NSData *data = [[HKeyChainStore keyChainStore] dataForKey:defaultsUserId];
         if (data) {
+            #pragma clang diagnostic push
+            #pragma clang diagnostic ignored "-Wdeprecated-declarations"
             HUserStore *userDefaults = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+            #pragma clang diagnostic pop
             id propertyValue = [userDefaults valueForKey:@"password"];
             //密码不相等则不能提取用户信息
             if (![pwd isEqualToString:propertyValue]) {
