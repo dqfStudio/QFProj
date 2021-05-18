@@ -9,14 +9,14 @@
 #import "HUserDefaults.h"
 #import <objc/runtime.h>
 
+#define KUserDefaultsKey @"KUserDefaultsKey"
+
 @implementation HUserDefaults (Defaults)
 - (NSString *)suiteName {
-    return @"UserId";
+    return self.userId;
 }
 - (NSDictionary *)setupDefaults {
     return @{
-        @"userName": @"default",
-        @"userId": @1,
         @"integerValue": @123,
         @"boolValue": @YES,
         @"floatValue": @12.3,
@@ -152,6 +152,33 @@ static void objectSetter(HUserDefaults *self, SEL _cmd, id object) {
     return share;
 }
 
+- (void)setIsLogin:(BOOL)isLogin {
+    if (_isLogin != isLogin) {
+        _isLogin = isLogin;
+        if (_isLogin) {
+            [self saveUser];
+        }else {
+            [self removeUser];
+        }
+    }
+}
+- (void)saveUser {
+    if (self.isLogin) {
+        NSString *_suiteName = [self suiteName];
+        if (_suiteName.length > 0) {
+            [self.userDefaults synchronize];
+            [[NSUserDefaults standardUserDefaults] setObject:_suiteName forKey:KUserDefaultsKey];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
+    }
+}
+//登出的时候需要移除用户信息
+- (void)removeUser {
+    [self.userDefaults synchronize];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:KUserDefaultsKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wundeclared-selector"
 #pragma GCC diagnostic ignored "-Warc-performSelector-leaks"
@@ -171,6 +198,8 @@ static void objectSetter(HUserDefaults *self, SEL _cmd, id object) {
             [self.userDefaults registerDefaults:mutableDefaults];
         }
         [self generateAccessorMethods];
+        //添加APP运行即将终止时的通知
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveUser) name:UIApplicationWillTerminateNotification object:nil];
     }
     return self;
 }

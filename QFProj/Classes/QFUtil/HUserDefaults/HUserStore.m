@@ -14,7 +14,7 @@
 
 @implementation HUserStore (Defaults)
 - (NSString *)suiteName {
-    return @"UserId";
+    return self.userId;
 }
 - (NSDictionary *)setupDefaults {
     return @{
