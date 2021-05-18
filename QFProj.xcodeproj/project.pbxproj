@@ -1615,22 +1615,22 @@
 		A25E6346262445FC00863FF8 /* HOther */ = {
 			isa = PBXGroup;
 			children = (
-				A25E6347262445FC00863FF8 /* HWebviewVC.h */,
-				A25E6348262445FC00863FF8 /* HOther.h */,
-				A25E6349262445FC00863FF8 /* HTool.m */,
-				A25E634A262445FC00863FF8 /* HSFSafariViewController.h */,
-				A25E634B262445FC00863FF8 /* HWebview.m */,
-				A25E634C262445FC00863FF8 /* HWebviewVC2.m */,
-				A25E634D262445FC00863FF8 /* HPayWebviewVC.h */,
 				A25E634E262445FC00863FF8 /* HGameViewController.h */,
+				A25E6355262445FC00863FF8 /* HGameViewController.m */,
+				A25E6348262445FC00863FF8 /* HOther.h */,
+				A25E6351262445FC00863FF8 /* HOther.m */,
+				A25E634D262445FC00863FF8 /* HPayWebviewVC.h */,
+				A25E6356262445FC00863FF8 /* HPayWebviewVC.m */,
+				A25E634A262445FC00863FF8 /* HSFSafariViewController.h */,
 				A25E634F262445FC00863FF8 /* HSFSafariViewController.m */,
 				A25E6350262445FC00863FF8 /* HTool.h */,
-				A25E6351262445FC00863FF8 /* HOther.m */,
-				A25E6352262445FC00863FF8 /* HWebviewVC.m */,
+				A25E6349262445FC00863FF8 /* HTool.m */,
 				A25E6353262445FC00863FF8 /* HWebview.h */,
+				A25E634B262445FC00863FF8 /* HWebview.m */,
+				A25E6347262445FC00863FF8 /* HWebviewVC.h */,
+				A25E6352262445FC00863FF8 /* HWebviewVC.m */,
 				A25E6354262445FC00863FF8 /* HWebviewVC2.h */,
-				A25E6355262445FC00863FF8 /* HGameViewController.m */,
-				A25E6356262445FC00863FF8 /* HPayWebviewVC.m */,
+				A25E634C262445FC00863FF8 /* HWebviewVC2.m */,
 			);
 			path = HOther;
 			sourceTree = "<group>";
@@ -1649,11 +1649,11 @@
 		A25E635C262445FC00863FF8 /* HNotification */ = {
 			isa = PBXGroup;
 			children = (
+				A25E6360262445FC00863FF8 /* HLocalNotification.h */,
 				A25E635D262445FC00863FF8 /* HLocalNotification.m */,
 				A25E635E262445FC00863FF8 /* HRemoteNotification.h */,
-				A25E635F262445FC00863FF8 /* notification.caf */,
-				A25E6360262445FC00863FF8 /* HLocalNotification.h */,
 				A25E6361262445FC00863FF8 /* HRemoteNotification.m */,
+				A25E635F262445FC00863FF8 /* notification.caf */,
 			);
 			path = HNotification;
 			sourceTree = "<group>";
@@ -1807,14 +1807,14 @@
 		A25E63A5262445FC00863FF8 /* WebViewJavascriptBridge */ = {
 			isa = PBXGroup;
 			children = (
-				A25E63A6262445FC00863FF8 /* WebViewJavascriptBridgeBase.m */,
-				A25E63A7262445FC00863FF8 /* WKWebViewJavascriptBridge.m */,
-				A25E63A8262445FC00863FF8 /* WebViewJavascriptBridge.m */,
 				A25E63A9262445FC00863FF8 /* WebViewJavascriptBridge_JS.h */,
-				A25E63AA262445FC00863FF8 /* WebViewJavascriptBridgeBase.h */,
 				A25E63AB262445FC00863FF8 /* WebViewJavascriptBridge_JS.m */,
 				A25E63AC262445FC00863FF8 /* WebViewJavascriptBridge.h */,
+				A25E63A8262445FC00863FF8 /* WebViewJavascriptBridge.m */,
+				A25E63AA262445FC00863FF8 /* WebViewJavascriptBridgeBase.h */,
+				A25E63A6262445FC00863FF8 /* WebViewJavascriptBridgeBase.m */,
 				A25E63AD262445FC00863FF8 /* WKWebViewJavascriptBridge.h */,
+				A25E63A7262445FC00863FF8 /* WKWebViewJavascriptBridge.m */,
 			);
 			path = WebViewJavascriptBridge;
 			sourceTree = "<group>";
@@ -1966,14 +1966,14 @@
 		A25E6401262445FC00863FF8 /* HSkin */ = {
 			isa = PBXGroup;
 			children = (
-				A25E6402262445FC00863FF8 /* HSkin.m */,
-				A25E6403262445FC00863FF8 /* UIImage+skin.h */,
-				A25E6404262445FC00863FF8 /* UIFont+skin.m */,
-				A25E6405262445FC00863FF8 /* UILabel+skin.h */,
 				A25E6406262445FC00863FF8 /* HSkin.h */,
-				A25E6407262445FC00863FF8 /* UIImage+skin.m */,
-				A25E6408262445FC00863FF8 /* UILabel+skin.m */,
+				A25E6402262445FC00863FF8 /* HSkin.m */,
 				A25E6409262445FC00863FF8 /* UIFont+skin.h */,
+				A25E6404262445FC00863FF8 /* UIFont+skin.m */,
+				A25E6403262445FC00863FF8 /* UIImage+skin.h */,
+				A25E6407262445FC00863FF8 /* UIImage+skin.m */,
+				A25E6405262445FC00863FF8 /* UILabel+skin.h */,
+				A25E6408262445FC00863FF8 /* UILabel+skin.m */,
 			);
 			path = HSkin;
 			sourceTree = "<group>";
