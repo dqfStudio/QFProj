@@ -214,10 +214,10 @@
 }
 
 //加载钥匙串中的数据
-- (BOOL)loadKeyChainDataWith:(NSString *)userName pwd:(NSString *)pwd {
+- (BOOL)loadKeyChainDataWithUserName:(NSString *)name password:(NSString *)pwd {
     BOOL boolValue = NO;
-    if (userName.length > 3) {
-        NSString *_suiteName = userName;
+    if (name.length > 3) {
+        NSString *_suiteName = name;
         NSData *data = [[HKeyChainStore keyChainStore] dataForKey:_suiteName];
         if (data) {
             #pragma clang diagnostic push

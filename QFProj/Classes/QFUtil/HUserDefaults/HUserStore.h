@@ -19,6 +19,6 @@
 + (HUserStore *)defaults;
 
 //加载钥匙串中的数据
-- (BOOL)loadKeyChainDataWith:(NSString *)userName pwd:(NSString *)pwd;
+- (BOOL)loadKeyChainDataWithUserName:(NSString *)name password:(NSString *)pwd;
 
 @end
