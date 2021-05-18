@@ -53,11 +53,24 @@ UIKIT_STATIC_INLINE CGFloat CGFloatMake(CGFloat value, NSString *operand) {
     return value;
 }
 
-UIKIT_STATIC_INLINE CGRect CGRectMake2(CGRect rect, NSString *x, NSString *y, NSString *width, NSString *height) {
-    rect.origin.x = CGFloatMake(rect.origin.x, x);
-    rect.origin.y = CGFloatMake(rect.origin.y, y);
-    rect.size.width = CGFloatMake(rect.size.width, width);
-    rect.size.height = CGFloatMake(rect.size.height, height);
+UIKIT_STATIC_INLINE CGRect CGRectMake2(CGRect rect, CGFloat x, CGFloat y, CGFloat width, CGFloat height) {
+    rect.origin.x = x;
+    rect.origin.y = y;
+    rect.size.width = width;
+    rect.size.height = height;
+    return rect;
+}
+
+UIKIT_STATIC_INLINE CGRect CGRectMake3(CGRect rect, NSString *x, NSString *y, NSString *width, NSString *height) {
+    if (x.length) {
+        rect.origin.x = CGFloatMake(rect.origin.x, x);
+    }else if (y.length) {
+        rect.origin.y = CGFloatMake(rect.origin.y, y);
+    }else if (width.length) {
+        rect.size.width = CGFloatMake(rect.size.width, width);
+    }else if (height.length) {
+        rect.size.height = CGFloatMake(rect.size.height, height);
+    }
     return rect;
 }
 
