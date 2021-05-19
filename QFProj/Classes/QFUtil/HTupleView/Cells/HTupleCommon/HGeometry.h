@@ -9,8 +9,6 @@
 #ifndef HGeometry_h
 #define HGeometry_h
 
-#import "HRect.h"
-
 typedef struct UITBEdgeInsets {
     CGFloat top, bottom;
 } UITBEdgeInsets;
@@ -86,6 +84,56 @@ UIKIT_STATIC_INLINE CGRect UIRectIntegral(CGRect rect) {
 
 UIKIT_STATIC_INLINE CGSize UISizeIntegral(CGSize size) {
     return (CGSize){floor(size.width), floor(size.height)};
+}
+
+struct HRect {
+    CGFloat x;
+    CGFloat y;
+    
+    CGFloat width;
+    CGFloat height;
+    
+    CGPoint origin;
+    CGSize  size;
+    
+    CGRect  rect;
+
+    CGFloat  minX;
+    CGFloat  minY;
+    
+    CGFloat  midX;
+    CGFloat  midY;
+
+    CGFloat  maxX;
+    CGFloat  maxY;
+};
+typedef struct CG_BOXABLE HRect HRect;
+
+UIKIT_STATIC_INLINE HRect HRectFor(CGRect rect) {
+    HRect hRect;
+    
+    hRect.x = rect.origin.x;
+    hRect.y = rect.origin.y;
+    
+    hRect.width = rect.size.width;
+    hRect.height = rect.size.height;
+    
+    hRect.origin = rect.origin;
+    hRect.size = rect.size;
+    
+    hRect.rect.origin = rect.origin;
+    hRect.rect.size = rect.size;
+    
+    hRect.minX = CGRectGetMinX(rect);
+    hRect.minY = CGRectGetMinY(rect);
+    
+    hRect.midX = CGRectGetMidX(rect);
+    hRect.midY = CGRectGetMidY(rect);
+    
+    hRect.maxX = CGRectGetMaxX(rect);
+    hRect.maxY = CGRectGetMaxY(rect);
+
+    return hRect;
 }
 
 #endif /* HGeometry_h */
