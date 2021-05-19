@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface HRect : NSObject
 
 @property (nonatomic, readwrite) CGFloat x;
@@ -44,5 +42,3 @@ HRect *HRect4For(CGRect rect1, CGRect rect2, CGRect rect3, CGRect rect4);
 - (CGRect)makeRect4:(void(^)(HRect *make1, HRect *make2, HRect *make3, HRect *make4))block;
 
 @end
-
-NS_ASSUME_NONNULL_END
