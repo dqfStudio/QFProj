@@ -34,12 +34,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly)  CGFloat  maxY;
 
 HRect *HRectFor(CGRect rect);
-
 HRect *HRect2For(CGRect rect1, CGRect rect2);
+HRect *HRect3For(CGRect rect1, CGRect rect2, CGRect rect3);
+HRect *HRect4For(CGRect rect1, CGRect rect2, CGRect rect3, CGRect rect4);
 
 - (CGRect)makeRect:(void(^)(HRect *make))block;
-
 - (CGRect)makeRect2:(void(^)(HRect *make1, HRect *make2))block;
+- (CGRect)makeRect3:(void(^)(HRect *make1, HRect *make2, HRect *make3))block;
+- (CGRect)makeRect4:(void(^)(HRect *make1, HRect *make2, HRect *make3, HRect *make4))block;
 
 @end
 

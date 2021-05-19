@@ -11,6 +11,8 @@
 @interface HRect ()
 @property (nonatomic) CGRect _rect1;
 @property (nonatomic) CGRect _rect2;
+@property (nonatomic) CGRect _rect3;
+@property (nonatomic) CGRect _rect4;
 @end
 
 @implementation HRect
@@ -20,6 +22,8 @@
     if (self) {
         __rect1 = CGRectZero;
         __rect2 = CGRectZero;
+        __rect3 = CGRectZero;
+        __rect4 = CGRectZero;
     }
     return self;
 }
@@ -36,6 +40,18 @@
     return hRect;
 }
 
+- (HRect *)rect3 {
+    HRect *hRect = HRect.new;
+    hRect._rect1 = self._rect3;
+    return hRect;
+}
+
+- (HRect *)rect4 {
+    HRect *hRect = HRect.new;
+    hRect._rect1 = self._rect4;
+    return hRect;
+}
+
 HRect *HRectFor(CGRect rect) {
     HRect *hRect = HRect.new;
     hRect._rect1 = rect;
@@ -49,6 +65,23 @@ HRect *HRect2For(CGRect rect1, CGRect rect2) {
     return hRect;
 }
 
+HRect *HRect3For(CGRect rect1, CGRect rect2, CGRect rect3) {
+    HRect *hRect = HRect.new;
+    hRect._rect1 = rect1;
+    hRect._rect2 = rect2;
+    hRect._rect3 = rect3;
+    return hRect;
+}
+
+HRect *HRect4For(CGRect rect1, CGRect rect2, CGRect rect3, CGRect rect4) {
+    HRect *hRect = HRect.new;
+    hRect._rect1 = rect1;
+    hRect._rect2 = rect2;
+    hRect._rect3 = rect3;
+    hRect._rect4 = rect4;
+    return hRect;
+}
+
 - (CGRect)makeRect:(void(^)(HRect *make))block {
     if (block) block(self);
     return self._rect1;
@@ -56,6 +89,16 @@ HRect *HRect2For(CGRect rect1, CGRect rect2) {
 
 - (CGRect)makeRect2:(void(^)(HRect *make1, HRect *make2))block {
     if (block) block(self.rect1, self.rect2);
+    return self._rect1;
+}
+
+- (CGRect)makeRect3:(void(^)(HRect *make1, HRect *make2, HRect *make3))block {
+    if (block) block(self.rect1, self.rect2, self.rect3);
+    return self._rect1;
+}
+
+- (CGRect)makeRect4:(void(^)(HRect *make1, HRect *make2, HRect *make3, HRect *make4))block {
+    if (block) block(self.rect1, self.rect2, self.rect3, self.rect4);
     return self._rect1;
 }
 
