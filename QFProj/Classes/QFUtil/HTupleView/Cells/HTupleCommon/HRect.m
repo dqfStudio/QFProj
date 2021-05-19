@@ -51,18 +51,12 @@ HRect *HRect2For(CGRect rect1, CGRect rect2) {
 
 - (CGRect)makeRect:(void(^)(HRect *make))block {
     if (block) block(self);
-    CGRect rect = CGRectZero;
-    rect.origin = self.origin;
-    rect.size = self.size;
-    return rect;
+    return self._rect1;
 }
 
 - (CGRect)makeRect2:(void(^)(HRect *make1, HRect *make2))block {
     if (block) block(self.rect1, self.rect2);
-    CGRect rect = CGRectZero;
-    rect.origin = self.origin;
-    rect.size = self.size;
-    return rect;
+    return self._rect1;
 }
 
 #pragma mark - Frame
