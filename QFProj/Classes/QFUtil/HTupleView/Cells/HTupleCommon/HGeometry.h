@@ -36,44 +36,6 @@ UIKIT_STATIC_INLINE BOOL UILREdgeInsetsEqualToEdgeInsets(UILREdgeInsets insets1,
     return insets1.left == insets2.left && insets1.right == insets2.right;
 }
 
-UIKIT_STATIC_INLINE CGFloat CGFloatMake(CGFloat value, NSString *operand) {
-    if (![operand containsString:@"="]) return value = operand.floatValue;
-    NSArray *array = [operand componentsSeparatedByString:@"="];
-    NSString *firstObject = array.firstObject;
-    NSString *lastObject  = array.lastObject;
-    if ([firstObject isEqual:@"+"]) {
-        value += lastObject.floatValue;
-    }else if ([firstObject isEqual:@"-"]) {
-        value -= lastObject.floatValue;
-    }else if ([firstObject isEqual:@"*"]) {
-        value *= lastObject.floatValue;
-    }else if ([firstObject isEqual:@"/"]) {
-        value /= lastObject.floatValue;
-    }
-    return value;
-}
-
-UIKIT_STATIC_INLINE CGRect CGRectMake2(CGRect rect, CGFloat x, CGFloat y, CGFloat width, CGFloat height) {
-    rect.origin.x = x;
-    rect.origin.y = y;
-    rect.size.width = width;
-    rect.size.height = height;
-    return rect;
-}
-
-UIKIT_STATIC_INLINE CGRect CGRectMake3(CGRect rect, NSString *x, NSString *y, NSString *width, NSString *height) {
-    if (x.length) {
-        rect.origin.x = CGFloatMake(rect.origin.x, x);
-    }else if (y.length) {
-        rect.origin.y = CGFloatMake(rect.origin.y, y);
-    }else if (width.length) {
-        rect.size.width = CGFloatMake(rect.size.width, width);
-    }else if (height.length) {
-        rect.size.height = CGFloatMake(rect.size.height, height);
-    }
-    return rect;
-}
-
 UIKIT_STATIC_INLINE CGRect UIRectIntegral(CGRect rect) {
     CGFloat x = floor(rect.origin.x);
     CGFloat y = floor(rect.origin.y);
