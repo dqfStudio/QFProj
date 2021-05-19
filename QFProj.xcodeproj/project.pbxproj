@@ -476,6 +476,11 @@
 		A25E68BF262445FE00863FF8 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6707262445FD00863FF8 /* SimplePing.m */; };
 		A25E68C0262445FE00863FF8 /* HPingTester.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6708262445FD00863FF8 /* HPingTester.m */; };
 		A28836DD2407A6C300626D47 /* AppDelegate+RotateService.m in Sources */ = {isa = PBXBuildFile; fileRef = A28836DC2407A6C300626D47 /* AppDelegate+RotateService.m */; };
+		A28FE4A82654EBD900C9A4EB /* area.json in Resources */ = {isa = PBXBuildFile; fileRef = A28FE4A22654EBD800C9A4EB /* area.json */; };
+		A28FE4A92654EBD900C9A4EB /* province.json in Resources */ = {isa = PBXBuildFile; fileRef = A28FE4A32654EBD900C9A4EB /* province.json */; };
+		A28FE4AA2654EBD900C9A4EB /* HToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A28FE4A42654EBD900C9A4EB /* HToolBar.m */; };
+		A28FE4AB2654EBD900C9A4EB /* Address.plist in Resources */ = {isa = PBXBuildFile; fileRef = A28FE4A52654EBD900C9A4EB /* Address.plist */; };
+		A28FE4AC2654EBD900C9A4EB /* HLocationPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A28FE4A62654EBD900C9A4EB /* HLocationPicker.m */; };
 		A2C2B214235EAC770041AAB5 /* HMainController6.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C2B213235EAC770041AAB5 /* HMainController6.m */; };
 		A2C2B21C235F15DA0041AAB5 /* HTupleView的用法.pages in Resources */ = {isa = PBXBuildFile; fileRef = A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */; };
 /* End PBXBuildFile section */
@@ -1380,6 +1385,13 @@
 		A25E6708262445FD00863FF8 /* HPingTester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPingTester.m; sourceTree = "<group>"; };
 		A28836DB2407A6C300626D47 /* AppDelegate+RotateService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+RotateService.h"; sourceTree = "<group>"; };
 		A28836DC2407A6C300626D47 /* AppDelegate+RotateService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+RotateService.m"; sourceTree = "<group>"; };
+		A28FE4A12654EBD800C9A4EB /* HLocationPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLocationPicker.h; sourceTree = "<group>"; };
+		A28FE4A22654EBD800C9A4EB /* area.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = area.json; sourceTree = "<group>"; };
+		A28FE4A32654EBD900C9A4EB /* province.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = province.json; sourceTree = "<group>"; };
+		A28FE4A42654EBD900C9A4EB /* HToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HToolBar.m; sourceTree = "<group>"; };
+		A28FE4A52654EBD900C9A4EB /* Address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Address.plist; sourceTree = "<group>"; };
+		A28FE4A62654EBD900C9A4EB /* HLocationPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLocationPicker.m; sourceTree = "<group>"; };
+		A28FE4A72654EBD900C9A4EB /* HToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HToolBar.h; sourceTree = "<group>"; };
 		A2C2B212235EAC770041AAB5 /* HMainController6.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMainController6.h; sourceTree = "<group>"; };
 		A2C2B213235EAC770041AAB5 /* HMainController6.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMainController6.m; sourceTree = "<group>"; };
 		A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HTupleView的用法.pages"; sourceTree = "<group>"; };
@@ -1538,6 +1550,7 @@
 		A25E6342262445FC00863FF8 /* QFUtil */ = {
 			isa = PBXGroup;
 			children = (
+				A28FE4A02654EBD800C9A4EB /* HLocationPicker */,
 				A251A9B12648172B0067E574 /* HLocale */,
 				A25E6343262445FC00863FF8 /* HAnalogNetworkManager */,
 				A25E6346262445FC00863FF8 /* HOther */,
@@ -3332,6 +3345,20 @@
 			path = HPingTool;
 			sourceTree = "<group>";
 		};
+		A28FE4A02654EBD800C9A4EB /* HLocationPicker */ = {
+			isa = PBXGroup;
+			children = (
+				A28FE4A52654EBD900C9A4EB /* Address.plist */,
+				A28FE4A22654EBD800C9A4EB /* area.json */,
+				A28FE4A12654EBD800C9A4EB /* HLocationPicker.h */,
+				A28FE4A62654EBD900C9A4EB /* HLocationPicker.m */,
+				A28FE4A72654EBD900C9A4EB /* HToolBar.h */,
+				A28FE4A42654EBD900C9A4EB /* HToolBar.m */,
+				A28FE4A32654EBD900C9A4EB /* province.json */,
+			);
+			path = HLocationPicker;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3430,6 +3457,7 @@
 				15B4DD702092F88700773E04 /* Assets.xcassets in Resources */,
 				A25E6887262445FE00863FF8 /* loading_new_15@2x.png in Resources */,
 				A25E6888262445FE00863FF8 /* loading_gif_black.gif in Resources */,
+				A28FE4A82654EBD900C9A4EB /* area.json in Resources */,
 				A25E6831262445FE00863FF8 /* icon_tuple_arrow_up@2x.png in Resources */,
 				A25E6836262445FE00863FF8 /* icon_tuple_arrow_right@2x.png in Resources */,
 				A25E6884262445FE00863FF8 /* loading_new_10@2x.png in Resources */,
@@ -3443,9 +3471,11 @@
 				A25E6833262445FE00863FF8 /* icon_tuple_xx_gray@3x.png in Resources */,
 				A251A9BB2648172B0067E574 /* region.json in Resources */,
 				A25E6853262445FE00863FF8 /* HLaunchImage.jpg in Resources */,
+				A28FE4A92654EBD900C9A4EB /* province.json in Resources */,
 				A25E6881262445FE00863FF8 /* loading_new_5@2x.png in Resources */,
 				A25E679A262445FD00863FF8 /* HJsonList in Resources */,
 				A25E6882262445FE00863FF8 /* loading_new_9@2x.png in Resources */,
+				A28FE4AB2654EBD900C9A4EB /* Address.plist in Resources */,
 				A251AA63264BAD2B0067E574 /* countryInfo.json in Resources */,
 				A25E6879262445FE00863FF8 /* icon_load_nothing@2x.png in Resources */,
 				A25E6880262445FE00863FF8 /* loading_new_16@2x.png in Resources */,
@@ -3549,6 +3579,7 @@
 				A25E678D262445FD00863FF8 /* HSpeechUtil.m in Sources */,
 				A227A901233C9F1F005611BA /* HMainController5.m in Sources */,
 				A25E6827262445FE00863FF8 /* UIView+HExtension.m in Sources */,
+				A28FE4AC2654EBD900C9A4EB /* HLocationPicker.m in Sources */,
 				A25E68AC262445FE00863FF8 /* HRegularExpression.m in Sources */,
 				A25E6744262445FD00863FF8 /* HTupleViewMarqueeApex.m in Sources */,
 				A25E68B7262445FE00863FF8 /* HTabBarController.m in Sources */,
@@ -3634,6 +3665,7 @@
 				A25E6870262445FE00863FF8 /* HTextView+HValidate.m in Sources */,
 				A25E6750262445FD00863FF8 /* UIScreen+HUtil.m in Sources */,
 				A25E67D0262445FE00863FF8 /* KSDemangle_Swift.cpp in Sources */,
+				A28FE4AA2654EBD900C9A4EB /* HToolBar.m in Sources */,
 				A25E6793262445FD00863FF8 /* NSError+HUtil.m in Sources */,
 				A25E682D262445FE00863FF8 /* HTupleBaseCell.m in Sources */,
 				A25E6818262445FE00863FF8 /* HKBUITextFieldView+Additions.m in Sources */,
