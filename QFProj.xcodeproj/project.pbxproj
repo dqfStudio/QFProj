@@ -481,6 +481,7 @@
 		A28FE4AA2654EBD900C9A4EB /* HToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A28FE4A42654EBD900C9A4EB /* HToolBar.m */; };
 		A28FE4AB2654EBD900C9A4EB /* Address.plist in Resources */ = {isa = PBXBuildFile; fileRef = A28FE4A52654EBD900C9A4EB /* Address.plist */; };
 		A28FE4AC2654EBD900C9A4EB /* HLocationPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A28FE4A62654EBD900C9A4EB /* HLocationPicker.m */; };
+		A28FE4BC2654F2AD00C9A4EB /* HNoticeBrowseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A28FE4BB2654F2AC00C9A4EB /* HNoticeBrowseLabel.m */; };
 		A2C2B214235EAC770041AAB5 /* HMainController6.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C2B213235EAC770041AAB5 /* HMainController6.m */; };
 		A2C2B21C235F15DA0041AAB5 /* HTupleView的用法.pages in Resources */ = {isa = PBXBuildFile; fileRef = A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */; };
 /* End PBXBuildFile section */
@@ -1392,6 +1393,8 @@
 		A28FE4A52654EBD900C9A4EB /* Address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Address.plist; sourceTree = "<group>"; };
 		A28FE4A62654EBD900C9A4EB /* HLocationPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLocationPicker.m; sourceTree = "<group>"; };
 		A28FE4A72654EBD900C9A4EB /* HToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HToolBar.h; sourceTree = "<group>"; };
+		A28FE4BA2654F2AC00C9A4EB /* HNoticeBrowseLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNoticeBrowseLabel.h; sourceTree = "<group>"; };
+		A28FE4BB2654F2AC00C9A4EB /* HNoticeBrowseLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNoticeBrowseLabel.m; sourceTree = "<group>"; };
 		A2C2B212235EAC770041AAB5 /* HMainController6.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMainController6.h; sourceTree = "<group>"; };
 		A2C2B213235EAC770041AAB5 /* HMainController6.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMainController6.m; sourceTree = "<group>"; };
 		A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HTupleView的用法.pages"; sourceTree = "<group>"; };
@@ -1550,6 +1553,7 @@
 		A25E6342262445FC00863FF8 /* QFUtil */ = {
 			isa = PBXGroup;
 			children = (
+				A28FE4B92654F2A200C9A4EB /* HNoticeBrowseLabel */,
 				A28FE4A02654EBD800C9A4EB /* HLocationPicker */,
 				A251A9B12648172B0067E574 /* HLocale */,
 				A25E6343262445FC00863FF8 /* HAnalogNetworkManager */,
@@ -3359,6 +3363,15 @@
 			path = HLocationPicker;
 			sourceTree = "<group>";
 		};
+		A28FE4B92654F2A200C9A4EB /* HNoticeBrowseLabel */ = {
+			isa = PBXGroup;
+			children = (
+				A28FE4BA2654F2AC00C9A4EB /* HNoticeBrowseLabel.h */,
+				A28FE4BB2654F2AC00C9A4EB /* HNoticeBrowseLabel.m */,
+			);
+			path = HNoticeBrowseLabel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3713,6 +3726,7 @@
 				A25E682A262445FE00863FF8 /* HTupleViewApexVertValue1.m in Sources */,
 				A25E67D8262445FE00863FF8 /* KSJSONCodecObjC.m in Sources */,
 				A25E689D262445FE00863FF8 /* HSkinManager.m in Sources */,
+				A28FE4BC2654F2AD00C9A4EB /* HNoticeBrowseLabel.m in Sources */,
 				A25E6873262445FE00863FF8 /* HWaitingView.m in Sources */,
 				A25E6843262445FE00863FF8 /* HWebButtonView.m in Sources */,
 				A25E67F5262445FE00863FF8 /* KSCrashInstallation.m in Sources */,
