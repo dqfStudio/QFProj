@@ -9,6 +9,8 @@
 #ifndef HGeometry_h
 #define HGeometry_h
 
+#import "HRect.h"
+
 typedef struct UITBEdgeInsets {
     CGFloat top, bottom;
 } UITBEdgeInsets;
