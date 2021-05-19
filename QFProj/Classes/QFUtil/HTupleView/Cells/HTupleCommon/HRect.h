@@ -37,9 +37,9 @@ HRect *HRectFor(CGRect rect);
 
 HRect *HRect2For(CGRect rect1, CGRect rect2);
 
-- (CGRect)makeRect:(void(^_Nullable)(HRect *make))block;
+- (CGRect)makeRect:(void(^)(HRect *make))block;
 
-- (CGRect)makeRect2:(void(^_Nullable)(HRect *make1, HRect *make2))block;
+- (CGRect)makeRect2:(void(^)(HRect *make1, HRect *make2))block;
 
 @end
 
