@@ -32,7 +32,7 @@
 
 - (HRect *)rect2 {
     HRect *hRect = HRect.new;
-    hRect._rect2 = self._rect2;
+    hRect._rect1 = self._rect2;
     return hRect;
 }
 
