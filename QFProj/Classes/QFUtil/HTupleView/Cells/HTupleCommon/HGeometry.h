@@ -57,8 +57,6 @@ struct HRect {
     
     CGPoint origin;
     CGSize  size;
-    
-    CGRect  rect;
 
     CGFloat  minX;
     CGFloat  minY;
@@ -83,9 +81,6 @@ UIKIT_STATIC_INLINE HRect HRectFor(CGRect rect) {
     hRect.origin = rect.origin;
     hRect.size = rect.size;
     
-    hRect.rect.origin = rect.origin;
-    hRect.rect.size = rect.size;
-    
     hRect.minX = CGRectGetMinX(rect);
     hRect.minY = CGRectGetMinY(rect);
     
@@ -96,6 +91,26 @@ UIKIT_STATIC_INLINE HRect HRectFor(CGRect rect) {
     hRect.maxY = CGRectGetMaxY(rect);
 
     return hRect;
+}
+
+UIKIT_STATIC_INLINE CGRect CGRectFor(HRect rect) {
+    CGRect hRect;
+    
+    hRect.origin.x = rect.x;
+    hRect.origin.y = rect.y;
+    
+    hRect.size.width = rect.width;
+    hRect.size.height = rect.height;
+
+    return hRect;
+}
+
+UIKIT_STATIC_INLINE HRect HRectZero() {
+    return HRectFor(CGRectZero);
+}
+
+UIKIT_STATIC_INLINE HRect HRectMake(CGFloat x, CGFloat y, CGFloat width, CGFloat height) {
+    return HRectFor(CGRectMake(x, y, width, height));
 }
 
 #endif /* HGeometry_h */
