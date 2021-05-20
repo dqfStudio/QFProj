@@ -95,13 +95,8 @@ UIKIT_STATIC_INLINE HRect HRectFor(CGRect rect) {
 
 UIKIT_STATIC_INLINE CGRect CGRectFor(HRect rect) {
     CGRect hRect;
-    
-    hRect.origin.x = rect.x;
-    hRect.origin.y = rect.y;
-    
-    hRect.size.width = rect.width;
-    hRect.size.height = rect.height;
-
+    hRect.origin = rect.origin;
+    hRect.size = rect.size;
     return hRect;
 }
 
