@@ -10,6 +10,14 @@
 
 @implementation HRect
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.frame = CGRectZero;
+    }
+    return self;
+}
+
 - (CGFloat)x {
     return self.frame.origin.x;
 }
