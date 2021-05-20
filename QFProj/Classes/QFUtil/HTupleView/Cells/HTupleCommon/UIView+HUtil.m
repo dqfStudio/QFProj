@@ -36,22 +36,6 @@ static char const *const KRightLineView  = "KRightLineView";
 #pragma mark - Frame
 #pragma mark -
 
-- (HRect)viewFrame {
-    return HRectFor(self.frame);
-}
-- (void)setViewFrame:(HRect)viewFrame {
-    [self setFrame:CGRectFor(viewFrame)];
-}
-
-- (HRect)viewBounds {
-    return HRectFor(self.bounds);
-}
-- (void)setViewBounds:(HRect)viewBounds {
-    [self setBounds:CGRectFor(viewBounds)];
-}
-
-
-
 - (CGFloat)viewX {
     return self.frame.origin.x;
 }

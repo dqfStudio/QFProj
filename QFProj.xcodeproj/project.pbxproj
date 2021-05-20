@@ -482,6 +482,7 @@
 		A28FE4AB2654EBD900C9A4EB /* Address.plist in Resources */ = {isa = PBXBuildFile; fileRef = A28FE4A52654EBD900C9A4EB /* Address.plist */; };
 		A28FE4AC2654EBD900C9A4EB /* HLocationPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A28FE4A62654EBD900C9A4EB /* HLocationPicker.m */; };
 		A28FE4BC2654F2AD00C9A4EB /* HNoticeBrowseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A28FE4BB2654F2AC00C9A4EB /* HNoticeBrowseLabel.m */; };
+		A28FE4EA265692BC00C9A4EB /* HRect.m in Sources */ = {isa = PBXBuildFile; fileRef = A28FE4E9265692BC00C9A4EB /* HRect.m */; };
 		A2C2B214235EAC770041AAB5 /* HMainController6.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C2B213235EAC770041AAB5 /* HMainController6.m */; };
 		A2C2B21C235F15DA0041AAB5 /* HTupleView的用法.pages in Resources */ = {isa = PBXBuildFile; fileRef = A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */; };
 /* End PBXBuildFile section */
@@ -1395,6 +1396,8 @@
 		A28FE4A72654EBD900C9A4EB /* HToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HToolBar.h; sourceTree = "<group>"; };
 		A28FE4BA2654F2AC00C9A4EB /* HNoticeBrowseLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HNoticeBrowseLabel.h; sourceTree = "<group>"; };
 		A28FE4BB2654F2AC00C9A4EB /* HNoticeBrowseLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HNoticeBrowseLabel.m; sourceTree = "<group>"; };
+		A28FE4E8265692BC00C9A4EB /* HRect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HRect.h; sourceTree = "<group>"; };
+		A28FE4E9265692BC00C9A4EB /* HRect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HRect.m; sourceTree = "<group>"; };
 		A2C2B212235EAC770041AAB5 /* HMainController6.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMainController6.h; sourceTree = "<group>"; };
 		A2C2B213235EAC770041AAB5 /* HMainController6.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMainController6.m; sourceTree = "<group>"; };
 		A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HTupleView的用法.pages"; sourceTree = "<group>"; };
@@ -2892,6 +2895,8 @@
 				A25E65FC262445FD00863FF8 /* UIView+HLoadable.m */,
 				A25E65F7262445FD00863FF8 /* UIView+HUtil.h */,
 				A25E65FF262445FD00863FF8 /* UIView+HUtil.m */,
+				A28FE4E8265692BC00C9A4EB /* HRect.h */,
+				A28FE4E9265692BC00C9A4EB /* HRect.m */,
 			);
 			path = HTupleCommon;
 			sourceTree = "<group>";
@@ -3628,6 +3633,7 @@
 				A25E6777262445FD00863FF8 /* YTKNetworkPrivate.m in Sources */,
 				A25E671B262445FD00863FF8 /* HMonitorControl.m in Sources */,
 				A25E67F4262445FE00863FF8 /* KSCrashInstallationEmail.m in Sources */,
+				A28FE4EA265692BC00C9A4EB /* HRect.m in Sources */,
 				A25E67EE262445FE00863FF8 /* KSCrashDoctor.m in Sources */,
 				A25E683E262445FE00863FF8 /* UIView+HLoadable.m in Sources */,
 				A25E6846262445FE00863FF8 /* UIImageView+HString.m in Sources */,
