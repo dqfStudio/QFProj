@@ -105,6 +105,10 @@
 }
 
 
+- (HRect *)new {
+    return [self mutableCopy];
+}
+
 HRect *HRectFor(CGRect rect) {
     HRect *hRect = HRect.new;
     hRect.frame = rect;
