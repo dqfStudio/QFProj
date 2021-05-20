@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HGeometry.h"
 #import <objc/runtime.h>
 #import "UIColor+HUtil.h"
 #import "UIDevice+HUtil.h"
@@ -46,6 +47,8 @@ typedef NS_ENUM(NSInteger, HAdaptScreenWidthType) {
 #pragma mark - Frame
 #pragma mark -
 
+@property (nonatomic, readwrite) HRect viewFrame;
+@property (nonatomic, readwrite) HRect viewBounds;
 
 @property (nonatomic, readwrite) CGFloat viewX;
 @property (nonatomic, readwrite) CGFloat viewY;
