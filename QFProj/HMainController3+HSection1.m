@@ -25,30 +25,30 @@
     [cell setShouldShowSeparator:YES];
     [cell setSeparatorInset:UILREdgeInsetsMake(10, 10)];
     
-    CGRect frame = [cell layoutViewBounds];
+    HRect *frame = HRectFor(cell.layoutViewBounds);
     
-    CGRect tmpFrame = frame;
-    tmpFrame.size.width = CGRectGetHeight(tmpFrame);
-    [cell.imageView setFrame:tmpFrame];
+    HRect *tmpFrame = HRectFor(frame.frame);
+    tmpFrame.width = tmpFrame.height;
+    [cell.imageView setFrame:tmpFrame.frame];
     [cell.imageView setBackgroundColor:UIColor.redColor];
     [cell.imageView setImageWithName:@"icon_no_server"];
     
-    CGRect tmpFrame2 = CGRectMake(0, 0, 7, 13);
-    tmpFrame2.origin.x = CGRectGetWidth(frame)-CGRectGetWidth(tmpFrame2);
-    tmpFrame2.origin.y = CGRectGetHeight(frame)/2-CGRectGetHeight(tmpFrame2)/2;
-    [cell.accessoryImageView setFrame:tmpFrame2];
+    HRect *tmpFrame2 = HRectFor(CGRectMake(0, 0, 7, 13));
+    tmpFrame2.x = frame.width-tmpFrame2.width;
+    tmpFrame2.y = frame.height/2-tmpFrame2.height/2;
+    [cell.accessoryImageView setFrame:tmpFrame2.frame];
     [cell.accessoryImageView setImageWithName:@"icon_tuple_arrow_right"];
     
-    CGRect tmpFrame3 = frame;
-    tmpFrame3.origin.x += CGRectGetMaxX(tmpFrame)+10;
-    tmpFrame3.size.width = CGRectGetMinX(tmpFrame2)-CGRectGetMinX(tmpFrame3)-10;
-    tmpFrame3.size.height = tmpFrame.size.height/2;
-    [cell.label setFrame:tmpFrame3];
+    HRect *tmpFrame3 = HRectFor(frame.frame);
+    tmpFrame3.x += tmpFrame.maxX+10;
+    tmpFrame3.width = tmpFrame2.minX-tmpFrame3.minX-10;
+    tmpFrame3.height = tmpFrame.height/2;
+    [cell.label setFrame:tmpFrame3.frame];
     [cell.label setBackgroundColor:UIColor.redColor];
     
-    CGRect tmpFrame4 = tmpFrame3;
-    tmpFrame4.origin.y += CGRectGetMaxY(tmpFrame3);
-    [cell.detailLabel setFrame:tmpFrame4];
+    HRect *tmpFrame4 = HRectFor(tmpFrame3.frame);;
+    tmpFrame4.y += tmpFrame3.maxY;
+    [cell.detailLabel setFrame:tmpFrame4.frame];
     [cell.detailLabel setBackgroundColor:UIColor.yellowColor];
 }
 @end

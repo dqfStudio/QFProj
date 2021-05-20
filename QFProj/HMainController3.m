@@ -51,6 +51,11 @@
     [self.tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
     [self.view addSubview:self.tupleView];
 }
+
+- (BOOL)prefersBackButtonHidden {
+    return YES;
+}
+
 - (NSInteger)tuple0_numberOfSectionsInTupleView {
     return 3;
 }

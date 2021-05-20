@@ -23,6 +23,10 @@
     [self.tupleView setTupleDelegate:self];
 }
 
+- (BOOL)prefersBackButtonHidden {
+    return YES;
+}
+
 //- (NSInteger)numberOfSectionsInTupleView {
 //    return 1;
 //}

@@ -22,6 +22,10 @@
     [self.tableView setTableDelegate:(id<HTableViewDelegate>)self];
 }
 
+- (BOOL)prefersBackButtonHidden {
+    return YES;
+}
+
 - (NSInteger)numberOfSectionsInTableView {
     return 1;
 }

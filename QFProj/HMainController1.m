@@ -53,6 +53,10 @@
 //    });
 }
 
+- (BOOL)prefersBackButtonHidden {
+    return YES;
+}
+
 - (void)vcWillDisappear:(HVCDisappearType)type {
     if (type == HVCDisappearTypePop || type == HVCDisappearTypeDismiss) {
         [self.tupleView releaseTupleBlock];
