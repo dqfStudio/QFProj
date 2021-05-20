@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HRect : NSObject
 
 @property (nonatomic, readwrite) CGRect   frame;
+@property (nonatomic, readonly)  CGRect   bounds;
 
 @property (nonatomic, readwrite) CGFloat  x;
 @property (nonatomic, readwrite) CGFloat  y;
@@ -34,9 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 HRect *HRectFor(CGRect rect);
 
-CGRect HBoundsFor(HRect *rect);
-
-CGRect CGBoundsFor(CGRect rect);
+CGRect HBoundsFor(CGRect rect);
 
 @end
 

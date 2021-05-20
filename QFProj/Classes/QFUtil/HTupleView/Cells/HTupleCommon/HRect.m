@@ -13,9 +13,15 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.frame = CGRectZero;
+        _frame  = CGRectZero;
     }
     return self;
+}
+
+- (CGRect)bounds {
+    CGRect rect = _frame;
+    rect.origin = CGPointZero;
+    return rect;
 }
 
 - (CGFloat)x {
@@ -105,14 +111,8 @@ HRect *HRectFor(CGRect rect) {
     return hRect;
 }
 
-CGRect CGBoundsFor(CGRect rect) {
+CGRect HBoundsFor(CGRect rect) {
     CGRect frame = rect;
-    frame.origin = CGPointZero;
-    return frame;
-}
-
-CGRect HBoundsFor(HRect *rect) {
-    CGRect frame = rect.frame;
     frame.origin = CGPointZero;
     return frame;
 }
