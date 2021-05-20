@@ -34,7 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 HRect *HRectFor(CGRect rect);
 
-CGRect CGRectFor(HRect *rect);
+CGRect HBoundsFor(HRect *rect);
+
+CGRect CGBoundsFor(CGRect rect);
 
 @end
 

@@ -97,8 +97,16 @@ HRect *HRectFor(CGRect rect) {
     return hRect;
 }
 
-CGRect CGRectFor(HRect *rect) {
-    return rect.frame;
+CGRect CGBoundsFor(CGRect rect) {
+    CGRect frame = rect;
+    frame.origin = CGPointZero;
+    return frame;
+}
+
+CGRect HBoundsFor(HRect *rect) {
+    CGRect frame = rect.frame;
+    frame.origin = CGPointZero;
+    return frame;
 }
 
 @end
