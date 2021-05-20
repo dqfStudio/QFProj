@@ -33,8 +33,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly)  CGFloat  maxX;
 @property (nonatomic, readonly)  CGFloat  maxY;
 
-- (HRect *)new;
-
 HRect *HRectFor(CGRect rect);
 
 CGRect HBoundsFor(CGRect rect);
