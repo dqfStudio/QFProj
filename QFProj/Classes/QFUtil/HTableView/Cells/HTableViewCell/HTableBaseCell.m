@@ -116,8 +116,7 @@
 }
 - (CGRect)layoutViewBounds {
     CGRect frame = self.layoutViewFrame;
-    frame.origin.x = 0;
-    frame.origin.y = 0;
+    frame.origin = CGPointZero;
     return frame;
 }
 - (void)dealloc {
