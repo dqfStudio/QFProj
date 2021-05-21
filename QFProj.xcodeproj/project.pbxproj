@@ -2279,8 +2279,8 @@
 		A25E648E262445FC00863FF8 /* Chain-Category */ = {
 			isa = PBXGroup;
 			children = (
-				A25E648F262445FC00863FF8 /* NSString+HChain.m */,
 				A25E6490262445FC00863FF8 /* NSString+HChain.h */,
+				A25E648F262445FC00863FF8 /* NSString+HChain.m */,
 			);
 			path = "Chain-Category";
 			sourceTree = "<group>";

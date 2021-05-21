@@ -10,7 +10,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (HChain)
-- (NSString *)idx:(NSInteger)index;
+//- (NSString *)idx:(NSInteger)index;
 - (NSString *)range:(NSInteger)loc _:(NSInteger)len;
 
 + (NSString *)format:(NSString *)format, ...;
@@ -54,7 +54,7 @@
 - (NSString *)appendCount:(NSString *)org _:(NSUInteger)count;
 
 - (NSString *)replace:(NSString *)org1 _:(NSString *)org2;
-- (NSString *)replaceArray:(NSArray *)org;
+- (NSString *)clearStrings:(NSArray *)org;
 
 - (BOOL)equal:(NSString *)org;
 - (BOOL)isClass:(Class)aClass;
@@ -62,7 +62,7 @@
 - (NSArray <NSString *>*)componentsByString:(NSString *)separator;
 - (NSArray <NSString *>*)componentsBySetString:(NSString *)separator;
 - (NSArray <NSString *>*)componentsByStringBySetString:(NSString *)separator _:(NSString *)setSeparator;
-- (BOOL)containsStrArr:(NSArray <NSString *>*)arr;
+- (BOOL)containsStrings:(NSArray <NSString *>*)org;
 
 - (NSString *)objectAtIndexedSubscript:(NSInteger)index;
 - (NSString *)objectForKeyedSubscript:(NSString *)key;

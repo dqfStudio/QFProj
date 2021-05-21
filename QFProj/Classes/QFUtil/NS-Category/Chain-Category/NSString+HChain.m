@@ -9,12 +9,12 @@
 #import "NSString+HChain.h"
 
 @implementation NSString (HChain)
-- (NSString *)idx:(NSInteger)index {
-    if (index >= 0 && index < self.length) {
-        return self[index];
-    }
-    return @"";
-}
+//- (NSString *)idx:(NSInteger)index {
+//    if (index >= 0 && index < self.length) {
+//        return self[index];
+//    }
+//    return @"";
+//}
 - (NSString *)range:(NSInteger)loc _:(NSInteger)len {
     if (loc >= 0 && len >= 1 && loc+len <= self.length) {
         NSRange range = NSMakeRange(loc, len);
@@ -148,7 +148,7 @@
 - (NSString *)replace:(NSString *)org1 _:(NSString *)org2 {
     return [self stringByReplacingOccurrencesOfString:org1 withString:org2];
 }
-- (NSString *)replaceArray:(NSArray *)org {
+- (NSString *)clearStrings:(NSArray *)org {
     for (NSString *str in org) {
         [self replace:str _:@""];
     }
@@ -191,10 +191,10 @@
     }
     return mutablerArr;
 }
-- (BOOL)containsStrArr:(NSArray <NSString *>*)arr {
-    if (arr.count <= 0) return NO;
+- (BOOL)containsStrings:(NSArray <NSString *>*)org {
+    if (org.count <= 0) return NO;
     BOOL contain = YES;
-    for (NSString *str in arr) {
+    for (NSString *str in org) {
         if (![self containsString:str]) {
             contain = NO;
         }
