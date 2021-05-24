@@ -32,6 +32,7 @@
 		A227A8FD233C9DB4005611BA /* di_zhuce@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A227A8FB233C9DB4005611BA /* di_zhuce@3x.png */; };
 		A227A8FE233C9DB4005611BA /* di_zhuce@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A227A8FC233C9DB4005611BA /* di_zhuce@2x.png */; };
 		A227A901233C9F1F005611BA /* HMainController5.m in Sources */ = {isa = PBXBuildFile; fileRef = A227A900233C9F1F005611BA /* HMainController5.m */; };
+		A22BFD40265B889300099761 /* HStringFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A22BFD3F265B889300099761 /* HStringFormatter.m */; };
 		A22F7864230D595A00AAB902 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22F7863230D595900AAB902 /* UIKit.framework */; };
 		A22F7866230D599C00AAB902 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22F7865230D599C00AAB902 /* Foundation.framework */; };
 		A22FA07E2400D1CE00B75C1C /* AppDelegate+WindowService.m in Sources */ = {isa = PBXBuildFile; fileRef = A22FA07D2400D1CE00B75C1C /* AppDelegate+WindowService.m */; };
@@ -531,6 +532,8 @@
 		A227A8FC233C9DB4005611BA /* di_zhuce@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "di_zhuce@2x.png"; sourceTree = "<group>"; };
 		A227A8FF233C9F1F005611BA /* HMainController5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMainController5.h; sourceTree = "<group>"; };
 		A227A900233C9F1F005611BA /* HMainController5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMainController5.m; sourceTree = "<group>"; };
+		A22BFD3E265B889300099761 /* HStringFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HStringFormatter.h; sourceTree = "<group>"; };
+		A22BFD3F265B889300099761 /* HStringFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HStringFormatter.m; sourceTree = "<group>"; };
 		A22F7863230D595900AAB902 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A22F7865230D599C00AAB902 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A22FA07C2400D1CE00B75C1C /* AppDelegate+WindowService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+WindowService.h"; sourceTree = "<group>"; };
@@ -2231,6 +2234,8 @@
 				A25E6485262445FC00863FF8 /* CADisplayLink+HUtil.m */,
 				A25E647C262445FC00863FF8 /* HAttributedString.h */,
 				A25E646F262445FC00863FF8 /* HAttributedString.m */,
+				A22BFD3E265B889300099761 /* HStringFormatter.h */,
+				A22BFD3F265B889300099761 /* HStringFormatter.m */,
 				A25E6477262445FC00863FF8 /* HHexUtil.h */,
 				A25E6484262445FC00863FF8 /* HHexUtil.m */,
 				A25E6480262445FC00863FF8 /* HSpeechUtil.h */,
@@ -3039,22 +3044,22 @@
 		A25E6650262445FD00863FF8 /* HUtility */ = {
 			isa = PBXGroup;
 			children = (
-				A25E6651262445FD00863FF8 /* NSParagraphStyle+HText.m */,
-				A25E6652262445FD00863FF8 /* UIView+HText.m */,
-				A25E6653262445FD00863FF8 /* UIPasteboard+HText.h */,
-				A25E6654262445FD00863FF8 /* HTextTransaction.m */,
+				A25E665D262445FD00863FF8 /* HTextAsyncLayer.h */,
 				A25E6655262445FD00863FF8 /* HTextAsyncLayer.m */,
-				A25E6656262445FD00863FF8 /* HTextWeakProxy.h */,
-				A25E6657262445FD00863FF8 /* NSAttributedString+HText.h */,
+				A25E665E262445FD00863FF8 /* HTextTransaction.h */,
+				A25E6654262445FD00863FF8 /* HTextTransaction.m */,
+				A25E6660262445FD00863FF8 /* HTextUtilities.h */,
 				A25E6658262445FD00863FF8 /* HTextUtilities.m */,
+				A25E6656262445FD00863FF8 /* HTextWeakProxy.h */,
+				A25E665C262445FD00863FF8 /* HTextWeakProxy.m */,
+				A25E6657262445FD00863FF8 /* NSAttributedString+HText.h */,
+				A25E665F262445FD00863FF8 /* NSAttributedString+HText.m */,
+				A25E665B262445FD00863FF8 /* NSParagraphStyle+HText.h */,
+				A25E6651262445FD00863FF8 /* NSParagraphStyle+HText.m */,
+				A25E6653262445FD00863FF8 /* UIPasteboard+HText.h */,
 				A25E6659262445FD00863FF8 /* UIPasteboard+HText.m */,
 				A25E665A262445FD00863FF8 /* UIView+HText.h */,
-				A25E665B262445FD00863FF8 /* NSParagraphStyle+HText.h */,
-				A25E665C262445FD00863FF8 /* HTextWeakProxy.m */,
-				A25E665D262445FD00863FF8 /* HTextAsyncLayer.h */,
-				A25E665E262445FD00863FF8 /* HTextTransaction.h */,
-				A25E665F262445FD00863FF8 /* NSAttributedString+HText.m */,
-				A25E6660262445FD00863FF8 /* HTextUtilities.h */,
+				A25E6652262445FD00863FF8 /* UIView+HText.m */,
 			);
 			path = HUtility;
 			sourceTree = "<group>";
@@ -3718,6 +3723,7 @@
 				A25E67C0262445FE00863FF8 /* KSCrashReportSinkQuincyHockey.m in Sources */,
 				A25E68B8262445FE00863FF8 /* HViewController.m in Sources */,
 				A25E68AA262445FE00863FF8 /* HKeyChainStore.m in Sources */,
+				A22BFD40265B889300099761 /* HStringFormatter.m in Sources */,
 				A25E67DD262445FE00863FF8 /* KSString.c in Sources */,
 				A25E6866262445FE00863FF8 /* HTextAsyncLayer.m in Sources */,
 				A25E6783262445FD00863FF8 /* HGoToApp.m in Sources */,
