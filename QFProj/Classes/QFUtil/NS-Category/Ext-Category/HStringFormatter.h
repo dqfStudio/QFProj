@@ -31,7 +31,7 @@ typedef void(^HTapKeywordsBlock)(NSInteger index);
 @property(nonatomic) HKeywords  *middleline; //中线
 @property(nonatomic) HKeywords  *underline; //下划线
 
-- (NSMutableAttributedString *)attributedStringFor:(HStringFormatter *)formatter;
+- (NSMutableAttributedString *)attributedStringForFormatter:(HStringFormatter *)formatter;
 
 @end
 

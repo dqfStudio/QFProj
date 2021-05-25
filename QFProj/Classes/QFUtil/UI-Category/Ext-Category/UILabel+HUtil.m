@@ -21,7 +21,7 @@
     make.underline = HKeywords.new;
     if (block) block(make);
 
-    NSMutableAttributedString *attributedString = [make attributedStringFor:make];
+    NSMutableAttributedString *attributedString = [make attributedStringForFormatter:make];
     //行间距
     if (make.lineSpace) {
         NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];

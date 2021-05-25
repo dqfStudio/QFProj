@@ -16,7 +16,7 @@
 
 @implementation HStringFormatter
 
-- (NSMutableAttributedString *)attributedStringFor:(HStringFormatter *)formatter {
+- (NSMutableAttributedString *)attributedStringForFormatter:(HStringFormatter *)formatter {
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:formatter.string];
     //字间距
     if (formatter.charSpace) {
@@ -96,7 +96,7 @@
     make.middleline = HKeywords.new;
     make.underline = HKeywords.new;
     if (block) block(make);
-    return [make attributedStringFor:make];
+    return [make attributedStringForFormatter:make];
 }
 //添加属性字符串
 - (NSMutableAttributedString *)addAttributes:(void(^)(HStringFormatter *make))block {
@@ -105,6 +105,6 @@
     make.middleline = HKeywords.new;
     make.underline = HKeywords.new;
     if (block) block(make);
-    return [make attributedStringFor:make];
+    return [make attributedStringForFormatter:make];
 }
 @end
