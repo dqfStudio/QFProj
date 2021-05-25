@@ -11,6 +11,7 @@
 
 @implementation UILabel (HUtil)
 
+//字符串添加熟悉
 - (void)makeAttributes:(void(^)(HStringFormatter2 *make))block {
     HStringFormatter2 *make = HStringFormatter2.new;
     make.string = self.text;
@@ -21,7 +22,7 @@
     if (block) block(make);
 
     NSMutableAttributedString *attributedString = [make attributedStringFor:make];
-    
+    //行间距
     if (make.lineSpace) {
         NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
         paragraphStyle.alignment = self.textAlignment;
@@ -34,6 +35,7 @@
     
     self.attributedText = attributedString;
     
+    //可点击字符串
     if (make.tapKeywords.words.length) {
         HTapKeywordsBlock tapBlock = make.tapKeywords.tapBlock;
         [self addAttributeTapActionWithStrings:make.tapKeywords.words tapClicked:^(UILabel *label, NSString *string, NSRange range, NSInteger index) {

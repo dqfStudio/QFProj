@@ -18,6 +18,7 @@
 
 - (NSMutableAttributedString *)attributedStringFor:(HStringFormatter *)formatter {
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:formatter.string];
+    //字间距
     if (formatter.charSpace) {
         NSMutableDictionary *dict = NSMutableDictionary.dictionary;
         long number = formatter.charSpace;
@@ -26,6 +27,7 @@
         [attributedString attributedWith:dict];
         CFRelease(num);
     }
+    //关键字
     if (formatter.keywords.words.length) {
         if ([formatter.string containsString:formatter.keywords.words]) {
             NSRange itemRange = [formatter.string rangeOfString:formatter.keywords.words];
@@ -41,6 +43,7 @@
             }
         }
     }
+    //中线
     if (formatter.middleline.words.length) {
         if ([formatter.string containsString:formatter.middleline.words]) {
             NSRange itemRange = [formatter.string rangeOfString:formatter.middleline.words];
@@ -58,6 +61,7 @@
             }
         }
     }
+    //下划线
     if (formatter.underline.words.length) {
         if ([formatter.string containsString:formatter.underline.words]) {
             NSRange itemRange = [formatter.string rangeOfString:formatter.underline.words];
@@ -84,6 +88,7 @@
 
 
 @implementation NSString (HStringFormatter)
+//字符串添加熟悉
 - (NSMutableAttributedString *)makeAttributes:(void(^)(HStringFormatter *make))block {
     HStringFormatter *make = HStringFormatter.new;
     make.string = self;
@@ -93,6 +98,7 @@
     if (block) block(make);
     return [make attributedStringFor:make];
 }
+//添加属性字符串
 - (NSMutableAttributedString *)addAttributes:(void(^)(HStringFormatter *make))block {
     HStringFormatter *make = HStringFormatter.new;
     make.keywords = HKeywords.new;

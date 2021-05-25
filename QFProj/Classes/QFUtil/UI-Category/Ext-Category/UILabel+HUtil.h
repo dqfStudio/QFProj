@@ -20,6 +20,7 @@
 ////NSString *string = @"</flag=global,linespace=5,lines=0,font=12,color=123456/>张三李四</font=12,color=123456,headerspace=5,footerspace=10/>张三</font=12,color=123456,click=true,underliane=true,middleline=true,headerspace=auto/>李四";
 //- (void)parse:(NSString *)aString block:(HTapKeywordsBlock)tapBlock;
 
+//字符串添加熟悉
 - (void)makeAttributes:(void(^)(HStringFormatter2 *make))block;
 
 /**
