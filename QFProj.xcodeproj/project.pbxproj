@@ -2191,13 +2191,13 @@
 			isa = PBXGroup;
 			children = (
 				A25E6456262445FC00863FF8 /* HPrinterManager.h */,
-				A25E6457262445FC00863FF8 /* UIViewController+HPrinter.m */,
-				A25E6458262445FC00863FF8 /* UIWindow+HPrinter.m */,
-				A25E6459262445FC00863FF8 /* UIView+HPrinter.h */,
 				A25E645A262445FC00863FF8 /* HPrinterManager.m */,
-				A25E645B262445FC00863FF8 /* UIViewController+HPrinter.h */,
+				A25E6459262445FC00863FF8 /* UIView+HPrinter.h */,
 				A25E645C262445FC00863FF8 /* UIView+HPrinter.m */,
+				A25E645B262445FC00863FF8 /* UIViewController+HPrinter.h */,
+				A25E6457262445FC00863FF8 /* UIViewController+HPrinter.m */,
 				A25E645D262445FC00863FF8 /* UIWindow+HPrinter.h */,
+				A25E6458262445FC00863FF8 /* UIWindow+HPrinter.m */,
 			);
 			path = HPrinter;
 			sourceTree = "<group>";

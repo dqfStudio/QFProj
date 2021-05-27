@@ -141,4 +141,57 @@
 }
 @end
 
+//@implementation HLabel (HLanguage)
+//+ (void)load {
+//    [super load];
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        [self methodSwizzleWithOrigSEL:@selector(setText:) overrideSEL:@selector(printer_setText:)];
+//    });
+//}
+//- (void)printer_setText:(NSString *)text {
+//    [self printer_setText:text];
+//}
+//@end
+//
+//@implementation UILabel (HLanguage)
+//+ (void)load {
+//    [super load];
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        [self methodSwizzleWithOrigSEL:@selector(setText:) overrideSEL:@selector(printer_setText:)];
+//    });
+//}
+//- (void)printer_setText:(NSString *)text {
+//    [self printer_setText:text];
+//}
+//@end
+//
+//@implementation UITextView (HLanguage)
+//+ (void)load {
+//    [super load];
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        [self methodSwizzleWithOrigSEL:@selector(setText:) overrideSEL:@selector(printer_setText:)];
+//    });
+//}
+//- (void)printer_setText:(NSString *)text {
+//    [self printer_setText:text];
+//}
+//@end
+//
+//@implementation HTextView (HLanguage)
+//+ (void)load {
+//    [super load];
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        [self methodSwizzleWithOrigSEL:@selector(setText:) overrideSEL:@selector(printer_setText:)];
+//    });
+//}
+//- (void)printer_setText:(NSString *)text {
+//    [self printer_setText:text];
+//}
+//@end
+
+
 #endif
