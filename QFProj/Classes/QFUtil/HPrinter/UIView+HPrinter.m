@@ -141,7 +141,7 @@
 }
 @end
 
-//@implementation HLabel (HLanguage)
+//@implementation HLabel (HPrinter)
 //+ (void)load {
 //    [super load];
 //    static dispatch_once_t onceToken;
@@ -154,7 +154,7 @@
 //}
 //@end
 //
-//@implementation UILabel (HLanguage)
+//@implementation UILabel (HPrinter)
 //+ (void)load {
 //    [super load];
 //    static dispatch_once_t onceToken;
@@ -167,7 +167,7 @@
 //}
 //@end
 //
-//@implementation UITextView (HLanguage)
+//@implementation UITextView (HPrinter)
 //+ (void)load {
 //    [super load];
 //    static dispatch_once_t onceToken;
@@ -180,7 +180,7 @@
 //}
 //@end
 //
-//@implementation HTextView (HLanguage)
+//@implementation HTextView (HPrinter)
 //+ (void)load {
 //    [super load];
 //    static dispatch_once_t onceToken;
