@@ -149,10 +149,11 @@
     return [self stringByReplacingOccurrencesOfString:org1 withString:org2];
 }
 - (NSString *)clearStrings:(NSArray *)org {
+    NSString *tmpString = self;
     for (NSString *str in org) {
-        [self replace:str _:@""];
+        tmpString = [tmpString replace:str _:@""];
     }
-    return self;
+    return tmpString;
 }
 - (BOOL)equal:(NSString *)org {
     return [self isEqualToString:org];
