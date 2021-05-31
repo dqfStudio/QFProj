@@ -8,7 +8,7 @@
 
 #import "HStringFormatter.h"
 
-@implementation HStringFormatter
+@implementation NSMutableAttributedString (HStringFormatter)
 
 - (void)makeFont:(UIFont *)font range:(NSRange)range {
     [self h_setFont:font range:range];

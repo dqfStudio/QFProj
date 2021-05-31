@@ -10,7 +10,7 @@
 
 typedef void(^HTextActionBlock)(NSAttributedString *text, NSRange range);
 
-@interface HStringFormatter : NSMutableAttributedString
+@interface NSMutableAttributedString (HStringFormatter)
 
 - (void)makeFont:(UIFont *)font range:(NSRange)range;
 - (void)makeColor:(UIColor *)color range:(NSRange)range;
