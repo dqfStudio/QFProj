@@ -207,10 +207,6 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     stringValue = [NSDecimalNumber clearTheSymbol:@"[，, ]" withText:stringValue];
     stringValue = [NSDecimalNumber clearTheSymbol:@"[+-]" withText:stringValue];
     stringValue = [NSDecimalNumber clearTheSymbol:@"[R$￥₫₹]" withText:stringValue];
-    
-    if (![NSDecimalNumber isOnlyNumericWithText:stringValue]) {
-        return @"";
-    }
 
     NSString *appendString = @"";
     NSString *multiplyingString = @"1";
