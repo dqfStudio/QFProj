@@ -21,5 +21,6 @@ typedef void(^HTextActionBlock)(NSAttributedString *text, NSRange range);
 - (void)makeTapAction:(NSRange)range tapAction:(HTextActionBlock)block;
 
 - (void)appendImageName:(NSString *)imageName size:(CGSize)size;
+- (void)insertImageName:(NSString *)imageName size:(CGSize)size atIndex:(NSUInteger)loc;
 
 @end

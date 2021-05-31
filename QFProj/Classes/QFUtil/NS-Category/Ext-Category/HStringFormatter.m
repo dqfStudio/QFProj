@@ -46,5 +46,11 @@
     NSMutableAttributedString *attributedString = [NSMutableAttributedString h_attachmentStringWithContent:imageView contentMode:UIViewContentModeScaleAspectFit attachmentSize:imageView.frame.size alignToFont:self.h_font alignment:HTextVerticalAlignmentCenter];
     [self appendAttributedString:attributedString];
 }
+- (void)insertImageName:(NSString *)imageName size:(CGSize)size atIndex:(NSUInteger)loc {
+    HWebImageView *imageView = [[HWebImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    [imageView setImageWithName:imageName];
+    NSMutableAttributedString *attributedString = [NSMutableAttributedString h_attachmentStringWithContent:imageView contentMode:UIViewContentModeScaleAspectFit attachmentSize:imageView.frame.size alignToFont:self.h_font alignment:HTextVerticalAlignmentCenter];
+    [self insertAttributedString:attributedString atIndex:loc];
+}
 
 @end
