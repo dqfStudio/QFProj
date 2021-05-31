@@ -18,11 +18,11 @@ typedef struct UILREdgeInsets {
 } UILREdgeInsets;
 
 typedef struct _NSLimit {
-    NSInteger min;
-    NSInteger max;
+    CGFloat min;
+    CGFloat max;
 } NSLimit;
 
-NS_INLINE NSLimit NSMakeLimit(NSInteger min, NSInteger max) {
+NS_INLINE NSLimit NSMakeLimit(CGFloat min, CGFloat max) {
     NSLimit l;
     l.min = min;
     l.max = max;
