@@ -52,8 +52,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)positiveStringValue;
 //负号的金额数据
 - (NSString *)negativeStringValue;
-//无正负号的金额数据
-- (NSString *)noOperatorStringValue;
 //格式化
 - (NSString *)makeFormatter:(void(^_Nullable)(HNumberFormatter *make))block;
 @end
@@ -73,8 +71,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)positiveStringValue;
 //负号的金额数据
 - (NSString *)negativeStringValue;
-//无正负号的金额数据
-- (NSString *)noOperatorStringValue;
 //格式化
 - (NSString *)makeFormatter:(void(^_Nullable)(HNumberFormatter *make))block;
 @end

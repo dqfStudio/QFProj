@@ -30,7 +30,7 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 //判断是否只有特定符号
 + (BOOL)isOnlyNumericWithText:(NSString *)text {
     if (![text isKindOfClass:NSString.class]) return NO;
-    NSString *regex = @"(?=.*[0-9])([0-9+-.$￥₫₹])+$";//可以是0-9、+-.号以及美国 中国 越南 印度等国货币符号，但必须有一位数字
+    NSString *regex = @"(?=.*[0-9])([0-9+-.R$￥₫₹])+$";//可以是0-9、+-.号以及美国 中国 越南 印度等国货币符号，但必须有一位数字
     return [[NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex] evaluateWithObject:text];
 }
 //主动操作数据调用
@@ -197,6 +197,46 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     return [numberFormatter stringFromNumber:decimalNumber];
 }
 
++ (NSString *)unFormatter:(id)numberObjc {
+    
+    NSString *stringValue = numberObjc;
+    if ([numberObjc isKindOfClass:NSNumber.class]) {
+        stringValue = [(NSNumber *)numberObjc stringValue];
+    }
+    
+    stringValue = [NSDecimalNumber clearTheSymbol:@"[，, ]" withText:stringValue];
+    stringValue = [NSDecimalNumber clearTheSymbol:@"[+-]" withText:stringValue];
+    stringValue = [NSDecimalNumber clearTheSymbol:@"[R$￥₫₹]" withText:stringValue];
+
+    NSString *appendString = @"";
+    NSString *multiplyingString = @"1";
+    
+    //当达到千、百万、亿、兆时，使用省略写法（K、M、B、T）
+    if ([stringValue containsString:@"T"]) {
+        appendString = @"T";
+        multiplyingString = @"1000000000000";
+    }else if ([stringValue containsString:@"B"]) {
+        appendString = @"B";
+        multiplyingString = @"100000000";
+    }else if ([stringValue containsString:@"M"]) {
+        appendString = @"M";
+        multiplyingString = @"1000000";
+    }else if ([stringValue containsString:@"K"]) {
+        appendString = @"K";
+        multiplyingString = @"1000";
+    }
+    
+    stringValue = [stringValue stringByReplacingOccurrencesOfString:appendString withString:@""];
+    
+    NSDecimalNumber *selfNumber = [NSDecimalNumber decimalNumberWithString:stringValue];
+    NSDecimalNumber *decimalNumber = [NSDecimalNumber decimalNumberWithString:multiplyingString];
+    selfNumber = [selfNumber decimalNumberByMultiplyingBy:decimalNumber];
+    
+    stringValue = selfNumber.stringValue;
+    
+    return stringValue;
+}
+
 @end
 
 @implementation NSNumber (HFormatter)
@@ -231,9 +271,13 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     NSNumber *modeNumber = make.formatterEnum()[make.roundingMode];
     return [make numberObjc:self roundingMode:modeNumber.intValue afterPoint:make.afterPoint pointZero:make.pointZero grouping:make.grouping prefix:make.prefix symbol:make.symbol conversion:make.conversion];
 }
+//去格式化
+- (NSString *)makeUnFormatter {
+    return [HNumberFormatter unFormatter:self];
+}
 //获取十进制金额数据
 - (NSString *)decimalStringValue {
-    NSString *selfValue = [NSDecimalNumber clearTheSymbolWithText:self.stringValue];
+    NSString *selfValue = self.makeUnFormatter;
     if ([NSDecimalNumber isOnlyNumericWithText:selfValue]) {
         return [@(selfValue.doubleValue) stringValue];
     }
@@ -241,7 +285,7 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 }
 //正号的金额数据
 - (NSString *)positiveStringValue {
-    NSString *stringValue = self.noOperatorStringValue;
+    NSString *stringValue = self.decimalStringValue;
     if (stringValue.length > 0) {
         stringValue = [@"+" stringByAppendingString:stringValue];
     }
@@ -249,15 +293,11 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 }
 //负号的金额数据
 - (NSString *)negativeStringValue {
-    NSString *stringValue = self.noOperatorStringValue;
+    NSString *stringValue = self.decimalStringValue;
     if (stringValue.length > 0) {
         stringValue = [@"-" stringByAppendingString:stringValue];
     }
     return stringValue;
-}
-//无正负号的金额数据
-- (NSString *)noOperatorStringValue {
-    return [NSDecimalNumber clearTheSymbol:@"[+-]" withText:self.decimalStringValue];;
 }
 @end
 
@@ -294,9 +334,13 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     NSNumber *modeNumber = make.formatterEnum()[make.roundingMode];
     return [make numberObjc:self roundingMode:modeNumber.intValue afterPoint:make.afterPoint pointZero:make.pointZero grouping:make.grouping prefix:make.prefix symbol:make.symbol conversion:make.conversion];
 }
+//去格式化
+- (NSString *)makeUnFormatter {
+    return [HNumberFormatter unFormatter:self];
+}
 //获取十进制金额数据
 - (NSString *)decimalStringValue {
-    NSString *selfValue = [NSDecimalNumber clearTheSymbolWithText:self];
+    NSString *selfValue = self.makeUnFormatter;
     if ([NSDecimalNumber isOnlyNumericWithText:selfValue]) {
         return [@(selfValue.doubleValue) stringValue];
     }
@@ -304,7 +348,7 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 }
 //正号的金额数据
 - (NSString *)positiveStringValue {
-    NSString *stringValue = self.noOperatorStringValue;
+    NSString *stringValue = self.decimalStringValue;
     if (stringValue.length > 0) {
         stringValue = [@"+" stringByAppendingString:stringValue];
     }
@@ -312,14 +356,10 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 }
 //负号的金额数据
 - (NSString *)negativeStringValue {
-    NSString *stringValue = self.noOperatorStringValue;
+    NSString *stringValue = self.decimalStringValue;
     if (stringValue.length > 0) {
         stringValue = [@"-" stringByAppendingString:stringValue];
     }
     return stringValue;
-}
-//无正负号的金额数据
-- (NSString *)noOperatorStringValue {
-    return [NSDecimalNumber clearTheSymbol:@"[+-]" withText:self.decimalStringValue];;
 }
 @end
