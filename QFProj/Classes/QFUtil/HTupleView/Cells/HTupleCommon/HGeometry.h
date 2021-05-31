@@ -29,6 +29,7 @@ NS_INLINE NSLimit NSMakeLimit(CGFloat min, CGFloat max) {
     return l;
 }
 
+static NSLimit NSLimitZero = {0, 0};
 static UITBEdgeInsets UITBEdgeInsetsZero = {0, 0};
 static UILREdgeInsets UILREdgeInsetsZero = {0, 0};
 

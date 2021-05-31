@@ -92,4 +92,5 @@ typedef void(^HInputTextToMaxBlock)(HTextField *textField);
 
 - (BOOL (^)(NSInteger length))isEqualto; //判断内容长度是否等于某个值
 - (BOOL (^)(NSInteger start, NSInteger end))isBetween;//判断内容长度是否在某两个值之间
+- (BOOL (^)(NSLimit limit))inLimit;//判断数据是否在某两个值之间
 @end
