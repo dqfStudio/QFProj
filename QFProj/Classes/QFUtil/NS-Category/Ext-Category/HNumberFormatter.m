@@ -37,11 +37,19 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
         stringValue = [(NSNumber *)numberObjc stringValue];
     }
     
+    /*
+    if ([[HUserRegion defaultRegion].regionCode isEqualToString:@"VN"] || [[HUserRegion defaultRegion].regionCode isEqualToString:@"BR"]) {
+        stringValue = [stringValue stringByReplacingOccurrencesOfString:@"。" withString:@"."];
+        stringValue = [NSDecimalNumber clearTheSymbol:@"[. ]" withText:stringValue];
+    }else {
+        stringValue = [stringValue stringByReplacingOccurrencesOfString:@"，" withString:@","];
+        stringValue = [NSDecimalNumber clearTheSymbol:@"[, ]" withText:stringValue];
+    }
+    */
+
     stringValue = [stringValue stringByReplacingOccurrencesOfString:@"，" withString:@","];
-    stringValue = [stringValue stringByReplacingOccurrencesOfString:@" " withString:@""];
+    stringValue = [NSDecimalNumber clearTheSymbol:@"[, ]" withText:stringValue];
     
-    //stringValue = [NSDecimalNumber clearTheSymbol:@"[，, ]" withText:stringValue];
-    stringValue = [NSDecimalNumber clearTheSymbol:@"[,]" withText:stringValue];
     stringValue = [NSDecimalNumber clearTheSymbol:@"[+-]" withText:stringValue];
     stringValue = [NSDecimalNumber clearTheSymbol:@"[R$￥₫₹]" withText:stringValue];
 
@@ -172,10 +180,26 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     //分组分隔符，默认为","且每三位进行分割
     if (grouping) {
         numberFormatter.usesGroupingSeparator = grouping;
+        /*
+        if ([[HUserRegion defaultRegion].regionCode isEqualToString:@"VN"] || [[HUserRegion defaultRegion].regionCode isEqualToString:@"BR"]) {
+            numberFormatter.groupingSeparator = @".";
+        }else {
+            numberFormatter.groupingSeparator = @",";
+        }
+        */
+        
         numberFormatter.groupingSeparator = @",";
         numberFormatter.groupingSize = 3;
     }
     //小数分隔符，默认为"."
+    /*
+    if ([[HUserRegion defaultRegion].regionCode isEqualToString:@"VN"] || [[HUserRegion defaultRegion].regionCode isEqualToString:@"BR"]) {
+        numberFormatter.decimalSeparator = @",";
+    }else {
+        numberFormatter.decimalSeparator = @".";
+    }
+     */
+    
     numberFormatter.decimalSeparator = @".";
     //正前缀和负前缀
     if (decimalNumber.doubleValue == 0) {
@@ -201,7 +225,13 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
         if ([numberObjc isKindOfClass:NSNumber.class]) {
             tmpString = [(NSNumber *)numberObjc stringValue];
         }
-        
+        /*
+        if ([[HUserRegion defaultRegion].regionCode isEqualToString:@"VN"] || [[HUserRegion defaultRegion].regionCode isEqualToString:@"BR"]) {
+         NSRange range = [tmpString rangeOfString:@","];
+        }else {
+         NSRange range = [tmpString rangeOfString:@"."];
+        }
+         */
         NSRange range = [tmpString rangeOfString:@"."];
         NSInteger length = range.location;
         if (range.location == NSNotFound) length = tmpString.length;
