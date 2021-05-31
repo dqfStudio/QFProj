@@ -17,11 +17,7 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 };
 
 @implementation NSDecimalNumber (HFormatter)
-//清除某些特定符号，是对数据的一种容错处理
-+ (NSString *)clearTheSymbolWithText:(NSString *)text {
-    NSString *pattern = @"[，, ]";//中英文环境下逗号和空格
-    return [self clearTheSymbol:pattern withText:text];
-}
+////清除某些特定符号，是对数据的一种容错处理
 + (NSString *)clearTheSymbol:(NSString *)symbol withText:(NSString *)text {
     if (![text isKindOfClass:NSString.class]) return @"";
     NSRegularExpression *regularExpress = [NSRegularExpression regularExpressionWithPattern:symbol options:0 error:nil];
@@ -30,8 +26,55 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 //判断是否只有特定符号
 + (BOOL)isOnlyNumericWithText:(NSString *)text {
     if (![text isKindOfClass:NSString.class]) return NO;
-    NSString *regex = @"(?=.*[0-9])([0-9+-.R$￥₫₹])+$";//可以是0-9、+-.号以及美国 中国 越南 印度等国货币符号，但必须有一位数字
+    //NSString *regex = @"(?=.*[0-9])([0-9+-.,R$￥₫₹])+$";//可以是0-9、+-.,号以及美国 中国 越南 印度等国货币符号，但必须有一位数字
+    NSString *regex = @"(?=.*[0-9])([0-9.,])+$";//可以是0-9以及.,
     return [[NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex] evaluateWithObject:text];
+}
++ (NSString *)unFormatter:(id)numberObjc {
+    
+    NSString *stringValue = numberObjc;
+    if ([numberObjc isKindOfClass:NSNumber.class]) {
+        stringValue = [(NSNumber *)numberObjc stringValue];
+    }
+    
+    stringValue = [stringValue stringByReplacingOccurrencesOfString:@"，" withString:@","];
+    stringValue = [stringValue stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    //stringValue = [NSDecimalNumber clearTheSymbol:@"[，, ]" withText:stringValue];
+    stringValue = [NSDecimalNumber clearTheSymbol:@"[,]" withText:stringValue];
+    stringValue = [NSDecimalNumber clearTheSymbol:@"[+-]" withText:stringValue];
+    stringValue = [NSDecimalNumber clearTheSymbol:@"[R$￥₫₹]" withText:stringValue];
+
+    NSString *appendString = @"";
+    NSString *multiplyingString = @"1";
+    
+    //当达到千、百万、亿、兆时，使用省略写法（K、M、B、T）
+    if ([stringValue containsString:@"T"]) {
+        appendString = @"T";
+        multiplyingString = @"1000000000000";
+    }else if ([stringValue containsString:@"B"]) {
+        appendString = @"B";
+        multiplyingString = @"100000000";
+    }else if ([stringValue containsString:@"M"]) {
+        appendString = @"M";
+        multiplyingString = @"1000000";
+    }else if ([stringValue containsString:@"K"]) {
+        appendString = @"K";
+        multiplyingString = @"1000";
+    }
+    
+    stringValue = [stringValue stringByReplacingOccurrencesOfString:appendString withString:@""];
+    
+    if ([self isOnlyNumericWithText:stringValue]) {
+        NSDecimalNumber *selfNumber = [NSDecimalNumber decimalNumberWithString:stringValue];
+        NSDecimalNumber *decimalNumber = [NSDecimalNumber decimalNumberWithString:multiplyingString];
+        selfNumber = [selfNumber decimalNumberByMultiplyingBy:decimalNumber];
+        
+        stringValue = selfNumber.stringValue;
+        
+        return stringValue;
+    }
+    return @"";
 }
 //主动操作数据调用
 + (NSDecimalNumber *)activeDecimalNumberWithObjcValue:(id)objcValue operationMode:(HOperationMode)mode {
@@ -43,16 +86,9 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 }
 //objcValue为NSString或NSNumber类型
 + (NSDecimalNumber *)decimalNumberWithObjcValue:(id)objcValue active:(BOOL)active operationMode:(HOperationMode)mode {
-    if ([objcValue isKindOfClass:NSString.class]) {
-        NSString *objcStringValue = [self clearTheSymbolWithText:objcValue];
-        if ([self isOnlyNumericWithText:objcStringValue]) {
-            return [NSDecimalNumber decimalNumberWithString:objcStringValue];
-        }
-    }else if ([objcValue isKindOfClass:NSNumber.class]) {
-        NSNumber *objcNumberValue = objcValue;
-        if ([self isOnlyNumericWithText:objcNumberValue.stringValue]) {
-            return [NSDecimalNumber decimalNumberWithDecimal:[objcNumberValue decimalValue]];
-        }
+    NSString *objcStringValue = [NSDecimalNumber unFormatter:objcValue];
+    if ([self isOnlyNumericWithText:objcStringValue]) {
+        return [NSDecimalNumber decimalNumberWithString:objcStringValue];
     }
     switch (mode) {
         case adding: {
@@ -197,46 +233,6 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     return [numberFormatter stringFromNumber:decimalNumber];
 }
 
-+ (NSString *)unFormatter:(id)numberObjc {
-    
-    NSString *stringValue = numberObjc;
-    if ([numberObjc isKindOfClass:NSNumber.class]) {
-        stringValue = [(NSNumber *)numberObjc stringValue];
-    }
-    
-    stringValue = [NSDecimalNumber clearTheSymbol:@"[，, ]" withText:stringValue];
-    stringValue = [NSDecimalNumber clearTheSymbol:@"[+-]" withText:stringValue];
-    stringValue = [NSDecimalNumber clearTheSymbol:@"[R$￥₫₹]" withText:stringValue];
-
-    NSString *appendString = @"";
-    NSString *multiplyingString = @"1";
-    
-    //当达到千、百万、亿、兆时，使用省略写法（K、M、B、T）
-    if ([stringValue containsString:@"T"]) {
-        appendString = @"T";
-        multiplyingString = @"1000000000000";
-    }else if ([stringValue containsString:@"B"]) {
-        appendString = @"B";
-        multiplyingString = @"100000000";
-    }else if ([stringValue containsString:@"M"]) {
-        appendString = @"M";
-        multiplyingString = @"1000000";
-    }else if ([stringValue containsString:@"K"]) {
-        appendString = @"K";
-        multiplyingString = @"1000";
-    }
-    
-    stringValue = [stringValue stringByReplacingOccurrencesOfString:appendString withString:@""];
-    
-    NSDecimalNumber *selfNumber = [NSDecimalNumber decimalNumberWithString:stringValue];
-    NSDecimalNumber *decimalNumber = [NSDecimalNumber decimalNumberWithString:multiplyingString];
-    selfNumber = [selfNumber decimalNumberByMultiplyingBy:decimalNumber];
-    
-    stringValue = selfNumber.stringValue;
-    
-    return stringValue;
-}
-
 @end
 
 @implementation NSNumber (HFormatter)
@@ -273,12 +269,12 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 }
 //去格式化
 - (NSString *)makeUnFormatter {
-    return [HNumberFormatter unFormatter:self];
+    return [NSDecimalNumber unFormatter:self];
 }
 //获取十进制金额数据
 - (NSString *)decimalStringValue {
     NSString *selfValue = self.makeUnFormatter;
-    if ([NSDecimalNumber isOnlyNumericWithText:selfValue]) {
+    if (selfValue.length > 0) {
         return [@(selfValue.doubleValue) stringValue];
     }
     return @"";
@@ -296,6 +292,14 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     NSString *stringValue = self.decimalStringValue;
     if (stringValue.length > 0) {
         stringValue = [@"-" stringByAppendingString:stringValue];
+    }
+    return stringValue;
+}
+//带有货币符号的金额数据
+- (NSString *)currencySymbolStringValue {
+    NSString *stringValue = self.decimalStringValue;
+    if (stringValue.length > 0) {
+        stringValue = [[HUserRegion defaultRegion].currencySymbol stringByAppendingString:stringValue];
     }
     return stringValue;
 }
@@ -336,12 +340,12 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 }
 //去格式化
 - (NSString *)makeUnFormatter {
-    return [HNumberFormatter unFormatter:self];
+    return [NSDecimalNumber unFormatter:self];
 }
 //获取十进制金额数据
 - (NSString *)decimalStringValue {
     NSString *selfValue = self.makeUnFormatter;
-    if ([NSDecimalNumber isOnlyNumericWithText:selfValue]) {
+    if (selfValue.length > 0) {
         return [@(selfValue.doubleValue) stringValue];
     }
     return @"";
@@ -359,6 +363,14 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     NSString *stringValue = self.decimalStringValue;
     if (stringValue.length > 0) {
         stringValue = [@"-" stringByAppendingString:stringValue];
+    }
+    return stringValue;
+}
+//带有货币符号的金额数据
+- (NSString *)currencySymbolStringValue {
+    NSString *stringValue = self.decimalStringValue;
+    if (stringValue.length > 0) {
+        stringValue = [[HUserRegion defaultRegion].currencySymbol stringByAppendingString:stringValue];
     }
     return stringValue;
 }

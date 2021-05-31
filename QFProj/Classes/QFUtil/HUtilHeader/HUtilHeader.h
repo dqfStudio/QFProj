@@ -105,7 +105,7 @@
 
 #import "HNetworkDAO.h"
 #import "HNetworkManager.h"
-
+#import "HUserRegion.h"
 
 #endif
 
