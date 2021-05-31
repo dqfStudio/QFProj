@@ -21,7 +21,7 @@
 //- (void)parse:(NSString *)aString block:(HTapKeywordsBlock)tapBlock;
 
 //字符串添加熟悉
-- (void)makeAttributes:(void(^)(HStringFormatter2 *make))block;
+//- (void)makeAttributes:(void(^)(HStringFormatter2 *make))block;
 
 /**
  计算label宽高

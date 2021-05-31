@@ -6,41 +6,20 @@
 //  Copyright © 2021 dqfStudio. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "NSAttributedString+HText.h"
 
-typedef void(^HTapKeywordsBlock)(NSInteger index);
+typedef void(^HTextActionBlock)(NSAttributedString *text, NSRange range);
 
-@interface HKeywords : NSObject
-@property(nonatomic) NSString *words; //关键字
-@property(nonatomic) UIFont   *font; //字体
-@property(nonatomic) UIColor  *color; //颜色
-@end
+@interface HStringFormatter : NSMutableAttributedString
 
-@interface HTapKeywords : NSObject
-@property(nonatomic) NSArray *words; //可点击字体数组
-@property(nonatomic) HTapKeywordsBlock tapBlock; //点击回调
-@end
+- (void)makeFont:(UIFont *)font range:(NSRange)range;
+- (void)makeColor:(UIColor *)color range:(NSRange)range;
+- (void)makeCharspace:(CGFloat)charspace range:(NSRange)range;
+- (void)makeLinespace:(CGFloat)linespace range:(NSRange)range;
+- (void)makeMiddleline:(NSRange)range;
+- (void)makeUnderline:(NSRange)range;
+- (void)makeTapAction:(NSRange)range tapAction:(HTextActionBlock)block;
 
+- (void)appendImageName:(NSString *)imageName size:(CGSize)size;
 
-@interface HStringFormatter : NSObject
-
-@property(nonatomic) NSString *string; //需要格式化的字符串
-@property(nonatomic) CGFloat charSpace; //字间距
-
-@property(nonatomic) HKeywords  *keywords; //关键字
-@property(nonatomic) HKeywords  *middleline; //中线
-@property(nonatomic) HKeywords  *underline; //下划线
-
-- (NSMutableAttributedString *)attributedStringForFormatter:(HStringFormatter *)formatter;
-
-@end
-
-@interface HStringFormatter2 : HStringFormatter
-@property(nonatomic) CGFloat lineSpace; //行间距
-@property(nonatomic) HTapKeywords *tapKeywords; //可点击字符串
-@end
-
-@interface NSString (HStringFormatter)
-- (NSMutableAttributedString *)makeAttributes:(void(^)(HStringFormatter *make))block; //字符串添加熟悉
-- (NSMutableAttributedString *)addAttributes:(void(^)(HStringFormatter *make))block; //添加属性字符串
 @end
