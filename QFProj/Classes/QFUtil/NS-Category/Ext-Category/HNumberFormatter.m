@@ -27,7 +27,7 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 + (BOOL)isOnlyNumericWithText:(NSString *)text {
     if (![text isKindOfClass:NSString.class]) return NO;
     //NSString *regex = @"(?=.*[0-9])([0-9+-.,R$￥₫₹])+$";//可以是0-9、+-.,号以及美国 中国 越南 印度等国货币符号，但必须有一位数字
-    NSString *regex = @"(?=.*[0-9])([0-9.,])+$";//可以是0-9以及.,
+    NSString *regex = @"(?=.*[0-9])([0-9.,])+$";//可以是0-9以及".,"，但必须有一位数字
     return [[NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex] evaluateWithObject:text];
 }
 + (NSString *)unFormatter:(id)numberObjc {
