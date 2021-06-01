@@ -9,7 +9,7 @@
 #import "HUserDefaults.h"
 #import <objc/runtime.h>
 
-#define KUserDefaultsKey @"KUserDefaultsKey"
+#define KHUserDefaultsKey @"KHUserDefaultsKey"
 
 @implementation HUserDefaults (Defaults)
 - (NSString *)suiteName {
@@ -167,7 +167,7 @@ static void objectSetter(HUserDefaults *self, SEL _cmd, id object) {
         NSString *_suiteName = [self suiteName];
         if (_suiteName.length > 0) {
             [self.userDefaults synchronize];
-            [[NSUserDefaults standardUserDefaults] setObject:_suiteName forKey:KUserDefaultsKey];
+            [[NSUserDefaults standardUserDefaults] setObject:_suiteName forKey:KHUserDefaultsKey];
             [[NSUserDefaults standardUserDefaults] synchronize];
         }
     }
@@ -175,7 +175,7 @@ static void objectSetter(HUserDefaults *self, SEL _cmd, id object) {
 //登出的时候需要移除用户信息
 - (void)removeUser {
     [self.userDefaults synchronize];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:KUserDefaultsKey];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:KHUserDefaultsKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
