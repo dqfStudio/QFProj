@@ -26,10 +26,10 @@ typedef void(^HTextActionBlock)(NSAttributedString *text, NSRange range);
 //设置点击事件
 - (void)makeTapAction:(NSRange)range tapAction:(HTextActionBlock)block;
 
-//追加图片
+//追加图片，alignment默认为HTextVerticalAlignmentCenter
 - (void)appendImageName:(NSString *)imageName size:(CGSize)size;
 - (void)appendImageName:(NSString *)imageName size:(CGSize)size alignment:(HTextVerticalAlignment)alignment;
-//插入图片
+//插入图片，alignment默认为HTextVerticalAlignmentCenter
 - (void)insertImageName:(NSString *)imageName size:(CGSize)size atIndex:(NSUInteger)loc;
 - (void)insertImageName:(NSString *)imageName size:(CGSize)size atIndex:(NSUInteger)loc alignment:(HTextVerticalAlignment)alignment;
 
