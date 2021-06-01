@@ -53,10 +53,6 @@
     [self appendImageName:imageName size:size alignment:HTextVerticalAlignmentCenter];
 }
 - (void)appendImageName:(NSString *)imageName size:(CGSize)size alignment:(HTextVerticalAlignment)alignment {
-    HWebImageView *imageView = [[HWebImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-    [imageView setImageWithName:imageName];
-    NSMutableAttributedString *attributedString = [NSMutableAttributedString h_attachmentStringWithContent:imageView contentMode:UIViewContentModeScaleAspectFit attachmentSize:imageView.frame.size alignToFont:self.h_font alignment:alignment];
-    [self appendAttributedString:attributedString];
     [self appendImageName:imageName size:size alignment:HTextVerticalAlignmentCenter pressed:nil];
 }
 - (void)appendImageName:(NSString *)imageName size:(CGSize)size alignment:(HTextVerticalAlignment)alignment pressed:(callback)block {
