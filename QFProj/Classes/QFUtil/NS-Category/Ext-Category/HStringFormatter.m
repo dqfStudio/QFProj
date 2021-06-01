@@ -57,6 +57,14 @@
     [imageView setImageWithName:imageName];
     NSMutableAttributedString *attributedString = [NSMutableAttributedString h_attachmentStringWithContent:imageView contentMode:UIViewContentModeScaleAspectFit attachmentSize:imageView.frame.size alignToFont:self.h_font alignment:alignment];
     [self appendAttributedString:attributedString];
+    [self appendImageName:imageName size:size alignment:HTextVerticalAlignmentCenter pressed:nil];
+}
+- (void)appendImageName:(NSString *)imageName size:(CGSize)size alignment:(HTextVerticalAlignment)alignment pressed:(callback)block {
+    HWebImageView *imageView = [[HWebImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    [imageView setImageWithName:imageName];
+    if (block) [imageView setPressed:block];
+    NSMutableAttributedString *attributedString = [NSMutableAttributedString h_attachmentStringWithContent:imageView contentMode:UIViewContentModeScaleAspectFit attachmentSize:imageView.frame.size alignToFont:self.h_font alignment:alignment];
+    [self appendAttributedString:attributedString];
 }
 
 
@@ -65,8 +73,12 @@
     [self insertImageName:imageName size:size atIndex:loc alignment:HTextVerticalAlignmentCenter];
 }
 - (void)insertImageName:(NSString *)imageName size:(CGSize)size atIndex:(NSUInteger)loc alignment:(HTextVerticalAlignment)alignment {
+    [self insertImageName:imageName size:size atIndex:loc alignment:HTextVerticalAlignmentCenter pressed:nil];
+}
+- (void)insertImageName:(NSString *)imageName size:(CGSize)size atIndex:(NSUInteger)loc alignment:(HTextVerticalAlignment)alignment pressed:(callback)block {
     HWebImageView *imageView = [[HWebImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
     [imageView setImageWithName:imageName];
+    if (block) [imageView setPressed:block];
     NSMutableAttributedString *attributedString = [NSMutableAttributedString h_attachmentStringWithContent:imageView contentMode:UIViewContentModeScaleAspectFit attachmentSize:imageView.frame.size alignToFont:self.h_font alignment:alignment];
     [self insertAttributedString:attributedString atIndex:loc];
 }

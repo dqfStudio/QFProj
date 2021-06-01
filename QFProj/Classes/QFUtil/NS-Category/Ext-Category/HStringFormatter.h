@@ -7,6 +7,7 @@
 //
 
 #import "NSAttributedString+HText.h"
+#import "HCommonBlock.h"
 
 typedef void(^HTextActionBlock)(NSAttributedString *text, NSRange range);
 
@@ -29,8 +30,11 @@ typedef void(^HTextActionBlock)(NSAttributedString *text, NSRange range);
 //追加图片，alignment默认为HTextVerticalAlignmentCenter
 - (void)appendImageName:(NSString *)imageName size:(CGSize)size;
 - (void)appendImageName:(NSString *)imageName size:(CGSize)size alignment:(HTextVerticalAlignment)alignment;
+- (void)appendImageName:(NSString *)imageName size:(CGSize)size alignment:(HTextVerticalAlignment)alignment pressed:(callback)block;
+
 //插入图片，alignment默认为HTextVerticalAlignmentCenter
 - (void)insertImageName:(NSString *)imageName size:(CGSize)size atIndex:(NSUInteger)loc;
 - (void)insertImageName:(NSString *)imageName size:(CGSize)size atIndex:(NSUInteger)loc alignment:(HTextVerticalAlignment)alignment;
+- (void)insertImageName:(NSString *)imageName size:(CGSize)size atIndex:(NSUInteger)loc alignment:(HTextVerticalAlignment)alignment pressed:(callback)block;
 
 @end
