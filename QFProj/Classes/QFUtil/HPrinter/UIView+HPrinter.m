@@ -160,10 +160,20 @@
 //    static dispatch_once_t onceToken;
 //    dispatch_once(&onceToken, ^{
 //        [self methodSwizzleWithOrigSEL:@selector(setText:) overrideSEL:@selector(printer_setText:)];
+//        [self methodSwizzleWithOrigSEL:@selector(setAttributedText:) overrideSEL:@selector(printer_setAttributedText:)];
 //    });
 //}
 //- (void)printer_setText:(NSString *)text {
 //    [self printer_setText:text];
+//    if ([text containsString:@"Sic Bo-Sic Bo"]) {
+//        NSLog(@"%@", text);
+//    }
+//}
+//- (void)printer_setAttributedText:(NSAttributedString *)text {
+//    [self printer_setAttributedText:text];
+//    if ([text.string containsString:@"Sic Bo-Sic Bo"]) {
+//        NSLog(@"%@", text);
+//    }
 //}
 //@end
 //
