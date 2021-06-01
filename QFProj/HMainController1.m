@@ -32,7 +32,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    [self.leftNaviButton setHidden:YES];
     [self setTitle:@"第一页"];
     [self.tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
     [self.view addSubview:self.tupleView];
