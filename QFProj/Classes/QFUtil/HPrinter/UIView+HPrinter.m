@@ -43,12 +43,16 @@
         UILabel *label = (UILabel *)self;
         if (label.text.length > 0 && ![label.text isEqualToString:@""]) {
             printf("HPrinting-->label.text-->%s\n", label.text.UTF8String);
+        }else if (label.attributedText.length > 0 && ![label.attributedText.string isEqualToString:@""]) {
+            printf("HPrinting-->label.attributedText-->%s\n", label.attributedText.string.UTF8String);
         }
     }
     else if ([self isKindOfClass:UITextView.class]) {
         UITextView *textView = (UITextView *)self;
         if (textView.text.length > 0 && ![textView.text isEqualToString:@""]) {
             printf("HPrinting-->textView.text-->%s\n", textView.text.UTF8String);
+        }else if (textView.attributedText.length > 0 && ![textView.attributedText.string isEqualToString:@""]) {
+            printf("HPrinting-->textView.attributedText-->%s\n", textView.attributedText.string.UTF8String);
         }
     }
     else if ([self isKindOfClass:UIControl.class]) {
@@ -56,6 +60,8 @@
             UIButton *btn = (UIButton *)self;
             if (btn.titleLabel.text.length > 0 && ![btn.titleLabel.text isEqualToString:@""]) {
                 printf("HPrinting-->button.text-->%s\n", btn.titleLabel.text.UTF8String);
+            }else if (btn.titleLabel.attributedText.length > 0 && ![btn.titleLabel.attributedText.string isEqualToString:@""]) {
+                printf("HPrinting-->button.attributedText-->%s\n", btn.titleLabel.attributedText.string.UTF8String);
             }
             if (btn.allTargets.count > 0) {
                 NSObject *objc = [[btn.allTargets allObjects] firstObject];
