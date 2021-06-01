@@ -144,6 +144,14 @@
         return NO;
     };
 }
+- (BOOL (^)(NSLimit limit))inLimit {
+    return ^BOOL (NSLimit limit) {
+        if (self.text.floatValue >= limit.min && self.text.floatValue <= limit.max) {
+            return YES;
+        }
+        return NO;
+    };
+}
 - (BOOL)isValidateWithRegex:(NSString *)regex {
     return [[NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex] evaluateWithObject:self.text];
 }
