@@ -28,7 +28,9 @@ typedef void(^HTextActionBlock)(NSAttributedString *text, NSRange range);
 
 //追加图片
 - (void)appendImageName:(NSString *)imageName size:(CGSize)size;
+- (void)appendImageName:(NSString *)imageName size:(CGSize)size alignment:(HTextVerticalAlignment)alignment;
 //插入图片
 - (void)insertImageName:(NSString *)imageName size:(CGSize)size atIndex:(NSUInteger)loc;
+- (void)insertImageName:(NSString *)imageName size:(CGSize)size atIndex:(NSUInteger)loc alignment:(HTextVerticalAlignment)alignment;
 
 @end
