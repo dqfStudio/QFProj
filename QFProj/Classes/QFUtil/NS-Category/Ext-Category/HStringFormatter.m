@@ -49,34 +49,50 @@
 
 
 //追加图片，alignment默认为HTextVerticalAlignmentCenter
-- (void)appendImageName:(NSString *)imageName size:(CGSize)size {
-    [self appendImageName:imageName size:size alignment:HTextVerticalAlignmentCenter];
+- (HWebImageView *)appendImageWithSize:(CGSize)size {
+    return [self appendImageWithSize:size alignment:HTextVerticalAlignmentCenter];
 }
-- (void)appendImageName:(NSString *)imageName size:(CGSize)size alignment:(HTextVerticalAlignment)alignment {
-    [self appendImageName:imageName size:size alignment:HTextVerticalAlignmentCenter pressed:nil];
-}
-- (void)appendImageName:(NSString *)imageName size:(CGSize)size alignment:(HTextVerticalAlignment)alignment pressed:(callback)block {
+- (HWebImageView *)appendImageWithSize:(CGSize)size alignment:(HTextVerticalAlignment)alignment {
     HWebImageView *imageView = [[HWebImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-    [imageView setImageWithName:imageName];
-    if (block) [imageView setPressed:block];
     NSMutableAttributedString *attributedString = [NSMutableAttributedString h_attachmentStringWithContent:imageView contentMode:UIViewContentModeScaleAspectFit attachmentSize:imageView.frame.size alignToFont:self.h_font alignment:alignment];
     [self appendAttributedString:attributedString];
+    return imageView;
 }
 
 
 //插入图片，alignment默认为HTextVerticalAlignmentCenter
-- (void)insertImageName:(NSString *)imageName size:(CGSize)size atIndex:(NSUInteger)loc {
-    [self insertImageName:imageName size:size atIndex:loc alignment:HTextVerticalAlignmentCenter];
+- (HWebImageView *)insertImageWithSize:(CGSize)size atIndex:(NSUInteger)loc {
+    return [self insertImageWithSize:size atIndex:loc alignment:HTextVerticalAlignmentCenter];
 }
-- (void)insertImageName:(NSString *)imageName size:(CGSize)size atIndex:(NSUInteger)loc alignment:(HTextVerticalAlignment)alignment {
-    [self insertImageName:imageName size:size atIndex:loc alignment:HTextVerticalAlignmentCenter pressed:nil];
-}
-- (void)insertImageName:(NSString *)imageName size:(CGSize)size atIndex:(NSUInteger)loc alignment:(HTextVerticalAlignment)alignment pressed:(callback)block {
+- (HWebImageView *)insertImageWithSize:(CGSize)size atIndex:(NSUInteger)loc alignment:(HTextVerticalAlignment)alignment {
     HWebImageView *imageView = [[HWebImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-    [imageView setImageWithName:imageName];
-    if (block) [imageView setPressed:block];
     NSMutableAttributedString *attributedString = [NSMutableAttributedString h_attachmentStringWithContent:imageView contentMode:UIViewContentModeScaleAspectFit attachmentSize:imageView.frame.size alignToFont:self.h_font alignment:alignment];
     [self insertAttributedString:attributedString atIndex:loc];
+    return imageView;
+}
+
+
+
+//追加button，alignment默认为HTextVerticalAlignmentCenter
+- (HWebButtonView *)appendButtonWithSize:(CGSize)size {
+    return [self appendButtonWithSize:size alignment:HTextVerticalAlignmentCenter];
+}
+- (HWebButtonView *)appendButtonWithSize:(CGSize)size alignment:(HTextVerticalAlignment)alignment {
+    HWebButtonView *buttonView = [[HWebButtonView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    NSMutableAttributedString *attributedString = [NSMutableAttributedString h_attachmentStringWithContent:buttonView contentMode:UIViewContentModeScaleAspectFit attachmentSize:buttonView.frame.size alignToFont:self.h_font alignment:alignment];
+    [self appendAttributedString:attributedString];
+    return buttonView;
+}
+
+//插入button，alignment默认为HTextVerticalAlignmentCenter
+- (HWebButtonView *)insertButtonWithSize:(CGSize)size atIndex:(NSUInteger)loc {
+    return [self insertButtonWithSize:size atIndex:loc alignment:HTextVerticalAlignmentCenter];
+}
+- (HWebButtonView *)insertButtonWithSize:(CGSize)size atIndex:(NSUInteger)loc alignment:(HTextVerticalAlignment)alignment {
+    HWebButtonView *buttonView = [[HWebButtonView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    NSMutableAttributedString *attributedString = [NSMutableAttributedString h_attachmentStringWithContent:buttonView contentMode:UIViewContentModeScaleAspectFit attachmentSize:buttonView.frame.size alignToFont:self.h_font alignment:alignment];
+    [self insertAttributedString:attributedString atIndex:loc];
+    return buttonView;
 }
 
 @end

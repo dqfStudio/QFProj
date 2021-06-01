@@ -7,6 +7,8 @@
 //
 
 #import "NSAttributedString+HText.h"
+#import "HWebButtonView.h"
+#import "HWebImageView.h"
 #import "HCommonBlock.h"
 
 typedef void(^HTextActionBlock)(NSAttributedString *text, NSRange range);
@@ -27,14 +29,22 @@ typedef void(^HTextActionBlock)(NSAttributedString *text, NSRange range);
 //设置点击事件
 - (void)makeTapAction:(NSRange)range tapAction:(HTextActionBlock)block;
 
+
 //追加图片，alignment默认为HTextVerticalAlignmentCenter
-- (void)appendImageName:(NSString *)imageName size:(CGSize)size;
-- (void)appendImageName:(NSString *)imageName size:(CGSize)size alignment:(HTextVerticalAlignment)alignment;
-- (void)appendImageName:(NSString *)imageName size:(CGSize)size alignment:(HTextVerticalAlignment)alignment pressed:(callback)block;
+- (HWebImageView *)appendImageWithSize:(CGSize)size;
+- (HWebImageView *)appendImageWithSize:(CGSize)size alignment:(HTextVerticalAlignment)alignment;
 
 //插入图片，alignment默认为HTextVerticalAlignmentCenter
-- (void)insertImageName:(NSString *)imageName size:(CGSize)size atIndex:(NSUInteger)loc;
-- (void)insertImageName:(NSString *)imageName size:(CGSize)size atIndex:(NSUInteger)loc alignment:(HTextVerticalAlignment)alignment;
-- (void)insertImageName:(NSString *)imageName size:(CGSize)size atIndex:(NSUInteger)loc alignment:(HTextVerticalAlignment)alignment pressed:(callback)block;
+- (HWebImageView *)insertImageWithSize:(CGSize)size atIndex:(NSUInteger)loc;
+- (HWebImageView *)insertImageWithSize:(CGSize)size atIndex:(NSUInteger)loc alignment:(HTextVerticalAlignment)alignment;
+
+
+//追加button，alignment默认为HTextVerticalAlignmentCenter
+- (HWebButtonView *)appendButtonWithSize:(CGSize)size;
+- (HWebButtonView *)appendButtonWithSize:(CGSize)size alignment:(HTextVerticalAlignment)alignment;
+
+//插入button，alignment默认为HTextVerticalAlignmentCenter
+- (HWebButtonView *)insertButtonWithSize:(CGSize)size atIndex:(NSUInteger)loc;
+- (HWebButtonView *)insertButtonWithSize:(CGSize)size atIndex:(NSUInteger)loc alignment:(HTextVerticalAlignment)alignment;
 
 @end
