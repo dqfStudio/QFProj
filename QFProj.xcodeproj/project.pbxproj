@@ -188,7 +188,6 @@
 		A25E6791262445FD00863FF8 /* NSString+HSize.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E647B262445FC00863FF8 /* NSString+HSize.m */; };
 		A25E6792262445FD00863FF8 /* NSObject+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E647E262445FC00863FF8 /* NSObject+HUtil.m */; };
 		A25E6793262445FD00863FF8 /* NSError+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6481262445FC00863FF8 /* NSError+HUtil.m */; };
-		A25E6794262445FD00863FF8 /* NSMutableAttributedString+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6483262445FC00863FF8 /* NSMutableAttributedString+HUtil.m */; };
 		A25E6795262445FD00863FF8 /* HHexUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6484262445FC00863FF8 /* HHexUtil.m */; };
 		A25E6796262445FD00863FF8 /* CADisplayLink+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6485262445FC00863FF8 /* CADisplayLink+HUtil.m */; };
 		A25E6797262445FD00863FF8 /* NSObject+HBlockSEL.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E648B262445FC00863FF8 /* NSObject+HBlockSEL.m */; };
@@ -830,7 +829,6 @@
 		A25E6475262445FC00863FF8 /* NSUserDefaults+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+HUtil.m"; sourceTree = "<group>"; };
 		A25E6476262445FC00863FF8 /* CADisplayLink+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CADisplayLink+HUtil.h"; sourceTree = "<group>"; };
 		A25E6477262445FC00863FF8 /* HHexUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHexUtil.h; sourceTree = "<group>"; };
-		A25E6478262445FC00863FF8 /* NSMutableAttributedString+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+HUtil.h"; sourceTree = "<group>"; };
 		A25E6479262445FC00863FF8 /* NSObject+HMessy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HMessy.h"; sourceTree = "<group>"; };
 		A25E647A262445FC00863FF8 /* NSDictionary+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HUtil.h"; sourceTree = "<group>"; };
 		A25E647B262445FC00863FF8 /* NSString+HSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HSize.m"; sourceTree = "<group>"; };
@@ -841,7 +839,6 @@
 		A25E6480262445FC00863FF8 /* HSpeechUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSpeechUtil.h; sourceTree = "<group>"; };
 		A25E6481262445FC00863FF8 /* NSError+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+HUtil.m"; sourceTree = "<group>"; };
 		A25E6482262445FC00863FF8 /* NSDate+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+HUtil.h"; sourceTree = "<group>"; };
-		A25E6483262445FC00863FF8 /* NSMutableAttributedString+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+HUtil.m"; sourceTree = "<group>"; };
 		A25E6484262445FC00863FF8 /* HHexUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHexUtil.m; sourceTree = "<group>"; };
 		A25E6485262445FC00863FF8 /* CADisplayLink+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CADisplayLink+HUtil.m"; sourceTree = "<group>"; };
 		A25E6486262445FC00863FF8 /* NSUserDefaults+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+HUtil.h"; sourceTree = "<group>"; };
@@ -2246,8 +2243,6 @@
 				A25E646A262445FC00863FF8 /* NSDictionary+HUtil.m */,
 				A25E6471262445FC00863FF8 /* NSError+HUtil.h */,
 				A25E6481262445FC00863FF8 /* NSError+HUtil.m */,
-				A25E6478262445FC00863FF8 /* NSMutableAttributedString+HUtil.h */,
-				A25E6483262445FC00863FF8 /* NSMutableAttributedString+HUtil.m */,
 				A25E6487262445FC00863FF8 /* NSObject+HExclusive.h */,
 				A25E6473262445FC00863FF8 /* NSObject+HExclusive.m */,
 				A25E6479262445FC00863FF8 /* NSObject+HMessy.h */,
@@ -3966,7 +3961,6 @@
 				A25E6774262445FD00863FF8 /* HNetworkManager.m in Sources */,
 				A25E6746262445FD00863FF8 /* UIViewController+HTracking.m in Sources */,
 				A25E68AE262445FE00863FF8 /* HPushAnimation.m in Sources */,
-				A25E6794262445FD00863FF8 /* NSMutableAttributedString+HUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

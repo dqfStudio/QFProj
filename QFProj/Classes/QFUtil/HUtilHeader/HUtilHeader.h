@@ -45,7 +45,6 @@
 #import "CADisplayLink+HUtil.h"
 #import "NSObject+HSelector.h"
 #import "NSDictionary+HUtil.h"
-#import "NSMutableAttributedString+HUtil.h"
 
 //Block-Category
 #import "NSObject+HBlockSEL.h"

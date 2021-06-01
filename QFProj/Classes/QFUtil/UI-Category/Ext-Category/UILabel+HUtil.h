@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "NSObject+HMessy.h"
 #import "UILabel+HAttributeText.h"
-#import "NSMutableAttributedString+HUtil.h"
 #import "NSString+HChain.h"
 #import "UIColor+HUtil.h"
 #import "HStringFormatter.h"
