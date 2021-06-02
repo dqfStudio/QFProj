@@ -20,11 +20,6 @@
 
 @implementation HResultView
 
-@synthesize bgColor,style,marginTop,hideImage;
-@synthesize desc,descFont,descColor;
-@synthesize detlDesc,detlDescFont,detlDescColor;
-@synthesize clickedBlock,isLoading;
-
 - (HTupleView *)tupleView {
     if (!_tupleView) {
         _tupleView = [[HTupleView alloc] initWithFrame:CGRectZero];
@@ -37,26 +32,34 @@
 - (void)wakeup {
     //添加view
     CGFloat height = KResultTextSize.height;
-    if (!self.hideImage) height += KResultImageSize.height;
-    if (self.detlDesc.length > 0) height += KResultDetlTextSize.height;
+    if (!_make.hideImage) height += KResultImageSize.height;
+    if (_make.detlDesc.length > 0) height += KResultDetlTextSize.height;
     
     CGRect frame = CGRectMake(0, 0, KResultImageSize.width, height);
     self.tupleView.frame = frame;
-    self.tupleView.center = CGPointMake(self.center.x, self.center.y-self.marginTop);
+    self.tupleView.center = CGPointMake(self.center.x, self.center.y-_make.marginTop);
+    
+    [self.tupleView reloadData];
 }
-
+- (void)setMake:(HResultTransition *)make {
+    if (_make != make) {
+        _make = nil;
+        _make = make;
+        [self wakeup];
+    }
+}
 - (NSInteger)numberOfSectionsInTupleView {
     if (![AFNetworkReachabilityManager sharedManager].isReachable) {
-        self.style = HResultTypeNoNetwork;
+        _make.style = HResultTypeNoNetwork;
     }
     return 1;
 }
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
-    return self.detlDesc.length > 0 ? 2 : 1;
+    return _make.detlDesc.length > 0 ? 2 : 1;
 }
 
 - (CGSize)sizeForHeaderInSection:(NSInteger)section {
-    return self.hideImage ? CGSizeZero : KResultImageSize;
+    return _make.hideImage ? CGSizeZero : KResultImageSize;
 }
 - (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
@@ -69,8 +72,8 @@
 - (void)tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
     HTupleImageApex *cell = headerBlock(nil, HTupleImageApex.class, nil, YES);
     [cell.imageView setBackgroundColor:UIColor.whiteColor];
-    if (self.bgColor) [cell.imageView setBackgroundColor:self.bgColor];
-    switch (self.style) {
+    if (_make.bgColor) [cell.imageView setBackgroundColor:_make.bgColor];
+    switch (_make.style) {
         case HResultTypeNoData:
             [cell.imageView setImage:[UIImage imageNamed:@"icon_load_nothing"]];
             break;
@@ -84,8 +87,8 @@
             break;
     }
     cell.imageView.pressed = ^(id sender, id data) {
-        if (self.clickedBlock) {
-            self.clickedBlock();
+        if (self->_make.clickedBlock) {
+            self->_make.clickedBlock();
         }
     };
 }
@@ -97,13 +100,13 @@
             [cell.label setTextColor:[UIColor blackColor]];
             [cell.label setFont:[UIFont systemFontOfSize:14]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
-            if (self.bgColor) [cell.label setBackgroundColor:self.bgColor];
-            if (self.descFont) [cell.label setFont:self.descFont];
-            if (self.descColor) [cell.label setTextColor:self.descColor];
-            if (self.desc.length > 0) {
-                [cell.label setText:self.desc];
+            if (_make.bgColor) [cell.label setBackgroundColor:_make.bgColor];
+            if (_make.descFont) [cell.label setFont:_make.descFont];
+            if (_make.descColor) [cell.label setTextColor:_make.descColor];
+            if (_make.desc.length > 0) {
+                [cell.label setText:_make.desc];
             }else {
-                switch (self.style) {
+                switch (_make.style) {
                     case HResultTypeNoData:
                         [cell.label setText:@"这里好像什么都没有呢⋯"];
                         break;
@@ -125,10 +128,10 @@
             [cell.label setTextColor:[UIColor blackColor]];
             [cell.label setFont:[UIFont systemFontOfSize:14]];
             [cell.label setTextAlignment:NSTextAlignmentCenter];
-            if (self.bgColor) [cell.label setBackgroundColor:self.bgColor];
-            if (self.detlDescFont) [cell.label setFont:self.detlDescFont];
-            if (self.detlDescColor) [cell.label setTextColor:self.detlDescColor];
-            if (self.detlDesc.length > 0) [cell.label setText:self.detlDesc];
+            if (_make.bgColor) [cell.label setBackgroundColor:_make.bgColor];
+            if (_make.detlDescFont) [cell.label setFont:_make.detlDescFont];
+            if (_make.detlDescColor) [cell.label setTextColor:_make.detlDescColor];
+            if (_make.detlDesc.length > 0) [cell.label setText:_make.detlDesc];
         }
             break;
             
@@ -138,14 +141,9 @@
     
 }
 - (void)didSelectCell:(HTupleBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    if (self.clickedBlock) {
-        self.clickedBlock();
+    if (_make.clickedBlock) {
+        _make.clickedBlock();
     }
-}
-
-- (void)removeFromSuperview {
-    [self setIsLoading:NO];
-    [super removeFromSuperview];
 }
 
 @end

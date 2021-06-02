@@ -6,7 +6,7 @@
 //  Copyright © 2018年 dqfStudio. All rights reserved.
 //
 
-#import "HAlert+Protocol.h"
+#import "HAlertFormatter.h"
 
 typedef NS_ENUM(NSInteger, HResultType) {
     HResultTypeNoData, // 没有数据
@@ -14,6 +14,6 @@ typedef NS_ENUM(NSInteger, HResultType) {
     HResultTypeNoNetwork // 无网络
 };
 
-@interface HResultView : UIView <HResultProtocol>
-
+@interface HResultView : UIView
+@property (nonatomic) HResultTransition *make;
 @end

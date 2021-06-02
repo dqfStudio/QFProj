@@ -426,7 +426,6 @@
 		A25E688D262445FE00863FF8 /* loading_new_11@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A25E6694262445FD00863FF8 /* loading_new_11@2x.png */; };
 		A25E688E262445FE00863FF8 /* UIAlertController+HUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6696262445FD00863FF8 /* UIAlertController+HUtil.m */; };
 		A25E688F262445FE00863FF8 /* HFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6697262445FD00863FF8 /* HFormCell.m */; };
-		A25E6890262445FE00863FF8 /* HAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6698262445FD00863FF8 /* HAlertView.m */; };
 		A25E6891262445FE00863FF8 /* HNaviToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E669B262445FD00863FF8 /* HNaviToastView.m */; };
 		A25E6892262445FE00863FF8 /* HResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E669C262445FD00863FF8 /* HResultView.m */; };
 		A25E6893262445FE00863FF8 /* HProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E669E262445FD00863FF8 /* HProgressHUD.m */; };
@@ -485,6 +484,7 @@
 		A28FE4EA265692BC00C9A4EB /* HRect.m in Sources */ = {isa = PBXBuildFile; fileRef = A28FE4E9265692BC00C9A4EB /* HRect.m */; };
 		A2C2B214235EAC770041AAB5 /* HMainController6.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C2B213235EAC770041AAB5 /* HMainController6.m */; };
 		A2C2B21C235F15DA0041AAB5 /* HTupleView的用法.pages in Resources */ = {isa = PBXBuildFile; fileRef = A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */; };
+		A2D65BDE2667601E00973A76 /* HAlertFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D65BDD2667601E00973A76 /* HAlertFormatter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1286,18 +1286,15 @@
 		A25E6695262445FD00863FF8 /* HProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HProgressHUD.h; sourceTree = "<group>"; };
 		A25E6696262445FD00863FF8 /* UIAlertController+HUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+HUtil.m"; sourceTree = "<group>"; };
 		A25E6697262445FD00863FF8 /* HFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFormCell.m; sourceTree = "<group>"; };
-		A25E6698262445FD00863FF8 /* HAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAlertView.m; sourceTree = "<group>"; };
 		A25E6699262445FD00863FF8 /* HFormController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFormController.h; sourceTree = "<group>"; };
 		A25E669A262445FD00863FF8 /* UIView+HAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HAlert.h"; sourceTree = "<group>"; };
 		A25E669B262445FD00863FF8 /* HNaviToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNaviToastView.m; sourceTree = "<group>"; };
 		A25E669C262445FD00863FF8 /* HResultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HResultView.m; sourceTree = "<group>"; };
 		A25E669D262445FD00863FF8 /* HWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWaitingView.h; sourceTree = "<group>"; };
 		A25E669E262445FD00863FF8 /* HProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HProgressHUD.m; sourceTree = "<group>"; };
-		A25E669F262445FD00863FF8 /* HAlert+Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HAlert+Protocol.h"; sourceTree = "<group>"; };
 		A25E66A0262445FD00863FF8 /* HFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFormCell.h; sourceTree = "<group>"; };
 		A25E66A1262445FD00863FF8 /* UIAlertController+HUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+HUtil.h"; sourceTree = "<group>"; };
 		A25E66A2262445FD00863FF8 /* HFormController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFormController.m; sourceTree = "<group>"; };
-		A25E66A3262445FD00863FF8 /* HAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAlertView.h; sourceTree = "<group>"; };
 		A25E66A5262445FD00863FF8 /* NSObject+HSafeMessy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSafeMessy.h"; sourceTree = "<group>"; };
 		A25E66A6262445FD00863FF8 /* UIControl+HSafeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+HSafeUtil.h"; sourceTree = "<group>"; };
 		A25E66A7262445FD00863FF8 /* NSObject+HForwarding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HForwarding.h"; sourceTree = "<group>"; };
@@ -1401,6 +1398,8 @@
 		A2C2B212235EAC770041AAB5 /* HMainController6.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMainController6.h; sourceTree = "<group>"; };
 		A2C2B213235EAC770041AAB5 /* HMainController6.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMainController6.m; sourceTree = "<group>"; };
 		A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HTupleView的用法.pages"; sourceTree = "<group>"; };
+		A2D65BDC2667601E00973A76 /* HAlertFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAlertFormatter.h; sourceTree = "<group>"; };
+		A2D65BDD2667601E00973A76 /* HAlertFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAlertFormatter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3097,9 +3096,8 @@
 		A25E6674262445FD00863FF8 /* HResultView */ = {
 			isa = PBXGroup;
 			children = (
-				A25E669F262445FD00863FF8 /* HAlert+Protocol.h */,
-				A25E66A3262445FD00863FF8 /* HAlertView.h */,
-				A25E6698262445FD00863FF8 /* HAlertView.m */,
+				A2D65BDC2667601E00973A76 /* HAlertFormatter.h */,
+				A2D65BDD2667601E00973A76 /* HAlertFormatter.m */,
 				A25E66A0262445FD00863FF8 /* HFormCell.h */,
 				A25E6697262445FD00863FF8 /* HFormCell.m */,
 				A25E6699262445FD00863FF8 /* HFormController.h */,
@@ -3806,7 +3804,6 @@
 				A25E689E262445FE00863FF8 /* HSkinManager+HUtil.m in Sources */,
 				A25E68B3262445FE00863FF8 /* HPresentAnimation.m in Sources */,
 				A25E68BB262445FE00863FF8 /* HTupleController.m in Sources */,
-				A25E6890262445FE00863FF8 /* HAlertView.m in Sources */,
 				A25E689A262445FE00863FF8 /* NSNull+HSafeUtil.m in Sources */,
 				A25E6825262445FE00863FF8 /* HCycleScrollView.m in Sources */,
 				A25E689F262445FE00863FF8 /* HVersionManager.m in Sources */,
@@ -3830,6 +3827,7 @@
 				A25E6872262445FE00863FF8 /* HUncaughtExceptionHandler.m in Sources */,
 				A25E689C262445FE00863FF8 /* UIControl+HSafeUtil.m in Sources */,
 				15B4DD762092F88700773E04 /* main.m in Sources */,
+				A2D65BDE2667601E00973A76 /* HAlertFormatter.m in Sources */,
 				A25E684A262445FE00863FF8 /* HWebImageView.m in Sources */,
 				A251AA6A264BB2990067E574 /* HUserLocale2.m in Sources */,
 				A25E67F2262445FE00863FF8 /* KSCrashInstallationStandard.m in Sources */,

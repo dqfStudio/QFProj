@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HAlert+Protocol.h"
 #import "UIScreen+HUtil.h"
 
 @interface HNaviToastView : UIView

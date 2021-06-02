@@ -6,7 +6,7 @@
 //  Copyright © 2018年 dqfStudio. All rights reserved.
 //
 
-#import "HAlert+Protocol.h"
+#import "HAlertFormatter.h"
 
 typedef NS_ENUM(NSInteger, HWaitingType) {
     HWaitingTypeBlack,
@@ -14,6 +14,6 @@ typedef NS_ENUM(NSInteger, HWaitingType) {
     HWaitingTypeGray
 };
 
-@interface HWaitingView : UIView <HWaitingProtocol>
-
+@interface HWaitingView : UIView
+@property (nonatomic) HWaitingTransition *make;
 @end

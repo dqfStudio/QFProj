@@ -18,9 +18,6 @@
 
 @implementation HWaitingView
 
-@synthesize bgColor,style,desc,descFont;
-@synthesize descColor,marginTop,isLoading;
-
 - (HTupleView *)tupleView {
     if (!_tupleView) {
         _tupleView = [[HTupleView alloc] initWithFrame:CGRectZero];
@@ -34,11 +31,20 @@
 - (void)wakeup {
     //添加view
     CGFloat height = KWaitingImageSize.height;
-    if (self.desc.length > 0) height += KWaitingTextSize.height;
+    if (_make.desc.length > 0) height += KWaitingTextSize.height;
     
     CGRect frame = CGRectMake(0, 0, KWaitingImageSize.width, height);
     self.tupleView.frame = frame;
-    self.tupleView.center = CGPointMake(self.center.x, self.center.y-self.marginTop);
+    self.tupleView.center = CGPointMake(self.center.x, self.center.y-_make.marginTop);
+    
+    [self.tupleView reloadData];
+}
+- (void)setMake:(HWaitingTransition *)make {
+    if (_make != make) {
+        _make = nil;
+        _make = make;
+        [self wakeup];
+    }
 }
 - (NSInteger)numberOfSectionsInTupleView {
     return 1;
@@ -56,9 +62,9 @@
 
 - (void)tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
     HTupleAnimatedImageApex *cell = headerBlock(nil, HTupleAnimatedImageApex.class, nil, YES);
-    if (self.bgColor) [cell.imageView setBackgroundColor:self.bgColor];
+    if (_make.bgColor) [cell.imageView setBackgroundColor:_make.bgColor];
     [cell.imageView setContentMode:UIViewContentModeScaleAspectFit];
-    switch (self.style) {
+    switch (_make.style) {
         case HWaitingTypeBlack:
             [cell.imageView setAnimatedGIFDataWithName:@"loading_gif_black"];
             break;
@@ -78,17 +84,12 @@
     [cell.label setTextColor:[UIColor blackColor]];
     [cell.label setFont:[UIFont systemFontOfSize:14]];
     [cell.label setTextAlignment:NSTextAlignmentCenter];
-    if (self.bgColor) [cell.label setBackgroundColor:self.bgColor];
-    if (self.descFont) [cell.label setFont:self.descFont];
-    if (self.descColor) [cell.label setTextColor:self.descColor];
-    if (self.desc.length > 0) {
-        [cell.label setText:self.desc];
+    if (_make.bgColor) [cell.label setBackgroundColor:_make.bgColor];
+    if (_make.descFont) [cell.label setFont:_make.descFont];
+    if (_make.descColor) [cell.label setTextColor:_make.descColor];
+    if (_make.desc.length > 0) {
+        [cell.label setText:_make.desc];
     }
-}
-
-- (void)removeFromSuperview {
-    [self setIsLoading:NO];
-    [super removeFromSuperview];
 }
 
 @end
