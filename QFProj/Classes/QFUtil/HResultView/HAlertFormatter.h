@@ -52,8 +52,3 @@ typedef void (^HAlertButtonBlock)(NSInteger buttonIndex);
 @property (nonatomic) UIView *inView;//add view to，默认为UIWindow
 
 @end
-
-
-@interface HProgressHUD (HAlert)
-+ (void)showToast:(void(^)(HToastTransition *make))block;
-@end

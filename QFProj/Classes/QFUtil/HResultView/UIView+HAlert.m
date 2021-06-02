@@ -85,3 +85,18 @@
 }
 
 @end
+
+@implementation HProgressHUD (HAlert)
++ (void)showToast:(void(^)(HToastTransition *make))block {
+    @synchronized(self) {
+        HToastTransition *make = HToastTransition.new;
+        if (block) block(make);
+        HProgressHUD *hud = [HProgressHUD showHUDAddedTo:make.inView animated:YES];
+        hud.mode = HProgressHUDModeText;
+        hud.labelText = make.desc;
+        hud.margin = 10.f;
+        hud.removeFromSuperViewOnHide = YES;
+        [hud hide:YES afterDelay:make.delay];
+    }
+}
+@end

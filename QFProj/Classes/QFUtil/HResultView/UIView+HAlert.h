@@ -22,3 +22,7 @@
 - (void)removeResult;
 
 @end
+
+@interface HProgressHUD (HAlert)
++ (void)showToast:(void(^)(HToastTransition *make))block;
+@end
