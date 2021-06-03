@@ -79,6 +79,7 @@
     [self addSubview:self._imageView];
     //self.backgroundColor = [UIColor colorWithHex:0xe8e8e8];
     self.backgroundColor = [UIColor clearColor];
+    self.titleLabel.adjustsFontSizeToFitWidth = YES;
     [self initialize];
 }
 - (void)initialize {

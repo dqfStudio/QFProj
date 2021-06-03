@@ -26,6 +26,7 @@
     if (!_label) {
         _label = [UILabel new];
         [_label setFont:[UIFont systemFontOfSize:14]];
+        [_label setAdjustsFontSizeToFitWidth:YES];
         [self.layoutView addSubview:_label];
     }
     return _label;
