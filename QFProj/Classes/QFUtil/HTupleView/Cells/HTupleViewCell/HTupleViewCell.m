@@ -22,6 +22,20 @@
 @end
 
 @implementation HTupleLabelCell
+- (UILabel *)label {
+    if (!_label) {
+        _label = [UILabel new];
+        [_label setFont:[UIFont systemFontOfSize:14]];
+        [self.layoutView addSubview:_label];
+    }
+    return _label;
+}
+- (void)relayoutSubviews {
+    HLayoutTupleCell(self.label)
+}
+@end
+
+@implementation HTupleNoteCell
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
@@ -36,6 +50,20 @@
 @end
 
 @implementation HTupleTextCell
+- (UITextView *)textView {
+    if (!_textView) {
+        _textView = [UITextView new];
+        [_textView setFont:[UIFont systemFontOfSize:14]];
+        [self.layoutView addSubview:_textView];
+    }
+    return _textView;
+}
+- (void)relayoutSubviews {
+    HLayoutTupleCell(self.textView)
+}
+@end
+
+@implementation HTupleTextNoteCell
 - (HTextView *)textView {
     if (!_textView) {
         _textView = [HTextView new];

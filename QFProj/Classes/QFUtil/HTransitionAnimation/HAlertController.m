@@ -113,7 +113,7 @@
 - (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case HCell0: {
-            HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
+            HTupleNoteCell *cell = itemBlock(nil, HTupleNoteCell.class, nil, YES);
             cell.label.font = [UIFont boldSystemFontOfSize:17.f];
             cell.label.textAlignment = NSTextAlignmentCenter;
             cell.label.textVerticalAlignment = HTextVerticalAlignmentBottom;
@@ -122,7 +122,7 @@
         }
             break;
         case HCell1: {
-            HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
+            HTupleNoteCell *cell = itemBlock(nil, HTupleNoteCell.class, nil, YES);
             cell.label.font = [UIFont systemFontOfSize:12.f];
             cell.label.textAlignment = NSTextAlignmentCenter;
             cell.label.textVerticalAlignment = HTextVerticalAlignmentTop;

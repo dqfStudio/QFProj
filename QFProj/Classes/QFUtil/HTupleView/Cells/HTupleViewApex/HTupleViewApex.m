@@ -22,6 +22,20 @@
 @end
 
 @implementation HTupleLabelApex
+- (UILabel *)label {
+    if (!_label) {
+        _label = [UILabel new];
+        [_label setFont:[UIFont systemFontOfSize:14]];
+        [self.layoutView addSubview:_label];
+    }
+    return _label;
+}
+- (void)relayoutSubviews {
+    HLayoutTupleApex(self.label)
+}
+@end
+
+@implementation HTupleNoteApex
 - (HLabel *)label {
     if (!_label) {
         _label = [HLabel new];
@@ -36,6 +50,20 @@
 @end
 
 @implementation HTupleTextApex
+- (UITextView *)textView {
+    if (!_textView) {
+        _textView = [UITextView new];
+        [_textView setFont:[UIFont systemFontOfSize:14]];
+        [self.layoutView addSubview:_textView];
+    }
+    return _textView;
+}
+- (void)relayoutSubviews {
+    HLayoutTupleApex(self.textView)
+}
+@end
+
+@implementation HTupleTextNoteApex
 - (HTextView *)textView {
     if (!_textView) {
         _textView = [HTextView new];

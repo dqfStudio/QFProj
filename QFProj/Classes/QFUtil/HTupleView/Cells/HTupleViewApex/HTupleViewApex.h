@@ -23,10 +23,18 @@
 @end
 
 @interface HTupleLabelApex : HTupleBaseApex
+@property (nonatomic) UILabel *label;
+@end
+
+@interface HTupleNoteApex : HTupleBaseApex
 @property (nonatomic) HLabel *label;
 @end
 
 @interface HTupleTextApex : HTupleBaseApex
+@property (nonatomic) UITextView *textView;
+@end
+
+@interface HTupleTextNoteApex : HTupleBaseApex
 @property (nonatomic) HTextView *textView;
 @end
 

@@ -23,10 +23,18 @@
 @end
 
 @interface HTupleLabelCell : HTupleBaseCell
+@property (nonatomic) UILabel *label;
+@end
+
+@interface HTupleNoteCell : HTupleBaseCell
 @property (nonatomic) HLabel *label;
 @end
 
 @interface HTupleTextCell : HTupleBaseCell
+@property (nonatomic) UITextView *textView;
+@end
+
+@interface HTupleTextNoteCell : HTupleBaseCell
 @property (nonatomic) HTextView *textView;
 @end
 
