@@ -406,4 +406,26 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     }
     return stringValue;
 }
+//+ (void)load {
+//    [super load];
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        [[self class] classMethodSwizzleWithOrigSEL:@selector(stringWithFormat:) overrideSEL:@selector(formatter_stringWithFormat:)];
+//    });
+//}
++ (instancetype)formatter_stringWithFormat:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2) {
+    va_list args;
+    va_start(args, format);
+    NSString *tmpString = [[NSString alloc] initWithFormat:format arguments:args];
+    /*
+    if ([[HUserRegion defaultRegion].regionCode isEqualToString:@"VN"] || [[HUserRegion defaultRegion].regionCode isEqualToString:@"BR"]) {
+         tmpString = [tmpString stringByReplacingOccurrencesOfString:@"." withString:@","];
+    }else {
+         tmpString = [tmpString stringByReplacingOccurrencesOfString:@"," withString:@"."];
+    }
+    */
+    va_end(args);
+    return tmpString;
+}
+
 @end
