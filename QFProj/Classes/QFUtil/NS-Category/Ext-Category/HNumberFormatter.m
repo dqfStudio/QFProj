@@ -47,12 +47,15 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     }
     */
 
+    //去掉分组分隔符和空格
     stringValue = [stringValue stringByReplacingOccurrencesOfString:@"，" withString:@","];
     stringValue = [NSDecimalNumber clearTheSymbol:@"[, ]" withText:stringValue];
     
+    //去掉正负号和一些货币符号
     stringValue = [NSDecimalNumber clearTheSymbol:@"[+-]" withText:stringValue];
     stringValue = [NSDecimalNumber clearTheSymbol:@"[R$￥₫₹]" withText:stringValue];
 
+    //金额简写恢复
     NSString *appendString = @"";
     NSString *multiplyingString = @"1";
     
@@ -73,6 +76,7 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     
     stringValue = [stringValue stringByReplacingOccurrencesOfString:appendString withString:@""];
     
+    //判断是否是金额数据
     if ([self isOnlyNumericWithText:stringValue]) {
         NSDecimalNumber *selfNumber = [NSDecimalNumber decimalNumberWithString:stringValue];
         NSDecimalNumber *decimalNumber = [NSDecimalNumber decimalNumberWithString:multiplyingString];
@@ -87,7 +91,8 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
              stringValue = [stringValue stringByReplacingOccurrencesOfString:@"," withString:@"."];
         }
         */
-
+        
+        //根据地区显示正确的小数分隔符
         stringValue = [stringValue stringByReplacingOccurrencesOfString:@"," withString:@"."];
         
         return stringValue;
