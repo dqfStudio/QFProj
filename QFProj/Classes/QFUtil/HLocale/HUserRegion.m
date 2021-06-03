@@ -192,6 +192,16 @@
     }
     return @"USDT";
 }
+//分组分隔符
+- (NSString *)groupingSeparator {
+    NSDictionary *dict = [self.regionDict objectForKey:self.regionName];
+    return dict[@"groupingSeparator"];
+}
+//小数分隔符
+- (NSString *)decimalSeparator {
+    NSDictionary *dict = [self.regionDict objectForKey:self.regionName];
+    return dict[@"decimalSeparator"];
+}
 
 
 - (UIImage *)currencyIconWithFactors:(NSString *)factors {

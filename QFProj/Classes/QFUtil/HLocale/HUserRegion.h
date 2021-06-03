@@ -39,6 +39,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) NSString *currencyIconName;//货币图标名称
 
+@property (nonatomic, readonly) NSString *groupingSeparator;//分组分隔符
+@property (nonatomic, readonly) NSString *decimalSeparator;//小数分隔符
+
 
 //获取语言代码的序号
 - (NSInteger)sceneLanguageCodeIndex;

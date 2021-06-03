@@ -196,23 +196,15 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     if (grouping) {
         numberFormatter.usesGroupingSeparator = grouping;
         /*
-        if ([[HUserRegion defaultRegion].regionCode isEqualToString:@"VN"] || [[HUserRegion defaultRegion].regionCode isEqualToString:@"BR"]) {
-            numberFormatter.groupingSeparator = @".";
-        }else {
-            numberFormatter.groupingSeparator = @",";
-        }
-        */
+         numberFormatter.groupingSeparator = [HUserRegion defaultRegion].groupingSeparator;
+         */
         
         numberFormatter.groupingSeparator = @",";
         numberFormatter.groupingSize = 3;
     }
     //小数分隔符，默认为"."
     /*
-    if ([[HUserRegion defaultRegion].regionCode isEqualToString:@"VN"] || [[HUserRegion defaultRegion].regionCode isEqualToString:@"BR"]) {
-        numberFormatter.decimalSeparator = @",";
-    }else {
-        numberFormatter.decimalSeparator = @".";
-    }
+     numberFormatter.decimalSeparator = [HUserRegion defaultRegion].decimalSeparator;
      */
     
     numberFormatter.decimalSeparator = @".";
@@ -241,12 +233,9 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
             tmpString = [(NSNumber *)numberObjc stringValue];
         }
         /*
-        if ([[HUserRegion defaultRegion].regionCode isEqualToString:@"VN"] || [[HUserRegion defaultRegion].regionCode isEqualToString:@"BR"]) {
-         NSRange range = [tmpString rangeOfString:@","];
-        }else {
-         NSRange range = [tmpString rangeOfString:@"."];
-        }
+         NSRange range = [tmpString rangeOfString:[HUserRegion defaultRegion].decimalSeparator];
          */
+        
         NSRange range = [tmpString rangeOfString:@"."];
         NSInteger length = range.location;
         if (range.location == NSNotFound) length = tmpString.length;
