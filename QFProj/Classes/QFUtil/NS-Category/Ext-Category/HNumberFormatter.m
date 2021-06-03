@@ -91,9 +91,7 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
         
         //根据地区显示正确的小数分隔符
         /*
-        if ([[HUserRegion defaultRegion].regionCode isEqualToString:@"VN"] || [[HUserRegion defaultRegion].regionCode isEqualToString:@"BR"]) {
-             stringValue = [stringValue stringByReplacingOccurrencesOfString:@"." withString:@","];
-        }
+         stringValue = [stringValue stringByReplacingOccurrencesOfString:@"." withString:[HUserRegion defaultRegion].decimalSeparator];
         */
         
         return stringValue;
