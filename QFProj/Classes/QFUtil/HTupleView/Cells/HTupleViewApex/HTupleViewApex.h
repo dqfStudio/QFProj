@@ -55,13 +55,21 @@
 @end
 
 @interface HTupleViewApex : HTupleBaseApex
-@property (nonatomic) HLabel *label;
-@property (nonatomic) HLabel *detailLabel;
-@property (nonatomic) HLabel *accessoryLabel;
+@property (nonatomic) UILabel *label;
+@property (nonatomic) UILabel *detailLabel;
+@property (nonatomic) UILabel *accessoryLabel;
 
-@property (nonatomic) HTextView *textView;
-@property (nonatomic) HTextView *detailTextView;
-@property (nonatomic) HTextView *accessoryTextView;
+@property (nonatomic) HLabel *note;
+@property (nonatomic) HLabel *detailNote;
+@property (nonatomic) HLabel *accessoryNote;
+
+@property (nonatomic) UITextView *textView;
+@property (nonatomic) UITextView *detailTextView;
+@property (nonatomic) UITextView *accessoryTextView;
+
+@property (nonatomic) HTextView *textNote;
+@property (nonatomic) HTextView *detailTextNote;
+@property (nonatomic) HTextView *accessoryTextNote;
 
 @property (nonatomic) HWebButtonView *buttonView;
 @property (nonatomic) HWebButtonView *detailButtonView;

@@ -131,53 +131,101 @@
 @end
 
 @implementation HTupleViewCell
-- (HLabel *)label {
+- (UILabel *)label {
     if (!_label) {
-        _label = [HLabel new];
+        _label = [UILabel new];
         [_label setFont:[UIFont systemFontOfSize:14]];
         [self.layoutView addSubview:_label];
     }
     return _label;
 }
-- (HLabel *)detailLabel {
+- (UILabel *)detailLabel {
     if (!_detailLabel) {
-        _detailLabel = [HLabel new];
+        _detailLabel = [UILabel new];
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
         [self.layoutView addSubview:_detailLabel];
     }
     return _detailLabel;
 }
-- (HLabel *)accessoryLabel {
+- (UILabel *)accessoryLabel {
     if (!_accessoryLabel) {
-        _accessoryLabel = [HLabel new];
+        _accessoryLabel = [UILabel new];
         [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
         [self.layoutView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
 }
-- (HTextView *)textView {
+- (HLabel *)note {
+    if (!_note) {
+        _note = [HLabel new];
+        [_note setFont:[UIFont systemFontOfSize:14]];
+        [self.layoutView addSubview:_note];
+    }
+    return _note;
+}
+- (HLabel *)detailNote {
+    if (!_detailNote) {
+        _detailNote = [HLabel new];
+        [_detailNote setFont:[UIFont systemFontOfSize:14]];
+        [self.layoutView addSubview:_detailNote];
+    }
+    return _detailNote;
+}
+- (HLabel *)accessoryNote {
+    if (!_accessoryNote) {
+        _accessoryNote = [HLabel new];
+        [_accessoryNote setFont:[UIFont systemFontOfSize:14]];
+        [self.layoutView addSubview:_accessoryNote];
+    }
+    return _accessoryNote;
+}
+- (UITextView *)textView {
     if (!_textView) {
-        _textView = [HTextView new];
+        _textView = [UITextView new];
         [_textView setFont:[UIFont systemFontOfSize:14]];
         [self.layoutView addSubview:_textView];
     }
     return _textView;
 }
-- (HTextView *)detailTextView {
+- (UITextView *)detailTextView {
     if (!_detailTextView) {
-        _detailTextView = [HTextView new];
+        _detailTextView = [UITextView new];
         [_detailTextView setFont:[UIFont systemFontOfSize:14]];
         [self.layoutView addSubview:_detailTextView];
     }
     return _detailTextView;
 }
-- (HTextView *)accessoryTextView {
+- (UITextView *)accessoryTextView {
     if (!_accessoryTextView) {
-        _accessoryTextView = [HTextView new];
+        _accessoryTextView = [UITextView new];
         [_accessoryTextView setFont:[UIFont systemFontOfSize:14]];
         [self.layoutView addSubview:_accessoryTextView];
     }
     return _accessoryTextView;
+}
+- (HTextView *)textNote {
+    if (!_textNote) {
+        _textNote = [HTextView new];
+        [_textNote setFont:[UIFont systemFontOfSize:14]];
+        [self.layoutView addSubview:_textNote];
+    }
+    return _textNote;
+}
+- (HTextView *)detailTextNote {
+    if (!_detailTextNote) {
+        _detailTextNote = [HTextView new];
+        [_detailTextNote setFont:[UIFont systemFontOfSize:14]];
+        [self.layoutView addSubview:_detailTextNote];
+    }
+    return _detailTextNote;
+}
+- (HTextView *)accessoryTextNote {
+    if (!_accessoryTextNote) {
+        _accessoryTextNote = [HTextView new];
+        [_accessoryTextNote setFont:[UIFont systemFontOfSize:14]];
+        [self.layoutView addSubview:_accessoryTextNote];
+    }
+    return _accessoryTextNote;
 }
 - (HWebButtonView *)buttonView {
     if (!_buttonView) {
