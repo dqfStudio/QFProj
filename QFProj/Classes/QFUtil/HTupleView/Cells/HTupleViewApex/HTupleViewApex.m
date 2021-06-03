@@ -136,6 +136,7 @@
     if (!_label) {
         _label = [UILabel new];
         [_label setFont:[UIFont systemFontOfSize:14]];
+        [_label setAdjustsFontSizeToFitWidth:YES];
         [self.layoutView addSubview:_label];
     }
     return _label;
@@ -144,6 +145,7 @@
     if (!_detailLabel) {
         _detailLabel = [UILabel new];
         [_detailLabel setFont:[UIFont systemFontOfSize:14]];
+        [_detailLabel setAdjustsFontSizeToFitWidth:YES];
         [self.layoutView addSubview:_detailLabel];
     }
     return _detailLabel;
@@ -152,6 +154,7 @@
     if (!_accessoryLabel) {
         _accessoryLabel = [UILabel new];
         [_accessoryLabel setFont:[UIFont systemFontOfSize:14]];
+        [_accessoryLabel setAdjustsFontSizeToFitWidth:YES];
         [self.layoutView addSubview:_accessoryLabel];
     }
     return _accessoryLabel;
