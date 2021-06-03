@@ -80,6 +80,16 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
         
         stringValue = selfNumber.stringValue;
         
+        /*
+        if ([[HUserRegion defaultRegion].regionCode isEqualToString:@"VN"] || [[HUserRegion defaultRegion].regionCode isEqualToString:@"BR"]) {
+             stringValue = [stringValue stringByReplacingOccurrencesOfString:@"." withString:@","];
+        }else {
+             stringValue = [stringValue stringByReplacingOccurrencesOfString:@"," withString:@"."];
+        }
+        */
+
+        stringValue = [stringValue stringByReplacingOccurrencesOfString:@"," withString:@"."];
+        
         return stringValue;
     }
     return @"";
@@ -303,11 +313,7 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 }
 //获取十进制金额数据
 - (NSString *)decimalStringValue {
-    NSString *selfValue = self.makeUnFormatter;
-    if (selfValue.length > 0) {
-        return [@(selfValue.doubleValue) stringValue];
-    }
-    return @"";
+    return self.makeUnFormatter;
 }
 //正号的金额数据
 - (NSString *)positiveStringValue {
@@ -374,11 +380,7 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 }
 //获取十进制金额数据
 - (NSString *)decimalStringValue {
-    NSString *selfValue = self.makeUnFormatter;
-    if (selfValue.length > 0) {
-        return [@(selfValue.doubleValue) stringValue];
-    }
-    return @"";
+    return self.makeUnFormatter;
 }
 //正号的金额数据
 - (NSString *)positiveStringValue {

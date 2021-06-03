@@ -2924,10 +2924,10 @@
 		A25E6614262445FD00863FF8 /* HAnimatedImage */ = {
 			isa = PBXGroup;
 			children = (
-				A25E6615262445FD00863FF8 /* HAnimatedImageView.m */,
+				A25E6618262445FD00863FF8 /* HAnimatedImage.h */,
 				A25E6616262445FD00863FF8 /* HAnimatedImage.m */,
 				A25E6617262445FD00863FF8 /* HAnimatedImageView.h */,
-				A25E6618262445FD00863FF8 /* HAnimatedImage.h */,
+				A25E6615262445FD00863FF8 /* HAnimatedImageView.m */,
 			);
 			path = HAnimatedImage;
 			sourceTree = "<group>";
