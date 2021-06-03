@@ -37,18 +37,23 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
         stringValue = [(NSNumber *)numberObjc stringValue];
     }
     
+    //容错处理
+    stringValue = [stringValue stringByReplacingOccurrencesOfString:@"。" withString:@"."];
+    stringValue = [stringValue stringByReplacingOccurrencesOfString:@"，" withString:@","];
+    
+    //根据地区，去掉分组分隔符
+    //不管地区，小数分隔符全部处理成点号
     /*
     if ([[HUserRegion defaultRegion].regionCode isEqualToString:@"VN"] || [[HUserRegion defaultRegion].regionCode isEqualToString:@"BR"]) {
-        stringValue = [stringValue stringByReplacingOccurrencesOfString:@"。" withString:@"."];
         stringValue = [NSDecimalNumber clearTheSymbol:@"[. ]" withText:stringValue];
+        stringValue = [stringValue stringByReplacingOccurrencesOfString:@"," withString:@"."];
     }else {
-        stringValue = [stringValue stringByReplacingOccurrencesOfString:@"，" withString:@","];
         stringValue = [NSDecimalNumber clearTheSymbol:@"[, ]" withText:stringValue];
     }
-    */
+     */
+    
 
     //去掉分组分隔符和空格
-    stringValue = [stringValue stringByReplacingOccurrencesOfString:@"，" withString:@","];
     stringValue = [NSDecimalNumber clearTheSymbol:@"[, ]" withText:stringValue];
     
     //去掉正负号和一些货币符号
@@ -84,16 +89,12 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
         
         stringValue = selfNumber.stringValue;
         
+        //根据地区显示正确的小数分隔符
         /*
         if ([[HUserRegion defaultRegion].regionCode isEqualToString:@"VN"] || [[HUserRegion defaultRegion].regionCode isEqualToString:@"BR"]) {
              stringValue = [stringValue stringByReplacingOccurrencesOfString:@"." withString:@","];
-        }else {
-             stringValue = [stringValue stringByReplacingOccurrencesOfString:@"," withString:@"."];
         }
         */
-        
-        //根据地区显示正确的小数分隔符
-        stringValue = [stringValue stringByReplacingOccurrencesOfString:@"," withString:@"."];
         
         return stringValue;
     }
