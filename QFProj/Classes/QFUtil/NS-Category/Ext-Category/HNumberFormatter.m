@@ -44,7 +44,8 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     //根据地区，去掉分组分隔符
     //不管地区，小数分隔符全部处理成点号
     /*
-    if ([[HUserRegion defaultRegion].regionCode isEqualToString:@"VN"] || [[HUserRegion defaultRegion].regionCode isEqualToString:@"BR"]) {
+    NSArray *regionArr = @[@"VN", @"BR"];
+    if ([regionArr containsObject:[HUserRegion defaultRegion].regionCode]) {
         stringValue = [NSDecimalNumber clearTheSymbol:@"[. ]" withText:stringValue];
         stringValue = [stringValue stringByReplacingOccurrencesOfString:@"," withString:@"."];
     }else {
