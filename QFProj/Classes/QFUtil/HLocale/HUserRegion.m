@@ -160,26 +160,26 @@
 
 //货币符号
 - (NSString *)currencySymbol {
-    return [self.supportedRegions objectForKey:self.regionName][@"currencySymbol"];
+    return [self.supportedRegions objectForKey:self.regionCode][@"currencySymbol"];
 }
 //货币代码
 - (NSString *)currencyCode {
-    return [self.supportedRegions objectForKey:self.regionName][@"currencyCode"];
+    return [self.supportedRegions objectForKey:self.regionCode][@"currencyCode"];
 }
 
 //货币图标
 - (UIImage *)currencyIcon {
-    NSDictionary *dict = [self.supportedRegions objectForKey:self.regionName];
+    NSDictionary *dict = [self.supportedRegions objectForKey:self.regionCode];
     return [UIImage imageNamed:dict[@"currencyIconName"]];
 }
 
 //分组分隔符
 - (NSString *)groupingSeparator {
-    return [self.supportedRegions objectForKey:self.regionName][@"groupingSeparator"];
+    return [self.supportedRegions objectForKey:self.regionCode][@"groupingSeparator"];
 }
 //小数分隔符
 - (NSString *)decimalSeparator {
-    return [self.supportedRegions objectForKey:self.regionName][@"decimalSeparator"];
+    return [self.supportedRegions objectForKey:self.regionCode][@"decimalSeparator"];
 }
 
 
