@@ -1,17 +1,22 @@
 {
     "zh-Hant":{
+        "languageCode":"zh-Hant",
         "languageName":"繁体中文"
     },
     "vi":{
+        "languageCode":"vi",
         "languageName":"Tiếng Việt"
     },
     "en-IN":{
+        "languageCode":"en-IN",
         "languageName":"भारत गणराज्य"
     },
     "pt-BR":{
+        "languageCode":"pt-BR",
         "languageName":"português"
     },
     "en":{
+        "languageCode":"en",
         "languageName":"English"
     }
 }

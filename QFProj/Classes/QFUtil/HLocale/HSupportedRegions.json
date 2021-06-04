@@ -1,7 +1,6 @@
 {
     "VN":{
         "regionCode":"VN",
-        "languageCode":"vi",
         "currencyCode":"VND",
         "currencySymbol":"₫",
         "currencyIconName":"越南盾",
@@ -10,7 +9,6 @@
     },
     "IN":{
         "regionCode":"IN",
-        "languageCode":"en-IN",
         "currencyCode":"INR",
         "currencySymbol":"₹",
         "currencyIconName":"卢比",
@@ -19,7 +17,6 @@
     },
     "BR":{
         "regionCode":"BR",
-        "languageCode":"pt-BR",
         "currencyCode":"BRL",
         "currencySymbol":"R$",
         "currencyIconName":"巴西雷亚尔",
@@ -28,7 +25,6 @@
     },
     "OTHERS":{
         "regionCode":"OTHERS",
-        "languageCode":"en",
         "currencyCode":"USD",
         "currencySymbol":"$",
         "currencyIconName":"USDT",
