@@ -27,7 +27,8 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 + (BOOL)isOnlyNumericWithText:(NSString *)text {
     if (![text isKindOfClass:NSString.class]) return NO;
     //NSString *regex = @"(?=.*[0-9])([0-9+-.,R$￥₫₹])+$";//可以是0-9、+-.,号以及美国 中国 越南 印度等国货币符号，但必须有一位数字
-    NSString *regex = @"(?=.*[0-9])([0-9.,])+$";//可以是0-9以及".,"，但必须有一位数字
+    //NSString *regex = @"(?=.*[0-9])([0-9.,])+$";//可以是0-9以及".,"，但必须有一位数字
+    NSString *regex = @"(?=.*[0-9])([0-9+-.,KMBT￥R$₫₹])+$";//可以是0-9、+-.,号以及美国 中国 越南 印度等国货币符号，但必须有一位数字
     return [[NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex] evaluateWithObject:text];
 }
 + (NSString *)unFormatter:(id)numberObjc {
@@ -40,50 +41,52 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     //容错处理
     stringValue = [stringValue stringByReplacingOccurrencesOfString:@"。" withString:@"."];
     stringValue = [stringValue stringByReplacingOccurrencesOfString:@"，" withString:@","];
-    
-    //根据地区，去掉分组分隔符
-    //不管地区，小数分隔符全部处理成点号
-    /*
-    NSArray *regionArr = @[@"VN", @"BR"];
-    if ([regionArr containsObject:[HUserRegion defaultRegion].regionCode]) {
-        stringValue = [NSDecimalNumber clearTheSymbol:@"[. ]" withText:stringValue];
-        stringValue = [stringValue stringByReplacingOccurrencesOfString:@"," withString:@"."];
-    }else {
-        stringValue = [NSDecimalNumber clearTheSymbol:@"[, ]" withText:stringValue];
-    }
-     */
-    
-
-    //去掉分组分隔符和空格
-    stringValue = [NSDecimalNumber clearTheSymbol:@"[, ]" withText:stringValue];
-    
-    //去掉正负号和一些货币符号
-    stringValue = [NSDecimalNumber clearTheSymbol:@"[+-]" withText:stringValue];
-    stringValue = [NSDecimalNumber clearTheSymbol:@"[R$￥₫₹]" withText:stringValue];
-
-    //金额简写恢复
-    NSString *appendString = @"";
-    NSString *multiplyingString = @"1";
-    
-    //当达到千、百万、亿、兆时，使用省略写法（K、M、B、T）
-    if ([stringValue containsString:@"T"]) {
-        appendString = @"T";
-        multiplyingString = @"1000000000000";
-    }else if ([stringValue containsString:@"B"]) {
-        appendString = @"B";
-        multiplyingString = @"100000000";
-    }else if ([stringValue containsString:@"M"]) {
-        appendString = @"M";
-        multiplyingString = @"1000000";
-    }else if ([stringValue containsString:@"K"]) {
-        appendString = @"K";
-        multiplyingString = @"1000";
-    }
-    
-    stringValue = [stringValue stringByReplacingOccurrencesOfString:appendString withString:@""];
+    stringValue = [stringValue stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     //判断是否是金额数据
     if ([self isOnlyNumericWithText:stringValue]) {
+     
+        //根据地区，去掉分组分隔符
+        //不管地区，小数分隔符全部处理成点号
+        /*
+        NSArray *regionArr = @[@"VN", @"BR"];
+        if ([regionArr containsObject:[HUserRegion defaultRegion].regionCode]) {
+            stringValue = [NSDecimalNumber clearTheSymbol:@"[.]" withText:stringValue];
+            stringValue = [stringValue stringByReplacingOccurrencesOfString:@"," withString:@"."];
+        }else {
+            stringValue = [NSDecimalNumber clearTheSymbol:@"[,]" withText:stringValue];
+        }
+         */
+        
+
+        //去掉分组分隔符
+        stringValue = [NSDecimalNumber clearTheSymbol:@"[,]" withText:stringValue];
+        //去掉正负号
+        stringValue = [NSDecimalNumber clearTheSymbol:@"[+-]" withText:stringValue];
+        //去掉一些货币符号
+        stringValue = [NSDecimalNumber clearTheSymbol:@"[R$￥₫₹]" withText:stringValue];
+
+        //金额简写恢复
+        NSString *appendString = @"";
+        NSString *multiplyingString = @"1";
+        
+        //当达到千、百万、亿、兆时，使用省略写法（K、M、B、T）
+        if ([stringValue containsString:@"T"]) {
+            appendString = @"T";
+            multiplyingString = @"1000000000000";
+        }else if ([stringValue containsString:@"B"]) {
+            appendString = @"B";
+            multiplyingString = @"100000000";
+        }else if ([stringValue containsString:@"M"]) {
+            appendString = @"M";
+            multiplyingString = @"1000000";
+        }else if ([stringValue containsString:@"K"]) {
+            appendString = @"K";
+            multiplyingString = @"1000";
+        }
+        
+        stringValue = [stringValue stringByReplacingOccurrencesOfString:appendString withString:@""];
+        
         NSDecimalNumber *selfNumber = [NSDecimalNumber decimalNumberWithString:stringValue];
         NSDecimalNumber *decimalNumber = [NSDecimalNumber decimalNumberWithString:multiplyingString];
         selfNumber = [selfNumber decimalNumberByMultiplyingBy:decimalNumber];
@@ -96,8 +99,14 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
         */
         
         return stringValue;
+        
     }
-    return @"";
+    
+    stringValue = numberObjc;
+    if ([numberObjc isKindOfClass:NSNumber.class]) {
+        stringValue = [(NSNumber *)numberObjc stringValue];
+    }
+    return stringValue;
 }
 //主动操作数据调用
 + (NSDecimalNumber *)activeDecimalNumberWithObjcValue:(id)objcValue operationMode:(HOperationMode)mode {
