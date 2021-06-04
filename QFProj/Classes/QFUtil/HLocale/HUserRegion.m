@@ -15,6 +15,7 @@
     NSString *_regionCode;
     NSString *_languageCode;
 }
+@property (nonatomic) NSDictionary *regionLocalDict;
 @end
 
 @implementation HUserRegion
@@ -85,20 +86,21 @@
 }
 //获取不同的语言文件内容
 - (NSDictionary *)regionLocalDict {
-    NSString *path = [[NSBundle mainBundle] pathForResource:self.languageCode ofType:@"lproj"];
-    NSBundle *currentBundle = [NSBundle bundleWithPath:path];
-    path = [currentBundle pathForResource:@"HRegionLocal" ofType:@"json"];
-    NSDictionary *dictionary = nil;
-    if (path) {
-        NSData *data = [NSData dataWithContentsOfFile:path];
-        if (data) {
-            id resource = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-            if ([resource isKindOfClass:NSDictionary.class]) {
-                dictionary = resource;
+    if (!_regionLocalDict) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:self.languageCode ofType:@"lproj"];
+        NSBundle *currentBundle = [NSBundle bundleWithPath:path];
+        path = [currentBundle pathForResource:@"HRegionLocal" ofType:@"json"];
+        if (path) {
+            NSData *data = [NSData dataWithContentsOfFile:path];
+            if (data) {
+                id resource = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+                if ([resource isKindOfClass:NSDictionary.class]) {
+                    _regionLocalDict = resource;
+                }
             }
         }
     }
-    return dictionary;
+    return _regionLocalDict;
 }
 
 
@@ -133,6 +135,9 @@
         }
         [[NSUserDefaults standardUserDefaults] setObject:_languageCode forKey:KLanguageCodeKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        //将regionLocalDict置空，根据设置的语言重新获取
+        _regionLocalDict = nil;
     }
 }
 //语言名称
