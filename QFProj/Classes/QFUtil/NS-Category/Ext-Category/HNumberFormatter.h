@@ -47,13 +47,13 @@ NS_ASSUME_NONNULL_BEGIN
 //除，value为NSString或NSNumber类型
 - (NSDecimalNumber *)dividing:(id)value;
 //获取十进制金额数据
-- (NSString *)decimalStringValue;
+- (NSString *)amountValue;
 //正号的金额数据
-- (NSString *)positiveStringValue;
+- (NSString *)positiveValue;
 //负号的金额数据
-- (NSString *)negativeStringValue;
+- (NSString *)negativeValue;
 //带有货币符号的金额数据
-- (NSString *)currencySymbolStringValue;
+- (NSString *)currencySymbolValue;
 //格式化
 - (NSString *)makeFormatter:(void(^_Nullable)(HNumberFormatter *make))block;
 @end
@@ -68,13 +68,13 @@ NS_ASSUME_NONNULL_BEGIN
 //除，value为NSString或NSNumber类型
 - (NSDecimalNumber *)dividing:(id)value;
 //获取十进制金额数据
-- (NSString *)decimalStringValue;
+- (NSString *)amountValue;
 //正号的金额数据
-- (NSString *)positiveStringValue;
+- (NSString *)positiveValue;
 //负号的金额数据
-- (NSString *)negativeStringValue;
+- (NSString *)negativeValue;
 //带有货币符号的金额数据
-- (NSString *)currencySymbolStringValue;
+- (NSString *)currencySymbolValue;
 //格式化
 - (NSString *)makeFormatter:(void(^_Nullable)(HNumberFormatter *make))block;
 @end

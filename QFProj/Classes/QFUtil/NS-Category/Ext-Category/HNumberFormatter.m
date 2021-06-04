@@ -306,28 +306,28 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     return [NSDecimalNumber unFormatter:self];
 }
 //获取十进制金额数据
-- (NSString *)decimalStringValue {
+- (NSString *)amountValue {
     return self.makeUnFormatter;
 }
 //正号的金额数据
-- (NSString *)positiveStringValue {
-    NSString *stringValue = self.decimalStringValue;
+- (NSString *)positiveValue {
+    NSString *stringValue = self.amountValue;
     if (stringValue.length > 0) {
         stringValue = [@"+" stringByAppendingString:stringValue];
     }
     return stringValue;
 }
 //负号的金额数据
-- (NSString *)negativeStringValue {
-    NSString *stringValue = self.decimalStringValue;
+- (NSString *)negativeValue {
+    NSString *stringValue = self.amountValue;
     if (stringValue.length > 0) {
         stringValue = [@"-" stringByAppendingString:stringValue];
     }
     return stringValue;
 }
 //带有货币符号的金额数据
-- (NSString *)currencySymbolStringValue {
-    NSString *stringValue = self.decimalStringValue;
+- (NSString *)currencySymbolValue {
+    NSString *stringValue = self.amountValue;
     if (stringValue.length > 0) {
         stringValue = [[HUserRegion defaultRegion].currencySymbol stringByAppendingString:stringValue];
     }
@@ -373,28 +373,28 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     return [NSDecimalNumber unFormatter:self];
 }
 //获取十进制金额数据
-- (NSString *)decimalStringValue {
+- (NSString *)amountValue {
     return self.makeUnFormatter;
 }
 //正号的金额数据
-- (NSString *)positiveStringValue {
-    NSString *stringValue = self.decimalStringValue;
+- (NSString *)positiveValue {
+    NSString *stringValue = self.amountValue;
     if (stringValue.length > 0) {
         stringValue = [@"+" stringByAppendingString:stringValue];
     }
     return stringValue;
 }
 //负号的金额数据
-- (NSString *)negativeStringValue {
-    NSString *stringValue = self.decimalStringValue;
+- (NSString *)negativeValue {
+    NSString *stringValue = self.amountValue;
     if (stringValue.length > 0) {
         stringValue = [@"-" stringByAppendingString:stringValue];
     }
     return stringValue;
 }
 //带有货币符号的金额数据
-- (NSString *)currencySymbolStringValue {
-    NSString *stringValue = self.decimalStringValue;
+- (NSString *)currencySymbolValue {
+    NSString *stringValue = self.amountValue;
     if (stringValue.length > 0) {
         stringValue = [[HUserRegion defaultRegion].currencySymbol stringByAppendingString:stringValue];
     }
