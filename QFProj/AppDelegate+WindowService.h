@@ -25,8 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
 //获取(检查）指定视图
 + (UIViewController *)checkViewController:(id)className;
 
-- (UIViewController *)topViewController;
-
 @end
 
 NS_ASSUME_NONNULL_END

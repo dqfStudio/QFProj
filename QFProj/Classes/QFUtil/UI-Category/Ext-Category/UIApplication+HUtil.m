@@ -21,39 +21,38 @@
     return [[UIApplication sharedApplication] getKeyWindow];
 }
 - (UIWindow *)getKeyWindow {
-    //UIWindow *window = self.windows[0];
     return self.keyWindow;
 }
 
-+ (UIViewController *)getKeyWindowRootController {
-    return [[UIApplication sharedApplication] getKeyWindowRootController];
++ (UIViewController *)getKeyWindowTopController {
+    return [[UIApplication sharedApplication] getKeyWindowTopController];
 }
-- (UIViewController *)getKeyWindowRootController {
-    UIWindow *keyWindow = [self getKeyWindow];
-    return keyWindow.rootViewController;
+- (UIViewController *)getKeyWindowTopController {
+    return [self topViewControllerWithRootViewController:self.getKeyWindow.rootViewController];
+}
+- (UIViewController *)topViewControllerWithRootViewController:(UIViewController *)rootViewController {
+    if ([rootViewController isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tabBarController = (UITabBarController *)rootViewController;
+        return [self topViewControllerWithRootViewController:tabBarController.selectedViewController];
+    }else if ([rootViewController isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *navigationController = (UINavigationController *)rootViewController;
+        return [self topViewControllerWithRootViewController:navigationController.visibleViewController];
+    }else if (rootViewController.presentedViewController) {
+        UIViewController *presentedViewController = rootViewController.presentedViewController;
+        return [self topViewControllerWithRootViewController:presentedViewController];
+    }else {
+        return rootViewController;
+    }
 }
 
 //get root navigation controller
 + (UINavigationController *)navi {
-    UIViewController *navi = [self getKeyWindowRootController];
-    if ([navi isKindOfClass:[UINavigationController class]]) {
-        return (UINavigationController *)navi;
-    }
-    else return nil;
-}
-
-//get root navigation controller top
-+ (UIViewController *)naviTop {
-    UIViewController *navi = [self getKeyWindowRootController];
-    if ([navi isKindOfClass:[UINavigationController class]]) {
-        return [(UINavigationController *)navi topViewController];
-    }
-    else return nil;
+    return self.getKeyWindowTopController.navigationController;
 }
 
 //get root tabbar vc
 + (UITabBarController *)tabbarVC {
-    UIViewController *tabVC = [self getKeyWindowRootController];
+    UIViewController *tabVC = self.getKeyWindow.rootViewController;
     if ([tabVC isKindOfClass:[UITabBarController class]]) {
         return (UITabBarController *)tabVC;
     }else if ([tabVC isKindOfClass:[UINavigationController class]]) {

@@ -33,16 +33,13 @@ typedef NS_ENUM(NSInteger, HNetworkStatus) {
 - (UIWindow *_Nonnull)getKeyWindow;
 
 //get root VC of window 0
-+ (UIViewController *_Nullable)getKeyWindowRootController;
++ (UIViewController *_Nullable)getKeyWindowTopController;
 
 //get root VC of window 0
-- (UIViewController *_Nullable)getKeyWindowRootController;
+- (UIViewController *_Nullable)getKeyWindowTopController;
 
 //get root navigation controller
 + (UINavigationController *_Nullable)navi;
-
-//get root navigation controller top
-+ (UIViewController *_Nullable)naviTop;
 
 //get root tabbar vc
 + (UITabBarController *_Nullable)tabbarVC;
