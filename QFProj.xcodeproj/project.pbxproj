@@ -486,6 +486,10 @@
 		A28FE4EA265692BC00C9A4EB /* HRect.m in Sources */ = {isa = PBXBuildFile; fileRef = A28FE4E9265692BC00C9A4EB /* HRect.m */; };
 		A2C2B214235EAC770041AAB5 /* HMainController6.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C2B213235EAC770041AAB5 /* HMainController6.m */; };
 		A2C2B21C235F15DA0041AAB5 /* HTupleView的用法.pages in Resources */ = {isa = PBXBuildFile; fileRef = A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */; };
+		A2C8785A266A3A170017757E /* LiveRoomExchangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C87853266A3A160017757E /* LiveRoomExchangeView.m */; };
+		A2C8785B266A3A170017757E /* YDBigBullLiveVc.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C87854266A3A160017757E /* YDBigBullLiveVc.m */; };
+		A2C8785C266A3A170017757E /* LoadingLiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C87858266A3A160017757E /* LoadingLiveView.m */; };
+		A2C8785D266A3A170017757E /* YDBigBullPlayerVc.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C87859266A3A170017757E /* YDBigBullPlayerVc.m */; };
 		A2D65BDE2667601E00973A76 /* HAlertFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D65BDD2667601E00973A76 /* HAlertFormatter.m */; };
 /* End PBXBuildFile section */
 
@@ -1402,6 +1406,14 @@
 		A2C2B212235EAC770041AAB5 /* HMainController6.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMainController6.h; sourceTree = "<group>"; };
 		A2C2B213235EAC770041AAB5 /* HMainController6.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMainController6.m; sourceTree = "<group>"; };
 		A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HTupleView的用法.pages"; sourceTree = "<group>"; };
+		A2C87852266A3A160017757E /* LiveRoomExchangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveRoomExchangeView.h; sourceTree = "<group>"; };
+		A2C87853266A3A160017757E /* LiveRoomExchangeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveRoomExchangeView.m; sourceTree = "<group>"; };
+		A2C87854266A3A160017757E /* YDBigBullLiveVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDBigBullLiveVc.m; sourceTree = "<group>"; };
+		A2C87855266A3A160017757E /* YDBigBullPlayerVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDBigBullPlayerVc.h; sourceTree = "<group>"; };
+		A2C87856266A3A160017757E /* YDBigBullLiveVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDBigBullLiveVc.h; sourceTree = "<group>"; };
+		A2C87857266A3A160017757E /* LoadingLiveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingLiveView.h; sourceTree = "<group>"; };
+		A2C87858266A3A160017757E /* LoadingLiveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingLiveView.m; sourceTree = "<group>"; };
+		A2C87859266A3A170017757E /* YDBigBullPlayerVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDBigBullPlayerVc.m; sourceTree = "<group>"; };
 		A2D65BDC2667601E00973A76 /* HAlertFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAlertFormatter.h; sourceTree = "<group>"; };
 		A2D65BDD2667601E00973A76 /* HAlertFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAlertFormatter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1656,6 +1668,7 @@
 				A25E6352262445FC00863FF8 /* HWebviewVC.m */,
 				A25E6354262445FC00863FF8 /* HWebviewVC2.h */,
 				A25E634C262445FC00863FF8 /* HWebviewVC2.m */,
+				A2C87851266A39810017757E /* Bigbull */,
 			);
 			path = HOther;
 			sourceTree = "<group>";
@@ -3381,6 +3394,21 @@
 			path = HNoticeBrowseLabel;
 			sourceTree = "<group>";
 		};
+		A2C87851266A39810017757E /* Bigbull */ = {
+			isa = PBXGroup;
+			children = (
+				A2C87852266A3A160017757E /* LiveRoomExchangeView.h */,
+				A2C87853266A3A160017757E /* LiveRoomExchangeView.m */,
+				A2C87857266A3A160017757E /* LoadingLiveView.h */,
+				A2C87858266A3A160017757E /* LoadingLiveView.m */,
+				A2C87856266A3A160017757E /* YDBigBullLiveVc.h */,
+				A2C87854266A3A160017757E /* YDBigBullLiveVc.m */,
+				A2C87855266A3A160017757E /* YDBigBullPlayerVc.h */,
+				A2C87859266A3A170017757E /* YDBigBullPlayerVc.m */,
+			);
+			path = Bigbull;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3719,6 +3747,7 @@
 				A20E3D01231FE0C000E6982B /* HMainController2.m in Sources */,
 				A25E6784262445FD00863FF8 /* NSObject+HAutoFill.m in Sources */,
 				A25E677B262445FD00863FF8 /* YTKChainRequestAgent.m in Sources */,
+				A2C8785C266A3A170017757E /* LoadingLiveView.m in Sources */,
 				A25E681E262445FE00863FF8 /* HAbstractDotView.m in Sources */,
 				A25E67F9262445FE00863FF8 /* HAssetModel.m in Sources */,
 				A25E67C0262445FE00863FF8 /* KSCrashReportSinkQuincyHockey.m in Sources */,
@@ -3856,6 +3885,7 @@
 				A25E6859262445FE00863FF8 /* HTextDebugOption.m in Sources */,
 				A25E6736262445FD00863FF8 /* WebViewJavascriptBridgeBase.m in Sources */,
 				A25E67B8262445FE00863FF8 /* NSMutableData+AppendUTF8.m in Sources */,
+				A2C8785A266A3A170017757E /* LiveRoomExchangeView.m in Sources */,
 				A25E6775262445FD00863FF8 /* YTKNetworkConfig.m in Sources */,
 				A25E6898262445FE00863FF8 /* NSArray+HSafeUtil.m in Sources */,
 				A25E678B262445FD00863FF8 /* HAttributedString.m in Sources */,
@@ -3932,10 +3962,12 @@
 				A25E6863262445FE00863FF8 /* NSParagraphStyle+HText.m in Sources */,
 				A25E6812262445FE00863FF8 /* HKBBarButtonItem.m in Sources */,
 				A25E6823262445FE00863FF8 /* HAnimatedDotView.m in Sources */,
+				A2C8785B266A3A170017757E /* YDBigBullLiveVc.m in Sources */,
 				A25E6892262445FE00863FF8 /* HResultView.m in Sources */,
 				A25E676A262445FD00863FF8 /* HFileStorage.m in Sources */,
 				A25E6840262445FE00863FF8 /* UIView+HUtil.m in Sources */,
 				A251A9BA2648172B0067E574 /* HAppLanguage.m in Sources */,
+				A2C8785D266A3A170017757E /* YDBigBullPlayerVc.m in Sources */,
 				A25E6760262445FD00863FF8 /* HGCDUtil.m in Sources */,
 				A25E67D5262445FE00863FF8 /* KSCPU_arm.c in Sources */,
 				A25E676F262445FD00863FF8 /* HCachePrivate.m in Sources */,
