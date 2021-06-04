@@ -215,49 +215,25 @@
 }
 
 
+
+//获取地区代码序号
+- (NSInteger)sceneRegionCodeIndex {
+    NSInteger index = -1;
+    if ([self.regionCode isEqualToString:@"CN"]) { index = 0; }
+    else if ([self.regionCode isEqualToString:@"EN"]) { index = 1; }
+    else if ([self.regionCode isEqualToString:@"VN"]) { index = 2; }
+    else if ([self.regionCode isEqualToString:@"IN"]) { index = 3; }
+    else if ([self.regionCode isEqualToString:@"BR"]) { index = 4; }
+    return index;
+}
 //获取语言代码的序号
 - (NSInteger)sceneLanguageCodeIndex {
     NSInteger index = -1;
-#if DEBUG
-    if ([self.languageCode isEqualToString:@""]) { index = 0; }
-    else if ([self.languageCode isEqualToString:@"zh-Hans"]) { index = 0; }
+    if ([self.languageCode isEqualToString:@"zh-Hans"]) { index = 0; }
     else if ([self.languageCode isEqualToString:@"en"]) { index = 1; }
     else if ([self.languageCode containsString:@"vi"]) { index = 2; }
     else if ([self.languageCode isEqualToString:@"en-IN"]) { index = 3; }
     else if ([self.languageCode isEqualToString:@"pt-BR"]) { index = 4; }
-#else
-    if ([self.languageCode isEqualToString:@""]) { index = 0; }
-    else if ([self.languageCode isEqualToString:@"en"]) { index = 0; }
-    else if ([self.languageCode containsString:@"vi"]) { index = 1; }
-    else if ([self.languageCode isEqualToString:@"en-IN"]) { index = 2; }
-    else if ([self.languageCode isEqualToString:@"zh-Hant"]) { index = 3; }
-    else if ([self.languageCode isEqualToString:@"ja"]) { index = 4; }
-    else if ([self.languageCode isEqualToString:@"ko"]) { index = 5; }
-    else if ([self.languageCode isEqualToString:@"pt-BR"]) { index = 6; }
-#endif
-    return index;
-}
-//获取地区代码
-- (NSString *)sceneRegionCode {
-    NSString *userLanguageCode = @"";
-    if ([self.languageCode isEqualToString:@"zh-Hans"]) { userLanguageCode = @"CN"; }
-    else if ([self.languageCode isEqualToString:@"zh-Hant"]) { userLanguageCode = @""; }
-    else if ([self.languageCode isEqualToString:@"en"]) { userLanguageCode = @"EN"; }
-    else if ([self.languageCode isEqualToString:@"ja"]) { userLanguageCode = @""; }
-    else if ([self.languageCode isEqualToString:@"ko"]) { userLanguageCode = @""; }
-    else if ([self.languageCode containsString:@"vi"]) { userLanguageCode = @"VN"; }
-    else if ([self.languageCode isEqualToString:@"en-IN"]) { userLanguageCode = @"IN"; }
-    else if ([self.languageCode isEqualToString:@"pt-BR"]) { userLanguageCode = @"BR"; }
-    else { userLanguageCode = @"CN"; }
-    return userLanguageCode;
-}
-//获取地区名称序号
-- (NSInteger)sceneRegionNameIndex {
-    NSInteger index = -1;
-    if ([self.regionName isEqualToString:@"Vietnam"]) { index = 0; }
-    else if ([self.regionName isEqualToString:@"India"]) { index = 1; }
-    else if ([self.regionName isEqualToString:@"Brazil"]) { index = 2; }
-    else { index = 3; }
     return index;
 }
 

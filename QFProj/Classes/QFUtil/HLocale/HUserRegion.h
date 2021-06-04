@@ -40,13 +40,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSString *groupingSeparator;//分组分隔符
 @property (nonatomic, readonly) NSString *decimalSeparator;//小数分隔符
 
-
+//获取地区代码序号
+- (NSInteger)sceneRegionCodeIndex;
 //获取语言代码的序号
 - (NSInteger)sceneLanguageCodeIndex;
-//获取地区代码
-- (NSString *)sceneRegionCode;
-//获取地区名称序号
-- (NSInteger)sceneRegionNameIndex;
 
 @end
 
