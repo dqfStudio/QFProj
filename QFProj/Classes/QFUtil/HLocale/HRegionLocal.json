@@ -1,0 +1,29 @@
+//需要根据不同的语言文件展示不同语言下的地区名称
+{
+    "VN":{
+        "regionName":"Vietnam"
+    },
+    "IN":{
+        "regionName":"India"
+    },
+    "BR":{
+        "regionName":"Brazil"
+    },
+    "OTHERS":{
+        "regionName":"Others"
+    }
+}
+//{
+//    "VN":{
+//        "regionName":"越南"
+//    },
+//    "IN":{
+//        "regionName":"印度"
+//    },
+//    "BR":{
+//        "regionName":"巴西"
+//    },
+//    "OTHERS":{
+//        "regionName":"全球"
+//    }
+//}

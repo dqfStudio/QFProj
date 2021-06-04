@@ -1,7 +1,6 @@
 {
-    "Vietnam":{
+    "VN":{
         "regionCode":"VN",
-        "regionName":"Vietnam",
         "languageCode":"vi",
         "currencyCode":"VND",
         "currencySymbol":"₫",
@@ -9,9 +8,8 @@
         "groupingSeparator":".",
         "decimalSeparator":","
     },
-    "India":{
+    "IN":{
         "regionCode":"IN",
-        "regionName":"India",
         "languageCode":"en-IN",
         "currencyCode":"INR",
         "currencySymbol":"₹",
@@ -19,9 +17,8 @@
         "groupingSeparator":",",
         "decimalSeparator":"."
     },
-    "Brazil":{
+    "BR":{
         "regionCode":"BR",
-        "regionName":"Brazil",
         "languageCode":"pt-BR",
         "currencyCode":"BRL",
         "currencySymbol":"R$",
@@ -29,9 +26,8 @@
         "groupingSeparator":".",
         "decimalSeparator":","
     },
-    "Others":{
+    "OTHERS":{
         "regionCode":"OTHERS",
-        "regionName":"Others",
         "languageCode":"en",
         "currencyCode":"USD",
         "currencySymbol":"$",

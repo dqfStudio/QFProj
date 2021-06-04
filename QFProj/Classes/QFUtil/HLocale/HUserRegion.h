@@ -21,12 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
 //APP中可设置某个地区名称
 @property (nonatomic) NSString *regionCode;//区域名称
 @property (nonatomic, readonly) NSString *regionName;//区域代码
-@property (nonatomic, readonly) NSArray  *supportedRegions;//支持的区域列表
+@property (nonatomic, readonly) NSDictionary  *supportedRegions;//支持的区域列表
 
 //APP中可设置某个地区语言代码
 @property (nonatomic) NSString *languageCode;//语言代码
 @property (nonatomic, readonly) NSString *languageName;//语言名称
-@property (nonatomic, readonly) NSArray  *supportedLanguages;//支持的语言列表
+@property (nonatomic, readonly) NSDictionary  *supportedLanguages;//支持的语言列表
 
 @property (nonatomic, readonly) NSString *currencyCode;//货币代码
 - (NSString *)currencyCodeWithFactors:(NSString *)factors;
