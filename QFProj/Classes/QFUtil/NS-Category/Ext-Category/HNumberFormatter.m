@@ -309,7 +309,7 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 - (NSString *)amountValue {
     return self.makeUnFormatter;
 }
-//正号的金额数据
+//带正号的金额数据
 - (NSString *)positiveValue {
     NSString *stringValue = self.amountValue;
     if (stringValue.length > 0) {
@@ -317,7 +317,7 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     }
     return stringValue;
 }
-//负号的金额数据
+//带负号的金额数据
 - (NSString *)negativeValue {
     NSString *stringValue = self.amountValue;
     if (stringValue.length > 0) {
@@ -376,7 +376,7 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
 - (NSString *)amountValue {
     return self.makeUnFormatter;
 }
-//正号的金额数据
+//带正号的金额数据
 - (NSString *)positiveValue {
     NSString *stringValue = self.amountValue;
     if (stringValue.length > 0) {
@@ -384,7 +384,7 @@ typedef NS_ENUM(NSUInteger, HOperationMode) {
     }
     return stringValue;
 }
-//负号的金额数据
+//带负号的金额数据
 - (NSString *)negativeValue {
     NSString *stringValue = self.amountValue;
     if (stringValue.length > 0) {

@@ -48,9 +48,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSDecimalNumber *)dividing:(id)value;
 //获取十进制金额数据
 - (NSString *)amountValue;
-//正号的金额数据
+//带正号的金额数据
 - (NSString *)positiveValue;
-//负号的金额数据
+//带负号的金额数据
 - (NSString *)negativeValue;
 //带有货币符号的金额数据
 - (NSString *)currencySymbolValue;
@@ -69,9 +69,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSDecimalNumber *)dividing:(id)value;
 //获取十进制金额数据
 - (NSString *)amountValue;
-//正号的金额数据
+//带正号的金额数据
 - (NSString *)positiveValue;
-//负号的金额数据
+//带负号的金额数据
 - (NSString *)negativeValue;
 //带有货币符号的金额数据
 - (NSString *)currencySymbolValue;
