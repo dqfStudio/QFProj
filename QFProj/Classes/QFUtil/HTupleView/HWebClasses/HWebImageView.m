@@ -229,6 +229,7 @@
         _themeSkin = themeSkin;
         if (themeSkin) {
             [[HWebImageAppearance appearance] addImage:self];
+            _themeSkin(self, nil);
         }
     }
 }

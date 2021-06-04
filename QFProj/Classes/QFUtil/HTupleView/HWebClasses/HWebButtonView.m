@@ -235,6 +235,7 @@
         if (themeSkin) {
             //保存button用于全局刷新
             [[HWebButtonAppearance appearance] addButton:self];
+            _themeSkin(self, nil);
         }
     }
 }

@@ -53,6 +53,8 @@
 		A251AA6A264BB2990067E574 /* HUserLocale2.m in Sources */ = {isa = PBXBuildFile; fileRef = A251AA69264BB2990067E574 /* HUserLocale2.m */; };
 		A251AAB2264CF31B0067E574 /* HUserRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = A251AAB1264CF31B0067E574 /* HUserRegion.m */; };
 		A251AAC0264D312F0067E574 /* HRegionInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = A251AABF264D312F0067E574 /* HRegionInfo.json */; };
+		A255CF4F26690D4800B576DE /* HLanguageList.json in Resources */ = {isa = PBXBuildFile; fileRef = A255CF4E26690D4800B576DE /* HLanguageList.json */; };
+		A255CF522669153F00B576DE /* HRegionList.json in Resources */ = {isa = PBXBuildFile; fileRef = A255CF512669153F00B576DE /* HRegionList.json */; };
 		A25E670C262445FD00863FF8 /* HAnalogNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6345262445FC00863FF8 /* HAnalogNetworkManager.m */; };
 		A25E670D262445FD00863FF8 /* HTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E6349262445FC00863FF8 /* HTool.m */; };
 		A25E670E262445FD00863FF8 /* HWebview.m in Sources */ = {isa = PBXBuildFile; fileRef = A25E634B262445FC00863FF8 /* HWebview.m */; };
@@ -568,6 +570,8 @@
 		A251AAB0264CF31B0067E574 /* HUserRegion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HUserRegion.h; sourceTree = "<group>"; };
 		A251AAB1264CF31B0067E574 /* HUserRegion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HUserRegion.m; sourceTree = "<group>"; };
 		A251AABF264D312F0067E574 /* HRegionInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HRegionInfo.json; sourceTree = "<group>"; };
+		A255CF4E26690D4800B576DE /* HLanguageList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HLanguageList.json; sourceTree = "<group>"; };
+		A255CF512669153F00B576DE /* HRegionList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HRegionList.json; sourceTree = "<group>"; };
 		A25E6344262445FC00863FF8 /* HAnalogNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAnalogNetworkManager.h; sourceTree = "<group>"; };
 		A25E6345262445FC00863FF8 /* HAnalogNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAnalogNetworkManager.m; sourceTree = "<group>"; };
 		A25E6347262445FC00863FF8 /* HWebviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWebviewVC.h; sourceTree = "<group>"; };
@@ -1548,6 +1552,8 @@
 				A251A9B72648172B0067E574 /* region.json */,
 				A251AA62264BAD2B0067E574 /* countryInfo.json */,
 				A251AABF264D312F0067E574 /* HRegionInfo.json */,
+				A255CF4E26690D4800B576DE /* HLanguageList.json */,
+				A255CF512669153F00B576DE /* HRegionList.json */,
 			);
 			path = HLocale;
 			sourceTree = "<group>";
@@ -3446,6 +3452,7 @@
 				A20E3D0D231FE8FC00E6982B /* di_index@2x.png in Resources */,
 				A25E687E262445FE00863FF8 /* loading_gif_white.gif in Resources */,
 				A25E6854262445FE00863FF8 /* JhtFloatingBallIcon.png in Resources */,
+				A255CF4F26690D4800B576DE /* HLanguageList.json in Resources */,
 				A25E6885262445FE00863FF8 /* loading_new_7@2x.png in Resources */,
 				A227A8FD233C9DB4005611BA /* di_zhuce@3x.png in Resources */,
 				A25E6766262445FD00863FF8 /* README.H.md in Resources */,
@@ -3453,6 +3460,7 @@
 				A25E67FF262445FE00863FF8 /* register_checkbox_icon_h@3x.png in Resources */,
 				A20E3D0F231FE8FC00E6982B /* di_index_h@2x.png in Resources */,
 				A25E687A262445FE00863FF8 /* icon_no_server@2x.png in Resources */,
+				A255CF522669153F00B576DE /* HRegionList.json in Resources */,
 				A25E68BD262445FE00863FF8 /* hvc_back_icon@2x.png in Resources */,
 				A25E6875262445FE00863FF8 /* icon_no_network@3x.png in Resources */,
 				A2C2B21C235F15DA0041AAB5 /* HTupleView的用法.pages in Resources */,

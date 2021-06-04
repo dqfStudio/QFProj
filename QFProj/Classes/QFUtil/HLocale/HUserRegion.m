@@ -8,18 +8,13 @@
 
 #import "HUserRegion.h"
 
-#define KRegionNameKey    @"KRegionNameKey"
+#define KRegionCodeKey    @"KRegionCodeKey"
 #define KLanguageCodeKey  @"KLanguageCodeKey"
 
 @interface HUserRegion () {
-    NSString *_languageCode;
     NSString *_regionCode;
-    NSString *_regionName;
+    NSString *_languageCode;
 }
-//区域json文件内容
-@property(nonatomic) NSDictionary *regionDict;
-//区域代码和区域名称的映射表
-@property(nonatomic) NSDictionary *regionMapDict;
 @end
 
 @implementation HUserRegion
@@ -34,27 +29,88 @@
 }
 //区域json文件内容
 - (NSDictionary *)regionDict {
-    if (!_regionDict) {
+    static dispatch_once_t once;
+    static NSDictionary *dictionary;
+    dispatch_once(&once, ^{
         NSString *path = [[NSBundle mainBundle] pathForResource:@"HRegionInfo" ofType:@"json"];
         if (path) {
             NSData *data = [NSData dataWithContentsOfFile:path];
             if (data) {
                 id resource = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
                 if ([resource isKindOfClass:NSDictionary.class]) {
-                    _regionDict = resource;
+                    dictionary = resource;
                 }
             }
         }
-    }
-    return _regionDict;
+    });
+    return dictionary;
 }
-//区域代码和区域名称的映射表
-- (NSDictionary *)regionMapDict {
-    if (!_regionMapDict) {
-        _regionMapDict = @{@"VN" : @"Vietnam", @"IN" : @"India", @"BR" : @"Brazil", @"OTHERS" : @"Others"};
+
+//区域代码
+- (NSString *)regionCode {
+    if (!_regionCode) {
+        NSString *userRegionCode = [[NSUserDefaults standardUserDefaults] objectForKey:KRegionCodeKey];
+        if (!userRegionCode) {
+            //如果用户没有设置区域，读取“设置-通用-地区”中默认的区域
+            userRegionCode = [NSLocale autoupdatingCurrentLocale].countryCode;
+            if (![self.regionDict.allKeys containsObject:userRegionCode]) {
+                //如果用户没有设置区域，读取区域json文件中最后一项
+                userRegionCode = self.regionDict.allKeys.lastObject;
+            }
+            [[NSUserDefaults standardUserDefaults] setObject:userRegionCode forKey:KRegionCodeKey];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
+        _regionCode = userRegionCode;
     }
-    return _regionMapDict;
+    return _regionCode;
 }
+- (void)setRegionCode:(NSString *)regionCode {
+    if (_regionCode != regionCode) {
+        _regionCode = nil;
+        _regionCode = regionCode;
+        if (regionCode && [self.regionDict.allKeys containsObject:regionCode]) {
+            [[NSUserDefaults standardUserDefaults] setObject:regionCode forKey:KRegionCodeKey];
+        }else {
+            //如果用户没有设置区域，读取“设置-通用-地区”中默认的区域
+            NSString *regionCode = [NSLocale autoupdatingCurrentLocale].countryCode;
+            if (![self.regionDict.allKeys containsObject:regionCode]) {
+                //如果用户没有设置区域，读取区域json文件中最后一项
+                regionCode = self.regionDict.allKeys.lastObject;
+            }
+            [[NSUserDefaults standardUserDefaults] setObject:regionCode forKey:KRegionCodeKey];
+        }
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+//区域名称
+- (NSString *)regionName {
+    for (NSDictionary *dict in self.supportedRegions) {
+        if ([self.regionCode isEqualToString:dict[@"regionCode"]]) {
+            return dict[@"regionName"];
+        }
+    }
+    return @"";
+}
+//支持的区域列表
+- (NSArray *)supportedRegions {
+    //获取不同的语言文件
+    NSString *path = [[NSBundle mainBundle] pathForResource:self.languageCode ofType:@"lproj"];
+    NSBundle *currentBundle = [NSBundle bundleWithPath:path];
+    path = [currentBundle pathForResource:@"HRegionList" ofType:@"json"];
+    NSArray *array = nil;
+    if (path) {
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        if (data) {
+            id resource = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            if ([resource isKindOfClass:NSArray.class]) {
+                array = resource;
+            }
+        }
+    }
+    return array;
+}
+
+
 //语言代码
 - (NSString *)languageCode {
     if (!_languageCode) {
@@ -95,77 +151,32 @@
 }
 //语言名称
 - (NSString *)languageName {
-//    NSString *languageName = [[NSLocale localeWithLocaleIdentifier:self.languageCode] localizedStringForLocaleIdentifier:self.languageCode];
-//    if ([languageName isEqualToString:@"en-IN"]) { languageName = @"भारत गणराज्य"; }
-//    else if ([languageName isEqualToString:@"pt-BR"]) { languageName = @"português"; }
-//    return languageName ?: @"";
-    NSString *languageName = @"";
-    if ([self.languageCode isEqualToString:@"zh-Hans"]) { languageName = @"简体中文"; }
-    else if ([self.languageCode isEqualToString:@"zh-Hant"]) { languageName = @"繁體中文"; }
-    else if ([self.languageCode isEqualToString:@"en"]) { languageName = @"English"; }
-    else if ([self.languageCode isEqualToString:@"ja"]) { languageName = @"日本語"; }
-    else if ([self.languageCode isEqualToString:@"ko"]) { languageName = @"한국어"; }
-    else if ([self.languageCode containsString:@"vi"]) { languageName = @"Tiếng Việt"; }
-    else if ([self.languageCode isEqualToString:@"en-IN"]) { languageName = @"भारत गणराज्य"; }
-    else if ([self.languageCode isEqualToString:@"pt-BR"]) { languageName = @"português"; }
-    return languageName;
+    for (NSDictionary *dict in self.supportedLanguages) {
+        if ([self.languageCode isEqualToString:dict[@"languageCode"]]) {
+            return dict[@"languageName"];
+        }
+    }
+    return @"";
+}
+//支持的语言列表
+- (NSArray *)supportedLanguages {
+    static dispatch_once_t once;
+    static NSArray *array;
+    dispatch_once(&once, ^{
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"HLanguageList" ofType:@"json"];
+        if (path) {
+            NSData *data = [NSData dataWithContentsOfFile:path];
+            if (data) {
+                id resource = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+                if ([resource isKindOfClass:NSArray.class]) {
+                    array = resource;
+                }
+            }
+        }
+    });
+    return array;
 }
 
-
-//区域代码
-- (NSString *)regionCode {
-    if (!_regionCode) {
-        //如果用户没有设置区域，读取区域json文件中匹配的区域代码
-        for (NSString *key in self.regionMapDict.allKeys) {
-            NSString *value = self.regionMapDict[key];
-            if ([value isEqualToString:self.regionName]) {
-                _regionCode = [key mutableCopy];
-                break;
-            }
-        }
-    }
-    return _regionCode;
-}
-//区域名称
-- (NSString *)regionName {
-    if (!_regionName) {
-        NSString *defaultRegionName = [[NSUserDefaults standardUserDefaults] objectForKey:KRegionNameKey];
-        if (!defaultRegionName) {
-            //如果用户没有设置区域，读取“设置-通用-地区”中默认的区域
-            NSString *regionCode = [NSLocale autoupdatingCurrentLocale].countryCode;
-            defaultRegionName = self.regionMapDict[regionCode];
-            if (![self.regionDict.allKeys containsObject:defaultRegionName]) {
-                //如果用户没有设置区域，读取区域json文件中最后一项
-                defaultRegionName = self.regionDict.allKeys.lastObject;
-            }
-            [[NSUserDefaults standardUserDefaults] setObject:defaultRegionName forKey:KRegionNameKey];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-        }
-        _regionName = defaultRegionName;
-    }
-    return _regionName;
-}
-- (void)setRegionName:(NSString *)regionName {
-    if (_regionName != regionName) {
-        _regionName = nil;
-        _regionName = regionName;
-        if (regionName && [self.regionDict.allKeys containsObject:regionName]) {
-            [[NSUserDefaults standardUserDefaults] setObject:regionName forKey:KRegionNameKey];
-        }else {
-            //如果用户没有设置区域，读取“设置-通用-地区”中默认的区域
-            NSString *regionCode = [NSLocale autoupdatingCurrentLocale].countryCode;
-            if ([self.regionDict.allKeys containsObject:self.regionMapDict[regionCode]]) {
-                [[NSUserDefaults standardUserDefaults] setObject:self.regionMapDict[regionCode] forKey:KRegionNameKey];
-            }else {
-                //如果用户没有设置区域，读取区域json文件中最后一项
-                [[NSUserDefaults standardUserDefaults] setObject:self.regionDict.allKeys.lastObject forKey:KRegionNameKey];
-            }
-        }
-        //清空regionCode的值
-        _regionCode = nil;
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
-}
 //货币符号
 - (NSString *)currencySymbol {
     NSDictionary *dict = [self.regionDict objectForKey:self.regionName];
@@ -179,19 +190,10 @@
 
 //货币图标
 - (UIImage *)currencyIcon {
-    return [UIImage imageNamed:self.currencyIconName];
+    NSDictionary *dict = [self.regionDict objectForKey:self.regionName];
+    return [UIImage imageNamed:dict[@"currencyIconName"]];
 }
-//货币图标名称
-- (NSString *)currencyIconName {
-    if ([self.regionName isEqual:@"Vietnam"]) {
-        return @"越南盾";
-    } else if([self.regionName isEqual:@"India"]) {
-        return @"卢比";
-    } else if([self.regionName isEqual:@"Brazil"]) {
-        return @"巴西雷亚尔";
-    }
-    return @"USDT";
-}
+
 //分组分隔符
 - (NSString *)groupingSeparator {
     NSDictionary *dict = [self.regionDict objectForKey:self.regionName];
@@ -208,41 +210,31 @@
     if (factors.length > 0) {
         for (NSDictionary *dict in self.regionDict.allValues) {
             if ([dict.allValues containsObject:factors]) {
-                if ([dict[@"regionCode"] isEqual:@"VN"]) {
-                    return [UIImage imageNamed:@"越南盾"];
-                }else if ([dict[@"regionCode"] isEqual:@"IN"]) {
-                    return [UIImage imageNamed:@"卢比"];
-                }else if ([dict[@"regionCode"] isEqual:@"BR"]) {
-                    return [UIImage imageNamed:@"巴西雷亚尔"];
-                }
+                return [UIImage imageNamed:dict[@"currencyIconName"]];
             }
         }
     }
-    return [UIImage imageNamed:@"USDT"];
+    return nil;
 }
 - (NSString *)currencySymbolWithFactors:(NSString *)factors {
-    if (!factors || factors.length == 0) return @"₫";
-    for (NSDictionary *dict in self.regionDict.allValues) {
-        if ([dict.allValues containsObject:factors]) {
-            return dict[@"currencySymbol"];
+    if (factors.length > 0) {
+        for (NSDictionary *dict in self.regionDict.allValues) {
+            if ([dict.allValues containsObject:factors]) {
+                return dict[@"currencySymbol"];
+            }
         }
     }
-    return @"$";
+    return @"";
 }
 - (NSString *)currencyCodeWithFactors:(NSString *)factors {
-    if (!factors || factors.length == 0) return @"VND";
-    for (NSDictionary *dict in self.regionDict.allValues) {
-        if ([dict.allValues containsObject:factors]) {
-            return dict[@"currencyCode"];
+    if (factors.length > 0) {
+        for (NSDictionary *dict in self.regionDict.allValues) {
+            if ([dict.allValues containsObject:factors]) {
+                return dict[@"currencyCode"];
+            }
         }
     }
-    return @"USD";
-}
-- (NSString *)currencyCodeWithServerCurrencyCode:(NSString *)code {
-    if([code isEqual:@"USDT"]) {
-        return @"USD";
-    }
-    return code;
+    return @"";
 }
 
 

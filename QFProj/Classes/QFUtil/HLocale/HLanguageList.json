@@ -1,0 +1,27 @@
+[
+    {
+        "languageCode":"zh-Hant",
+        "languageName":"繁体中文",
+        "sid":"0"
+    },
+    {
+        "languageCode":"en",
+        "languageName":"English",
+        "sid":"1"
+    },
+    {
+        "languageCode":"vi",
+        "languageName":"Tiếng Việt",
+        "sid":"2"
+    },
+    {
+        "languageCode":"en-IN",
+        "languageName":"भारत गणराज्य ",
+        "sid":"3"
+    },
+    {
+        "languageCode":"pt-BR",
+        "languageName":"português",
+        "sid":"4"
+    }
+]

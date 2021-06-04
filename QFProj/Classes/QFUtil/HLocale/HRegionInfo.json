@@ -5,6 +5,7 @@
         "languageCode":"vi",
         "currencyCode":"VND",
         "currencySymbol":"₫",
+        "currencyIconName":"越南盾",
         "groupingSeparator":".",
         "decimalSeparator":","
     },
@@ -14,6 +15,7 @@
         "languageCode":"en-IN",
         "currencyCode":"INR",
         "currencySymbol":"₹",
+        "currencyIconName":"卢比",
         "groupingSeparator":",",
         "decimalSeparator":"."
     },
@@ -23,6 +25,7 @@
         "languageCode":"pt-BR",
         "currencyCode":"BRL",
         "currencySymbol":"R$",
+        "currencyIconName":"巴西雷亚尔",
         "groupingSeparator":".",
         "decimalSeparator":","
     },
@@ -32,6 +35,7 @@
         "languageCode":"en",
         "currencyCode":"USD",
         "currencySymbol":"$",
+        "currencyIconName":"USDT",
         "groupingSeparator":",",
         "decimalSeparator":"."
     }

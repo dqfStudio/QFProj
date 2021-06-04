@@ -10,10 +10,11 @@
 
 @interface HUserDefaults : NSObject
 
+@property (nonatomic) BOOL isUserFirstLaunchs;
+
 @property (nonatomic) BOOL isLogin;
 @property (nonatomic, copy) NSString *userId;
 @property (nonatomic, copy) NSString *userName;
-@property (nonatomic, copy) NSString *password;
 
 @property (nonatomic) NSInteger integerValue;
 @property (nonatomic) BOOL boolValue;
