@@ -162,7 +162,7 @@ static void objectSetter(HUserDefaults *self, SEL _cmd, id object) {
 //        }
 //    }
 //}
-//- (void)saveUser {
+- (void)saveUser {
 //    if (self.isLogin) {
 //        NSString *_suiteName = [self suiteName];
 //        if (_suiteName.length > 0) {
@@ -171,7 +171,8 @@ static void objectSetter(HUserDefaults *self, SEL _cmd, id object) {
 //            [[NSUserDefaults standardUserDefaults] synchronize];
 //        }
 //    }
-//}
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 ////登出的时候需要移除用户信息
 //- (void)removeUser {
 //    [self.userDefaults synchronize];
@@ -199,7 +200,7 @@ static void objectSetter(HUserDefaults *self, SEL _cmd, id object) {
         }
         [self generateAccessorMethods];
         //添加APP运行即将终止时的通知
-        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveUser) name:UIApplicationWillTerminateNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveUser) name:UIApplicationWillTerminateNotification object:nil];
     }
     return self;
 }
