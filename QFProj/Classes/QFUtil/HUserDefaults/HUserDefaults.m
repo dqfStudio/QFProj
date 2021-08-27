@@ -11,22 +11,22 @@
 
 #define KHUserDefaultsKey @"KHUserDefaultsKey"
 
-@implementation HUserDefaults (Defaults)
-- (NSString *)suiteName {
-    return self.userId;
-}
-- (NSDictionary *)setupDefaults {
-    return @{
-        @"integerValue": @123,
-        @"boolValue": @YES,
-        @"floatValue": @12.3,
-    };
-}
-- (NSString *)transformKey:(NSString *)key {
-    key = [key stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[key substringToIndex:1] uppercaseString]];
-    return [NSString stringWithFormat:@"NSUserDefault%@", key];
-}
-@end
+//@implementation HUserDefaults (Defaults)
+//- (NSString *)suiteName {
+//    return self.userId;
+//}
+//- (NSDictionary *)setupDefaults {
+//    return @{
+//        @"integerValue": @123,
+//        @"boolValue": @YES,
+//        @"floatValue": @12.3,
+//    };
+//}
+//- (NSString *)transformKey:(NSString *)key {
+//    key = [key stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[key substringToIndex:1] uppercaseString]];
+//    return [NSString stringWithFormat:@"NSUserDefault%@", key];
+//}
+//@end
 
 @interface HUserDefaults ()
 @property(nonatomic, strong) NSMutableDictionary *mapping;
@@ -152,32 +152,32 @@ static void objectSetter(HUserDefaults *self, SEL _cmd, id object) {
     return share;
 }
 
-- (void)setIsLogin:(BOOL)isLogin {
-    if (_isLogin != isLogin) {
-        _isLogin = isLogin;
-        if (_isLogin) {
-            [self saveUser];
-        }else {
-            [self removeUser];
-        }
-    }
-}
-- (void)saveUser {
-    if (self.isLogin) {
-        NSString *_suiteName = [self suiteName];
-        if (_suiteName.length > 0) {
-            [self.userDefaults synchronize];
-            [[NSUserDefaults standardUserDefaults] setObject:_suiteName forKey:KHUserDefaultsKey];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-        }
-    }
-}
-//登出的时候需要移除用户信息
-- (void)removeUser {
-    [self.userDefaults synchronize];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:KHUserDefaultsKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
+//- (void)setIsLogin:(BOOL)isLogin {
+//    if (_isLogin != isLogin) {
+//        _isLogin = isLogin;
+//        if (_isLogin) {
+//            [self saveUser];
+//        }else {
+//            [self removeUser];
+//        }
+//    }
+//}
+//- (void)saveUser {
+//    if (self.isLogin) {
+//        NSString *_suiteName = [self suiteName];
+//        if (_suiteName.length > 0) {
+//            [self.userDefaults synchronize];
+//            [[NSUserDefaults standardUserDefaults] setObject:_suiteName forKey:KHUserDefaultsKey];
+//            [[NSUserDefaults standardUserDefaults] synchronize];
+//        }
+//    }
+//}
+////登出的时候需要移除用户信息
+//- (void)removeUser {
+//    [self.userDefaults synchronize];
+//    [[NSUserDefaults standardUserDefaults] removeObjectForKey:KHUserDefaultsKey];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+//}
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wundeclared-selector"
@@ -199,7 +199,7 @@ static void objectSetter(HUserDefaults *self, SEL _cmd, id object) {
         }
         [self generateAccessorMethods];
         //添加APP运行即将终止时的通知
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveUser) name:UIApplicationWillTerminateNotification object:nil];
+        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveUser) name:UIApplicationWillTerminateNotification object:nil];
     }
     return self;
 }

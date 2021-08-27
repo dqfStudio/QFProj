@@ -12,6 +12,7 @@
 		15B4DD702092F88700773E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15B4DD6F2092F88700773E04 /* Assets.xcassets */; };
 		15B4DD732092F88700773E04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B4DD712092F88700773E04 /* LaunchScreen.storyboard */; };
 		15B4DD762092F88700773E04 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD752092F88700773E04 /* main.m */; };
+		8E4A44DE26D90B37006A0802 /* HUserDefaults+Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44DD26D90B37006A0802 /* HUserDefaults+Defaults.m */; };
 		96CB6F26AB826D91E5DB7E82 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6AC0EB7C7229A3A3F9EE0D /* libPods-QFProj.a */; };
 		A20E3CFB231FDF4D00E6982B /* HMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CFA231FDF4D00E6982B /* HMenuController.m */; };
 		A20E3CFE231FE0B400E6982B /* HMainController1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CFD231FE0B400E6982B /* HMainController1.m */; };
@@ -503,6 +504,8 @@
 		15B4DD742092F88700773E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15B4DD752092F88700773E04 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		662E249D697B3F1DEBCF7984 /* Pods-QFProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.debug.xcconfig"; path = "Target Support Files/Pods-QFProj/Pods-QFProj.debug.xcconfig"; sourceTree = "<group>"; };
+		8E4A44DC26D90B37006A0802 /* HUserDefaults+Defaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HUserDefaults+Defaults.h"; sourceTree = "<group>"; };
+		8E4A44DD26D90B37006A0802 /* HUserDefaults+Defaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HUserDefaults+Defaults.m"; sourceTree = "<group>"; };
 		A20E3CF9231FDF4D00E6982B /* HMenuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMenuController.h; sourceTree = "<group>"; };
 		A20E3CFA231FDF4D00E6982B /* HMenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMenuController.m; sourceTree = "<group>"; };
 		A20E3CFC231FE0B400E6982B /* HMainController1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMainController1.h; sourceTree = "<group>"; };
@@ -2051,6 +2054,8 @@
 				A25E6415262445FC00863FF8 /* HUserStore.m */,
 				A23BFB64263BCD2000501F79 /* HUserDefaults.h */,
 				A23BFB63263BCD2000501F79 /* HUserDefaults.m */,
+				8E4A44DC26D90B37006A0802 /* HUserDefaults+Defaults.h */,
+				8E4A44DD26D90B37006A0802 /* HUserDefaults+Defaults.m */,
 			);
 			path = HUserDefaults;
 			sourceTree = "<group>";
@@ -3406,7 +3411,6 @@
 				662E249D697B3F1DEBCF7984 /* Pods-QFProj.debug.xcconfig */,
 				F4CDE74DAC1E5C005AF46A6C /* Pods-QFProj.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -3912,6 +3916,7 @@
 				A25E67BB262445FE00863FF8 /* NSString+URLEncode.m in Sources */,
 				A25E6797262445FD00863FF8 /* NSObject+HBlockSEL.m in Sources */,
 				A25E68C0262445FE00863FF8 /* HPingTester.m in Sources */,
+				8E4A44DE26D90B37006A0802 /* HUserDefaults+Defaults.m in Sources */,
 				A25E684D262445FE00863FF8 /* HTextField.m in Sources */,
 				A25E6719262445FD00863FF8 /* HRemoteNotification.m in Sources */,
 				A25E6798262445FD00863FF8 /* NSObject+HKVO.m in Sources */,
