@@ -37,7 +37,7 @@
     [self.view addSubview:self.tupleView];
     
     [self.tupleView startOpacityForeverAnimation];
-    dispatchAfter(5.0, ^{
+    dispatchAfter(3.0, ^{
         self.tupleView.tupleState = HMainCtrl1Type2;
         [self.tupleView reloadData];
         [self.tupleView stopOpacityForeverAnimation];

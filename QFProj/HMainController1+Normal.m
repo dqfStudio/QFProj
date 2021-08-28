@@ -170,7 +170,7 @@
             [cell.label setText:@"黑客帝国"];
 
             cell.didSelectCell = ^(HTupleViewCellVertValue1 *cell, NSIndexPath *indexPath) {
-                NSLog(@"选中黑客帝国");
+                [self presentViewController:HLiveRoomExchangeVC.new animated:YES completion:nil];
             };
         }
             break;
