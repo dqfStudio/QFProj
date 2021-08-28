@@ -31,6 +31,10 @@
     self.tupleView.contentOffset = CGPointMake(0, self.tupleView.height);
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 - (BOOL)prefersNavigationBarHidden {
     return YES;
 }
