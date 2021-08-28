@@ -1,20 +1,20 @@
 //
-//  HLiveRoomExchangeVC.m
+//  HLiveRoomVC.m
 //  QFProj
 //
 //  Created by dqf on 2021/8/29.
 //  Copyright © 2021 dqfStudio. All rights reserved.
 //
 
-#import "HLiveRoomExchangeVC.h"
-#import "HLiveBackgroundCell.h"
-#import "HTupleLiveCell.h"
+#import "HLiveRoomVC.h"
+#import "HLiveRoomBgCell.h"
+#import "HLiveRoomCell.h"
 
-@interface HLiveRoomExchangeVC ()
+@interface HLiveRoomVC ()
 
 @end
 
-@implementation HLiveRoomExchangeVC
+@implementation HLiveRoomVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,17 +55,17 @@
 - (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
-            HLiveBackgroundCell *cell = itemBlock(nil, HLiveBackgroundCell.class, nil, YES);
+            HLiveRoomBgCell *cell = itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
             [cell setSignalBlock:nil];
         }
             break;
         case 2: {
-            HLiveBackgroundCell *cell = itemBlock(nil, HLiveBackgroundCell.class, nil, YES);
+            HLiveRoomBgCell *cell = itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
             [cell setSignalBlock:nil];
         }
             break;
         case 1: {
-            HTupleLiveCell*cell = itemBlock(nil, HTupleLiveCell.class, nil, YES);
+            HLiveRoomCell*cell = itemBlock(nil, HLiveRoomCell.class, nil, YES);
             
             void (^setScrollParams)(void) = ^(void){
                 // 禁止滚动
@@ -85,7 +85,7 @@
             //设置滚动相关属性
             setScrollParams();
             
-            [cell setSignalBlock:^(HTupleLiveCell *cell, HTupleSignal *signal) {
+            [cell setSignalBlock:^(HLiveRoomCell *cell, HTupleSignal *signal) {
                 //NSInteger index = [signal.signal integerValue];
                 
                 // 开始旋转
@@ -105,7 +105,7 @@
 //向上滚动
 - (void)tupleScrollViewDidScrollToTop:(UIScrollView *)scrollView {
     self.tupleView.scrollEnabled = NO;
-    HTupleLiveCell *cell = self.tupleView.cell(1, 0);
+    HLiveRoomCell *cell = self.tupleView.cell(1, 0);
     HTupleSignal *signal = HTupleSignal.new;
     signal.signal = @(1);
     cell.signalBlock(cell, signal);
@@ -113,7 +113,7 @@
 //向下滚动
 - (void)tupleScrollViewDidScrollToBottom:(UIScrollView *)scrollView {
     self.tupleView.scrollEnabled = NO;
-    HTupleLiveCell *cell = self.tupleView.cell(1, 0);
+    HLiveRoomCell *cell = self.tupleView.cell(1, 0);
     HTupleSignal *signal = HTupleSignal.new;
     signal.signal = @(1);
     cell.signalBlock(cell, signal);

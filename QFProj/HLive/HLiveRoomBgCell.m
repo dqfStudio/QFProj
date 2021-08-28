@@ -1,14 +1,14 @@
 //
-//  HLiveBackgroundCell.m
+//  HLiveRoomBgCell.m
 //  QFProj
 //
-//  Created by Jovial on 2021/8/29.
+//  Created by dqf on 2021/8/29.
 //  Copyright © 2021 dqfStudio. All rights reserved.
 //
 
-#import "HLiveBackgroundCell.h"
+#import "HLiveRoomBgCell.h"
 
-@implementation HLiveBackgroundCell
+@implementation HLiveRoomBgCell
 //cell初始化是调用的方法
 - (void)initUI {
     [super initUI];

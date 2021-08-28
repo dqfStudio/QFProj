@@ -1,8 +1,8 @@
 //
-//  HLiveBackgroundCell.h
+//  HLiveRoomBgCell.h
 //  QFProj
 //
-//  Created by Jovial on 2021/8/29.
+//  Created by dqf on 2021/8/29.
 //  Copyright © 2021 dqfStudio. All rights reserved.
 //
 
@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HLiveBackgroundCell : HTupleImageCell
+@interface HLiveRoomBgCell : HTupleImageCell
 @property (nonatomic) UIVisualEffectView *effectView;
 @property (nonatomic) UIActivityIndicatorView *activityIndicator;
 @end

@@ -13,10 +13,10 @@
 		15B4DD732092F88700773E04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B4DD712092F88700773E04 /* LaunchScreen.storyboard */; };
 		15B4DD762092F88700773E04 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD752092F88700773E04 /* main.m */; };
 		8E4A44DE26D90B37006A0802 /* HUserDefaults+Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44DD26D90B37006A0802 /* HUserDefaults+Defaults.m */; };
-		8E4A44E226DA29DA006A0802 /* HLiveRoomExchangeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44E126DA29DA006A0802 /* HLiveRoomExchangeVC.m */; };
+		8E4A44E226DA29DA006A0802 /* HLiveRoomVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44E126DA29DA006A0802 /* HLiveRoomVC.m */; };
 		8E4A44E426DA3362006A0802 /* live_bg_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E4A44E326DA3362006A0802 /* live_bg_icon.png */; };
-		8E4A44E726DA35B8006A0802 /* HLiveBackgroundCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44E626DA35B8006A0802 /* HLiveBackgroundCell.m */; };
-		8E4A44EA26DA598A006A0802 /* HTupleLiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44E926DA598A006A0802 /* HTupleLiveCell.m */; };
+		8E4A44E726DA35B8006A0802 /* HLiveRoomBgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44E626DA35B8006A0802 /* HLiveRoomBgCell.m */; };
+		8E4A44EA26DA598A006A0802 /* HLiveRoomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44E926DA598A006A0802 /* HLiveRoomCell.m */; };
 		96CB6F26AB826D91E5DB7E82 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6AC0EB7C7229A3A3F9EE0D /* libPods-QFProj.a */; };
 		A20E3CFB231FDF4D00E6982B /* HMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CFA231FDF4D00E6982B /* HMenuController.m */; };
 		A20E3CFE231FE0B400E6982B /* HMainController1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CFD231FE0B400E6982B /* HMainController1.m */; };
@@ -510,13 +510,13 @@
 		662E249D697B3F1DEBCF7984 /* Pods-QFProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.debug.xcconfig"; path = "Target Support Files/Pods-QFProj/Pods-QFProj.debug.xcconfig"; sourceTree = "<group>"; };
 		8E4A44DC26D90B37006A0802 /* HUserDefaults+Defaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HUserDefaults+Defaults.h"; sourceTree = "<group>"; };
 		8E4A44DD26D90B37006A0802 /* HUserDefaults+Defaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HUserDefaults+Defaults.m"; sourceTree = "<group>"; };
-		8E4A44E026DA29DA006A0802 /* HLiveRoomExchangeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLiveRoomExchangeVC.h; sourceTree = "<group>"; };
-		8E4A44E126DA29DA006A0802 /* HLiveRoomExchangeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLiveRoomExchangeVC.m; sourceTree = "<group>"; };
+		8E4A44E026DA29DA006A0802 /* HLiveRoomVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLiveRoomVC.h; sourceTree = "<group>"; };
+		8E4A44E126DA29DA006A0802 /* HLiveRoomVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLiveRoomVC.m; sourceTree = "<group>"; };
 		8E4A44E326DA3362006A0802 /* live_bg_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = live_bg_icon.png; sourceTree = "<group>"; };
-		8E4A44E526DA35B8006A0802 /* HLiveBackgroundCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLiveBackgroundCell.h; sourceTree = "<group>"; };
-		8E4A44E626DA35B8006A0802 /* HLiveBackgroundCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLiveBackgroundCell.m; sourceTree = "<group>"; };
-		8E4A44E826DA598A006A0802 /* HTupleLiveCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleLiveCell.h; sourceTree = "<group>"; };
-		8E4A44E926DA598A006A0802 /* HTupleLiveCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleLiveCell.m; sourceTree = "<group>"; };
+		8E4A44E526DA35B8006A0802 /* HLiveRoomBgCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLiveRoomBgCell.h; sourceTree = "<group>"; };
+		8E4A44E626DA35B8006A0802 /* HLiveRoomBgCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLiveRoomBgCell.m; sourceTree = "<group>"; };
+		8E4A44E826DA598A006A0802 /* HLiveRoomCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLiveRoomCell.h; sourceTree = "<group>"; };
+		8E4A44E926DA598A006A0802 /* HLiveRoomCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLiveRoomCell.m; sourceTree = "<group>"; };
 		A20E3CF9231FDF4D00E6982B /* HMenuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMenuController.h; sourceTree = "<group>"; };
 		A20E3CFA231FDF4D00E6982B /* HMenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMenuController.m; sourceTree = "<group>"; };
 		A20E3CFC231FE0B400E6982B /* HMainController1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMainController1.h; sourceTree = "<group>"; };
@@ -1541,12 +1541,12 @@
 			isa = PBXGroup;
 			children = (
 				8E4A44E326DA3362006A0802 /* live_bg_icon.png */,
-				8E4A44E026DA29DA006A0802 /* HLiveRoomExchangeVC.h */,
-				8E4A44E126DA29DA006A0802 /* HLiveRoomExchangeVC.m */,
-				8E4A44E526DA35B8006A0802 /* HLiveBackgroundCell.h */,
-				8E4A44E626DA35B8006A0802 /* HLiveBackgroundCell.m */,
-				8E4A44E826DA598A006A0802 /* HTupleLiveCell.h */,
-				8E4A44E926DA598A006A0802 /* HTupleLiveCell.m */,
+				8E4A44E026DA29DA006A0802 /* HLiveRoomVC.h */,
+				8E4A44E126DA29DA006A0802 /* HLiveRoomVC.m */,
+				8E4A44E526DA35B8006A0802 /* HLiveRoomBgCell.h */,
+				8E4A44E626DA35B8006A0802 /* HLiveRoomBgCell.m */,
+				8E4A44E826DA598A006A0802 /* HLiveRoomCell.h */,
+				8E4A44E926DA598A006A0802 /* HLiveRoomCell.m */,
 			);
 			path = HLive;
 			sourceTree = "<group>";
@@ -3776,7 +3776,7 @@
 				A25E675E262445FD00863FF8 /* UIImage+skin.m in Sources */,
 				A25E686D262445FE00863FF8 /* HTextParser.m in Sources */,
 				A25E6738262445FD00863FF8 /* WebViewJavascriptBridge.m in Sources */,
-				8E4A44EA26DA598A006A0802 /* HTupleLiveCell.m in Sources */,
+				8E4A44EA26DA598A006A0802 /* HLiveRoomCell.m in Sources */,
 				A25E685B262445FE00863FF8 /* HTextMagnifier.m in Sources */,
 				A25E685A262445FE00863FF8 /* HTextSelectionView.m in Sources */,
 				A25E6742262445FD00863FF8 /* YPContainerTableView.m in Sources */,
@@ -3858,7 +3858,7 @@
 				A21F4095242215C1002221C4 /* HMainController1+Error.m in Sources */,
 				A25E6771262445FD00863FF8 /* HDiskCache.m in Sources */,
 				A25E6735262445FD00863FF8 /* HFPickerView.m in Sources */,
-				8E4A44E226DA29DA006A0802 /* HLiveRoomExchangeVC.m in Sources */,
+				8E4A44E226DA29DA006A0802 /* HLiveRoomVC.m in Sources */,
 				A25E681B262445FE00863FF8 /* HCollectionViewCell.m in Sources */,
 				A25E67DE262445FE00863FF8 /* KSCPU_x86_64.c in Sources */,
 				A25E674D262445FD00863FF8 /* UIGestureRecognizer+HUtil.m in Sources */,
@@ -3959,7 +3959,7 @@
 				A25E6849262445FE00863FF8 /* HAnimatedImage.m in Sources */,
 				A25E67C9262445FE00863FF8 /* KSCrashMonitor_NSException.m in Sources */,
 				A25E67E2262445FE00863FF8 /* KSDebug.c in Sources */,
-				8E4A44E726DA35B8006A0802 /* HLiveBackgroundCell.m in Sources */,
+				8E4A44E726DA35B8006A0802 /* HLiveRoomBgCell.m in Sources */,
 				A25E6785262445FD00863FF8 /* HGotoRuntimeSupport.m in Sources */,
 				A25E6782262445FD00863FF8 /* UIView+HPrinter.m in Sources */,
 				A25E68AB262445FE00863FF8 /* HIFS.m in Sources */,

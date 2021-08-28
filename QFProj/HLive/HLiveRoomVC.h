@@ -1,5 +1,5 @@
 //
-//  HLiveRoomExchangeVC.h
+//  HLiveRoomVC.h
 //  QFProj
 //
 //  Created by dqf on 2021/8/29.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HLiveRoomExchangeVC : HTupleController
+@interface HLiveRoomVC : HTupleController
 
 @end
 

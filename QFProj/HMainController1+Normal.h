@@ -7,7 +7,7 @@
 //
 
 #import "HMainController1.h"
-#import "HLiveRoomExchangeVC.h"
+#import "HLiveRoomVC.h"
 
 @interface HMainController1 (Normal)
 

@@ -1,14 +1,14 @@
 //
-//  HTupleLiveCell.m
+//  HLiveRoomCell.m
 //  QFProj
 //
-//  Created by Jovial on 2021/8/29.
+//  Created by dqf on 2021/8/29.
 //  Copyright © 2021 dqfStudio. All rights reserved.
 //
 
-#import "HTupleLiveCell.h"
+#import "HLiveRoomCell.h"
 
-@implementation HTupleLiveCell
+@implementation HLiveRoomCell
 - (HTupleView *)tupleView {
     if (!_tupleView) {
         _tupleView = [[HTupleView alloc] initWithFrame:self.bounds];
