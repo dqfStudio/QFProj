@@ -66,13 +66,32 @@
             break;
         case 1: {
             HTupleLiveCell*cell = itemBlock(nil, HTupleLiveCell.class, nil, YES);
+            
+            void (^setScrollParams)(void) = ^(void){
+                // 禁止滚动
+                self.tupleView.scrollEnabled = NO;
+                cell.tupleView.scrollEnabled = NO;
+                cell.tupleView.userInteractionEnabled = NO;
+                dispatchAfter(5, ^{
+                    // 解除禁止滚动
+                    self.tupleView.scrollEnabled = YES;
+                    cell.tupleView.scrollEnabled = YES;
+                    cell.tupleView.userInteractionEnabled = YES;
+                    // 停止旋转
+                    [cell.activityIndicator stopAnimating];
+                });
+            };
+            
+            //设置滚动相关属性
+            setScrollParams();
+            
             [cell setSignalBlock:^(HTupleLiveCell *cell, HTupleSignal *signal) {
                 //NSInteger index = [signal.signal integerValue];
                 
                 // 开始旋转
                 [cell.activityIndicator startAnimating];
-                // 解除禁止滚动
-                self.tupleView.scrollEnabled = YES;
+                //设置滚动相关属性
+                setScrollParams();
             }];
         }
             break;
