@@ -70,6 +70,12 @@
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
     return 4;
 }
+- (CGSize)sizeForHeaderInSection:(NSInteger)section {
+    return CGSizeMake(self.tupleView.width, UIScreen.statusBarHeight);
+}
+- (CGSize)sizeForFooterInSection:(NSInteger)section {
+    return CGSizeMake(self.tupleView.width, UIScreen.bottomBarHeight);
+}
 - (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case HCell0:
@@ -92,6 +98,14 @@
 }
 - (UIEdgeInsets)edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     return UIEdgeInsetsZero;
+}
+- (void)tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
+    HTupleBaseApex *cell = headerBlock(nil, HTupleBaseApex.class, nil, YES);
+    [cell setBackgroundColor:UIColor.clearColor];
+}
+- (void)tupleFooter:(HTupleFooter)footerBlock inSection:(NSInteger)section {
+    HTupleBaseApex *cell = footerBlock(nil, HTupleBaseApex.class, nil, YES);
+    [cell setBackgroundColor:UIColor.clearColor];
 }
 - (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
