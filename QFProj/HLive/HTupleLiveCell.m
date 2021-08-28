@@ -51,6 +51,7 @@
         self.tupleView.frame = CGRectMake(0, 0, self.tupleView.viewWidth, self.tupleView.viewHeight);
     } completion:^(BOOL finished) {
         [self.liveLeftView setHidden:YES];
+        [self.tuple setScrollEnabled:YES];
     }];
 }
 
@@ -59,6 +60,7 @@
         self.tupleView.frame = CGRectMake(self.tupleView.viewWidth, 0, self.tupleView.viewWidth, self.tupleView.viewHeight);
     } completion:^(BOOL finished) {
         [self.liveLeftView setHidden:NO];
+        [self.tuple setScrollEnabled:NO];
     }];
 }
 
