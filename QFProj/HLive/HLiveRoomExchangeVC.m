@@ -8,6 +8,7 @@
 
 #import "HLiveRoomExchangeVC.h"
 #import "HLiveBackgroundCell.h"
+#import "HTupleLiveCell.h"
 
 @interface HLiveRoomExchangeVC ()
 
@@ -54,23 +55,25 @@
 - (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     HLiveBackgroundCell *cell = itemBlock(nil, HLiveBackgroundCell.class, nil, YES);
     switch (indexPath.row) {
+        //case 0 | 2: {
         case 0: {
             cell.backgroundColor = UIColor.yellowColor;
             [cell setSignalBlock:nil];
         }
             break;
+        case 2: {
+            cell.backgroundColor = UIColor.blueColor;
+            [cell setSignalBlock:nil];
+        }
+            break;
         case 1: {
+            HTupleLiveCell*cell = itemBlock(nil, HTupleLiveCell.class, nil, YES);
             cell.backgroundColor = UIColor.redColor;
-            [cell setSignalBlock:^(HLiveBackgroundCell *cell, HTupleSignal *signal) {
+            [cell setSignalBlock:^(HTupleLiveCell *cell, HTupleSignal *signal) {
                 //NSInteger index = [signal.signal integerValue];
                 
                 self.tupleView.scrollEnabled = YES;
             }];
-        }
-            break;
-        case 2: {
-            cell.backgroundColor = UIColor.blueColor;
-            [cell setSignalBlock:nil];
         }
             break;
 
@@ -83,7 +86,7 @@
 //向上滚动
 - (void)tupleScrollViewDidScrollToTop:(UIScrollView *)scrollView {
     self.tupleView.scrollEnabled = NO;
-    HLiveBackgroundCell *cell = self.tupleView.cell(1, 0);
+    HTupleLiveCell *cell = self.tupleView.cell(1, 0);
     HTupleSignal *signal = HTupleSignal.new;
     signal.signal = @(1);
     cell.signalBlock(cell, signal);
@@ -91,7 +94,7 @@
 //向下滚动
 - (void)tupleScrollViewDidScrollToBottom:(UIScrollView *)scrollView {
     self.tupleView.scrollEnabled = NO;
-    HLiveBackgroundCell *cell = self.tupleView.cell(1, 0);
+    HTupleLiveCell *cell = self.tupleView.cell(1, 0);
     HTupleSignal *signal = HTupleSignal.new;
     signal.signal = @(1);
     cell.signalBlock(cell, signal);

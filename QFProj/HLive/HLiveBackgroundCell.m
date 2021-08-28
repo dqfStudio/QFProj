@@ -11,6 +11,7 @@
 @implementation HLiveBackgroundCell
 //cell初始化是调用的方法
 - (void)initUI {
+    [super initUI];
 //    [self.imageView setImageWithName:@"live_bg_icon"];
     //添加模态效果
     UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
@@ -21,6 +22,7 @@
 }
 //用于子类更新子视图布局
 - (void)relayoutSubviews {
+    [super relayoutSubviews];
     HLayoutTableCell(self.imageView)
 //    self.effectView.frame = self.imageView.bounds;
 }

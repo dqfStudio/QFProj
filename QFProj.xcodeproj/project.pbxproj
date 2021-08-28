@@ -16,6 +16,7 @@
 		8E4A44E226DA29DA006A0802 /* HLiveRoomExchangeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44E126DA29DA006A0802 /* HLiveRoomExchangeVC.m */; };
 		8E4A44E426DA3362006A0802 /* live_bg_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E4A44E326DA3362006A0802 /* live_bg_icon.png */; };
 		8E4A44E726DA35B8006A0802 /* HLiveBackgroundCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44E626DA35B8006A0802 /* HLiveBackgroundCell.m */; };
+		8E4A44EA26DA598A006A0802 /* HTupleLiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44E926DA598A006A0802 /* HTupleLiveCell.m */; };
 		96CB6F26AB826D91E5DB7E82 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6AC0EB7C7229A3A3F9EE0D /* libPods-QFProj.a */; };
 		A20E3CFB231FDF4D00E6982B /* HMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CFA231FDF4D00E6982B /* HMenuController.m */; };
 		A20E3CFE231FE0B400E6982B /* HMainController1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CFD231FE0B400E6982B /* HMainController1.m */; };
@@ -514,6 +515,8 @@
 		8E4A44E326DA3362006A0802 /* live_bg_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = live_bg_icon.png; sourceTree = "<group>"; };
 		8E4A44E526DA35B8006A0802 /* HLiveBackgroundCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLiveBackgroundCell.h; sourceTree = "<group>"; };
 		8E4A44E626DA35B8006A0802 /* HLiveBackgroundCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLiveBackgroundCell.m; sourceTree = "<group>"; };
+		8E4A44E826DA598A006A0802 /* HTupleLiveCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTupleLiveCell.h; sourceTree = "<group>"; };
+		8E4A44E926DA598A006A0802 /* HTupleLiveCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTupleLiveCell.m; sourceTree = "<group>"; };
 		A20E3CF9231FDF4D00E6982B /* HMenuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMenuController.h; sourceTree = "<group>"; };
 		A20E3CFA231FDF4D00E6982B /* HMenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMenuController.m; sourceTree = "<group>"; };
 		A20E3CFC231FE0B400E6982B /* HMainController1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMainController1.h; sourceTree = "<group>"; };
@@ -1542,6 +1545,8 @@
 				8E4A44E126DA29DA006A0802 /* HLiveRoomExchangeVC.m */,
 				8E4A44E526DA35B8006A0802 /* HLiveBackgroundCell.h */,
 				8E4A44E626DA35B8006A0802 /* HLiveBackgroundCell.m */,
+				8E4A44E826DA598A006A0802 /* HTupleLiveCell.h */,
+				8E4A44E926DA598A006A0802 /* HTupleLiveCell.m */,
 			);
 			path = HLive;
 			sourceTree = "<group>";
@@ -3771,6 +3776,7 @@
 				A25E675E262445FD00863FF8 /* UIImage+skin.m in Sources */,
 				A25E686D262445FE00863FF8 /* HTextParser.m in Sources */,
 				A25E6738262445FD00863FF8 /* WebViewJavascriptBridge.m in Sources */,
+				8E4A44EA26DA598A006A0802 /* HTupleLiveCell.m in Sources */,
 				A25E685B262445FE00863FF8 /* HTextMagnifier.m in Sources */,
 				A25E685A262445FE00863FF8 /* HTextSelectionView.m in Sources */,
 				A25E6742262445FD00863FF8 /* YPContainerTableView.m in Sources */,
