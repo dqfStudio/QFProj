@@ -53,25 +53,25 @@
     return self.tupleView.size;
 }
 - (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    HLiveBackgroundCell *cell = itemBlock(nil, HLiveBackgroundCell.class, nil, YES);
     switch (indexPath.row) {
-        //case 0 | 2: {
         case 0: {
-            cell.backgroundColor = UIColor.yellowColor;
+            HLiveBackgroundCell *cell = itemBlock(nil, HLiveBackgroundCell.class, nil, YES);
             [cell setSignalBlock:nil];
         }
             break;
         case 2: {
-            cell.backgroundColor = UIColor.blueColor;
+            HLiveBackgroundCell *cell = itemBlock(nil, HLiveBackgroundCell.class, nil, YES);
             [cell setSignalBlock:nil];
         }
             break;
         case 1: {
             HTupleLiveCell*cell = itemBlock(nil, HTupleLiveCell.class, nil, YES);
-            cell.backgroundColor = UIColor.redColor;
             [cell setSignalBlock:^(HTupleLiveCell *cell, HTupleSignal *signal) {
                 //NSInteger index = [signal.signal integerValue];
                 
+                // 开始旋转
+                [cell.activityIndicator startAnimating];
+                // 解除禁止滚动
                 self.tupleView.scrollEnabled = YES;
             }];
         }

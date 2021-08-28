@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HLiveBackgroundCell : HTupleImageCell
 @property (nonatomic) UIVisualEffectView *effectView;
+@property (nonatomic) UIActivityIndicatorView *activityIndicator;
 @end
 
 NS_ASSUME_NONNULL_END
