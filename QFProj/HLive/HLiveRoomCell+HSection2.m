@@ -8,6 +8,46 @@
 
 #import "HLiveRoomCell+HSection2.h"
 
+@interface HLiveRoomBottomBarCell : HTupleBaseCell <HTupleViewDelegate>
+@property (nonatomic) HTupleView *tupleView;
+@end
+
+@implementation HLiveRoomBottomBarCell
+- (HTupleView *)tupleView {
+    if (!_tupleView) {
+        _tupleView = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleDirectionHorizontal];
+        _tupleView.backgroundColor = UIColor.clearColor;
+        [_tupleView bounceDisenable];
+    }
+    return _tupleView;
+}
+//cell初始化是调用的方法
+- (void)initUI {
+    [super initUI];
+    self.backgroundColor = UIColor.clearColor;
+    [self.tupleView setTupleDelegate:self];
+    [self addSubview:self.tupleView];
+}
+//用于子类更新子视图布局
+- (void)relayoutSubviews {
+    [super relayoutSubviews];
+    HLayoutTableCell(self.tupleView);
+}
+- (NSInteger)numberOfItemsInSection:(NSInteger)section {
+    return 1;
+}
+- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(self.tupleView.width, 50);
+}
+- (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+    HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
+    cell.label.font = [UIFont systemFontOfSize:14.f];
+    cell.label.textAlignment = NSTextAlignmentCenter;
+    cell.label.textColor = HColorHex(#070507);
+    cell.label.text = @"bottom bar";
+}
+@end
+
 @implementation HLiveRoomCell (HSection2)
 - (NSInteger)tupleExa2_numberOfItemsInSection:(NSInteger)section {
     return 1;
@@ -23,11 +63,7 @@
     [cell setBackgroundColor:UIColor.clearColor];
 }
 - (void)tupleExa2_tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
+    HLiveRoomBottomBarCell *cell = itemBlock(nil, HLiveRoomBottomBarCell.class, nil, YES);
     [cell addTopLineWithSize:1.f color:[UIColor colorWithWhite:0.1 alpha:0.2] paddingLeft:0 paddingRight:0];
-    cell.label.font = [UIFont systemFontOfSize:14.f];
-    cell.label.textAlignment = NSTextAlignmentCenter;
-    cell.label.textColor = HColorHex(#070507);
-    cell.label.text = @"bottom bar";
 }
 @end
