@@ -101,11 +101,22 @@
             HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
             cell.buttonView.backgroundColor = UIColor.blackColor;
             [cell.buttonView setCornerRadius:cell.buttonView.viewHeight/2];
+            [cell.buttonView setTitle:@"✕"];
+            [cell.buttonView setTitleColor:UIColor.whiteColor];
+            [cell.buttonView setFont:[UIFont systemFontOfSize:17.f]];
+            [cell.buttonView setPressed:^(id sender, id data) {
+                [[UIApplication navi].viewControllers.lastObject dismissViewControllerAnimated:YES completion:nil];
+            }];
         }
             break;
             
         default:
             break;
+    }
+}
+- (void)didSelectCell:(HTupleBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 3) {
+        [[UIApplication navi].viewControllers.lastObject dismissViewControllerAnimated:YES completion:nil];
     }
 }
 @end

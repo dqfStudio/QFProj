@@ -94,6 +94,9 @@
             [cell.buttonView setTitleColor:UIColor.whiteColor];
             [cell.buttonView setFont:[UIFont systemFontOfSize:12.f]];
             [cell.buttonView setCornerRadius:cell.buttonView.viewHeight/2];
+            [cell.buttonView setPressed:^(id sender, id data) {
+                NSLog(@"");
+            }];
             
             
             HRect *tmpFrame3 = HRectFor(frame);
