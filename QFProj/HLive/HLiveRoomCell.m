@@ -95,9 +95,6 @@
     }
     return CGSizeZero;
 }
-- (UIEdgeInsets)edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return UIEdgeInsetsZero;
-}
 - (void)tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
     HTupleBaseApex *cell = headerBlock(nil, HTupleBaseApex.class, nil, YES);
     [cell setBackgroundColor:UIColor.clearColor];
