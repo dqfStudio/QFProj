@@ -9,17 +9,6 @@
 #import "HLiveRoomCell.h"
 
 @implementation HLiveRoomCell
-- (HTupleView *)tupleView {
-    if (!_tupleView) {
-        _tupleView = [[HTupleView alloc] initWithFrame:self.bounds];
-        _tupleView.backgroundColor = UIColor.clearColor;
-        [_tupleView bounceDisenable];
-        UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(rightSwipped)];
-        swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
-        [_tupleView addGestureRecognizer:swipeGesture];
-    }
-    return _tupleView;
-}
 - (UIView *)liveLeftView {
     if (!_liveLeftView) {
         _liveLeftView = [[UIView alloc] initWithFrame:self.bounds];
@@ -31,24 +20,35 @@
     }
     return _liveLeftView;
 }
+- (HTupleView *)liveRightView {
+    if (!_liveRightView) {
+        _liveRightView = [[HTupleView alloc] initWithFrame:self.bounds];
+        _liveRightView.backgroundColor = UIColor.clearColor;
+        [_liveRightView bounceDisenable];
+        UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(rightSwipped)];
+        swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
+        [_liveRightView addGestureRecognizer:swipeGesture];
+    }
+    return _liveRightView;
+}
 //cell初始化是调用的方法
 - (void)initUI {
     [super initUI];
     self.backgroundColor = UIColor.clearColor;
-    [self.tupleView setTupleDelegate:self];
-    [self addSubview:self.tupleView];
+    [self.liveRightView setTupleDelegate:self];
+    [self addSubview:self.liveRightView];
     [self addSubview:self.liveLeftView];
 }
 //用于子类更新子视图布局
 - (void)relayoutSubviews {
     [super relayoutSubviews];
-    HLayoutTableCell(self.tupleView);
+    HLayoutTableCell(self.liveRightView);
     self.liveLeftView.frame = self.layoutViewBounds;
 }
 
 - (void)leftSwipped {
     [UIView animateWithDuration:0.3 animations:^{
-        self.tupleView.frame = CGRectMake(0, 0, self.tupleView.viewWidth, self.tupleView.viewHeight);
+        self.liveRightView.frame = CGRectMake(0, 0, self.liveRightView.viewWidth, self.liveRightView.viewHeight);
     } completion:^(BOOL finished) {
         [self.liveLeftView setHidden:YES];
         [self.tuple setScrollEnabled:YES];
@@ -57,7 +57,7 @@
 
 - (void)rightSwipped {
     [UIView animateWithDuration:0.3 animations:^{
-        self.tupleView.frame = CGRectMake(self.tupleView.viewWidth, 0, self.tupleView.viewWidth, self.tupleView.viewHeight);
+        self.liveRightView.frame = CGRectMake(self.liveRightView.viewWidth, 0, self.liveRightView.viewWidth, self.liveRightView.viewHeight);
     } completion:^(BOOL finished) {
         [self.liveLeftView setHidden:NO];
         [self.tuple setScrollEnabled:NO];
@@ -71,24 +71,24 @@
     return 4;
 }
 - (CGSize)sizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(self.tupleView.width, UIScreen.statusBarHeight);
+    return CGSizeMake(self.liveRightView.width, UIScreen.statusBarHeight);
 }
 - (CGSize)sizeForFooterInSection:(NSInteger)section {
-    return CGSizeMake(self.tupleView.width, UIScreen.bottomBarHeight);
+    return CGSizeMake(self.liveRightView.width, UIScreen.bottomBarHeight);
 }
 - (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case HCell0:
-            return CGSizeMake(self.tupleView.width, 40);
+            return CGSizeMake(self.liveRightView.width, 40);
             break;
         case HCell1:
-            return CGSizeMake(self.tupleView.width, 50);
+            return CGSizeMake(self.liveRightView.width, 50);
             break;
         case HCell2:
-            return CGSizeMake(self.tupleView.width, 50);
+            return CGSizeMake(self.liveRightView.width, 50);
             break;
         case HCell3:
-            return CGSizeMake(self.tupleView.width, 50);
+            return CGSizeMake(self.liveRightView.width, 50);
             break;
             
         default:

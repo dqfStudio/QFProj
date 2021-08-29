@@ -12,8 +12,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HLiveRoomCell : HLiveRoomBgCell <HTupleViewDelegate>
-@property (nonatomic) HTupleView *tupleView;
 @property (nonatomic) UIView *liveLeftView;
+@property (nonatomic) HTupleView *liveRightView;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -70,13 +70,13 @@
             void (^setScrollParams)(void) = ^(void){
                 // 禁止滚动
                 self.tupleView.scrollEnabled = NO;
-                cell.tupleView.scrollEnabled = NO;
-                cell.tupleView.userInteractionEnabled = NO;
+                cell.liveRightView.scrollEnabled = NO;
+                cell.liveRightView.userInteractionEnabled = NO;
                 dispatchAfter(5, ^{
                     // 解除禁止滚动
                     self.tupleView.scrollEnabled = YES;
-                    cell.tupleView.scrollEnabled = YES;
-                    cell.tupleView.userInteractionEnabled = YES;
+                    cell.liveRightView.scrollEnabled = YES;
+                    cell.liveRightView.userInteractionEnabled = YES;
                     // 停止旋转
                     [cell.activityIndicator stopAnimating];
                 });
