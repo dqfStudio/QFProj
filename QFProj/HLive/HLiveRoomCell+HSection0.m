@@ -33,6 +33,9 @@
     [super relayoutSubviews];
     HLayoutTableCell(self.tupleView);
 }
+- (UIEdgeInsets)insetForSection:(NSInteger)section {
+    return UIEdgeInsetsMake(0, 10, 0, 10);
+}
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
     return 2;
 }
@@ -119,7 +122,7 @@
             cell.label.font = [UIFont boldSystemFontOfSize:14.f];
             cell.label.textAlignment = NSTextAlignmentCenter;
             cell.label.textColor = HColorHex(#0B0A0C);
-            cell.label.text = @"top bar";
+            //cell.label.text = @"top bar";
         }
             break;
             

@@ -33,18 +33,80 @@
     [super relayoutSubviews];
     HLayoutTableCell(self.tupleView);
 }
+- (UIEdgeInsets)insetForSection:(NSInteger)section {
+    return UIEdgeInsetsMake(0, 10, 0, 10);
+}
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
-    return 1;
+    return 4;
+}
+- (UIEdgeInsets)edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 0:
+            return UIEdgeInsetsMake(5, 5, 5, 5);
+            break;
+        case 1:
+            return UIEdgeInsetsZero;
+            break;
+        case 2:
+            return UIEdgeInsetsMake(5, 5, 5, 5);
+            break;
+        case 3:
+            return UIEdgeInsetsMake(5, 5, 5, 5);
+            break;
+
+        default:
+            break;
+    }
+    return UIEdgeInsetsZero;
 }
 - (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 0:
+            return CGSizeMake(self.tupleView.height, self.tupleView.height);
+            break;
+        case 1:
+            return CGSizeMake(self.tupleView.width-20-self.tupleView.height*3, self.tupleView.height);
+            break;
+        case 2:
+            return CGSizeMake(self.tupleView.height, self.tupleView.height);
+            break;
+        case 3:
+            return CGSizeMake(self.tupleView.height, self.tupleView.height);
+            break;
+            
+        default:
+            break;
+    }
     return CGSizeMake(self.tupleView.width, self.tupleView.height);
 }
 - (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
-    cell.label.font = [UIFont systemFontOfSize:14.f];
-    cell.label.textAlignment = NSTextAlignmentCenter;
-    cell.label.textColor = HColorHex(#070507);
-    cell.label.text = @"bottom bar";
+    switch (indexPath.row) {
+        case 0: {
+            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
+            cell.buttonView.backgroundColor = UIColor.blackColor;
+            [cell.buttonView setCornerRadius:cell.buttonView.viewHeight/2];
+        }
+            break;
+        case 1: {
+            itemBlock(nil, HTupleBlankCell.class, nil, YES);
+        }
+            break;
+        case 2: {
+            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
+            cell.buttonView.backgroundColor = UIColor.blackColor;
+            [cell.buttonView setCornerRadius:cell.buttonView.viewHeight/2];
+        }
+            break;
+        case 3: {
+            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
+            cell.buttonView.backgroundColor = UIColor.blackColor;
+            [cell.buttonView setCornerRadius:cell.buttonView.viewHeight/2];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 @end
 
@@ -53,17 +115,16 @@
     return 1;
 }
 - (CGSize)tupleExa2_sizeForFooterInSection:(NSInteger)section {
-    return CGSizeMake(self.liveRightView.width, UIScreen.bottomBarHeight);
+    return CGSizeMake(self.liveRightView.width, UIScreen.bottomBarHeight+5);
 }
 - (CGSize)tupleExa2_sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(self.liveRightView.width, 50);
+    return CGSizeMake(self.liveRightView.width, 40);
 }
 - (void)tupleExa2_tupleFooter:(HTupleFooter)footerBlock inSection:(NSInteger)section {
     HTupleBaseApex *cell = footerBlock(nil, HTupleBaseApex.class, nil, YES);
     [cell setBackgroundColor:UIColor.clearColor];
 }
 - (void)tupleExa2_tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    HLiveRoomBottomBarCell *cell = itemBlock(nil, HLiveRoomBottomBarCell.class, nil, YES);
-    [cell addTopLineWithSize:1.f color:[UIColor colorWithWhite:0.1 alpha:0.2] paddingLeft:0 paddingRight:0];
+    itemBlock(nil, HLiveRoomBottomBarCell.class, nil, YES);
 }
 @end
