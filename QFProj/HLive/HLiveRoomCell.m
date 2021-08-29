@@ -119,14 +119,14 @@
             break;
         case HCell1: {
             HTupleBlankCell *cell = itemBlock(nil, HTupleBlankCell.class, nil, YES);
-            [cell addBottomLineWithSize:1.f color:[UIColor colorWithWhite:0.1 alpha:0.2] paddingLeft:0 paddingRight:0];
+            cell.backgroundColor = UIColor.clearColor;;
         }
             break;
         case HCell2: {
             HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
+            [cell addTopLineWithSize:1.f color:[UIColor colorWithWhite:0.1 alpha:0.2] paddingLeft:0 paddingRight:0];
             cell.label.font = [UIFont systemFontOfSize:14.f];
             cell.label.textAlignment = NSTextAlignmentCenter;
-            cell.label.numberOfLines = 0;
             cell.label.textColor = HColorHex(#070507);
             cell.label.text = @"bottom bar";
         }
