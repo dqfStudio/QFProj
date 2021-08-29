@@ -22,7 +22,11 @@
 }
 - (HTupleView *)liveRightView {
     if (!_liveRightView) {
-        _liveRightView = [[HTupleView alloc] initWithFrame:self.bounds];
+        _liveRightView = [HTupleView tupleFrame:^CGRect{
+            return self.bounds;
+        } exclusiveSections:^NSArray *_Nullable{
+            return @[@0, @1, @2];
+        }];
         _liveRightView.backgroundColor = UIColor.clearColor;
         [_liveRightView bounceDisenable];
         UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(rightSwipped)];
@@ -66,82 +70,8 @@
     }];
 }
 
-- (NSInteger)numberOfSectionsInTupleView {
-    return 1;
-}
-- (NSInteger)numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)tuple0_numberOfSectionsInTupleView {
     return 3;
-}
-- (CGSize)sizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(self.liveRightView.width, UIScreen.statusBarHeight);
-}
-- (CGSize)sizeForFooterInSection:(NSInteger)section {
-    return CGSizeMake(self.liveRightView.width, UIScreen.bottomBarHeight);
-}
-- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case HCell0:
-            return CGSizeMake(self.liveRightView.width, 50);
-            break;
-        case HCell1: {
-            NSInteger height = UIScreen.height;
-            height -= 50+50;
-            height -= UIScreen.statusBarHeight+UIScreen.bottomBarHeight;
-            return CGSizeMake(self.liveRightView.width, height);
-        }
-            break;
-        case HCell2:
-            return CGSizeMake(self.liveRightView.width, 50);
-            break;
-            
-        default:
-            break;
-    }
-    return CGSizeZero;
-}
-- (void)tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
-    HTupleBaseApex *cell = headerBlock(nil, HTupleBaseApex.class, nil, YES);
-    [cell setBackgroundColor:UIColor.clearColor];
-}
-- (void)tupleFooter:(HTupleFooter)footerBlock inSection:(NSInteger)section {
-    HTupleBaseApex *cell = footerBlock(nil, HTupleBaseApex.class, nil, YES);
-    [cell setBackgroundColor:UIColor.clearColor];
-}
-- (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case HCell0: {
-            HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
-            [cell addBottomLineWithSize:1.f color:[UIColor colorWithWhite:0.1 alpha:0.2] paddingLeft:0 paddingRight:0];
-            cell.label.font = [UIFont boldSystemFontOfSize:14.f];
-            cell.label.textAlignment = NSTextAlignmentCenter;
-            cell.label.textColor = HColorHex(#0B0A0C);
-            cell.label.text = @"top bar";
-        }
-            break;
-        case HCell1: {
-            HTupleBlankCell *cell = itemBlock(nil, HTupleBlankCell.class, nil, YES);
-            cell.backgroundColor = UIColor.clearColor;;
-        }
-            break;
-        case HCell2: {
-            HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
-            [cell addTopLineWithSize:1.f color:[UIColor colorWithWhite:0.1 alpha:0.2] paddingLeft:0 paddingRight:0];
-            cell.label.font = [UIFont systemFontOfSize:14.f];
-            cell.label.textAlignment = NSTextAlignmentCenter;
-            cell.label.textColor = HColorHex(#070507);
-            cell.label.text = @"bottom bar";
-        }
-            break;
-            
-        default:
-            break;
-    }
-    
-}
-- (void)didSelectCell:(HTupleBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == HCell3) {
-        
-    }
 }
 
 @end
