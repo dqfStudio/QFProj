@@ -17,9 +17,8 @@
 //#import "UIView+HUtil.h"
 
 #define HLayoutTupleCell(v) \
-CGRect _frame = self.layoutViewBounds;\
-if (!CGRectEqualToRect(v.frame, _frame)) {\
-    [v setFrame:_frame];\
+if (!CGRectEqualToRect(v.frame, self.layoutViewBounds)) {\
+    [v setFrame:self.layoutViewBounds];\
 }
 
 @class HTupleView, HTupleBaseCell;

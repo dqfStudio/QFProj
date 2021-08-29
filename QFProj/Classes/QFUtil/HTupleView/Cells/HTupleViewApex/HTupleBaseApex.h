@@ -16,9 +16,8 @@
 //#import "UILabel+HUtil.h"
 
 #define HLayoutTupleApex(v) \
-CGRect _frame = self.layoutViewBounds;\
-if (!CGRectEqualToRect(v.frame, _frame)) {\
-    [v setFrame:_frame];\
+if (!CGRectEqualToRect(v.frame, self.layoutViewBounds)) {\
+    [v setFrame:self.layoutViewBounds];\
 }
 
 @class HTupleView, HTupleBaseApex;

@@ -29,7 +29,7 @@
 - (void)relayoutSubviews {
     [super relayoutSubviews];
     HLayoutTableCell(self.imageView)
-    self.effectView.frame = self.imageView.bounds;
-    self.activityIndicator.frame = self.imageView.bounds;
+    HLayoutTableCell(self.effectView)
+    HLayoutTableCell(self.activityIndicator)
 }
 @end

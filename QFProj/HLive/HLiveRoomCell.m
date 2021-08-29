@@ -42,8 +42,8 @@
 //用于子类更新子视图布局
 - (void)relayoutSubviews {
     [super relayoutSubviews];
+    HLayoutTableCell(self.liveLeftView);
     HLayoutTableCell(self.liveRightView);
-    self.liveLeftView.frame = self.layoutViewBounds;
 }
 
 - (void)leftSwipped {
