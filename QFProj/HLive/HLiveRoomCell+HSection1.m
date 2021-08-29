@@ -9,13 +9,16 @@
 #import "HLiveRoomCell+HSection1.h"
 
 @implementation HLiveRoomCell (HSection1)
+- (UIEdgeInsets)tupleExa1_insetForSection:(NSInteger)section {
+    return UIEdgeInsetsMake(0, 10, 0, 10);
+}
 - (NSInteger)tupleExa1_numberOfItemsInSection:(NSInteger)section {
     return 1;
 }
 - (CGSize)tupleExa1_sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger height = UIScreen.height;
-    height -= 50+50;
-    height -= UIScreen.statusBarHeight+UIScreen.bottomBarHeight;
+    height -= 35+50;
+    height -= UIScreen.statusBarHeight+5+UIScreen.bottomBarHeight;
     return CGSizeMake(self.liveRightView.width, height);
 }
 - (void)tupleExa1_tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {

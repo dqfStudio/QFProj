@@ -47,7 +47,10 @@
 - (void)relayoutSubviews {
     [super relayoutSubviews];
     HLayoutTableCell(self.liveLeftView);
-    HLayoutTableCell(self.liveRightView);
+    CGRect frame = self.layoutViewBounds;
+    frame.origin.x = 10;
+    frame.size.width -= 20;
+    self.liveRightView.frame = frame;
 }
 
 - (void)leftSwipped {
