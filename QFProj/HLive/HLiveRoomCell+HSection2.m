@@ -37,7 +37,7 @@
     return 1;
 }
 - (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(self.tupleView.width, 50);
+    return CGSizeMake(self.tupleView.width, self.tupleView.height);
 }
 - (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     HTupleLabelCell *cell = itemBlock(nil, HTupleLabelCell.class, nil, YES);
