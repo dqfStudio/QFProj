@@ -48,7 +48,7 @@
 
 - (void)leftSwipped {
     [UIView animateWithDuration:0.3 animations:^{
-        self.liveRightView.frame = CGRectMake(0, 0, self.liveRightView.viewWidth, self.liveRightView.viewHeight);
+        self.liveRightView.frame = self.liveRightView.bounds;
     } completion:^(BOOL finished) {
         [self.liveLeftView setHidden:YES];
         [self.tuple setScrollEnabled:YES];
@@ -57,7 +57,9 @@
 
 - (void)rightSwipped {
     [UIView animateWithDuration:0.3 animations:^{
-        self.liveRightView.frame = CGRectMake(self.liveRightView.viewWidth, 0, self.liveRightView.viewWidth, self.liveRightView.viewHeight);
+        CGRect frame = self.liveRightView.bounds;
+        frame.origin.x = self.liveRightView.viewWidth;
+        self.liveRightView.frame = frame;
     } completion:^(BOOL finished) {
         [self.liveLeftView setHidden:NO];
         [self.tuple setScrollEnabled:NO];
@@ -82,7 +84,9 @@
             return CGSizeMake(self.liveRightView.width, 50);
             break;
         case HCell1: {
-            NSInteger height = UIScreen.height-50-50-UIScreen.statusBarHeight-UIScreen.bottomBarHeight;
+            NSInteger height = UIScreen.height;
+            height -= 50+50;
+            height -= UIScreen.statusBarHeight+UIScreen.bottomBarHeight;
             return CGSizeMake(self.liveRightView.width, height);
         }
             break;
