@@ -65,7 +65,7 @@
         }
             break;
         case 1: {
-            HLiveRoomCell*cell = itemBlock(nil, HLiveRoomCell.class, nil, YES);
+            HLiveRoomCell *cell = itemBlock(nil, HLiveRoomCell.class, nil, YES);
             
             void (^setScrollParams)(void) = ^(void){
                 // 禁止滚动
