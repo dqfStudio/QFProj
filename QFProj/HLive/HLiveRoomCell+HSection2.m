@@ -8,116 +8,48 @@
 
 #import "HLiveRoomCell+HSection2.h"
 
-@interface HLiveRoomBottomBarCell : HTupleBaseCell <HTupleViewDelegate>
-@property (nonatomic) HTupleView *tupleView;
+@interface HLiveRoomBottomBarView : UIView
+@property (nonatomic) HWebButtonView *chatView;
+@property (nonatomic) HWebButtonView *mailView;
+@property (nonatomic) HWebButtonView *exitView;
 @end
 
-@implementation HLiveRoomBottomBarCell
-- (HTupleView *)tupleView {
-    if (!_tupleView) {
-        _tupleView = [[HTupleView alloc] initWithFrame:self.bounds scrollDirection:HTupleDirectionHorizontal];
-        _tupleView.backgroundColor = UIColor.clearColor;
-        [_tupleView bounceDisenable];
+@implementation HLiveRoomBottomBarView
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self addSubview:self.chatView];
+        [self addSubview:self.mailView];
+        [self addSubview:self.exitView];
     }
-    return _tupleView;
+    return self;
 }
-//cell初始化是调用的方法
-- (void)initUI {
-    [super initUI];
-    self.backgroundColor = UIColor.clearColor;
-    [self.tupleView setTupleDelegate:self];
-    [self addSubview:self.tupleView];
-}
-//用于子类更新子视图布局
-- (void)relayoutSubviews {
-    [super relayoutSubviews];
-    HLayoutTableCell(self.tupleView);
-}
-- (UIEdgeInsets)insetForSection:(NSInteger)section {
-    return UIEdgeInsetsMake(0, 10, 0, 10);
-}
-- (NSInteger)numberOfItemsInSection:(NSInteger)section {
-    return 4;
-}
-- (UIEdgeInsets)edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case 0:
-            return UIEdgeInsetsMake(5, 5, 5, 5);
-            break;
-        case 1:
-            return UIEdgeInsetsZero;
-            break;
-        case 2:
-            return UIEdgeInsetsMake(5, 5, 5, 5);
-            break;
-        case 3:
-            return UIEdgeInsetsMake(5, 5, 5, 5);
-            break;
-
-        default:
-            break;
+- (HWebButtonView *)chatView {
+    if (!_chatView) {
+        CGRect frame = CGRectMake(5, 5, self.viewHeight-10, self.viewHeight-10);
+        _chatView = [[HWebButtonView alloc] initWithFrame:frame];
+        _chatView.backgroundColor = UIColor.blackColor;
+        [_chatView setCornerRadius:_chatView.viewWidth/2];
     }
-    return UIEdgeInsetsZero;
+    return _chatView;
 }
-- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case 0:
-            return CGSizeMake(self.tupleView.height, self.tupleView.height);
-            break;
-        case 1:
-            return CGSizeMake(self.tupleView.width-20-self.tupleView.height*3, self.tupleView.height);
-            break;
-        case 2:
-            return CGSizeMake(self.tupleView.height, self.tupleView.height);
-            break;
-        case 3:
-            return CGSizeMake(self.tupleView.height, self.tupleView.height);
-            break;
-            
-        default:
-            break;
+- (HWebButtonView *)mailView {
+    if (!_mailView) {
+        CGRect frame = CGRectMake(self.viewWidth-self.viewHeight*2, 5, self.viewHeight-10, self.viewHeight-10);
+        _mailView = [[HWebButtonView alloc] initWithFrame:frame];
+        _mailView.backgroundColor = UIColor.blueColor;
+        [_mailView setCornerRadius:_mailView.viewWidth/2];
     }
-    return CGSizeMake(self.tupleView.width, self.tupleView.height);
+    return _mailView;
 }
-- (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case 0: {
-            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
-            cell.buttonView.backgroundColor = UIColor.blackColor;
-            [cell.buttonView setCornerRadius:cell.buttonView.viewHeight/2];
-        }
-            break;
-        case 1: {
-            itemBlock(nil, HTupleBlankCell.class, nil, YES);
-        }
-            break;
-        case 2: {
-            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
-            cell.buttonView.backgroundColor = UIColor.blackColor;
-            [cell.buttonView setCornerRadius:cell.buttonView.viewHeight/2];
-        }
-            break;
-        case 3: {
-            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
-            cell.buttonView.backgroundColor = UIColor.blackColor;
-            [cell.buttonView setCornerRadius:cell.buttonView.viewHeight/2];
-            [cell.buttonView setTitle:@"✕"];
-            [cell.buttonView setTitleColor:UIColor.whiteColor];
-            [cell.buttonView setFont:[UIFont systemFontOfSize:17.f]];
-            [cell.buttonView setPressed:^(id sender, id data) {
-                [[UIApplication navi].viewControllers.lastObject dismissViewControllerAnimated:YES completion:nil];
-            }];
-        }
-            break;
-            
-        default:
-            break;
+- (HWebButtonView *)exitView {
+    if (!_exitView) {
+        CGRect frame = CGRectMake(self.viewWidth-self.viewHeight, 5, self.viewHeight-10, self.viewHeight-10);
+        _exitView = [[HWebButtonView alloc] initWithFrame:frame];
+        _exitView.backgroundColor = UIColor.redColor;
+        [_exitView setCornerRadius:_exitView.viewWidth/2];
     }
-}
-- (void)didSelectCell:(HTupleBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 3) {
-        [[UIApplication navi].viewControllers.lastObject dismissViewControllerAnimated:YES completion:nil];
-    }
+    return _exitView;
 }
 @end
 
@@ -136,38 +68,19 @@
     [cell setBackgroundColor:UIColor.clearColor];
 }
 - (void)tupleExa2_tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    //itemBlock(nil, HLiveRoomBottomBarCell.class, nil, YES);
-    HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
-    
-    CGRect frame = [cell layoutViewBounds];
-    
-    HRect *tmpFrame = HRectFor(frame);
-    tmpFrame.x = 5;
-    tmpFrame.y = 5;
-    tmpFrame.height -= 10;
-    tmpFrame.width = tmpFrame.height;
-    cell.buttonView.frame = tmpFrame.frame;
-    cell.buttonView.backgroundColor = UIColor.blackColor;
-    [cell.buttonView setCornerRadius:cell.buttonView.viewHeight/2];
-    [cell.buttonView setPressed:^(id sender, id data) {
+    HTupleBaseCell *cell = itemBlock(nil, HTupleBaseCell.class, nil, YES);
+    HLiveRoomBottomBarView *bottomBarView = [cell viewWithTag:123456];
+    if (!bottomBarView) {
+        bottomBarView = [[HLiveRoomBottomBarView alloc] initWithFrame:cell.bounds];
+        [cell addSubview:bottomBarView];
+    }
+    [bottomBarView.chatView setPressed:^(id sender, id data) {
         NSLog(@"");
     }];
-    
-    HRect *tmpFrame2 = HRectFor(tmpFrame.frame);
-    tmpFrame2.x = frame.size.width - tmpFrame.width - 10;
-    cell.detailButtonView.frame = tmpFrame2.frame;
-    cell.detailButtonView.backgroundColor = UIColor.redColor;
-    [cell.detailButtonView setCornerRadius:cell.detailButtonView.viewHeight/2];
-    [cell.detailButtonView setPressed:^(id sender, id data) {
+    [bottomBarView.mailView setPressed:^(id sender, id data) {
         NSLog(@"");
     }];
-    
-    HRect *tmpFrame3 = HRectFor(tmpFrame2.frame);
-    tmpFrame3.x = tmpFrame2.x - tmpFrame2.width - 5;
-    cell.accessoryButtonView.frame = tmpFrame3.frame;
-    cell.accessoryButtonView.backgroundColor = UIColor.blueColor;
-    [cell.accessoryButtonView setCornerRadius:cell.accessoryButtonView.viewHeight/2];
-    [cell.accessoryButtonView setPressed:^(id sender, id data) {
+    [bottomBarView.exitView setPressed:^(id sender, id data) {
         NSLog(@"");
     }];
     
