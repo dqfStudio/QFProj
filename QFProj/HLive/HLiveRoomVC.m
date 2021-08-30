@@ -67,16 +67,32 @@
         case 1: {
             HLiveRoomCell *cell = itemBlock(nil, HLiveRoomCell.class, nil, YES);
             
-            //可反复初始化调用
-            [self reInitParamsAction];
+            void (^setScrollParams)(void) = ^(void){
+                // 禁止滚动
+                self.tupleView.scrollEnabled = NO;
+                cell.liveRightView.scrollEnabled = NO;
+                cell.liveRightView.userInteractionEnabled = NO;
+                //可反复加载内容的直播功能
+                [self reloadLiveBroadcast:^{
+                    // 解除禁止滚动
+                    self.tupleView.scrollEnabled = YES;
+                    cell.liveRightView.scrollEnabled = YES;
+                    cell.liveRightView.userInteractionEnabled = YES;
+                    // 停止旋转
+                    [cell.activityIndicator stopAnimating];
+                }];
+            };
+            
+            //设置滚动相关属性
+            setScrollParams();
             
             [cell setSignalBlock:^(HLiveRoomCell *cell, HTupleSignal *signal) {
                 //NSInteger index = [signal.signal integerValue];
                 
                 // 开始旋转
                 [cell.activityIndicator startAnimating];
-                //可反复初始化调用
-                [self reInitParamsAction];
+                //设置滚动相关属性
+                setScrollParams();
             }];
         }
             break;
@@ -103,20 +119,10 @@
     signal.signal = @(1);
     cell.signalBlock(cell, signal);
 }
-//可反复初始化调用
-- (void)reInitParamsAction {
-    // 禁止滚动
-    self.tupleView.scrollEnabled = NO;
-    HLiveRoomCell *cell = self.tupleView.cell(1, 0);
-    cell.liveRightView.scrollEnabled = NO;
-    cell.liveRightView.userInteractionEnabled = NO;
+//可反复加载内容的直播功能
+- (void)reloadLiveBroadcast:(void (^)(void))completion {
     dispatchAfter(5, ^{
-        // 解除禁止滚动
-        self.tupleView.scrollEnabled = YES;
-        cell.liveRightView.scrollEnabled = YES;
-        cell.liveRightView.userInteractionEnabled = YES;
-        // 停止旋转
-        [cell.activityIndicator stopAnimating];
+        completion();
     });
 }
 
