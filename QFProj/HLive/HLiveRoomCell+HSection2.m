@@ -136,6 +136,40 @@
     [cell setBackgroundColor:UIColor.clearColor];
 }
 - (void)tupleExa2_tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    itemBlock(nil, HLiveRoomBottomBarCell.class, nil, YES);
+    //itemBlock(nil, HLiveRoomBottomBarCell.class, nil, YES);
+    HTupleViewCell *cell = itemBlock(nil, HTupleViewCell.class, nil, YES);
+    
+    CGRect frame = [cell layoutViewBounds];
+    
+    HRect *tmpFrame = HRectFor(frame);
+    tmpFrame.x = 5;
+    tmpFrame.y = 5;
+    tmpFrame.height -= 10;
+    tmpFrame.width = tmpFrame.height;
+    cell.buttonView.frame = tmpFrame.frame;
+    cell.buttonView.backgroundColor = UIColor.blackColor;
+    [cell.buttonView setCornerRadius:cell.buttonView.viewHeight/2];
+    [cell.buttonView setPressed:^(id sender, id data) {
+        NSLog(@"");
+    }];
+    
+    HRect *tmpFrame2 = HRectFor(tmpFrame.frame);
+    tmpFrame2.x = frame.size.width - tmpFrame.width - 10;
+    cell.detailButtonView.frame = tmpFrame2.frame;
+    cell.detailButtonView.backgroundColor = UIColor.redColor;
+    [cell.detailButtonView setCornerRadius:cell.detailButtonView.viewHeight/2];
+    [cell.detailButtonView setPressed:^(id sender, id data) {
+        NSLog(@"");
+    }];
+    
+    HRect *tmpFrame3 = HRectFor(tmpFrame2.frame);
+    tmpFrame3.x = tmpFrame2.x - tmpFrame2.width - 5;
+    cell.accessoryButtonView.frame = tmpFrame3.frame;
+    cell.accessoryButtonView.backgroundColor = UIColor.blueColor;
+    [cell.accessoryButtonView setCornerRadius:cell.accessoryButtonView.viewHeight/2];
+    [cell.accessoryButtonView setPressed:^(id sender, id data) {
+        NSLog(@"");
+    }];
+    
 }
 @end
