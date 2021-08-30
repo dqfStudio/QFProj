@@ -67,31 +67,16 @@
         case 1: {
             HLiveRoomCell *cell = itemBlock(nil, HLiveRoomCell.class, nil, YES);
             
-            void (^setScrollParams)(void) = ^(void){
-                // 禁止滚动
-                self.tupleView.scrollEnabled = NO;
-                cell.liveRightView.scrollEnabled = NO;
-                cell.liveRightView.userInteractionEnabled = NO;
-                dispatchAfter(5, ^{
-                    // 解除禁止滚动
-                    self.tupleView.scrollEnabled = YES;
-                    cell.liveRightView.scrollEnabled = YES;
-                    cell.liveRightView.userInteractionEnabled = YES;
-                    // 停止旋转
-                    [cell.activityIndicator stopAnimating];
-                });
-            };
-            
-            //设置滚动相关属性
-            setScrollParams();
+            //可反复初始化调用
+            [self reInitParamsAction];
             
             [cell setSignalBlock:^(HLiveRoomCell *cell, HTupleSignal *signal) {
                 //NSInteger index = [signal.signal integerValue];
                 
                 // 开始旋转
                 [cell.activityIndicator startAnimating];
-                //设置滚动相关属性
-                setScrollParams();
+                //可反复初始化调用
+                [self reInitParamsAction];
             }];
         }
             break;
@@ -117,6 +102,22 @@
     HTupleSignal *signal = HTupleSignal.new;
     signal.signal = @(1);
     cell.signalBlock(cell, signal);
+}
+//可反复初始化调用
+- (void)reInitParamsAction {
+    // 禁止滚动
+    self.tupleView.scrollEnabled = NO;
+    HLiveRoomCell *cell = self.tupleView.cell(1, 0);
+    cell.liveRightView.scrollEnabled = NO;
+    cell.liveRightView.userInteractionEnabled = NO;
+    dispatchAfter(5, ^{
+        // 解除禁止滚动
+        self.tupleView.scrollEnabled = YES;
+        cell.liveRightView.scrollEnabled = YES;
+        cell.liveRightView.userInteractionEnabled = YES;
+        // 停止旋转
+        [cell.activityIndicator stopAnimating];
+    });
 }
 
 @end
