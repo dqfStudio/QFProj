@@ -33,13 +33,13 @@
     return UIEdgeInsetsMake(0, 10, 0, 10);
 }
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
-    return 4;
+    return 12;
 }
 - (UIEdgeInsets)edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     return UIEdgeInsetsMake(0, 10, 0, 10);
 }
 - (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(self.tupleView.width, 40);
+    return CGSizeMake(self.tupleView.width, 25);
 }
 - (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     HTupleNoteCell *cell = itemBlock(nil, HTupleNoteCell.class, nil, YES);
@@ -60,12 +60,12 @@
 - (CGSize)tupleExa1_sizeForHeaderInSection:(NSInteger)section {
     NSInteger height = UIScreen.height;
     height -= 35*3+18+40;
-    height -= 40*4;
+    height -= 25*12;
     height -= UIScreen.statusBarHeight+5+UIScreen.bottomBarHeight+5;
     return CGSizeMake(self.liveRightView.width, height);
 }
 - (CGSize)tupleExa1_sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(self.liveRightView.width, 40*4);
+    return CGSizeMake(self.liveRightView.width, 25*12);
 }
 - (void)tupleExa1_tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
     HTupleBaseApex *cell = headerBlock(nil, HTupleBaseApex.class, nil, YES);
