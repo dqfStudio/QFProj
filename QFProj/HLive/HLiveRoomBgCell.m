@@ -23,7 +23,6 @@
     _activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:self.bounds];
     _activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
     [self addSubview:_activityIndicator];
-    [_activityIndicator startAnimating];
 }
 //用于子类更新子视图布局
 - (void)relayoutSubviews {

@@ -8,10 +8,16 @@
 
 #import "HTupleController.h"
 
+typedef NS_OPTIONS(NSUInteger, HLiveStatus) {
+    HLiveStatusLoading = 0,
+    HLiveStatusLiveing
+};
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HLiveRoomVC : HTupleController
-@property (nonatomic) HTextField *textField;
+@property (nonatomic) HTextField  *textField;
+@property (nonatomic) HLiveStatus liveStatus;
 @end
 
 NS_ASSUME_NONNULL_END

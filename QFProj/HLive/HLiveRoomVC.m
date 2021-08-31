@@ -44,6 +44,13 @@
     return _textField;
 }
 
+- (void)setLiveStatus:(HLiveStatus)liveStatus {
+    if (_liveStatus != liveStatus) {
+        _liveStatus = liveStatus;
+        [self.tupleView reloadData];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -114,45 +121,39 @@
 - (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
-            HLiveRoomBgCell *cell = itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
-            [cell setSignalBlock:nil];
+            itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
         }
             break;
         case 2: {
-            HLiveRoomBgCell *cell = itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
-            [cell setSignalBlock:nil];
+            itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
         }
             break;
         case 1: {
-            HLiveRoomCell *cell = itemBlock(nil, HLiveRoomCell.class, nil, YES);
-            
-            void (^setScrollParams)(void) = ^(void){
-                // 禁止滚动
-                self.tupleView.scrollEnabled = NO;
-                cell.liveRightView.scrollEnabled = NO;
-                cell.liveRightView.userInteractionEnabled = NO;
-                //可反复加载内容的直播功能
-                [self reloadLiveBroadcast:^{
-                    // 解除禁止滚动
-                    self.tupleView.scrollEnabled = YES;
-                    cell.liveRightView.scrollEnabled = YES;
-                    cell.liveRightView.userInteractionEnabled = YES;
-                    // 停止旋转
-                    [cell.activityIndicator stopAnimating];
-                }];
-            };
-            
-            //设置滚动相关属性
-            setScrollParams();
-            
-            [cell setSignalBlock:^(HLiveRoomCell *cell, HTupleSignal *signal) {
-                //NSInteger index = [signal.signal integerValue];
+            if (self.liveStatus == HLiveStatusLoading) {
+                HLiveRoomBgCell *cell = itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
                 
-                // 开始旋转
-                [cell.activityIndicator startAnimating];
+                void (^setScrollParams)(void) = ^(void){
+                    // 禁止滚动
+                    self.tupleView.scrollEnabled = NO;
+                    // 开始旋转
+                    [cell.activityIndicator startAnimating];
+                    //可反复加载内容的直播功能
+                    [self reloadLiveBroadcast:^{
+                        // 解除禁止滚动
+                        self.tupleView.scrollEnabled = YES;
+                        // 停止旋转
+                        [cell.activityIndicator stopAnimating];
+                        // 更改直播状态
+                        self.liveStatus = HLiveStatusLiveing;
+                    }];
+                };
+                
                 //设置滚动相关属性
                 setScrollParams();
-            }];
+                
+            }else if (self.liveStatus == HLiveStatusLiveing) {
+                itemBlock(nil, HLiveRoomCell.class, nil, YES);
+            }
         }
             break;
 
@@ -164,19 +165,13 @@
 
 //向上滚动
 - (void)tupleScrollViewDidScrollToTop:(UIScrollView *)scrollView {
-    self.tupleView.scrollEnabled = NO;
-    HLiveRoomCell *cell = self.tupleView.cell(1, 0);
-    HTupleSignal *signal = HTupleSignal.new;
-    signal.signal = @(1);
-    cell.signalBlock(cell, signal);
+    // 更改直播状态
+    self.liveStatus = HLiveStatusLoading;
 }
 //向下滚动
 - (void)tupleScrollViewDidScrollToBottom:(UIScrollView *)scrollView {
-    self.tupleView.scrollEnabled = NO;
-    HLiveRoomCell *cell = self.tupleView.cell(1, 0);
-    HTupleSignal *signal = HTupleSignal.new;
-    signal.signal = @(1);
-    cell.signalBlock(cell, signal);
+    // 更改直播状态
+    self.liveStatus = HLiveStatusLoading;
 }
 //可反复加载内容的直播功能
 - (void)reloadLiveBroadcast:(void (^)(void))completion {
