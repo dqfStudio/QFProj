@@ -31,7 +31,7 @@
     return _tupleView;
 }
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
-    return 12;
+    return 25;
 }
 - (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(self.tupleView.width, 25);
