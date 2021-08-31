@@ -26,6 +26,7 @@
         _tupleView = [[HTupleView alloc] initWithFrame:self.bounds];
         _tupleView.backgroundColor = UIColor.clearColor;
         [_tupleView verticalBounceEnabled];
+        _tupleView.transform = CGAffineTransformMakeScale (1,-1);
     }
     return _tupleView;
 }
@@ -37,7 +38,8 @@
 }
 - (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     HTupleNoteCell *cell = itemBlock(nil, HTupleNoteCell.class, nil, YES);
-    [cell addBottomLineWithSize:1.f color:[UIColor colorWithWhite:0.1 alpha:0.2] paddingLeft:10 paddingRight:10];
+    cell.contentView.transform = CGAffineTransformMakeScale (1,-1);
+    [cell addTopLineWithSize:1.f color:[UIColor colorWithWhite:0.1 alpha:0.2] paddingLeft:0 paddingRight:20];
     [cell.label setText:@"黑客帝国"];
     [cell.label setTextColor:UIColor.whiteColor];
     [cell.label setFont:[UIFont systemFontOfSize:12.f]];
