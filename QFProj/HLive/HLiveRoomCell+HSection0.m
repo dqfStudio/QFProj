@@ -7,6 +7,7 @@
 //
 
 #import "HLiveRoomCell+HSection0.h"
+#import "HNoticeBrowseLabel.h"
 
 @interface HLiveRoomTopHeaderView : UIView <HTupleViewDelegate>
 @property (nonatomic) HTupleView *tupleView;
@@ -294,15 +295,35 @@
         }
             break;
         case 2: {
-            HTupleViewMarqueeCell *cell = itemBlock(nil, HTupleViewMarqueeCell.class, nil, YES);
+//            HTupleViewMarqueeCell *cell = itemBlock(nil, HTupleViewMarqueeCell.class, nil, YES);
+//            cell.layoutView.backgroundColor = UIColor.blackColor;
+//            [cell.layoutView setCornerRadius:cell.layoutView.viewHeight/2];
+//            cell.msg = @"测试通告!!!";
+//            cell.bgColor = UIColor.blackColor;
+//            cell.txtColor = UIColor.whiteColor;
+//            [cell setSelectedBlock:^{
+//                NSLog(@"");
+//            }];
+            
+            HTupleBaseCell *cell = itemBlock(nil, HTupleBaseCell.class, nil, YES);
             cell.layoutView.backgroundColor = UIColor.blackColor;
             [cell.layoutView setCornerRadius:cell.layoutView.viewHeight/2];
-            cell.msg = @"测试通告!!!";
-            cell.bgColor = UIColor.blackColor;
-            cell.txtColor = UIColor.whiteColor;
-            [cell setSelectedBlock:^{
-                NSLog(@"");
-            }];
+            
+            HNoticeBrowseLabel *noticeBrowse = [cell viewWithTag:345678];
+            if (!noticeBrowse) {
+                CGRect frame = cell.layoutViewBounds;
+                frame.origin.x = 20;
+                frame.size.width -= 20;
+                noticeBrowse = [[HNoticeBrowseLabel alloc] initWithFrame:frame];
+                [noticeBrowse setTag:345678];
+                [cell addSubview:noticeBrowse];
+            }
+
+            noticeBrowse.textColor = UIColor.whiteColor;
+            noticeBrowse.textFont = [UIFont systemFontOfSize:12.f];
+            noticeBrowse.texts = @[@"测试通告!!!"];
+            noticeBrowse.durationTime = 4.0;
+            [noticeBrowse reloadData];
         }
             break;
         case 3: {
