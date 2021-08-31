@@ -153,13 +153,13 @@
     return _tupleView;
 }
 - (UIEdgeInsets)insetForSection:(NSInteger)section {
-    return UIEdgeInsetsMake(0, 10, 0, 10);
+    return UIEdgeInsetsMake(0, 0, 0, 10);
 }
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
     return 3;
 }
 - (UIEdgeInsets)edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return UIEdgeInsetsMake(7.5, 5, 7.5, 5);
+    return UIEdgeInsetsMake(7.5, 10, 7.5, 0);
 }
 - (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
@@ -278,6 +278,7 @@
             HLiveRoomTopHeaderView *topHeaderView = [cell viewWithTag:123456];
             if (!topHeaderView) {
                 topHeaderView = [[HLiveRoomTopHeaderView alloc] initWithFrame:cell.bounds];
+                [topHeaderView setTag:123456];
                 [cell addSubview:topHeaderView];
             }
         }
@@ -287,6 +288,7 @@
             HLiveRoomTopHonorView *topHonorView = [cell viewWithTag:234567];
             if (!topHonorView) {
                 topHonorView = [[HLiveRoomTopHonorView alloc] initWithFrame:cell.bounds];
+                [topHonorView setTag:234567];
                 [cell addSubview:topHonorView];
             }
         }

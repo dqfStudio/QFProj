@@ -29,14 +29,8 @@
     }
     return _tupleView;
 }
-- (UIEdgeInsets)insetForSection:(NSInteger)section {
-    return UIEdgeInsetsMake(0, 10, 0, 10);
-}
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
     return 12;
-}
-- (UIEdgeInsets)edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return UIEdgeInsetsMake(0, 10, 0, 10);
 }
 - (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(self.tupleView.width, 25);
@@ -55,28 +49,98 @@
     return UIEdgeInsetsMake(0, 10, 0, 10);
 }
 - (NSInteger)tupleExa1_numberOfItemsInSection:(NSInteger)section {
-    return 1;
-}
-- (CGSize)tupleExa1_sizeForHeaderInSection:(NSInteger)section {
-    NSInteger height = UIScreen.height;
-    height -= 35*3+18+40;
-    height -= 25*12;
-    height -= UIScreen.statusBarHeight+5+UIScreen.bottomBarHeight+5;
-    return CGSizeMake(self.liveRightView.width, height);
+    return 3;
 }
 - (CGSize)tupleExa1_sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(self.liveRightView.width, 25*12);
+    switch (indexPath.row) {
+        case 0:
+            return CGSizeMake(self.liveRightView.width-20, 60);
+            break;
+        case 1:
+            return CGSizeMake(self.liveRightView.width-20, 60);
+            break;
+        case 2: {
+            NSInteger height = UIScreen.height;
+            height -= 35*3+18+40;
+            height -= 120;
+            height -= UIScreen.statusBarHeight+5+UIScreen.bottomBarHeight+5;
+            return CGSizeMake(self.liveRightView.width, height);
+        }
+            break;
+            
+        default:
+            break;
+    }
+    return CGSizeZero;
 }
-- (void)tupleExa1_tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
-    HTupleBaseApex *cell = headerBlock(nil, HTupleBaseApex.class, nil, YES);
-    [cell setBackgroundColor:UIColor.clearColor];
+- (UIEdgeInsets)tupleExa1_edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 0:
+            return UIEdgeInsetsMake(10, 0, 5, 0);
+            break;
+        case 1:
+            return UIEdgeInsetsMake(5, 0, 10, 0);
+            break;
+        case 2:
+            return UIEdgeInsetsZero;
+            break;
+            
+        default:
+            break;
+    }
+    return UIEdgeInsetsZero;
 }
 - (void)tupleExa1_tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
-    HTupleBaseCell *cell = itemBlock(nil, HTupleBaseCell.class, nil, YES);
-    HLiveRoomMiddleBarView *bottomBarView = [cell viewWithTag:123456];
-    if (!bottomBarView) {
-        bottomBarView = [[HLiveRoomMiddleBarView alloc] initWithFrame:cell.bounds];
-        [cell addSubview:bottomBarView];
+    switch (indexPath.row) {
+        case 0: {
+            HTupleBaseCell *cell = itemBlock(nil, HTupleBaseCell.class, nil, YES);
+            HWebButtonView *buttonView = [cell viewWithTag:123456];
+            if (!buttonView) {
+                HRect *tmpFrame = HRectFor(cell.layoutViewBounds);
+                tmpFrame.x = tmpFrame.width - tmpFrame.height;
+                tmpFrame.width = tmpFrame.height;
+                buttonView = [[HWebButtonView alloc] initWithFrame:tmpFrame.frame];
+                [buttonView setBackgroundColor:UIColor.redColor];
+                [buttonView setCornerRadius:buttonView.viewWidth/2];
+                [buttonView setTag:123456];
+                [cell addSubview:buttonView];
+                [buttonView setPressed:^(id sender, id data) {
+                    NSLog(@"");
+                }];
+            }
+        }
+            break;
+        case 1: {
+            HTupleBaseCell *cell = itemBlock(nil, HTupleBaseCell.class, nil, YES);
+            HWebButtonView *buttonView = [cell viewWithTag:123456];
+            if (!buttonView) {
+                HRect *tmpFrame = HRectFor(cell.layoutViewBounds);
+                tmpFrame.x = tmpFrame.width - tmpFrame.height;
+                tmpFrame.width = tmpFrame.height;
+                buttonView = [[HWebButtonView alloc] initWithFrame:tmpFrame.frame];
+                [buttonView setBackgroundColor:UIColor.redColor];
+                [buttonView setCornerRadius:buttonView.viewWidth/2];
+                [buttonView setTag:123456];
+                [cell addSubview:buttonView];
+                [buttonView setPressed:^(id sender, id data) {
+                    NSLog(@"");
+                }];
+            }
+        }
+            break;
+        case 2: {
+            HTupleBaseCell *cell = itemBlock(nil, HTupleBaseCell.class, nil, YES);
+            HLiveRoomMiddleBarView *bottomBarView = [cell viewWithTag:123456];
+            if (!bottomBarView) {
+                bottomBarView = [[HLiveRoomMiddleBarView alloc] initWithFrame:cell.bounds];
+                [bottomBarView setTag:123456];
+                [cell addSubview:bottomBarView];
+            }
+        }
+            break;
+            
+        default:
+            break;
     }
 }
 @end

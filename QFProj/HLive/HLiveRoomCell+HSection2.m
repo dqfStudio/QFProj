@@ -137,6 +137,7 @@
     HLiveRoomBottomBarView *bottomBarView = [cell viewWithTag:123456];
     if (!bottomBarView) {
         bottomBarView = [[HLiveRoomBottomBarView alloc] initWithFrame:cell.bounds];
+        [bottomBarView setTag:123456];
         [cell addSubview:bottomBarView];
     }
 }
