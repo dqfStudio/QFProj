@@ -310,19 +310,19 @@
             [cell.layoutView setCornerRadius:cell.layoutView.viewHeight/2];
             
             HNoticeBrowseLabel *noticeBrowse = [cell viewWithTag:345678];
+            [noticeBrowse releaseNotice];
             if (!noticeBrowse) {
                 CGRect frame = cell.layoutViewBounds;
                 frame.origin.x = 20;
                 frame.size.width -= 20;
                 noticeBrowse = [[HNoticeBrowseLabel alloc] initWithFrame:frame];
                 [noticeBrowse setTag:345678];
+                noticeBrowse.textColor = UIColor.whiteColor;
+                noticeBrowse.textFont = [UIFont systemFontOfSize:12.f];
+                noticeBrowse.durationTime = 4.0;
                 [cell addSubview:noticeBrowse];
             }
-
-            noticeBrowse.textColor = UIColor.whiteColor;
-            noticeBrowse.textFont = [UIFont systemFontOfSize:12.f];
             noticeBrowse.texts = @[@"测试通告!!!"];
-            noticeBrowse.durationTime = 4.0;
             [noticeBrowse reloadData];
         }
             break;
