@@ -175,7 +175,7 @@
 }
 //可反复加载内容的直播功能
 - (void)reloadLiveBroadcast:(void (^)(void))completion {
-    dispatchAfter(5, ^{
+    dispatchAfter(3, ^{
         completion();
     });
 }
