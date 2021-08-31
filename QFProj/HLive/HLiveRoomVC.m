@@ -131,26 +131,19 @@
         case 1: {
             if (self.liveStatus == HLiveStatusLoading) {
                 HLiveRoomBgCell *cell = itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
-                
-                void (^setScrollParams)(void) = ^(void){
-                    // 禁止滚动
-                    self.tupleView.scrollEnabled = NO;
-                    // 开始旋转
-                    [cell.activityIndicator startAnimating];
-                    //可反复加载内容的直播功能
-                    [self reloadLiveBroadcast:^{
-                        // 解除禁止滚动
-                        self.tupleView.scrollEnabled = YES;
-                        // 停止旋转
-                        [cell.activityIndicator stopAnimating];
-                        // 更改直播状态
-                        self.liveStatus = HLiveStatusLiveing;
-                    }];
-                };
-                
-                //设置滚动相关属性
-                setScrollParams();
-                
+                // 禁止滚动
+                self.tupleView.scrollEnabled = NO;
+                // 开始旋转
+                [cell.activityIndicator startAnimating];
+                //可反复加载内容的直播功能
+                [self reloadLiveBroadcast:^{
+                    // 解除禁止滚动
+                    self.tupleView.scrollEnabled = YES;
+                    // 停止旋转
+                    [cell.activityIndicator stopAnimating];
+                    // 更改直播状态
+                    self.liveStatus = HLiveStatusLiveing;
+                }];
             }else if (self.liveStatus == HLiveStatusLiveing) {
                 itemBlock(nil, HLiveRoomCell.class, nil, YES);
             }
