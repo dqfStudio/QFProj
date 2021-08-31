@@ -7,17 +7,12 @@
 //
 
 #import "HTupleViewMarqueeCell.h"
-#import "HMarquee.h"
-
-@interface HTupleViewMarqueeCell ()
-@property (nonatomic) HMarquee *marquee;
-@end
 
 @implementation HTupleViewMarqueeCell
 
 - (HMarquee *)marquee {
     if (!_marquee) {
-        _marquee = [[HMarquee alloc] initWithFrame:self.bounds speed:HMarqueeSpeedLevelMediumSlow Msg:nil];
+        _marquee = [[HMarquee alloc] initWithFrame:self.bounds speed:HMarqueeSpeedLevelSlow Msg:nil];
         [_marquee changeTapMarqueeAction:^{
             if (self.selectedBlock) {
                 self.selectedBlock();

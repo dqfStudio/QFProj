@@ -147,7 +147,7 @@ typedef NS_ENUM(NSInteger, HMarqueeTapMode) {
         CGFloat h = self.frame.size.height;
         _marqueeLbl = [[UILabel alloc] init];
         _marqueeLbl.text = self.msg;
-        UIFont *fnt = [UIFont fontWithName:@"HelveticaNeue" size:14.0f];
+        UIFont *fnt = [UIFont fontWithName:@"HelveticaNeue" size:10.0f];
         _marqueeLbl.font = fnt;
         CGSize msgSize = [_marqueeLbl.text sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:fnt, NSFontAttributeName, nil]];
         _marqueeLbl.frame = CGRectMake(0, 0, msgSize.width, h);

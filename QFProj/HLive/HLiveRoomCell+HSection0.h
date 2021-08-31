@@ -7,6 +7,8 @@
 //
 
 #import "HLiveRoomCell.h"
+#import "HTupleViewMarqueeCell.h"
+#import "HNoticeBrowseLabel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

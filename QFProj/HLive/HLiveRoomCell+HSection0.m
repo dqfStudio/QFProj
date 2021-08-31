@@ -248,7 +248,7 @@
             return CGSizeMake(self.liveRightView.width, 35);
             break;
         case 2:
-            return CGSizeMake(self.liveRightView.width, 35);
+            return CGSizeMake(self.liveRightView.width, 18);
             break;
         case 3:
             return CGSizeMake(self.liveRightView.width, 35);
@@ -258,6 +258,14 @@
             break;
     }
     return CGSizeZero;
+}
+- (UIEdgeInsets)tupleExa0_edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 2) {
+        return UIEdgeInsetsMake(0, 10, 0, 10);
+    }else if (indexPath.row == 3) {
+        return UIEdgeInsetsMake(5, 10, 5, self.liveRightView.width-130);
+    }
+    return UIEdgeInsetsZero;
 }
 - (void)tupleExa0_tupleHeader:(HTupleHeader)headerBlock inSection:(NSInteger)section {
     HTupleBaseApex *cell = headerBlock(nil, HTupleBaseApex.class, nil, YES);
@@ -284,11 +292,28 @@
         }
             break;
         case 2: {
-            HTupleBaseCell *cell = itemBlock(nil, HTupleBaseCell.class, nil, YES);
+            HTupleViewMarqueeCell *cell = itemBlock(nil, HTupleViewMarqueeCell.class, nil, YES);
+            cell.layoutView.backgroundColor = UIColor.blackColor;
+            [cell.layoutView setCornerRadius:cell.layoutView.viewHeight/2];
+            cell.msg = @"测试通告!!!";
+            cell.bgColor = UIColor.blackColor;
+            cell.txtColor = UIColor.whiteColor;
+            [cell setSelectedBlock:^{
+                NSLog(@"");
+            }];
         }
             break;
         case 3: {
-            HTupleBaseCell *cell = itemBlock(nil, HTupleBaseCell.class, nil, YES);
+            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
+            [cell.layoutView setCornerRadius:cell.layoutView.viewHeight/2];
+            [cell.buttonView setBackgroundColor:UIColor.yellowColor];
+            [cell.buttonView setTitle:@"测试公告"];
+            [cell.buttonView setFont:[UIFont systemFontOfSize:14.f]];
+            [cell.buttonView setTitleColor:UIColor.blackColor];
+            [cell.buttonView setTextAlignment:NSTextAlignmentLeft];
+            [cell.buttonView setPressed:^(id sender, id data) {
+                NSLog(@"");
+            }];
         }
             break;
             

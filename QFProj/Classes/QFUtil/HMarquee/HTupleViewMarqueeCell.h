@@ -7,10 +7,12 @@
 //
 
 #import "HTupleBaseCell.h"
+#import "HMarquee.h"
 
 typedef void(^HTupleViewMarqueeCellBlock)(void);
 
 @interface HTupleViewMarqueeCell : HTupleBaseCell
+@property (nonatomic) HMarquee *marquee;
 @property (nonatomic, copy) NSString *msg; //显示的文字
 @property (nonatomic) UIColor *bgColor; //背景颜色
 @property (nonatomic) UIColor *txtColor; //字体颜色

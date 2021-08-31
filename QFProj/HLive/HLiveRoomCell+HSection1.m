@@ -17,7 +17,7 @@
 }
 - (CGSize)tupleExa1_sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger height = UIScreen.height;
-    height -= 35+40;
+    height -= 35*3+18+40;
     height -= UIScreen.statusBarHeight+5+UIScreen.bottomBarHeight+5;
     return CGSizeMake(self.liveRightView.width, height);
 }

@@ -1928,12 +1928,12 @@
 		A25E63C3262445FC00863FF8 /* HMarquee */ = {
 			isa = PBXGroup;
 			children = (
-				A25E63C4262445FC00863FF8 /* HTupleViewMarqueeApex.h */,
-				A25E63C5262445FC00863FF8 /* HTupleViewMarqueeCell.m */,
 				A25E63C6262445FC00863FF8 /* HMarquee.h */,
-				A25E63C7262445FC00863FF8 /* HTupleViewMarqueeApex.m */,
 				A25E63C8262445FC00863FF8 /* HMarquee.m */,
+				A25E63C4262445FC00863FF8 /* HTupleViewMarqueeApex.h */,
+				A25E63C7262445FC00863FF8 /* HTupleViewMarqueeApex.m */,
 				A25E63C9262445FC00863FF8 /* HTupleViewMarqueeCell.h */,
+				A25E63C5262445FC00863FF8 /* HTupleViewMarqueeCell.m */,
 			);
 			path = HMarquee;
 			sourceTree = "<group>";
