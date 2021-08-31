@@ -10,6 +10,7 @@
 
 @interface HLiveRoomMiddleBarView : UIView <HTupleViewDelegate>
 @property (nonatomic) HTupleView *tupleView;
+@property (nonatomic) NSMutableArray *mutableArr;
 @end
 
 @implementation HLiveRoomMiddleBarView
@@ -18,6 +19,17 @@
     if (self) {
         [self.tupleView setTupleDelegate:self];
         [self addSubview:self.tupleView];
+        self.mutableArr = NSMutableArray.array;
+        for (int i=0; i<5; i++) {
+            NSString *string = [@"黑客帝国" stringByAppendingFormat:@"%d", i];
+            [self.mutableArr addObject:string];
+        }
+        NSTimer *timer = [NSTimer timerWithTimeInterval:2.f repeats:YES block:^(NSTimer * _Nonnull timer) {
+            NSString *string = [@"黑客帝国" stringByAppendingFormat:@"%lu", self.mutableArr.count];
+            [self.mutableArr addObject:string];
+            [self.tupleView reloadData];
+        }];
+        [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     }
     return self;
 }
@@ -26,23 +38,28 @@
         _tupleView = [[HTupleView alloc] initWithFrame:self.bounds];
         _tupleView.backgroundColor = UIColor.clearColor;
         [_tupleView verticalBounceEnabled];
+        //将tupleView倒置
         _tupleView.transform = CGAffineTransformMakeScale (1,-1);
     }
     return _tupleView;
 }
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
-    return 25;
+    return self.mutableArr.count;
 }
 - (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(self.tupleView.width, 25);
 }
 - (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     HTupleNoteCell *cell = itemBlock(nil, HTupleNoteCell.class, nil, YES);
+    //将cell.contentView倒置
     cell.contentView.transform = CGAffineTransformMakeScale (1,-1);
     [cell addTopLineWithSize:1.f color:[UIColor colorWithWhite:0.1 alpha:0.2] paddingLeft:0 paddingRight:20];
-    [cell.label setText:@"黑客帝国"];
     [cell.label setTextColor:UIColor.whiteColor];
     [cell.label setFont:[UIFont systemFontOfSize:12.f]];
+    //此处数据源需要倒着加载
+    NSInteger index = self.mutableArr.count - 1 - indexPath.row;
+    NSString *string = self.mutableArr[index];
+    [cell.label setText:string];
 }
 @end
 
