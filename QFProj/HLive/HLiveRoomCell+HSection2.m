@@ -82,7 +82,7 @@
             cell.buttonView.backgroundColor = UIColor.blackColor;
             [cell.buttonView setCornerRadius:cell.buttonView.viewHeight/2];
             [cell.buttonView setPressed:^(id sender, id data) {
-                NSLog(@"");
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"KShowKeyboardNotify" object:nil];
             }];
         }
             break;

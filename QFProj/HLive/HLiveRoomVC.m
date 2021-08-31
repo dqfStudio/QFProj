@@ -16,6 +16,34 @@
 
 @implementation HLiveRoomVC
 
+- (HTextField *)textField {
+    if (!_textField) {
+        CGRect frame = CGRectMake(0, UIScreen.height, UIScreen.width, 40);
+        _textField = [[HTextField alloc] initWithFrame:frame];
+        [_textField setBackgroundColor:UIColor.whiteColor];
+        [_textField setPlaceholderFont:[UIFont systemFontOfSize:14.f]];
+        [_textField setPlaceholder:@"请输入内容..."];
+        
+        _textField.leftWidth = 10;
+        [_textField.leftLabel setText:@""];
+        
+        // 去掉键盘上的toolBar
+        _textField.inputAccessoryView = [[UIView alloc] initWithFrame:CGRectZero];
+        [_textField reloadInputViews];
+        
+        [_textField setRightWidth:60];
+        [_textField.rightLabel setText:@"完成"];
+        [_textField.rightLabel setTextAlignment:NSTextAlignmentCenter];
+        [_textField.rightLabel setFont:[UIFont systemFontOfSize:17.f]];
+        @www
+        [_textField.rightLabel setTextTapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
+            @sss
+            [self->_textField resignFirstResponder];
+        }];
+    }
+    return _textField;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -23,6 +51,11 @@
     self.topExtendedLayout = NO;
     self.tupleView.pagingEnabled = YES;
     [self.tupleView setTupleDelegate:self];
+    
+    //添加键盘
+    [self addKeyboardObserver];
+    [self hideKeyboardWhenTapBackground];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showKeyboardNotifyAction) name:@"KShowKeyboardNotify" object:nil];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -31,8 +64,34 @@
     self.tupleView.contentOffset = CGPointMake(0, self.tupleView.height);
 }
 
+- (void)showKeyboardNotifyAction {
+    [[UIApplication getKeyWindow] addSubview:self.textField];
+    [self.textField becomeFirstResponder];
+}
+
+- (void)dealloc {
+    [self removeKeyboardObserver];
+}
+
 - (BOOL)prefersNavigationBarHidden {
     return YES;
+}
+
+- (void)keyboardWillShowWithRect:(CGRect)keyboardRect animationDuration:(CGFloat)duration {
+    [UIView animateWithDuration:0.3 animations:^{
+        CGRect frame = CGRectMake(0, keyboardRect.origin.y-40, UIScreen.width, 40);
+        self.textField.frame = frame;
+    }];
+}
+
+- (void)keyboardWillHideWithRect:(CGRect)keyboardRect animationDuration:(CGFloat)duration {
+    [UIView animateWithDuration:0.3 animations:^{
+        CGRect frame = CGRectMake(0, UIScreen.height, UIScreen.width, 40);
+        self.textField.frame = frame;
+    } completion:^(BOOL finished) {
+        [self.textField removeFromSuperview];
+        self.textField.text = @"";
+    }];
 }
 
 - (void)tupleScrollViewDidScroll:(UIScrollView *)scrollView {

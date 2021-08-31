@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HLiveRoomVC : HTupleController
-
+@property (nonatomic) HTextField *textField;
 @end
 
 NS_ASSUME_NONNULL_END
