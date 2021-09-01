@@ -28,6 +28,9 @@
             NSString *string = [@"黑客帝国" stringByAppendingFormat:@"%lu", self.mutableArr.count];
             [self.mutableArr addObject:string];
             [self.tupleView reloadData];
+            dispatchAfter(0.0, ^{
+                [self scrollViewToBottom];
+            });
         }];
         [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     }
@@ -39,7 +42,7 @@
         _tupleView.backgroundColor = UIColor.clearColor;
         [_tupleView verticalBounceEnabled];
         //将tupleView倒置
-        _tupleView.transform = CGAffineTransformMakeScale (1,-1);
+        _tupleView.transform = CGAffineTransformMakeScale (1, -1);
     }
     return _tupleView;
 }
@@ -52,7 +55,7 @@
 - (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     HTupleNoteCell *cell = itemBlock(nil, HTupleNoteCell.class, nil, YES);
     //将cell.contentView倒置
-    cell.contentView.transform = CGAffineTransformMakeScale (1,-1);
+    cell.contentView.transform = CGAffineTransformMakeScale (1, -1);
     [cell addTopLineWithSize:1.f color:[UIColor colorWithWhite:0.1 alpha:0.2] paddingLeft:0 paddingRight:20];
     [cell.label setTextColor:UIColor.whiteColor];
     [cell.label setFont:[UIFont systemFontOfSize:12.f]];
@@ -61,6 +64,10 @@
     NSString *string = self.mutableArr[index];
     [cell.label setText:string];
 }
+- (void)scrollViewToBottom {
+    [self.tupleView setContentOffset:CGPointMake(0, 0) animated:YES];
+}
+
 @end
 
 @implementation HLiveRoomCell (HSection1)
