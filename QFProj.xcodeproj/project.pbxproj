@@ -20,6 +20,7 @@
 		8E4A44ED26DB9A11006A0802 /* HLiveRoomCell+HSection0.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44EC26DB9A11006A0802 /* HLiveRoomCell+HSection0.m */; };
 		8E4A44F026DB9A1F006A0802 /* HLiveRoomCell+HSection1.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44EF26DB9A1F006A0802 /* HLiveRoomCell+HSection1.m */; };
 		8E4A44F326DB9A2A006A0802 /* HLiveRoomCell+HSection2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44F226DB9A2A006A0802 /* HLiveRoomCell+HSection2.m */; };
+		8E4A44FC26DF62E8006A0802 /* HLiveRoomShareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44FB26DF62E8006A0802 /* HLiveRoomShareVC.m */; };
 		96CB6F26AB826D91E5DB7E82 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6AC0EB7C7229A3A3F9EE0D /* libPods-QFProj.a */; };
 		A20E3CFB231FDF4D00E6982B /* HMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CFA231FDF4D00E6982B /* HMenuController.m */; };
 		A20E3CFE231FE0B400E6982B /* HMainController1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CFD231FE0B400E6982B /* HMainController1.m */; };
@@ -526,6 +527,8 @@
 		8E4A44EF26DB9A1F006A0802 /* HLiveRoomCell+HSection1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HLiveRoomCell+HSection1.m"; sourceTree = "<group>"; };
 		8E4A44F126DB9A2A006A0802 /* HLiveRoomCell+HSection2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HLiveRoomCell+HSection2.h"; sourceTree = "<group>"; };
 		8E4A44F226DB9A2A006A0802 /* HLiveRoomCell+HSection2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HLiveRoomCell+HSection2.m"; sourceTree = "<group>"; };
+		8E4A44FA26DF62E8006A0802 /* HLiveRoomShareVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLiveRoomShareVC.h; sourceTree = "<group>"; };
+		8E4A44FB26DF62E8006A0802 /* HLiveRoomShareVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLiveRoomShareVC.m; sourceTree = "<group>"; };
 		A20E3CF9231FDF4D00E6982B /* HMenuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMenuController.h; sourceTree = "<group>"; };
 		A20E3CFA231FDF4D00E6982B /* HMenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMenuController.m; sourceTree = "<group>"; };
 		A20E3CFC231FE0B400E6982B /* HMainController1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMainController1.h; sourceTree = "<group>"; };
@@ -1562,6 +1565,8 @@
 				8E4A44EF26DB9A1F006A0802 /* HLiveRoomCell+HSection1.m */,
 				8E4A44F126DB9A2A006A0802 /* HLiveRoomCell+HSection2.h */,
 				8E4A44F226DB9A2A006A0802 /* HLiveRoomCell+HSection2.m */,
+				8E4A44FA26DF62E8006A0802 /* HLiveRoomShareVC.h */,
+				8E4A44FB26DF62E8006A0802 /* HLiveRoomShareVC.m */,
 			);
 			path = HLive;
 			sourceTree = "<group>";
@@ -4018,6 +4023,7 @@
 				A2C2B214235EAC770041AAB5 /* HMainController6.m in Sources */,
 				A25E67AA262445FD00863FF8 /* UINavigationController+HLeaks.m in Sources */,
 				A25E6863262445FE00863FF8 /* NSParagraphStyle+HText.m in Sources */,
+				8E4A44FC26DF62E8006A0802 /* HLiveRoomShareVC.m in Sources */,
 				A25E6812262445FE00863FF8 /* HKBBarButtonItem.m in Sources */,
 				A25E6823262445FE00863FF8 /* HAnimatedDotView.m in Sources */,
 				A2C8785B266A3A170017757E /* YDBigBullLiveVc.m in Sources */,

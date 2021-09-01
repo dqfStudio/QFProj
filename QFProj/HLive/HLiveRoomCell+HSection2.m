@@ -95,7 +95,9 @@
             cell.buttonView.backgroundColor = UIColor.blackColor;
             [cell.buttonView setCornerRadius:cell.buttonView.viewHeight/2];
             [cell.buttonView setPressed:^(id sender, id data) {
-                NSLog(@"");
+                [[self viewController] presentController:HLiveRoomShareVC.new completion:^(HTransitionType transitionType) {
+                    NSLog(@"");
+                }];
             }];
         }
             break;
