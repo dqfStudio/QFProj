@@ -34,7 +34,7 @@
     return UIEdgeInsetsMake(0, 10, 0, 10);
 }
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
-    return 2;
+    return 6;
 }
 - (UIEdgeInsets)edgeInsetsForItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
@@ -43,6 +43,18 @@
             break;
         case 1:
             return UIEdgeInsetsZero;
+            break;
+        case 2:
+            return UIEdgeInsetsMake(5, 5, 5, 5);
+            break;
+        case 3:
+            return UIEdgeInsetsMake(5, 5, 5, 5);
+            break;
+        case 4:
+            return UIEdgeInsetsMake(5, 5, 5, 5);
+            break;
+        case 5:
+            return UIEdgeInsetsMake(5, 5, 5, 5);
             break;
             
         default:
@@ -56,7 +68,19 @@
             return CGSizeMake(135, self.tupleView.height);
             break;
         case 1:
-            return CGSizeMake(self.tupleView.width-135, self.tupleView.height);
+            return CGSizeMake(self.tupleView.width-20-135-self.tupleView.height*4, self.tupleView.height);
+            break;
+        case 2:
+            return CGSizeMake(self.tupleView.height, self.tupleView.height);
+            break;
+        case 3:
+            return CGSizeMake(self.tupleView.height, self.tupleView.height);
+            break;
+        case 4:
+            return CGSizeMake(self.tupleView.height, self.tupleView.height);
+            break;
+        case 5:
+            return CGSizeMake(self.tupleView.height, self.tupleView.height);
             break;
             
         default:
@@ -125,6 +149,58 @@
             cell.label.textAlignment = NSTextAlignmentCenter;
             cell.label.textColor = HColorHex(#0B0A0C);
             //cell.label.text = @"top bar";
+        }
+            break;
+        case 2: {
+            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
+            [cell.buttonView setBackgroundColor:UIColor.redColor];
+            [cell.buttonView setCornerRadius:cell.buttonView.viewWidth/2];
+            [cell.buttonView setImageWithName:@"icon_no_server"];
+            [cell.buttonView setFillet:YES];
+            [cell.buttonView setPressed:^(id sender, id data) {
+                [[self viewController] presentController:HAlertController.new completion:^(HTransitionType transitionType) {
+                    NSLog(@"");
+                }];
+            }];
+        }
+            break;
+        case 3: {
+            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
+            [cell.buttonView setBackgroundColor:UIColor.redColor];
+            [cell.buttonView setCornerRadius:cell.buttonView.viewWidth/2];
+            [cell.buttonView setImageWithName:@"icon_no_server"];
+            [cell.buttonView setFillet:YES];
+            [cell.buttonView setPressed:^(id sender, id data) {
+                [[self viewController] presentController:HAlertController.new completion:^(HTransitionType transitionType) {
+                    NSLog(@"");
+                }];
+            }];
+        }
+            break;
+        case 4: {
+            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
+            [cell.buttonView setBackgroundColor:UIColor.redColor];
+            [cell.buttonView setCornerRadius:cell.buttonView.viewWidth/2];
+            [cell.buttonView setImageWithName:@"icon_no_server"];
+            [cell.buttonView setFillet:YES];
+            [cell.buttonView setPressed:^(id sender, id data) {
+                [[self viewController] presentController:HAlertController.new completion:^(HTransitionType transitionType) {
+                    NSLog(@"");
+                }];
+            }];
+        }
+            break;
+        case 5: {
+            HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
+            [cell.buttonView setBackgroundColor:UIColor.redColor];
+            [cell.buttonView setCornerRadius:cell.buttonView.viewWidth/2];
+            [cell.buttonView setImageWithName:@"icon_no_server"];
+            [cell.buttonView setFillet:YES];
+            [cell.buttonView setPressed:^(id sender, id data) {
+                [[self viewController] presentController:HAlertController.new completion:^(HTransitionType transitionType) {
+                    NSLog(@"");
+                }];
+            }];
         }
             break;
             
