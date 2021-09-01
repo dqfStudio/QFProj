@@ -121,7 +121,7 @@
     [cell.label setTextAlignment:NSTextAlignmentCenter];
 }
 - (void)didSelectCell:(HTupleBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-
+    [self back];
 }
 
 @end
