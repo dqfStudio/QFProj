@@ -42,6 +42,8 @@
     [self.liveRightView setTupleDelegate:self];
     [self addSubview:self.liveRightView];
     [self addSubview:self.liveLeftView];
+    // 隐藏模态效果
+    [self.effectView setHidden:YES];
 }
 //用于子类更新子视图布局
 - (void)relayoutSubviews {

@@ -145,9 +145,7 @@
                     self.liveStatus = HLiveStatusLiveing;
                 }];
             }else if (self.liveStatus == HLiveStatusLiveing) {
-                HLiveRoomCell *cell = itemBlock(nil, HLiveRoomCell.class, nil, YES);
-                // 隐藏模态效果
-                [cell.effectView setHidden:YES];
+                itemBlock(nil, HLiveRoomCell.class, nil, YES);
             }
         }
             break;
