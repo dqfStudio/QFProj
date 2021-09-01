@@ -138,6 +138,34 @@
                     }];
                 }];
             }
+            UILabel *honorLabel = [cell viewWithTag:234567];
+            if (!honorLabel) {
+                CGRect frame = CGRectMake(self.viewWidth, 10, 80, 25);
+                honorLabel = [[UILabel alloc] initWithFrame:frame];
+                [honorLabel setText:@"恭喜中奖!!!"];
+                [honorLabel setFont:[UIFont systemFontOfSize:12.f]];
+                [honorLabel setTextColor:UIColor.whiteColor];
+                [honorLabel setBackgroundColor:UIColor.redColor];
+                [honorLabel setTextAlignment:NSTextAlignmentCenter];
+                [honorLabel setCornerRadius:honorLabel.viewHeight/2];
+                [honorLabel setTag:234567];
+                [cell addSubview:honorLabel];
+                
+                NSTimer *honorTimer = [NSTimer timerWithTimeInterval:5.f repeats:YES block:^(NSTimer * _Nonnull timer) {
+                    honorLabel.frame = CGRectMake(cell.viewWidth, 10, 80, 25);
+                    [UIView animateWithDuration:0.7 animations:^{
+                        CGRect frame = CGRectMake(0, 10, 80, 25);
+                        honorLabel.frame = frame;
+                    }];
+                    dispatchAfter(3.0, ^{
+                        [UIView animateWithDuration:0.3 animations:^{
+                            CGRect frame = CGRectMake(-100, 10, 80, 25);
+                            honorLabel.frame = frame;
+                        }];
+                    });
+                }];
+                [[NSRunLoop currentRunLoop] addTimer:honorTimer forMode:NSRunLoopCommonModes];
+            }
         }
             break;
         case 1: {
