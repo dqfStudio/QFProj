@@ -168,9 +168,9 @@
             cell.labelHeight = 25;
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setText:@"黑客帝国"];
-            
             cell.didSelectCell = ^(HTupleViewCellVertValue1 *cell, NSIndexPath *indexPath) {
-                [[UIApplication navi] presentViewController:HLiveRoomVC.new animated:YES completion:nil];
+                HNavigationController *navi = [[HNavigationController alloc] initWithRootViewController:HLiveRoomVC.new];
+                [[UIApplication navi] presentViewController:navi animated:YES completion:nil];
             };
         }
             break;
