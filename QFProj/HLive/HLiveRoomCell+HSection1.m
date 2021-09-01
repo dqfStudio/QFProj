@@ -87,9 +87,9 @@
             break;
         case 2: {
             NSInteger height = UIScreen.height;
-            height -= 35*3+18+40;
-            height -= 120;
-            height -= UIScreen.statusBarHeight+5+UIScreen.bottomBarHeight+5;
+            height -= (UIScreen.statusBarHeight+5)+35*3+18;//section0的高度
+            height -= 60+60;//section1的row0和row1高度
+            height -= (UIScreen.bottomBarHeight+5)+40;//section2的高度
             return CGSizeMake(self.liveRightView.width, height);
         }
             break;
