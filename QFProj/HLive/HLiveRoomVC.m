@@ -96,14 +96,14 @@
 // 录屏
 - (void)recordingScreen {
     [self dismissViewControllerAnimated:YES completion:nil];
-    [UIAlertController showAlertWithMessage:@"[安全提醒]请不要录屏分享给他人以保障账户安全。" cancel:nil];
-    //[[[UIAlertView alloc] initWithTitle:nil message:@"[安全提醒]请不要录屏分享给他人以保障账户安全。" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil] show];
+    [UIAlertController showAlertWithTitle:@"安全提醒" message:@"请不要录屏分享给他人以保障账户安全。" style:UIAlertControllerStyleAlert cancelButtonTitle:@"我知道了" otherButtonTitles:nil completion:nil];
+    //[[[UIAlertView alloc] initWithTitle:@"安全提醒" message:@"请不要录屏分享给他人以保障账户安全。" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"我知道了", nil] show];
 }
 
 // 截屏
 - (void)screenshot {
-    //[UIAlertController showAlertWithMessage:@"[安全提醒]请不要截屏分享给他人以保障账户安全。" cancel:nil];
-    [[[UIAlertView alloc] initWithTitle:nil message:@"[安全提醒]请不要截屏分享给他人以保障账户安全。" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil] show];
+    //[UIAlertController showAlertWithTitle:@"安全提醒" message:@"请不要截屏分享给他人以保障账户安全。" style:UIAlertControllerStyleAlert cancelButtonTitle:@"我知道了" otherButtonTitles:nil completion:nil];
+    [[[UIAlertView alloc] initWithTitle:@"安全提醒" message:@"请不要截屏分享给他人以保障账户安全。" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"我知道了", nil] show];
 }
 
 - (void)showKeyboardNotifyAction {
