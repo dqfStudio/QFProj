@@ -75,7 +75,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     // 监测当前设备是否处于录屏状态
-    UIScreen * sc = [UIScreen mainScreen];
+    UIScreen *sc = [UIScreen mainScreen];
     if (@available(iOS 11.0, *)) {
         if (sc.isCaptured) {
             [self recordingScreen];
