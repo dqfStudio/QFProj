@@ -79,8 +79,10 @@
     switch (indexPath.row) {
         case 0: {
             HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
-            cell.buttonView.backgroundColor = UIColor.blackColor;
+            cell.buttonView.backgroundColor = UIColor.redColor;
             [cell.buttonView setCornerRadius:cell.buttonView.viewHeight/2];
+            [cell.buttonView setImageWithName:@"icon_no_server"];
+            [cell.buttonView setFillet:YES];
             [cell.buttonView setPressed:^(id sender, id data) {
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"KShowKeyboardNotify" object:nil];
             }];
@@ -92,8 +94,10 @@
             break;
         case 2: {
             HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
-            cell.buttonView.backgroundColor = UIColor.blackColor;
+            cell.buttonView.backgroundColor = UIColor.redColor;
             [cell.buttonView setCornerRadius:cell.buttonView.viewHeight/2];
+            [cell.buttonView setImageWithName:@"icon_no_server"];
+            [cell.buttonView setFillet:YES];
             [cell.buttonView setPressed:^(id sender, id data) {
                 [[self viewController] presentController:HLiveRoomShareVC.new completion:^(HTransitionType transitionType) {
                     NSLog(@"");
@@ -103,7 +107,7 @@
             break;
         case 3: {
             HTupleButtonCell *cell = itemBlock(nil, HTupleButtonCell.class, nil, YES);
-            cell.buttonView.backgroundColor = UIColor.blackColor;
+            cell.buttonView.backgroundColor = UIColor.redColor;
             [cell.buttonView setCornerRadius:cell.buttonView.viewHeight/2];
             [cell.buttonView setTitle:@"✕"];
             [cell.buttonView setTitleColor:UIColor.whiteColor];

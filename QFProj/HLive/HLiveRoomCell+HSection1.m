@@ -128,6 +128,8 @@
                 buttonView = [[HWebButtonView alloc] initWithFrame:tmpFrame.frame];
                 [buttonView setBackgroundColor:UIColor.redColor];
                 [buttonView setCornerRadius:buttonView.viewWidth/2];
+                [buttonView setImageWithName:@"icon_no_server"];
+                [buttonView setFillet:YES];
                 [buttonView setTag:123456];
                 [cell addSubview:buttonView];
                 [buttonView setPressed:^(id sender, id data) {
@@ -148,6 +150,8 @@
                 buttonView = [[HWebButtonView alloc] initWithFrame:tmpFrame.frame];
                 [buttonView setBackgroundColor:UIColor.redColor];
                 [buttonView setCornerRadius:buttonView.viewWidth/2];
+                [buttonView setImageWithName:@"icon_no_server"];
+                [buttonView setFillet:YES];
                 [buttonView setTag:123456];
                 [cell addSubview:buttonView];
                 [buttonView setPressed:^(id sender, id data) {
