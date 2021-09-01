@@ -9,6 +9,8 @@
 #import "HLiveRoomCell.h"
 #import "HTupleViewMarqueeCell.h"
 #import "HNoticeBrowseLabel.h"
+#import "HAlertController.h"
+#import "UIViewController+HAnimation.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

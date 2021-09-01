@@ -92,7 +92,9 @@
             [cell.buttonView setFont:[UIFont systemFontOfSize:12.f]];
             [cell.buttonView setCornerRadius:cell.buttonView.viewHeight/2];
             [cell.buttonView setPressed:^(id sender, id data) {
-                NSLog(@"");
+                [[self viewController] presentController:HAlertController.new completion:^(HTransitionType transitionType) {
+                    NSLog(@"");
+                }];
             }];
             
             
@@ -335,7 +337,9 @@
             [cell.buttonView setTitleColor:UIColor.blackColor];
             [cell.buttonView setTextAlignment:NSTextAlignmentLeft];
             [cell.buttonView setPressed:^(id sender, id data) {
-                NSLog(@"");
+                [[self viewController] presentController:HAlertController.new completion:^(HTransitionType transitionType) {
+                    NSLog(@"");
+                }];
             }];
         }
             break;

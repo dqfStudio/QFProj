@@ -124,7 +124,9 @@
                 [buttonView setTag:123456];
                 [cell addSubview:buttonView];
                 [buttonView setPressed:^(id sender, id data) {
-                    NSLog(@"");
+                    [[self viewController] presentController:HAlertController.new completion:^(HTransitionType transitionType) {
+                        NSLog(@"");
+                    }];
                 }];
             }
         }
@@ -142,7 +144,9 @@
                 [buttonView setTag:123456];
                 [cell addSubview:buttonView];
                 [buttonView setPressed:^(id sender, id data) {
-                    NSLog(@"");
+                    [[self viewController] presentController:HAlertController.new completion:^(HTransitionType transitionType) {
+                        NSLog(@"");
+                    }];
                 }];
             }
         }

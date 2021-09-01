@@ -7,6 +7,8 @@
 //
 
 #import "HLiveRoomCell.h"
+#import "HAlertController.h"
+#import "UIViewController+HAnimation.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
