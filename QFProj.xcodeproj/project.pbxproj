@@ -21,6 +21,7 @@
 		8E4A44F026DB9A1F006A0802 /* HLiveRoomCell+HSection1.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44EF26DB9A1F006A0802 /* HLiveRoomCell+HSection1.m */; };
 		8E4A44F326DB9A2A006A0802 /* HLiveRoomCell+HSection2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44F226DB9A2A006A0802 /* HLiveRoomCell+HSection2.m */; };
 		8E4A44FC26DF62E8006A0802 /* HLiveRoomShareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44FB26DF62E8006A0802 /* HLiveRoomShareVC.m */; };
+		8E4A44FF26E21E1A006A0802 /* HLiveRoomNoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44FE26E21E1A006A0802 /* HLiveRoomNoteVC.m */; };
 		96CB6F26AB826D91E5DB7E82 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6AC0EB7C7229A3A3F9EE0D /* libPods-QFProj.a */; };
 		A20E3CFB231FDF4D00E6982B /* HMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CFA231FDF4D00E6982B /* HMenuController.m */; };
 		A20E3CFE231FE0B400E6982B /* HMainController1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CFD231FE0B400E6982B /* HMainController1.m */; };
@@ -529,6 +530,8 @@
 		8E4A44F226DB9A2A006A0802 /* HLiveRoomCell+HSection2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HLiveRoomCell+HSection2.m"; sourceTree = "<group>"; };
 		8E4A44FA26DF62E8006A0802 /* HLiveRoomShareVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLiveRoomShareVC.h; sourceTree = "<group>"; };
 		8E4A44FB26DF62E8006A0802 /* HLiveRoomShareVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLiveRoomShareVC.m; sourceTree = "<group>"; };
+		8E4A44FD26E21E1A006A0802 /* HLiveRoomNoteVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLiveRoomNoteVC.h; sourceTree = "<group>"; };
+		8E4A44FE26E21E1A006A0802 /* HLiveRoomNoteVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLiveRoomNoteVC.m; sourceTree = "<group>"; };
 		A20E3CF9231FDF4D00E6982B /* HMenuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMenuController.h; sourceTree = "<group>"; };
 		A20E3CFA231FDF4D00E6982B /* HMenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMenuController.m; sourceTree = "<group>"; };
 		A20E3CFC231FE0B400E6982B /* HMainController1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMainController1.h; sourceTree = "<group>"; };
@@ -1567,6 +1570,8 @@
 				8E4A44F226DB9A2A006A0802 /* HLiveRoomCell+HSection2.m */,
 				8E4A44FA26DF62E8006A0802 /* HLiveRoomShareVC.h */,
 				8E4A44FB26DF62E8006A0802 /* HLiveRoomShareVC.m */,
+				8E4A44FD26E21E1A006A0802 /* HLiveRoomNoteVC.h */,
+				8E4A44FE26E21E1A006A0802 /* HLiveRoomNoteVC.m */,
 			);
 			path = HLive;
 			sourceTree = "<group>";
@@ -3950,6 +3955,7 @@
 				A25E6898262445FE00863FF8 /* NSArray+HSafeUtil.m in Sources */,
 				A25E678B262445FD00863FF8 /* HAttributedString.m in Sources */,
 				A25E670D262445FD00863FF8 /* HTool.m in Sources */,
+				8E4A44FF26E21E1A006A0802 /* HLiveRoomNoteVC.m in Sources */,
 				A25E6815262445FE00863FF8 /* HKBUIViewController+Additions.m in Sources */,
 				A25E6776262445FD00863FF8 /* YTKChainRequest.m in Sources */,
 				A25E6810262445FE00863FF8 /* HKBToolbar.m in Sources */,

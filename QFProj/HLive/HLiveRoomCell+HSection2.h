@@ -7,6 +7,7 @@
 //
 
 #import "HLiveRoomCell.h"
+#import "HLiveRoomNoteVC.h"
 #import "HLiveRoomShareVC.h"
 #import "UIViewController+HAnimation.h"
 
