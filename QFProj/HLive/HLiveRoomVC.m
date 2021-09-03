@@ -93,6 +93,20 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(screenshot) name:UIApplicationUserDidTakeScreenshotNotification object:nil];
 }
 
+- (void)vcWillDisappear:(HVCDisappearType)type {
+    if (type == HVCDisappearTypePop || type == HVCDisappearTypeDismiss) {
+        [self.tupleView releaseTupleBlock];
+        
+        //释放相关内容
+        [self removeKeyboardObserver];
+        if (@available(iOS 11.0, *)) {
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:UIScreenCapturedDidChangeNotification object:nil];
+        }
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationUserDidTakeScreenshotNotification object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:@"KShowKeyboardNotify" object:nil];
+    }
+}
+
 // 录屏
 - (void)recordingScreen {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -109,15 +123,6 @@
 - (void)showKeyboardNotifyAction {
     [[UIApplication getKeyWindow] addSubview:self.textField];
     [self.textField becomeFirstResponder];
-}
-
-- (void)dealloc {
-    [self removeKeyboardObserver];
-    if (@available(iOS 11.0, *)) {
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIScreenCapturedDidChangeNotification object:nil];
-    }
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationUserDidTakeScreenshotNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"KShowKeyboardNotify" object:nil];
 }
 
 - (BOOL)prefersNavigationBarHidden {
