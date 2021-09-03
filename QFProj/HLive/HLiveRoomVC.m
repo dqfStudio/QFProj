@@ -104,6 +104,8 @@
         }
         [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationUserDidTakeScreenshotNotification object:nil];
         [[NSNotificationCenter defaultCenter] removeObserver:self name:@"KShowKeyboardNotify" object:nil];
+        //通知释放跟直播相关的tupleView
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"KLiveRoomReleaseTupleKey" object:nil];
     }
 }
 
@@ -141,8 +143,10 @@
         CGRect frame = CGRectMake(0, UIScreen.height, UIScreen.width, 40);
         self.textField.frame = frame;
     } completion:^(BOOL finished) {
+        //释放textField
         [self.textField removeFromSuperview];
         self.textField.text = @"";
+        self.textField = nil;
     }];
 }
 
