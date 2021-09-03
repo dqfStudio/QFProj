@@ -23,7 +23,7 @@
 
 - (UIVisualEffectView *)visualView {
     if (!_visualView) {
-        UIBlurEffect * blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+        UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
         _visualView = [[UIVisualEffectView alloc] initWithEffect:blur];
         CGRect frame = CGRectZero;
         frame.size = self.containerSize;
@@ -71,6 +71,7 @@
 - (void)vcWillDisappear:(HVCDisappearType)type {
     if (type == HVCDisappearTypePop || type == HVCDisappearTypeDismiss) {
         [self.tupleView releaseTupleBlock];
+        self.visualView = nil;
     }
 }
 
