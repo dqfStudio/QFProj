@@ -10,6 +10,7 @@
 #import "HTupleViewMarqueeCell.h"
 #import "HNoticeBrowseLabel.h"
 #import "HAlertController.h"
+#import "HLiveRoomNoteVC.h"
 #import "UIViewController+HAnimation.h"
 
 NS_ASSUME_NONNULL_BEGIN

@@ -413,7 +413,7 @@
             [cell.buttonView setTitleColor:UIColor.blackColor];
             [cell.buttonView setTextAlignment:NSTextAlignmentLeft];
             [cell.buttonView setPressed:^(id sender, id data) {
-                [[self viewController] presentController:HAlertController.new completion:^(HTransitionType transitionType) {
+                [[self viewController] presentController:HLiveRoomNoteVC.new completion:^(HTransitionType transitionType) {
                     NSLog(@"");
                 }];
             }];
