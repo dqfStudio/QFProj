@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (HLRDManager *)defaults;
 
+//清空属性值
+- (void)clear;
+
 @end
 
 NS_ASSUME_NONNULL_END
