@@ -95,8 +95,8 @@
 - (void)vcWillDisappear:(HVCDisappearType)type {
     if (type == HVCDisappearTypePop || type == HVCDisappearTypeDismiss) {
         [self.tupleView releaseTupleBlock];
-        
         //释放相关内容
+        [[HLRDManager defaults] clear];
         [self removeKeyboardObserver];
         if (@available(iOS 11.0, *)) {
             [[NSNotificationCenter defaultCenter] removeObserver:self name:UIScreenCapturedDidChangeNotification object:nil];
@@ -118,7 +118,10 @@
 // 截屏
 - (void)screenshot {
     //[UIAlertController showAlertWithTitle:@"安全提醒" message:@"请不要截屏分享给他人以保障账户安全。" style:UIAlertControllerStyleAlert cancelButtonTitle:@"我知道了" otherButtonTitles:nil completion:nil];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [[[UIAlertView alloc] initWithTitle:@"安全提醒" message:@"请不要截屏分享给他人以保障账户安全。" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"我知道了", nil] show];
+#pragma clang diagnostic pop
 }
 
 - (void)showKeyboardNotifyAction {
