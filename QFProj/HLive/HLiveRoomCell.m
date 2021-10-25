@@ -8,6 +8,32 @@
 
 #import "HLiveRoomCell.h"
 
+@implementation HLiveRoomBgCell
+//cell初始化是调用的方法
+- (void)initUI {
+    [super initUI];
+    [self.imageView setImageWithName:@"live_bg_icon"];
+    //添加模态效果
+    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    _effectView = [[UIVisualEffectView alloc] initWithEffect:blur];
+    _effectView.alpha = 0.9;
+    _effectView.frame = self.imageView.bounds;
+    [self.imageView addSubview:_effectView];
+    //添加转圈等待效果
+    _activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:self.bounds];
+    _activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+    [self addSubview:_activityIndicator];
+}
+//用于子类更新子视图布局
+- (void)relayoutSubviews {
+    [super relayoutSubviews];
+    HLayoutTableCell(self.imageView)
+    HLayoutTableCell(self.effectView)
+    HLayoutTableCell(self.activityIndicator)
+}
+@end
+
+
 @implementation HLiveRoomCell
 - (UIView *)liveLeftView {
     if (!_liveLeftView) {

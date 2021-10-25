@@ -15,7 +15,6 @@
 		8E4A44DE26D90B37006A0802 /* HUserDefaults+Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44DD26D90B37006A0802 /* HUserDefaults+Defaults.m */; };
 		8E4A44E226DA29DA006A0802 /* HLiveRoomVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44E126DA29DA006A0802 /* HLiveRoomVC.m */; };
 		8E4A44E426DA3362006A0802 /* live_bg_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E4A44E326DA3362006A0802 /* live_bg_icon.png */; };
-		8E4A44E726DA35B8006A0802 /* HLiveRoomBgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44E626DA35B8006A0802 /* HLiveRoomBgCell.m */; };
 		8E4A44EA26DA598A006A0802 /* HLiveRoomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44E926DA598A006A0802 /* HLiveRoomCell.m */; };
 		8E4A44ED26DB9A11006A0802 /* HLiveRoomCell+HSection0.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44EC26DB9A11006A0802 /* HLiveRoomCell+HSection0.m */; };
 		8E4A44F026DB9A1F006A0802 /* HLiveRoomCell+HSection1.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44EF26DB9A1F006A0802 /* HLiveRoomCell+HSection1.m */; };
@@ -518,8 +517,6 @@
 		8E4A44E026DA29DA006A0802 /* HLiveRoomVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLiveRoomVC.h; sourceTree = "<group>"; };
 		8E4A44E126DA29DA006A0802 /* HLiveRoomVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLiveRoomVC.m; sourceTree = "<group>"; };
 		8E4A44E326DA3362006A0802 /* live_bg_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = live_bg_icon.png; sourceTree = "<group>"; };
-		8E4A44E526DA35B8006A0802 /* HLiveRoomBgCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLiveRoomBgCell.h; sourceTree = "<group>"; };
-		8E4A44E626DA35B8006A0802 /* HLiveRoomBgCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLiveRoomBgCell.m; sourceTree = "<group>"; };
 		8E4A44E826DA598A006A0802 /* HLiveRoomCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLiveRoomCell.h; sourceTree = "<group>"; };
 		8E4A44E926DA598A006A0802 /* HLiveRoomCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLiveRoomCell.m; sourceTree = "<group>"; };
 		8E4A44EB26DB9A11006A0802 /* HLiveRoomCell+HSection0.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HLiveRoomCell+HSection0.h"; sourceTree = "<group>"; };
@@ -1558,8 +1555,6 @@
 				8E4A44E326DA3362006A0802 /* live_bg_icon.png */,
 				8E4A44E026DA29DA006A0802 /* HLiveRoomVC.h */,
 				8E4A44E126DA29DA006A0802 /* HLiveRoomVC.m */,
-				8E4A44E526DA35B8006A0802 /* HLiveRoomBgCell.h */,
-				8E4A44E626DA35B8006A0802 /* HLiveRoomBgCell.m */,
 				8E4A44E826DA598A006A0802 /* HLiveRoomCell.h */,
 				8E4A44E926DA598A006A0802 /* HLiveRoomCell.m */,
 				8E4A44EB26DB9A11006A0802 /* HLiveRoomCell+HSection0.h */,
@@ -3988,7 +3983,6 @@
 				A25E6849262445FE00863FF8 /* HAnimatedImage.m in Sources */,
 				A25E67C9262445FE00863FF8 /* KSCrashMonitor_NSException.m in Sources */,
 				A25E67E2262445FE00863FF8 /* KSDebug.c in Sources */,
-				8E4A44E726DA35B8006A0802 /* HLiveRoomBgCell.m in Sources */,
 				A25E6785262445FD00863FF8 /* HGotoRuntimeSupport.m in Sources */,
 				A25E6782262445FD00863FF8 /* UIView+HPrinter.m in Sources */,
 				A25E68AB262445FE00863FF8 /* HIFS.m in Sources */,

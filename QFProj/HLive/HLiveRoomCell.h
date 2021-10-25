@@ -6,10 +6,16 @@
 //  Copyright © 2021 dqfStudio. All rights reserved.
 //
 
-#import "HLiveRoomBgCell.h"
+#import "HTupleViewCell.h"
+#import "UIView+HAlert.h"
 #import "HTupleView.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+@interface HLiveRoomBgCell : HTupleImageCell
+@property (nonatomic) UIVisualEffectView *effectView;
+@property (nonatomic) UIActivityIndicatorView *activityIndicator;
+@end
 
 @interface HLiveRoomCell : HLiveRoomBgCell <HTupleViewDelegate>
 @property (nonatomic) UIView *liveLeftView;

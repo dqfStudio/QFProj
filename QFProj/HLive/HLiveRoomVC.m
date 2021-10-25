@@ -7,7 +7,6 @@
 //
 
 #import "HLiveRoomVC.h"
-#import "HLiveRoomBgCell.h"
 #import "HLiveRoomCell.h"
 #import "UIAlertController+HUtil.h"
 
