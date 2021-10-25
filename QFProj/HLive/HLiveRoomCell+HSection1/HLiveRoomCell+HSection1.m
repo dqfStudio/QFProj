@@ -20,7 +20,7 @@
         [self.tupleView setTupleDelegate:self];
         [self addSubview:self.tupleView];
         //设置tupleView release key
-        [self.tupleView setReleaseTupleKey:@"KLiveRoomReleaseTupleKey"];
+        [self.tupleView setReleaseTupleKey:KLiveRoomReleaseTupleKey];
         self.mutableArr = NSMutableArray.array;
         for (int i=0; i<5; i++) {
             NSString *string = [@"黑客帝国" stringByAppendingFormat:@"%d", i];

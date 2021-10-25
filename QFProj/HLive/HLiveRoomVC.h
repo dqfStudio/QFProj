@@ -7,6 +7,8 @@
 //
 
 #import "HTupleController.h"
+#import "HLRDManager.h"
+#import "HLRDefine.h"
 
 typedef NS_OPTIONS(NSUInteger, HLiveStatus) {
     HLiveStatusLoading = 0,
@@ -14,6 +16,6 @@ typedef NS_OPTIONS(NSUInteger, HLiveStatus) {
 };
 
 @interface HLiveRoomVC : HTupleController
-@property (nonatomic) HTextField  *textField;
+@property (nonatomic) HTextField  *inputField;
 @property (nonatomic) HLiveStatus liveStatus;
 @end

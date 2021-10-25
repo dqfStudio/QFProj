@@ -532,6 +532,7 @@
 		8E4A45122726ED14006A0802 /* HLRDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLRDManager.h; sourceTree = "<group>"; };
 		8E4A45142726ED14006A0802 /* HLiveRoomCell+HSection0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HLiveRoomCell+HSection0.m"; sourceTree = "<group>"; };
 		8E4A45152726ED14006A0802 /* HLiveRoomCell+HSection0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HLiveRoomCell+HSection0.h"; sourceTree = "<group>"; };
+		8E4A451D2726F255006A0802 /* HLRDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLRDefine.h; sourceTree = "<group>"; };
 		A20E3CF9231FDF4D00E6982B /* HMenuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMenuController.h; sourceTree = "<group>"; };
 		A20E3CFA231FDF4D00E6982B /* HMenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMenuController.m; sourceTree = "<group>"; };
 		A20E3CFC231FE0B400E6982B /* HMainController1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMainController1.h; sourceTree = "<group>"; };
@@ -1598,6 +1599,7 @@
 		8E4A450B2726ED14006A0802 /* HLiveRoomCommon */ = {
 			isa = PBXGroup;
 			children = (
+				8E4A451D2726F255006A0802 /* HLRDefine.h */,
 				8E4A450E2726ED14006A0802 /* HLiveRoomNoteVC.h */,
 				8E4A450D2726ED14006A0802 /* HLiveRoomNoteVC.m */,
 				8E4A450C2726ED14006A0802 /* HLiveRoomShareVC.h */,

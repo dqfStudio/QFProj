@@ -19,7 +19,7 @@
         [self.tupleView setTupleDelegate:self];
         [self addSubview:self.tupleView];
         //设置tupleView release key
-        [self.tupleView setReleaseTupleKey:@"KLiveRoomReleaseTupleKey"];
+        [self.tupleView setReleaseTupleKey:KLiveRoomReleaseTupleKey];
     }
     return self;
 }
@@ -92,7 +92,7 @@
             [cell.buttonView setImageWithName:@"icon_no_server"];
             [cell.buttonView setFillet:YES];
             [cell.buttonView setPressed:^(id sender, id data) {
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"KShowKeyboardNotify" object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:KShowKeyboardNotify object:nil];
             }];
         }
             break;

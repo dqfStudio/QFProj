@@ -72,7 +72,7 @@
     [self.effectView setHidden:YES];
     
     //设置liveRightView release key
-    [self.liveRightView setReleaseTupleKey:@"KLiveRoomReleaseTupleKey"];
+    [self.liveRightView setReleaseTupleKey:KLiveRoomReleaseTupleKey];
 }
 //用于子类更新子视图布局
 - (void)relayoutSubviews {

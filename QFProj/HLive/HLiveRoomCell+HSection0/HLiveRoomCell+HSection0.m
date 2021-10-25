@@ -20,7 +20,7 @@
         [self.tupleView setTupleDelegate:self];
         [self addSubview:self.tupleView];
         //设置tupleView release key
-        [self.tupleView setReleaseTupleKey:@"KLiveRoomReleaseTupleKey"];
+        [self.tupleView setReleaseTupleKey:KLiveRoomReleaseTupleKey];
     }
     return self;
 }
@@ -223,7 +223,7 @@
         [self.tupleView setTupleDelegate:self];
         [self addSubview:self.tupleView];
         //设置tupleView release key
-        [self.tupleView setReleaseTupleKey:@"KLiveRoomReleaseTupleKey"];
+        [self.tupleView setReleaseTupleKey:KLiveRoomReleaseTupleKey];
     }
     return self;
 }

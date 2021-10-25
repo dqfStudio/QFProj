@@ -16,32 +16,32 @@
 
 @implementation HLiveRoomVC
 
-- (HTextField *)textField {
-    if (!_textField) {
+- (HTextField *)inputField {
+    if (!_inputField) {
         CGRect frame = CGRectMake(0, UIScreen.height, UIScreen.width, 40);
-        _textField = [[HTextField alloc] initWithFrame:frame];
-        [_textField setBackgroundColor:UIColor.whiteColor];
-        [_textField setPlaceholderFont:[UIFont systemFontOfSize:14.f]];
-        [_textField setPlaceholder:@"请输入内容..."];
+        _inputField = [[HTextField alloc] initWithFrame:frame];
+        [_inputField setBackgroundColor:UIColor.whiteColor];
+        [_inputField setPlaceholderFont:[UIFont systemFontOfSize:14.f]];
+        [_inputField setPlaceholder:@"请输入内容..."];
         
-        _textField.leftWidth = 10;
-        [_textField.leftLabel setText:@""];
+        _inputField.leftWidth = 10;
+        [_inputField.leftLabel setText:@""];
         
         // 去掉键盘上的toolBar
-        _textField.inputAccessoryView = [[UIView alloc] initWithFrame:CGRectZero];
-        [_textField reloadInputViews];
+        _inputField.inputAccessoryView = [[UIView alloc] initWithFrame:CGRectZero];
+        [_inputField reloadInputViews];
         
-        [_textField setRightWidth:60];
-        [_textField.rightLabel setText:@"完成"];
-        [_textField.rightLabel setTextAlignment:NSTextAlignmentCenter];
-        [_textField.rightLabel setFont:[UIFont systemFontOfSize:17.f]];
+        [_inputField setRightWidth:60];
+        [_inputField.rightLabel setText:@"完成"];
+        [_inputField.rightLabel setTextAlignment:NSTextAlignmentCenter];
+        [_inputField.rightLabel setFont:[UIFont systemFontOfSize:17.f]];
         @www
-        [_textField.rightLabel setTextTapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
+        [_inputField.rightLabel setTextTapAction:^(UIView * _Nonnull containerView, NSAttributedString * _Nonnull text, NSRange range, CGRect rect) {
             @sss
-            [self->_textField resignFirstResponder];
+            [self->_inputField resignFirstResponder];
         }];
     }
-    return _textField;
+    return _inputField;
 }
 
 - (void)setLiveStatus:(HLiveStatus)liveStatus {
@@ -62,7 +62,7 @@
     //添加键盘
     [self addKeyboardObserver];
     [self hideKeyboardWhenTapBackground];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showKeyboardNotifyAction) name:@"KShowKeyboardNotify" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showKeyboardNotifyAction) name:KShowKeyboardNotify object:nil];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -102,9 +102,9 @@
             [[NSNotificationCenter defaultCenter] removeObserver:self name:UIScreenCapturedDidChangeNotification object:nil];
         }
         [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationUserDidTakeScreenshotNotification object:nil];
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:@"KShowKeyboardNotify" object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:KShowKeyboardNotify object:nil];
         //通知释放跟直播相关的tupleView
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"KLiveRoomReleaseTupleKey" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:KLiveRoomReleaseTupleKey object:nil];
     }
 }
 
@@ -122,8 +122,8 @@
 }
 
 - (void)showKeyboardNotifyAction {
-    [[UIApplication getKeyWindow] addSubview:self.textField];
-    [self.textField becomeFirstResponder];
+    [[UIApplication getKeyWindow] addSubview:self.inputField];
+    [self.inputField becomeFirstResponder];
 }
 
 - (BOOL)prefersNavigationBarHidden {
@@ -133,19 +133,19 @@
 - (void)keyboardWillShowWithRect:(CGRect)keyboardRect animationDuration:(CGFloat)duration {
     [UIView animateWithDuration:0.3 animations:^{
         CGRect frame = CGRectMake(0, keyboardRect.origin.y-40, UIScreen.width, 40);
-        self.textField.frame = frame;
+        self.inputField.frame = frame;
     }];
 }
 
 - (void)keyboardWillHideWithRect:(CGRect)keyboardRect animationDuration:(CGFloat)duration {
     [UIView animateWithDuration:0.3 animations:^{
         CGRect frame = CGRectMake(0, UIScreen.height, UIScreen.width, 40);
-        self.textField.frame = frame;
+        self.inputField.frame = frame;
     } completion:^(BOOL finished) {
         //释放textField
-        [self.textField removeFromSuperview];
-        self.textField.text = @"";
-        self.textField = nil;
+        [self.inputField removeFromSuperview];
+        self.inputField.text = @"";
+        self.inputField = nil;
     }];
 }
 

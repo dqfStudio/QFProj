@@ -9,6 +9,8 @@
 #import "HTupleViewCell.h"
 #import "UIView+HAlert.h"
 #import "HTupleView.h"
+#import "HLRDManager.h"
+#import "HLRDefine.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
