@@ -971,7 +971,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 }
 - (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view {
     NSString *prefix = [self tupleScrollSplitPrefix];
-    SEL selector = NSSelectorFromString(@"tupleScrollViewDidScrollToTop:");
+    SEL selector = NSSelectorFromString(@"tupleScrollViewWillBeginZooming:withView");
     if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
         #pragma clang diagnostic push
         #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
