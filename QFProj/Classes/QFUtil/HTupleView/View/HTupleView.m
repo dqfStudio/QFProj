@@ -923,7 +923,7 @@ typedef NS_OPTIONS(NSUInteger, HTupleStyle) {
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     NSString *prefix = [self tupleScrollSplitPrefix];
-    SEL selector = NSSelectorFromString(@"tupleScrollViewWillEndDragging:willDecelerate:");
+    SEL selector = NSSelectorFromString(@"tupleScrollViewDidEndDragging:willDecelerate:");
     if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
         [(NSObject *)self.tupleDelegate performSelector:selector withMethodArgments:&scrollView, &decelerate];
     }
