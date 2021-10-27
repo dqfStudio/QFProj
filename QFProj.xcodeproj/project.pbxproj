@@ -22,6 +22,11 @@
 		8E4A451A2726ED14006A0802 /* HLiveRoomShareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A450F2726ED14006A0802 /* HLiveRoomShareVC.m */; };
 		8E4A451B2726ED14006A0802 /* HLRDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A45112726ED14006A0802 /* HLRDManager.m */; };
 		8E4A451C2726ED14006A0802 /* HLiveRoomCell+HSection0.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A45142726ED14006A0802 /* HLiveRoomCell+HSection0.m */; };
+		8E4A4524272929CE006A0802 /* ExportOptions_Debug2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E4A451F272929CE006A0802 /* ExportOptions_Debug2.plist */; };
+		8E4A4525272929CE006A0802 /* ExportOptions_Release2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E4A4520272929CE006A0802 /* ExportOptions_Release2.plist */; };
+		8E4A4526272929CE006A0802 /* HAutoPackage_Debug2.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8E4A4521272929CE006A0802 /* HAutoPackage_Debug2.sh */; };
+		8E4A4527272929CE006A0802 /* HAutoPackage_Release2.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8E4A4522272929CE006A0802 /* HAutoPackage_Release2.sh */; };
+		8E4A4528272929CE006A0802 /* lblive.mobileprovision in Resources */ = {isa = PBXBuildFile; fileRef = 8E4A4523272929CE006A0802 /* lblive.mobileprovision */; };
 		96CB6F26AB826D91E5DB7E82 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6AC0EB7C7229A3A3F9EE0D /* libPods-QFProj.a */; };
 		A20E3CFB231FDF4D00E6982B /* HMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CFA231FDF4D00E6982B /* HMenuController.m */; };
 		A20E3CFE231FE0B400E6982B /* HMainController1.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3CFD231FE0B400E6982B /* HMainController1.m */; };
@@ -533,6 +538,11 @@
 		8E4A45142726ED14006A0802 /* HLiveRoomCell+HSection0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HLiveRoomCell+HSection0.m"; sourceTree = "<group>"; };
 		8E4A45152726ED14006A0802 /* HLiveRoomCell+HSection0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HLiveRoomCell+HSection0.h"; sourceTree = "<group>"; };
 		8E4A451D2726F255006A0802 /* HLRDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLRDefine.h; sourceTree = "<group>"; };
+		8E4A451F272929CE006A0802 /* ExportOptions_Debug2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ExportOptions_Debug2.plist; sourceTree = "<group>"; };
+		8E4A4520272929CE006A0802 /* ExportOptions_Release2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ExportOptions_Release2.plist; sourceTree = "<group>"; };
+		8E4A4521272929CE006A0802 /* HAutoPackage_Debug2.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = HAutoPackage_Debug2.sh; sourceTree = "<group>"; };
+		8E4A4522272929CE006A0802 /* HAutoPackage_Release2.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = HAutoPackage_Release2.sh; sourceTree = "<group>"; };
+		8E4A4523272929CE006A0802 /* lblive.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = lblive.mobileprovision; sourceTree = "<group>"; };
 		A20E3CF9231FDF4D00E6982B /* HMenuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMenuController.h; sourceTree = "<group>"; };
 		A20E3CFA231FDF4D00E6982B /* HMenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMenuController.m; sourceTree = "<group>"; };
 		A20E3CFC231FE0B400E6982B /* HMainController1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMainController1.h; sourceTree = "<group>"; };
@@ -1626,6 +1636,18 @@
 			path = "HLiveRoomCell+HSection0";
 			sourceTree = "<group>";
 		};
+		8E4A451E272929CE006A0802 /* HAutoPackage2 */ = {
+			isa = PBXGroup;
+			children = (
+				8E4A451F272929CE006A0802 /* ExportOptions_Debug2.plist */,
+				8E4A4520272929CE006A0802 /* ExportOptions_Release2.plist */,
+				8E4A4521272929CE006A0802 /* HAutoPackage_Debug2.sh */,
+				8E4A4522272929CE006A0802 /* HAutoPackage_Release2.sh */,
+				8E4A4523272929CE006A0802 /* lblive.mobileprovision */,
+			);
+			path = HAutoPackage2;
+			sourceTree = "<group>";
+		};
 		A20E3D08231FE8FC00E6982B /* HomeIcons */ = {
 			isa = PBXGroup;
 			children = (
@@ -2164,8 +2186,9 @@
 		A25E6417262445FC00863FF8 /* HAutoPackage */ = {
 			isa = PBXGroup;
 			children = (
-				A25E6418262445FC00863FF8 /* HAutoPackage_Release.sh */,
+				8E4A451E272929CE006A0802 /* HAutoPackage2 */,
 				A25E6419262445FC00863FF8 /* HProjectDRConfig.xcconfig */,
+				A25E6418262445FC00863FF8 /* HAutoPackage_Release.sh */,
 				A25E641A262445FC00863FF8 /* README.H.md */,
 				A25E641B262445FC00863FF8 /* exportOptions.plist */,
 			);
@@ -3194,8 +3217,8 @@
 		A25E666E262445FD00863FF8 /* HSelector */ = {
 			isa = PBXGroup;
 			children = (
-				A25E666F262445FD00863FF8 /* NSObject+HSelector.m */,
 				A25E6670262445FD00863FF8 /* NSObject+HSelector.h */,
+				A25E666F262445FD00863FF8 /* NSObject+HSelector.m */,
 			);
 			path = HSelector;
 			sourceTree = "<group>";
@@ -3608,6 +3631,7 @@
 				A25E6839262445FE00863FF8 /* icon_tuple_nodata@2x.png in Resources */,
 				A25E6886262445FE00863FF8 /* loading_new_2@2x.png in Resources */,
 				A227A8FE233C9DB4005611BA /* di_zhuce@2x.png in Resources */,
+				8E4A4525272929CE006A0802 /* ExportOptions_Release2.plist in Resources */,
 				A25E688B262445FE00863FF8 /* loading_new_8@2x.png in Resources */,
 				A25E687B262445FE00863FF8 /* loading_gif_lightGray.gif in Resources */,
 				A251AAC0264D312F0067E574 /* HSupportedRegions.json in Resources */,
@@ -3616,6 +3640,7 @@
 				A25E6887262445FE00863FF8 /* loading_new_15@2x.png in Resources */,
 				A25E6888262445FE00863FF8 /* loading_gif_black.gif in Resources */,
 				A28FE4A82654EBD900C9A4EB /* area.json in Resources */,
+				8E4A4528272929CE006A0802 /* lblive.mobileprovision in Resources */,
 				A25E6831262445FE00863FF8 /* icon_tuple_arrow_up@2x.png in Resources */,
 				A25E6836262445FE00863FF8 /* icon_tuple_arrow_right@2x.png in Resources */,
 				A25E6884262445FE00863FF8 /* loading_new_10@2x.png in Resources */,
@@ -3633,6 +3658,7 @@
 				A25E6881262445FE00863FF8 /* loading_new_5@2x.png in Resources */,
 				A25E679A262445FD00863FF8 /* HJsonList in Resources */,
 				A25E6882262445FE00863FF8 /* loading_new_9@2x.png in Resources */,
+				8E4A4524272929CE006A0802 /* ExportOptions_Debug2.plist in Resources */,
 				A28FE4AB2654EBD900C9A4EB /* Address.plist in Resources */,
 				8E4A45162726ED14006A0802 /* live_bg_icon.png in Resources */,
 				A251AA63264BAD2B0067E574 /* countryInfo.json in Resources */,
@@ -3646,6 +3672,7 @@
 				A25E6764262445FD00863FF8 /* HAutoPackage_Release.sh in Resources */,
 				A25E680D262445FE00863FF8 /* HKBKeyboardManager.bundle in Resources */,
 				A25E6889262445FE00863FF8 /* loading_new_13@2x.png in Resources */,
+				8E4A4527272929CE006A0802 /* HAutoPackage_Release2.sh in Resources */,
 				A25E683C262445FE00863FF8 /* icon_tuple_nodata@3x.png in Resources */,
 				A25E688D262445FE00863FF8 /* loading_new_11@2x.png in Resources */,
 				A25E6837262445FE00863FF8 /* icon_tuple_arrow_left@2x.png in Resources */,
@@ -3655,6 +3682,7 @@
 				A25E681D262445FE00863FF8 /* HCyclePageControlCurrentDot@3x.png in Resources */,
 				A25E6830262445FE00863FF8 /* icon_tuple_xx_white@3x.png in Resources */,
 				A25E688A262445FE00863FF8 /* loading_new_4@2x.png in Resources */,
+				8E4A4526272929CE006A0802 /* HAutoPackage_Debug2.sh in Resources */,
 				A25E681F262445FE00863FF8 /* HCyclePageControlCurrentDot@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
