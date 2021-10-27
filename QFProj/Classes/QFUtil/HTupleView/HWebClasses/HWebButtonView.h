@@ -89,6 +89,7 @@
 
 @interface UIButton (HUtil)
 - (void)setTitle:(NSString *)title;
+- (void)setTitle2:(NSString *)title;
 
 - (void)setTitleColor:(UIColor *)color;
 - (void)setTitleColorHex:(NSString *)color;
