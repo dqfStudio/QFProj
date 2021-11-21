@@ -27,9 +27,9 @@
 //用于子类更新子视图布局
 - (void)relayoutSubviews {
     [super relayoutSubviews];
-    HLayoutTableCell(self.imageView)
-    HLayoutTableCell(self.effectView)
-    HLayoutTableCell(self.activityIndicator)
+    HLayoutTupleCell(self.imageView)
+    HLayoutTupleCell(self.effectView)
+    HLayoutTupleCell(self.activityIndicator)
 }
 @end
 
