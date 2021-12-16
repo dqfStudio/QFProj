@@ -32,3 +32,19 @@ do
     ffmpeg -y -i $item -vf "select=eq(pict_type\\,I)" -vframes 1 -f image2 -s 720x1280 ${item%.*}.jpeg
 #    ffmpeg -y -i $item -ss 115 -t 10 -vf "select=eq(pict_type\\,I)" -vframes 1 -f image2 -s 280x160 ${item%.*}.jpeg
 done
+
+
+
+
+#ffmpeg -i 1.webp 1.png
+#
+#cwebp 1.png -o ./222/1.webp
+#
+#cwebp -q 100 1.png -o 1.webp
+#
+#ffmpeg -i 屏幕录制.mov 屏幕录制.avi
+#ffmpeg -i 屏幕录制.mov 屏幕录制.mp4
+#ffmpeg -i 屏幕录制.mov 屏幕录制.flv
+#
+#ffmpeg -i 屏幕录制.mov 屏幕录制.webm
+#ffmpeg -i 屏幕录制.mov 屏幕录制.ogg
