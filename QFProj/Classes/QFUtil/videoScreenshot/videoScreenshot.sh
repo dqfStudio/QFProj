@@ -4,6 +4,7 @@
 #
 #do
 #    ffmpeg -i $item -ss 00:00:05 -vframes 1 -s 140x80 ${item%.*}.jpeg
+#    ffmpeg -i $item -ss 00:00:05 -vframes 1 ${item%.*}.jpeg  //根据原图大小生产图片
 #done
 
 
