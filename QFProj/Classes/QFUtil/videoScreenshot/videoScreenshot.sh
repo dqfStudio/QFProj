@@ -49,3 +49,7 @@ done
 #
 #ffmpeg -i 屏幕录制.mov 屏幕录制.webm
 #ffmpeg -i 屏幕录制.mov 屏幕录制.ogg
+
+
+#压缩图片
+#ffmpeg -i 屏幕录制.png   -codec libwebp -lossless 0  屏幕录制2.png
