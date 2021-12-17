@@ -507,6 +507,7 @@
 		A2C8785C266A3A170017757E /* LoadingLiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C87858266A3A160017757E /* LoadingLiveView.m */; };
 		A2C8785D266A3A170017757E /* YDBigBullPlayerVc.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C87859266A3A170017757E /* YDBigBullPlayerVc.m */; };
 		A2D65BDE2667601E00973A76 /* HAlertFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D65BDD2667601E00973A76 /* HAlertFormatter.m */; };
+		A2E6E3BE276CDEB8006E2E13 /* HTupleView的用法.md in Resources */ = {isa = PBXBuildFile; fileRef = A2E6E3BD276CDEB8006E2E13 /* HTupleView的用法.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1457,6 +1458,7 @@
 		A2C87859266A3A170017757E /* YDBigBullPlayerVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YDBigBullPlayerVc.m; sourceTree = "<group>"; };
 		A2D65BDC2667601E00973A76 /* HAlertFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAlertFormatter.h; sourceTree = "<group>"; };
 		A2D65BDD2667601E00973A76 /* HAlertFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HAlertFormatter.m; sourceTree = "<group>"; };
+		A2E6E3BD276CDEB8006E2E13 /* HTupleView的用法.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "HTupleView的用法.md"; sourceTree = "<group>"; };
 		B157D5ADF8FE633BFA7795BD /* Pods-QFProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.release.xcconfig"; path = "Target Support Files/Pods-QFProj/Pods-QFProj.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1510,6 +1512,7 @@
 				A22FA17E2400DFC900B75C1C /* AppDelegate+UserService.m */,
 				A28836DB2407A6C300626D47 /* AppDelegate+RotateService.h */,
 				A28836DC2407A6C300626D47 /* AppDelegate+RotateService.m */,
+				A2E6E3BD276CDEB8006E2E13 /* HTupleView的用法.md */,
 				A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */,
 				15B4DD6F2092F88700773E04 /* Assets.xcassets */,
 				15B4DD7D2092F96B00773E04 /* Classes */,
@@ -3684,6 +3687,7 @@
 				A25E680D262445FE00863FF8 /* HKBKeyboardManager.bundle in Resources */,
 				A25E6889262445FE00863FF8 /* loading_new_13@2x.png in Resources */,
 				8E4A4527272929CE006A0802 /* HAutoPackage_Release2.sh in Resources */,
+				A2E6E3BE276CDEB8006E2E13 /* HTupleView的用法.md in Resources */,
 				A24800A8276A19520062B1F7 /* videoScreenshot.sh in Resources */,
 				A25E683C262445FE00863FF8 /* icon_tuple_nodata@3x.png in Resources */,
 				A25E688D262445FE00863FF8 /* loading_new_11@2x.png in Resources */,
