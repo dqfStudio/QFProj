@@ -42,6 +42,10 @@
 		A20E3D2723239C0200E6982B /* HMainController3+HSection2.m in Sources */ = {isa = PBXBuildFile; fileRef = A20E3D2623239C0200E6982B /* HMainController3+HSection2.m */; };
 		A2109C7A2643BEE00001FD80 /* YTKRequestEventAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = A2109C792643BEE00001FD80 /* YTKRequestEventAccessory.m */; };
 		A2109CBA2643C6D90001FD80 /* YTKRequest+Initialize.m in Sources */ = {isa = PBXBuildFile; fileRef = A2109CB92643C6D90001FD80 /* YTKRequest+Initialize.m */; };
+		A21DF520277B377800888E65 /* HTupleViewCell-image.png in Resources */ = {isa = PBXBuildFile; fileRef = A21DF51C277B377800888E65 /* HTupleViewCell-image.png */; };
+		A21DF521277B377800888E65 /* HTupleViewCellVertValue1-image.png in Resources */ = {isa = PBXBuildFile; fileRef = A21DF51D277B377800888E65 /* HTupleViewCellVertValue1-image.png */; };
+		A21DF522277B377800888E65 /* HTupleViewCellHoriValue1-image2.png in Resources */ = {isa = PBXBuildFile; fileRef = A21DF51E277B377800888E65 /* HTupleViewCellHoriValue1-image2.png */; };
+		A21DF523277B377800888E65 /* HTupleViewCellHoriValue1-image1.png in Resources */ = {isa = PBXBuildFile; fileRef = A21DF51F277B377800888E65 /* HTupleViewCellHoriValue1-image1.png */; };
 		A21F4092242215B4002221C4 /* HMainController1+Normal.m in Sources */ = {isa = PBXBuildFile; fileRef = A21F4091242215B4002221C4 /* HMainController1+Normal.m */; };
 		A21F4095242215C1002221C4 /* HMainController1+Error.m in Sources */ = {isa = PBXBuildFile; fileRef = A21F4094242215C1002221C4 /* HMainController1+Error.m */; };
 		A227A8FD233C9DB4005611BA /* di_zhuce@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A227A8FB233C9DB4005611BA /* di_zhuce@3x.png */; };
@@ -570,6 +574,10 @@
 		A2109C792643BEE00001FD80 /* YTKRequestEventAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKRequestEventAccessory.m; sourceTree = "<group>"; };
 		A2109CB82643C6D90001FD80 /* YTKRequest+Initialize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YTKRequest+Initialize.h"; sourceTree = "<group>"; };
 		A2109CB92643C6D90001FD80 /* YTKRequest+Initialize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YTKRequest+Initialize.m"; sourceTree = "<group>"; };
+		A21DF51C277B377800888E65 /* HTupleViewCell-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HTupleViewCell-image.png"; sourceTree = "<group>"; };
+		A21DF51D277B377800888E65 /* HTupleViewCellVertValue1-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HTupleViewCellVertValue1-image.png"; sourceTree = "<group>"; };
+		A21DF51E277B377800888E65 /* HTupleViewCellHoriValue1-image2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HTupleViewCellHoriValue1-image2.png"; sourceTree = "<group>"; };
+		A21DF51F277B377800888E65 /* HTupleViewCellHoriValue1-image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HTupleViewCellHoriValue1-image1.png"; sourceTree = "<group>"; };
 		A21F4090242215B4002221C4 /* HMainController1+Normal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMainController1+Normal.h"; sourceTree = "<group>"; };
 		A21F4091242215B4002221C4 /* HMainController1+Normal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HMainController1+Normal.m"; sourceTree = "<group>"; };
 		A21F4093242215C1002221C4 /* HMainController1+Error.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMainController1+Error.h"; sourceTree = "<group>"; };
@@ -1514,6 +1522,7 @@
 				A28836DC2407A6C300626D47 /* AppDelegate+RotateService.m */,
 				A2E6E3BD276CDEB8006E2E13 /* HTupleView的用法.md */,
 				A2C2B21B235F15DA0041AAB5 /* HTupleView的用法.pages */,
+				A21DF51B277B377800888E65 /* HTupleView的用法 */,
 				15B4DD6F2092F88700773E04 /* Assets.xcassets */,
 				15B4DD7D2092F96B00773E04 /* Classes */,
 				15B4DD742092F88700773E04 /* Info.plist */,
@@ -1664,6 +1673,17 @@
 				A227A8FB233C9DB4005611BA /* di_zhuce@3x.png */,
 			);
 			path = HomeIcons;
+			sourceTree = "<group>";
+		};
+		A21DF51B277B377800888E65 /* HTupleView的用法 */ = {
+			isa = PBXGroup;
+			children = (
+				A21DF51C277B377800888E65 /* HTupleViewCell-image.png */,
+				A21DF51D277B377800888E65 /* HTupleViewCellVertValue1-image.png */,
+				A21DF51E277B377800888E65 /* HTupleViewCellHoriValue1-image2.png */,
+				A21DF51F277B377800888E65 /* HTupleViewCellHoriValue1-image1.png */,
+			);
+			path = "HTupleView的用法";
 			sourceTree = "<group>";
 		};
 		A24800A6276A19520062B1F7 /* videoScreenshot */ = {
@@ -3622,6 +3642,7 @@
 				A25E6876262445FE00863FF8 /* icon_no_network@2x.png in Resources */,
 				A20E3D0D231FE8FC00E6982B /* di_index@2x.png in Resources */,
 				A25E687E262445FE00863FF8 /* loading_gif_white.gif in Resources */,
+				A21DF522277B377800888E65 /* HTupleViewCellHoriValue1-image2.png in Resources */,
 				A25E6854262445FE00863FF8 /* JhtFloatingBallIcon.png in Resources */,
 				A255CF4F26690D4800B576DE /* HSupportedLanguages.json in Resources */,
 				A25E6885262445FE00863FF8 /* loading_new_7@2x.png in Resources */,
@@ -3629,6 +3650,7 @@
 				A25E6766262445FD00863FF8 /* README.H.md in Resources */,
 				A25E6832262445FE00863FF8 /* icon_tuple_xx_white@2x.png in Resources */,
 				A25E67FF262445FE00863FF8 /* register_checkbox_icon_h@3x.png in Resources */,
+				A21DF520277B377800888E65 /* HTupleViewCell-image.png in Resources */,
 				A20E3D0F231FE8FC00E6982B /* di_index_h@2x.png in Resources */,
 				A25E687A262445FE00863FF8 /* icon_no_server@2x.png in Resources */,
 				A255CF522669153F00B576DE /* HRegionLocal.json in Resources */,
@@ -3645,7 +3667,9 @@
 				A25E6839262445FE00863FF8 /* icon_tuple_nodata@2x.png in Resources */,
 				A25E6886262445FE00863FF8 /* loading_new_2@2x.png in Resources */,
 				A227A8FE233C9DB4005611BA /* di_zhuce@2x.png in Resources */,
+				A21DF523277B377800888E65 /* HTupleViewCellHoriValue1-image1.png in Resources */,
 				8E4A4525272929CE006A0802 /* ExportOptions_Release2.plist in Resources */,
+				A21DF521277B377800888E65 /* HTupleViewCellVertValue1-image.png in Resources */,
 				A25E688B262445FE00863FF8 /* loading_new_8@2x.png in Resources */,
 				A25E687B262445FE00863FF8 /* loading_gif_lightGray.gif in Resources */,
 				A251AAC0264D312F0067E574 /* HSupportedRegions.json in Resources */,
