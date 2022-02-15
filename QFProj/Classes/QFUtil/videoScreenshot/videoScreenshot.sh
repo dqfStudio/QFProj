@@ -35,6 +35,26 @@ do
 done
 
 
+#将相关环境置空
+ifs=$IFS; IFS="";
+IFS="$OLD_IFS"
+
+
+#截取某一关键帧缩略图
+
+for item in `find . -name '*.mp4' -o -name '*.ts' -o -name '*.mkv' -o -name '*.mpg' -o -name '*.mts'`
+do
+#    echo ${item}
+    itemSize=$(ffprobe -v error -show_entries stream=width,height -of csv=p=0:s=x $item)
+#    echo $itemSize
+#    ffmpeg -y -i $item -vf "select=eq(pict_type\\,I)" -vframes 1 -f image2 -s 720x1280 ${item%.*}.jpeg
+#    ffmpeg -y -i $item -ss 115 -t 10 -vf "select=eq(pict_type\\,I)" -vframes 1 -f image2 -s 280x160 ${item%.*}.jpeg
+
+
+     ffmpeg -y -i $item -vf "select=eq(pict_type\\,I)" -vframes 1 -f image2 -s $itemSize ${item%.*}.jpeg
+#     ffmpeg -y -i $item -ss 115 -t 20 -vf "select=eq(pict_type\\,I)" -vframes 1 -f image2 -s $itemSize ${item%.*}.jpeg
+
+done
 
 
 #ffmpeg -i 1.webp 1.png
