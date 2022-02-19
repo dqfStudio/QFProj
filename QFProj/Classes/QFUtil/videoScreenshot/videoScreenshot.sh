@@ -84,6 +84,33 @@ done
 
 
 
+#将相关环境置空
+#ifs=$IFS; IFS="";
+#IFS="$OLD_IFS"
+#
+#one=300.000000
+#
+#
+#array=(
+#PMX005.雷梦娜.晨间诱惑空气性爱.被欲望唤醒.磨枕头泄欲.蜜桃影像传媒原版.mp4
+#)
+#
+#
+#
+##比较时长
+#for element in ${array[@]}
+#do
+#   width=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 -i $element)
+#   if [ `echo "$width > $one" | bc` -eq 1 ]
+#   then
+#      echo $element
+#      #mv $element /Users/mac/Desktop/400
+#   fi
+#done
+
+
+
+
 #ffmpeg -i 1.webp 1.png
 #
 #cwebp 1.png -o ./222/1.webp
