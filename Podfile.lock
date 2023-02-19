@@ -15,9 +15,9 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - Aspects (1.4.1)
-  - FLEX (3.0.0)
-  - Masonry (1.0.2)
-  - MJRefresh (3.1.12)
+  - FLEX (5.22.10)
+  - Masonry (1.1.0)
+  - MJRefresh (3.7.5)
   - ReactiveCocoa (2.1.8):
     - ReactiveCocoa/Core (= 2.1.8)
     - ReactiveCocoa/no-arc (= 2.1.8)
@@ -48,14 +48,14 @@ SPEC REPOS:
     - SDWebImage
 
 SPEC CHECKSUMS:
-  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
-  FLEX: d66c759bce0f6ebbbf472c742380874d846f2883
-  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
-  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  FLEX: f21ee4f498eed3f8a1eded66b21939fd3b7a22ce
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
   ReactiveCocoa: f89f2e009a87951b50321bf9feb958823fcc617e
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
 
 PODFILE CHECKSUM: 00017f91bb33bf6906c48e6097c64e25c3a291fc
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3
