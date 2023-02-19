@@ -84,53 +84,34 @@
     self.contentHorizontalCenter = YES;
 }
 
-//- (void)updateFrameOfSubviews {
-//    if ([self imageForState:UIControlStateNormal] && self.contentHorizontalCenter) {
-//
-//        CGRect rect = [self.titleLabel.text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
-//                                                         options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
-//                                                      attributes:@{NSFontAttributeName : self.titleLabel.font}
-//                                                         context:nil];
-//        CGSize titleSize = CGSizeMake(ceilf(rect.size.width), ceilf(rect.size.height));
-//        CGSize imageSize = self.imageView.frame.size;
-//
-//        /*
-//        //原本方法图片不居中
-//        self.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
-//        self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-//
-//        self.imageEdgeInsets = UIEdgeInsetsMake(self.marginTop, (self.frame.size.width - imageSize.width) / 2, 0, 0);
-//        CGFloat left = (self.frame.size.width - titleSize.width) / 2 - imageSize.width;
-//        self.titleEdgeInsets = UIEdgeInsetsMake(self.marginTop + imageSize.width + self.spacing, left, 0, 0);
-//        */
-//
-//        //以下为新添加方法
-//        self.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-//        self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-//
-//        CGFloat totalHeight = (imageSize.height + titleSize.height + self.spacing);
-//        self.imageEdgeInsets = UIEdgeInsetsMake(- (totalHeight - imageSize.height - self.marginTop), (self.frame.size.width - imageSize.width) / 2, 0, 0);
-//        self.titleEdgeInsets = UIEdgeInsetsMake(self.marginTop, - imageSize.width,- (totalHeight - titleSize.height), 0);
-//
-//    }else {
-//        self.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-//        self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-//        self.imageEdgeInsets = UIEdgeInsetsZero;
-//        self.titleEdgeInsets = UIEdgeInsetsZero;
-//    }
-//}
-
 - (void)updateFrameOfSubviews {
-    if ([self imageForState:UIControlStateNormal] && self.contentHorizontalCenter && self.title.length > 0) {
-        
+    if ([self imageForState:UIControlStateNormal] && self.contentHorizontalCenter) {
+
+        CGRect rect = [self.titleLabel.text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
+                                                         options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                                      attributes:@{NSFontAttributeName : self.titleLabel.font}
+                                                         context:nil];
+        CGSize titleSize = CGSizeMake(ceilf(rect.size.width), ceilf(rect.size.height));
+        CGSize imageSize = self.imageView.frame.size;
+
+        /*
+        //原本方法图片不居中
         self.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
         self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-            
-        CGFloat imageLeft = self.viewWidth/2 - self.imageView.viewMidX;
-        self.imageEdgeInsets = UIEdgeInsetsMake(self.marginTop, imageLeft, 0, 0);
-        CGFloat titleLeft = self.viewWidth/2 - self.titleLabel.viewMidX - self.spacing;
-        self.titleEdgeInsets = UIEdgeInsetsMake(self.marginTop + self.imageView.viewWidth + self.spacing, titleLeft, 0,
-        0);
+
+        self.imageEdgeInsets = UIEdgeInsetsMake(self.marginTop, (self.frame.size.width - imageSize.width) / 2, 0, 0);
+        CGFloat left = (self.frame.size.width - titleSize.width) / 2 - imageSize.width;
+        self.titleEdgeInsets = UIEdgeInsetsMake(self.marginTop + imageSize.width + self.spacing, left, 0, 0);
+        */
+
+        //以下为新添加方法
+        self.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+
+        CGFloat totalHeight = (imageSize.height + titleSize.height + self.spacing);
+        self.imageEdgeInsets = UIEdgeInsetsMake(- (totalHeight - imageSize.height - self.marginTop), (self.frame.size.width - imageSize.width) / 2, 0, 0);
+        self.titleEdgeInsets = UIEdgeInsetsMake(self.marginTop, - imageSize.width,- (totalHeight - titleSize.height), 0);
+
     }else {
         self.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
@@ -138,6 +119,25 @@
         self.titleEdgeInsets = UIEdgeInsetsZero;
     }
 }
+
+//- (void)updateFrameOfSubviews {
+//    if ([self imageForState:UIControlStateNormal] && self.contentHorizontalCenter && self.title.length > 0) {
+//
+//        self.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
+//        self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+//
+//        CGFloat imageLeft = self.viewWidth/2 - self.imageView.viewMidX;
+//        self.imageEdgeInsets = UIEdgeInsetsMake(self.marginTop, imageLeft, 0, 0);
+//        CGFloat titleLeft = self.viewWidth/2 - self.titleLabel.viewMidX - self.spacing;
+//        self.titleEdgeInsets = UIEdgeInsetsMake(self.marginTop + self.imageView.viewWidth + self.spacing, titleLeft, 0,
+//        0);
+//    }else {
+//        self.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+//        self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+//        self.imageEdgeInsets = UIEdgeInsetsZero;
+//        self.titleEdgeInsets = UIEdgeInsetsZero;
+//    }
+//}
 
 - (void)setSelected:(BOOL)selected {
     [super setSelected:selected];
