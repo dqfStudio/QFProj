@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// HUserRoomDataManager
+/// HUserLiveDataManager
 
 /// 管理LiveRoom中的全局数据
 @interface HLRDManager : NSObject

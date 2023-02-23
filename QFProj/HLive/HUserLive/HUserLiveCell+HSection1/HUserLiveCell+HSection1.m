@@ -1,19 +1,19 @@
 //
-//  HUserRoomCell+HSection1.m
+//  HUserLiveCell+HSection1.m
 //  QFProj
 //
 //  Created by Jovial on 2021/8/29.
 //  Copyright © 2021 dqfStudio. All rights reserved.
 //
 
-#import "HUserRoomCell+HSection1.h"
+#import "HUserLiveCell+HSection1.h"
 
-@interface HUserRoomMiddleBarView : UIView <HTupleViewDelegate>
+@interface HUserLiveMiddleBarView : UIView <HTupleViewDelegate>
 @property (nonatomic) HTupleView *tupleView;
 @property (nonatomic) NSMutableArray *mutableArr;
 @end
 
-@implementation HUserRoomMiddleBarView
+@implementation HUserLiveMiddleBarView
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -72,7 +72,7 @@
 
 @end
 
-@implementation HUserRoomCell (HSection1)
+@implementation HUserLiveCell (HSection1)
 - (UIEdgeInsets)tupleExa1_insetForSection:(NSInteger)section {
     return UIEdgeInsetsMake(0, 10, 0, 10);
 }
@@ -194,9 +194,9 @@
             break;
         case 2: {
             HTupleBaseCell *cell = itemBlock(nil, HTupleBaseCell.class, nil, YES);
-            HUserRoomMiddleBarView *bottomBarView = [cell viewWithTag:123456];
+            HUserLiveMiddleBarView *bottomBarView = [cell viewWithTag:123456];
             if (!bottomBarView) {
-                bottomBarView = [[HUserRoomMiddleBarView alloc] initWithFrame:cell.bounds];
+                bottomBarView = [[HUserLiveMiddleBarView alloc] initWithFrame:cell.bounds];
                 [bottomBarView setTag:123456];
                 [cell addSubview:bottomBarView];
             }

@@ -1,5 +1,5 @@
 //
-//  HUserRoomShareVC.h
+//  HUserLiveNoteVC.h
 //  QFProj
 //
 //  Created by Jovial on 2021/9/29.
@@ -7,11 +7,10 @@
 //
 
 #import "HViewController.h"
-#import "UIViewController+HTransition.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HUserRoomShareVC : HViewController
+@interface HUserLiveNoteVC : HViewController
 
 @end
 

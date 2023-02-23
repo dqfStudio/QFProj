@@ -1,18 +1,18 @@
 //
-//  HUserRoomCell+HSection2.m
+//  HUserLiveCell+HSection2.m
 //  QFProj
 //
 //  Created by Jovial on 2021/8/29.
 //  Copyright © 2021 dqfStudio. All rights reserved.
 //
 
-#import "HUserRoomCell+HSection2.h"
+#import "HUserLiveCell+HSection2.h"
 
-@interface HUserRoomBottomBarView : UIView <HTupleViewDelegate>
+@interface HUserLiveBottomBarView : UIView <HTupleViewDelegate>
 @property (nonatomic) HTupleView *tupleView;
 @end
 
-@implementation HUserRoomBottomBarView
+@implementation HUserLiveBottomBarView
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -107,7 +107,7 @@
             [cell.buttonView setImageWithName:@"icon_no_server"];
             [cell.buttonView setFillet:YES];
             [cell.buttonView setPressed:^(id sender, id data) {
-                [[self viewController] presentController:HUserRoomNoteVC.new completion:^(HTransitionType transitionType) {
+                [[self viewController] presentController:HUserLiveNoteVC.new completion:^(HTransitionType transitionType) {
                     NSLog(@"");
                 }];
             }];
@@ -120,7 +120,7 @@
             [cell.buttonView setImageWithName:@"icon_no_server"];
             [cell.buttonView setFillet:YES];
             [cell.buttonView setPressed:^(id sender, id data) {
-                [[self viewController] presentController:HUserRoomShareVC.new completion:^(HTransitionType transitionType) {
+                [[self viewController] presentController:HUserLiveShareVC.new completion:^(HTransitionType transitionType) {
                     NSLog(@"");
                 }];
             }];
@@ -145,7 +145,7 @@
 }
 @end
 
-@implementation HUserRoomCell (HSection2)
+@implementation HUserLiveCell (HSection2)
 - (NSInteger)tupleExa2_numberOfItemsInSection:(NSInteger)section {
     return 1;
 }
@@ -161,9 +161,9 @@
 }
 - (void)tupleExa2_tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     HTupleBaseCell *cell = itemBlock(nil, HTupleBaseCell.class, nil, YES);
-    HUserRoomBottomBarView *bottomBarView = [cell viewWithTag:123456];
+    HUserLiveBottomBarView *bottomBarView = [cell viewWithTag:123456];
     if (!bottomBarView) {
-        bottomBarView = [[HUserRoomBottomBarView alloc] initWithFrame:cell.bounds];
+        bottomBarView = [[HUserLiveBottomBarView alloc] initWithFrame:cell.bounds];
         [bottomBarView setTag:123456];
         [cell addSubview:bottomBarView];
     }

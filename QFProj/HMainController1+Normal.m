@@ -176,7 +176,7 @@
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setText:@"黑客帝国"];
             cell.didSelectCell = ^(HTupleViewCellVertValue1 *cell, NSIndexPath *indexPath) {
-                HNavigationController *navi = [[HNavigationController alloc] initWithRootViewController:HUserRoomVC.new];
+                HNavigationController *navi = [[HNavigationController alloc] initWithRootViewController:HUserLiveVC.new];
                 [[UIApplication navi] presentViewController:navi animated:YES completion:nil];
             };
         }

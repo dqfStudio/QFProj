@@ -9,7 +9,7 @@
 #ifndef HLRDefine_h
 #define HLRDefine_h
 
-/// HUserRoomDefine
+/// HUserLiveDefine
 
 #define KShowKeyboardNotify      @"KShowKeyboardNotify"
 #define KLiveRoomReleaseTupleKey @"KLiveRoomReleaseTupleKey"

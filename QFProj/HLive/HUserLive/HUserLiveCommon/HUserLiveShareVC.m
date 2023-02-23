@@ -1,24 +1,24 @@
 //
-//  HUserRoomShareVC.m
+//  HUserLiveShareVC.m
 //  QFProj
 //
 //  Created by Jovial on 2021/9/29.
 //  Copyright © 2021 dqfStudio. All rights reserved.
 //
 
-#import "HUserRoomShareVC.h"
+#import "HUserLiveShareVC.h"
 #import "HTupleView.h"
 
 #define KItemHeight     80
 #define KFooterHeight   50
 
-@interface HUserRoomShareVC () <HTupleViewDelegate>
+@interface HUserLiveShareVC () <HTupleViewDelegate>
 @property (nonatomic) UIVisualEffectView *visualView;
 @property (nonatomic) HTupleView *tupleView;
 @property (nonatomic) NSInteger rowItems;
 @end
 
-@implementation HUserRoomShareVC
+@implementation HUserLiveShareVC
 
 - (CGSize)containerSize {
     return CGSizeMake(UIScreen.width, KItemHeight*2+KFooterHeight+UIScreen.bottomBarHeight);

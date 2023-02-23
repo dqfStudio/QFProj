@@ -8,7 +8,7 @@
 
 #import "HLRDManager.h"
 
-/// HUserRoomDataManager
+/// HUserLiveDataManager
 @implementation HLRDManager
 
 + (HLRDManager *)defaults {

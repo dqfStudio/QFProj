@@ -1,5 +1,5 @@
 //
-//  HUserRoomCell.h
+//  HUserLiveCell.h
 //  QFProj
 //
 //  Created by dqf on 2021/8/29.
@@ -14,12 +14,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HUserRoomBgCell : HTupleImageCell
+@interface HUserLiveBgCell : HTupleImageCell
 @property (nonatomic) UIVisualEffectView *effectView;
 @property (nonatomic) UIActivityIndicatorView *activityIndicator;
 @end
 
-@interface HUserRoomCell : HUserRoomBgCell <HTupleViewDelegate>
+@interface HUserLiveCell : HUserLiveBgCell <HTupleViewDelegate>
 @property (nonatomic) UIView *liveLeftView;
 @property (nonatomic) HTupleView *liveRightView;
 @end

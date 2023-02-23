@@ -1,19 +1,19 @@
 //
-//  HUserRoomCell+HSection0.m
+//  HUserLiveCell+HSection0.m
 //  QFProj
 //
 //  Created by Jovial on 2021/8/29.
 //  Copyright © 2021 dqfStudio. All rights reserved.
 //
 
-#import "HUserRoomCell+HSection0.h"
+#import "HUserLiveCell+HSection0.h"
 #import "HNoticeBrowseLabel.h"
 
-@interface HUserRoomTopHeaderView : UIView <HTupleViewDelegate>
+@interface HUserLiveTopHeaderView : UIView <HTupleViewDelegate>
 @property (nonatomic) HTupleView *tupleView;
 @end
 
-@implementation HUserRoomTopHeaderView
+@implementation HUserLiveTopHeaderView
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -212,11 +212,11 @@
 }
 @end
 
-@interface HUserRoomTopHonorView : UIView <HTupleViewDelegate>
+@interface HUserLiveTopHonorView : UIView <HTupleViewDelegate>
 @property (nonatomic) HTupleView *tupleView;
 @end
 
-@implementation HUserRoomTopHonorView
+@implementation HUserLiveTopHonorView
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -315,7 +315,7 @@
 }
 @end
 
-@implementation HUserRoomCell (HSection0)
+@implementation HUserLiveCell (HSection0)
 - (NSInteger)tupleExa0_numberOfItemsInSection:(NSInteger)section {
     return 4;
 }
@@ -358,9 +358,9 @@
     switch (indexPath.row) {
         case 0: {
             HTupleBaseCell *cell = itemBlock(nil, HTupleBaseCell.class, nil, YES);
-            HUserRoomTopHeaderView *topHeaderView = [cell viewWithTag:123456];
+            HUserLiveTopHeaderView *topHeaderView = [cell viewWithTag:123456];
             if (!topHeaderView) {
-                topHeaderView = [[HUserRoomTopHeaderView alloc] initWithFrame:cell.bounds];
+                topHeaderView = [[HUserLiveTopHeaderView alloc] initWithFrame:cell.bounds];
                 [topHeaderView setTag:123456];
                 [cell addSubview:topHeaderView];
             }
@@ -368,9 +368,9 @@
             break;
         case 1: {
             HTupleBaseCell *cell = itemBlock(nil, HTupleBaseCell.class, nil, YES);
-            HUserRoomTopHonorView *topHonorView = [cell viewWithTag:234567];
+            HUserLiveTopHonorView *topHonorView = [cell viewWithTag:234567];
             if (!topHonorView) {
-                topHonorView = [[HUserRoomTopHonorView alloc] initWithFrame:cell.bounds];
+                topHonorView = [[HUserLiveTopHonorView alloc] initWithFrame:cell.bounds];
                 [topHonorView setTag:234567];
                 [cell addSubview:topHonorView];
             }
@@ -417,7 +417,7 @@
             [cell.buttonView setTitleColor:UIColor.blackColor];
             [cell.buttonView setTextAlignment:NSTextAlignmentLeft];
             [cell.buttonView setPressed:^(id sender, id data) {
-                [[self viewController] presentController:HUserRoomNoteVC.new completion:^(HTransitionType transitionType) {
+                [[self viewController] presentController:HUserLiveNoteVC.new completion:^(HTransitionType transitionType) {
                     NSLog(@"");
                 }];
             }];
