@@ -96,19 +96,19 @@
 - (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (self.multiMediaStatus) {
         case HMultiMediaInAudio: {
-//            itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
+//            itemBlock(nil, HUserRoomBgCell.class, nil, YES);
         }
             break;
         case HMultiMediaOutAudio: {
-//            itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
+//            itemBlock(nil, HUserRoomBgCell.class, nil, YES);
         }
             break;
         case HMultiMediaInVideo: {
-//            itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
+//            itemBlock(nil, HUserRoomBgCell.class, nil, YES);
         }
             break;
         case HMultiMediaOutVideo: {
-//            itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
+//            itemBlock(nil, HUserRoomBgCell.class, nil, YES);
         }
             break;
             
@@ -117,16 +117,16 @@
     }
 //    switch (indexPath.row) {
 //        case 0: {
-//            itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
+//            itemBlock(nil, HUserRoomBgCell.class, nil, YES);
 //        }
 //            break;
 //        case 2: {
-//            itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
+//            itemBlock(nil, HUserRoomBgCell.class, nil, YES);
 //        }
 //            break;
 //        case 1: {
 //            if (self.liveStatus == HLiveStatusLoading) {
-//                HLiveRoomBgCell *cell = itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
+//                HUserRoomBgCell *cell = itemBlock(nil, HUserRoomBgCell.class, nil, YES);
 //                // 禁止滚动
 //                self.tupleView.scrollEnabled = NO;
 //                // 开始旋转
@@ -141,7 +141,7 @@
 //                    self.liveStatus = HLiveStatusLiveing;
 //                }];
 //            }else if (self.liveStatus == HLiveStatusLiveing) {
-//                itemBlock(nil, HLiveRoomCell.class, nil, YES);
+//                itemBlock(nil, HUserRoomCell.class, nil, YES);
 //            }
 //        }
 //            break;

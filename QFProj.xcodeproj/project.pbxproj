@@ -15,15 +15,6 @@
 		15B4DD762092F88700773E04 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B4DD752092F88700773E04 /* main.m */; };
 		2D3028BD94B30016ACE77045 /* libPods-QFProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37A333901437653EBDAF0943 /* libPods-QFProj.a */; };
 		8E4A44DE26D90B37006A0802 /* HUserDefaults+Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44DD26D90B37006A0802 /* HUserDefaults+Defaults.m */; };
-		8E4A44E226DA29DA006A0802 /* HLiveRoomVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44E126DA29DA006A0802 /* HLiveRoomVC.m */; };
-		8E4A44EA26DA598A006A0802 /* HLiveRoomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A44E926DA598A006A0802 /* HLiveRoomCell.m */; };
-		8E4A45162726ED14006A0802 /* live_bg_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E4A45042726ED14006A0802 /* live_bg_icon.png */; };
-		8E4A45172726ED14006A0802 /* HLiveRoomCell+HSection1.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A45072726ED14006A0802 /* HLiveRoomCell+HSection1.m */; };
-		8E4A45182726ED14006A0802 /* HLiveRoomCell+HSection2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A450A2726ED14006A0802 /* HLiveRoomCell+HSection2.m */; };
-		8E4A45192726ED14006A0802 /* HLiveRoomNoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A450D2726ED14006A0802 /* HLiveRoomNoteVC.m */; };
-		8E4A451A2726ED14006A0802 /* HLiveRoomShareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A450F2726ED14006A0802 /* HLiveRoomShareVC.m */; };
-		8E4A451B2726ED14006A0802 /* HLRDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A45112726ED14006A0802 /* HLRDManager.m */; };
-		8E4A451C2726ED14006A0802 /* HLiveRoomCell+HSection0.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4A45142726ED14006A0802 /* HLiveRoomCell+HSection0.m */; };
 		8E4A4524272929CE006A0802 /* ExportOptions_Debug2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E4A451F272929CE006A0802 /* ExportOptions_Debug2.plist */; };
 		8E4A4525272929CE006A0802 /* ExportOptions_Release2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E4A4520272929CE006A0802 /* ExportOptions_Release2.plist */; };
 		8E4A4526272929CE006A0802 /* HAutoPackage_Debug2.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8E4A4521272929CE006A0802 /* HAutoPackage_Debug2.sh */; };
@@ -530,6 +521,20 @@
 		EB3C781229A7669600AFB636 /* HAcceptVideoVC+HStatus2.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C781129A7669600AFB636 /* HAcceptVideoVC+HStatus2.m */; };
 		EB3C781529A7669E00AFB636 /* HAcceptVideoVC+HStatus3.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C781429A7669E00AFB636 /* HAcceptVideoVC+HStatus3.m */; };
 		EB3C781829A766A600AFB636 /* HAcceptVideoVC+HStatus4.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C781729A766A600AFB636 /* HAcceptVideoVC+HStatus4.m */; };
+		EB3C781B29A7737A00AFB636 /* HSendAudioVC+HStatus1.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C781A29A7737A00AFB636 /* HSendAudioVC+HStatus1.m */; };
+		EB3C781E29A7738100AFB636 /* HSendAudioVC+HStatus2.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C781D29A7738100AFB636 /* HSendAudioVC+HStatus2.m */; };
+		EB3C782129A7738800AFB636 /* HSendAudioVC+HStatus3.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C782029A7738800AFB636 /* HSendAudioVC+HStatus3.m */; };
+		EB3C782429A7739700AFB636 /* HSendAudioVC+HStatus4.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C782329A7739700AFB636 /* HSendAudioVC+HStatus4.m */; };
+		EB3C782729A7739E00AFB636 /* HSendAudioVC+HStatus5.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C782629A7739E00AFB636 /* HSendAudioVC+HStatus5.m */; };
+		EB3C784629A774F000AFB636 /* HUserRoomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C783629A774EF00AFB636 /* HUserRoomCell.m */; };
+		EB3C784929A774F000AFB636 /* HUserRoomVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C783E29A774F000AFB636 /* HUserRoomVC.m */; };
+		EB3C785F29A7754000AFB636 /* live_bg_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C784C29A7753F00AFB636 /* live_bg_icon.png */; };
+		EB3C786029A7754000AFB636 /* HUserRoomNoteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C784F29A7753F00AFB636 /* HUserRoomNoteVC.m */; };
+		EB3C786129A7754000AFB636 /* HUserRoomShareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C785129A7753F00AFB636 /* HUserRoomShareVC.m */; };
+		EB3C786229A7754000AFB636 /* HLRDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C785429A7754000AFB636 /* HLRDManager.m */; };
+		EB3C786529A7754000AFB636 /* HUserRoomCell+HSection0.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C785D29A7754000AFB636 /* HUserRoomCell+HSection0.m */; };
+		EB3C786C29A7756900AFB636 /* HUserRoomCell+HSection1.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C786829A7756900AFB636 /* HUserRoomCell+HSection1.m */; };
+		EB3C786D29A7756900AFB636 /* HUserRoomCell+HSection2.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C786B29A7756900AFB636 /* HUserRoomCell+HSection2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -546,24 +551,6 @@
 		42643297984F7EDF58B71E02 /* Pods-QFProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QFProj.debug.xcconfig"; path = "Target Support Files/Pods-QFProj/Pods-QFProj.debug.xcconfig"; sourceTree = "<group>"; };
 		8E4A44DC26D90B37006A0802 /* HUserDefaults+Defaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HUserDefaults+Defaults.h"; sourceTree = "<group>"; };
 		8E4A44DD26D90B37006A0802 /* HUserDefaults+Defaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HUserDefaults+Defaults.m"; sourceTree = "<group>"; };
-		8E4A44E026DA29DA006A0802 /* HLiveRoomVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLiveRoomVC.h; sourceTree = "<group>"; };
-		8E4A44E126DA29DA006A0802 /* HLiveRoomVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLiveRoomVC.m; sourceTree = "<group>"; };
-		8E4A44E826DA598A006A0802 /* HLiveRoomCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLiveRoomCell.h; sourceTree = "<group>"; };
-		8E4A44E926DA598A006A0802 /* HLiveRoomCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLiveRoomCell.m; sourceTree = "<group>"; };
-		8E4A45042726ED14006A0802 /* live_bg_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = live_bg_icon.png; sourceTree = "<group>"; };
-		8E4A45062726ED14006A0802 /* HLiveRoomCell+HSection1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HLiveRoomCell+HSection1.h"; sourceTree = "<group>"; };
-		8E4A45072726ED14006A0802 /* HLiveRoomCell+HSection1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HLiveRoomCell+HSection1.m"; sourceTree = "<group>"; };
-		8E4A45092726ED14006A0802 /* HLiveRoomCell+HSection2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HLiveRoomCell+HSection2.h"; sourceTree = "<group>"; };
-		8E4A450A2726ED14006A0802 /* HLiveRoomCell+HSection2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HLiveRoomCell+HSection2.m"; sourceTree = "<group>"; };
-		8E4A450C2726ED14006A0802 /* HLiveRoomShareVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLiveRoomShareVC.h; sourceTree = "<group>"; };
-		8E4A450D2726ED14006A0802 /* HLiveRoomNoteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLiveRoomNoteVC.m; sourceTree = "<group>"; };
-		8E4A450E2726ED14006A0802 /* HLiveRoomNoteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLiveRoomNoteVC.h; sourceTree = "<group>"; };
-		8E4A450F2726ED14006A0802 /* HLiveRoomShareVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLiveRoomShareVC.m; sourceTree = "<group>"; };
-		8E4A45112726ED14006A0802 /* HLRDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLRDManager.m; sourceTree = "<group>"; };
-		8E4A45122726ED14006A0802 /* HLRDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLRDManager.h; sourceTree = "<group>"; };
-		8E4A45142726ED14006A0802 /* HLiveRoomCell+HSection0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HLiveRoomCell+HSection0.m"; sourceTree = "<group>"; };
-		8E4A45152726ED14006A0802 /* HLiveRoomCell+HSection0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HLiveRoomCell+HSection0.h"; sourceTree = "<group>"; };
-		8E4A451D2726F255006A0802 /* HLRDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HLRDefine.h; sourceTree = "<group>"; };
 		8E4A451F272929CE006A0802 /* ExportOptions_Debug2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ExportOptions_Debug2.plist; sourceTree = "<group>"; };
 		8E4A4520272929CE006A0802 /* ExportOptions_Release2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ExportOptions_Release2.plist; sourceTree = "<group>"; };
 		8E4A4521272929CE006A0802 /* HAutoPackage_Debug2.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = HAutoPackage_Debug2.sh; sourceTree = "<group>"; };
@@ -1519,6 +1506,34 @@
 		EB3C781429A7669E00AFB636 /* HAcceptVideoVC+HStatus3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HAcceptVideoVC+HStatus3.m"; sourceTree = "<group>"; };
 		EB3C781629A766A600AFB636 /* HAcceptVideoVC+HStatus4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HAcceptVideoVC+HStatus4.h"; sourceTree = "<group>"; };
 		EB3C781729A766A600AFB636 /* HAcceptVideoVC+HStatus4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HAcceptVideoVC+HStatus4.m"; sourceTree = "<group>"; };
+		EB3C781929A7737A00AFB636 /* HSendAudioVC+HStatus1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HSendAudioVC+HStatus1.h"; sourceTree = "<group>"; };
+		EB3C781A29A7737A00AFB636 /* HSendAudioVC+HStatus1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HSendAudioVC+HStatus1.m"; sourceTree = "<group>"; };
+		EB3C781C29A7738100AFB636 /* HSendAudioVC+HStatus2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HSendAudioVC+HStatus2.h"; sourceTree = "<group>"; };
+		EB3C781D29A7738100AFB636 /* HSendAudioVC+HStatus2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HSendAudioVC+HStatus2.m"; sourceTree = "<group>"; };
+		EB3C781F29A7738800AFB636 /* HSendAudioVC+HStatus3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HSendAudioVC+HStatus3.h"; sourceTree = "<group>"; };
+		EB3C782029A7738800AFB636 /* HSendAudioVC+HStatus3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HSendAudioVC+HStatus3.m"; sourceTree = "<group>"; };
+		EB3C782229A7739700AFB636 /* HSendAudioVC+HStatus4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HSendAudioVC+HStatus4.h"; sourceTree = "<group>"; };
+		EB3C782329A7739700AFB636 /* HSendAudioVC+HStatus4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HSendAudioVC+HStatus4.m"; sourceTree = "<group>"; };
+		EB3C782529A7739E00AFB636 /* HSendAudioVC+HStatus5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HSendAudioVC+HStatus5.h"; sourceTree = "<group>"; };
+		EB3C782629A7739E00AFB636 /* HSendAudioVC+HStatus5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HSendAudioVC+HStatus5.m"; sourceTree = "<group>"; };
+		EB3C783629A774EF00AFB636 /* HUserRoomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUserRoomCell.m; sourceTree = "<group>"; };
+		EB3C783729A774F000AFB636 /* HUserRoomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUserRoomCell.h; sourceTree = "<group>"; };
+		EB3C783D29A774F000AFB636 /* HUserRoomVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUserRoomVC.h; sourceTree = "<group>"; };
+		EB3C783E29A774F000AFB636 /* HUserRoomVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUserRoomVC.m; sourceTree = "<group>"; };
+		EB3C784C29A7753F00AFB636 /* live_bg_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = live_bg_icon.png; sourceTree = "<group>"; };
+		EB3C784E29A7753F00AFB636 /* HUserRoomShareVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUserRoomShareVC.h; sourceTree = "<group>"; };
+		EB3C784F29A7753F00AFB636 /* HUserRoomNoteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUserRoomNoteVC.m; sourceTree = "<group>"; };
+		EB3C785029A7753F00AFB636 /* HUserRoomNoteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUserRoomNoteVC.h; sourceTree = "<group>"; };
+		EB3C785129A7753F00AFB636 /* HUserRoomShareVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUserRoomShareVC.m; sourceTree = "<group>"; };
+		EB3C785229A7753F00AFB636 /* HLRDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLRDefine.h; sourceTree = "<group>"; };
+		EB3C785429A7754000AFB636 /* HLRDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLRDManager.m; sourceTree = "<group>"; };
+		EB3C785529A7754000AFB636 /* HLRDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLRDManager.h; sourceTree = "<group>"; };
+		EB3C785D29A7754000AFB636 /* HUserRoomCell+HSection0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HUserRoomCell+HSection0.m"; sourceTree = "<group>"; };
+		EB3C785E29A7754000AFB636 /* HUserRoomCell+HSection0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HUserRoomCell+HSection0.h"; sourceTree = "<group>"; };
+		EB3C786729A7756900AFB636 /* HUserRoomCell+HSection1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HUserRoomCell+HSection1.h"; sourceTree = "<group>"; };
+		EB3C786829A7756900AFB636 /* HUserRoomCell+HSection1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HUserRoomCell+HSection1.m"; sourceTree = "<group>"; };
+		EB3C786A29A7756900AFB636 /* HUserRoomCell+HSection2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HUserRoomCell+HSection2.h"; sourceTree = "<group>"; };
+		EB3C786B29A7756900AFB636 /* HUserRoomCell+HSection2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HUserRoomCell+HSection2.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1632,74 +1647,10 @@
 		8E4A44DF26DA29A3006A0802 /* HLive */ = {
 			isa = PBXGroup;
 			children = (
-				8E4A44E026DA29DA006A0802 /* HLiveRoomVC.h */,
-				8E4A44E126DA29DA006A0802 /* HLiveRoomVC.m */,
-				8E4A44E826DA598A006A0802 /* HLiveRoomCell.h */,
-				8E4A44E926DA598A006A0802 /* HLiveRoomCell.m */,
-				8E4A45102726ED14006A0802 /* HLiveRoomData */,
-				8E4A45032726ED14006A0802 /* HLiveRoomAssets */,
-				8E4A450B2726ED14006A0802 /* HLiveRoomCommon */,
-				8E4A45132726ED14006A0802 /* HLiveRoomCell+HSection0 */,
-				8E4A45052726ED14006A0802 /* HLiveRoomCell+HSection1 */,
-				8E4A45082726ED14006A0802 /* HLiveRoomCell+HSection2 */,
+				EB3C782929A774BA00AFB636 /* HUserRoom */,
+				EB3C782829A774B200AFB636 /* HAnchorRoom */,
 			);
 			path = HLive;
-			sourceTree = "<group>";
-		};
-		8E4A45032726ED14006A0802 /* HLiveRoomAssets */ = {
-			isa = PBXGroup;
-			children = (
-				8E4A45042726ED14006A0802 /* live_bg_icon.png */,
-			);
-			path = HLiveRoomAssets;
-			sourceTree = "<group>";
-		};
-		8E4A45052726ED14006A0802 /* HLiveRoomCell+HSection1 */ = {
-			isa = PBXGroup;
-			children = (
-				8E4A45062726ED14006A0802 /* HLiveRoomCell+HSection1.h */,
-				8E4A45072726ED14006A0802 /* HLiveRoomCell+HSection1.m */,
-			);
-			path = "HLiveRoomCell+HSection1";
-			sourceTree = "<group>";
-		};
-		8E4A45082726ED14006A0802 /* HLiveRoomCell+HSection2 */ = {
-			isa = PBXGroup;
-			children = (
-				8E4A45092726ED14006A0802 /* HLiveRoomCell+HSection2.h */,
-				8E4A450A2726ED14006A0802 /* HLiveRoomCell+HSection2.m */,
-			);
-			path = "HLiveRoomCell+HSection2";
-			sourceTree = "<group>";
-		};
-		8E4A450B2726ED14006A0802 /* HLiveRoomCommon */ = {
-			isa = PBXGroup;
-			children = (
-				8E4A451D2726F255006A0802 /* HLRDefine.h */,
-				8E4A450E2726ED14006A0802 /* HLiveRoomNoteVC.h */,
-				8E4A450D2726ED14006A0802 /* HLiveRoomNoteVC.m */,
-				8E4A450C2726ED14006A0802 /* HLiveRoomShareVC.h */,
-				8E4A450F2726ED14006A0802 /* HLiveRoomShareVC.m */,
-			);
-			path = HLiveRoomCommon;
-			sourceTree = "<group>";
-		};
-		8E4A45102726ED14006A0802 /* HLiveRoomData */ = {
-			isa = PBXGroup;
-			children = (
-				8E4A45122726ED14006A0802 /* HLRDManager.h */,
-				8E4A45112726ED14006A0802 /* HLRDManager.m */,
-			);
-			path = HLiveRoomData;
-			sourceTree = "<group>";
-		};
-		8E4A45132726ED14006A0802 /* HLiveRoomCell+HSection0 */ = {
-			isa = PBXGroup;
-			children = (
-				8E4A45152726ED14006A0802 /* HLiveRoomCell+HSection0.h */,
-				8E4A45142726ED14006A0802 /* HLiveRoomCell+HSection0.m */,
-			);
-			path = "HLiveRoomCell+HSection0";
 			sourceTree = "<group>";
 		};
 		8E4A451E272929CE006A0802 /* HAutoPackage2 */ = {
@@ -3664,6 +3615,16 @@
 			children = (
 				EB3C77F029A65B8600AFB636 /* HSendAudioVC.h */,
 				EB3C77EE29A65B8600AFB636 /* HSendAudioVC.m */,
+				EB3C781929A7737A00AFB636 /* HSendAudioVC+HStatus1.h */,
+				EB3C781A29A7737A00AFB636 /* HSendAudioVC+HStatus1.m */,
+				EB3C781C29A7738100AFB636 /* HSendAudioVC+HStatus2.h */,
+				EB3C781D29A7738100AFB636 /* HSendAudioVC+HStatus2.m */,
+				EB3C781F29A7738800AFB636 /* HSendAudioVC+HStatus3.h */,
+				EB3C782029A7738800AFB636 /* HSendAudioVC+HStatus3.m */,
+				EB3C782229A7739700AFB636 /* HSendAudioVC+HStatus4.h */,
+				EB3C782329A7739700AFB636 /* HSendAudioVC+HStatus4.m */,
+				EB3C782529A7739E00AFB636 /* HSendAudioVC+HStatus5.h */,
+				EB3C782629A7739E00AFB636 /* HSendAudioVC+HStatus5.m */,
 				EB3C77F129A65B8600AFB636 /* HAcceptAudioVC.h */,
 				EB3C77EF29A65B8600AFB636 /* HAcceptAudioVC.m */,
 			);
@@ -3677,6 +3638,86 @@
 				EB3C77F929A7413200AFB636 /* mdeia-button.png */,
 			);
 			path = HMultiMediaAssets;
+			sourceTree = "<group>";
+		};
+		EB3C782829A774B200AFB636 /* HAnchorRoom */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HAnchorRoom;
+			sourceTree = "<group>";
+		};
+		EB3C782929A774BA00AFB636 /* HUserRoom */ = {
+			isa = PBXGroup;
+			children = (
+				EB3C785C29A7754000AFB636 /* HUserRoomCell+HSection0 */,
+				EB3C786629A7756900AFB636 /* HUserRoomCell+HSection1 */,
+				EB3C786929A7756900AFB636 /* HUserRoomCell+HSection2 */,
+				EB3C784B29A7753F00AFB636 /* HUserRoomAssets */,
+				EB3C784D29A7753F00AFB636 /* HUserRoomCommon */,
+				EB3C785329A7754000AFB636 /* HUserRoomData */,
+				EB3C783729A774F000AFB636 /* HUserRoomCell.h */,
+				EB3C783629A774EF00AFB636 /* HUserRoomCell.m */,
+				EB3C783D29A774F000AFB636 /* HUserRoomVC.h */,
+				EB3C783E29A774F000AFB636 /* HUserRoomVC.m */,
+			);
+			path = HUserRoom;
+			sourceTree = "<group>";
+		};
+		EB3C784B29A7753F00AFB636 /* HUserRoomAssets */ = {
+			isa = PBXGroup;
+			children = (
+				EB3C784C29A7753F00AFB636 /* live_bg_icon.png */,
+			);
+			path = HUserRoomAssets;
+			sourceTree = "<group>";
+		};
+		EB3C784D29A7753F00AFB636 /* HUserRoomCommon */ = {
+			isa = PBXGroup;
+			children = (
+				EB3C784E29A7753F00AFB636 /* HUserRoomShareVC.h */,
+				EB3C784F29A7753F00AFB636 /* HUserRoomNoteVC.m */,
+				EB3C785029A7753F00AFB636 /* HUserRoomNoteVC.h */,
+				EB3C785129A7753F00AFB636 /* HUserRoomShareVC.m */,
+				EB3C785229A7753F00AFB636 /* HLRDefine.h */,
+			);
+			path = HUserRoomCommon;
+			sourceTree = "<group>";
+		};
+		EB3C785329A7754000AFB636 /* HUserRoomData */ = {
+			isa = PBXGroup;
+			children = (
+				EB3C785429A7754000AFB636 /* HLRDManager.m */,
+				EB3C785529A7754000AFB636 /* HLRDManager.h */,
+			);
+			path = HUserRoomData;
+			sourceTree = "<group>";
+		};
+		EB3C785C29A7754000AFB636 /* HUserRoomCell+HSection0 */ = {
+			isa = PBXGroup;
+			children = (
+				EB3C785E29A7754000AFB636 /* HUserRoomCell+HSection0.h */,
+				EB3C785D29A7754000AFB636 /* HUserRoomCell+HSection0.m */,
+			);
+			path = "HUserRoomCell+HSection0";
+			sourceTree = "<group>";
+		};
+		EB3C786629A7756900AFB636 /* HUserRoomCell+HSection1 */ = {
+			isa = PBXGroup;
+			children = (
+				EB3C786729A7756900AFB636 /* HUserRoomCell+HSection1.h */,
+				EB3C786829A7756900AFB636 /* HUserRoomCell+HSection1.m */,
+			);
+			path = "HUserRoomCell+HSection1";
+			sourceTree = "<group>";
+		};
+		EB3C786929A7756900AFB636 /* HUserRoomCell+HSection2 */ = {
+			isa = PBXGroup;
+			children = (
+				EB3C786A29A7756900AFB636 /* HUserRoomCell+HSection2.h */,
+				EB3C786B29A7756900AFB636 /* HUserRoomCell+HSection2.m */,
+			);
+			path = "HUserRoomCell+HSection2";
 			sourceTree = "<group>";
 		};
 		FA722148A7C87B120253C5F9 /* Pods */ = {
@@ -3754,6 +3795,7 @@
 				A20E3D0E231FE8FC00E6982B /* di_index@3x.png in Resources */,
 				A25E6802262445FE00863FF8 /* register_checkbox_icon@3x.png in Resources */,
 				15B4DD732092F88700773E04 /* LaunchScreen.storyboard in Resources */,
+				EB3C785F29A7754000AFB636 /* live_bg_icon.png in Resources */,
 				A25E681C262445FE00863FF8 /* HCyclePageControlDot@3x.png in Resources */,
 				A25E6876262445FE00863FF8 /* icon_no_network@2x.png in Resources */,
 				A20E3D0D231FE8FC00E6982B /* di_index@2x.png in Resources */,
@@ -3817,7 +3859,6 @@
 				A25E6882262445FE00863FF8 /* loading_new_9@2x.png in Resources */,
 				8E4A4524272929CE006A0802 /* ExportOptions_Debug2.plist in Resources */,
 				A28FE4AB2654EBD900C9A4EB /* Address.plist in Resources */,
-				8E4A45162726ED14006A0802 /* live_bg_icon.png in Resources */,
 				A251AA63264BAD2B0067E574 /* countryInfo.json in Resources */,
 				A25E6879262445FE00863FF8 /* icon_load_nothing@2x.png in Resources */,
 				A25E6880262445FE00863FF8 /* loading_new_16@2x.png in Resources */,
@@ -3897,6 +3938,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A25E67AF262445FE00863FF8 /* KSCrashReportFilterSets.m in Sources */,
+				EB3C782729A7739E00AFB636 /* HSendAudioVC+HStatus5.m in Sources */,
 				A25E67E8262445FE00863FF8 /* KSThread.c in Sources */,
 				EB3C77F229A65B8600AFB636 /* HSendVideoVC.m in Sources */,
 				A25E67DF262445FE00863FF8 /* KSSymbolicator.c in Sources */,
@@ -3925,6 +3967,7 @@
 				A25E67E7262445FE00863FF8 /* KSJSONCodec.c in Sources */,
 				A25E67CD262445FE00863FF8 /* KSCrashMonitor_User.c in Sources */,
 				A23BFB74263BE9F100501F79 /* HNetSpeedMonitor.m in Sources */,
+				EB3C786C29A7756900AFB636 /* HUserRoomCell+HSection1.m in Sources */,
 				A25E686A262445FE00863FF8 /* NSAttributedString+HText.m in Sources */,
 				A25E677D262445FD00863FF8 /* YTKRequest.m in Sources */,
 				A25E67D2262445FE00863FF8 /* KSCPU_x86_32.c in Sources */,
@@ -3942,6 +3985,7 @@
 				A25E6894262445FE00863FF8 /* HFormController.m in Sources */,
 				A25E67B0262445FE00863FF8 /* KSCrashReportFilterJSON.m in Sources */,
 				A25E6734262445FD00863FF8 /* NSObject_4.m in Sources */,
+				EB3C786229A7754000AFB636 /* HLRDManager.m in Sources */,
 				A25E675F262445FD00863FF8 /* UILabel+skin.m in Sources */,
 				A20E3D2723239C0200E6982B /* HMainController3+HSection2.m in Sources */,
 				EB3C780329A7572900AFB636 /* HSendVideoVC+HStatus3.m in Sources */,
@@ -3956,6 +4000,7 @@
 				A25E6814262445FE00863FF8 /* HKBUIView+HKBKeyboardToolbar.m in Sources */,
 				A25E6824262445FE00863FF8 /* HTupleViewBannerApex.m in Sources */,
 				A25E6740262445FD00863FF8 /* UIViewController+YPTab.m in Sources */,
+				EB3C784929A774F000AFB636 /* HUserRoomVC.m in Sources */,
 				A25E6819262445FE00863FF8 /* HKBNSArray+Sort.m in Sources */,
 				A25E67E1262445FE00863FF8 /* KSSignalInfo.c in Sources */,
 				A25E67BC262445FE00863FF8 /* KSCrashReportSinkConsole.m in Sources */,
@@ -3982,6 +4027,7 @@
 				A25E6754262445FD00863FF8 /* HAuthorizeManager.m in Sources */,
 				A25E6724262445FD00863FF8 /* HTableViewCell.m in Sources */,
 				A25E67F7262445FE00863FF8 /* KSCrashInstallationQuincyHockey.m in Sources */,
+				EB3C781E29A7738100AFB636 /* HSendAudioVC+HStatus2.m in Sources */,
 				A25E678C262445FD00863FF8 /* NSDate+HUtil.m in Sources */,
 				A25E67C5262445FE00863FF8 /* KSCrashMonitor_Deadlock.m in Sources */,
 				A22FA17F2400DFC900B75C1C /* AppDelegate+UserService.m in Sources */,
@@ -4006,6 +4052,7 @@
 				A25E67CF262445FE00863FF8 /* KSCrashMonitor_CPPException.cpp in Sources */,
 				A25E685E262445FE00863FF8 /* HTextLine.m in Sources */,
 				A25E6795262445FD00863FF8 /* HHexUtil.m in Sources */,
+				EB3C782429A7739700AFB636 /* HSendAudioVC+HStatus4.m in Sources */,
 				A25E678F262445FD00863FF8 /* NSTimer+HUtil.m in Sources */,
 				A25E6857262445FE00863FF8 /* HTextView.m in Sources */,
 				A25E6869262445FE00863FF8 /* HTextWeakProxy.m in Sources */,
@@ -4045,7 +4092,6 @@
 				A25E675E262445FD00863FF8 /* UIImage+skin.m in Sources */,
 				A25E686D262445FE00863FF8 /* HTextParser.m in Sources */,
 				A25E6738262445FD00863FF8 /* WebViewJavascriptBridge.m in Sources */,
-				8E4A44EA26DA598A006A0802 /* HLiveRoomCell.m in Sources */,
 				A25E685B262445FE00863FF8 /* HTextMagnifier.m in Sources */,
 				A25E685A262445FE00863FF8 /* HTextSelectionView.m in Sources */,
 				A25E6742262445FD00863FF8 /* YPContainerTableView.m in Sources */,
@@ -4096,25 +4142,26 @@
 				A25E67EA262445FE00863FF8 /* KSMach.c in Sources */,
 				A25E6809262445FE00863FF8 /* HTupleViewTextLoopCell.m in Sources */,
 				A25E67FC262445FE00863FF8 /* HRegisterController.m in Sources */,
+				EB3C782129A7738800AFB636 /* HSendAudioVC+HStatus3.m in Sources */,
 				A25E6749262445FD00863FF8 /* UICollectionView+HTracking.m in Sources */,
 				A25E67B7262445FE00863FF8 /* KSHTTPMultipartPostBody.m in Sources */,
 				A25E6792262445FD00863FF8 /* NSObject+HUtil.m in Sources */,
 				A25E68B6262445FE00863FF8 /* HDrawerViewController.m in Sources */,
 				A25E6713262445FD00863FF8 /* HGameViewController.m in Sources */,
 				A25E68A1262445FE00863FF8 /* NSObject+HAspects.m in Sources */,
-				8E4A451B2726ED14006A0802 /* HLRDManager.m in Sources */,
 				EB3C781529A7669E00AFB636 /* HAcceptVideoVC+HStatus3.m in Sources */,
+				EB3C786029A7754000AFB636 /* HUserRoomNoteVC.m in Sources */,
 				A25E67F0262445FE00863FF8 /* KSCrashC.c in Sources */,
 				A25E671A262445FD00863FF8 /* HUpdate.m in Sources */,
 				A25E682F262445FE00863FF8 /* HTupleViewCellVertValue1.m in Sources */,
 				A25E671D262445FD00863FF8 /* NSBlockChain.m in Sources */,
 				A25E680A262445FE00863FF8 /* HTextLoopView.m in Sources */,
 				A25E68A4262445FE00863FF8 /* NSStream+SKPSMTPExtensions.m in Sources */,
-				8E4A45192726ED14006A0802 /* HLiveRoomNoteVC.m in Sources */,
 				EB3C77F429A65B8600AFB636 /* HSendAudioVC.m in Sources */,
 				A25E6799262445FD00863FF8 /* NSString+HChain.m in Sources */,
 				A25E6737262445FD00863FF8 /* WKWebViewJavascriptBridge.m in Sources */,
 				A25E6897262445FE00863FF8 /* NSObject+HSafeMessy.m in Sources */,
+				EB3C781B29A7737A00AFB636 /* HSendAudioVC+HStatus1.m in Sources */,
 				A25E673E262445FD00863FF8 /* YPTabBar+HSubView.m in Sources */,
 				A25E670E262445FD00863FF8 /* HWebview.m in Sources */,
 				A25E673D262445FD00863FF8 /* YPTabItem.m in Sources */,
@@ -4132,7 +4179,6 @@
 				A21F4095242215C1002221C4 /* HMainController1+Error.m in Sources */,
 				A25E6771262445FD00863FF8 /* HDiskCache.m in Sources */,
 				A25E6735262445FD00863FF8 /* HFPickerView.m in Sources */,
-				8E4A44E226DA29DA006A0802 /* HLiveRoomVC.m in Sources */,
 				A25E681B262445FE00863FF8 /* HCollectionViewCell.m in Sources */,
 				A25E67DE262445FE00863FF8 /* KSCPU_x86_64.c in Sources */,
 				A25E674D262445FD00863FF8 /* UIGestureRecognizer+HUtil.m in Sources */,
@@ -4145,9 +4191,7 @@
 				A25E67BF262445FE00863FF8 /* KSCrashReportSinkEMail.m in Sources */,
 				A25E685F262445FE00863FF8 /* HTextKeyboardManager.m in Sources */,
 				A25E678E262445FD00863FF8 /* NSObject+HExclusive.m in Sources */,
-				8E4A45182726ED14006A0802 /* HLiveRoomCell+HSection2.m in Sources */,
 				A25E6781262445FD00863FF8 /* HPrinterManager.m in Sources */,
-				8E4A45172726ED14006A0802 /* HLiveRoomCell+HSection1.m in Sources */,
 				A25E6741262445FD00863FF8 /* YPTabBar.m in Sources */,
 				A25E6862262445FE00863FF8 /* HLabel.m in Sources */,
 				A25E680F262445FE00863FF8 /* HKBKeyboardManager.m in Sources */,
@@ -4166,6 +4210,7 @@
 				A25E68A0262445FE00863FF8 /* HHostUrlManager.m in Sources */,
 				A251AA09264955CD0067E574 /* HUserLocale.m in Sources */,
 				A25E6729262445FD00863FF8 /* HSimilarity.m in Sources */,
+				EB3C786D29A7756900AFB636 /* HUserRoomCell+HSection2.m in Sources */,
 				A20E3CFB231FDF4D00E6982B /* HMenuController.m in Sources */,
 				A25E6847262445FE00863FF8 /* UIImageView+HFilletLayer.m in Sources */,
 				A25E680E262445FE00863FF8 /* HKBTextView.m in Sources */,
@@ -4192,7 +4237,6 @@
 				A25E682B262445FE00863FF8 /* HTupleBaseApex.m in Sources */,
 				A22FA0842400D50500B75C1C /* AppDelegate+NotifyService.m in Sources */,
 				A25E68A8262445FE00863FF8 /* Base64Transcoder.m in Sources */,
-				8E4A451C2726ED14006A0802 /* HLiveRoomCell+HSection0.m in Sources */,
 				A25E674A262445FD00863FF8 /* NSFileManager+HUtil.m in Sources */,
 				A251AAB2264CF31B0067E574 /* HUserRegion.m in Sources */,
 				A25E6813262445FE00863FF8 /* HKBTitleBarButtonItem.m in Sources */,
@@ -4226,6 +4270,7 @@
 				A25E684D262445FE00863FF8 /* HTextField.m in Sources */,
 				A25E6719262445FD00863FF8 /* HRemoteNotification.m in Sources */,
 				A25E6798262445FD00863FF8 /* NSObject+HKVO.m in Sources */,
+				EB3C786129A7754000AFB636 /* HUserRoomShareVC.m in Sources */,
 				A25E6896262445FE00863FF8 /* NSDictionary+HSafeUtil.m in Sources */,
 				A25E673B262445FD00863FF8 /* YPTabContentView.m in Sources */,
 				A25E67AE262445FE00863FF8 /* NSData+GZip.m in Sources */,
@@ -4260,7 +4305,6 @@
 				A25E672C262445FD00863FF8 /* LSUpLoadHelper.m in Sources */,
 				A25E6861262445FE00863FF8 /* HLabel+HUtil.m in Sources */,
 				A25E67B5262445FE00863FF8 /* KSCrashReportFilterBasic.m in Sources */,
-				8E4A451A2726ED14006A0802 /* HLiveRoomShareVC.m in Sources */,
 				A25E6796262445FD00863FF8 /* CADisplayLink+HUtil.m in Sources */,
 				A25E677F262445FD00863FF8 /* UIViewController+HPrinter.m in Sources */,
 				A25E68AD262445FE00863FF8 /* HDictionary.m in Sources */,
@@ -4274,6 +4318,7 @@
 				A25E67D4262445FE00863FF8 /* KSObjC.c in Sources */,
 				A25E67D1262445FE00863FF8 /* NSError+SimpleConstructor.m in Sources */,
 				A21F4092242215B4002221C4 /* HMainController1+Normal.m in Sources */,
+				EB3C784629A774F000AFB636 /* HUserRoomCell.m in Sources */,
 				A25E67B6262445FE00863FF8 /* KSReachabilityKSCrash.m in Sources */,
 				A25E679B262445FD00863FF8 /* HJsonFileManager.m in Sources */,
 				EB3C77DB29A64F3500AFB636 /* HMultiMediaVC.m in Sources */,
@@ -4281,6 +4326,7 @@
 				A2C2B214235EAC770041AAB5 /* HMainController6.m in Sources */,
 				A25E67AA262445FD00863FF8 /* UINavigationController+HLeaks.m in Sources */,
 				A25E6863262445FE00863FF8 /* NSParagraphStyle+HText.m in Sources */,
+				EB3C786529A7754000AFB636 /* HUserRoomCell+HSection0.m in Sources */,
 				A25E6812262445FE00863FF8 /* HKBBarButtonItem.m in Sources */,
 				A25E6823262445FE00863FF8 /* HAnimatedDotView.m in Sources */,
 				A2C8785B266A3A170017757E /* YDBigBullLiveVc.m in Sources */,

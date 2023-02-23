@@ -1,23 +1,23 @@
 //
-//  HLiveRoomNoteVC.m
+//  HUserRoomNoteVC.m
 //  QFProj
 //
 //  Created by Jovial on 2021/9/29.
 //  Copyright © 2021 dqfStudio. All rights reserved.
 //
 
-#import "HLiveRoomNoteVC.h"
+#import "HUserRoomNoteVC.h"
 #import "HTupleView.h"
 #import "UIViewController+HTransition.h"
 
-@interface HLiveRoomNoteVC () <HTupleViewDelegate>
+@interface HUserRoomNoteVC () <HTupleViewDelegate>
 @property (nonatomic) UIVisualEffectView *visualView;
 @property (nonatomic) HTupleView *tupleView;
 @property (nonatomic) NSString *note;
 @property (nonatomic) CGSize noteSize;
 @end
 
-@implementation HLiveRoomNoteVC
+@implementation HUserRoomNoteVC
 
 - (CGSize)containerSize {
     self.note = @"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"测试通告"@"end";

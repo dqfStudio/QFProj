@@ -1,18 +1,19 @@
 //
-//  HLiveRoomCell+HSection1.h
+//  HUserRoomCell+HSection2.h
 //  QFProj
 //
 //  Created by Jovial on 2021/8/29.
 //  Copyright © 2021 dqfStudio. All rights reserved.
 //
 
-#import "HLiveRoomCell.h"
-#import "HAlertController.h"
+#import "HUserRoomCell.h"
+#import "HUserRoomNoteVC.h"
+#import "HUserRoomShareVC.h"
 #import "UIViewController+HAnimation.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HLiveRoomCell (HSection1)
+@interface HUserRoomCell (HSection2)
 
 @end
 

@@ -1,14 +1,14 @@
 //
-//  HLiveRoomCell.m
+//  HUserRoomCell.m
 //  QFProj
 //
 //  Created by dqf on 2021/8/29.
 //  Copyright © 2021 dqfStudio. All rights reserved.
 //
 
-#import "HLiveRoomCell.h"
+#import "HUserRoomCell.h"
 
-@implementation HLiveRoomBgCell
+@implementation HUserRoomBgCell
 //cell初始化是调用的方法
 - (void)initUI {
     [super initUI];
@@ -34,7 +34,7 @@
 @end
 
 
-@implementation HLiveRoomCell
+@implementation HUserRoomCell
 - (UIView *)liveLeftView {
     if (!_liveLeftView) {
         _liveLeftView = [[UIView alloc] initWithFrame:self.bounds];

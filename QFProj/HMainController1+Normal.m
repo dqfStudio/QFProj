@@ -156,8 +156,8 @@
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setText:@"黑客帝国"];
             cell.didSelectCell = ^(HTupleViewCellVertValue1 *cell, NSIndexPath *indexPath) {
-//                HNavigationController *navi = [[HNavigationController alloc] initWithRootViewController:HSendVideoVC.new];
-                HNavigationController *navi = [[HNavigationController alloc] initWithRootViewController:HAcceptVideoVC.new];
+                HNavigationController *navi = [[HNavigationController alloc] initWithRootViewController:HSendVideoVC.new];
+//                HNavigationController *navi = [[HNavigationController alloc] initWithRootViewController:HAcceptVideoVC.new];
                 [[UIApplication navi] presentViewController:navi animated:YES completion:nil];
             };
         }
@@ -176,7 +176,7 @@
             [cell.label setTextAlignment:NSTextAlignmentCenter];
             [cell.label setText:@"黑客帝国"];
             cell.didSelectCell = ^(HTupleViewCellVertValue1 *cell, NSIndexPath *indexPath) {
-                HNavigationController *navi = [[HNavigationController alloc] initWithRootViewController:HLiveRoomVC.new];
+                HNavigationController *navi = [[HNavigationController alloc] initWithRootViewController:HUserRoomVC.new];
                 [[UIApplication navi] presentViewController:navi animated:YES completion:nil];
             };
         }

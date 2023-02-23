@@ -1,5 +1,5 @@
 //
-//  HLiveRoomNoteVC.h
+//  HUserRoomNoteVC.h
 //  QFProj
 //
 //  Created by Jovial on 2021/9/29.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HLiveRoomNoteVC : HViewController
+@interface HUserRoomNoteVC : HViewController
 
 @end
 

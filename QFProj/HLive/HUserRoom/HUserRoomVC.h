@@ -1,5 +1,5 @@
 //
-//  HLiveRoomVC.h
+//  HUserRoomVC.h
 //  QFProj
 //
 //  Created by dqf on 2021/8/29.
@@ -15,7 +15,7 @@ typedef NS_OPTIONS(NSUInteger, HLiveStatus) {
     HLiveStatusLiveing
 };
 
-@interface HLiveRoomVC : HTupleController
+@interface HUserRoomVC : HTupleController
 @property (nonatomic) HTextField  *inputField;
 @property (nonatomic) HLiveStatus liveStatus;
 @end

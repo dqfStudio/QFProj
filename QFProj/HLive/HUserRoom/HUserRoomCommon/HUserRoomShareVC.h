@@ -1,5 +1,5 @@
 //
-//  HLiveRoomShareVC.h
+//  HUserRoomShareVC.h
 //  QFProj
 //
 //  Created by Jovial on 2021/9/29.
@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HLiveRoomShareVC : HViewController
+@interface HUserRoomShareVC : HViewController
 
 @end
 

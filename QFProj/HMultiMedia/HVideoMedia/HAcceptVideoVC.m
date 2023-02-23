@@ -42,7 +42,7 @@
     [self.tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
     [self.view addSubview:self.tupleView];
     
-    self.tupleView.tupleState = 1;
+//    self.tupleView.tupleState = 1;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

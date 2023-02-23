@@ -1,20 +1,20 @@
 //
-//  HLiveRoomVC.m
+//  HUserRoomVC.m
 //  QFProj
 //
 //  Created by dqf on 2021/8/29.
 //  Copyright © 2021 dqfStudio. All rights reserved.
 //
 
-#import "HLiveRoomVC.h"
-#import "HLiveRoomCell.h"
+#import "HUserRoomVC.h"
+#import "HUserRoomCell.h"
 #import "UIAlertController+HUtil.h"
 
-@interface HLiveRoomVC ()
+@interface HUserRoomVC ()
 
 @end
 
-@implementation HLiveRoomVC
+@implementation HUserRoomVC
 
 - (HTextField *)inputField {
     if (!_inputField) {
@@ -172,16 +172,16 @@
 - (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
-            itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
+            itemBlock(nil, HUserRoomBgCell.class, nil, YES);
         }
             break;
         case 2: {
-            itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
+            itemBlock(nil, HUserRoomBgCell.class, nil, YES);
         }
             break;
         case 1: {
             if (self.liveStatus == HLiveStatusLoading) {
-                HLiveRoomBgCell *cell = itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
+                HUserRoomBgCell *cell = itemBlock(nil, HUserRoomBgCell.class, nil, YES);
                 // 禁止滚动
                 self.tupleView.scrollEnabled = NO;
                 // 开始旋转
@@ -196,7 +196,7 @@
                     self.liveStatus = HLiveStatusLiveing;
                 }];
             }else if (self.liveStatus == HLiveStatusLiveing) {
-                itemBlock(nil, HLiveRoomCell.class, nil, YES);
+                itemBlock(nil, HUserRoomCell.class, nil, YES);
             }
         }
             break;
