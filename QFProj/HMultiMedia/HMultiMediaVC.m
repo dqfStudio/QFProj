@@ -7,10 +7,10 @@
 //
 
 #import "HMultiMediaVC.h"
-#import "HInAudioVC.h"
-#import "HOutAudioVC.h"
-#import "HInVideoVC.h"
-#import "HOutVideoVC.h"
+#import "HSendAudioVC.h"
+#import "HAcceptAudioVC.h"
+#import "HSendVideoVC.h"
+#import "HAcceptVideoVC.h"
 #import "UIAlertController+HUtil.h"
 
 @interface HMultiMediaVC ()
@@ -31,6 +31,7 @@
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
     self.topExtendedLayout = NO;
+    self.tupleView.scrollEnabled = NO;// 禁止滚动
     [self.tupleView setTupleDelegate:self];
 }
 
@@ -84,6 +85,71 @@
 
 - (BOOL)prefersNavigationBarHidden {
     return YES;
+}
+
+- (NSInteger)numberOfItemsInSection:(NSInteger)section {
+    return 1;
+}
+- (CGSize)sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return self.tupleView.size;
+}
+- (void)tupleItem:(HTupleItem)itemBlock atIndexPath:(NSIndexPath *)indexPath {
+    switch (self.multiMediaStatus) {
+        case HMultiMediaInAudio: {
+//            itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
+        }
+            break;
+        case HMultiMediaOutAudio: {
+//            itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
+        }
+            break;
+        case HMultiMediaInVideo: {
+//            itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
+        }
+            break;
+        case HMultiMediaOutVideo: {
+//            itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
+        }
+            break;
+            
+        default:
+            break;
+    }
+//    switch (indexPath.row) {
+//        case 0: {
+//            itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
+//        }
+//            break;
+//        case 2: {
+//            itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
+//        }
+//            break;
+//        case 1: {
+//            if (self.liveStatus == HLiveStatusLoading) {
+//                HLiveRoomBgCell *cell = itemBlock(nil, HLiveRoomBgCell.class, nil, YES);
+//                // 禁止滚动
+//                self.tupleView.scrollEnabled = NO;
+//                // 开始旋转
+//                [cell.activityIndicator startAnimating];
+//                //可反复加载内容的直播功能
+//                [self reloadLiveBroadcast:^{
+//                    // 解除禁止滚动
+//                    self.tupleView.scrollEnabled = YES;
+//                    // 停止旋转
+//                    [cell.activityIndicator stopAnimating];
+//                    // 更改直播状态
+//                    self.liveStatus = HLiveStatusLiveing;
+//                }];
+//            }else if (self.liveStatus == HLiveStatusLiveing) {
+//                itemBlock(nil, HLiveRoomCell.class, nil, YES);
+//            }
+//        }
+//            break;
+//
+//        default:
+//            break;
+//    }
+
 }
 
 @end

@@ -1,23 +1,23 @@
 //
-//  HOutVideoVC.m
+//  HAcceptAudioVC.m
 //  QFProj
 //
 //  Created by owner on 2023/2/22.
 //  Copyright © 2023 dqfStudio. All rights reserved.
 //
 
-#import "HOutVideoVC.h"
+#import "HAcceptAudioVC.h"
 #import "UIAlertController+HUtil.h"
 
-@interface HOutVideoVC ()
+@interface HAcceptAudioVC ()
 
 @end
 
-@implementation HOutVideoVC
+@implementation HAcceptAudioVC
 
-- (void)setOutVideoStatus:(HOutVideoStatus)outVideoStatus {
-    if (_outVideoStatus != outVideoStatus) {
-        _outVideoStatus = outVideoStatus;
+- (void)setAcceptAudioStatus:(HAcceptAudioStatus)acceptAudioStatus {
+    if (_acceptAudioStatus != acceptAudioStatus) {
+        _acceptAudioStatus = acceptAudioStatus;
         [self.tupleView reloadData];
     }
 }

@@ -10,8 +10,10 @@
 #import "HLRDefine.h"
 
 typedef NS_OPTIONS(NSUInteger, HMultiMediaStatus) {
-    HMultiMediaWaiting = 0,
-    HMultiMediaResult
+    HMultiMediaInAudio  = 1,
+    HMultiMediaOutAudio,
+    HMultiMediaInVideo,
+    HMultiMediaOutVideo,
 };
 
 ///多媒体音视频

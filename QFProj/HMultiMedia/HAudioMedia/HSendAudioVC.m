@@ -1,23 +1,23 @@
 //
-//  HInAudioVC.m
+//  HSendAudioVC.m
 //  QFProj
 //
 //  Created by owner on 2023/2/22.
 //  Copyright © 2023 dqfStudio. All rights reserved.
 //
 
-#import "HInAudioVC.h"
+#import "HSendAudioVC.h"
 #import "UIAlertController+HUtil.h"
 
-@interface HInAudioVC ()
+@interface HSendAudioVC ()
 
 @end
 
-@implementation HInAudioVC
+@implementation HSendAudioVC
 
-- (void)setInAudioStatus:(HInAudioStatus)inAudioStatus {
-    if (_inAudioStatus != inAudioStatus) {
-        _inAudioStatus = inAudioStatus;
+- (void)setSendAudioStatus:(HSendAudioStatus)sendAudioStatus {
+    if (_sendAudioStatus != sendAudioStatus) {
+        _sendAudioStatus = sendAudioStatus;
         [self.tupleView reloadData];
     }
 }

@@ -1,23 +1,23 @@
 //
-//  HInVideoVC.m
+//  HSendVideoVC.m
 //  QFProj
 //
 //  Created by owner on 2023/2/22.
 //  Copyright © 2023 dqfStudio. All rights reserved.
 //
 
-#import "HInVideoVC.h"
+#import "HSendVideoVC.h"
 #import "UIAlertController+HUtil.h"
 
-@interface HInVideoVC ()
+@interface HSendVideoVC ()
 
 @end
 
-@implementation HInVideoVC
+@implementation HSendVideoVC
 
-- (void)setInVideoStatus:(HInVideoStatus)inVideoStatus {
-    if (_inVideoStatus != inVideoStatus) {
-        _inVideoStatus = inVideoStatus;
+- (void)setSendVideoStatus:(HSendVideoStatus)sendVideoStatus {
+    if (_sendVideoStatus != sendVideoStatus) {
+        _sendVideoStatus = sendVideoStatus;
         [self.tupleView reloadData];
     }
 }
