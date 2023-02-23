@@ -518,6 +518,18 @@
 		EB3C77F329A65B8600AFB636 /* HAcceptVideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C77EA29A65B8600AFB636 /* HAcceptVideoVC.m */; };
 		EB3C77F429A65B8600AFB636 /* HSendAudioVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C77EE29A65B8600AFB636 /* HSendAudioVC.m */; };
 		EB3C77F529A65B8600AFB636 /* HAcceptAudioVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C77EF29A65B8600AFB636 /* HAcceptAudioVC.m */; };
+		EB3C77F829A73A7900AFB636 /* mdeia-reduce.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C77F729A73A7900AFB636 /* mdeia-reduce.png */; };
+		EB3C77FA29A7413200AFB636 /* mdeia-button.png in Resources */ = {isa = PBXBuildFile; fileRef = EB3C77F929A7413200AFB636 /* mdeia-button.png */; };
+		EB3C77FD29A756A100AFB636 /* HSendVideoVC+HStatus1.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C77FC29A756A100AFB636 /* HSendVideoVC+HStatus1.m */; };
+		EB3C780029A756BD00AFB636 /* HSendVideoVC+HStatus2.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C77FF29A756BD00AFB636 /* HSendVideoVC+HStatus2.m */; };
+		EB3C780329A7572900AFB636 /* HSendVideoVC+HStatus3.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C780229A7572900AFB636 /* HSendVideoVC+HStatus3.m */; };
+		EB3C780629A7573000AFB636 /* HSendVideoVC+HStatus4.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C780529A7573000AFB636 /* HSendVideoVC+HStatus4.m */; };
+		EB3C780929A7573C00AFB636 /* HSendVideoVC+HStatus5.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C780829A7573C00AFB636 /* HSendVideoVC+HStatus5.m */; };
+		EB3C780C29A7574A00AFB636 /* HSendVideoVC+HStatus6.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C780B29A7574A00AFB636 /* HSendVideoVC+HStatus6.m */; };
+		EB3C780F29A7668F00AFB636 /* HAcceptVideoVC+HStatus1.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C780E29A7668F00AFB636 /* HAcceptVideoVC+HStatus1.m */; };
+		EB3C781229A7669600AFB636 /* HAcceptVideoVC+HStatus2.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C781129A7669600AFB636 /* HAcceptVideoVC+HStatus2.m */; };
+		EB3C781529A7669E00AFB636 /* HAcceptVideoVC+HStatus3.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C781429A7669E00AFB636 /* HAcceptVideoVC+HStatus3.m */; };
+		EB3C781829A766A600AFB636 /* HAcceptVideoVC+HStatus4.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3C781729A766A600AFB636 /* HAcceptVideoVC+HStatus4.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1485,6 +1497,28 @@
 		EB3C77EF29A65B8600AFB636 /* HAcceptAudioVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAcceptAudioVC.m; sourceTree = "<group>"; };
 		EB3C77F029A65B8600AFB636 /* HSendAudioVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSendAudioVC.h; sourceTree = "<group>"; };
 		EB3C77F129A65B8600AFB636 /* HAcceptAudioVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAcceptAudioVC.h; sourceTree = "<group>"; };
+		EB3C77F729A73A7900AFB636 /* mdeia-reduce.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mdeia-reduce.png"; sourceTree = "<group>"; };
+		EB3C77F929A7413200AFB636 /* mdeia-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mdeia-button.png"; sourceTree = "<group>"; };
+		EB3C77FB29A756A100AFB636 /* HSendVideoVC+HStatus1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HSendVideoVC+HStatus1.h"; sourceTree = "<group>"; };
+		EB3C77FC29A756A100AFB636 /* HSendVideoVC+HStatus1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HSendVideoVC+HStatus1.m"; sourceTree = "<group>"; };
+		EB3C77FE29A756BD00AFB636 /* HSendVideoVC+HStatus2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HSendVideoVC+HStatus2.h"; sourceTree = "<group>"; };
+		EB3C77FF29A756BD00AFB636 /* HSendVideoVC+HStatus2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HSendVideoVC+HStatus2.m"; sourceTree = "<group>"; };
+		EB3C780129A7572900AFB636 /* HSendVideoVC+HStatus3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HSendVideoVC+HStatus3.h"; sourceTree = "<group>"; };
+		EB3C780229A7572900AFB636 /* HSendVideoVC+HStatus3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HSendVideoVC+HStatus3.m"; sourceTree = "<group>"; };
+		EB3C780429A7573000AFB636 /* HSendVideoVC+HStatus4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HSendVideoVC+HStatus4.h"; sourceTree = "<group>"; };
+		EB3C780529A7573000AFB636 /* HSendVideoVC+HStatus4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HSendVideoVC+HStatus4.m"; sourceTree = "<group>"; };
+		EB3C780729A7573C00AFB636 /* HSendVideoVC+HStatus5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HSendVideoVC+HStatus5.h"; sourceTree = "<group>"; };
+		EB3C780829A7573C00AFB636 /* HSendVideoVC+HStatus5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HSendVideoVC+HStatus5.m"; sourceTree = "<group>"; };
+		EB3C780A29A7574A00AFB636 /* HSendVideoVC+HStatus6.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HSendVideoVC+HStatus6.h"; sourceTree = "<group>"; };
+		EB3C780B29A7574A00AFB636 /* HSendVideoVC+HStatus6.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HSendVideoVC+HStatus6.m"; sourceTree = "<group>"; };
+		EB3C780D29A7668F00AFB636 /* HAcceptVideoVC+HStatus1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HAcceptVideoVC+HStatus1.h"; sourceTree = "<group>"; };
+		EB3C780E29A7668F00AFB636 /* HAcceptVideoVC+HStatus1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HAcceptVideoVC+HStatus1.m"; sourceTree = "<group>"; };
+		EB3C781029A7669600AFB636 /* HAcceptVideoVC+HStatus2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HAcceptVideoVC+HStatus2.h"; sourceTree = "<group>"; };
+		EB3C781129A7669600AFB636 /* HAcceptVideoVC+HStatus2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HAcceptVideoVC+HStatus2.m"; sourceTree = "<group>"; };
+		EB3C781329A7669E00AFB636 /* HAcceptVideoVC+HStatus3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HAcceptVideoVC+HStatus3.h"; sourceTree = "<group>"; };
+		EB3C781429A7669E00AFB636 /* HAcceptVideoVC+HStatus3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HAcceptVideoVC+HStatus3.m"; sourceTree = "<group>"; };
+		EB3C781629A766A600AFB636 /* HAcceptVideoVC+HStatus4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HAcceptVideoVC+HStatus4.h"; sourceTree = "<group>"; };
+		EB3C781729A766A600AFB636 /* HAcceptVideoVC+HStatus4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HAcceptVideoVC+HStatus4.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2505,12 +2539,12 @@
 		A25E64B4262445FC00863FF8 /* HLeaks */ = {
 			isa = PBXGroup;
 			children = (
-				A25E64B5262445FC00863FF8 /* UINavigationController+HLeaks.m */,
-				A25E64B6262445FC00863FF8 /* UIView+HLeaks.m */,
-				A25E64B7262445FC00863FF8 /* UIViewController+HLeaks.m */,
 				A25E64B8262445FC00863FF8 /* UINavigationController+HLeaks.h */,
+				A25E64B5262445FC00863FF8 /* UINavigationController+HLeaks.m */,
 				A25E64B9262445FC00863FF8 /* UIView+HLeaks.h */,
+				A25E64B6262445FC00863FF8 /* UIView+HLeaks.m */,
 				A25E64BA262445FC00863FF8 /* UIViewController+HLeaks.h */,
+				A25E64B7262445FC00863FF8 /* UIViewController+HLeaks.m */,
 			);
 			path = HLeaks;
 			sourceTree = "<group>";
@@ -3587,6 +3621,7 @@
 			children = (
 				EB3C77D929A64F3500AFB636 /* HMultiMediaVC.h */,
 				EB3C77DA29A64F3500AFB636 /* HMultiMediaVC.m */,
+				EB3C77F629A73A7900AFB636 /* HMultiMediaAssets */,
 				EB3C77ED29A65B8600AFB636 /* HAudioMedia */,
 				EB3C77E829A65B8600AFB636 /* HVideoMedia */,
 			);
@@ -3598,8 +3633,28 @@
 			children = (
 				EB3C77EB29A65B8600AFB636 /* HSendVideoVC.h */,
 				EB3C77E929A65B8600AFB636 /* HSendVideoVC.m */,
+				EB3C77FB29A756A100AFB636 /* HSendVideoVC+HStatus1.h */,
+				EB3C77FC29A756A100AFB636 /* HSendVideoVC+HStatus1.m */,
+				EB3C77FE29A756BD00AFB636 /* HSendVideoVC+HStatus2.h */,
+				EB3C77FF29A756BD00AFB636 /* HSendVideoVC+HStatus2.m */,
+				EB3C780129A7572900AFB636 /* HSendVideoVC+HStatus3.h */,
+				EB3C780229A7572900AFB636 /* HSendVideoVC+HStatus3.m */,
+				EB3C780429A7573000AFB636 /* HSendVideoVC+HStatus4.h */,
+				EB3C780529A7573000AFB636 /* HSendVideoVC+HStatus4.m */,
+				EB3C780729A7573C00AFB636 /* HSendVideoVC+HStatus5.h */,
+				EB3C780829A7573C00AFB636 /* HSendVideoVC+HStatus5.m */,
+				EB3C780A29A7574A00AFB636 /* HSendVideoVC+HStatus6.h */,
+				EB3C780B29A7574A00AFB636 /* HSendVideoVC+HStatus6.m */,
 				EB3C77EC29A65B8600AFB636 /* HAcceptVideoVC.h */,
 				EB3C77EA29A65B8600AFB636 /* HAcceptVideoVC.m */,
+				EB3C780D29A7668F00AFB636 /* HAcceptVideoVC+HStatus1.h */,
+				EB3C780E29A7668F00AFB636 /* HAcceptVideoVC+HStatus1.m */,
+				EB3C781029A7669600AFB636 /* HAcceptVideoVC+HStatus2.h */,
+				EB3C781129A7669600AFB636 /* HAcceptVideoVC+HStatus2.m */,
+				EB3C781329A7669E00AFB636 /* HAcceptVideoVC+HStatus3.h */,
+				EB3C781429A7669E00AFB636 /* HAcceptVideoVC+HStatus3.m */,
+				EB3C781629A766A600AFB636 /* HAcceptVideoVC+HStatus4.h */,
+				EB3C781729A766A600AFB636 /* HAcceptVideoVC+HStatus4.m */,
 			);
 			path = HVideoMedia;
 			sourceTree = "<group>";
@@ -3613,6 +3668,15 @@
 				EB3C77EF29A65B8600AFB636 /* HAcceptAudioVC.m */,
 			);
 			path = HAudioMedia;
+			sourceTree = "<group>";
+		};
+		EB3C77F629A73A7900AFB636 /* HMultiMediaAssets */ = {
+			isa = PBXGroup;
+			children = (
+				EB3C77F729A73A7900AFB636 /* mdeia-reduce.png */,
+				EB3C77F929A7413200AFB636 /* mdeia-button.png */,
+			);
+			path = HMultiMediaAssets;
 			sourceTree = "<group>";
 		};
 		FA722148A7C87B120253C5F9 /* Pods */ = {
@@ -3719,6 +3783,7 @@
 				A25E6839262445FE00863FF8 /* icon_tuple_nodata@2x.png in Resources */,
 				A25E6886262445FE00863FF8 /* loading_new_2@2x.png in Resources */,
 				A227A8FE233C9DB4005611BA /* di_zhuce@2x.png in Resources */,
+				EB3C77FA29A7413200AFB636 /* mdeia-button.png in Resources */,
 				A21DF523277B377800888E65 /* HTupleViewCellHoriValue1-image1.png in Resources */,
 				8E4A4525272929CE006A0802 /* ExportOptions_Release2.plist in Resources */,
 				A21DF521277B377800888E65 /* HTupleViewCellVertValue1-image.png in Resources */,
@@ -3734,6 +3799,7 @@
 				8E4A4528272929CE006A0802 /* lblive.mobileprovision in Resources */,
 				A25E6831262445FE00863FF8 /* icon_tuple_arrow_up@2x.png in Resources */,
 				A25E6836262445FE00863FF8 /* icon_tuple_arrow_right@2x.png in Resources */,
+				EB3C77F829A73A7900AFB636 /* mdeia-reduce.png in Resources */,
 				A25E6884262445FE00863FF8 /* loading_new_10@2x.png in Resources */,
 				A25E6801262445FE00863FF8 /* login_eye_icon@2x.png in Resources */,
 				A25E6800262445FE00863FF8 /* login_eye_icon@3x.png in Resources */,
@@ -3835,6 +3901,7 @@
 				EB3C77F229A65B8600AFB636 /* HSendVideoVC.m in Sources */,
 				A25E67DF262445FE00863FF8 /* KSSymbolicator.c in Sources */,
 				A25E6714262445FD00863FF8 /* HPayWebviewVC.m in Sources */,
+				EB3C781829A766A600AFB636 /* HAcceptVideoVC+HStatus4.m in Sources */,
 				A25E6757262445FD00863FF8 /* UITextField+HRegular.m in Sources */,
 				A25E674C262445FD00863FF8 /* UILabel+HState.m in Sources */,
 				A25E6722262445FD00863FF8 /* HTableSignal.m in Sources */,
@@ -3849,6 +3916,7 @@
 				A25E6867262445FE00863FF8 /* HTextUtilities.m in Sources */,
 				A25E686B262445FE00863FF8 /* HTextRubyAnnotation.m in Sources */,
 				A25E6726262445FD00863FF8 /* HTableBaseCell.m in Sources */,
+				EB3C781229A7669600AFB636 /* HAcceptVideoVC+HStatus2.m in Sources */,
 				A25E67A9262445FD00863FF8 /* HSort.m in Sources */,
 				A25E6838262445FE00863FF8 /* HTupleViewCellHoriValue1.m in Sources */,
 				A25E67BA262445FE00863FF8 /* KSCString.m in Sources */,
@@ -3876,9 +3944,11 @@
 				A25E6734262445FD00863FF8 /* NSObject_4.m in Sources */,
 				A25E675F262445FD00863FF8 /* UILabel+skin.m in Sources */,
 				A20E3D2723239C0200E6982B /* HMainController3+HSection2.m in Sources */,
+				EB3C780329A7572900AFB636 /* HSendVideoVC+HStatus3.m in Sources */,
 				A25E68BF262445FE00863FF8 /* SimplePing.m in Sources */,
 				A25E6848262445FE00863FF8 /* HAnimatedImageView.m in Sources */,
 				A25E6789262445FD00863FF8 /* NSObject+HName.m in Sources */,
+				EB3C780F29A7668F00AFB636 /* HAcceptVideoVC+HStatus1.m in Sources */,
 				A25E6759262445FD00863FF8 /* HInputValidator.m in Sources */,
 				A25E67D9262445FE00863FF8 /* KSStackCursor.c in Sources */,
 				A25E6762262445FD00863FF8 /* HClassManager.m in Sources */,
@@ -3899,6 +3969,7 @@
 				A25E6808262445FE00863FF8 /* HRegisterController+SJ.m in Sources */,
 				A25E6777262445FD00863FF8 /* YTKNetworkPrivate.m in Sources */,
 				A25E671B262445FD00863FF8 /* HMonitorControl.m in Sources */,
+				EB3C780029A756BD00AFB636 /* HSendVideoVC+HStatus2.m in Sources */,
 				A25E67F4262445FE00863FF8 /* KSCrashInstallationEmail.m in Sources */,
 				A28FE4EA265692BC00C9A4EB /* HRect.m in Sources */,
 				A25E67EE262445FE00863FF8 /* KSCrashDoctor.m in Sources */,
@@ -3920,6 +3991,7 @@
 				A25E672F262445FD00863FF8 /* NSObject_6.m in Sources */,
 				A25E6811262445FE00863FF8 /* HKBPreviousNextView.m in Sources */,
 				A25E685D262445FE00863FF8 /* HTextInput.m in Sources */,
+				EB3C780C29A7574A00AFB636 /* HSendVideoVC+HStatus6.m in Sources */,
 				A25E67B1262445FE00863FF8 /* KSCrashReportFilterAppleFmt.m in Sources */,
 				A25E677C262445FD00863FF8 /* YTKBatchRequestAgent.m in Sources */,
 				A25E670F262445FD00863FF8 /* HWebviewVC2.m in Sources */,
@@ -3984,6 +4056,7 @@
 				A2C8785C266A3A170017757E /* LoadingLiveView.m in Sources */,
 				A25E681E262445FE00863FF8 /* HAbstractDotView.m in Sources */,
 				A25E67F9262445FE00863FF8 /* HAssetModel.m in Sources */,
+				EB3C780929A7573C00AFB636 /* HSendVideoVC+HStatus5.m in Sources */,
 				A25E67C0262445FE00863FF8 /* KSCrashReportSinkQuincyHockey.m in Sources */,
 				A25E68B8262445FE00863FF8 /* HViewController.m in Sources */,
 				A25E68AA262445FE00863FF8 /* HKeyChainStore.m in Sources */,
@@ -4030,6 +4103,7 @@
 				A25E6713262445FD00863FF8 /* HGameViewController.m in Sources */,
 				A25E68A1262445FE00863FF8 /* NSObject+HAspects.m in Sources */,
 				8E4A451B2726ED14006A0802 /* HLRDManager.m in Sources */,
+				EB3C781529A7669E00AFB636 /* HAcceptVideoVC+HStatus3.m in Sources */,
 				A25E67F0262445FE00863FF8 /* KSCrashC.c in Sources */,
 				A25E671A262445FD00863FF8 /* HUpdate.m in Sources */,
 				A25E682F262445FE00863FF8 /* HTupleViewCellVertValue1.m in Sources */,
@@ -4159,6 +4233,7 @@
 				A25E6710262445FD00863FF8 /* HSFSafariViewController.m in Sources */,
 				A25E6751262445FD00863FF8 /* UILabel+HUtil.m in Sources */,
 				A25E683A262445FE00863FF8 /* HTupleSignal.m in Sources */,
+				EB3C780629A7573000AFB636 /* HSendVideoVC+HStatus4.m in Sources */,
 				A25E6849262445FE00863FF8 /* HAnimatedImage.m in Sources */,
 				A25E67C9262445FE00863FF8 /* KSCrashMonitor_NSException.m in Sources */,
 				A25E67E2262445FE00863FF8 /* KSDebug.c in Sources */,
@@ -4178,6 +4253,7 @@
 				A25E68B9262445FE00863FF8 /* HTableController.m in Sources */,
 				A25E6758262445FD00863FF8 /* HAlphaNumericValidator.m in Sources */,
 				A25E6807262445FE00863FF8 /* HRegisterController+Normal.m in Sources */,
+				EB3C77FD29A756A100AFB636 /* HSendVideoVC+HStatus1.m in Sources */,
 				A25E67CC262445FE00863FF8 /* KSCrashMonitor_Signal.c in Sources */,
 				A25E67D6262445FE00863FF8 /* KSMachineContext.c in Sources */,
 				A25E68A3262445FE00863FF8 /* HAspectsCenter.m in Sources */,

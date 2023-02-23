@@ -15,6 +15,18 @@
 
 @implementation HSendVideoVC
 
+- (HTupleView *)tupleView {
+    if (!_tupleView) {
+        CGRect frame = UIScreen.bounds;
+        _tupleView = [HTupleView tupleFrame:^CGRect{
+            return frame;
+        } exclusiveSections:^NSArray *_Nullable{
+            return nil;
+        }];
+    }
+    return _tupleView;
+}
+
 - (void)setSendVideoStatus:(HSendVideoStatus)sendVideoStatus {
     if (_sendVideoStatus != sendVideoStatus) {
         _sendVideoStatus = sendVideoStatus;
@@ -26,8 +38,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    self.topExtendedLayout = NO;
-    [self.tupleView setTupleDelegate:self];
+    [self.tupleView setBackgroundColor:[UIColor colorWithString:@"#634848"]];
+    [self.tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
+    [self.view addSubview:self.tupleView];
+    
+    self.tupleView.tupleState = 3;
+    
+//    NSTimer *timer = [NSTimer timerWithTimeInterval:2.f repeats:YES block:^(NSTimer * _Nonnull timer) {
+//        self.sendVideoStatus +=1;
+//        self.tupleView.tupleState = self.sendVideoStatus;
+//        if (self.sendVideoStatus >= 2) {
+//            self.sendVideoStatus = -1;
+//        }
+//        [self.tupleView reloadData];
+//    }];
+//    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+}
+
+- (BOOL)prefersBackButtonHidden {
+    return YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -61,6 +90,13 @@
         [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationUserDidTakeScreenshotNotification object:nil];
     }
 }
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    CGRect frame = self.view.bounds;
+    _tupleView.frame = frame;
+}
+
 
 // 录屏
 - (void)recordingScreen {

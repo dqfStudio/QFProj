@@ -15,6 +15,18 @@
 
 @implementation HAcceptVideoVC
 
+- (HTupleView *)tupleView {
+    if (!_tupleView) {
+        CGRect frame = UIScreen.bounds;
+        _tupleView = [HTupleView tupleFrame:^CGRect{
+            return frame;
+        } exclusiveSections:^NSArray *_Nullable{
+            return nil;
+        }];
+    }
+    return _tupleView;
+}
+
 - (void)setAcceptVideoStatus:(HAcceptVideoStatus)acceptVideoStatus {
     if (_acceptVideoStatus != acceptVideoStatus) {
         _acceptVideoStatus = acceptVideoStatus;
@@ -26,8 +38,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    self.topExtendedLayout = NO;
-    [self.tupleView setTupleDelegate:self];
+    [self.tupleView setBackgroundColor:[UIColor colorWithString:@"#634848"]];
+    [self.tupleView setTupleDelegate:(id<HTupleViewDelegate>)self];
+    [self.view addSubview:self.tupleView];
+    
+    self.tupleView.tupleState = 1;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -83,3 +98,4 @@
 }
 
 @end
+

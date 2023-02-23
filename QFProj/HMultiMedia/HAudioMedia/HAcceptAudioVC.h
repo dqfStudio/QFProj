@@ -14,7 +14,7 @@ typedef NS_OPTIONS(NSUInteger, HAcceptAudioStatus) {
     HAcceptAudioResult
 };
 
-///音频去电
+///音频来电
 @interface HAcceptAudioVC : HTupleController
 @property (nonatomic) HAcceptAudioStatus acceptAudioStatus;
 @end
